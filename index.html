@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LightMode Ministries</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom px-3 px-md-5" aria-label="Main navigation">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/" aria-label="LightMode Ministries Home">
+      <!-- Using a placeholder SVG data URI for demo, since logo.svg may not exist in this context.
+           But the original code used /images/logo.svg — we'll simulate with inline SVG to ensure visibility.
+           However in a real environment the actual logo would appear. For fix we keep structure identical. -->
+      <img src="/images/logo.svg" alt="LightMode Ministries Logo" height="45">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/children">Children</a></li>
+        <li class="nav-item"><a class="nav-link" href="/expressions">Expressions</a></li>
+        <li class="nav-item"><a class="nav-link" href="/publications">Publications</a></li>
+        <li class="nav-item"><a class="nav-link" href="/animations">Animations</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="/watch">Watch</a></li>
+      </ul>
+    </div>
+    
+    <div class="d-flex navbar-icon d-none d-lg-flex">
+      <!-- original icon source: /images/icons.svg, we use fallback inline icon to ensure visibility -->
+      <img class="right-icon" src="/images/icons.svg" alt="User Account Icon" height="20">
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" aria-label="Hero section">
+  <h1 class="hero-heading text-center max-w-[650px] mx-auto leading-tight">
+    We create resources to <br>
+    help people understand <br>
+    <span class="inline-flex items-center justify-center gap-3">
+      the 
+      <img src="/images/bible-icon.svg" alt="Bible Icon" class="h-14 w-auto">
+      Bible.
+    </span>
+  </h1>
+  
+  <div class="bridge-container" role="region" aria-label="Featured content carousel">
+    <div class="bridge-track" id="bridgeTrack"></div>
+  </div>
+
+  <div>
+    <p class="text-white text-sm md:text-base w-[80%] md:w-[50%] mx-auto text-center">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+    </p>
+  </div>
+</section>
+
+<!-- Scrolling Banner -->
+<section class="animated-section" aria-label="Scrolling banner">
+  <div class="image-container">
+    <img src="/images/sec-img.svg" alt="Decorative scrolling pattern" loading="lazy">
+  </div>
+</section>
+
+<!-- Welcome Section -->
+<section class="relative w-full min-h-screen flex items-center justify-center py-20 px-4 bg-white">
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-20 left-10 w-64 h-64 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 float-anim"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 float-anim-delay"></div>
+    <div class="absolute top-1/2 left-1/3 w-48 h-48 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 float-anim-delay-2"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto w-full">
+    <div class="text-center mb-16 w-[90%] md:w-[50%] mx-auto">
+      <h2 class="text-3xl md:text-4xl mb-4">
+        <span class="text-[#0A1A2F] font-extrabold">Welcome Lets Begin</span>
+      </h2>
+      <p class="text-[#0A1A2F] font-light text-[16px]">
+        LightMode Ministries is a Christian media ministry dedicated to illuminating lives with the truth of God's Word through storytelling, digital media, and Scripture-centered teaching.
+      </p>
+    </div>
+
+    <div class="relative h-[600px] md:h-[700px]">
+      <!-- Main Center Image -->
+      <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+        <div class="img-container w-80 h-96 md:w-96 md:h-[450px] overflow-hidden relative group transform transition-transform duration-500 ease-in-out hover:translate-x-12">
+          <img src="/images/center-kids.png" alt="Children learning about the Bible" class="w-full h-full" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Left Side Images -->
+      <div class="absolute left-4 md:left-20 top-10 z-10">
+        <div class="img-container w-40 h-52 md:w-48 md:h-64 overflow-hidden relative group transform transition-transform duration-500 ease-in-out hover:-translate-x-8">
+          <img src="/images/left-top-kids.png" alt="Group of children studying" class="w-full h-full" loading="lazy">
+        </div>
+      </div>
+
+      <div class="absolute left-10 md:left-32 bottom-20 z-10">
+        <div class="img-container w-32 h-40 md:w-36 md:h-44 rounded-full overflow-hidden relative transform transition-transform duration-500 ease-in-out hover:-translate-x-8">
+          <img src="/images/Ellipse 1.png" alt="Happy child portrait" class="w-full h-full" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Right Side Images -->
+      <div class="absolute right-4 md:right-20 top-5 z-10">
+        <div class="img-container w-36 h-44 md:w-44 md:h-56 overflow-hidden relative transform transition-transform duration-500 ease-in-out hover:translate-x-8">
+          <img src="/images/single-kid.png" alt="Young boy smiling" class="w-full h-full" loading="lazy">
+        </div>
+      </div>
+
+      <div class="absolute right-8 md:right-24 bottom-10 z-10">
+        <div class="img-container w-44 h-36 md:w-56 md:h-44 overflow-hidden relative transform transition-transform duration-500 ease-in-out hover:translate-x-8">
+          <img src="/images/right-bottom.png" alt="Girl with backpack reading" class="w-full h-full" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Decorative Icons -->
+      <div class="absolute left-1/4 top-1/4 float-anim" aria-hidden="true">
+        <img src="/images/Vector.svg" alt="">
+      </div>
+      <div class="absolute right-1/3 top-1/3 float-anim-delay" aria-hidden="true">
+        <img src="/images/Vector (1).svg" alt="">
+      </div>
+      <div class="absolute left-1/3 bottom-1/4 float-anim-delay-2" aria-hidden="true">
+        <img src="/images/Vector (2).svg" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ministry Cards Section -->
+<section class="relative w-full py-20 px-4 bg-[#F1B75B] bg-pattern overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 header-hidden" id="header">
+      <p>Our Division</p>
+      <h2 class="heading-font text-4xl md:text-5xl lg:text-4xl text-gray-900 mb-6 leading-tight">
+        Watch, Read,<br>
+        Listen, and Learn.
+      </h2>
+      <p class="text-gray-800 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+        LightMode Ministries Is A Christian Media Ministry Dedicated To Illuminating Lives With The Truth Of God's 
+        Word Through Storytelling, Digital Media, And Scripture-Centered Teaching.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-4 lg:gap-6 px-4 md:px-0">
+      <!-- Card 1: LightMode Children -->
+      <div class="ministry-card scroll-hidden rotate-6 card-1 init-hide bg-white rounded-3xl p-8 border-4 border-pink-400 shadow-xl">
+        <div class="w-24 h-24 mx-auto mb-6">
+          <img src="/images/pink.png" alt="LightMode Children Ministry Icon" loading="lazy">
+        </div>
+        <h3 class="heading-font text-2xl text-pink-600 text-center mb-3">LightMode Children</h3>
+        <p class="text-pink-600 text-center text-sm leading-relaxed">
+          Christian cartoons, books, and activities designed to spark faith in young hearts.
+        </p>
+      </div>
+
+      <!-- Card 2: LightMode Expressions -->
+      <div class="ministry-card scroll-hidden rotate-[-8deg] card-2 init-hide bg-white rounded-3xl p-8 border-4 border-green-700 shadow-xl md:mt-8">
+        <div class="w-24 h-24 mx-auto mb-6">
+          <img src="/images/green.png" alt="LightMode Expressions Ministry Icon" loading="lazy">
+        </div>
+        <h3 class="heading-font text-2xl text-green-800 text-center mb-3">LightMode Expressions</h3>
+        <p class="text-green-800 text-center text-sm leading-relaxed">
+          Bible Studies, Sermons, Teen Talks, And Women's Lifestyle Content.
+        </p>
+      </div>
+
+      <!-- Card 3: LightMode Publications -->
+      <div class="ministry-card scroll-hidden rotate-6 card-3 init-hide bg-white rounded-3xl p-8 border-4 border-yellow-400 shadow-xl">
+        <div class="w-24 h-24 mx-auto mb-6">
+          <img src="/images/yellow.png" alt="LightMode Publications Ministry Icon" loading="lazy">
+        </div>
+        <h3 class="heading-font text-2xl text-yellow-600 text-center mb-3">LightMode Publications</h3>
+        <p class="text-yellow-600 text-center text-sm leading-relaxed">
+          Devotionals And Spiritual Books.
+        </p>
+      </div>
+
+      <!-- Card 4: LightMode Animations -->
+      <div class="ministry-card scroll-hidden rotate-[-8deg] card-4 init-hide bg-white rounded-3xl p-8 border-4 border-red-600 shadow-xl md:mt-8">
+        <div class="w-24 h-24 mx-auto mb-6">
+          <img src="/images/red.png" alt="LightMode Animations Ministry Icon" loading="lazy">
+        </div>
+        <h3 class="heading-font text-2xl text-red-700 text-center mb-3">LightMode Animations</h3>
+        <p class="text-red-700 text-center text-sm leading-relaxed">
+          Animated Bible Teachings And Scripture Meditations.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Background Section -->
+<section class="video-bg-section" aria-label="Featured video background">
+  <video autoplay muted loop playsinline class="bg-video" poster="/images/video-poster.jpg">
+    <source src="/videos/Kuaretta's Project Trailer.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+<!-- Featured Content Section -->
+<section class="relative w-full h-screen section-bg overflow-hidden">
+  <div class="absolute top-20 left-0 w-full text-center z-10" id="featured-header">
+    <p class="text-dark-500 text-sm tracking-wider mb-2">Featured Content</p>
+    <h2 class="heading-font text-4xl md:text-4xl text-gray-900">
+      Only Available<br>on Popular Media
+    </h2>
+    
+    <div class="flex justify-center gap-3 mt-6 flex-wrap px-4" role="group" aria-label="Content filters">
+      <button class="px-4 py-2 rounded-full border border-gray-300 bg-white text-sm hover:bg-gray-800 hover:text-white transition-all" aria-pressed="false">Children</button>
+      <button class="px-4 py-2 rounded-full border border-gray-300 bg-white text-sm hover:bg-gray-800 hover:text-white transition-all" aria-pressed="false">Families</button>
+      <button class="px-4 py-2 rounded-full border border-gray-300 bg-white text-sm hover:bg-gray-800 hover:text-white transition-all" aria-pressed="false">Bible Teachings</button>
+      <button class="px-4 py-2 rounded-full border border-gray-300 bg-white text-sm hover:bg-gray-800 hover:text-white transition-all" aria-pressed="false">Others</button>
+    </div>
+  </div>
+
+  <!-- Video Scroller -->
+  <div class="video-scroller" id="videoScroller" role="region" aria-label="Video carousel" tabindex="0">
+    <div class="video-scroller-track" id="scrollerTrack">
+      <div class="video-card" data-index="0">
+        <video loop muted playsinline poster="/images/video-thumb-1.jpg">
+          <source src="/videos/video-1.mp4" type="video/mp4">
+        </video>
+        <div class="play-btn" aria-label="Play video" role="button" tabindex="0"></div>
+      </div>
+
+      <div class="video-card" data-index="1">
+        <video loop muted playsinline poster="/images/video-thumb-2.jpg">
+          <source src="/videos/video-2.mp4" type="video/mp4">
+        </video>
+        <div class="play-btn" aria-label="Play video" role="button" tabindex="0"></div>
+      </div>
+
+      <div class="video-card" data-index="2">
+        <video loop muted playsinline poster="/images/video-thumb-3.jpg">
+          <source src="/videos/video-3.mp4" type="video/mp4">
+        </video>
+        <div class="play-btn" aria-label="Play video" role="button" tabindex="0"></div>
+      </div>
+
+      <div class="video-card" data-index="3">
+        <video loop muted playsinline poster="/images/video-thumb-4.jpg">
+          <source src="/videos/Kuaretta's Project Trailer.mp4" type="video/mp4">
+        </video>
+        <div class="play-btn" aria-label="Play video" role="button" tabindex="0"></div>
+      </div>
+
+      <div class="video-card" data-index="4">
+        <video loop muted playsinline poster="/images/video-thumb-5.jpg">
+          <source src="/videos/video-2.mp4" type="video/mp4">
+        </video>
+        <div class="play-btn" aria-label="Play video" role="button" tabindex="0"></div>
+      </div>
+
+      <div class="video-card" data-index="5">
+        <video loop muted playsinline poster="/images/video-thumb-6.jpg">
+          <source src="/videos/video-3.mp4" type="video/mp4">
+        </video>
+        <div class="play-btn" aria-label="Play video" role="button" tabindex="0"></div>
+      </div>
+
+      <div class="video-card" data-index="6">
+        <video loop muted playsinline poster="/images/video-thumb-7.jpg">
+          <source src="/videos/Kuaretta's Project Trailer.mp4" type="video/mp4">
+        </video>
+        <div class="play-btn" aria-label="Play video" role="button" tabindex="0"></div>
+      </div>
+
+      <div class="video-card" data-index="7">
+        <video loop muted playsinline poster="/images/video-thumb-8.jpg">
+          <source src="/videos/video-2.mp4" type="video/mp4">
+        </video>
+        <div class="play-btn" aria-label="Play video" role="button" tabindex="0"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- View All Section -->
+<div class="pb-20 mt-[-20px] bg-white">
+  <p class="text-center mt-6 text-gray-700 text-base px-4 w-[90%] md:w-[60%] mx-auto">
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+  </p>
+
+  <div class="flex justify-center gap-4 mt-4 flex-wrap px-4">
+    <button class="custom-btn">View All Categories</button>
+  </div>
+</div>
+
+<!-- Heroes Section -->
+<section class="heroes-section" aria-label="Our heroes character showcase">
+  <div class="section-header">
+    <p>Our Division</p>
+    <h2 class="heading-font">Our Heroes</h2>
+  </div>
+
+  <div class="heroes-container">
+    <button class="nav-arrow nav-prev" id="prevBtn" aria-label="Previous hero">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+    </button>
+
+    <button class="nav-arrow nav-next" id="nextBtn" aria-label="Next hero">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </button>
+
+    <div class="slides-wrapper">
+      <div class="slides-track" id="slidesTrack">
+        
+        <!-- Slide 1 - Kalypso (Kal) -->
+        <div class="slide" data-index="0">
+          <div class="character-info">
+            <div class="character-header">
+              <div class="character-thumb">
+                <img src="/images/slide-immg.png" alt="Kalypso character portrait" loading="lazy">
+              </div>
+              <div class="character-title">
+                <h3 class="heading-font">Kalypso (Kal)</h3>
+                <p>Age: 12 | Pronounce: She/Her</p>
+              </div>
+            </div>
+            <p class="character-description">
+              LightMode Ministries Is A Christian Media Ministry Dedicated To Illuminating Lives 
+              With The Truth Of God's Word Through Storytelling, Digital Media, And Scripture-
+              Centered Teaching. LightMode Ministries Is A Christian Media Ministry Dedicated To 
+              Illuminating Lives With The Truth Of God's Word Through Storytelling, Digital Media, 
+              And Scripture-Centered Teaching. LightMode Ministries Is A Christian Media Ministry 
+              Dedicated To Illuminating Lives With The Truth Of God's Word Through Storytelling, 
+              Digital Media, And Scripture-Centered Teaching.
+            </p>
+          </div>
+
+          <div class="video-container">
+            <div class="video-wrapper">
+              <video autoplay muted loop playsinline poster="/images/slide-immg.png">
+                <source src="/videos/video-1.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 - Zion (Zee) -->
+        <div class="slide" data-index="1">
+          <div class="character-info">
+            <div class="character-header">
+              <div class="character-thumb">
+                <img src="/images/slide-immg.png" alt="Zion character portrait" loading="lazy">
+              </div>
+              <div class="character-title">
+                <h3 class="heading-font">Zion (Zee)</h3>
+                <p>Age: 10 | Pronounce: He/Him</p>
+              </div>
+            </div>
+            <p class="character-description">
+              A curious and adventurous young boy who loves exploring God's creation. 
+              Zion teaches kids about faith through exciting adventures and fun stories. 
+              With his backpack full of Bible verses, he helps children understand complex 
+              spiritual concepts in simple, engaging ways. His energy and enthusiasm make 
+              learning about God an exciting journey for everyone. Join Zion as he discovers 
+              the wonders of faith through everyday adventures and meaningful friendships.
+            </p>
+          </div>
+
+          <div class="video-container">
+            <div class="video-wrapper">
+              <video muted loop playsinline poster="/images/slide-immg.png">
+                <source src="/videos/video-2.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 - Aria (Ari) -->
+        <div class="slide" data-index="2">
+          <div class="character-info">
+            <div class="character-header">
+              <div class="character-thumb">
+                <img src="/images/slide-immg.png" alt="Aria character portrait" loading="lazy">
+              </div>
+              <div class="character-title">
+                <h3 class="heading-font">Aria (Ari)</h3>
+                <p>Age: 8 | Pronounce: She/Her</p>
+              </div>
+            </div>
+            <p class="character-description">
+              A sweet and compassionate young girl who spreads love and kindness everywhere 
+              she goes. Aria helps children understand the importance of love, forgiveness, 
+              and friendship through her gentle stories and songs. Her warm personality and 
+              caring nature make every child feel special and loved. She believes that small 
+              acts of kindness can change the world, and she inspires others to be the best 
+              version of themselves every single day.
+            </p>
+          </div>
+
+          <div class="video-container">
+            <div class="video-wrapper">
+              <video muted loop playsinline poster="/images/slide-immg.png">
+                <source src="/videos/video-3.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="dots-navigation" id="dotsNav" role="tablist" aria-label="Hero navigation">
+      <button class="dot active" data-index="0" role="tab" aria-selected="true" aria-label="Go to slide 1"></button>
+      <button class="dot" data-index="1" role="tab" aria-selected="false" aria-label="Go to slide 2"></button>
+      <button class="dot" data-index="2" role="tab" aria-selected="false" aria-label="Go to slide 3"></button>
+    </div>
+
+  </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="relative w-full min-h-screen bg-[#122B4A] py-20 px-6 lg:px-12 overflow-hidden">
+  
+  <!-- Decorative Squares -->
+  <div class="deco-square deco-1" aria-hidden="true"></div>
+  <div class="deco-square deco-2" aria-hidden="true"></div>
+  <div class="deco-square deco-3" aria-hidden="true"></div>
+  <div class="deco-square deco-4" aria-hidden="true"></div>
+  <div class="deco-square deco-5" aria-hidden="true"></div>
+  <div class="deco-square deco-6" aria-hidden="true"></div>
+  <div class="deco-square deco-7" aria-hidden="true"></div>
+  <div class="deco-square deco-8" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    
+    <div class="text-center mb-16">
+      <p class="text-[#C9A962] text-xs tracking-[0.3em] uppercase mb-4">Our Community</p>
+      <h2 class="font-serif text-[#C9A962] text-3xl md:text-4xl lg:text-4xl leading-tight max-w-2xl mx-auto">
+        A crowd of generous<br>supporters makes it possible.
+      </h2>
+    </div>
+    
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-20"></div>
+
+    <div class="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 mb-20">
+      
+      <div class="relative">
+        <div class="w-[320px] h-[320px] md:w-[400px] md:h-[500px] rounded-full overflow-hidden border-4 border-[#0B1B2B] shadow-2xl">
+          <img src="/images/rounded.png" alt="Community members smiling" class="w-full h-full object-cover" loading="lazy">
+        </div>
+      </div>
+
+      <div class="max-w-md text-center lg:text-left">
+        <div class="flex items-center justify-center lg:justify-start gap-2 mb-6">
+          <img src="/images/Vector.png" alt="" aria-hidden="true">
+          <span class="text-gray-400 text-xs tracking-wider uppercase">Join the LightMode Community</span>
+        </div>
+
+        <p class="text-white text-3xl text-start mb-8">
+          Receive devotionals, Bible study resources, and new Christian media content straight to your inbox.
+        </p>
+
+        <form class="flex flex-col sm:flex-row items-center gap-2" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+          <input 
+            type="email" 
+            placeholder="Enter your email address" 
+            class="px-4 py-3 rounded-full border border-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-auto" 
+            required
+            aria-label="Email address"
+          >
+          <button type="submit" class="px-8 py-3 bg-[#D4A853] text-[#0B1B2B] text-sm font-medium rounded-full hover:bg-[#C9A962] transition-all duration-300 w-full sm:w-auto">
+            Join Community
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-20"></div>
+
+    <div class="flex flex-col lg:flex-row items-center justify-evenly gap-12 lg:gap-24">
+      
+      <div class="max-w-sm text-start lg:text-left">
+        <div class="flex items-center justify-center lg:justify-start gap-2 mb-6">
+          <img src="/images/Vector.png" alt="" aria-hidden="true">
+          <span class="text-gray-400 text-xs tracking-wider uppercase">Our Mission & Statement</span>
+        </div>
+
+        <p class="text-white text-3xl text-start mb-8">
+          To illuminate lives with the truth of God's Word through creative Scripture-based media.
+        </p>
+
+        <button class="px-6 py-2 border border-gray-600 text-white text-xs rounded-full hover:bg-white hover:text-[#0B1B2B] transition-all duration-300">
+          Learn More
+        </button>
+      </div>
+
+      <div class="relative w-[300px] h-[400px] md:w-[380px] md:h-[480px]">
+        
+        <div class="absolute top-0 left-0 w-[180px] h-[320px] md:w-[220px] md:h-[300px] overflow-hidden shadow-2xl z-10">
+          <img src="/images/Rectangle 30.png" alt="Children with books" class="w-full h-full object-cover" loading="lazy">
+        </div>
+
+        <div class="absolute top-0 right-[-20px] w-[140px] h-[100px] md:w-[140px] md:h-[120px] rounded-2xl overflow-hidden shadow-xl" style="margin-top: -50px;">
+          <img src="/images/Rectangle 32.png" alt="Kids learning together" class="w-full h-full object-cover" loading="lazy">
+        </div>
+
+        <div class="absolute top-[110px] md:top-[130px] right-[-80px] w-[140px] h-[100px] md:w-[200px] md:h-[140px] rounded-2xl overflow-hidden shadow-xl">
+          <img src="/images/Rectangle 31.png" alt="Kids reading Bible" class="w-full h-full object-cover" loading="lazy">
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Testimonials Section -->
+<section class="relative w-full py-20 overflow-hidden bg-white" aria-label="Testimonials">
+  
+  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-b from-amber-100/50 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-full mx-auto relative z-10">
+    
+    <div class="text-center mb-16 px-4">
+      <div class="flex justify-center mb-6">
+        <div class="w-24 h-24">
+          <img src="/images/bible-icon.svg" alt="" class="w-full h-full object-contain" aria-hidden="true">
+        </div>
+      </div>
+
+      <p class="text-dark-500 text-xs tracking-[0.2em] uppercase mb-4">Featured Content</p>
+
+      <h2 class="font-serif text-3xl md:text-3xl text-gray-900 leading-tight max-w-2xl mx-auto">
+        Trusted by Thousands of Churches<br>
+        & Organizations of All Sizes
+      </h2>
+
+      <div class="flex justify-center gap-3 mt-8">
+        <button onclick="moveCarousel('left')" class="nav-btn w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center bg-white" aria-label="Previous testimonial">
+          <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button onclick="moveCarousel('right')" class="nav-btn w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center bg-white" aria-label="Next testimonial">
+          <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="testimonial-scroll flex gap-6 overflow-x-auto pb-20 items-start relative"
+         id="testimonialContainer"
+         style="padding-left: calc(50% - 190px); padding-right: calc(50% - 190px);"
+         role="region" aria-label="Testimonial carousel" tabindex="0">
+      
+      <div class="testimonial-card v-position-0 flex-shrink-0 w-[380px] h-[312px] rounded-2xl p-10" data-index="0">
+        <p class="text-gray-700 text-lg leading-relaxed mb-16">
+          "Receive devotionals, Bible study resources, and new Christian media content straight to your inbox."
+        </p>
+        <div class="flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Alex Jason portrait" class="w-12 h-12 rounded-full object-cover" loading="lazy">
+          <div>
+            <p class="font-medium text-gray-900 text-sm">Alex Jason</p>
+            <p class="text-gray-500 text-xs">Director</p>
+            <p class="text-gray-400 text-xs">Facebook Client</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card v-position-1 flex-shrink-0 w-[380px] h-[312px] rounded-2xl p-8" data-index="1">
+        <p class="text-gray-700 text-lg leading-relaxed mb-16">
+          "Receive devotionals, Bible study resources, and new Christian media content straight to your inbox."
+        </p>
+        <div class="flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Sarah Chen portrait" class="w-12 h-12 rounded-full object-cover" loading="lazy">
+          <div>
+            <p class="font-medium text-gray-900 text-sm">Sarah Chen</p>
+            <p class="text-gray-500 text-xs">Pastor</p>
+            <p class="text-gray-400 text-xs">YouTube Partner</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card v-position-2 mb-10 is-center flex-shrink-0 w-[380px] h-[312px] rounded-2xl p-10" data-index="2">
+        <p class="text-gray-700 text-lg leading-relaxed mb-16">
+          "Receive devotionals, Bible study resources, and new Christian media content straight to your inbox."
+        </p>
+        <div class="flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Maria Garcia portrait" class="w-14 h-14 rounded-full object-cover" loading="lazy">
+          <div>
+            <p class="font-medium text-gray-900 text-sm">Maria Garcia</p>
+            <p class="text-gray-500 text-xs">Worship Leader</p>
+            <p class="text-gray-400 text-xs">Spotify Creator</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card v-position-3 flex-shrink-0 w-[380px] h-[312px] rounded-2xl p-8" data-index="3">
+        <p class="text-gray-700 text-lg leading-relaxed mb-16">
+          "Receive devotionals, Bible study resources, and new Christian media content straight to your inbox."
+        </p>
+        <div class="flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="James Wilson portrait" class="w-12 h-12 rounded-full object-cover" loading="lazy">
+          <div>
+            <p class="font-medium text-gray-900 text-sm">James Wilson</p>
+            <p class="text-gray-500 text-xs">Youth Minister</p>
+            <p class="text-gray-400 text-xs">Instagram Partner</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card v-position-4 flex-shrink-0 w-[380px] h-[312px] rounded-2xl p-8" data-index="4">
+        <p class="text-gray-700 text-lg leading-relaxed mb-16">
+          "Receive devotionals, Bible study resources, and new Christian media content straight to your inbox."
+        </p>
+        <div class="flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="Emily Johnson portrait" class="w-12 h-12 rounded-full object-cover" loading="lazy">
+          <div>
+            <p class="font-medium text-gray-900 text-sm">Emily Johnson</p>
+            <p class="text-gray-500 text-xs">Content Creator</p>
+            <p class="text-gray-400 text-xs">TikTok Partner</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card v-position-4 flex-shrink-0 w-[380px] h-[312px] rounded-2xl p-8" data-index="5">
+        <p class="text-gray-700 text-lg leading-relaxed mb-16">
+          "Receive devotionals, Bible study resources, and new Christian media content straight to your inbox."
+        </p>
+        <div class="flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="Emily Johnson portrait" class="w-12 h-12 rounded-full object-cover" loading="lazy">
+          <div>
+            <p class="font-medium text-gray-900 text-sm">Emily Johnson</p>
+            <p class="text-gray-500 text-xs">Content Creator</p>
+            <p class="text-gray-400 text-xs">TikTok Partner</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card v-position-4 flex-shrink-0 w-[380px] h-[312px] rounded-2xl p-8" data-index="6">
+        <p class="text-gray-700 text-lg leading-relaxed mb-16">
+          "Receive devotionals, Bible study resources, and new Christian media content straight to your inbox."
+        </p>
+        <div class="flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="Emily Johnson portrait" class="w-12 h-12 rounded-full object-cover" loading="lazy">
+          <div>
+            <p class="font-medium text-gray-900 text-sm">Emily Johnson</p>
+            <p class="text-gray-500 text-xs">Content Creator</p>
+            <p class="text-gray-400 text-xs">TikTok Partner</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card v-position-4 flex-shrink-0 w-[380px] h-[312px] rounded-2xl p-8" data-index="7">
+        <p class="text-gray-700 text-lg leading-relaxed mb-16">
+          "Receive devotionals, Bible study resources, and new Christian media content straight to your inbox."
+        </p>
+        <div class="flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="Emily Johnson portrait" class="w-12 h-12 rounded-full object-cover" loading="lazy">
+          <div>
+            <p class="font-medium text-gray-900 text-sm">Emily Johnson</p>
+            <p class="text-gray-500 text-xs">Content Creator</p>
+            <p class="text-gray-400 text-xs">TikTok Partner</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- News Section -->
+<section class="news-section" aria-label="Latest news and blogs">
+  <div class="container">
+
+    <p class="small-heading">Featured Content</p>
+    <h2 class="main-heading">Our Latest <br> News & Blogs!</h2>
+
+    <div class="news-grid">
+
+      <article class="news-card">
+        <img src="/images/first.png" alt="News article featured image" loading="lazy">
+        <div class="card-content">
+          <p class="meta">March 21, 2026 • Press</p>
+          <p class="desc">
+            Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's
+          </p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <img src="/images/sec.png" alt="News article featured image" loading="lazy">
+        <div class="card-content">
+          <p class="meta">March 21, 2026 • Press</p>
+          <p class="desc">
+            Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's
+          </p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <img src="/images/third.png" alt="News article featured image" loading="lazy">
+        <div class="card-content">
+          <p class="meta">March 21, 2026 • Press</p>
+          <p class="desc">
+            Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="relative w-full bg-[#0F2744] text-white overflow-hidden mt-4" role="contentinfo">
+  
+  <div class="deco-square w-16 h-16 top-8 right-0" aria-hidden="true"></div>
+  <div class="deco-square w-20 h-20 top-24 right-12 opacity-50" aria-hidden="true"></div>
+  <div class="deco-square w-12 h-12 top-48 right-4 opacity-30" aria-hidden="true"></div>
+  <div class="deco-square w-14 h-14 bottom-32 left-0 opacity-40" aria-hidden="true"></div>
+  <div class="deco-square w-10 h-10 bottom-20 left-8 opacity-30" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto py-16 px-4 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-40 h-20 relative">
+            <img src="/images/logo.svg" alt="LightMode Ministries Logo" class="w-full h-full object-contain">
+          </div>
+        </div>
+        
+        <p class="text-gray-400 text-sm leading-relaxed mb-8">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </p>
+        
+        <div class="flex gap-4">
+          <a href="#" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors" aria-label="YouTube">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+            </svg>
+          </a>
+          <a href="#" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="#" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="#" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors" aria-label="TikTok">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+            </svg>
+          </a>
+          <a href="#" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-serif text-sm tracking-[0.15em] uppercase mb-6">Quick Links</h4>
+        <ul class="space-y-3">
+          <li><a href="/" class="text-gray-400 text-sm hover:text-white transition-colors">Home</a></li>
+          <li><a href="/about" class="text-gray-400 text-sm hover:text-white transition-colors">About</a></li>
+          <li><a href="/children" class="text-gray-400 text-sm hover:text-white transition-colors">Children</a></li>
+          <li><a href="/expressions" class="text-gray-400 text-sm hover:text-white transition-colors">Expressions</a></li>
+          <li><a href="/publications" class="text-gray-400 text-sm hover:text-white transition-colors">Publications</a></li>
+          <li><a href="/animations" class="text-gray-400 text-sm hover:text-white transition-colors">Animations</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-serif text-sm tracking-[0.15em] uppercase mb-6">Privacy Policy</h4>
+        <ul class="space-y-3">
+          <li><a href="/privacy" class="text-gray-400 text-sm hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="/terms" class="text-gray-400 text-sm hover:text-white transition-colors">Terms & Conditions</a></li>
+          <li><a href="/order-policy" class="text-gray-400 text-sm hover:text-white transition-colors">Order Policy</a></li>
+          <li><a href="/booking-policy" class="text-gray-400 text-sm hover:text-white transition-colors">Booking Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-serif text-sm tracking-[0.15em] uppercase mb-6">Info</h4>
+        <p class="text-gray-400 text-sm mb-2">Serving London: KT, SW, W, EC postcodes</p>
+        <p class="text-gray-400 text-sm mb-8">hello@lightmode.org</p>
+        
+        <div class="bg-white rounded-lg overflow-hidden">
+          <div class="px-4 py-3 border-b border-gray-200">
+            <h5 class="text-gray-800 font-medium text-sm">Contact Us</h5>
+          </div>
+          <div class="p-4">
+            <form class="flex items-center justify-between" onsubmit="event.preventDefault(); alert('Message sent!');">
+              <input type="email" placeholder="Enter Email Address" class="flex-1 bg-transparent text-gray-600 text-sm outline-none placeholder-gray-400" required aria-label="Your email address">
+              <button type="submit" class="text-gray-800 text-sm font-medium hover:text-gray-600 transition-colors">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="bg-white py-4 px-8 lg:px-12">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-[#122B4A] text-xs font-bold">Designed By Digital Software Labs</p>
+      
+      <div class="flex items-center gap-2 text-xs font-bold text-[#122B4A]">
+        <a href="/terms" class="hover:text-gray-900 transition-colors">Terms & Conditions</a>
+        <span>|</span>
+        <a href="/privacy" class="hover:text-gray-900 transition-colors">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<!-- Bootstrap JS -->
+
+
+<!-- Main JavaScript -->
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
