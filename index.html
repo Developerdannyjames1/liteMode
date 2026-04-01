@@ -7,6 +7,8 @@
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
   
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -91,16 +93,17 @@
   </div>
 </section>
 
-<!-- Welcome Section -->
-<section  class="relative w-full min-h-screen flex items-center justify-center py-20 px-4 bg-white">
+<section class="relative w-full min-h-screen flex items-center justify-center py-20 px-4 bg-white overflow-hidden" id="hero-section">
+  <!-- Background Blobs -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute top-20 left-10 w-64 h-64 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 float-anim"></div>
-    <div class="absolute bottom-20 right-10 w-96 h-96 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 float-anim-delay"></div>
-    <div class="absolute top-1/2 left-1/3 w-48 h-48 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 float-anim-delay-2"></div>
+    <div class="absolute top-20 left-10 w-64 h-64 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+    <div class="absolute top-1/2 left-1/3 w-48 h-48 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
   </div>
 
   <div class="relative max-w-7xl mx-auto w-full">
-    <div class="text-center mb-16 w-[90%] md:w-[50%] mx-auto">
+    <!-- Text -->
+    <div class="text-center mb-0 w-[90%] md:w-[50%] mx-auto">
       <h2 class="text-3xl md:text-4xl mb-4">
         <span class="text-[#0A1A2F] font-extrabold">Welcome Lets Begin</span>
       </h2>
@@ -109,39 +112,41 @@
       </p>
     </div>
 
+    <!-- Images -->
     <div class="relative h-[600px] md:h-[700px]">
-      <!-- Main Center Image -->
-      <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-        <div class="img-container scroll-anim w-80 h-96 md:w-96 md:h-[450px] overflow-hidden ">
-          <img src="/images/center-kids.png" alt="Children learning about the Bible" class="w-full h-full" loading="lazy">
+      <!-- Center -->
+      <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 img-center">
+        <div class="img-container w-80 h-96 md:w-86 md:h-[450px] overflow-hidden">
+          <img src="/images/center-kids.png" alt="Children learning about the Bible" class="w-full h-full">
         </div>
       </div>
 
-      <!-- Left Side Images -->
-      <div class="absolute left-4 md:left-20 top-10 z-10">
-        <div class="img-container scroll-anim w-40 h-52 md:w-48 md:h-64 overflow-hidden ">
-          <img src="/images/left-top-kids.png" alt="Group of children studying" class="w-full h-full" loading="lazy">
+      <!-- Left -->
+      <div class="absolute left-32 md:left-60 top-64 z-10 img-left-1">
+        <div class="img-container w-30 h-22 md:w-34 md:h-48 overflow-hidden">
+          <img src="/images/left-top-kids.png" class="w-full h-full">
         </div>
       </div>
 
-      <div class="absolute left-10 md:left-32 bottom-20 z-10">
-        <div class="img-container scroll-anim w-32 h-40 md:w-36 md:h-44 rounded-full overflow-hidden ">
-          <img src="/images/Ellipse 1.png" alt="Happy child portrait" class="w-full h-full" loading="lazy">
+      <div class="absolute left-10 md:left-48 bottom-20 z-10 img-left-2">
+        <div class="img-container w-22 h-30 md:w-26 md:h-20 rounded-full overflow-hidden">
+          <img src="/images/Ellipse 1.png" class="w-full h-full">
         </div>
       </div>
 
-      <!-- Right Side Images -->
-      <div class="absolute right-4 md:right-20 top-5 z-10">
-        <div class="img-container scroll-anim w-36 h-44 md:w-44 md:h-56 overflow-hidden ">
-          <img src="/images/single-kid.png" alt="Young boy smiling" class="w-full h-full" loading="lazy">
+      <!-- Right -->
+      <div class="absolute right-4 md:right-72 top-28 z-10 img-right-1">
+        <div class="img-container w-28 h-34 md:w-38 md:h-42 overflow-hidden">
+          <img src="/images/single-kid.png" class="w-full h-full">
         </div>
       </div>
 
-      <div class="absolute right-8 md:right-24 bottom-10 z-10">
-        <div class="img-container scroll-anim w-44 h-36 md:w-56 md:h-44 overflow-hidden ">
-          <img src="/images/right-bottom.png" alt="Girl with backpack reading" class="w-full h-full" loading="lazy">
+      <div class="absolute right-8 md:right-48 bottom-10 z-10 img-right-2">
+        <div class="img-container w-36 h-28 md:w-44 md:h-32 overflow-hidden">
+          <img src="/images/right-bottom.png" class="w-full h-full">
         </div>
       </div>
+
 
       <!-- Decorative Icons -->
       <div class="absolute left-1/4 top-1/4 float-anim" aria-hidden="true">
@@ -863,6 +868,31 @@
 
 <!-- Bootstrap JS -->
 
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#hero-section",
+      start: "top top",
+      end: "+=1000", // Scroll distance for full animation
+      scrub: 1.2,    // Smooth interpolation
+      pin: true,
+      anticipatePin: 1,
+    }
+  });
+
+  // Left images slide in smoothly
+  tl.from(".img-left-1", { x: -400, opacity: 0, duration: 1 }, 0)
+    .from(".img-left-2", { x: -400, opacity: 0, duration: 1 }, 0);
+
+  // Right images slide in smoothly
+  tl.from(".img-right-1", { x: 400, opacity: 0, duration: 1 }, 0)
+    .from(".img-right-2", { x: 400, opacity: 0, duration: 1 }, 0);
+
+  // Center image scale pop smoothly
+  tl.from(".img-center", { scale: 0.8, opacity: 0, duration: 1 }, 0);
+</script>
 
 <!-- Main JavaScript -->
 <script src="script.js"></script>
