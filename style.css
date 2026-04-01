@@ -626,11 +626,7 @@ input, textarea, label,
   backdrop-filter: blur(4px);
 }
 
-.nav-arrow:hover {
-  background: #122B4A;
-  transform: translateY(-50%) scale(1.08);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-}
+
 
 .nav-arrow:hover svg {
   stroke: white;
