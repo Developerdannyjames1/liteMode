@@ -1273,4 +1273,40 @@ footer .deco-square {
 }
 
 
+.scroll-anim {
+  opacity: 0;
+  transform: translateX(-160px) scale(0.94);
+  filter: blur(8px);
+
+  transition: 
+    transform 1.8s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 1.4s ease-out,
+    filter 1.4s ease-out;
+
+  will-change: transform, opacity;
+}
+
+/* Right side */
+.scroll-anim.right {
+  transform: translateX(160px) scale(0.94);
+}
+
+/* When visible */
+.scroll-anim.show {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  filter: blur(0);
+}
+
+/* Smooth stagger (slower delays) */
+.scroll-anim.delay-1 { transition-delay: 0.3s; }
+.scroll-anim.delay-2 { transition-delay: 0.6s; }
+.scroll-anim.delay-3 { transition-delay: 0.9s; }
+.scroll-anim.delay-4 { transition-delay: 1.2s; }
+
+/* Hover (keep subtle, no jump) */
+.scroll-anim:hover {
+  transform: translateX(0) scale(1.03);
+  transition: transform 0.5s ease;
+}
 

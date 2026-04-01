@@ -948,3 +948,19 @@ function throttle(func, limit) {
     };
 }
 
+  const elements = document.querySelectorAll('.scroll-anim');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // thoda delay trigger (extra smooth feel)
+        setTimeout(() => {
+          entry.target.classList.add('show');
+        }, 100);
+      }
+    });
+  }, {
+    threshold: 0.25
+  });
+
+  elements.forEach(el => observer.observe(el));
