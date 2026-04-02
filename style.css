@@ -50,12 +50,11 @@ input, textarea, label,
     .navbar-custom {
       background-color: #0A1A2F;
       border-bottom: 1px solid #083979;
-      padding: 0.8rem 1rem;
     }
 
     .navbar-brand img {
-      height: 45px;
-      width: auto;
+      height: 70px;
+      width: 180px;
     }
 
     /* Ensure nav links are visible and styled correctly */
