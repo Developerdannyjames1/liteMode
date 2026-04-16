@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LightMode Ministries</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+
+</head>
+<body>
+
+  <!-- Navbar - NON-STICKY (removed fixed positioning) -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-container">
+      <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
+        <img src="/images/logo.png" alt="LightMode Ministries Logo">
+      </a>
+      
+      <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <ul class="navbar-menu" id="navbar-menu" role="menubar">
+        <li role="none"><a href="/index.html" class="navbar-link" role="menuitem">Home</a></li>
+        <li role="none"><a href="/about.html" class="navbar-link" role="menuitem">About</a></li>
+        <li role="none"><a href="/children.html" class="navbar-link active" role="menuitem">Children</a></li>
+        <li role="none"><a href="/expressions.html" class="navbar-link" role="menuitem">Expressions</a></li>
+        <li role="none"><a href="/publications.html" class="navbar-link" role="menuitem">Publications</a></li>
+        <li role="none"><a href="/animations.html" class="navbar-link" role="menuitem">Animations</a></li>
+        <li role="none"><a href="/contact.html" class="navbar-link" role="menuitem">Contact</a></li>
+        <li role="none"><a href="/watch.html" class="navbar-link" role="menuitem">Watch</a></li>
+      </ul>
+      
+      <div class="navbar-icon">
+        <img src="/images/icons.svg" alt="User Account" width="80" height="30" style="filter: brightness(0) invert(1);">
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Hero Section -->
+  <section style="padding: 0rem 1.5rem 3rem; margin-top: -20px;" class="hero" aria-label="Hero section">
+    <h1 style="margin-top: -50px;" class="hero-heading">
+      We create resources to<br>
+      help people understand<br>
+      <span style="display: inline-flex; align-items: center; gap: 0.5rem;">
+        the
+        <video src="/videos/bible.mp4" class="hero-video-inline" autoplay loop muted playsinline aria-label="Bible video"></video>
+        Bible.
+      </span>
+    </h1>
+    
+
+    <p class="hero-description">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+    </p>
+  </section>
+
+  <!-- Featured Series Section -->
+  <section class="py-20 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <!-- Header -->
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <div class="w-5 h-5 rounded-full border-2 border-amber-400 flex items-center justify-center">
+          <div class="w-2 h-2 rounded-full bg-amber-400"></div>
+        </div>
+        <span class="text-xs uppercase tracking-widest text-stone-500 font-medium">Featured Series</span>
+      </div>
+      
+      <h2 class="text-3xl md:text-4xl font-serif text-stone-800 text-center mb-12">
+        Popular Bible Adventures
+      </h2>
+      
+      <!-- Series Grid -->
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Series 1 -->
+        <div class="group cursor-pointer">
+          <div class="relative rounded-2xl overflow-hidden mb-4 aspect-[4/3]">
+           <video src="/videos/video-3.mp4" autoplay loop muted playsinline></video>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <span class="text-xs text-amber-300 font-medium uppercase tracking-wider">12 Episodes</span>
+              <h3 class="text-white font-serif text-xl mt-1">The Creation Story</h3>
+            </div>
+            <div class="absolute top-4 right-4 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <svg class="w-5 h-5 text-stone-800 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-sm text-stone-500">Journey through Genesis and discover how God created the world in this beautiful animated series.</p>
+        </div>
+        
+        <!-- Series 2 -->
+        <div class="group cursor-pointer">
+          <div class="relative rounded-2xl overflow-hidden mb-4 aspect-[4/3]">
+            <video src="/videos/video-2.mp4" autoplay loop muted playsinline></video>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <span class="text-xs text-amber-300 font-medium uppercase tracking-wider">8 Episodes</span>
+              <h3 class="text-white font-serif text-xl mt-1">David & Goliath</h3>
+            </div>
+            <div class="absolute top-4 right-4 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <svg class="w-5 h-5 text-stone-800 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-sm text-stone-500">Learn about courage and faith with the incredible story of young David and the giant Goliath.</p>
+        </div>
+        
+        <!-- Series 3 -->
+        <div class="group cursor-pointer">
+          <div class="relative rounded-2xl overflow-hidden mb-4 aspect-[4/3]">
+           <video src="/videos/video-1.mp4" autoplay loop muted playsinline></video>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <span class="text-xs text-amber-300 font-medium uppercase tracking-wider">6 Episodes</span>
+              <h3 class="text-white font-serif text-xl mt-1">The Good Samaritan</h3>
+            </div>
+            <div class="absolute top-4 right-4 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <svg class="w-5 h-5 text-stone-800 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-sm text-stone-500">Discover the power of kindness and compassion through Jesus' most beloved parable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Learning Section -->
+  <section class="py-20 px-4 bg-amber-50">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Content -->
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-5 h-5 rounded-full border-2 border-amber-400 flex items-center justify-center">
+              <div class="w-2 h-2 rounded-full bg-amber-400"></div>
+            </div>
+            <span class="text-xs uppercase tracking-widest text-stone-500 font-medium">Interactive Learning</span>
+          </div>
+          
+          <h2 class="text-3xl md:text-4xl font-serif text-stone-800 mb-6">
+            Learn Through Play
+          </h2>
+          
+          <p class="text-stone-600 mb-8 leading-relaxed">
+            Our interactive activities help children memorize scripture, understand Bible stories, and apply God's Word to their daily lives. From coloring pages to quizzes, there's something for every age.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white p-4 rounded-xl shadow-sm">
+              <div class="w-10 h-10 bg-sky-100 rounded-lg flex items-center justify-center mb-3">
+                <span class="text-xl">🎨</span>
+              </div>
+              <h4 class="font-medium text-stone-800 mb-1">Coloring Pages</h4>
+              <p class="text-xs text-stone-500">100+ printable designs</p>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl shadow-sm">
+              <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center mb-3">
+                <span class="text-xl">🧩</span>
+              </div>
+              <h4 class="font-medium text-stone-800 mb-1">Bible Quizzes</h4>
+              <p class="text-xs text-stone-500">Test your knowledge</p>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl shadow-sm">
+              <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3">
+                <span class="text-xl">🎵</span>
+              </div>
+              <h4 class="font-medium text-stone-800 mb-1">Worship Songs</h4>
+              <p class="text-xs text-stone-500">Sing along videos</p>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl shadow-sm">
+              <div class="w-10 h-10 bg-rose-100 rounded-lg flex items-center justify-center mb-3">
+                <span class="text-xl">📖</span>
+              </div>
+              <h4 class="font-medium text-stone-800 mb-1">Memory Verses</h4>
+              <p class="text-xs text-stone-500">Learn scripture</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Image -->
+        <div class="relative">
+          <div class="absolute -inset-4 bg-amber-200/30 rounded-3xl transform rotate-3"></div>
+          <img src="/images/center-kids.png" alt="Children learning" class="relative rounded-2xl shadow-xl w-full h-50 object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Weekly Verse Section -->
+  <section class="py-20 px-4 bg-slate-900 relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full opacity-10">
+      <div class="absolute top-10 left-10 text-9xl text-white font-serif">"</div>
+      <div class="absolute bottom-10 right-10 text-9xl text-white font-serif rotate-180">"</div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <span class="text-amber-300 text-xs uppercase tracking-widest font-medium">Memory Verse of the Week</span>
+      
+      <blockquote class="mt-6 mb-8">
+        <p class="text-2xl md:text-4xl font-serif text-white leading-relaxed">
+          "Let the little children come to me, and do not hinder them, for the kingdom of heaven belongs to such as these."
+        </p>
+      </blockquote>
+      
+      <cite class="text-slate-400 not-italic">— Matthew 19:14</cite>
+      
+      <div class="mt-10 flex justify-center gap-4">
+        <button class="px-6 py-2 bg-amber-300 text-slate-900 rounded-full text-sm font-medium hover:bg-amber-400 transition-colors">
+          Download Card
+        </button>
+        <button class="px-6 py-2 border border-white/30 text-white rounded-full text-sm hover:bg-white/10 transition-colors">
+          Listen Audio
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parent Resources Section -->
+  <section class="py-20 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <div class="flex items-center justify-center gap-2 mb-4">
+          <div class="w-5 h-5 rounded-full border-2 border-amber-400 flex items-center justify-center">
+            <div class="w-2 h-2 rounded-full bg-amber-400"></div>
+          </div>
+          <span class="text-xs uppercase tracking-widest text-stone-500 font-medium">For Parents</span>
+        </div>
+        
+        <h2 class="text-3xl md:text-4xl font-serif text-stone-800">
+          Resources for the Whole Family
+        </h2>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Resource 1 -->
+        <div class="bg-stone-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center mb-4">
+            <span class="text-2xl">📚</span>
+          </div>
+          <h4 class="font-serif text-lg text-stone-800 mb-2">Family Devotionals</h4>
+          <p class="text-sm text-stone-500 mb-4">Weekly guides for family Bible study time.</p>
+          <a href="#" class="text-amber-600 text-sm font-medium hover:underline">Download PDF →</a>
+        </div>
+        
+        <!-- Resource 2 -->
+        <div class="bg-stone-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+            <span class="text-2xl">🎯</span>
+          </div>
+          <h4 class="font-serif text-lg text-stone-800 mb-2">Activity Guides</h4>
+          <p class="text-sm text-stone-500 mb-4">Crafts and games that teach biblical truths.</p>
+          <a href="#" class="text-amber-600 text-sm font-medium hover:underline">View Activities →</a>
+        </div>
+        
+        <!-- Resource 3 -->
+        <div class="bg-stone-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
+            <span class="text-2xl">🎧</span>
+          </div>
+          <h4 class="font-serif text-lg text-stone-800 mb-2">Audio Stories</h4>
+          <p class="text-sm text-stone-500 mb-4">Perfect for bedtime or car rides.</p>
+          <a href="#" class="text-amber-600 text-sm font-medium hover:underline">Listen Now →</a>
+        </div>
+        
+        <!-- Resource 4 -->
+        <div class="bg-stone-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center mb-4">
+            <span class="text-2xl">👨‍👩‍👧</span>
+          </div>
+          <h4 class="font-serif text-lg text-stone-800 mb-2">Parent Community</h4>
+          <p class="text-sm text-stone-500 mb-4">Connect with other Christian parents.</p>
+          <a href="#" class="text-amber-600 text-sm font-medium hover:underline">Join Group →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="py-16 px-4 bg-[#F1B75B]">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-4">
+        Get Weekly Updates for Your Family
+      </h2>
+      <p class="text-slate-700 mb-8 max-w-xl mx-auto">
+        Subscribe to receive new episode alerts, free printables, and exclusive content delivered to your inbox every week.
+      </p>
+      
+      <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <input 
+          type="email" 
+          placeholder="Enter your email" 
+          class="flex-1 px-5 py-3 rounded-full border-0 focus:ring-2 focus:ring-slate-900 outline-none"
+        >
+        <button type="submit" class="px-8 py-3 bg-slate-900 text-white rounded-full font-medium hover:bg-slate-800 transition-colors">
+          Subscribe
+        </button>
+      </form>
+      
+      <p class="text-xs text-slate-600 mt-4">Join 50,000+ families. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+    <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-deco footer-deco--1" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--2" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--3" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--4" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--5" aria-hidden="true"></div>
+
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/images/logo.png" alt="LightMode Ministries Logo">
+        <p class="footer-text">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/children">Children</a></li>
+          <li><a href="/expressions">Expressions</a></li>
+          <li><a href="/publications">Publications</a></li>
+          <li><a href="/animations">Animations</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Privacy Policy</h4>
+        <ul class="footer-links">
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms & Conditions</a></li>
+          <li><a href="/order-policy">Order Policy</a></li>
+          <li><a href="/booking-policy">Booking Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Info</h4>
+        <p class="footer-contact">Serving London: KT, SW, W, EC postcodes</p>
+        <p class="footer-contact">hello@lightmode.org</p>
+        
+        <div class="footer-form">
+          <div class="footer-form__header">
+            <h5 class="footer-form__title">Contact Us</h5>
+          </div>
+          <div class="footer-form__body">
+            <input type="email" class="footer-form__input" placeholder="Enter Email Address" aria-label="Your email address">
+            <button class="footer-form__submit" onclick="alert('Message sent!')">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom__content">
+        <p class="footer-credit">Designed By Digital Software Labs</p>
+        <div class="footer-legal">
+          <a href="/terms">Terms & Conditions</a>
+          <span>|</span>
+          <a href="/privacy">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script src="script.js"></script>
+</body>
+</html>

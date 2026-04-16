@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LightMode Ministries | Contact Us</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* ============================================
+       EXACT SAME CUSTOM PROPERTIES & FONTS
+       ============================================ */
+    @font-face {
+      font-family: 'RecklessStandard';
+      src: url('./fonts/RecklessStandardM-TRIAL-Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'RecklessWide';
+      src: url('./fonts/RecklessWideXL-TRIAL-Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    
+    :root {
+      --color-primary: #0A1A2F;
+      --color-secondary: #122B4A;
+      --color-accent: #E6C76A;
+      --color-accent-dark: #D4A853;
+      --color-gold: #C9A962;
+      --color-bg-warm: #F1B75B;
+      --color-bg-neutral: #CBC8BE;
+      --color-bg-light: #F0EFEC;
+      --color-white: #FFFFFF;
+      --color-text-muted: #6B7280;
+      
+      --font-heading: 'RecklessWide', serif;
+      --font-body: 'RecklessStandard', serif;
+      
+      --transition-fast: 150ms ease;
+      --transition-base: 300ms ease;
+      --transition-slow: 500ms ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--color-primary);
+      overflow-x: hidden;
+      background-color: var(--color-white);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ============================================
+       NAVBAR (EXACT COPY)
+       ============================================ */
+    .navbar {
+      position: relative;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      background-color: var(--color-primary);
+      border-bottom: 1px solid rgba(8, 57, 121, 0.5);
+    }
+
+    .navbar-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0rem 2.5rem;
+    }
+
+    .navbar-brand img {
+      height: 80px;
+      width: auto;
+    }
+
+    .navbar-menu {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .navbar-link {
+      color: var(--color-white);
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: color var(--transition-base);
+    }
+
+    .navbar-link:hover, .navbar-link.active {
+      color: var(--color-accent);
+    }
+
+    .navbar-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 0.5rem;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
+    }
+
+    .navbar-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: var(--color-white);
+    }
+
+
+    /* ============================================
+       CONTACT SECTION (FORM + INFO)
+       ============================================ */
+    .contact-section {
+      padding: 5rem 1.5rem;
+      background: var(--color-white);
+    }
+
+    .contact-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    /* Contact Info Cards */
+    .contact-info h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info > p {
+      color: #4B5563;
+      margin-bottom: 2rem;
+    }
+
+    .info-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .info-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--color-bg-light);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    .info-card.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .info-card:hover {
+      transform: translateX(8px);
+      background: var(--color-bg-warm);
+    }
+
+    .info-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--color-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .info-detail h4 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .info-detail p, .info-detail a {
+      color: #4B5563;
+      font-size: 0.875rem;
+    }
+
+    .social-links {
+      margin-top: 2rem;
+    }
+
+    .social-links h4 {
+      margin-bottom: 1rem;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--color-bg-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+      background: var(--color-accent);
+      transform: translateY(-5px);
+    }
+
+    /* Contact Form */
+    .contact-form-wrapper {
+      background: var(--color-bg-light);
+      padding: 2rem;
+      border-radius: 32px;
+      opacity: 0;
+      transform: translateX(30px);
+      transition: all 0.8s ease;
+    }
+
+    .contact-form-wrapper.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .form-title {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-sub {
+      color: #6B7280;
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #E5E7EB;
+      border-radius: 16px;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+      background: var(--color-white);
+    }
+
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(230, 199, 106, 0.2);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: var(--color-accent-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================
+       MAP SECTION
+       ============================================ */
+    .map-section {
+      background: var(--color-bg-light);
+      padding: 5rem 1.5rem;
+    }
+
+    .map-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    .map-label {
+      color: var(--color-accent-dark);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .map-title {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      color: var(--color-primary);
+    }
+
+    .map-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.8s ease;
+    }
+
+    .map-container.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .map-placeholder {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(135deg, #1a3a5c, #0a1a2f);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent);
+      font-family: var(--font-heading);
+    }
+
+    /* ============================================
+       FAQ SECTION
+       ============================================ */
+    .faq-section {
+      padding: 5rem 1.5rem;
+      background: var(--color-white);
+    }
+
+    .faq-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      background: var(--color-bg-light);
+      border-radius: 20px;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+
+    .faq-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .faq-question {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: var(--font-heading);
+    }
+
+    .faq-question h3 {
+      font-size: 1.1rem;
+    }
+
+    .faq-icon {
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      padding: 0 1.5rem;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      color: #4B5563;
+      line-height: 1.7;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    /* ============================================
+       FOOTER (EXACT COPY)
+       ============================================ */
+    .footer {
+      position: relative;
+      background: #0F2744;
+      color: var(--color-white);
+      overflow: hidden;
+    }
+
+    .footer-deco {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .footer-deco--1 { width: 64px; height: 64px; top: 32px; right: 0; }
+    .footer-deco--2 { width: 80px; height: 80px; top: 96px; right: 48px; opacity: 0.5; }
+    .footer-deco--3 { width: 48px; height: 48px; top: 192px; right: 16px; opacity: 0.3; }
+    .footer-deco--4 { width: 56px; height: 56px; bottom: 128px; left: 0; opacity: 0.4; }
+    .footer-deco--5 { width: 40px; height: 40px; bottom: 80px; left: 32px; opacity: 0.3; }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 3rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-brand img {
+      height: 100px;
+      width: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-text {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+    .footer-social a {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.6);
+      transition: color var(--transition-base);
+    }
+    .footer-social a:hover { color: var(--color-white); }
+
+    .footer-title {
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1.5rem;
+      color: var(--color-white);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.875rem;
+      transition: color var(--transition-base);
+    }
+    .footer-links a:hover { color: var(--color-white); }
+
+    .footer-contact {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.875rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-form {
+      background: var(--color-white);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 1.5rem;
+    }
+    .footer-form__header { padding: 1rem 1.5rem; border-bottom: 1px solid #E5E7EB; }
+    .footer-form__title { color: #1F2937; font-size: 0.875rem; font-weight: 600; }
+    .footer-form__body { padding: 1rem 1.5rem; display: flex; gap: 0.5rem; }
+    .footer-form__input { flex: 1; background: transparent; border: none; outline: none; font-size: 0.875rem; }
+    .footer-form__submit { color: #1F2937; font-size: 0.875rem; font-weight: 600; cursor: pointer; }
+
+    .footer-bottom {
+      background: var(--color-white);
+      padding: 1rem 1.5rem;
+    }
+    .footer-bottom__content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-credit { color: var(--color-secondary); font-size: 0.75rem; font-weight: 700; }
+    .footer-legal { display: flex; align-items: center; gap: 0.5rem; color: var(--color-secondary); font-size: 0.75rem; }
+
+    @media (max-width: 1024px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-toggle { display: flex; }
+      .navbar-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--color-primary);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1rem;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-base);
+      }
+      .navbar-menu.is-open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      .faq-question h3 {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation">
+    <div class="navbar-container">
+      <a href="/" class="navbar-brand"><img src="/images/logo.png" alt="LightMode Ministries Logo"></a>
+      <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navbar-menu" id="navbar-menu">
+        <li><a href="/" class="navbar-link">Home</a></li>
+        <li><a href="/about.html" class="navbar-link">About</a></li>
+        <li><a href="/children.html" class="navbar-link">Children</a></li>
+        <li><a href="/expressions.html" class="navbar-link">Expressions</a></li>
+        <li><a href="/publications.html" class="navbar-link">Publications</a></li>
+        <li><a href="/animations.html" class="navbar-link">Animations</a></li>
+        <li><a href="/contact.html" class="navbar-link active">Contact</a></li>
+        <li><a href="/watch.html" class="navbar-link">Watch</a></li>
+      </ul>
+      <div class="navbar-icon">
+        <img src="/images/icons.svg" alt="User Account" width="80" height="30" style="filter: brightness(0) invert(1);">
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section style="padding: 0rem 1.5rem 3rem; margin-top: -20px;" class="hero" aria-label="Hero section">
+    <h1 style="margin-top: -50px;" class="hero-heading">
+      We create resources to<br>
+      help people understand<br>
+      <span style="display: inline-flex; align-items: center; gap: 0.5rem;">
+        the
+        <video src="/videos/bible.mp4" class="hero-video-inline" autoplay loop muted playsinline aria-label="Bible video"></video>
+        Bible.
+      </span>
+    </h1>
+    
+
+    <p class="hero-description">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+    </p>
+  </section>
+
+
+  <!-- CONTACT SECTION (FORM + INFO) -->
+  <section class="contact-section">
+    <div class="contact-container">
+      <!-- Left: Contact Info -->
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>Our team is here to help. Reach out through any of these channels and we'll respond within 24 hours.</p>
+        
+        <div class="info-cards">
+          <div class="info-card" id="card1"><div class="info-icon">📍</div><div class="info-detail"><h4>Visit Us</h4><p>Serving London: KT, SW, W, EC postcodes<br>United Kingdom</p></div></div>
+          <div class="info-card" id="card2"><div class="info-icon">📞</div><div class="info-detail"><h4>Call Us</h4><p>+44 (0) 20 1234 5678<br>Mon-Fri, 9am-5pm GMT</p></div></div>
+          <div class="info-card" id="card3"><div class="info-icon">✉️</div><div class="info-detail"><h4>Email Us</h4><a href="mailto:hello@lightmode.org">hello@lightmode.org</a><br><a href="mailto:support@lightmode.org">support@lightmode.org</a></div></div>
+        </div>
+        
+        <div class="social-links">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#" class="social-icon">📘</a>
+            <a href="#" class="social-icon">📷</a>
+            <a href="#" class="social-icon">🎵</a>
+            <a href="#" class="social-icon">▶️</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Contact Form -->
+      <div class="contact-form-wrapper" id="contactForm">
+        <h3 class="form-title">Send a Message</h3>
+        <p class="form-sub">We'll get back to you as soon as possible.</p>
+        <form id="contactFormElement" onsubmit="event.preventDefault(); alert('Thank you for reaching out! Our team will respond shortly.'); this.reset();">
+          <div class="form-group"><input type="text" placeholder="Your Name *" required></div>
+          <div class="form-group"><input type="email" placeholder="Email Address *" required></div>
+          <div class="form-group"><select><option>How did you hear about us?</option><option>Social Media</option><option>Church</option><option>Friend</option><option>YouTube</option></select></div>
+          <div class="form-group"><textarea placeholder="Your Message *" required></textarea></div>
+          <button type="submit" class="submit-btn">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP SECTION -->
+  <section class="map-section">
+    <div class="map-header">
+      <div class="map-label">Our Location</div>
+      <h2 class="map-title">Where to Find Us</h2>
+    </div>
+    <div class="map-container" id="mapContainer">
+      <div class="map-placeholder">
+        <div style="text-align:center;">
+          <span style="font-size:3rem;">📍</span>
+          <p style="margin-top:1rem;">LightMode Ministries Office<br>London, United Kingdom</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <div class="map-header">
+      <div class="map-label">FAQs</div>
+      <h2 class="map-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-grid" id="faqGrid">
+      <div class="faq-item"><div class="faq-question"><h3>How can I partner with LightMode Ministries?</h3><span class="faq-icon">+</span></div><div class="faq-answer">We welcome partnerships with churches, organizations, and individuals who share our vision. Please email partnerships@lightmode.org with your proposal.</div></div>
+      <div class="faq-item"><div class="faq-question"><h3>Can I volunteer or serve with LightMode?</h3><span class="faq-icon">+</span></div><div class="faq-answer">Absolutely! We have opportunities for volunteers in media, content creation, and ministry outreach. Fill out the contact form and mention "Volunteer".</div></div>
+      <div class="faq-item"><div class="faq-question"><h3>How do I request prayer?</h3><span class="faq-icon">+</span></div><div class="faq-answer">Send your prayer requests to prayer@lightmode.org or use the contact form. Our prayer team will pray for you confidentially.</div></div>
+      <div class="faq-item"><div class="faq-question"><h3>Do you offer resources for churches?</h3><span class="faq-icon">+</span></div><div class="faq-answer">Yes, we provide curriculum, sermon series, and media resources for churches. Contact our church relations team for a catalog.</div></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-deco footer-deco--1" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--2" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--3" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--4" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--5" aria-hidden="true"></div>
+
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/images/logo.png" alt="LightMode Ministries Logo">
+        <p class="footer-text">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/children">Children</a></li>
+          <li><a href="/expressions">Expressions</a></li>
+          <li><a href="/publications">Publications</a></li>
+          <li><a href="/animations">Animations</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Privacy Policy</h4>
+        <ul class="footer-links">
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms & Conditions</a></li>
+          <li><a href="/order-policy">Order Policy</a></li>
+          <li><a href="/booking-policy">Booking Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Info</h4>
+        <p class="footer-contact">Serving London: KT, SW, W, EC postcodes</p>
+        <p class="footer-contact">hello@lightmode.org</p>
+        
+        <div class="footer-form">
+          <div class="footer-form__header">
+            <h5 class="footer-form__title">Contact Us</h5>
+          </div>
+          <div class="footer-form__body">
+            <input type="email" class="footer-form__input" placeholder="Enter Email Address" aria-label="Your email address">
+            <button class="footer-form__submit" onclick="alert('Message sent!')">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom__content">
+        <p class="footer-credit">Designed By Digital Software Labs</p>
+        <div class="footer-legal">
+          <a href="/terms">Terms & Conditions</a>
+          <span>|</span>
+          <a href="/privacy">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar toggle
+    const toggle = document.querySelector('.navbar-toggle');
+    const menu = document.querySelector('.navbar-menu');
+    if(toggle && menu){
+      toggle.addEventListener('click',()=>{
+        menu.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('is-open'));
+      });
+      document.querySelectorAll('.navbar-link').forEach(link=>{
+        link.addEventListener('click',()=>menu.classList.remove('is-open'));
+      });
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate contact info cards
+    const cards = document.querySelectorAll('.info-card');
+    cards.forEach((card, i) => {
+      gsap.fromTo(card, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, delay: i * 0.15, scrollTrigger: { trigger: '.contact-section', start: 'top 70%' } });
+    });
+
+    // Animate contact form
+    gsap.fromTo('#contactForm', { x: 40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, scrollTrigger: { trigger: '.contact-section', start: 'top 60%' } });
+
+    // Animate map container
+    gsap.fromTo('#mapContainer', { scale: 0.95, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, scrollTrigger: { trigger: '.map-section', start: 'top 75%' } });
+
+    // Animate FAQ items
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach((item, i) => {
+      gsap.fromTo(item, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, delay: i * 0.1, scrollTrigger: { trigger: '.faq-section', start: 'top 70%' } });
+    });
+
+    // FAQ Accordion functionality
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const parent = question.parentElement;
+        parent.classList.toggle('active');
+      });
+    });
+
+    // Hero background animation
+    gsap.to(".contact-hero-bg", { duration: 20, x: 40, y: 30, repeat: -1, yoyo: true, ease: "sine.inOut" });
+  </script>
+</body>
+</html>

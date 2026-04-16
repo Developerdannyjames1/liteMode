@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LightMode Ministries</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+
+</head>
+<body>
+
+  <!-- Navbar - NON-STICKY (removed fixed positioning) -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-container">
+      <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
+        <img src="/images/logo.png" alt="LightMode Ministries Logo">
+      </a>
+      
+      <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <ul class="navbar-menu" id="navbar-menu" role="menubar">
+        <li role="none"><a href="/index.html" class="navbar-link" role="menuitem">Home</a></li>
+        <li role="none"><a href="/about.html" class="navbar-link" role="menuitem">About</a></li>
+        <li role="none"><a href="/children.html" class="navbar-link" role="menuitem">Children</a></li>
+        <li role="none"><a href="/expressions.html" class="navbar-link" role="menuitem">Expressions</a></li>
+        <li role="none"><a href="/publications.html" class="navbar-link" role="menuitem">Publications</a></li>
+        <li role="none"><a href="/animations.html" class="navbar-link active" role="menuitem">Animations</a></li>
+        <li role="none"><a href="/contact.html" class="navbar-link" role="menuitem">Contact</a></li>
+        <li role="none"><a href="/watch.html" class="navbar-link" role="menuitem">Watch</a></li>
+      </ul>
+      
+      <div class="navbar-icon">
+        <img src="/images/icons.svg" alt="User Account" width="80" height="30" style="filter: brightness(0) invert(1);">
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section style="padding: 5rem 0rem 0rem;" class="hero" aria-label="Hero section">
+    <h1 style="margin-bottom: 0rem;" class="hero-heading">
+      We create resources to<br>
+      help people understand<br>
+      <span style="display: inline-flex; align-items: center; gap: 0.5rem;">
+        the
+        <video src="/videos/bible.mp4" class="hero-video-inline" autoplay loop muted playsinline aria-label="Bible video"></video>
+        Bible.
+      </span>
+    </h1>
+     <p style="margin-top: 1rem;" class="hero-description">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+    </p>
+
+   
+      <div><img src="/images/ani-hero.png" alt=""></div>
+   
+
+   
+  </section>
+
+
+<section class="bg-white py-20 px-4 relative overflow-hidden">
+  <!-- Decorative squares left -->
+  <div class="absolute left-0 top-1/4 flex flex-col gap-2">
+    <div class="w-12 h-12 bg-stone-200/50"></div>
+    <div class="w-12 h-12 bg-stone-200/50 ml-8"></div>
+  </div>
+  
+  <!-- Decorative squares right -->
+  <div class="absolute right-0 top-1/2 flex flex-col gap-2">
+    <div class="w-12 h-12 bg-stone-200/50 mr-8"></div>
+    <div class="w-12 h-12 bg-stone-200/50"></div>
+  </div>
+  
+
+
+  
+  <div class="max-w-4xl mx-auto relative z-10">
+    <!-- Header -->
+    <div class="flex items-center justify-center gap-2 mb-8">
+      <div class="w-8 h-8 flex items-center justify-center">
+        <img src="/images/Vector.svg" alt="">
+      </div>
+      <span class="text-xs uppercase tracking-widest text-stone-500 font-medium">Our Mission & Statement</span>
+    </div>
+    
+    <!-- Main Heading -->
+    <h2 class="text-3xl md:text-4xl lg:text-3xl font-serif text-stone-800 text-center leading-tight mb-8">
+      To illuminate lives with the truth of God's Word through<br>creative Scripture-based media.
+    </h2>
+    
+    <!-- Description -->
+    <p class="text-xs text-stone-500 text-center max-w-3xl mx-auto leading-relaxed mb-10 px-4">
+      LightMode Ministries Is A Christian Media Ministry Dedicated To Illuminating Lives With The Truth Of God's Word Through Storytelling, Digital Media, And Scripture-Centered Teaching.LightMode Ministries Is A Christian Media Ministry Dedicated To Illuminating Lives With The Truth Of God's Word Through Storytelling, Digital Media, And Scripture-Centered Teaching.LightMode Ministries Is A Christian Media Ministry Dedicated To Illuminating Lives With The Truth Of God's Word Through Storytelling, Digital Media, And Scripture-Centered Teaching.
+    </p>
+    
+    <!-- Button -->
+    <div class="flex justify-center">
+      <button style="border: 1px solid black;" class="px-8 py-3 border border-stone-800 rounded-full text-sm text-stone-800 hover:bg-stone-800 hover:text-white transition-colors duration-300">
+        Learn More
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="bg-white py-16 px-4">
+  <div class="max-w-6xl mx-auto">
+   
+    
+   
+    
+    
+    <!-- Main Video Carousel -->
+    <div class="relative mb-6">
+      <!-- Left Arrow -->
+      <button id="mainPrev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-10 h-10 flex items-center justify-center text-stone-400 hover:text-stone-600 z-10 cursor-pointer">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      
+      <!-- Main Videos Container -->
+      <div class="overflow-hidden mx-8 md:mx-16 rounded-2xl">
+        <div class="flex transition-transform duration-500 ease-in-out" id="mainVideoTrack">
+          <!-- Video 1 -->
+          <div class="flex-shrink-0 w-full aspect-video bg-stone-200 relative">
+            <video src="/videos/Kuaretta's Project Trailer.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
+           
+          </div>
+          
+          <!-- Video 2 -->
+          <div class="flex-shrink-0 w-full aspect-video bg-stone-200 relative">
+            <video src="/videos/Kuaretta's Project Trailer.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
+            
+          </div>
+          
+          <!-- Video 3 -->
+          <div class="flex-shrink-0 w-full aspect-video bg-stone-200 relative">
+            <video src="/videos/Kuaretta's Project Trailer.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
+            
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Arrow -->
+      <button id="mainNext" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-10 h-10 flex items-center justify-center text-stone-400 hover:text-stone-600 z-10 cursor-pointer">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Episode Title -->
+    <h3 class="text-2xl font-serif text-stone-800 text-center mb-3 mt-20">Episode No 1: The New Beginning</h3>
+    <p class="text-[13px] text-stone-500 text-center max-w-md mx-auto mb-8 mt-2 leading-relaxed">
+      LightMode Ministries Is A Christian Media Ministry Dedicated To Illuminating Lives With The Truth Of God's Word Through Storytelling, Digital Media, And Scripture-Centered Teaching
+    </p>
+    
+<!-- Thumbnail Carousel -->
+<div class="relative">
+  <div id="thumbnailScroller" class="flex gap-3 overflow-x-auto px-4 justify-start md:justify-center scrollbar-hide cursor-grab active:cursor-grabbing select-none">
+    <!-- Thumbnail 1 -->
+    <div class="flex-shrink-0 w-32 md:w-80 cursor-pointer thumbnail-item" data-index="0">
+      <div class="aspect-video rounded-lg overflow-hidden relative bg-stone-200 border-2 border-transparent hover:border-sky-500 transition-colors">
+        <video src="/videos/Kuaretta's Project Trailer.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-8 h-8 bg-white/80 rounded-full flex items-center justify-center">
+            <svg class="w-3 h-3 text-stone-800 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Thumbnail 2 -->
+    <div class="flex-shrink-0 w-32 md:w-80 cursor-pointer thumbnail-item" data-index="1">
+      <div class="aspect-video rounded-lg overflow-hidden relative bg-stone-200 border-2 border-transparent hover:border-sky-500 transition-colors">
+        <video src="/videos/Kuaretta's Project Trailer.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-8 h-8 bg-white/80 rounded-full flex items-center justify-center">
+            <svg class="w-3 h-3 text-stone-800 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Thumbnail 3 -->
+    <div class="flex-shrink-0 w-32 md:w-80 cursor-pointer thumbnail-item" data-index="2">
+      <div class="aspect-video rounded-lg overflow-hidden relative bg-stone-200 border-2 border-transparent hover:border-sky-500 transition-colors">
+        <video src="/videos/Kuaretta's Project Trailer.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-8 h-8 bg-white/80 rounded-full flex items-center justify-center">
+            <svg class="w-3 h-3 text-stone-800 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Thumbnail 4 -->
+    <div class="flex-shrink-0 w-32 md:w-80 cursor-pointer thumbnail-item" data-index="3">
+      <div class="aspect-video rounded-lg overflow-hidden relative bg-stone-200 border-2 border-transparent hover:border-sky-500 transition-colors">
+        <video src="/videos/Kuaretta's Project Trailer.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-8 h-8 bg-white/80 rounded-full flex items-center justify-center">
+            <svg class="w-3 h-3 text-stone-800 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Thumbnail 5 -->
+    <div class="flex-shrink-0 w-32 md:w-80 cursor-pointer thumbnail-item" data-index="4">
+      <div class="aspect-video rounded-lg overflow-hidden relative bg-stone-200 border-2 border-transparent hover:border-sky-500 transition-colors">
+        <video src="/videos/Kuaretta's Project Trailer.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-8 h-8 bg-white/80 rounded-full flex items-center justify-center">
+            <svg class="w-3 h-3 text-stone-800 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thumbnail 6 -->
+    <div class="flex-shrink-0 w-32 md:w-80 cursor-pointer thumbnail-item" data-index="5">
+      <div class="aspect-video rounded-lg overflow-hidden relative bg-stone-200 border-2 border-transparent hover:border-sky-500 transition-colors">
+        <video src="/videos/Kuaretta's Project Trailer.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-8 h-8 bg-white/80 rounded-full flex items-center justify-center">
+            <svg class="w-3 h-3 text-stone-800 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+  </div>
+</section>
+
+
+
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section" aria-label="Testimonials">
+    <div class="testimonials-glow" aria-hidden="true"></div>
+
+    <div class="testimonials-header">
+      <div class="testimonials-icon">
+        <video src="/videos/bible.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <p class="testimonials-label">Featured Content</p>
+      <h2 class="testimonials-title">
+        Trusted by Thousands of Churches<br>& Organizations of All Sizes
+      </h2>
+
+      <div class="testimonials-nav">
+        <button class="testimonials-btn" onclick="moveTestimonial('left')" aria-label="Previous testimonial">
+          <svg viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button class="testimonials-btn" onclick="moveTestimonial('right')" aria-label="Next testimonial">
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="testimonials-scroll" id="testimonialsScroll" tabindex="0" aria-label="Testimonial carousel">
+      <article class="testimonial-card" data-index="0">
+        <p class="testimonial-quote">
+          "Receive devotionals, Bible study resources, and new Christian media content straight to your inbox."
+        </p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Alex Jason" class="testimonial-avatar" loading="lazy">
+          <div>
+            <p class="testimonial-name">Alex Jason</p>
+            <p class="testimonial-role">Director</p>
+            <p class="testimonial-company">Facebook Client</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card" data-index="1">
+        <p class="testimonial-quote">
+          "Receive devotionals, Bible study resources, and new Christian media content straight to your inbox."
+        </p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Sarah Chen" class="testimonial-avatar" loading="lazy">
+          <div>
+            <p class="testimonial-name">Sarah Chen</p>
+            <p class="testimonial-role">Pastor</p>
+            <p class="testimonial-company">YouTube Partner</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card is-center" data-index="2">
+        <p class="testimonial-quote">
+          "Receive devotionals, Bible study resources, and new Christian media content straight to your inbox."
+        </p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Maria Garcia" class="testimonial-avatar is-large" loading="lazy">
+          <div>
+            <p class="testimonial-name">Maria Garcia</p>
+            <p class="testimonial-role">Worship Leader</p>
+            <p class="testimonial-company">Spotify Creator</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card" data-index="3">
+        <p class="testimonial-quote">
+          "Receive devotionals, Bible study resources, and new Christian media content straight to your inbox."
+        </p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="James Wilson" class="testimonial-avatar" loading="lazy">
+          <div>
+            <p class="testimonial-name">James Wilson</p>
+            <p class="testimonial-role">Youth Minister</p>
+            <p class="testimonial-company">Instagram Partner</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card" data-index="4">
+        <p class="testimonial-quote">
+          "Receive devotionals, Bible study resources, and new Christian media content straight to your inbox."
+        </p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="Emily Johnson" class="testimonial-avatar" loading="lazy">
+          <div>
+            <p class="testimonial-name">Emily Johnson</p>
+            <p class="testimonial-role">Content Creator</p>
+            <p class="testimonial-company">TikTok Partner</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card" data-index="5">
+        <p class="testimonial-quote">
+          "Receive devotionals, Bible study resources, and new Christian media content straight to your inbox."
+        </p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="Emily Johnson" class="testimonial-avatar" loading="lazy">
+          <div>
+            <p class="testimonial-name">Emily Johnson</p>
+            <p class="testimonial-role">Content Creator</p>
+            <p class="testimonial-company">TikTok Partner</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card" data-index="6">
+        <p class="testimonial-quote">
+          "Receive devotionals, Bible study resources, and new Christian media content straight to your inbox."
+        </p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="Emily Johnson" class="testimonial-avatar" loading="lazy">
+          <div>
+            <p class="testimonial-name">Emily Johnson</p>
+            <p class="testimonial-role">Content Creator</p>
+            <p class="testimonial-company">TikTok Partner</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card" data-index="7">
+        <p class="testimonial-quote">
+          "Receive devotionals, Bible study resources, and new Christian media content straight to your inbox."
+        </p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="Emily Johnson" class="testimonial-avatar" loading="lazy">
+          <div>
+            <p class="testimonial-name">Emily Johnson</p>
+            <p class="testimonial-role">Content Creator</p>
+            <p class="testimonial-company">TikTok Partner</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- News Section -->
+  <section class="news-section" aria-labelledby="news-title">
+    <div class="news-header">
+      <p class="news-label">Featured Content</p>
+      <h2 class="news-title" id="news-title">Our Latest<br>News & Blogs!</h2>
+    </div>
+
+    <div class="news-grid">
+      <article class="news-card">
+        <div class="news-card__image">
+          <img src="/images/first.png" alt="" loading="lazy">
+        </div>
+        <div class="news-card__content">
+          <p class="news-card__meta">March 21, 2026 • Press</p>
+          <p class="news-card__title">
+            Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.
+          </p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__image">
+          <img src="/images/sec.png" alt="" loading="lazy">
+        </div>
+        <div class="news-card__content">
+          <p class="news-card__meta">March 21, 2026 • Press</p>
+          <p class="news-card__title">
+            Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.
+          </p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__image">
+          <img src="/images/third.png" alt="" loading="lazy">
+        </div>
+        <div class="news-card__content">
+          <p class="news-card__meta">March 21, 2026 • Press</p>
+          <p class="news-card__title">
+            Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+    <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-deco footer-deco--1" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--2" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--3" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--4" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--5" aria-hidden="true"></div>
+
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/images/logo.png" alt="LightMode Ministries Logo">
+        <p class="footer-text">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/children">Children</a></li>
+          <li><a href="/expressions">Expressions</a></li>
+          <li><a href="/publications">Publications</a></li>
+          <li><a href="/animations">Animations</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Privacy Policy</h4>
+        <ul class="footer-links">
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms & Conditions</a></li>
+          <li><a href="/order-policy">Order Policy</a></li>
+          <li><a href="/booking-policy">Booking Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Info</h4>
+        <p class="footer-contact">Serving London: KT, SW, W, EC postcodes</p>
+        <p class="footer-contact">hello@lightmode.org</p>
+        
+        <div class="footer-form">
+          <div class="footer-form__header">
+            <h5 class="footer-form__title">Contact Us</h5>
+          </div>
+          <div class="footer-form__body">
+            <input type="email" class="footer-form__input" placeholder="Enter Email Address" aria-label="Your email address">
+            <button class="footer-form__submit" onclick="alert('Message sent!')">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom__content">
+        <p class="footer-credit">Designed By Digital Software Labs</p>
+        <div class="footer-legal">
+          <a href="/terms">Terms & Conditions</a>
+          <span>|</span>
+          <a href="/privacy">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script src="script.js"></script>
+<script>
+ // Elements
+// ================= THUMBNAIL SLIDER =================
+const thumbSlider = document.getElementById('thumbnailScroller');
+const thumbPrevBtn = document.getElementById('prevBtn');
+const thumbNextBtn = document.getElementById('nextBtn');
+const thumbnails = document.querySelectorAll('.thumbnail');
+
+let isDown = false;
+let startX;
+let scrollLeft;
+
+let currentThumb = 0;
+const totalThumbs = thumbnails.length;
+
+// Drag (Desktop + Mobile)
+if (thumbSlider) {
+  thumbSlider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    thumbSlider.classList.add('cursor-grabbing');
+    startX = e.pageX - thumbSlider.offsetLeft;
+    scrollLeft = thumbSlider.scrollLeft;
+  });
+
+  thumbSlider.addEventListener('mouseleave', () => {
+    isDown = false;
+    thumbSlider.classList.remove('cursor-grabbing');
+  });
+
+  thumbSlider.addEventListener('mouseup', () => {
+    isDown = false;
+    thumbSlider.classList.remove('cursor-grabbing');
+  });
+
+  thumbSlider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - thumbSlider.offsetLeft;
+    const walk = (x - startX) * 2;
+    thumbSlider.scrollLeft = scrollLeft - walk;
+  });
+
+  // Touch
+  thumbSlider.addEventListener('touchstart', (e) => {
+    isDown = true;
+    startX = e.touches[0].pageX - thumbSlider.offsetLeft;
+    scrollLeft = thumbSlider.scrollLeft;
+  });
+
+  thumbSlider.addEventListener('touchend', () => isDown = false);
+
+  thumbSlider.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    const x = e.touches[0].pageX - thumbSlider.offsetLeft;
+    const walk = (x - startX) * 2;
+    thumbSlider.scrollLeft = scrollLeft - walk;
+  });
+}
+
+// Thumbnail update
+function updateThumbnail(index) {
+  currentThumb = index;
+
+  thumbnails.forEach((thumb, i) => {
+    thumb.classList.toggle('border-black', i === index);
+    thumb.classList.toggle('opacity-100', i === index);
+    thumb.classList.toggle('opacity-50', i !== index);
+  });
+
+  // Sync with main slider
+  updateMainSlide(index);
+}
+
+// Thumbnail buttons
+if (thumbPrevBtn && thumbNextBtn) {
+  thumbPrevBtn.addEventListener('click', () => {
+    currentThumb = (currentThumb - 1 + totalThumbs) % totalThumbs;
+    updateThumbnail(currentThumb);
+  });
+
+  thumbNextBtn.addEventListener('click', () => {
+    currentThumb = (currentThumb + 1) % totalThumbs;
+    updateThumbnail(currentThumb);
+  });
+}
+
+// Thumbnail click
+thumbnails.forEach((thumb, index) => {
+  thumb.addEventListener('click', () => {
+    updateThumbnail(index);
+  });
+});
+
+// ================= MAIN VIDEO SLIDER =================
+const track = document.getElementById('mainVideoTrack');
+const slides = track ? track.children : [];
+
+const mainPrevBtn = document.getElementById('mainPrev');
+const mainNextBtn = document.getElementById('mainNext');
+
+let currentMain = 0;
+const totalMain = slides.length;
+
+// Update main slide
+function updateMainSlide(index) {
+  if (!track || totalMain === 0) return;
+
+  currentMain = index;
+  const slideWidth = slides[0].clientWidth;
+  track.style.transform = `translateX(-${slideWidth * currentMain}px)`;
+
+  // Sync thumbnails
+  thumbnails.forEach((thumb, i) => {
+    thumb.classList.toggle('border-black', i === index);
+  });
+}
+
+// Buttons
+if (mainPrevBtn && mainNextBtn) {
+  mainPrevBtn.addEventListener('click', () => {
+    currentMain = (currentMain - 1 + totalMain) % totalMain;
+    updateMainSlide(currentMain);
+  });
+
+  mainNextBtn.addEventListener('click', () => {
+    currentMain = (currentMain + 1) % totalMain;
+    updateMainSlide(currentMain);
+  });
+}
+
+// Resize fix
+window.addEventListener('resize', () => {
+  updateMainSlide(currentMain);
+});
+
+// Auto slide
+let autoSlide = setInterval(() => {
+  currentMain = (currentMain + 1) % totalMain;
+  updateMainSlide(currentMain);
+}, 5000);
+
+// Pause on hover
+if (track) {
+  track.addEventListener('mouseenter', () => clearInterval(autoSlide));
+  track.addEventListener('mouseleave', () => {
+    autoSlide = setInterval(() => {
+      currentMain = (currentMain + 1) % totalMain;
+      updateMainSlide(currentMain);
+    }, 5000);
+  });
+}
+
+// ================= INIT =================
+if (totalThumbs > 0) {
+  updateThumbnail(0);
+}
+</script>
+</body>
+</html>

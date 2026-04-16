@@ -36,8 +36,8 @@
       </button>
       
       <ul class="navbar-menu" id="navbar-menu" role="menubar">
-        <li role="none"><a href="/" class="navbar-link active" role="menuitem">Home</a></li>
-        <li role="none"><a href="/about.html" class="navbar-link" role="menuitem">About</a></li>
+        <li role="none"><a href="/index.html" class="navbar-link" role="menuitem">Home</a></li>
+        <li role="none"><a class="active" href="/about.html" class="navbar-link" role="menuitem">About</a></li>
         <li role="none"><a href="/children.html" class="navbar-link" role="menuitem">Children</a></li>
         <li role="none"><a href="/expressions.html" class="navbar-link" role="menuitem">Expressions</a></li>
         <li role="none"><a href="/publications.html" class="navbar-link" role="menuitem">Publications</a></li>
@@ -53,8 +53,8 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero" aria-label="Hero section">
-    <h1 class="hero-heading">
+  <section style="padding: 0rem 1.5rem 3rem; margin-top: -20px;" class="hero" aria-label="Hero section">
+    <h1 style="margin-top: -50px;" class="hero-heading">
       We create resources to<br>
       help people understand<br>
       <span style="display: inline-flex; align-items: center; gap: 0.5rem;">
@@ -64,372 +64,15 @@
       </span>
     </h1>
     
-    <div class="bridge-container" role="region" aria-label="Featured content carousel">
-      <div class="bridge-track" id="bridgeTrack"></div>
-    </div>
 
     <p class="hero-description">
       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
     </p>
   </section>
 
-  <!-- Scrolling Banner -->
-  <section class="scroll-banner" aria-label="Scrolling banner">
-    <div class="scroll-track">
-      <img src="/images/sec-img.svg" alt="" loading="lazy">
-      <img src="/images/sec-img.svg" alt="" loading="lazy">
-      <img src="/images/sec-img.svg" alt="" loading="lazy">
-    </div>
-  </section>
 
-  <!-- Welcome Section - PINNED SCROLL ANIMATION -->
-  <section class="welcome-section" id="welcome-section" aria-label="Welcome section">
-    <div class="welcome-bg-blobs" aria-hidden="true">
-      <div class="welcome-blob welcome-blob--yellow"></div>
-      <div class="welcome-blob welcome-blob--orange"></div>
-      <div class="welcome-blob welcome-blob--pink"></div>
-    </div>
-
-    <div class="welcome-content">
-      <div class="welcome-header">
-        <h2 class="welcome-title">
-          <span class="welcome-title-accent">Welcome Lets Begin</span>
-        </h2>
-        <p class="welcome-text">
-          LightMode Ministries is a Christian media ministry dedicated to illuminating lives with the truth of God's Word through storytelling, digital media, and Scripture-centered teaching.
-        </p>
-      </div>
-
-      <div class="welcome-gallery">
-        <!-- Left Images -->
-        <div class="welcome-img welcome-img--left-1" data-welcome-animate="left">
-          <div class="welcome-img-container">
-            <img src="/images/left-top-kids.png" alt="" loading="lazy">
-          </div>
-        </div>
-
-        <div class="welcome-img welcome-img--left-2" data-welcome-animate="left">
-          <div class="welcome-img-container">
-            <img src="/images/Ellipse 1.png" alt="" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Center Image -->
-        <div class="welcome-img welcome-img--center" data-welcome-animate="center">
-          <div class="welcome-img-container">
-            <img src="/images/center-kids.png" alt="Children learning about the Bible" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Right Images -->
-        <div class="welcome-img welcome-img--right-1" data-welcome-animate="right">
-          <div class="welcome-img-container">
-            <img src="/images/single-kid.png" alt="" loading="lazy">
-          </div>
-        </div>
-
-        <div class="welcome-img welcome-img--right-2" data-welcome-animate="right">
-          <div class="welcome-img-container">
-            <img src="/images/right-bottom.png" alt="" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Decorative Icons -->
-        <div class="welcome-deco welcome-deco--1" aria-hidden="true">
-          <img src="/images/Vector.svg" alt="">
-        </div>
-        <div class="welcome-deco welcome-deco--2" aria-hidden="true">
-          <img src="/images/Vector (1).svg" alt="">
-        </div>
-        <div class="welcome-deco welcome-deco--3" aria-hidden="true">
-          <img src="/images/Vector (2).svg" alt="">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Ministry Cards Section - ORIGINAL 4-COLUMN STAGGERED LAYOUT -->
-  <section class="ministry-section" id="ministry-section" aria-labelledby="ministry-title">
-    <div class="ministry-pattern" aria-hidden="true"></div>
-    
-    <div class="ministry-header">
-      <p class="ministry-label">Our Division</p>
-      <h2 class="ministry-title" id="ministry-title">Watch, Read,<br>Listen, and Learn.</h2>
-      <p class="ministry-subtitle">
-        LightMode Ministries Is A Christian Media Ministry Dedicated To Illuminating Lives With The Truth Of God's 
-        Word Through Storytelling, Digital Media, And Scripture-Centered Teaching.
-      </p>
-    </div>
-
-    <div class="ministry-grid">
-      <!-- Card 1: Pink, rotate(6deg) -->
-      <article class="ministry-card ministry-card--pink" data-animate>
-        <div class="ministry-card__icon">
-          <img src="/images/pink.png" alt="" loading="lazy">
-        </div>
-        <h3 class="ministry-card__title">LightMode Children</h3>
-        <p class="ministry-card__desc">
-          Christian cartoons, books, and activities designed to spark faith in young hearts.
-        </p>
-      </article>
-
-      <!-- Card 2: Green, rotate(-8deg), margin-top -->
-      <article class="ministry-card ministry-card--green" data-animate>
-        <div class="ministry-card__icon">
-          <img src="/images/green.png" alt="" loading="lazy">
-        </div>
-        <h3 class="ministry-card__title">LightMode Expressions</h3>
-        <p class="ministry-card__desc">
-          Bible Studies, Sermons, Teen Talks, And Women's Lifestyle Content.
-        </p>
-      </article>
-
-      <!-- Card 3: Yellow, rotate(6deg) -->
-      <article class="ministry-card ministry-card--yellow" data-animate>
-        <div class="ministry-card__icon">
-          <img src="/images/yellow.png" alt="" loading="lazy">
-        </div>
-        <h3 class="ministry-card__title">LightMode Publications</h3>
-        <p class="ministry-card__desc">
-          Devotionals And Spiritual Books.
-        </p>
-      </article>
-
-      <!-- Card 4: Red, rotate(-8deg), margin-top -->
-      <article class="ministry-card ministry-card--red" data-animate>
-        <div class="ministry-card__icon">
-          <img src="/images/red.png" alt="" loading="lazy">
-        </div>
-        <h3 class="ministry-card__title">LightMode Animations</h3>
-        <p class="ministry-card__desc">
-          Animated Bible Teachings And Scripture Meditations.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Video Background Section -->
-  <section class="video-bg-section" aria-label="Featured video background">
-    <video class="video-bg" autoplay muted loop playsinline poster="/images/video-poster.jpg">
-      <source src="/videos/Kuaretta's Project Trailer.mp4" type="video/mp4">
-    </video>
-  </section>
-
-  <!-- Featured Content Section - VIDEO CAROUSEL with hover play/stop -->
-  <section class="featured-section" aria-labelledby="featured-title">
-    <div class="featured-header">
-      <p class="featured-label">Featured Content</p>
-      <h2 class="featured-title" id="featured-title">Only Available<br>on Popular Media</h2>
-      
-      <div class="featured-filters" role="group" aria-label="Content filters">
-        <button class="filter-btn" aria-pressed="false">Children</button>
-        <button class="filter-btn" aria-pressed="false">Families</button>
-        <button class="filter-btn" aria-pressed="false">Bible Teachings</button>
-        <button class="filter-btn" aria-pressed="false">Others</button>
-      </div>
-    </div>
-
-    <!-- Video Scroller - Fixed height and positioning -->
-    <div class="video-scroller" id="videoScroller" tabindex="0" aria-label="Video carousel">
-      <div class="video-track" id="videoTrack">
-        <div class="video-card">
-         <video 
-  src="/videos/video-1.mp4" 
-  muted 
-  preload="metadata" 
-  playsinline
-></video>
-        </div>
-
-        <div class="video-card">
-           <video 
-  src="/videos/video-2.mp4" 
-  muted 
-  preload="metadata" 
-  playsinline
-></video>
-        </div>
-
-        <div class="video-card">
-           <video 
-  src="/videos/video-3.mp4" 
-  muted 
-  preload="metadata" 
-  playsinline
-></video>
-        </div>
-
-        <div class="video-card">
-           <video 
-  src="/videos/Kuaretta's Project Trailer.mp4" 
-  muted 
-  preload="metadata" 
-  playsinline
-></video>
-        </div>
-
-        <div class="video-card">
-           <video 
-  src="/videos/video-1.mp4" 
-  muted 
-  preload="metadata" 
-  playsinline
-></video>
-        </div>
-
-        <div class="video-card">
-           <video 
-  src="/videos/video-2.mp4" 
-  muted 
-  preload="metadata" 
-  playsinline
-></video>
-        </div>
-
-        <div class="video-card">
-          <video 
-  src="/videos/video-3.mp4" 
-  muted 
-  preload="metadata" 
-  playsinline
-></video>
-        </div>
-
-        <div class="video-card">
-           <video 
-  src="/videos/Kuaretta's Project Trailer.mp4" 
-  muted 
-  preload="metadata" 
-  playsinline
-></video>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- View All Section -->
-  <section class="view-all-section" aria-label="View all categories">
-    <p class="view-all-text">
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-    </p>
-    <button class="btn-primary">View All Categories</button>
-  </section>
-
-  <!-- Heroes Section -->
-  <section class="heroes-section" aria-label="Our heroes character showcase">
-    <div class="heroes-header">
-      <p class="heroes-label">Our Division</p>
-      <h2 class="heroes-title">Our Heroes</h2>
-    </div>
-
-    <div class="heroes-slider">
-      <button class="heroes-nav heroes-nav--prev" id="heroesPrev" aria-label="Previous hero">
-        <img src="/images/Group 60.svg" alt="">
-      </button>
-
-      <button class="heroes-nav heroes-nav--next" id="heroesNext" aria-label="Next hero">
-       <img src="/images/Group 59.svg" alt="">
-      </button>
-
-      <div class="heroes-track-container">
-        <div class="heroes-track" id="heroesTrack">
-          <!-- Slide 1 - Kalypso -->
-          <div class="heroes-slide" data-slide="0">
-            <div class="heroes-content">
-              <div class="heroes-character">
-                <div class="heroes-avatar">
-                  <img src="/images/slide-immg.png" alt="Kalypso character portrait" loading="lazy">
-                </div>
-                <div>
-                  <h3 class="heroes-name">Kalypso (Kal)</h3>
-                  <p class="heroes-meta">Age: 12 | Pronounce: She/Her</p>
-                </div>
-              </div>
-              <p class="heroes-desc">
-                LightMode Ministries Is A Christian Media Ministry Dedicated To Illuminating Lives 
-                With The Truth Of God's Word Through Storytelling, Digital Media, And Scripture-
-                Centered Teaching. LightMode Ministries Is A Christian Media Ministry Dedicated To 
-                Illuminating Lives With The Truth Of God's Word Through Storytelling, Digital Media, 
-                And Scripture-Centered Teaching.
-              </p>
-            </div>
-            <div class="heroes-video-wrap">
-              <div class="heroes-video">
-                <video autoplay muted loop playsinline poster="/images/slide-immg.png">
-                  <source src="/videos/video-1.mp4" type="video/mp4">
-                </video>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 2 - Zion -->
-          <div class="heroes-slide" data-slide="1">
-            <div class="heroes-content">
-              <div class="heroes-character">
-                <div class="heroes-avatar">
-                  <img src="/images/slide-immg.png" alt="Zion character portrait" loading="lazy">
-                </div>
-                <div>
-                  <h3 class="heroes-name">Zion (Zee)</h3>
-                  <p class="heroes-meta">Age: 10 | Pronounce: He/Him</p>
-                </div>
-              </div>
-              <p class="heroes-desc">
-                A curious and adventurous young boy who loves exploring God's creation. 
-                Zion teaches kids about faith through exciting adventures and fun stories. 
-                With his backpack full of Bible verses, he helps children understand complex 
-                spiritual concepts in simple, engaging ways.
-              </p>
-            </div>
-            <div class="heroes-video-wrap">
-              <div class="heroes-video">
-                <video muted loop playsinline poster="/images/slide-immg.png">
-                  <source src="/videos/video-2.mp4" type="video/mp4">
-                </video>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 3 - Aria -->
-          <div class="heroes-slide" data-slide="2">
-            <div class="heroes-content">
-              <div class="heroes-character">
-                <div class="heroes-avatar">
-                  <img src="/images/slide-immg.png" alt="Aria character portrait" loading="lazy">
-                </div>
-                <div>
-                  <h3 class="heroes-name">Aria (Ari)</h3>
-                  <p class="heroes-meta">Age: 8 | Pronounce: She/Her</p>
-                </div>
-              </div>
-              <p class="heroes-desc">
-                A sweet and compassionate young girl who spreads love and kindness everywhere 
-                she goes. Aria helps children understand the importance of love, forgiveness, 
-                and friendship through her gentle stories and songs.
-              </p>
-            </div>
-            <div class="heroes-video-wrap">
-              <div class="heroes-video">
-                <video muted loop playsinline poster="/images/slide-immg.png">
-                  <source src="/videos/video-3.mp4" type="video/mp4">
-                </video>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="heroes-dots" role="tablist" aria-label="Hero navigation">
-        <button class="heroes-dot is-active" data-slide="0" role="tab" aria-selected="true" aria-label="Go to slide 1"></button>
-        <button class="heroes-dot" data-slide="1" role="tab" aria-selected="false" aria-label="Go to slide 2"></button>
-        <button class="heroes-dot" data-slide="2" role="tab" aria-selected="false" aria-label="Go to slide 3"></button>
-      </div>
-    </div>
-  </section>
-
- 
-<!-- Newsletter Section -->
-<section class="relative w-full min-h-screen bg-[#122B4A] py-20 px-6 lg:px-12 overflow-hidden">
+  <!-- Newsletter Section -->
+<section class="relative w-full min-h-screen bg-[#FFFFFF] py-20 px-6 lg:px-12 overflow-hidden">
   
   <!-- Decorative Squares -->
   <div class="deco-square deco-1" aria-hidden="true"></div>
@@ -441,90 +84,195 @@
   <div class="deco-square deco-7" aria-hidden="true"></div>
   <div class="deco-square deco-8" aria-hidden="true"></div>
 
-  <div class="max-w-7xl mx-auto relative z-10">
+  <div class="max-w-7xl mx-auto relative z-10 ">
     
-    <div class="text-center mb-16">
-      <p class="text-[#C9A962] text-xs tracking-[0.3em] uppercase mb-4">Our Community</p>
-      <h2 class="font-serif text-[#C9A962] text-3xl md:text-4xl lg:text-4xl leading-tight max-w-2xl mx-auto">
-        A crowd of generous<br>supporters makes it possible.
-      </h2>
-    </div>
-    
-    <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-20"></div>
-
-    <div class="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 mb-20">
-      
-      <div class="relative">
-        <div class="w-[320px] h-[320px] md:w-[400px] md:h-[500px] rounded-full overflow-hidden border-4 border-[#0B1B2B] shadow-2xl">
-          <img src="/images/rounded.png" alt="Community members smiling" class="w-full h-full object-cover" loading="lazy">
-        </div>
-      </div>
-
-      <div class="max-w-md text-center lg:text-left">
-        <div class="flex items-center justify-center lg:justify-start gap-2 mb-6">
-          <img src="/images/Vector.svg" alt="" aria-hidden="true">
-          <span class="text-gray-400 text-xs tracking-wider uppercase">Join the LightMode Community</span>
-        </div>
-
-        <p class="text-white text-3xl text-start mb-8">
-          Receive devotionals, Bible study resources, and new Christian media content straight to your inbox.
-        </p>
-
-        <form class="flex flex-col sm:flex-row items-center gap-2" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-          <input 
-            type="email" 
-            placeholder="Enter your email address" 
-            class="px-4 py-3 rounded-full border border-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-auto" 
-            required
-            aria-label="Email address"
-          >
-          <button type="submit" class="px-8 py-3 bg-[#D4A853] text-[#0B1B2B] text-sm font-medium rounded-full hover:bg-[#C9A962] transition-all duration-300 w-full sm:w-auto">
-            Join Community
-          </button>
-        </form>
-      </div>
-    </div>
-
-    <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-20"></div>
 
     <div class="flex flex-col lg:flex-row items-center justify-evenly gap-12 lg:gap-24">
       
-      <div class="max-w-sm text-start lg:text-left">
-        <div class="flex items-center justify-center lg:justify-start gap-2 mb-6">
-          <img src="/images/Vector.svg" alt="" aria-hidden="true">
-          <span class="text-gray-400 text-xs tracking-wider uppercase">Our Mission & Statement</span>
-        </div>
-
-        <p class="text-white text-3xl text-start mb-8">
-          To illuminate lives with the truth of God's Word through creative Scripture-based media.
-        </p>
-
-        <button class="px-6 py-2 bg-white text-[#0B1B2B] border border-gray-600 text-xs rounded-full hover:bg-[#0B1B2B] hover:text-white transition-all duration-300">
-          Learn More
-        </button>
-      </div>
+      
 
       <div class="relative w-[300px] h-[400px] md:w-[380px] md:h-[480px]">
         
-        <div class="absolute top-0 left-0 w-[180px] h-[320px] md:w-[220px] md:h-[300px] overflow-hidden shadow-2xl z-10 transform transition-transform duration-500 ease-in-out hover:translate-x-12">
+        <div class="absolute top-20 left-0 w-[180px] h-[320px] md:w-[220px] md:h-[300px] overflow-hidden z-10 transform transition-transform duration-500 ease-in-out hover:translate-x-12">
           <img src="/images/Rectangle 30.png" alt="Children with books" class="w-full h-full object-cover" loading="lazy">
         </div>
 
-        <div class="absolute top-0 right-[-20px] w-[140px] h-[100px] md:w-[140px] md:h-[120px] rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-500 ease-in-out hover:translate-x-12" style="margin-top: -50px;">
+        <div class="absolute top-20 right-[-20px] w-[140px] h-[100px] md:w-[140px] md:h-[120px] rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-500 ease-in-out hover:translate-x-12">
           <img src="/images/Rectangle 32.png" alt="Kids learning together" class="w-full h-full object-cover" loading="lazy">
         </div>
 
-        <div class="absolute top-[110px] md:top-[130px] right-[-80px] w-[140px] h-[100px] md:w-[200px] md:h-[140px] rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-500 ease-in-out hover:translate-x-12">
+        <div class="absolute top-[110px] md:top-[230px] right-[-80px] w-[140px] h-[100px] md:w-[200px] md:h-[140px] rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-500 ease-in-out hover:translate-x-12">
           <img src="/images/Rectangle 31.png" alt="Kids reading Bible" class="w-full h-full object-cover" loading="lazy">
         </div>
 
       </div>
+<div class="max-w-sm text-start lg:text-left">
+        <div class="flex items-center justify-center lg:justify-start gap-2 mb-6">
+          <img src="/images/Vector.svg" alt="" aria-hidden="true">
+          <span class="text-gray-900 text-xs tracking-wider uppercase">Our Mission & Statement</span>
+        </div>
 
+        <p class="text-gray-900 text-3xl text-start mb-8">
+          To illuminate lives with the truth of God's Word through creative Scripture-based media.
+        </p>
+        <p class="text-gray-900 text-start mb-8">
+          LightMode Ministries is a Christian media ministry dedicated to illuminating lives with the truth of God’s Word through storytelling, digital media, and Scripture-centered teaching.
+        </p>
+
+       <button style="border: 1px solid black;" class="px-6 py-2 bg-white text-black border border-black text-xs rounded-full hover:bg-gray-400 hover:text-white transition-all duration-300">
+  Learn More
+</button>
+      </div>
     </div>
 
   </div>
 
 </section>
+
+
+<section class="relative w-full min-h-screen bg-[#F0EFEC] py-32 px-6 lg:px-12 overflow-hidden">
+  
+  <!-- Decorative Squares -->
+  <div class="deco-square deco-1" aria-hidden="true"></div>
+  <div class="deco-square deco-2" aria-hidden="true"></div>
+  <div class="deco-square deco-3" aria-hidden="true"></div>
+  <div class="deco-square deco-4" aria-hidden="true"></div>
+  <div class="deco-square deco-5" aria-hidden="true"></div>
+  <div class="deco-square deco-6" aria-hidden="true"></div>
+  <div class="deco-square deco-7" aria-hidden="true"></div>
+  <div class="deco-square deco-8" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10 ">
+    
+
+    <div class="flex flex-col lg:flex-row items-center justify-evenly gap-12 lg:gap-24">
+      
+      
+<div class="max-w-sm text-start lg:text-left">
+        <div class="flex items-center justify-center lg:justify-start gap-2 mb-6">
+          <img src="/images/Vector.svg" alt="" aria-hidden="true">
+          <span class="text-gray-900 text-xs tracking-wider uppercase">Our Mission & Statement</span>
+        </div>
+
+        <p class="text-gray-900 text-3xl text-start mb-8">
+          To illuminate lives with the truth of God's Word through creative Scripture-based media.
+        </p>
+        <p class="text-gray-900 text-start mb-8">
+          LightMode Ministries is a Christian media ministry dedicated to illuminating lives with the truth of God’s Word through storytelling, digital media, and Scripture-centered teaching.
+        </p>
+
+       <button style="border: 1px solid black;" class="px-6 py-2 bg-white text-black border border-black text-xs rounded-full hover:bg-gray-400 hover:text-white transition-all duration-300">
+  Learn More
+</button>
+      </div>
+        <div class="relative">
+        <div class="w-[320px] h-[320px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden shadow-2xl">
+          <img src="/images/rounded.png" alt="Community members smiling" class="w-full h-full object-cover" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="bg-white py-20 px-4 relative overflow-hidden">
+  <!-- Decorative squares left -->
+  <div class="absolute left-0 top-1/4 flex flex-col gap-2">
+    <div class="w-12 h-12 bg-stone-200/50"></div>
+    <div class="w-12 h-12 bg-stone-200/50 ml-8"></div>
+  </div>
+  
+  <!-- Decorative squares right -->
+  <div class="absolute right-0 top-1/2 flex flex-col gap-2">
+    <div class="w-12 h-12 bg-stone-200/50 mr-8"></div>
+    <div class="w-12 h-12 bg-stone-200/50"></div>
+  </div>
+  
+
+  
+  <div class="max-w-4xl mx-auto relative z-10">
+    <!-- Header -->
+    <div class="flex items-center justify-center gap-2 mb-8">
+      <div class="w-8 h-8 flex items-center justify-center">
+        <img src="/images/Vector.svg" alt="">
+      </div>
+      <span class="text-xs uppercase tracking-widest text-stone-500 font-medium">Our Mission & Statement</span>
+    </div>
+    
+    <!-- Main Heading -->
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif text-stone-800 text-center leading-tight mb-8">
+      To illuminate lives with the truth of God's Word through<br>creative Scripture-based media.
+    </h2>
+    
+    <!-- Description -->
+    <p class="text-xs text-stone-500 text-center max-w-3xl mx-auto leading-relaxed mb-10 px-4">
+      LightMode Ministries Is A Christian Media Ministry Dedicated To Illuminating Lives With The Truth Of God's Word Through Storytelling, Digital Media, And Scripture-Centered Teaching.LightMode Ministries Is A Christian Media Ministry Dedicated To Illuminating Lives With The Truth Of God's Word Through Storytelling, Digital Media, And Scripture-Centered Teaching.LightMode Ministries Is A Christian Media Ministry Dedicated To Illuminating Lives With The Truth Of God's Word Through Storytelling, Digital Media, And Scripture-Centered Teaching.
+    </p>
+    
+    <!-- Button -->
+    <div class="flex justify-center">
+      <button class="px-8 py-3 border border-stone-800 rounded-full text-sm text-stone-800 hover:bg-stone-800 hover:text-white transition-colors duration-300">
+        Learn More
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="bg-[#F1B75B] py-20 px-4">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-center justify-center gap-2 mb-6">
+      <div class="w-8 h-8  flex items-center justify-center">
+        <img src="/images/Vector.svg" alt="">
+      </div>
+      <span class="text-xs uppercase tracking-widest text-stone-700 font-medium">Our Mission & Statement</span>
+    </div>
+    
+    <!-- Main Heading -->
+    <h2 class="text-4xl md:text-5xl font-serif text-stone-800 text-center max-w-3xl mx-auto leading-tight mb-6">
+      To illuminate lives with the truth<br>creative Scripture-based media.
+    </h2>
+    
+    <!-- Description -->
+    <p class="text-xs text-stone-700 text-center max-w-xl mx-auto leading-relaxed mb-16">
+      LightMode Ministries Is A Christian Media Ministry Dedicated To Illuminating Lives With The Truth Of God's Word Through Storytelling, Digital Media, And Scripture-Centered Teaching
+    </p>
+    
+    <!-- Team Images -->
+    <div class="flex justify-center items-end gap-4 md:gap-6 overflow-x-auto pb-4">
+      <!-- Person 1 -->
+      <div class="flex-shrink-0 w-40 md:w-56 h-56 md:h-72 rounded-t-full overflow-hidden bg-stone-400">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Team member" class="w-full h-full object-cover grayscale">
+      </div>
+      
+      <!-- Person 2 -->
+      <div class="flex-shrink-0 w-40 md:w-56 h-64 md:h-72 rounded-t-full overflow-hidden bg-stone-400">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop" alt="Team member" class="w-full h-full object-cover grayscale">
+      </div>
+      
+      <!-- Person 3 - Featured with overlay -->
+      <div class="flex-shrink-0 w-40 md:w-56 h-56 md:h-72 rounded-t-full overflow-hidden relative bg-stone-600">
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop" alt="Alicia Fluston" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-4">
+          <h3 class="text-white font-serif text-lg mb-1">Alicia Fluston</h3>
+          <p class="text-white/80 text-[10px] leading-tight">LightMode Ministries Is A Christian Media Ministry Dedicated To Illuminating Lives With The Truth Of God's Word Through Storytelling, Digital Media, And Scripture-Centered Teaching</p>
+        </div>
+      </div>
+      
+      <!-- Person 4 -->
+      <div class="flex-shrink-0 w-40 md:w-56 h-64 md:h-72 rounded-t-full overflow-hidden bg-stone-400">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop" alt="Team member" class="w-full h-full object-cover grayscale">
+      </div>
+      
+      <!-- Person 5 -->
+      <div class="flex-shrink-0 w-40 md:w-56 h-56 md:h-72 rounded-t-full overflow-hidden bg-stone-400">
+        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop" alt="Team member" class="w-full h-full object-cover grayscale">
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- Testimonials Section -->
   <section class="testimonials-section" aria-label="Testimonials">
@@ -664,6 +412,7 @@
     </div>
   </section>
 
+
   <!-- News Section -->
   <section class="news-section" aria-labelledby="news-title">
     <div class="news-header">
@@ -710,7 +459,8 @@
     </div>
   </section>
 
-  <!-- Footer -->
+
+    <!-- Footer -->
   <footer class="footer" role="contentinfo">
     <div class="footer-deco footer-deco--1" aria-hidden="true"></div>
     <div class="footer-deco footer-deco--2" aria-hidden="true"></div>
@@ -793,8 +543,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- JavaScript -->
 <script src="script.js"></script>
 </body>
 </html>

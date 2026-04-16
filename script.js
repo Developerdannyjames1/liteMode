@@ -1,950 +1,524 @@
+   /* ============================================
+       UTILITY FUNCTIONS
+       ============================================ */
+    const debounce = (func, wait) => {
+      let timeout;
+      return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+      };
+    };
 
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Initialize all modules
-    initBridgeCarousel();
-    initMinistryCardsAnimation();
-    initVideoScroller();
-    initHeroSlider();
-    initTestimonialCarousel();
-    initScrollAnimations();
-    initVideoPlayback();
-    initSmoothScroll();
-    
-});
+    /* ============================================
+       NAVBAR - Non-sticky, mobile toggle
+       ============================================ */
+    const initNavbar = () => {
+      const toggle = document.querySelector('.navbar-toggle');
+      const menu = document.querySelector('.navbar-menu');
+      
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          const isOpen = menu.classList.toggle('is-open');
+          toggle.setAttribute('aria-expanded', isOpen);
+        });
+      }
 
-/* ============================================
-   BRIDGE CAROUSEL (Hero Section)
-   ============================================ */
-function initBridgeCarousel() {
-    const IMAGES = [
-        "/images/img1.png",
-        "/images/img2.png",
-        "/images/img3.png",
-        "/images/img4.png",
-        "/images/img5.png",
-        "/images/img1.png",
-        "/images/img2.png",
-        "/images/img3.png",
-        "/images/img4.png",
-        "/images/img5.png"
-    ];
-    
-    const originalSetCount = IMAGES.length;
-    const track = document.getElementById('bridgeTrack');
-    
-    if (!track) return;
-    
-    let cards = [];
-    let currentTranslateX = 0;
-    let animationId = null;
-    let lastTimestamp = 0;
-    const speed = 85; // pixels per second
-    
-    let totalTrackWidth = 0;
-    let originalSetWidth = 0;
-    let halfWrapThreshold = 0;
-    
-    function buildTrack() {
+      document.querySelectorAll('.navbar-link').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    };
+
+    /* ============================================
+       BRIDGE CAROUSEL
+       ============================================ */
+    const initBridgeCarousel = () => {
+      const IMAGES = [
+        "/images/img1.png", "/images/img2.png", "/images/img3.png",
+        "/images/img4.png", "/images/img5.png"
+      ];
+      
+      const track = document.getElementById('bridgeTrack');
+      if (!track) return;
+
+      const buildTrack = () => {
         track.innerHTML = '';
-        
-        // Create 3 copies for seamless looping
-        for (let copy = 0; copy < 3; copy++) {
-            IMAGES.forEach((imgUrl, idx) => {
-                const card = document.createElement('div');
-                card.className = 'bridge-card';
-                const img = document.createElement('img');
-                img.src = imgUrl;
-                img.alt = `Featured scene ${idx + 1}`;
-                img.loading = 'eager';
-                card.appendChild(img);
-                track.appendChild(card);
-            });
+        for (let i = 0; i < 3; i++) {
+          IMAGES.forEach((src, idx) => {
+            const card = document.createElement('div');
+            card.className = 'bridge-card';
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `Featured scene ${idx + 1}`;
+            img.loading = 'eager';
+            card.appendChild(img);
+            track.appendChild(card);
+          });
         }
-        
-        cards = Array.from(document.querySelectorAll('.bridge-card'));
-        updateDimensions();
-        updateAllCardTransforms();
-    }
-    
-    function updateDimensions() {
-        if (!cards.length) return;
-        
-        const firstCard = cards[0];
-        const cardRect = firstCard.getBoundingClientRect();
-        const actualCardWidth = cardRect.width;
-        const computedStyle = window.getComputedStyle(firstCard);
-        const marginRightVal = parseFloat(computedStyle.marginRight) || 0;
-        const actualOverlap = marginRightVal;
-        
-        if (cards.length > 0) {
-            totalTrackWidth = (cards.length - 1) * (actualCardWidth - actualOverlap) + actualCardWidth;
-        }
-        
-        originalSetWidth = (originalSetCount - 1) * (actualCardWidth - actualOverlap) + actualCardWidth;
-        halfWrapThreshold = originalSetWidth;
-    }
-    
-    function updateAllCardTransforms() {
-        if (!cards.length) return;
-        
-        const container = document.querySelector('.bridge-container');
+      };
+
+      buildTrack();
+
+      const cards = Array.from(track.querySelectorAll('.bridge-card'));
+      let currentX = 0;
+      let animationId = null;
+      let lastTime = 0;
+      const speed = 85;
+
+      const getDimensions = () => {
+        if (!cards.length) return { cardWidth: 0, overlap: 0, setWidth: 0 };
+        const card = cards[0];
+        const style = window.getComputedStyle(card);
+        const marginRight = parseFloat(style.marginRight) || 0;
+        const cardWidth = card.getBoundingClientRect().width;
+        return {
+          cardWidth,
+          overlap: Math.abs(marginRight),
+          setWidth: (IMAGES.length - 1) * (cardWidth + marginRight) + cardWidth
+        };
+      };
+
+      const updateCardTransforms = () => {
+        const container = track.parentElement;
         if (!container) return;
         
-        const containerBounds = container.getBoundingClientRect();
-        const containerCenterX = containerBounds.left + containerBounds.width / 2;
-        
-        // Arch parameters - bottom fixed, top moves
-        const maxLift = 60;
-        const maxRotation = 8;
-        const minScale = 0.88;
-        const maxScale = 1.0;
-        
-        cards.forEach(card => {
-            const cardBounds = card.getBoundingClientRect();
-            const cardCenterX = cardBounds.left + cardBounds.width / 2;
-            
-            // Normalized position from -1 (left) to +1 (right)
-            let t = (cardCenterX - containerCenterX) / (containerBounds.width / 2);
-            t = Math.min(1.0, Math.max(-1.0, t));
-            
-            const absT = Math.abs(t);
-            
-            // Vertical lift: peak at center, zero at edges
-            const liftFactor = Math.cos((absT * Math.PI) / 2);
-            const verticalOffset = -maxLift * liftFactor;
-            
-            // Rotation: slight tilt at edges
-            const rotationDeg = t * maxRotation * (1 - liftFactor * 0.3);
-            
-            // Scale: larger at center
-            const scaleFactor = minScale + (maxScale - minScale) * liftFactor;
-            
-            // Apply transform - bottom is fixed
-            card.style.transform = `translateY(${verticalOffset}px) rotate(${rotationDeg}deg) scale(${scaleFactor})`;
-            
-            // Z-index: center cards on top
-            const zIndexVal = Math.floor(30 - absT * 20);
-            card.style.zIndex = Math.max(5, Math.min(30, zIndexVal));
-        });
-    }
-    
-    function updateTrackPosition(deltaTime) {
-        if (!track) return;
-        
-        const step = speed * deltaTime;
-        currentTranslateX -= step;
-        
-        if (currentTranslateX <= -halfWrapThreshold) {
-            currentTranslateX += originalSetWidth;
-        }
-        
-        if (currentTranslateX > 0) {
-            currentTranslateX = -originalSetWidth * 0.2;
-        }
-        
-        track.style.transform = `translate3d(${currentTranslateX}px, 0, 0)`;
-    }
-    
-    let previousTime = null;
-    
-    function animateCarousel(nowMs) {
-        if (!previousTime) {
-            previousTime = nowMs;
-            requestAnimationFrame(animateCarousel);
-            return;
-        }
-        
-        let delta = Math.min(0.033, (nowMs - previousTime) / 1000);
-        if (delta <= 0) {
-            previousTime = nowMs;
-            requestAnimationFrame(animateCarousel);
-            return;
-        }
-        
-        updateTrackPosition(delta);
-        updateAllCardTransforms();
-        
-        previousTime = nowMs;
-        animationId = requestAnimationFrame(animateCarousel);
-    }
-    
-    let resizeTimeout;
-    function handleResize() {
-        if (resizeTimeout) clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            updateDimensions();
-            if (originalSetWidth > 0) {
-                while (currentTranslateX <= -originalSetWidth) {
-                    currentTranslateX += originalSetWidth;
-                }
-                while (currentTranslateX > 0) {
-                    currentTranslateX -= originalSetWidth;
-                }
-                track.style.transform = `translate3d(${currentTranslateX}px, 0, 0)`;
-            }
-            updateAllCardTransforms();
-        }, 80);
-    }
-    
-    // Initialize
-    buildTrack();
-    
-    // Start animation after a brief delay to ensure layout is complete
-    setTimeout(() => {
-        updateDimensions();
-        updateAllCardTransforms();
-        animationId = requestAnimationFrame(animateCarousel);
-    }, 50);
-    
-    // Event listeners
-    window.addEventListener('resize', handleResize);
-    
-    const observer = new ResizeObserver(() => {
-        updateDimensions();
-        updateAllCardTransforms();
-    });
-    
-    observer.observe(track);
-    
-    // Expose for debugging
-    window.__bridgeCarousel = { updateDimensions, updateAllCardTransforms };
-}
+        const containerRect = container.getBoundingClientRect();
+        const centerX = containerRect.left + containerRect.width / 2;
 
-/* ============================================
-   MINISTRY CARDS ANIMATION
-   ============================================ */
-function initMinistryCardsAnimation() {
-    const section = document.querySelector('section.bg-\\[\\#F1B75B\\]');
-    if (!section) return;
-    
-    const cards = Array.from(section.querySelectorAll('.ministry-card'));
-    if (cards.length === 0) return;
-    
-    let animationTriggered = false;
-    
-    function startSequentialAnimation() {
-        if (animationTriggered) return;
-        animationTriggered = true;
-        
-        const baseDelay = 80;
-        const cardDelayIncrement = 140;
-        
-        cards.forEach((card, idx) => {
+        cards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          const cardCenterX = rect.left + rect.width / 2;
+          
+          let t = (cardCenterX - centerX) / (containerRect.width / 2);
+          t = Math.max(-1, Math.min(1, t));
+          
+          const absT = Math.abs(t);
+          const lift = -60 * Math.cos((absT * Math.PI) / 2);
+          const rotation = t * 8 * (1 - absT * 0.3);
+          const scale = 0.88 + 0.12 * Math.cos((absT * Math.PI) / 2);
+          const zIndex = Math.floor(30 - absT * 20);
+
+          card.style.transform = `translate3d(0, ${lift}px, 0) rotate(${rotation}deg) scale(${scale})`;
+          card.style.zIndex = Math.max(5, zIndex);
+        });
+      };
+
+      const animate = (timestamp) => {
+        if (!lastTime) lastTime = timestamp;
+        const delta = Math.min(0.033, (timestamp - lastTime) / 1000);
+        lastTime = timestamp;
+
+        const { setWidth } = getDimensions();
+        currentX -= speed * delta;
+
+        if (setWidth > 0) {
+          if (currentX <= -setWidth) currentX += setWidth;
+          if (currentX > 0) currentX -= setWidth;
+        }
+
+        track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+        updateCardTransforms();
+        animationId = requestAnimationFrame(animate);
+      };
+
+      requestAnimationFrame(animate);
+
+      window.addEventListener('resize', debounce(() => {
+        const { setWidth } = getDimensions();
+        if (setWidth > 0 && currentX <= -setWidth) {
+          currentX += setWidth;
+        }
+      }, 100));
+    };
+
+    /* ============================================
+       WELCOME SECTION - PINNED SCROLL ANIMATION
+       ============================================ */
+    const initWelcomeAnimation = () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const section = document.getElementById('welcome-section');
+      if (!section) return;
+
+      const leftImages = section.querySelectorAll('[data-welcome-animate="left"]');
+      const rightImages = section.querySelectorAll('[data-welcome-animate="right"]');
+      const centerImage = section.querySelector('[data-welcome-animate="center"]');
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "+=1000",
+          scrub: 1.2,
+          pin: true,
+          anticipatePin: 1,
+        }
+      });
+
+      tl.from(leftImages, {
+        x: -400,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.1,
+        ease: "power2.out"
+      }, 0);
+
+      tl.from(rightImages, {
+        x: 400,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.1,
+        ease: "power2.out"
+      }, 0);
+
+      tl.from(centerImage, {
+        scale: 0.8,
+        opacity: 0,
+        duration: 1,
+        ease: "back.out(1.2)"
+      }, 0.2);
+    };
+
+    /* ============================================
+       MINISTRY CARDS ANIMATION
+       ============================================ */
+    const initMinistryCards = () => {
+      const cards = document.querySelectorAll('.ministry-card[data-animate]');
+      if (!cards.length) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
             setTimeout(() => {
-                if (card.classList.contains('init-hide')) {
-                    card.classList.remove('init-hide');
-                }
-            }, baseDelay + (idx * cardDelayIncrement));
+              entry.target.classList.add('is-visible');
+            }, index * 150);
+          } else {
+            entry.target.classList.remove('is-visible');
+          }
         });
-    }
-    
-    // Intersection Observer
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !animationTriggered) {
-                startSequentialAnimation();
-                obs.unobserve(section);
-            }
-        });
-    }, { threshold: 0.25, rootMargin: "0px 0px -20px 0px" });
-    
-    observer.observe(section);
-    
-    // Fallback check
-    if (!animationTriggered) {
-        const rect = section.getBoundingClientRect();
-        const winHeight = window.innerHeight || document.documentElement.clientHeight;
-        if (rect.top < winHeight - 100 && rect.bottom > 100) {
-            startSequentialAnimation();
-            observer.unobserve(section);
-        }
-    }
-    
-    // Scroll-based fallback
-    let hasCheckedScroll = false;
-    function checkVisibilityOnScroll() {
-        if (animationTriggered) {
-            window.removeEventListener('scroll', checkVisibilityOnScroll);
-            return;
-        }
-        
-        const rect = section.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-        
-        if (rect.top < viewportHeight - 80 && rect.bottom > 120) {
-            startSequentialAnimation();
-            window.removeEventListener('scroll', checkVisibilityOnScroll);
-            observer.unobserve(section);
-        }
-    }
-    
-    window.addEventListener('scroll', checkVisibilityOnScroll, { passive: true });
-    
-    setTimeout(() => {
-        if (!animationTriggered) {
-            checkVisibilityOnScroll();
-        }
-    }, 200);
-}
+      }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+      });
 
-function initVideoScroller() {
-    const videoScroller = document.getElementById('videoScroller');
-    const scrollerTrack = document.getElementById('scrollerTrack');
-    const cards = document.querySelectorAll('.video-card');
-    
-    if (!videoScroller || !cards.length) return;
-    
-    // Responsive parameters
-    let maxLift = 80;
-    let maxRotation = 12;
-    let minScale = 0.9;
-    
-    function updateParameters() {
-        const width = window.innerWidth;
-        if (width >= 1440) {
-            maxLift = 100;
-            maxRotation = 15;
-            minScale = 0.85;
-        } else if (width >= 1200) {
-            maxLift = 90;
-            maxRotation = 13;
-            minScale = 0.87;
-        } else if (width >= 1024) {
-            maxLift = 80;
-            maxRotation = 12;
-            minScale = 0.9;
-        } else if (width >= 768) {
-            maxLift = 60;
-            maxRotation = 10;
-            minScale = 0.92;
-        } else {
-            maxLift = 40;
-            maxRotation = 8;
-            minScale = 0.95;
-        }
-    }
-    
-    updateParameters();
-    
-    // Bridge curve animation
-    function updateBridgeCurve() {
-        const containerRect = videoScroller.getBoundingClientRect();
-        const containerCenterX = containerRect.left + containerRect.width / 2;
-        
+      cards.forEach(card => observer.observe(card));
+    };
+
+    /* ============================================
+       VIDEO SCROLLER - FIXED with HOVER PLAY/STOP
+       ============================================ */
+    const initVideoScroller = () => {
+      const scroller = document.getElementById('videoScroller');
+      const track = document.getElementById('videoTrack');
+      if (!scroller || !track) return;
+
+      const cards = track.querySelectorAll('.video-card');
+      
+cards.forEach(card => {
+  const video = card.querySelector('video');
+  if (video) {
+
+    // ✅ Autoplay setup
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+
+    // ✅ Ensure video starts automatically
+    video.addEventListener('loadeddata', () => {
+      video.currentTime = 0.01;
+      video.play().catch(() => {});
+    });
+
+    // ✅ Hover = Pause
+    card.addEventListener('mouseenter', () => {
+      video.pause();
+    });
+
+    // ✅ Leave = Resume Play
+    card.addEventListener('mouseleave', () => {
+      video.play().catch(() => {});
+    });
+  }
+});
+      const updateBridgeCurve = () => {
+        const containerRect = scroller.getBoundingClientRect();
+        const centerX = containerRect.left + containerRect.width / 2;
+
         cards.forEach(card => {
-            const cardRect = card.getBoundingClientRect();
-            const cardCenterX = cardRect.left + cardRect.width / 2;
-            
-            let distanceFromCenter = (cardCenterX - containerCenterX) / (containerRect.width / 2);
-            distanceFromCenter = Math.max(-1, Math.min(1, distanceFromCenter));
-            
-            const absDistance = Math.abs(distanceFromCenter);
-            const archFactor = Math.cos((absDistance * Math.PI) / 2);
-            const lift = maxLift * archFactor;
-            const rotation = distanceFromCenter * maxRotation * (1 - archFactor * 0.5);
-            const scale = minScale + (1 - minScale) * archFactor;
-            const zIndex = Math.floor(20 - absDistance * 10);
-            
-            card.style.transform = `translateY(-${lift}px) rotate(${rotation}deg) scale(${scale})`;
-            card.style.zIndex = zIndex;
-            
-            if (absDistance < 0.3) {
-                card.classList.add('active-center');
-            } else {
-                card.classList.remove('active-center');
-            }
+          const rect = card.getBoundingClientRect();
+          const cardCenterX = rect.left + rect.width / 2;
+          
+          let distance = (cardCenterX - centerX) / (containerRect.width / 2);
+          distance = Math.max(-1, Math.min(1, distance));
+          
+          const absDist = Math.abs(distance);
+          const arch = Math.cos((absDist * Math.PI) / 2);
+          
+          const lift = 80 * arch;
+          const rotation = distance * 12 * (1 - arch * 0.5);
+          const scale = 0.9 + 0.1 * arch;
+          const zIndex = Math.floor(20 - absDist * 10);
+
+          card.style.transform = `translate3d(0, -${lift}px, 0) rotate(${rotation}deg) scale(${scale})`;
+          card.style.zIndex = zIndex;
         });
-    }
-    
-    // SMART WHEEL HANDLER - allows page scroll at boundaries
-    let isAtStart = false;
-    let isAtEnd = false;
-    
-    function checkBoundaries() {
-        const scrollLeft = videoScroller.scrollLeft;
-        const maxScroll = videoScroller.scrollWidth - videoScroller.clientWidth;
-        
+      };
+
+      let isAtStart = false;
+      let isAtEnd = false;
+
+      const checkBoundaries = () => {
+        const scrollLeft = scroller.scrollLeft;
+        const maxScroll = scroller.scrollWidth - scroller.clientWidth;
         isAtStart = scrollLeft <= 5;
-        isAtEnd = (maxScroll - scrollLeft) <= 5;
-        
-        // Visual feedback at boundaries
-        if (isAtEnd) {
-            videoScroller.style.overscrollBehaviorX = 'auto';
-        } else {
-            videoScroller.style.overscrollBehaviorX = 'contain';
-        }
-    }
-    
-    // Wheel event with boundary detection
-    videoScroller.addEventListener('wheel', (e) => {
+        isAtEnd = maxScroll - scrollLeft <= 5;
+      };
+
+      scroller.addEventListener('wheel', (e) => {
         checkBoundaries();
         
-        const isScrollingDown = e.deltaY > 0;
-        const isScrollingUp = e.deltaY < 0;
-        
-        // If at END and scrolling DOWN/RIGHT -> allow page scroll
-        if (isAtEnd && isScrollingDown) {
-            // Don't prevent default - let page scroll
-            return;
+        const scrollingDown = e.deltaY > 0;
+        const scrollingUp = e.deltaY < 0;
+
+        if ((isAtEnd && scrollingDown) || (isAtStart && scrollingUp && window.scrollY > 0)) {
+          return;
         }
-        
-        // If at START and scrolling UP/LEFT and page is scrolled down -> allow page scroll  
-        if (isAtStart && isScrollingUp && window.scrollY > 0) {
-            return;
-        }
-        
-        // Otherwise, scroll the carousel horizontally
+
         e.preventDefault();
-        videoScroller.scrollLeft += e.deltaY;
+        scroller.scrollLeft += e.deltaY;
         requestAnimationFrame(updateBridgeCurve);
-    }, { passive: false });
-    
-    // Regular scroll event for animation
-    videoScroller.addEventListener('scroll', () => {
+      }, { passive: false });
+
+      scroller.addEventListener('scroll', () => {
         checkBoundaries();
         requestAnimationFrame(updateBridgeCurve);
-    }, { passive: true });
-    
-    // Drag to scroll
-    let isDown = false;
-    let startX;
-    let startScrollLeft;
-    
-    videoScroller.addEventListener('mousedown', (e) => {
+      }, { passive: true });
+
+      // Drag to scroll
+      let isDown = false;
+      let startX;
+      let startScrollLeft;
+
+      scroller.addEventListener('mousedown', (e) => {
         isDown = true;
-        videoScroller.style.cursor = 'grabbing';
-        startX = e.pageX - videoScroller.offsetLeft;
-        startScrollLeft = videoScroller.scrollLeft;
-    });
-    
-    window.addEventListener('mouseleave', () => {
+        scroller.style.cursor = 'grabbing';
+        startX = e.pageX - scroller.offsetLeft;
+        startScrollLeft = scroller.scrollLeft;
+      });
+
+      window.addEventListener('mouseup', () => {
         isDown = false;
-        videoScroller.style.cursor = 'grab';
-    });
-    
-    window.addEventListener('mouseup', () => {
-        isDown = false;
-        videoScroller.style.cursor = 'grab';
-    });
-    
-    videoScroller.addEventListener('mousemove', (e) => {
+        scroller.style.cursor = 'grab';
+      });
+
+      scroller.addEventListener('mousemove', (e) => {
         if (!isDown) return;
         e.preventDefault();
-        const x = e.pageX - videoScroller.offsetLeft;
+        const x = e.pageX - scroller.offsetLeft;
         const walk = (x - startX) * 1.5;
-        videoScroller.scrollLeft = startScrollLeft - walk;
+        scroller.scrollLeft = startScrollLeft - walk;
         requestAnimationFrame(updateBridgeCurve);
-    });
-    
-    // Touch support
-    let touchStartX = 0;
-    let touchStartY = 0;
-    
-    videoScroller.addEventListener('touchstart', (e) => {
+      });
+
+      // Touch support
+      let touchStartX = 0;
+      
+      scroller.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-    
-    videoScroller.addEventListener('touchmove', (e) => {
+      }, { passive: true });
+
+      scroller.addEventListener('touchmove', (e) => {
         const touchX = e.touches[0].clientX;
-        const touchY = e.touches[0].clientY;
         const deltaX = touchStartX - touchX;
-        const deltaY = touchStartY - touchY;
         
-        // Horizontal scroll dominates
-        if (Math.abs(deltaX) > Math.abs(deltaY)) {
-            const scrollLeft = videoScroller.scrollLeft;
-            const maxScroll = videoScroller.scrollWidth - videoScroller.clientWidth;
-            const atEnd = (maxScroll - scrollLeft) < 10;
-            
-            // If at end and swiping left (next), allow page scroll
-            if (atEnd && deltaX > 50) {
-                return;
-            }
-            
-            e.preventDefault();
-            videoScroller.scrollLeft += deltaX * 0.5;
-            touchStartX = touchX;
-            requestAnimationFrame(updateBridgeCurve);
+        const scrollLeft = scroller.scrollLeft;
+        const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+        
+        if (Math.abs(deltaX) > 10 && maxScroll - scrollLeft > 10) {
+          e.preventDefault();
+          scroller.scrollLeft += deltaX * 0.5;
+          touchStartX = touchX;
+          requestAnimationFrame(updateBridgeCurve);
         }
-    }, { passive: false });
-    
-    // Initial setup
-    updateBridgeCurve();
-    checkBoundaries();
-    
-    // Update on resize
-    window.addEventListener('resize', () => {
-        updateParameters();
-        updateBridgeCurve();
-        checkBoundaries();
-    });
-    
-    // Animation loop
-    function animate() {
-        updateBridgeCurve();
-        requestAnimationFrame(animate);
-    }
-    animate();
-    
-    // Header observer
-    const headerObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('header-visible');
-                entry.target.classList.remove('header-hidden');
-            }
-        });
-    }, { threshold: 0.15 });
-    
-    const headerDiv = document.getElementById('featured-header');
-    if (headerDiv) headerObserver.observe(headerDiv);
-}
+      }, { passive: false });
 
-/* ============================================
-   HERO SLIDER (Characters Section)
-   ============================================ */
-function initHeroSlider() {
-    class HeroSlider {
-        constructor() {
-            this.slidesTrack = document.getElementById('slidesTrack');
-            this.slides = document.querySelectorAll('.slide');
-            this.dots = document.querySelectorAll('.dot');
-            this.prevBtn = document.getElementById('prevBtn');
-            this.nextBtn = document.getElementById('nextBtn');
-            
-            this.currentIndex = 0;
-            this.totalSlides = this.slides.length;
-            this.isAnimating = false;
-            
-            if (this.slides.length > 0) {
-                this.init();
-            }
-        }
-        
-        init() {
-            this.updateSlidesPosition();
-            this.updateActiveSlide();
-            this.updateDots();
-            
-            // Event listeners
-            this.prevBtn.addEventListener('click', () => this.prevSlide());
-            this.nextBtn.addEventListener('click', () => this.nextSlide());
-            
-            // Dot navigation
-            this.dots.forEach(dot => {
-                dot.addEventListener('click', (e) => {
-                    const index = parseInt(e.target.getAttribute('data-index'));
-                    this.goToSlide(index);
-                });
-            });
-            
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') this.prevSlide();
-                if (e.key === 'ArrowRight') this.nextSlide();
-            });
-            
-            // Touch/Swipe support
-            let touchStartX = 0;
-            let touchEndX = 0;
-            
-            const container = document.querySelector('.heroes-container');
-            
-            container.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, { passive: true });
-            
-            container.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                this.handleSwipe(touchStartX, touchEndX);
-            }, { passive: true });
-            
-            this.setupVideos();
-        }
-        
-        handleSwipe(startX, endX) {
-            const swipeThreshold = 50;
-            const diff = endX - startX;
-            
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) {
-                    this.prevSlide();
-                } else {
-                    this.nextSlide();
-                }
-            }
-        }
-        
-        updateSlidesPosition() {
-            if (this.slidesTrack) {
-                const offset = -this.currentIndex * 100;
-                this.slidesTrack.style.transform = `translateX(${offset}%)`;
-            }
-        }
-        
-        updateActiveSlide() {
-            this.slides.forEach((slide, index) => {
-                slide.style.display = 'flex';
-                
-                // Update ARIA
-                const dot = this.dots[index];
-                if (dot) {
-                    dot.setAttribute('aria-selected', index === this.currentIndex ? 'true' : 'false');
-                    dot.classList.toggle('active', index === this.currentIndex);
-                }
-            });
-        }
-        
-        updateDots() {
-            this.dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === this.currentIndex);
-                dot.setAttribute('aria-selected', index === this.currentIndex ? 'true' : 'false');
-            });
-        }
-        
-        updateVideos() {
-            // Pause all videos
-            this.slides.forEach(slide => {
-                const video = slide.querySelector('video');
-                if (video) {
-                    video.pause();
-                }
-            });
-            
-            // Play current slide video
-            const currentSlide = this.slides[this.currentIndex];
-            const currentVideo = currentSlide.querySelector('video');
-            if (currentVideo) {
-                currentVideo.play().catch(e => console.log('Autoplay prevented:', e));
-            }
-        }
-        
-        setupVideos() {
-            // Video hover effect
-            document.querySelectorAll('.video-wrapper').forEach(wrapper => {
-                const video = wrapper.querySelector('video');
-                
-                wrapper.addEventListener('mouseenter', () => {
-                    if (video && this.slides[this.currentIndex].contains(video)) {
-                        video.play();
-                    }
-                });
-            });
-            
-            // Initial video play
-            setTimeout(() => {
-                this.updateVideos();
-            }, 100);
-        }
-        
-        nextSlide() {
-            if (this.isAnimating) return;
-            this.isAnimating = true;
-            
-            if (this.currentIndex < this.totalSlides - 1) {
-                this.currentIndex++;
-            } else {
-                this.currentIndex = 0;
-            }
-            
-            this.updateSlidesPosition();
-            this.updateDots();
-            this.updateVideos();
-            
-            setTimeout(() => {
-                this.isAnimating = false;
-            }, 500);
-        }
-        
-        prevSlide() {
-            if (this.isAnimating) return;
-            this.isAnimating = true;
-            
-            if (this.currentIndex > 0) {
-                this.currentIndex--;
-            } else {
-                this.currentIndex = this.totalSlides - 1;
-            }
-            
-            this.updateSlidesPosition();
-            this.updateDots();
-            this.updateVideos();
-            
-            setTimeout(() => {
-                this.isAnimating = false;
-            }, 500);
-        }
-        
-        goToSlide(index) {
-            if (this.isAnimating || index === this.currentIndex) return;
-            if (index < 0 || index >= this.totalSlides) return;
-            
-            this.isAnimating = true;
-            this.currentIndex = index;
-            
-            this.updateSlidesPosition();
-            this.updateDots();
-            this.updateVideos();
-            
-            setTimeout(() => {
-                this.isAnimating = false;
-            }, 500);
-        }
-    }
-    
-    // Initialize slider
-    new HeroSlider();
-}
-
-/* ============================================
-   TESTIMONIAL CAROUSEL
-   ============================================ */
-function initTestimonialCarousel() {
-    const container = document.getElementById('testimonialContainer');
-    const cards = document.querySelectorAll('.testimonial-card');
-    const totalCards = cards.length;
-    
-    if (!container || !cards.length) return;
-    
-    let currentCenterIndex = 2; // Start with center card
-    let isAnimating = false;
-    
-    const vPositions = ['v-position-0', 'v-position-1', 'v-position-2', 'v-position-3', 'v-position-4'];
-    
-    function updateVPositions() {
-        cards.forEach((card, index) => {
-            // Remove all V position classes
-            vPositions.forEach(pos => card.classList.remove(pos));
-            card.classList.remove('is-center');
-            
-            // Calculate distance from center
-            let distance = index - currentCenterIndex;
-            
-            // Handle wrap-around
-            if (distance < -2) distance += totalCards;
-            if (distance > 2) distance -= totalCards;
-            
-            // Map distance to V position
-            let vPositionIndex = distance + 2;
-            vPositionIndex = Math.max(0, Math.min(4, vPositionIndex));
-            
-            card.classList.add(vPositions[vPositionIndex]);
-            
-            if (distance === 0) {
-                card.classList.add('is-center');
-            }
-        });
-    }
-    
-    function scrollToCenterCard() {
-        const centerCard = cards[currentCenterIndex];
-        if (!centerCard || !container) return;
-        
-        const cardRect = centerCard.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-        
-        const cardCenter = cardRect.left + cardRect.width / 2;
-        const containerCenter = containerRect.left + containerRect.width / 2;
-        const scrollOffset = cardCenter - containerCenter;
-        
-        container.scrollLeft += scrollOffset;
-    }
-    
-    // Expose global function for button clicks
-    window.moveCarousel = function(direction) {
-        if (isAnimating) return;
-        isAnimating = true;
-        
-        cards.forEach(card => card.classList.add('transitioning'));
-        
-        if (direction === 'left') {
-            currentCenterIndex = (currentCenterIndex - 1 + totalCards) % totalCards;
-        } else {
-            currentCenterIndex = (currentCenterIndex + 1) % totalCards;
-        }
-        
-        updateVPositions();
-        scrollToCenterCard();
-        
-        setTimeout(() => {
-            isAnimating = false;
-            cards.forEach(card => card.classList.remove('transitioning'));
-        }, 600);
+      updateBridgeCurve();
+      checkBoundaries();
     };
+
+    /* ============================================
+       HEROES SLIDER
+       ============================================ */
+    const initHeroesSlider = () => {
+      const track = document.getElementById('heroesTrack');
+      const slides = document.querySelectorAll('.heroes-slide');
+      const dots = document.querySelectorAll('.heroes-dot');
+      const prevBtn = document.getElementById('heroesPrev');
+      const nextBtn = document.getElementById('heroesNext');
+      
+      if (!track || !slides.length) return;
+
+      let currentIndex = 0;
+      let isAnimating = false;
+
+      const updateSlider = () => {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('is-active', idx === currentIndex);
+          dot.setAttribute('aria-selected', idx === currentIndex);
+        });
+
+        slides.forEach((slide, idx) => {
+          const video = slide.querySelector('video');
+          if (video) {
+            if (idx === currentIndex) {
+              video.play().catch(() => {});
+            } else {
+              video.pause();
+            }
+          }
+        });
+      };
+
+      const goToSlide = (index) => {
+        if (isAnimating || index === currentIndex) return;
+        isAnimating = true;
+        currentIndex = index;
+        updateSlider();
+        setTimeout(() => isAnimating = false, 500);
+      };
+
+      const nextSlide = () => {
+        const next = (currentIndex + 1) % slides.length;
+        goToSlide(next);
+      };
+
+      const prevSlide = () => {
+        const prev = (currentIndex - 1 + slides.length) % slides.length;
+        goToSlide(prev);
+      };
+
+      prevBtn.addEventListener('click', prevSlide);
+      nextBtn.addEventListener('click', nextSlide);
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => goToSlide(idx));
+      });
+
+      let touchStartX = 0;
+      const container = document.querySelector('.heroes-slider');
+      
+      container.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      container.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
+        const diff = touchEndX - touchStartX;
+        
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) prevSlide();
+          else nextSlide();
+        }
+      }, { passive: true });
+
+      updateSlider();
+    };
+
+    /* ============================================
+       TESTIMONIALS CAROUSEL
+       ============================================ */
+    let testimonialIndex = 2;
     
-    // Initialize
-    updateVPositions();
-    
-    // Center on load
-    window.addEventListener('load', scrollToCenterCard);
-    
-    // Handle resize
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(scrollToCenterCard, 250);
-    });
-    
-    // Drag to scroll
-    let isDown = false;
-    let startX;
-    let startScrollLeft;
-    
-    container.addEventListener('mousedown', (e) => {
+    window.moveTestimonial = (direction) => {
+      const container = document.getElementById('testimonialsScroll');
+      const cards = container.querySelectorAll('.testimonial-card');
+      const totalCards = cards.length;
+      
+      if (direction === 'left') {
+        testimonialIndex = Math.max(0, testimonialIndex - 1);
+      } else {
+        testimonialIndex = Math.min(totalCards - 1, testimonialIndex + 1);
+      }
+
+      cards.forEach((card, idx) => {
+        card.classList.toggle('is-center', idx === testimonialIndex);
+      });
+
+      const activeCard = cards[testimonialIndex];
+      if (activeCard) {
+        const cardRect = activeCard.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        const offset = cardRect.left - containerRect.left - (containerRect.width / 2) + (cardRect.width / 2);
+        container.scrollLeft += offset;
+      }
+    };
+
+    const initTestimonials = () => {
+      const container = document.getElementById('testimonialsScroll');
+      if (!container) return;
+
+      let isDown = false;
+      let startX;
+      let startScrollLeft;
+
+      container.addEventListener('mousedown', (e) => {
         isDown = true;
         container.style.cursor = 'grabbing';
         startX = e.pageX - container.offsetLeft;
         startScrollLeft = container.scrollLeft;
-    });
-    
-    container.addEventListener('mouseleave', () => {
+      });
+
+      window.addEventListener('mouseup', () => {
         isDown = false;
         container.style.cursor = 'grab';
-    });
-    
-    container.addEventListener('mouseup', () => {
-        isDown = false;
-        container.style.cursor = 'grab';
-    });
-    
-    container.addEventListener('mousemove', (e) => {
+      });
+
+      container.addEventListener('mousemove', (e) => {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - container.offsetLeft;
         const walk = (x - startX) * 2;
         container.scrollLeft = startScrollLeft - walk;
-    });
-}
+      });
 
-/* ============================================
-   SCROLL ANIMATIONS
-   ============================================ */
-function initScrollAnimations() {
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
+      window.addEventListener('load', () => {
+        moveTestimonial('right');
+        moveTestimonial('left');
+      });
     };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('scroll-visible');
-                entry.target.classList.remove('scroll-hidden');
-            }
-        });
-    }, observerOptions);
-    
-    document.querySelectorAll('.scroll-hidden').forEach((el) => {
-        observer.observe(el);
-    });
-    
-    const headerObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('header-visible');
-                entry.target.classList.remove('header-hidden');
-            }
-        });
-    }, observerOptions);
-    
-    const header = document.getElementById('header');
-    if (header) {
-        headerObserver.observe(header);
-    }
-}
 
-/* ============================================
-   VIDEO PLAYBACK CONTROLS
-   ============================================ */
-function initVideoPlayback() {
-    const videoCards = document.querySelectorAll('.video-card');
-    
-    videoCards.forEach(card => {
-        const video = card.querySelector('video');
-        const playBtn = card.querySelector('.play-btn');
-        
-        if (!video) return;
-        
-        card.addEventListener('mouseenter', () => {
-            video.play().catch(e => console.log('Playback failed:', e));
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            video.pause();
-            video.currentTime = 0;
-        });
-        
-        if (playBtn) {
-            playBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (video.paused) {
-                    video.play();
-                } else {
-                    video.pause();
-                }
-            });
-            
-            // Keyboard accessibility
-            playBtn.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    playBtn.click();
-                }
-            });
-        }
-    });
-}
-
-/* ============================================
-   SMOOTH SCROLL
-   ============================================ */
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    /* ============================================
+       SMOOTH SCROLL
+       ============================================ */
+    const initSmoothScroll = () => {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         });
+      });
+    };
+
+    /* ============================================
+       INITIALIZATION
+       ============================================ */
+    document.addEventListener('DOMContentLoaded', () => {
+      initNavbar();
+      initBridgeCarousel();
+      initWelcomeAnimation();
+      initMinistryCards();
+      initVideoScroller();
+      initHeroesSlider();
+      initTestimonials();
+      initSmoothScroll();
     });
-}
-
-/* ============================================
-   UTILITY FUNCTIONS
-   ============================================ */
-
-// Debounce function for performance
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Throttle function for scroll events
-function throttle(func, limit) {
-    let inThrottle;
-    return function(...args) {
-        if (!inThrottle) {
-            func.apply(this, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-}
-
