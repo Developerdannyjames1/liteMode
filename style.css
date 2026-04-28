@@ -84,74 +84,365 @@
       background: none;
     }
 
-    /* ============================================
-       NAVBAR - NON-STICKY (removed position fixed)
-       ============================================ */
-    .navbar {
-      position: relative;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 200;
-      background-color: var(--color-primary);
-      border-bottom: 1px solid rgba(8, 57, 121, 0.5);
-    }
+  /* ===== MERGED NAVBAR STYLES ===== */
+.navbar {
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    z-index: 1000;
+    background: #0A0E1A;  /* Solid dark background with contrast */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
 
+.navbar-container {
+    max-width: 1440px; 
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+}
+
+/* Brand Logo - Image Only */
+.navbar-brand {
+    display: flex; 
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.navbar-brand img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Menu Items */
+.navbar-menu {
+    display: flex; 
+    list-style: none;
+    gap: 8px; 
+    align-items: center;
+    
+    margin-right: 20px;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);  /* White text with slight opacity */
+    font-size: 0.85rem; 
+    font-weight: 500;
+    padding: 8px 12px; 
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.navbar-link:hover {
+    color: #ffffff;  /* Pure white on hover */
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.navbar-link.active {
+    color: #ffffff;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Active indicator */
+.navbar-link.active::after {
+    content: ''; 
+    position: absolute;
+    bottom: -2px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px; 
+    height: 2px;
+    background: var(--accent-violet, #8B5CF6);
+    border-radius: 1px;
+}
+
+/* Start Here - Special Button */
+.navbar-link.start-here {
+    background: linear-gradient(135deg, #8B5CF6, #6366F1);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 8px 16px;
+    box-shadow: 0 2px 12px rgba(139, 92, 246, 0.4);
+    border: none;
+}
+
+.navbar-link.start-here:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.6);
+    color: #ffffff;
+    background: linear-gradient(135deg, #9B6CF6, #7373F1);
+}
+
+.navbar-link.start-here.active::after {
+    display: none;
+}
+
+/* LumenQuest - Rainbow Gradient Text (Special) */
+.navbar-link.lumenquest {
+    background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.navbar-link.lumenquest:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+.navbar-link.lumenquest.active::after {
+    background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+}
+
+/* Actions Section */
+.navbar-actions {
+    display: flex; 
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    display: flex; 
+    align-items: center;
+    gap: 4px; 
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50px; 
+    padding: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-btn {
+    width: 32px; 
+    height: 32px;
+    border-radius: 50%; 
+    border: none;
+    background: transparent; 
+    cursor: pointer;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 0;
+}
+
+.theme-btn.active {
+    background: #6366F1;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+}
+
+.theme-btn:hover:not(.active) {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.theme-btn svg { 
+    width: 16px; 
+    height: 16px; 
+}
+
+/* Navigation Icons */
+.navbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar-icon {
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: none;
+    border: none;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-icon:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Prayer Button */
+.navbar-prayer {
+    background: linear-gradient(135deg, #8B5CF6, #6366F1);
+    color: #ffffff; 
+    border: none;
+    padding: 10px 20px; 
+    border-radius: 50px;
+    font-size: 0.85rem; 
+    font-weight: 600;
+    cursor: pointer;
+    display: flex; 
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    white-space: nowrap;
+}
+
+.navbar-prayer:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(99, 102, 241, 0.6);
+}
+
+/* Mobile Toggle */
+.navbar-toggle {
+    display: none; 
+    flex-direction: column;
+    gap: 5px; 
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 8px;
+}
+
+.navbar-toggle span {
+    display: block; 
+    width: 24px; 
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Toggle open animation */
+.navbar-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 1200px) {
     .navbar-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 0rem 2.5rem;
+        padding: 0 20px;
     }
-
-    .navbar-brand img {
-      height: 80px;
-      width: auto;
-    }
-
+    
     .navbar-menu {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      list-style: none;
+        gap: 2px;
     }
-
+    
     .navbar-link {
-      color: var(--color-white);
-      font-size: 0.875rem;
-      font-weight: 500;
-      padding: 0.5rem 0;
-      position: relative;
-      transition: color var(--transition-base);
+        padding: 6px 10px;
+        font-size: 0.8rem;
     }
-
-    .navbar-link:hover {
-      color: var(--color-accent);
+    
+    .navbar-prayer {
+        padding: 8px 14px;
+        font-size: 0.8rem;
     }
-
-    .navbar-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      padding: 0.5rem;
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 4px;
+    
+    .navbar-brand img {
+         height: 60px;
     }
+}
 
-    .navbar-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background-color: var(--color-white);
+@media (max-width: 1024px) {
+    .navbar-icons {
+        gap: 4px;
     }
-
+    
     .navbar-icon {
-      cursor: pointer;
+        padding: 4px;
     }
+    
+    .theme-toggle {
+        gap: 2px;
+    }
+    
+    .theme-btn {
+        width: 28px;
+        height: 28px;
+    }
+}
 
+@media (max-width: 768px) {
+    .navbar-container {
+        height: 64px;
+        padding: 0 16px;
+    }
+    
+    .navbar-brand img {
+        height: 60px;
+    }
+    
+    .navbar-toggle {
+        display: flex;
+    }
+    
+    .navbar-menu {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: #0A0E1A;
+        flex-direction: column;
+        padding: 20px;
+        gap: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        margin: 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .navbar-menu.active {
+        display: flex;
+    }
+    
+   /* Light mode (default ya day) */
+[data-theme="day"] .navbar-link {
+  color: rgba(5, 5, 5, 0.8);
+}
+
+[data-theme="day"] .navbar-link.active {
+  color: rgba(5, 5, 5, 1);
+}
+
+
+/* Dark mode */
+[data-theme="night"] .navbar-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="night"] .navbar-link.active {
+  color: rgba(255, 255, 255, 1);
+}
+    
+    .navbar-prayer {
+        display: none;
+    }
+    
+    .theme-toggle {
+        order: -1;
+    }
+}
     /* ============================================
        HERO SECTION
        ============================================ */
@@ -162,7 +453,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: url(/images/hero-bg.png) no-repeat center center/cover;
+      background: url(/images/hero-bg.png) no-repeat center center/cover !important;
       color: var(--color-accent);
       text-align: center;
       padding: 5rem 1.5rem 3rem;
@@ -194,16 +485,110 @@
       opacity: 0.9;
     }
 
-    /* Bridge Carousel */
+        /* ============================================
+       HERO SECTION
+       ============================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      background: var(--color-primary);
+      color: var(--color-accent);
+      text-align: center;
+      padding: 3rem 1.5rem;
+      overflow: hidden;
+    }
+
+    .hero-heading {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 400;
+      max-width: 700px;
+      line-height: 1.3;
+      color: var(--color-accent);
+    }
+
+    .hero-heading .highlight {
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-btn {
+      padding: 5px 10px;
+      background: var(--color-white);
+      color: var(--color-primary);
+      border: none;
+      border-radius: 12px;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 300ms ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      min-width: 140px;
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      background: var(--color-accent);
+    }
+
+    /* ============================================
+       TAGLINE SECTION
+       ============================================ */
+    .tagline-section {
+      text-align: center;
+      padding: 0rem 1.5rem;
+      background: var(--color-primary);
+    }
+
+    .tagline-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--color-white);
+      padding: 1rem 2rem;
+      border-radius: 16px;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      color: var(--color-primary);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tagline-box img {
+      height: 40px;
+      width: auto;
+    }
+
+    /* ============================================
+       VISUAL PATHWAYS - BRIDGE CAROUSEL
+       ============================================ */
+    .pathways-section {
+      position: relative;
+      width: 100%;
+      background: var(--color-primary);
+      overflow: hidden;
+    }
+
     .bridge-container {
       width: 100%;
       max-width: 1400px;
-      height: clamp(250px, 30vw, 320px);
+      height: clamp(300px, 40vw, 400px);
       position: relative;
       overflow: hidden;
-      margin: 1.5rem auto;
+      margin: 0 auto;
       cursor: grab;
-      border-radius: 24px;
     }
 
     .bridge-container:active {
@@ -217,58 +602,163 @@
       width: max-content;
       will-change: transform;
       transform: translate3d(0, 0, 0);
-      padding-bottom: 1.5rem;
+      padding-bottom: 2rem;
     }
 
-    .bridge-card {
+    .pathway-card {
       flex: 0 0 auto;
-      width: clamp(180px, 25vw, 320px);
-      height: clamp(120px, 18vw, 220px);
+      width: clamp(200px, 22vw, 280px);
+      height: clamp(180px, 20vw, 260px);
       border-radius: 20px;
       overflow: hidden;
       transform-origin: bottom center;
       will-change: transform;
       backface-visibility: hidden;
-      margin-right: -15px;
+      margin-right: -20px;
       position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
-    .bridge-card img {
+    .pathway-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    /* ============================================
-       SCROLLING BANNER
+    .pathway-card-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .pathway-card-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .pathway-card-subtitle {
+      font-size: 0.875rem;
+      opacity: 0.9;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    /* Card specific colors */
+    .pathway-card.rest { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+    .pathway-card.see { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; }
+    .pathway-card.lumen { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; }
+    .pathway-card.start { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; }
+    .pathway-card.teens { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333; }
+    .pathway-card.walk { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); color: #333; }
+    .pathway-card.grow { background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%); color: white; }
+
+       /* ============================================
+       START HERE PREVIEW SECTION
        ============================================ */
-    .scroll-banner {
+    .start-here-section {
       position: relative;
       width: 100%;
-      height: 100px;
-      overflow: hidden;
-      background: var(--color-bg-neutral);
-      display: flex;
+      padding: 4rem 1.5rem;
+      background: var(--color-primary);
+      text-align: center;
+    }
+
+  
+
+    .start-here-label {
+      display: inline-block;
+      background: var(--color-accent);
+      color: var(--color-primary);
+      padding: 0.5rem 1.5rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: all 300ms ease;
+    }
+
+    .start-here-label:hover {
+      transform: scale(1.05);
+      background: var(--color-gold);
+    }
+
+    .lumenquest-logo {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .lumenquest-logo .lumen { color: #FF6B6B; }
+    .lumenquest-logo .quest { color: #4ECDC4; }
+
+    .start-here-teaser {
+      color: var(--color-text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
       align-items: center;
+      padding: 0.875rem 2rem;
+      background: var(--color-primary);
+      color: var(--color-white);
+      border: none;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 300ms ease;
     }
 
-    .scroll-track {
-      display: flex;
-      animation: scrollRight 20s linear infinite;
-      white-space: nowrap;
+    .btn-primary:hover {
+      background: var(--color-secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
 
-    .scroll-track img {
-      height: 100px;
-      width: auto;
-      margin-right: 50px;
-      flex-shrink: 0;
-    }
 
-    @keyframes scrollRight {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
+
+       .lumenquest-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+
+  background: linear-gradient(135deg, #0b1c2c, #1a3a5a);
+  border: 1px solid rgba(255, 215, 150, 0.4);
+
+  box-shadow: 0 0 15px rgba(255, 215, 150, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Gold accent for "Quest" */
+.lumen {
+  color: #ffffff;
+}
+
+.quest {
+  color: #ffd700;
+}
+
+/* Hover effect */
+.lumenquest-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 25px rgba(255, 215, 150, 0.5);
+  border-color: rgba(255, 215, 150, 0.8);
+}
 
     /* ============================================
        WELCOME SECTION - PINNED SCROLL ANIMATION

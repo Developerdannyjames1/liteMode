@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Study - Go Deeper in God's Word | LightMode Ministries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'RecklessStandard';
+            src: url('./fonts/RecklessStandardM-TRIAL-Regular.otf') format('opentype');
+            font-weight: normal; font-style: normal; font-display: swap;
+        }
+        @font-face {
+            font-family: 'RecklessWide';
+            src: url('./fonts/RecklessWideXL-TRIAL-Regular.otf') format('opentype');
+            font-weight: normal; font-style: normal; font-display: swap;
+        }
+
+        /* ===== THEME VARIABLES (from resources.html) ===== */
+        :root {
+            --bg-primary: #0a0a12;
+            --bg-secondary: #12121f;
+            --bg-card: rgba(26, 26, 40, 0.7);
+            --bg-card-hover: rgba(30, 30, 50, 0.9);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b8a;
+            --accent-violet: #a78bfa;
+            --accent-blue: #60a5fa;
+            --accent-gold: #fbbf24;
+            --accent-pink: #f472b6;
+            --accent-teal: #2dd4bf;
+            --accent-green: #4ade80;
+            --accent-red: #f87171;
+            --accent-orange: #fb923c;
+            --accent-cyan: #22d3ee;
+            --accent-lavender: #c4b5fd;
+            --accent-indigo: #818cf8;
+            --accent-cream: #fef3c7;
+            --border-color: rgba(255,255,255,0.08);
+            --border-hover: rgba(167,139,250,0.3);
+            --shadow-glow: rgba(139,92,246,0.25);
+            --navbar-bg: rgba(10, 10, 18, 0.85);
+            --navbar-border: rgba(255,255,255,0.06);
+            --toggle-bg: #1a1a2e;
+            --toggle-active: #a78bfa;
+            --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+            --btn-primary-border: rgba(255,255,255,0.15);
+            --btn-primary-shadow: rgba(0,0,0,0.3);
+            --btn-gold-bg: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            --btn-gold-shadow: rgba(251,191,36,0.35);
+            --btn-light-bg: rgba(255,255,255,0.08);
+            --btn-light-border: rgba(255,255,255,0.15);
+            --footer-bg: #0a0a12;
+            --footer-border: rgba(255,255,255,0.05);
+            --starfield-opacity: 1;
+            --hero-overlay: linear-gradient(90deg, #080810 0%, #080810 40%, transparent 75%);
+            --hero-bg-filter: saturate(0.3) contrast(1.2) hue-rotate(220deg);
+            --hero-bg-opacity: 0.5;
+            --hero-gradient-start: #080810;
+            --hero-gradient-mid: #12122a;
+            --hero-gradient-end: #1a1a3e;
+            --pill-bg: rgba(26, 26, 40, 0.8);
+            --pill-border: rgba(255,255,255,0.1);
+
+            /* Bible Study-specific deep indigo palette */
+            --study-deep-ink: #0c0e1b;
+            --study-ink-night: #12142b;
+            --study-ink-blue: #1a1d3d;
+            --study-royal-blue: #2d3561;
+            --study-soft-indigo: #4a5568;
+            --study-warm-amber: #d4a574;
+            --study-pale-amber: #f4e4bc;
+            --study-soft-gold: #e9c46a;
+            --study-breath: #e8eaf2;
+            --study-slate: #8b92b4;
+            --study-gray: #6b7194;
+            --study-glow: rgba(212, 165, 116, 0.06);
+            --study-indigo-glow: rgba(45, 53, 97, 0.4);
+        }
+
+        [data-theme="day"] {
+            --bg-primary: #faf8f5;
+            --bg-secondary: #f5f0eb;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --bg-card-hover: rgba(255, 255, 255, 0.95);
+            --text-primary: #1a1a2e;
+            --text-secondary: #5a5a6e;
+            --text-muted: #8a8a9e;
+            --accent-violet: #7c3aed;
+            --accent-blue: #2563eb;
+            --accent-gold: #d97706;
+            --accent-pink: #db2777;
+            --accent-teal: #0d9488;
+            --accent-green: #16a34a;
+            --accent-red: #dc2626;
+            --accent-orange: #ea580c;
+            --accent-cyan: #0891b2;
+            --accent-lavender: #8b5cf6;
+            --accent-indigo: #6366f1;
+            --accent-cream: #fef3c7;
+            --border-color: rgba(0,0,0,0.08);
+            --border-hover: rgba(124,58,237,0.3);
+            --shadow-glow: rgba(124,58,237,0.15);
+            --navbar-bg: rgba(250, 248, 245, 0.9);
+            --navbar-border: rgba(0,0,0,0.06);
+            --toggle-bg: #e5e0db;
+            --toggle-active: #7c3aed;
+            --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+            --btn-primary-border: rgba(0,0,0,0.12);
+            --btn-primary-shadow: rgba(0,0,0,0.15);
+            --btn-gold-bg: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --btn-gold-shadow: rgba(245,158,11,0.25);
+            --btn-light-bg: rgba(255,255,255,0.9);
+            --btn-light-border: rgba(0,0,0,0.1);
+            --footer-bg: #f5f0eb;
+            --footer-border: rgba(0,0,0,0.06);
+            --starfield-opacity: 0;
+            --hero-overlay: linear-gradient(90deg, rgba(254,243,199,0.95) 0%, rgba(254,243,199,0.85) 45%, transparent 75%);
+            --hero-bg-filter: saturate(0.8) contrast(1.1) hue-rotate(10deg);
+            --hero-bg-opacity: 0.6;
+            --hero-gradient-start: #fef3c7;
+            --hero-gradient-mid: #fde68a;
+            --hero-gradient-end: #fed7aa;
+            --pill-bg: rgba(255, 255, 255, 0.9);
+            --pill-border: rgba(0,0,0,0.08);
+
+            /* Bible Study day overrides */
+            --study-deep-ink: #f8fafc;
+            --study-ink-night: #f1f5f9;
+            --study-ink-blue: #e2e8f0;
+            --study-royal-blue: #cbd5e1;
+            --study-soft-indigo: #64748b;
+            --study-warm-amber: #b45309;
+            --study-pale-amber: #fef3c7;
+            --study-soft-gold: #d97706;
+            --study-breath: #1a1a2e;
+            --study-slate: #475569;
+            --study-gray: #64748b;
+            --study-glow: rgba(180, 83, 9, 0.04);
+            --study-indigo-glow: rgba(99, 102, 241, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'RecklessStandard', 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }        /* ===== STARS / AMBIENT ===== */
+        .starfield {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
+            opacity: var(--starfield-opacity);
+            transition: opacity 0.5s ease;
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 50%, rgba(45, 43, 85, 0.15) 0%, transparent 60%);
+        }
+
+   
+  /* ===== MERGED NAVBAR STYLES ===== */
+.navbar {
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    z-index: 1000;
+    background: #0A0E1A;  /* Solid dark background with contrast */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+.navbar-container {
+    max-width: 1440px; 
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+}
+
+/* Brand Logo - Image Only */
+.navbar-brand {
+    display: flex; 
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.navbar-brand img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Menu Items */
+.navbar-menu {
+    display: flex; 
+    list-style: none;
+    gap: 8px; 
+    align-items: center;
+    
+    margin-right: 20px;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);  /* White text with slight opacity */
+    font-size: 0.85rem; 
+    font-weight: 500;
+    padding: 8px 12px; 
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.navbar-link:hover {
+    color: #ffffff;  /* Pure white on hover */
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.navbar-link.active {
+    color: #ffffff;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Active indicator */
+.navbar-link.active::after {
+    content: ''; 
+    position: absolute;
+    bottom: -2px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px; 
+    height: 2px;
+    background: var(--accent-violet, #8B5CF6);
+    border-radius: 1px;
+}
+
+/* Start Here - Special Button */
+.navbar-link.start-here {
+    background: linear-gradient(135deg, #8B5CF6, #6366F1);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 8px 16px;
+    box-shadow: 0 2px 12px rgba(139, 92, 246, 0.4);
+    border: none;
+}
+
+.navbar-link.start-here:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.6);
+    color: #ffffff;
+    background: linear-gradient(135deg, #9B6CF6, #7373F1);
+}
+
+.navbar-link.start-here.active::after {
+    display: none;
+}
+
+/* LumenQuest - Rainbow Gradient Text (Special) */
+.navbar-link.lumenquest {
+    background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.navbar-link.lumenquest:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+.navbar-link.lumenquest.active::after {
+    background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+}
+
+/* Actions Section */
+.navbar-actions {
+    display: flex; 
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    display: flex; 
+    align-items: center;
+    gap: 4px; 
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50px; 
+    padding: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-btn {
+    width: 32px; 
+    height: 32px;
+    border-radius: 50%; 
+    border: none;
+    background: transparent; 
+    cursor: pointer;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 0;
+}
+
+.theme-btn.active {
+    background: #6366F1;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+}
+
+.theme-btn:hover:not(.active) {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.theme-btn svg { 
+    width: 16px; 
+    height: 16px; 
+}
+
+/* Navigation Icons */
+.navbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar-icon {
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: none;
+    border: none;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-icon:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Prayer Button */
+.navbar-prayer {
+    background: linear-gradient(135deg, #8B5CF6, #6366F1);
+    color: #ffffff; 
+    border: none;
+    padding: 10px 20px; 
+    border-radius: 50px;
+    font-size: 0.85rem; 
+    font-weight: 600;
+    cursor: pointer;
+    display: flex; 
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    white-space: nowrap;
+}
+
+.navbar-prayer:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(99, 102, 241, 0.6);
+}
+
+/* Mobile Toggle */
+.navbar-toggle {
+    display: none; 
+    flex-direction: column;
+    gap: 5px; 
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 8px;
+}
+
+.navbar-toggle span {
+    display: block; 
+    width: 24px; 
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Toggle open animation */
+.navbar-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 1200px) {
+    .navbar-container {
+        padding: 0 20px;
+    }
+    
+    .navbar-menu {
+        gap: 2px;
+    }
+    
+    .navbar-link {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .navbar-prayer {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+    }
+    
+    .navbar-brand img {
+        height: 60px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .navbar-icons {
+        gap: 4px;
+    }
+    
+    .navbar-icon {
+        padding: 4px;
+    }
+    
+    .theme-toggle {
+        gap: 2px;
+    }
+    
+    .theme-btn {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-container {
+        height: 64px;
+        padding: 0 16px;
+    }
+    
+    .navbar-brand img {
+       height: 60px;
+    }
+    
+    .navbar-toggle {
+        display: flex;
+    }
+    
+    .navbar-menu {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: #0A0E1A;
+        flex-direction: column;
+        padding: 20px;
+        gap: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        margin: 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .navbar-menu.active {
+        display: flex;
+    }
+    
+  /* Light mode (default ya day) */
+[data-theme="day"] .navbar-link {
+  color: rgba(5, 5, 5, 0.8);
+}
+
+[data-theme="day"] .navbar-link.active {
+  color: rgba(5, 5, 5, 1);
+}
+
+
+/* Dark mode */
+[data-theme="night"] .navbar-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="night"] .navbar-link.active {
+  color: rgba(255, 255, 255, 1);
+}
+    
+    .navbar-prayer {
+        display: none;
+    }
+    
+    .theme-toggle {
+        order: -1;
+    }
+}    /* ===== BIBLE STUDY HERO ===== */
+        .hero {
+            position: relative; z-index: 1;
+            min-height: 100vh;
+            display: flex; align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #080a14 0%, var(--study-ink-night) 50%, #12142b 100%);
+            transition: background 0.5s ease;
+        }
+        .hero-bg {
+            position: absolute; top: 0; right: 0;
+            width: 55%; height: 100%;
+            background: url('https://images.stockcake.com/public/c/3/f/c3f434f8-eeab-4408-87ae-8c608f2f07d8_large/sunset-mountain-hike-stockcake.jpg') no-repeat center center;
+            background-size: cover;
+            mask-image: linear-gradient(to left, black 40%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to left, black 40%, transparent 100%);
+            opacity: 0.4;
+            filter: saturate(0.6) contrast(1.2);
+            transition: opacity 0.5s ease;
+        }
+        [data-theme="day"] .hero-bg {
+            opacity: 0.3;
+            filter: saturate(0.8) contrast(1.05);
+        }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, #080a14 0%, #080a14 35%, transparent 70%);
+            z-index: 1;
+            transition: background 0.5s ease;
+        }
+        [data-theme="day"] .hero-overlay {
+            background: linear-gradient(90deg, var(--study-deep-ink) 0%, var(--study-deep-ink) 35%, transparent 70%);
+        }
+        .hero-content {
+            position: relative; z-index: 2;
+            max-width: 1400px; margin: 0 auto;
+            padding: 120px 60px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .hero-left {
+            max-width: 650px;
+            animation: fadeInUp 1s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-label {
+            font-family: 'Caveat', cursive;
+            color: var(--study-warm-amber);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            display: block;
+            opacity: 0.9;
+            transition: color 0.5s ease;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            transition: color 0.5s ease;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--study-soft-gold);
+            font-weight: 500;
+            transition: color 0.5s ease;
+        }
+        .hero-subtext {
+            font-size: 1.2rem;
+            color: var(--study-slate);
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.7;
+            max-width: 500px;
+            transition: color 0.5s ease;
+        }
+        .hero-features {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 45px;
+            flex-wrap: wrap;
+        }
+        .hero-feature {
+            display: flex; align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            background: var(--bg-card);
+            padding: 10px 16px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            transition: all 0.5s ease;
+        }
+        .hero-feature-icon {
+            font-size: 1rem;
+        }
+        .hero-feature-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+            transition: color 0.5s ease;
+        }
+        .hero-cta {
+            display: inline-flex; align-items: center;
+            gap: 12px;
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            color: var(--study-pale-amber);
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+        .hero-cta:hover {
+            background: rgba(212, 165, 116, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(212, 165, 116, 0.1);
+        }
+        [data-theme="day"] .hero-cta {
+            background: rgba(180, 83, 9, 0.08);
+            border-color: rgba(180, 83, 9, 0.25);
+            color: var(--study-warm-amber);
+        }
+        .hero-right {
+            display: flex; align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .bible-visual {
+            width: 300px; height: 380px;
+            background: linear-gradient(135deg, rgba(45, 53, 97, 0.4) 0%, rgba(26, 29, 61, 0.6) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            transition: all 0.5s ease;
+        }
+        [data-theme="day"] .bible-visual {
+            background: linear-gradient(135deg, #e2e8f0 0%, #f1f5f9 100%);
+            border-color: rgba(180, 83, 9, 0.15);
+        }
+        .bible-visual::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="none" stroke="rgba(212,165,116,0.1)" stroke-width="0.5"/><line x1="50" y1="20" x2="50" y2="80" stroke="rgba(212,165,116,0.05)" stroke-width="0.5"/></svg>');
+            background-size: 200px;
+        }
+        .bible-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        .bible-verse {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--study-pale-amber);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 0 30px;
+            line-height: 1.6;
+            opacity: 0.7;
+            transition: color 0.5s ease;
+        }        /* ===== FEATURED STUDY ===== */
+        .featured-section {
+            position: relative; z-index: 1;
+            padding: 120px 40px;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        .section-label {
+            font-family: 'Caveat', cursive;
+            color: var(--study-warm-amber);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: block;
+            transition: color 0.5s ease;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            transition: color 0.5s ease;
+        }
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 300;
+            transition: color 0.5s ease;
+        }
+        .featured-study {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.4);
+            transition: all 0.5s ease;
+        }
+        .study-image {
+            background: linear-gradient(135deg, var(--study-ink-blue) 0%, var(--study-royal-blue) 100%);
+            min-height: 450px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            position: relative;
+            padding: 40px;
+            transition: background 0.5s ease;
+        }
+        [data-theme="day"] .study-image {
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+        }
+        .study-image::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="35" fill="none" stroke="rgba(212,165,116,0.08)" stroke-width="0.5"/><circle cx="50" cy="50" r="25" fill="none" stroke="rgba(212,165,116,0.05)" stroke-width="0.5"/></svg>');
+            background-size: 300px;
+        }
+        .study-badge {
+            position: absolute; top: 30px; left: 30px;
+            background: rgba(212, 165, 116, 0.12);
+            border: 1px solid rgba(212, 165, 116, 0.25);
+            color: var(--study-pale-amber);
+            padding: 8px 18px; border-radius: 50px;
+            font-size: 0.8rem; font-weight: 500;
+            transition: all 0.5s ease;
+        }
+        [data-theme="day"] .study-badge {
+            background: rgba(180, 83, 9, 0.08);
+            border-color: rgba(180, 83, 9, 0.2);
+            color: var(--study-warm-amber);
+        }
+        .study-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            position: relative; z-index: 1;
+        }
+        .study-meta {
+            display: flex; gap: 20px;
+            position: relative; z-index: 1;
+        }
+        .study-meta-item { text-align: center; }
+        .study-meta-item .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--study-pale-amber);
+            font-weight: 600;
+            transition: color 0.5s ease;
+        }
+        .study-meta-item .label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            transition: color 0.5s ease;
+        }
+        .study-content {
+            padding: 60px 50px;
+            display: flex; flex-direction: column;
+            justify-content: center;
+        }
+        .study-tag {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(212, 165, 116, 0.08);
+            color: var(--study-warm-amber);
+            padding: 6px 16px; border-radius: 50px;
+            font-size: 0.8rem; font-weight: 500;
+            margin-bottom: 20px;
+            width: fit-content;
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            transition: all 0.5s ease;
+        }
+        .study-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+            line-height: 1.3;
+            transition: color 0.5s ease;
+        }
+        .study-content > p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            transition: color 0.5s ease;
+        }
+        .study-lessons { list-style: none; margin-bottom: 30px; }
+        .study-lessons li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex; align-items: center;
+            gap: 12px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .study-lessons li:hover {
+            color: var(--study-pale-amber);
+            padding-left: 5px;
+        }
+        .study-lessons li:last-child { border-bottom: none; }
+        .lesson-number {
+            width: 28px; height: 28px;
+            background: rgba(212, 165, 116, 0.1);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem;
+            color: var(--study-warm-amber);
+            flex-shrink: 0;
+            transition: all 0.5s ease;
+        }
+        .study-cta {
+            display: inline-flex; align-items: center;
+            gap: 10px;
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid rgba(212, 165, 116, 0.25);
+            color: var(--study-pale-amber);
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            width: fit-content;
+        }
+        .study-cta:hover {
+            background: rgba(212, 165, 116, 0.2);
+            gap: 14px;
+        }
+
+        /* ===== STUDY TRACKS ===== */
+        .tracks-section {
+            position: relative; z-index: 1;
+            padding: 100px 40px;
+            background: var(--bg-secondary);
+            transition: background 0.5s ease;
+        }
+        .tracks-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .tracks-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+        .track-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px 35px;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .track-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--study-warm-amber), var(--study-soft-gold));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .track-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 165, 116, 0.15);
+            box-shadow: 0 20px 50px var(--shadow-glow);
+        }
+        .track-card:hover::before { opacity: 1; }
+        .track-level {
+            display: inline-flex; align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .track-card:nth-child(1) .track-level {
+            background: rgba(74, 222, 128, 0.1);
+            color: var(--accent-green);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+        }
+        .track-card:nth-child(2) .track-level {
+            background: rgba(212, 165, 116, 0.1);
+            color: var(--study-warm-amber);
+            border: 1px solid rgba(212, 165, 116, 0.2);
+        }
+        .track-card:nth-child(3) .track-level {
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--accent-violet);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+        .track-icon {
+            width: 55px; height: 55px;
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+        .track-card:nth-child(1) .track-icon { background: rgba(74, 222, 128, 0.08); }
+        .track-card:nth-child(2) .track-icon { background: rgba(212, 165, 116, 0.08); }
+        .track-card:nth-child(3) .track-icon { background: rgba(139, 92, 246, 0.08); }
+        .track-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-weight: 600;
+            transition: color 0.5s ease;
+        }
+        .track-card > p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            transition: color 0.5s ease;
+        }
+        .track-features { list-style: none; margin-bottom: 25px; }
+        .track-features li {
+            padding: 8px 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            display: flex; align-items: center;
+            gap: 10px;
+            transition: color 0.5s ease;
+        }
+        .track-features li::before {
+            content: '✓';
+            color: var(--study-warm-amber);
+            font-size: 0.8rem;
+        }
+        .track-cta {
+            display: inline-flex; align-items: center;
+            gap: 8px;
+            color: var(--study-pale-amber);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: gap 0.3s ease, color 0.5s ease;
+        }
+        .track-cta:hover { gap: 12px; }        /* ===== OPTIONS (Live vs Recorded) ===== */
+        .options-section {
+            position: relative; z-index: 1;
+            padding: 100px 40px;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 60px;
+        }
+        .option-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        .option-card:hover {
+            border-color: rgba(212, 165, 116, 0.1);
+            box-shadow: 0 15px 40px var(--shadow-glow);
+        }
+        .option-icon {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            border: 2px solid rgba(212, 165, 116, 0.2);
+            background: rgba(212, 165, 116, 0.05);
+            transition: all 0.5s ease;
+        }
+        .option-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+            transition: color 0.5s ease;
+        }
+        .option-card > p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            transition: color 0.5s ease;
+        }
+        .option-schedule {
+            background: var(--pill-bg);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: left;
+            border: 1px solid var(--pill-border);
+            transition: all 0.5s ease;
+        }
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: border-color 0.5s ease;
+        }
+        .schedule-item:last-child { border-bottom: none; }
+        .schedule-item .day {
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.5s ease;
+        }
+        .schedule-item .time {
+            color: var(--study-warm-amber);
+            font-size: 0.85rem;
+            transition: color 0.5s ease;
+        }
+        .option-cta {
+            display: inline-flex; align-items: center;
+            gap: 8px;
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            color: var(--study-pale-amber);
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+        .option-cta:hover {
+            background: rgba(212, 165, 116, 0.2);
+            transform: translateY(-2px);
+        }
+        [data-theme="day"] .option-cta {
+            background: rgba(180, 83, 9, 0.08);
+            border-color: rgba(180, 83, 9, 0.2);
+            color: var(--study-warm-amber);
+        }
+
+        /* ===== PROGRESSION PATH ===== */
+        .progression-section {
+            position: relative; z-index: 1;
+            padding: 120px 40px;
+            background: linear-gradient(180deg, transparent 0%, var(--bg-secondary) 100%);
+            transition: background 0.5s ease;
+        }
+        .progression-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .progression-path {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            margin-top: 60px;
+            position: relative;
+        }
+        .progression-path::before {
+            content: '';
+            position: absolute;
+            top: 40px; left: 15%; right: 15%;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(74, 222, 128, 0.3), rgba(212, 165, 116, 0.3), rgba(139, 92, 246, 0.3));
+            z-index: 0;
+        }
+        .path-step {
+            flex: 1;
+            max-width: 280px;
+            position: relative; z-index: 1;
+        }
+        .path-circle {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            border: 2px solid;
+            background: var(--bg-primary);
+            transition: background 0.5s ease;
+        }
+        .path-step:nth-child(1) .path-circle {
+            border-color: rgba(74, 222, 128, 0.4);
+            box-shadow: 0 0 30px rgba(74, 222, 128, 0.1);
+        }
+        .path-step:nth-child(2) .path-circle {
+            border-color: rgba(212, 165, 116, 0.4);
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.1);
+        }
+        .path-step:nth-child(3) .path-circle {
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
+        }
+        .path-step h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            font-weight: 600;
+            transition: color 0.5s ease;
+        }
+        .path-step p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            transition: color 0.5s ease;
+        }
+         .navbar-link.lumenquest {
+      background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
+
+
+        /* ===== FOOTER (from resources.html) ===== */
+        .footer {
+            position: relative; z-index: 1;
+            background: var(--footer-bg);
+            border-top: 1px solid var(--footer-border);
+            padding: 60px 40px 30px;
+            transition: all 0.5s ease;
+        }
+        .footer-content {
+            max-width: 1200px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem; line-height: 1.6;
+            margin-bottom: 20px;
+            transition: color 0.5s ease;
+        }
+        .footer-social {
+            display: flex; gap: 12px;
+        }
+        .footer-social a {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            display: flex; align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .footer-social a:hover {
+            background: var(--accent-violet);
+            color: white;
+            border-color: var(--accent-violet);
+        }
+        .footer-social svg {
+            width: 18px; height: 18px;
+            fill: currentColor;
+        }
+        .footer-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem; font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.5s ease;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover { color: var(--accent-violet); }
+        .footer-contact {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            transition: color 0.5s ease;
+        }
+        .footer-form { margin-top: 20px; }
+        .footer-form-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem; font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            transition: color 0.5s ease;
+        }
+        .footer-form-body {
+            display: flex; gap: 8px;
+        }
+        .footer-input {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 10px 14px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .footer-input::placeholder { color: var(--text-muted); }
+        .footer-input:focus { border-color: var(--accent-violet); }
+        .footer-submit {
+            background: var(--btn-primary-bg);
+            color: white; border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.85rem; font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .footer-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px var(--btn-primary-shadow);
+        }
+        .footer-bottom {
+            max-width: 1200px; margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid var(--footer-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; gap: 20px;
+            transition: border-color 0.5s ease;
+        }
+        .footer-credit {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            transition: color 0.5s ease;
+        }
+        .footer-legal {
+            display: flex; gap: 16px;
+            align-items: center;
+        }
+        .footer-legal a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+        .footer-legal a:hover { color: var(--accent-violet); }
+        .footer-legal span {
+            color: var(--border-color);
+            transition: color 0.5s ease;
+        }        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .navbar-menu { display: none; }
+            .navbar-toggle { display: flex; }
+            .hero-bg {
+                width: 100%;
+                opacity: 0.2;
+                mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+            }
+            .hero-overlay {
+                background: linear-gradient(180deg, #080a14 0%, #080a14 50%, transparent 100%);
+            }
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 100px 40px;
+            }
+            .hero-left { max-width: 100%; }
+            .hero-subtext { margin: 0 auto 40px; }
+            .hero-features { justify-content: center; }
+            .hero-right { display: none; }
+            .featured-study { grid-template-columns: 1fr; }
+            .tracks-grid { grid-template-columns: 1fr; }
+            .options-grid { grid-template-columns: 1fr; }
+            .progression-path {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+            .progression-path::before { display: none; }
+            .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            .navbar-container { padding: 0 20px; }
+            .hero h1 { font-size: 3rem; }
+            .section-title { font-size: 2.2rem; }
+            .study-content { padding: 35px 25px; }
+            .option-card { padding: 35px 25px; }
+            .footer-content { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .navbar-prayer { display: none;}
+        }
+    </style>
+</head><body>
+    <div class="starfield"></div>
+
+   <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-container">
+        <!-- Brand Logo (Only Image) -->
+        <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
+            <img src="/images/logo.png" alt="LightMode Ministries">
+        </a>
+
+        <!-- Menu Items -->
+        <ul class="navbar-menu" id="navbar-menu" role="menubar">
+            <li role="none"><a href="/" class="navbar-link " role="menuitem">Home</a></li>
+            <li role="none"><a href="/start-here.html" class="navbar-link start-here " role="menuitem">Start Here</a></li>
+            <li role="none"><a href="/rest.html" class="navbar-link " role="menuitem">Rest</a></li>
+            <li role="none"><a href="/grow.html" class="navbar-link " role="menuitem">Grow</a></li>
+            <li role="none"><a href="/stories.html" class="navbar-link " role="menuitem">Stories</a></li>
+            <li role="none"><a href="/bible-study.html" class="navbar-link active" role="menuitem">Bible Study</a></li>
+            <li role="none"><a href="/teens.html" class="navbar-link" role="menuitem">Teens</a></li>
+            <li role="none"><a href="/lumenquest.html" class="navbar-link lumenquest" role="menuitem">LumenQuest</a></li>
+            <li role="none"><a href="/resources.html" class="navbar-link" role="menuitem">Resources</a></li>
+            <li role="none"><a href="/about.html" class="navbar-link" role="menuitem">About</a></li>
+            <li role="none"><a href="/contact.html" class="navbar-link" role="menuitem">Contact</a></li>
+        </ul>
+
+        <!-- Actions Section -->
+        <div class="navbar-actions">
+            <!-- Theme Toggle -->
+            <div class="theme-toggle" role="group" aria-label="Theme toggle">
+                <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+
+        
+
+          
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-left">
+                <span class="hero-label">Deepen Your Walk</span>
+                <h1>
+                    Go Deeper in<br>
+                    His <em>Word</em>
+                </h1>
+                <p class="hero-subtext">
+                    Bible study isn't about knowing more. It's about knowing Him more. 
+                    Start where you are and let the Spirit lead you deeper.
+                </p>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">📖</span>
+                        <span class="hero-feature-text"><strong>Scripture</strong>-Centered</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">🎯</span>
+                        <span class="hero-feature-text"><strong>Focused</strong> Study</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">👥</span>
+                        <span class="hero-feature-text"><strong>Community</strong> Driven</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">🌱</span>
+                        <span class="hero-feature-text"><strong>Life</strong> Application</span>
+                    </div>
+                </div>
+                
+                <a href="#featured" class="hero-cta">
+                    <span>📚</span>
+                    Start Studying Today
+                </a>
+            </div>
+            <div class="hero-right">
+                <div class="bible-visual">
+                    <div class="bible-icon">📖</div>
+                    <p class="bible-verse">"Your word is a lamp to my feet and a light to my path."</p>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- ===== FEATURED STUDY ===== -->
+    <section class="featured-section" id="featured">
+        <div class="section-header">
+            <span class="section-label">Featured Series</span>
+            <h2 class="section-title">The Gospel of John</h2>
+            <p class="section-subtitle">An in-depth journey through the life, miracles, and teachings of Jesus.</p>
+        </div>
+
+        <div class="featured-study">
+            <div class="study-image">
+                <div class="study-badge">12-Week Series</div>
+                <div class="study-icon">✝️</div>
+                <div class="study-meta">
+                    <div class="study-meta-item">
+                        <div class="number">12</div>
+                        <div class="label">Lessons</div>
+                    </div>
+                    <div class="study-meta-item">
+                        <div class="number">45</div>
+                        <div class="label">Min Each</div>
+                    </div>
+                    <div class="study-meta-item">
+                        <div class="number">2.5k</div>
+                        <div class="label">Studying</div>
+                    </div>
+                </div>
+            </div>
+            <div class="study-content">
+                <div class="study-tag">
+                    <span>⭐</span>
+                    Most Popular Series
+                </div>
+                <h3>Knowing Jesus Through John's Eyes</h3>
+                <p>Walk through the Gospel of John verse by verse. Discover the "I AM" statements, the seven miracles, and the deep theological truths that reveal who Jesus truly is — and what that means for your life today.</p>
+                <ul class="study-lessons">
+                    <li>
+                        <span class="lesson-number">1</span>
+                        In the Beginning Was the Word
+                    </li>
+                    <li>
+                        <span class="lesson-number">2</span>
+                        The First Sign: Water to Wine
+                    </li>
+                    <li>
+                        <span class="lesson-number">3</span>
+                        Born Again: Nicodemus at Night
+                    </li>
+                    <li>
+                        <span class="lesson-number">4</span>
+                        The Woman at the Well
+                    </li>
+                    <li>
+                        <span class="lesson-number">5</span>
+                        I AM the Bread of Life
+                    </li>
+                </ul>
+                <a href="#" class="study-cta">
+                    Start This Series →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STUDY TRACKS ===== -->
+    <section class="tracks-section">
+        <div class="tracks-container">
+            <div class="section-header">
+                <span class="section-label">Choose Your Path</span>
+                <h2 class="section-title">Study Tracks by Level</h2>
+                <p class="section-subtitle">Start where you are. Grow at your own pace.</p>
+            </div>
+
+            <div class="tracks-grid">
+                <!-- Beginner Path -->
+                <div class="track-card">
+                    <div class="track-level">
+                        <span>🌱</span>
+                        Beginner
+                    </div>
+                    <div class="track-icon">📖</div>
+                    <h3>Foundations of Faith</h3>
+                    <p>New to Bible study? Start here. Simple, clear, and designed to build your confidence in God's Word.</p>
+                    <ul class="track-features">
+                        <li>Short 15-20 minute sessions</li>
+                        <li>Key verses explained simply</li>
+                        <li>Basic theology made accessible</li>
+                        <li>Downloadable study guides</li>
+                        <li>Community discussion forums</li>
+                    </ul>
+                    <a href="#" class="track-cta">
+                        Start Beginner Path →
+                    </a>
+                </div>
+
+                <!-- Intermediate Growth -->
+                <div class="track-card">
+                    <div class="track-level">
+                        <span>🌿</span>
+                        Intermediate
+                    </div>
+                    <div class="track-icon">📚</div>
+                    <h3>Growing in Understanding</h3>
+                    <p>Ready to go deeper? Explore themes, contexts, and how Scripture connects across the Bible.</p>
+                    <ul class="track-features">
+                        <li>30-45 minute deep dives</li>
+                        <li>Historical and cultural context</li>
+                        <li>Thematic cross-referencing</li>
+                        <li>Original language insights</li>
+                        <li>Weekly live Q&A sessions</li>
+                    </ul>
+                    <a href="#" class="track-cta">
+                        Start Intermediate Path →
+                    </a>
+                </div>
+
+                <!-- Deep Dive Study -->
+                <div class="track-card">
+                    <div class="track-level">
+                        <span>🌳</span>
+                        Advanced
+                    </div>
+                    <div class="track-icon">🔍</div>
+                    <h3>Deep Dive Exegesis</h3>
+                    <p>For those ready to mine the depths. Original languages, theological frameworks, and scholarly resources.</p>
+                    <ul class="track-features">
+                        <li>60+ minute intensive studies</li>
+                        <li>Greek and Hebrew word studies</li>
+                        <li>Systematic theology tracks</li>
+                        <li>Scholarly commentary access</li>
+                        <li>1-on-1 mentor discussions</li>
+                    </ul>
+                    <a href="#" class="track-cta">
+                        Start Deep Dive →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- ===== LIVE & RECORDED OPTIONS ===== -->
+    <section class="options-section">
+        <div class="section-header">
+            <span class="section-label">How You Learn Best</span>
+            <h2 class="section-title">Live or On-Demand</h2>
+            <p class="section-subtitle">Study on your schedule or join a live community.</p>
+        </div>
+
+        <div class="options-grid">
+            <div class="option-card">
+                <div class="option-icon">📡</div>
+                <h3>Live Bible Study</h3>
+                <p>Join real-time studies with pastors and teachers. Ask questions, share insights, and grow alongside others.</p>
+                <div class="option-schedule">
+                    <div class="schedule-item">
+                        <span class="day">Monday</span>
+                        <span class="time">7:00 PM EST</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="day">Wednesday</span>
+                        <span class="time">12:00 PM EST</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="day">Friday</span>
+                        <span class="time">8:00 PM EST</span>
+                    </div>
+                </div>
+                <a href="#" class="option-cta">
+                    <span>🔴</span>
+                    Join Next Live Study
+                </a>
+            </div>
+
+            <div class="option-card">
+                <div class="option-icon">📼</div>
+                <h3>Recorded Library</h3>
+                <p>Access hundreds of past studies. Watch anytime, pause, rewind, and study at your own pace.</p>
+                <div class="option-schedule">
+                    <div class="schedule-item">
+                        <span class="day">Total Studies</span>
+                        <span class="time">250+</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="day">Hours of Content</span>
+                        <span class="time">1,200+</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="day">New Weekly</span>
+                        <span class="time">3 Studies</span>
+                    </div>
+                </div>
+                <a href="#" class="option-cta">
+                    <span>▶️</span>
+                    Browse Library
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROGRESSION PATH ===== -->
+    <section class="progression-section">
+        <div class="progression-container">
+            <div class="section-header">
+                <span class="section-label">Your Journey Forward</span>
+                <h2 class="section-title">A Clear Path of Growth</h2>
+                <p class="section-subtitle">From first steps to deep discipleship — we've designed the way.</p>
+            </div>
+
+            <div class="progression-path">
+                <div class="path-step">
+                    <div class="path-circle">🌱</div>
+                    <h4>Begin</h4>
+                    <p>Start with Foundations. Learn the basics of Scripture and build confidence.</p>
+                </div>
+                <div class="path-step">
+                    <div class="path-circle">🌿</div>
+                    <h4>Grow</h4>
+                    <p>Move into thematic studies. Connect the dots across the Bible.</p>
+                </div>
+                <div class="path-step">
+                    <div class="path-circle">🌳</div>
+                    <h4>Lead</h4>
+                    <p>Go deep into exegesis. Then help others find their path.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER (from resources.html) ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+                    <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
+                        <circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="2" fill="none" style="color: var(--accent-violet)"/>
+                        <path d="M12 18C12 14.686 14.686 12 18 12C21.314 12 24 14.686 24 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color: var(--accent-violet)"/>
+                        <circle cx="18" cy="22" r="3" fill="currentColor" style="color: var(--accent-violet)"/>
+                    </svg>
+                    <div>
+                        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;color:var(--text-primary);transition:color 0.5s ease;">LightMode</div>
+                        <div style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);transition:color 0.5s ease;">Ministries</div>
+                    </div>
+                </div>
+                <p>Illuminating Lives.<br>One Heart at a Time.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="#" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Teens</h4>
+                <ul class="footer-links">
+                    <li><a href="/teens.html">Journeys</a></li>
+                    <li><a href="/teens.html">Browse Topics</a></li>
+                    <li><a href="/teens.html">Check-In</a></li>
+                    <li><a href="/teens.html">Night Mode</a></li>
+                    <li><a href="/teens.html">Prayer Library</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="/rest.html">Prayer Requests</a></li>
+                    <li><a href="/resources.html">Resources</a></li>
+                    <li><a href="/stories.html">Stories</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Parents</h4>
+                <ul class="footer-links" style="margin-bottom:20px;">
+                    <li><a href="/family.html">Parent Guide</a></li>
+                    <li><a href="/family.html">Conversation Starters</a></li>
+                    <li><a href="/family.html">Faith at Home</a></li>
+                    <li><a href="/resources.html">Resources</a></li>
+                </ul>
+                <div class="footer-form">
+                    <div class="footer-form-title">Get encouragement delivered to you.</div>
+                    <div class="footer-form-body">
+                        <input type="email" class="footer-input" placeholder="Enter your email" aria-label="Your email address">
+                        <button class="footer-submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-credit">Designed By Digital Software Labs</p>
+            <div class="footer-legal">
+                <a href="#">Terms & Conditions</a>
+                <span>|</span>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>    <script>
+        // ===== THEME TOGGLE (from resources.html) =====
+        function setTheme(mode) {
+            const html = document.documentElement;
+            const btnDay = document.getElementById('btn-day');
+            const btnNight = document.getElementById('btn-night');
+
+            if (mode === 'day') {
+                html.setAttribute('data-theme', 'day');
+                btnDay.classList.add('active');
+                btnNight.classList.remove('active');
+                localStorage.setItem('theme', 'day');
+            } else {
+                html.removeAttribute('data-theme');
+                btnDay.classList.remove('active');
+                btnNight.classList.add('active');
+                localStorage.setItem('theme', 'night');
+            }
+        }
+
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'day') {
+                setTheme('day');
+            } else {
+                setTheme('night');
+            }
+        });
+
+         // Mobile menu toggle
+        const navbarToggle = document.querySelector('.navbar-toggle');
+        const navbarMenu = document.getElementById('navbar-menu');
+
+        if (navbarToggle) {
+            navbarToggle.addEventListener('click', function() {
+               const isExpanded = this.getAttribute('aria-expanded') === 'true';
+this.setAttribute('aria-expanded', !isExpanded);
+
+if (!isExpanded) {
+    navbarMenu.style.display = 'flex';
+    navbarMenu.style.flexDirection = 'column';
+    navbarMenu.style.position = 'absolute';
+    navbarMenu.style.top = '65px';
+    navbarMenu.style.left = '15px';
+    navbarMenu.style.right = '15px';
+    navbarMenu.style.background = 'var(--navbar-bg)';
+    navbarMenu.style.padding = '20px';
+    navbarMenu.style.backdropFilter = 'blur(20px)';
+    navbarMenu.style.borderBottom = '1px solid var(--navbar-border)';
+    navbarMenu.style.zIndex = '999';
+    navbarMenu.style.borderRadius = '0px 0px 20px 20px';
+    navbarMenu.style.boxShadow = '0 10px 25px rgba(138, 43, 226, 0.25)';
+} else {
+    navbarMenu.style.display = 'none';
+}
+            });
+        }
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

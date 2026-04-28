@@ -1,6 +1,9 @@
    /* ============================================
        UTILITY FUNCTIONS
        ============================================ */
+
+
+       
     const debounce = (func, wait) => {
       let timeout;
       return (...args) => {
@@ -9,10 +12,7 @@
       };
     };
 
-    /* ============================================
-       NAVBAR - Non-sticky, mobile toggle
-       ============================================ */
-    const initNavbar = () => {
+   const initNavbar = () => {
       const toggle = document.querySelector('.navbar-toggle');
       const menu = document.querySelector('.navbar-menu');
       
@@ -31,59 +31,19 @@
       });
     };
 
-    /* ============================================
-       BRIDGE CAROUSEL
-       ============================================ */
+    // Bridge Carousel Animation
     const initBridgeCarousel = () => {
-      const IMAGES = [
-        "/images/img1.png", "/images/img2.png", "/images/img3.png",
-        "/images/img4.png", "/images/img5.png"
-      ];
-      
+      const container = document.getElementById('bridgeContainer');
       const track = document.getElementById('bridgeTrack');
-      if (!track) return;
+      if (!container || !track) return;
 
-      const buildTrack = () => {
-        track.innerHTML = '';
-        for (let i = 0; i < 3; i++) {
-          IMAGES.forEach((src, idx) => {
-            const card = document.createElement('div');
-            card.className = 'bridge-card';
-            const img = document.createElement('img');
-            img.src = src;
-            img.alt = `Featured scene ${idx + 1}`;
-            img.loading = 'eager';
-            card.appendChild(img);
-            track.appendChild(card);
-          });
-        }
-      };
-
-      buildTrack();
-
-      const cards = Array.from(track.querySelectorAll('.bridge-card'));
+      const cards = Array.from(track.querySelectorAll('.pathway-card'));
       let currentX = 0;
       let animationId = null;
       let lastTime = 0;
-      const speed = 85;
-
-      const getDimensions = () => {
-        if (!cards.length) return { cardWidth: 0, overlap: 0, setWidth: 0 };
-        const card = cards[0];
-        const style = window.getComputedStyle(card);
-        const marginRight = parseFloat(style.marginRight) || 0;
-        const cardWidth = card.getBoundingClientRect().width;
-        return {
-          cardWidth,
-          overlap: Math.abs(marginRight),
-          setWidth: (IMAGES.length - 1) * (cardWidth + marginRight) + cardWidth
-        };
-      };
+      const speed = 60; // pixels per second
 
       const updateCardTransforms = () => {
-        const container = track.parentElement;
-        if (!container) return;
-        
         const containerRect = container.getBoundingClientRect();
         const centerX = containerRect.left + containerRect.width / 2;
 
@@ -95,10 +55,10 @@
           t = Math.max(-1, Math.min(1, t));
           
           const absT = Math.abs(t);
-          const lift = -60 * Math.cos((absT * Math.PI) / 2);
-          const rotation = t * 8 * (1 - absT * 0.3);
-          const scale = 0.88 + 0.12 * Math.cos((absT * Math.PI) / 2);
-          const zIndex = Math.floor(30 - absT * 20);
+          const lift = -50 * Math.cos((absT * Math.PI) / 2);
+          const rotation = t * 10 * (1 - absT * 0.3);
+          const scale = 0.9 + 0.1 * Math.cos((absT * Math.PI) / 2);
+          const zIndex = Math.floor(20 - absT * 10);
 
           card.style.transform = `translate3d(0, ${lift}px, 0) rotate(${rotation}deg) scale(${scale})`;
           card.style.zIndex = Math.max(5, zIndex);
@@ -110,12 +70,15 @@
         const delta = Math.min(0.033, (timestamp - lastTime) / 1000);
         lastTime = timestamp;
 
-        const { setWidth } = getDimensions();
+        const cardWidth = cards[0]?.offsetWidth || 200;
+        const gap = -20; // negative margin
+        const setWidth = cards.length * (cardWidth + gap);
+
         currentX -= speed * delta;
 
         if (setWidth > 0) {
-          if (currentX <= -setWidth) currentX += setWidth;
-          if (currentX > 0) currentX -= setWidth;
+          if (currentX <= -setWidth / 2) currentX += setWidth / 2;
+          if (currentX > 0) currentX -= setWidth / 2;
         }
 
         track.style.transform = `translate3d(${currentX}px, 0, 0)`;
@@ -125,14 +88,51 @@
 
       requestAnimationFrame(animate);
 
-      window.addEventListener('resize', debounce(() => {
-        const { setWidth } = getDimensions();
-        if (setWidth > 0 && currentX <= -setWidth) {
-          currentX += setWidth;
+      // Pause on hover
+      container.addEventListener('mouseenter', () => {
+        cancelAnimationFrame(animationId);
+      });
+
+      container.addEventListener('mouseleave', () => {
+        lastTime = 0;
+        animationId = requestAnimationFrame(animate);
+      });
+
+      // Drag functionality
+      let isDragging = false;
+      let startX = 0;
+      let startScroll = 0;
+
+      container.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX;
+        startScroll = currentX;
+        cancelAnimationFrame(animationId);
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (isDragging) {
+          isDragging = false;
+          lastTime = 0;
+          animationId = requestAnimationFrame(animate);
         }
-      }, 100));
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const walk = (e.pageX - startX) * 0.5;
+        currentX = startScroll + walk;
+        track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+        updateCardTransforms();
+      });
     };
 
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      initNavbar();
+      initBridgeCarousel();
+    });
+    
     /* ============================================
        WELCOME SECTION - PINNED SCROLL ANIMATION
        ============================================ */

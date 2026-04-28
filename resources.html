@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us — LightMode Ministries</title>
+    <title>Resources - Tools for Your Journey</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+
         @font-face {
             font-family: 'RecklessStandard';
             src: url('./fonts/RecklessStandardM-TRIAL-Regular.otf') format('opentype');
@@ -19,7 +20,6 @@
             font-weight: normal; font-style: normal; font-display: swap;
         }
 
-        /* THEME VARIABLES - NIGHT (default) */
         :root {
             --bg-primary: #0a0a12;
             --bg-secondary: #12121f;
@@ -57,7 +57,7 @@
             --footer-bg: #0a0a12;
             --footer-border: rgba(255,255,255,0.05);
             --starfield-opacity: 1;
-            --hero-overlay: linear-gradient(90deg, #080810 0%, #080810 45%, transparent 80%);
+            --hero-overlay: linear-gradient(90deg, #080810 0%, #080810 40%, transparent 75%);
             --hero-bg-filter: saturate(0.3) contrast(1.2) hue-rotate(220deg);
             --hero-bg-opacity: 0.5;
             --hero-gradient-start: #080810;
@@ -65,19 +65,8 @@
             --hero-gradient-end: #1a1a3e;
             --pill-bg: rgba(26, 26, 40, 0.8);
             --pill-border: rgba(255,255,255,0.1);
-            --form-bg: rgba(20, 20, 35, 0.8);
-            --form-input-bg: rgba(15, 15, 25, 0.9);
-            --form-input-border: rgba(255,255,255,0.1);
-            --form-input-focus: rgba(167,139,250,0.4);
-            --help-bg: rgba(20, 20, 35, 0.6);
-            --help-hover: rgba(30, 30, 50, 0.9);
-            --connect-bg: rgba(20, 20, 35, 0.7);
-            --connect-img-bg: rgba(20, 20, 35, 0.5);
-            --bottom-bg: rgba(20, 20, 35, 0.6);
-            --bottom-border: rgba(255,255,255,0.06);
         }
 
-        /* THEME VARIABLES - DAY MODE */
         [data-theme="day"] {
             --bg-primary: #faf8f5;
             --bg-secondary: #f5f0eb;
@@ -115,7 +104,7 @@
             --footer-bg: #f5f0eb;
             --footer-border: rgba(0,0,0,0.06);
             --starfield-opacity: 0;
-            --hero-overlay: linear-gradient(90deg, rgba(254,243,199,0.95) 0%, rgba(254,243,199,0.85) 45%, transparent 80%);
+            --hero-overlay: linear-gradient(90deg, rgba(254,243,199,0.95) 0%, rgba(254,243,199,0.85) 45%, transparent 75%);
             --hero-bg-filter: saturate(0.8) contrast(1.1) hue-rotate(10deg);
             --hero-bg-opacity: 0.6;
             --hero-gradient-start: #fef3c7;
@@ -123,16 +112,6 @@
             --hero-gradient-end: #fed7aa;
             --pill-bg: rgba(255, 255, 255, 0.9);
             --pill-border: rgba(0,0,0,0.08);
-            --form-bg: rgba(255, 255, 255, 0.9);
-            --form-input-bg: rgba(250, 248, 245, 0.9);
-            --form-input-border: rgba(0,0,0,0.08);
-            --form-input-focus: rgba(124,58,237,0.3);
-            --help-bg: rgba(255, 255, 255, 0.7);
-            --help-hover: rgba(255, 255, 255, 0.95);
-            --connect-bg: rgba(255, 255, 255, 0.85);
-            --connect-img-bg: rgba(245, 240, 235, 0.5);
-            --bottom-bg: rgba(255, 255, 255, 0.7);
-            --bottom-border: rgba(0,0,0,0.06);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -158,7 +137,7 @@
                 radial-gradient(ellipse at 50% 50%, rgba(45, 43, 85, 0.15) 0%, transparent 60%);
         }
 
-               /* ===== MERGED NAVBAR STYLES ===== */
+         /* ===== MERGED NAVBAR STYLES ===== */
 .navbar {
     position: fixed; 
     top: 0; 
@@ -490,7 +469,7 @@
         display: flex;
     }
     
-   /* Light mode (default ya day) */
+  /* Light mode (default ya day) */
 [data-theme="day"] .navbar-link {
   color: rgba(5, 5, 5, 0.8);
 }
@@ -517,10 +496,11 @@
         order: -1;
     }
 }
-        /* ===== HERO SECTION ===== */
+
+        /* ===== RESOURCES PAGE ===== */
         .hero {
             position: relative; z-index: 1;
-            min-height: 90vh;
+            min-height: 70vh;
             display: flex; align-items: center;
             overflow: hidden;
             background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-mid) 50%, var(--hero-gradient-end) 100%);
@@ -528,8 +508,8 @@
         }
         .hero-bg {
             position: absolute; top: 0; right: 0;
-            width: 55%; height: 100%;
-            background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=80') no-repeat center center;
+            width: 60%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&q=80') no-repeat center center;
             background-size: cover;
             mask-image: linear-gradient(to left, black 30%, transparent 100%);
             -webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%);
@@ -547,13 +527,19 @@
         .hero-content {
             position: relative; z-index: 2;
             max-width: 1400px; margin: 0 auto;
-            padding: 140px 60px 60px;
+            padding: 140px 60px 80px;
             width: 100%;
         }
-        .hero-left {
-            max-width: 500px;
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--pill-bg);
+            border: 1px solid var(--pill-border);
+            padding: 8px 16px; border-radius: 50px;
+            font-size: 0.85rem; color: var(--accent-gold);
+            margin-bottom: 20px;
+            transition: all 0.5s ease;
         }
-        .hero-left h1 {
+        .hero-content h1 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 4rem; font-weight: 800;
             line-height: 1.05; margin-bottom: 12px;
@@ -561,467 +547,257 @@
             letter-spacing: -0.03em;
             transition: color 0.5s ease;
         }
-        .hero-left .handwritten {
-            font-family: 'Caveat', cursive;
-            font-size: 1.8rem;
+        .hero-content h1 em {
             color: var(--accent-gold);
-            margin-bottom: 20px;
-            display: block;
-            transition: color 0.5s ease;
+            font-style: normal;
         }
-        .hero-left p {
-            font-size: 1rem;
+        .hero-subtext {
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            max-width: 420px;
+            max-width: 520px;
             margin-bottom: 35px;
             font-weight: 400; line-height: 1.7;
             transition: color 0.5s ease;
         }
-
-        /* ===== YOU MATTER BAR ===== */
-        .matter-bar {
-            position: relative; z-index: 1;
-            padding: 0 40px;
-            max-width: 1100px; margin: -30px auto 40px;
+        .hero-actions {
+            display: flex; gap: 16px;
+            flex-wrap: wrap;
         }
-        .matter-card {
-            background: linear-gradient(135deg, #1e1e3e 0%, #2a2a4e 100%);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 30px 40px;
-            display: grid;
-            grid-template-columns: auto 1fr 1fr;
-            gap: 30px;
-            align-items: center;
-            transition: all 0.5s ease;
-        }
-        [data-theme="day"] .matter-card {
-            background: linear-gradient(135deg, #1e1e3e 0%, #2a2a4e 100%);
-            border-color: rgba(255,255,255,0.15);
-        }
-        .matter-icon {
-            width: 56px; height: 56px;
-            border-radius: 50%;
-            display: flex; align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            border: 2px solid var(--accent-gold);
-            background: rgba(251, 191, 36, 0.1);
-            flex-shrink: 0;
-        }
-        .matter-text h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem; font-weight: 600;
+        .btn-primary {
+            background: var(--btn-primary-bg);
+            border: 1px solid var(--btn-primary-border);
             color: white;
-            margin-bottom: 6px;
-        }
-        .matter-text p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.85rem; line-height: 1.5;
-        }
-        .matter-quote {
-            text-align: right;
-            border-left: 2px solid rgba(255,255,255,0.1);
-            padding-left: 30px;
-        }
-        .matter-quote p {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.9rem; line-height: 1.6;
-            font-style: italic;
-            margin-bottom: 8px;
-        }
-        .matter-quote .ref {
-            color: var(--accent-gold);
-            font-size: 0.8rem;
-        }
-
-        /* ===== FORM + HELP SECTION ===== */
-        .form-help-section {
-            position: relative; z-index: 1;
-            padding: 40px 40px 60px;
-            max-width: 1100px; margin: 0 auto;
-        }
-        .form-help-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            align-items: start;
-        }
-        .form-card {
-            background: var(--form-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
-            transition: all 0.5s ease;
-        }
-        .form-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            transition: color 0.5s ease;
-        }
-        .form-card > p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 30px;
-            transition: color 0.5s ease;
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-        .form-group {
-            margin-bottom: 16px;
-        }
-        .form-group.full {
-            grid-column: 1 / -1;
-        }
-        .form-input {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px 14px 44px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .form-input::placeholder { color: var(--text-muted); }
-        .form-input:focus {
-            border-color: var(--form-input-focus);
-            box-shadow: 0 0 0 3px rgba(167,139,250,0.1);
-        }
-        .form-input-icon {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            font-size: 1rem;
-            pointer-events: none;
-        }
-        .input-wrap {
-            position: relative;
-        }
-        .form-select {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            appearance: none;
-            -webkit-appearance: none;
-        }
-        .form-select:focus {
-            border-color: var(--form-input-focus);
-        }
-        .form-textarea {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            resize: vertical;
-            min-height: 120px;
-            font-family: inherit;
-        }
-        .form-textarea::placeholder { color: var(--text-muted); }
-        .form-textarea:focus {
-            border-color: var(--form-input-focus);
-            box-shadow: 0 0 0 3px rgba(167,139,250,0.1);
-        }
-        .form-checkbox {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .form-checkbox input {
-            width: 18px; height: 18px;
-            border-radius: 4px;
-            border: 1px solid var(--form-input-border);
-            background: var(--form-input-bg);
-            cursor: pointer;
-            accent-color: var(--accent-violet);
-        }
-        .form-checkbox label {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: color 0.5s ease;
-        }
-        .btn-submit {
-            width: 100%;
-            background: var(--btn-gold-bg);
-            color: #1a1a2e;
-            padding: 16px;
+            padding: 16px 32px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1rem; font-weight: 700;
+            font-size: 0.9rem; font-weight: 600;
             transition: all 0.4s ease;
-            border: none; cursor: pointer;
-            box-shadow: 0 8px 30px var(--btn-gold-shadow);
             display: inline-flex;
             align-items: center; gap: 10px;
-            justify-content: center;
-        }
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px var(--btn-gold-shadow);
-        }
-        .form-privacy {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            margin-top: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            transition: color 0.5s ease;
-        }
-
-        .help-card {
-            background: var(--help-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
-            transition: all 0.5s ease;
-        }
-        .help-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.2rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 30px;
-            transition: color 0.5s ease;
-        }
-        .help-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border-color);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px var(--btn-primary-shadow);
             cursor: pointer;
         }
-        .help-item:last-child { border-bottom: none; }
-        .help-item:hover { padding-left: 8px; }
-        .help-item-icon {
-            width: 44px; height: 44px;
-            border-radius: 12px;
-            display: flex; align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-            border: 1px solid var(--border-color);
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px var(--btn-primary-shadow);
         }
-        .help-item:nth-child(1) .help-item-icon { background: rgba(251, 191, 36, 0.1); }
-        .help-item:nth-child(2) .help-item-icon { background: rgba(96, 165, 250, 0.1); }
-        .help-item:nth-child(3) .help-item-icon { background: rgba(74, 222, 128, 0.1); }
-        .help-item:nth-child(4) .help-item-icon { background: rgba(244, 114, 182, 0.1); }
-        .help-item h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem; font-weight: 600;
+        .btn-soft {
+            background: var(--btn-light-bg);
+            border: 1px solid var(--btn-light-border);
             color: var(--text-primary);
-            margin-bottom: 4px;
-            transition: color 0.5s ease;
-        }
-        .help-item p {
-            color: var(--text-muted);
-            font-size: 0.8rem; line-height: 1.5;
-            margin-bottom: 6px;
-            transition: color 0.5s ease;
-        }
-        .help-link {
-            color: var(--accent-gold);
-            font-size: 0.8rem; font-weight: 600;
+            padding: 16px 32px;
+            border-radius: 50px;
             text-decoration: none;
+            font-size: 0.9rem; font-weight: 600;
+            transition: all 0.4s ease;
             display: inline-flex;
-            align-items: center; gap: 6px;
-            transition: all 0.3s ease;
+            align-items: center; gap: 10px;
+            cursor: pointer;
         }
-        .help-link:hover { gap: 10px; }
-        .help-link svg { width: 14px; height: 14px; }
+        .btn-soft:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
 
-        /* ===== CONNECT SECTION ===== */
-        .connect-section {
-            position: relative; z-index: 1;
-            padding: 40px 40px 60px;
+        /* Category Nav */
+        .category-nav {
+          z-index: 1;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 40px;
+            transition: all 0.5s ease;
+            top: 72px;
+        }
+        .category-nav-container {
             max-width: 1100px; margin: 0 auto;
-        }
-        .connect-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .connect-left h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            transition: color 0.5s ease;
-        }
-        .connect-left p {
-            color: var(--text-secondary);
-            font-size: 0.9rem; line-height: 1.6;
-            margin-bottom: 24px;
-            transition: color 0.5s ease;
-        }
-        .social-grid {
             display: flex; gap: 12px;
-        }
-        .social-btn {
-            width: 44px; height: 44px;
-            border-radius: 12px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            display: flex; align-items: center;
+            flex-wrap: wrap;
             justify-content: center;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
         }
-        .social-btn:hover {
+        .category-pill {
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.85rem; font-weight: 500;
+            background: var(--pill-bg);
+            border: 1px solid var(--pill-border);
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        .category-pill:hover, .category-pill.active {
             background: var(--accent-violet);
             color: white;
             border-color: var(--accent-violet);
-            transform: translateY(-3px);
-        }
-        .connect-right {
-            border-radius: 20px;
-            overflow: hidden;
-            height: 200px;
-        }
-        .connect-right img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
         }
 
-        /* ===== STAY INSPIRED ===== */
-        .inspired-card {
-            background: var(--connect-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 28px;
-            transition: all 0.5s ease;
+        /* Resource Sections */
+        .resource-section {
+            position: relative; z-index: 1;
+            padding: 60px 40px;
+            max-width: 1100px; margin: 0 auto;
         }
-        .inspired-card h4 {
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            flex-wrap: wrap; gap: 20px;
+        }
+        .section-label {
+            font-size: 0.8rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1.5px;
+            color: var(--accent-violet);
+            margin-bottom: 8px;
+            display: block;
+            transition: color 0.5s ease;
+        }
+        .section-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem; font-weight: 600;
+            font-size: 1.8rem; font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 8px;
             transition: color 0.5s ease;
         }
-        .inspired-card p {
+        .section-subtitle {
             color: var(--text-muted);
-            font-size: 0.8rem; line-height: 1.5;
-            margin-bottom: 16px;
+            font-size: 0.95rem;
             transition: color 0.5s ease;
         }
-        .inspired-form {
-            display: flex; gap: 8px;
-        }
-        .inspired-input {
-            flex: 1;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 10px;
-            padding: 10px 14px;
-            color: var(--text-primary);
-            font-size: 0.85rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        .inspired-input::placeholder { color: var(--text-muted); }
-        .inspired-input:focus { border-color: var(--form-input-focus); }
-        .btn-subscribe {
-            background: var(--btn-gold-bg);
-            color: #1a1a2e;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 0.8rem; font-weight: 700;
-            cursor: pointer;
+        .view-all {
+            color: var(--accent-violet);
+            text-decoration: none;
+            font-size: 0.9rem; font-weight: 600;
             transition: all 0.3s ease;
             white-space: nowrap;
         }
-        .btn-subscribe:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px var(--btn-gold-shadow);
-        }
+        .view-all:hover { opacity: 0.8; }
 
-        /* ===== BOTTOM STRIP ===== */
-        .bottom-strip {
-            position: relative; z-index: 1;
-            padding: 50px 40px;
-            background: var(--bottom-bg);
-            border-top: 1px solid var(--bottom-border);
-            transition: all 0.5s ease;
-        }
-        .bottom-grid {
-            max-width: 1100px; margin: 0 auto;
+        .resources-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .resource-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .resource-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-hover);
+            box-shadow: 0 15px 40px var(--shadow-glow);
+        }
+        .resource-cover {
+            height: 180px;
+            background: linear-gradient(135deg, rgba(139,92,246,0.15) 0%, rgba(59,130,246,0.1) 100%);
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .resource-type {
+            position: absolute; top: 16px; left: 16px;
+            background: var(--bg-card-hover);
+            border: 1px solid var(--border-color);
+            padding: 4px 12px; border-radius: 50px;
+            font-size: 0.75rem; font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .resource-icon {
+            font-size: 3rem;
+        }
+        .resource-info {
+            padding: 24px;
+        }
+        .resource-info h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem; font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            transition: color 0.5s ease;
+        }
+        .resource-info p {
+            color: var(--text-muted);
+            font-size: 0.85rem; line-height: 1.6;
+            margin-bottom: 20px;
+            transition: color 0.5s ease;
+        }
+        .resource-meta {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
         }
-        .bottom-left {
-            display: flex; align-items: center;
-            gap: 20px;
+        .resource-format {
+            display: flex; gap: 8px;
         }
-        .bottom-img {
-            width: 80px; height: 80px;
+        .format-tag {
+            background: var(--pill-bg);
+            border: 1px solid var(--pill-border);
+            padding: 4px 10px; border-radius: 6px;
+            font-size: 0.75rem; color: var(--text-muted);
+            transition: all 0.5s ease;
+        }
+        .download-btn {
+            width: 36px; height: 36px;
             border-radius: 50%;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-        .bottom-left-text h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem; font-weight: 700;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card-hover);
             color: var(--text-primary);
-            margin-bottom: 4px;
-            transition: color 0.5s ease;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
-        .bottom-left-text .handwritten {
-            font-family: 'Caveat', cursive;
-            font-size: 1.2rem;
-            color: var(--accent-gold);
-            transition: color 0.5s ease;
-        }
-        .bottom-center p {
-            color: var(--text-secondary);
-            font-size: 0.85rem; line-height: 1.6;
-            transition: color 0.5s ease;
-        }
-        .bottom-right {
-            display: flex;
-            justify-content: flex-end;
-        }
-        .cross-icon {
-            width: 60px; height: 60px;
-            opacity: 0.15;
-            color: var(--text-muted);
-            transition: color 0.5s ease;
+        .download-btn:hover {
+            background: var(--accent-violet);
+            color: white;
+            border-color: var(--accent-violet);
         }
 
-        /* ===== FOOTER (from reference) ===== */
+        /* CTA Section */
+        .cta-section {
+            position: relative; z-index: 1;
+            padding: 80px 40px;
+            max-width: 1100px; margin: 0 auto;
+        }
+        .cta-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 60px;
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+        .cta-label {
+            font-size: 0.8rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1.5px;
+            color: var(--accent-violet);
+            margin-bottom: 12px;
+            display: block;
+        }
+        .cta-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            transition: color 0.5s ease;
+        }
+        .cta-text {
+            color: var(--text-secondary);
+            font-size: 1rem; line-height: 1.7;
+            max-width: 560px;
+            margin: 0 auto 32px;
+            transition: color 0.5s ease;
+        }
+        .cta-actions {
+            display: flex; gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+          /* Footer */
         .footer {
             position: relative; z-index: 1;
             background: var(--footer-bg);
@@ -1061,7 +837,10 @@
             color: white;
             border-color: var(--accent-violet);
         }
-        .footer-social svg { width: 18px; height: 18px; fill: currentColor; }
+        .footer-social svg {
+            width: 18px; height: 18px;
+            fill: currentColor;
+        }
         .footer-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 0.95rem; font-weight: 600;
@@ -1080,6 +859,12 @@
             transition: color 0.3s ease;
         }
         .footer-links a:hover { color: var(--accent-violet); }
+        .footer-contact {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            transition: color 0.5s ease;
+        }
         .footer-form { margin-top: 20px; }
         .footer-form-title {
             font-family: 'Space Grotesk', sans-serif;
@@ -1143,8 +928,18 @@
             transition: color 0.3s ease;
         }
         .footer-legal a:hover { color: var(--accent-violet); }
-        .footer-legal span { color: var(--border-color); transition: color 0.5s ease; }
-
+        .footer-legal span {
+            color: var(--border-color);
+            transition: color 0.5s ease;
+        }
+           /* LumenQuest special styling */
+    .navbar-link.lumenquest {
+      background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .navbar-menu { display: none; }
@@ -1159,47 +954,31 @@
             }
             .hero-content {
                 text-align: center;
-                padding: 120px 40px 60px;
+                padding: 120px 40px 80px;
             }
-            .hero-left { margin: 0 auto; }
-            .hero-left h1 { font-size: 3rem; }
-            .hero-left p { margin: 0 auto 30px; }
-            .matter-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 20px;
-            }
-            .matter-icon { margin: 0 auto; }
-            .matter-quote {
-                text-align: center;
-                border-left: none;
-                border-top: 2px solid rgba(255,255,255,0.1);
-                padding-left: 0;
-                padding-top: 20px;
-            }
-            .form-help-grid { grid-template-columns: 1fr; }
-            .connect-grid { grid-template-columns: 1fr; }
-            .connect-right { height: 180px; }
-            .bottom-grid { grid-template-columns: 1fr; text-align: center; }
-            .bottom-left { justify-content: center; }
-            .bottom-right { justify-content: center; }
+            .hero-content h1 { font-size: 3rem; }
+            .hero-subtext { margin: 0 auto 30px; }
+            .hero-actions { justify-content: center; }
+            .resources-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
         }
         @media (max-width: 768px) {
             .navbar-container { padding: 0 20px; }
-            .hero-left h1 { font-size: 2.5rem; }
-            .form-row { grid-template-columns: 1fr; }
-            .matter-card { padding: 24px; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .resources-grid { grid-template-columns: 1fr; }
+            .cta-container { padding: 40px 24px; }
             .footer-content { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; text-align: center; }
             .navbar-prayer { display: none;}
         }
+
+
     </style>
 </head>
 <body>
     <div class="starfield"></div>
 
-    <!-- ===== NAVBAR (from reference) ===== -->
+    <!-- ===== NAVBAR ===== -->
    <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar-container">
         <!-- Brand Logo (Only Image) -->
@@ -1216,10 +995,10 @@
             <li role="none"><a href="/stories.html" class="navbar-link" role="menuitem">Stories</a></li>
             <li role="none"><a href="/bible-study.html" class="navbar-link" role="menuitem">Bible Study</a></li>
             <li role="none"><a href="/teens.html" class="navbar-link" role="menuitem">Teens</a></li>
-            <li role="none"><a href="/lumenquest.html" class="navbar-link lumenquest" role="menuitem">LumenQuest</a></li>
-            <li role="none"><a href="/resources.html" class="navbar-link " role="menuitem">Resources</a></li>
+            <li role="none"><a href="/lumenquest.html" class="navbar-link lumenquest " role="menuitem">LumenQuest</a></li>
+            <li role="none"><a href="/resources.html" class="navbar-link active" role="menuitem">Resources</a></li>
             <li role="none"><a href="/about.html" class="navbar-link" role="menuitem">About</a></li>
-            <li role="none"><a href="/contact.html" class="navbar-link active" role="menuitem" >Contact</a></li>
+            <li role="none"><a href="/contact.html" class="navbar-link" role="menuitem">Contact</a></li>
         </ul>
 
         <!-- Actions Section -->
@@ -1261,212 +1040,409 @@
 </nav>
 
 
-    <!-- ===== HERO SECTION ===== -->
+# Build the hero + category nav + all resource sections
+
+hero_and_nav = """
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="hero-left">
-                <h1>Contact Us</h1>
-                <span class="handwritten">We're here for you.</span>
-                <p>
-                    Whether you need prayer, have a question, want to partner with us, or just want to say hello—we'd love to hear from you.
-                </p>
+            <div class="hero-badge">
+                <span>📚</span>
+                Free Downloads — No Strings Attached
+            </div>
+            <h1>
+                Tools for Your<br>
+                <em>Journey</em>
+            </h1>
+            <p class="hero-subtext">
+                No sign-ups. No paywalls. Just practical resources to help you grow, heal, 
+                and walk closer with God — on your own time, at your own pace.
+            </p>
+            <div class="hero-actions">
+                <a href="#peace" class="btn-primary">
+                    <span>🔍</span>
+                    Browse All Resources
+                </a>
+                <a href="#featured" class="btn-soft">
+                    <span>✨</span>
+                    See What's New
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ===== YOU MATTER BAR ===== -->
-    <div class="matter-bar">
-        <div class="matter-card">
-            <div class="matter-icon">💛</div>
-            <div class="matter-text">
-                <h4>You matter to us.</h4>
-                <p>Our team is here to listen, encourage, and connect you with the support you need.</p>
-            </div>
-            <div class="matter-quote">
-                <p>"Cast all your anxiety on Him because He cares for you."</p>
-                <div class="ref">— 1 Peter 5:7</div>
-            </div>
+    <!-- Category Navigation -->
+    <nav class="category-nav">
+        <div class="category-nav-container">
+            <a href="#peace" class="category-pill active">Peace & Healing</a>
+            <a href="#growth" class="category-pill">Spiritual Growth</a>
+            <a href="#bible" class="category-pill">Bible Study Tools</a>
+            <a href="#family" class="category-pill">Family Resources</a>
+            <a href="#teen" class="category-pill">Teen Support</a>
         </div>
-    </div>
+    </nav>
 
-    <!-- ===== FORM + HELP SECTION ===== -->
-    <section class="form-help-section">
-        <div class="form-help-grid">
-            <div class="form-card">
-                <h3>Send Us a Message</h3>
-                <p>Fill out the form below and we'll get back to you soon.</p>
-                <form>
-                    <div class="form-row">
-                        <div class="input-wrap">
-                            <span class="form-input-icon">👤</span>
-                            <input type="text" class="form-input" placeholder="First Name" aria-label="First Name">
+    <!-- Peace and Healing -->
+    <section class="resource-section peace-healing" id="peace">
+        <div class="section-header">
+            <div>
+                <span class="section-label">For the Heavy Days</span>
+                <h2 class="section-title">Peace & Healing</h2>
+                <p class="section-subtitle">For the anxious nights, the broken hearts, and the slow process of becoming whole.</p>
+            </div>
+            <a href="#" class="view-all">View All →</a>
+        </div>
+
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-cover">
+                    <span class="resource-type">eBook</span>
+                    <div class="resource-icon">🌿</div>
+                </div>
+                <div class="resource-info">
+                    <h3>30 Days of Peace</h3>
+                    <p>A month-long devotional for when your mind won't stop racing.</p>
+                    <div class="resource-meta">
+                        <div class="resource-format">
+                            <span class="format-tag">PDF</span>
+                            <span class="format-tag">ePub</span>
                         </div>
-                        <div class="input-wrap">
-                            <span class="form-input-icon">👤</span>
-                            <input type="text" class="form-input" placeholder="Last Name" aria-label="Last Name">
+                        <button class="download-btn" aria-label="Download 30 Days of Peace">↓</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-cover">
+                    <span class="resource-type">Journal</span>
+                    <div class="resource-icon">📔</div>
+                </div>
+                <div class="resource-info">
+                    <h3>Anxiety Prayer Journal</h3>
+                    <p>Guided prompts to help you hand your worries to God.</p>
+                    <div class="resource-meta">
+                        <div class="resource-format">
+                            <span class="format-tag">Printable</span>
+                            <span class="format-tag">PDF</span>
                         </div>
+                        <button class="download-btn" aria-label="Download Anxiety Prayer Journal">↓</button>
                     </div>
-                    <div class="form-group full">
-                        <div class="input-wrap">
-                            <span class="form-input-icon">✉️</span>
-                            <input type="email" class="form-input" placeholder="Email Address" aria-label="Email Address">
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-cover">
+                    <span class="resource-type">Pamphlet</span>
+                    <div class="resource-icon">💚</div>
+                </div>
+                <div class="resource-info">
+                    <h3>Healing from Heartbreak</h3>
+                    <p>A gentle guide for when loss feels bigger than you.</p>
+                    <div class="resource-meta">
+                        <div class="resource-format">
+                            <span class="format-tag">PDF</span>
                         </div>
-                    </div>
-                    <div class="form-group full">
-                        <select class="form-select" aria-label="Subject">
-                            <option value="" disabled selected>Subject</option>
-                            <option value="prayer">Prayer Request</option>
-                            <option value="question">General Question</option>
-                            <option value="partner">Partnership</option>
-                            <option value="story">Share Your Story</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group full">
-                        <label style="color:var(--text-muted);font-size:0.8rem;margin-bottom:8px;display:block;">How can we help you?</label>
-                        <textarea class="form-textarea" placeholder="Tell us more..." aria-label="How can we help you?"></textarea>
-                    </div>
-                    <div class="form-checkbox">
-                        <input type="checkbox" id="contact-me" aria-label="I would like someone to contact me">
-                        <label for="contact-me">I would like someone to contact me.</label>
-                    </div>
-                    <button type="submit" class="btn-submit">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="22" y1="2" x2="11" y2="13"></line>
-                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                        </svg>
-                        SEND MESSAGE
-                    </button>
-                    <div class="form-privacy">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                        Your information is safe and will never be shared.
-                    </div>
-                </form>
-            </div>
-
-            <div class="help-card">
-                <h3>Other Ways We Can Help</h3>
-                <div class="help-item">
-                    <div class="help-item-icon">🙏</div>
-                    <div>
-                        <h4>Prayer Request</h4>
-                        <p>Need prayer? We're here for you.</p>
-                        <a href="#" class="help-link">
-                            Submit a Prayer Request
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="help-item">
-                    <div class="help-item-icon">👥</div>
-                    <div>
-                        <h4>General Questions</h4>
-                        <p>Have a question about our ministry or content?</p>
-                        <a href="#" class="help-link">
-                            Get Answers
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="help-item">
-                    <div class="help-item-icon">🤝</div>
-                    <div>
-                        <h4>Partnerships</h4>
-                        <p>Interested in partnering with LightMode Ministries?</p>
-                        <a href="#" class="help-link">
-                            Partner With Us
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="help-item">
-                    <div class="help-item-icon">💜</div>
-                    <div>
-                        <h4>Share Your Story</h4>
-                        <p>How has God been working in your life?</p>
-                        <a href="#" class="help-link">
-                            Share Your Story
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
+                        <button class="download-btn" aria-label="Download Healing from Heartbreak">↓</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== CONNECT + STAY INSPIRED ===== -->
-    <section class="connect-section">
-        <div class="connect-grid">
-            <div class="connect-left">
-                <h3>We'd Love to Connect</h3>
-                <p>Follow us on social media for daily encouragement, updates, and inspiring content.</p>
-                <div class="social-grid">
-                    <a href="#" class="social-btn" aria-label="Instagram">📷</a>
-                    <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
-                    <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
-                    <a href="#" class="social-btn" aria-label="Facebook">f</a>
-                    <a href="#" class="social-btn" aria-label="Email">✉️</a>
+    <!-- Spiritual Growth -->
+    <section class="resource-section spiritual-growth" id="growth">
+        <div class="section-header">
+            <div>
+                <span class="section-label">Deepen Your Faith</span>
+                <h2 class="section-title">Spiritual Growth</h2>
+                <p class="section-subtitle">Build disciplines, deepen your walk, and grow into who God made you to be.</p>
+            </div>
+            <a href="#" class="view-all">View All →</a>
+        </div>
+
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-cover">
+                    <span class="resource-type">eBook</span>
+                    <div class="resource-icon">🌱</div>
+                </div>
+                <div class="resource-info">
+                    <h3>New Believer's Guide</h3>
+                    <p>Starting your faith journey? Everything you need for the first 30 days.</p>
+                    <div class="resource-meta">
+                        <div class="resource-format">
+                            <span class="format-tag">PDF</span>
+                            <span class="format-tag">ePub</span>
+                        </div>
+                        <button class="download-btn" aria-label="Download New Believer's Guide">↓</button>
+                    </div>
                 </div>
             </div>
-            <div class="connect-right">
-                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Community">
+
+            <div class="resource-card">
+                <div class="resource-cover">
+                    <span class="resource-type">Guide</span>
+                    <div class="resource-icon">🙏</div>
+                </div>
+                <div class="resource-info">
+                    <h3>The Prayer Handbook</h3>
+                    <p>Practical frameworks for talking to God — even when words fail.</p>
+                    <div class="resource-meta">
+                        <div class="resource-format">
+                            <span class="format-tag">PDF</span>
+                        </div>
+                        <button class="download-btn" aria-label="Download Prayer Handbook">↓</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-cover">
+                    <span class="resource-type">Workbook</span>
+                    <div class="resource-icon">📖</div>
+                </div>
+                <div class="resource-info">
+                    <h3>Discipleship Essentials</h3>
+                    <p>A 12-week workbook for building a faith that lasts.</p>
+                    <div class="resource-meta">
+                        <div class="resource-format">
+                            <span class="format-tag">Printable</span>
+                            <span class="format-tag">PDF</span>
+                        </div>
+                        <button class="download-btn" aria-label="Download Discipleship Essentials">↓</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="connect-section" style="padding-top:0;">
-        <div class="connect-grid">
-            <div></div>
-            <div class="inspired-card">
-                <h4>Stay Inspired</h4>
-                <p>Get weekly devotionals, prayer encouragement, and updates straight to your inbox.</p>
-                <div class="inspired-form">
-                    <input type="email" class="inspired-input" placeholder="Enter your email" aria-label="Your email address">
-                    <button class="btn-subscribe">SUBSCRIBE</button>
+    <!-- Bible Study Tools -->
+    <section class="resource-section bible-study" id="bible">
+        <div class="section-header">
+            <div>
+                <span class="section-label">Understand Scripture</span>
+                <h2 class="section-title">Bible Study Tools</h2>
+                <p class="section-subtitle">Study guides, reading plans, and tools to help you dig into God's Word.</p>
+            </div>
+            <a href="#" class="view-all">View All →</a>
+        </div>
+
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-cover">
+                    <span class="resource-type">Study Guide</span>
+                    <div class="resource-icon">📚</div>
+                </div>
+                <div class="resource-info">
+                    <h3>Gospel of John Study</h3>
+                    <p>12-week verse-by-verse guide with discussion questions.</p>
+                    <div class="resource-meta">
+                        <div class="resource-format">
+                            <span class="format-tag">PDF</span>
+                            <span class="format-tag">Printable</span>
+                        </div>
+                        <button class="download-btn" aria-label="Download Gospel of John Study">↓</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-cover">
+                    <span class="resource-type">Plan</span>
+                    <div class="resource-icon">📅</div>
+                </div>
+                <div class="resource-info">
+                    <h3>90-Day Bible Reading Plan</h3>
+                    <p>From Genesis to Revelation in 90 days — with daily reflections.</p>
+                    <div class="resource-meta">
+                        <div class="resource-format">
+                            <span class="format-tag">PDF</span>
+                        </div>
+                        <button class="download-btn" aria-label="Download 90-Day Reading Plan">↓</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-cover">
+                    <span class="resource-type">Tool</span>
+                    <div class="resource-icon">🔍</div>
+                </div>
+                <div class="resource-info">
+                    <h3>Inductive Study Method</h3>
+                    <p>Learn to observe, interpret, and apply Scripture for yourself.</p>
+                    <div class="resource-meta">
+                        <div class="resource-format">
+                            <span class="format-tag">PDF</span>
+                            <span class="format-tag">Workbook</span>
+                        </div>
+                        <button class="download-btn" aria-label="Download Inductive Study Method">↓</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== BOTTOM STRIP ===== -->
-    <section class="bottom-strip">
-        <div class="bottom-grid">
-            <div class="bottom-left">
-                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=200&q=80" alt="Hands reaching" class="bottom-img">
-                <div class="bottom-left-text">
-                    <h4>You are not alone.</h4>
-                    <div class="handwritten">We're honored to walk alongside you.</div>
+    <!-- Family Resources -->
+    <section class="resource-section family" id="family">
+        <div class="section-header">
+            <div>
+                <span class="section-label">Growing Together</span>
+                <h2 class="section-title">Family Resources</h2>
+                <p class="section-subtitle">Tools for parents, couples, and families growing in faith together.</p>
+            </div>
+            <a href="#" class="view-all">View All →</a>
+        </div>
+
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-cover">
+                    <span class="resource-type">Guide</span>
+                    <div class="resource-icon">👨‍👩‍👧‍👦</div>
+                </div>
+                <div class="resource-info">
+                    <h3>Family Devotional Guide</h3>
+                    <p>Weekly devotionals designed for busy families to do together.</p>
+                    <div class="resource-meta">
+                        <div class="resource-format">
+                            <span class="format-tag">PDF</span>
+                            <span class="format-tag">Printable</span>
+                        </div>
+                        <button class="download-btn" aria-label="Download Family Devotional Guide">↓</button>
+                    </div>
                 </div>
             </div>
-            <div class="bottom-center">
-                <p>No matter where you are in your journey, we believe God has something beautiful in store for you.</p>
+
+            <div class="resource-card">
+                <div class="resource-cover">
+                    <span class="resource-type">Pamphlet</span>
+                    <div class="resource-icon">💑</div>
+                </div>
+                <div class="resource-info">
+                    <h3>Marriage & Faith</h3>
+                    <p>Keeping God at the center of your relationship through every season.</p>
+                    <div class="resource-meta">
+                        <div class="resource-format">
+                            <span class="format-tag">PDF</span>
+                        </div>
+                        <button class="download-btn" aria-label="Download Marriage & Faith">↓</button>
+                    </div>
+                </div>
             </div>
-            <div class="bottom-right">
-                <svg class="cross-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3v18"></path>
-                    <path d="M3 12h18"></path>
-                </svg>
+
+            <div class="resource-card">
+                <div class="resource-cover">
+                    <span class="resource-type">Journal</span>
+                    <div class="resource-icon">📝</div>
+                </div>
+                <div class="resource-info">
+                    <h3>Parent Prayer Journal</h3>
+                    <p>Guided prayers for every stage of your child's life.</p>
+                    <div class="resource-meta">
+                        <div class="resource-format">
+                            <span class="format-tag">Printable</span>
+                            <span class="format-tag">PDF</span>
+                        </div>
+                        <button class="download-btn" aria-label="Download Parent Prayer Journal">↓</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <!-- ===== FOOTER (from reference) ===== -->
+
+    <!-- Teen Support -->
+    <section class="resource-section teen" id="teen">
+        <div class="section-header">
+            <div>
+                <span class="section-label">Real Talk for Real Teens</span>
+                <h2 class="section-title">Teen Support</h2>
+                <p class="section-subtitle">Real talk resources for real teen struggles — no fluff, just honesty.</p>
+            </div>
+            <a href="#" class="view-all">View All →</a>
+        </div>
+
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-cover">
+                    <span class="resource-type">Workbook</span>
+                    <div class="resource-icon">💜</div>
+                </div>
+                <div class="resource-info">
+                    <h3>Dealing with Anxiety</h3>
+                    <p>Practical tools for when your mind won't slow down.</p>
+                    <div class="resource-meta">
+                        <div class="resource-format">
+                            <span class="format-tag">PDF</span>
+                            <span class="format-tag">Worksheet</span>
+                        </div>
+                        <button class="download-btn" aria-label="Download Dealing with Anxiety">↓</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-cover">
+                    <span class="resource-type">Guide</span>
+                    <div class="resource-icon">🎯</div>
+                </div>
+                <div class="resource-info">
+                    <h3>Finding Your Identity</h3>
+                    <p>Who are you, really? A guide to discovering your true self in Christ.</p>
+                    <div class="resource-meta">
+                        <div class="resource-format">
+                            <span class="format-tag">PDF</span>
+                        </div>
+                        <button class="download-btn" aria-label="Download Finding Your Identity">↓</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-cover">
+                    <span class="resource-type">Pamphlet</span>
+                    <div class="resource-icon">🗣️</div>
+                </div>
+                <div class="resource-info">
+                    <h3>When Doubt Hits Hard</h3>
+                    <p>Honest answers for the questions you're afraid to ask.</p>
+                    <div class="resource-meta">
+                        <div class="resource-format">
+                            <span class="format-tag">PDF</span>
+                        </div>
+                        <button class="download-btn" aria-label="Download When Doubt Hits Hard">↓</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <span class="cta-label">Can't Find What You Need?</span>
+            <h2 class="cta-title">We're Here to Help</h2>
+            <p class="cta-text">
+                Have an idea for a resource? Need something specific for your situation? 
+                Reach out — we create new tools based on what people actually need.
+            </p>
+            <div class="cta-actions">
+                <a href="/contact.html" class="btn-primary">
+                    <span>📧</span>
+                    Request a Resource
+                </a>
+                <a href="/teens.html" class="btn-soft">
+                    <span>💜</span>
+                    Visit Teen Support
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="footer-content">
             <div class="footer-brand">
@@ -1578,7 +1554,7 @@
             }
         });
 
-       // Mobile menu toggle
+        // Mobile menu toggle
         const navbarToggle = document.querySelector('.navbar-toggle');
         const navbarMenu = document.getElementById('navbar-menu');
 
@@ -1613,6 +1589,11 @@ if (!isExpanded) {
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                // Update active pill
+                document.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
+                if (this.classList.contains('category-pill')) {
+                    this.classList.add('active');
                 }
             });
         });

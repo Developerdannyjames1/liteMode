@@ -22,68 +22,197 @@
 </head>
 <body>
 
-  <!-- Navbar - NON-STICKY (removed fixed positioning) -->
-  <nav class="navbar" role="navigation" aria-label="Main navigation">
+<!-- ===== MERGED NAVBAR ===== -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar-container">
-      <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
-        <img src="/images/logo.png" alt="LightMode Ministries Logo">
-      </a>
-      
-      <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      
-      <ul class="navbar-menu" id="navbar-menu" role="menubar">
-        <li role="none"><a href="/" class="navbar-link active" role="menuitem">Home</a></li>
-        <li role="none"><a href="/about.html" class="navbar-link" role="menuitem">About</a></li>
-        <li role="none"><a href="/children.html" class="navbar-link" role="menuitem">Children</a></li>
-        <li role="none"><a href="/expressions.html" class="navbar-link" role="menuitem">Expressions</a></li>
-        <li role="none"><a href="/publications.html" class="navbar-link" role="menuitem">Publications</a></li>
-        <li role="none"><a href="/animations.html" class="navbar-link" role="menuitem">Animations</a></li>
-        <li role="none"><a href="/contact.html" class="navbar-link" role="menuitem">Contact</a></li>
-        <li role="none"><a href="/watch.html" class="navbar-link" role="menuitem">Watch</a></li>
-      </ul>
-      
-      <div class="navbar-icon">
-        <img src="/images/icons.svg" alt="User Account" width="80" height="30" style="filter: brightness(0) invert(1);">
-      </div>
+        <!-- Brand Logo (Only Image) -->
+        <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
+            <img src="/images/logo.png" alt="LightMode Ministries">
+        </a>
+
+        <!-- Menu Items -->
+        <ul class="navbar-menu" id="navbar-menu" role="menubar">
+            <li role="none"><a href="/" class="navbar-link active" role="menuitem">Home</a></li>
+            <li role="none"><a href="/start-here.html" class="navbar-link start-here" role="menuitem">Start Here</a></li>
+            <li role="none"><a href="/rest.html" class="navbar-link" role="menuitem">Rest</a></li>
+            <li role="none"><a href="/grow.html" class="navbar-link" role="menuitem">Grow</a></li>
+            <li role="none"><a href="/stories.html" class="navbar-link" role="menuitem">Stories</a></li>
+            <li role="none"><a href="/bible-study.html" class="navbar-link" role="menuitem">Bible Study</a></li>
+            <li role="none"><a href="/teens.html" class="navbar-link" role="menuitem">Teens</a></li>
+            <li role="none"><a href="/lumenquest.html" class="navbar-link lumenquest" role="menuitem">LumenQuest</a></li>
+            <li role="none"><a href="/resources.html" class="navbar-link" role="menuitem">Resources</a></li>
+            <li role="none"><a href="/about.html" class="navbar-link" role="menuitem">About</a></li>
+            <li role="none"><a href="/contact.html" class="navbar-link" role="menuitem">Contact</a></li>
+        </ul>
+
+        <!-- Actions Section -->
+        <div class="navbar-actions">
+          
+
+            <!-- Navigation Icons -->
+            <div class="navbar-icons">
+                <button class="navbar-icon" aria-label="Search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="navbar-icon" aria-label="Language">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M2 12h20"></path>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </button>
+                <button class="navbar-icon" aria-label="Account">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+            </div>
+
+           
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </div>
-  </nav>
+</nav>
 
   <!-- Hero Section -->
   <section class="hero" aria-label="Hero section">
-    <h1 class="hero-heading">
-      We create resources to<br>
-      help people understand<br>
-      <span style="display: inline-flex; align-items: center; gap: 0.5rem;">
-        the
-        <video src="/videos/bible.mp4" class="hero-video-inline" autoplay loop muted playsinline aria-label="Bible video"></video>
-        Bible.
-      </span>
+    <h1 style="font-size: clamp(0.5rem, 1vw, 2.5rem);" class="hero-heading">
+      Step Into the <span class="highlight">Light</span> That Transforms The Heart
     </h1>
     
-    <div class="bridge-container" role="region" aria-label="Featured content carousel">
-      <div class="bridge-track" id="bridgeTrack"></div>
+    <div class="hero-buttons">
+      <a href="/rest.html" class="hero-btn">I Need Peace</a>
+      <a href="/stories.html" class="hero-btn">I Need Inspiration</a>
     </div>
 
-    <p class="hero-description">
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-    </p>
+
+      <!-- Tagline Section -->
+  <section class="tagline-section" aria-label="Tagline">
+    
+     <h1 class="hero-heading">
+  Discover peace for your heart,<br>
+  truth
+  <video src="/videos/bible.mp4" class="hero-video-inline" autoplay loop muted playsinline aria-label="Bible video"></video>
+  for your journey,<br> and light for 
+  every season of life.
+</h1>
+    
+
+ 
+
   </section>
 
+    <!-- Visual Pathways Section -->
+  <section class="pathways-section" aria-label="Visual Pathways">
+    <div class="bridge-container" id="bridgeContainer">
+      <div class="bridge-track" id="bridgeTrack">
+        
+        <!-- Rest -->
+        <div class="pathway-card rest">
+          <img src="/images/pathway-rest.jpg" alt="Rest">
+          <div class="pathway-card-overlay">
+            <h3 class="pathway-card-title">Rest In<br>The Light</h3>
+            <p class="pathway-card-subtitle">Peace and meditation</p>
+          </div>
+        </div>
+
+        <!-- See the Light -->
+        <div class="pathway-card see">
+          <img src="/images/pathway-see.jpg" alt="See the Light">
+          <div class="pathway-card-overlay">
+            <h3 class="pathway-card-title">See the<br>Light</h3>
+            <p class="pathway-card-subtitle">Inspiring Video Stories</p>
+          </div>
+        </div>
+
+        <!-- LumenQuest Animations -->
+        <div class="pathway-card lumen">
+          <div class="pathway-card-overlay">
+            <h3 class="pathway-card-title" style="color: #FF6B6B;">Lumen<span style="color: #4ECDC4;">Quest</span></h3>
+            <p class="pathway-card-subtitle" style="color: #333;">Animations</p>
+          </div>
+        </div>
+
+        <!-- Start Here -->
+        <div class="pathway-card start">
+          <img src="/images/pathway-start.jpg" alt="Start Here">
+          <div class="pathway-card-overlay">
+            <h3 class="pathway-card-title">Start<br>Here</h3>
+            <p class="pathway-card-subtitle">7-Day Light Journey</p>
+          </div>
+        </div>
+
+        <!-- Teens -->
+        <div class="pathway-card teens">
+          <img src="/images/pathway-teens.jpg" alt="Teens">
+          <div class="pathway-card-overlay">
+            <h3 class="pathway-card-title" style="color: #FF6B6B;">Teens:<br>Illuminated</h3>
+            <p class="pathway-card-subtitle" style="color: #333;">Navigating The Light</p>
+          </div>
+        </div>
+
+        <!-- LumenQuest Animations (duplicate) -->
+        <div class="pathway-card lumen">
+          <div class="pathway-card-overlay">
+            <h3 class="pathway-card-title" style="color: #FF6B6B;">Lumen<span style="color: #4ECDC4;">Quest</span></h3>
+            <p class="pathway-card-subtitle" style="color: #333;">Animations</p>
+          </div>
+        </div>
+
+        <!-- Walk in the Light -->
+        <div class="pathway-card walk">
+          <img src="/images/pathway-walk.jpg" alt="Walk in the Light">
+          <div class="pathway-card-overlay">
+            <h3 class="pathway-card-title" style="color: #D4A853;">Walk In<br>The Light</h3>
+            <p class="pathway-card-subtitle" style="color: #333;">Bible Studies and Sermons</p>
+          </div>
+        </div>
+
+        <!-- Grow in the Light -->
+        <div class="pathway-card grow">
+          <img src="/images/pathway-grow.jpg" alt="Grow in the Light">
+          <div class="pathway-card-overlay">
+            <h3 class="pathway-card-title" style="color: #D4A853;">Grow In<br>The Light</h3>
+            <p class="pathway-card-subtitle" style="color: #333;">Devotionals, Books, Resources</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <div class="start-here-container">
+
+    <a href="/lumenquest.html" class="lumenquest-btn">
+      <span class="lumen">Lumen</span><span class="quest">Quest</span> Animations
+    </a>
+
+  </div>
+  </section>
+
+
+
+
   <!-- Scrolling Banner -->
-  <section class="scroll-banner" aria-label="Scrolling banner">
+  <!-- <section class="scroll-banner" aria-label="Scrolling banner">
     <div class="scroll-track">
       <img src="/images/sec-img.svg" alt="" loading="lazy">
       <img src="/images/sec-img.svg" alt="" loading="lazy">
       <img src="/images/sec-img.svg" alt="" loading="lazy">
     </div>
-  </section>
+  </section> -->
 
   <!-- Welcome Section - PINNED SCROLL ANIMATION -->
-  <section class="welcome-section" id="welcome-section" aria-label="Welcome section">
+   <section class="welcome-section" id="welcome-section" aria-label="Welcome section">
     <div class="welcome-bg-blobs" aria-hidden="true">
       <div class="welcome-blob welcome-blob--yellow"></div>
       <div class="welcome-blob welcome-blob--orange"></div>
@@ -100,53 +229,53 @@
         </p>
       </div>
 
-      <div class="welcome-gallery">
+      <div class="welcome-gallery"> 
         <!-- Left Images -->
-        <div class="welcome-img welcome-img--left-1" data-welcome-animate="left">
+         <div class="welcome-img welcome-img--left-1" data-welcome-animate="left">
           <div class="welcome-img-container">
-            <img src="/images/left-top-kids.png" alt="" loading="lazy">
+            <img src="/images/left-top-kids.png" alt="Left top kids" loading="lazy">
           </div>
         </div>
 
         <div class="welcome-img welcome-img--left-2" data-welcome-animate="left">
           <div class="welcome-img-container">
-            <img src="/images/Ellipse 1.png" alt="" loading="lazy">
+            <img src="/images/Ellipse 1.png" alt="Ellipse 1" loading="lazy">
           </div>
-        </div>
+        </div> 
 
         <!-- Center Image -->
-        <div class="welcome-img welcome-img--center" data-welcome-animate="center">
+         <div class="welcome-img welcome-img--center" data-welcome-animate="center">
           <div class="welcome-img-container">
             <img src="/images/center-kids.png" alt="Children learning about the Bible" loading="lazy">
           </div>
-        </div>
+        </div> 
 
         <!-- Right Images -->
-        <div class="welcome-img welcome-img--right-1" data-welcome-animate="right">
+         <div class="welcome-img welcome-img--right-1" data-welcome-animate="right">
           <div class="welcome-img-container">
-            <img src="/images/single-kid.png" alt="" loading="lazy">
+            <img src="/images/single-kid.png" alt="Single kid" loading="lazy">
           </div>
         </div>
 
         <div class="welcome-img welcome-img--right-2" data-welcome-animate="right">
           <div class="welcome-img-container">
-            <img src="/images/right-bottom.png" alt="" loading="lazy">
+            <img src="/images/right-bottom.png" alt="Right bottom" loading="lazy">
           </div>
         </div>
 
         <!-- Decorative Icons -->
-        <div class="welcome-deco welcome-deco--1" aria-hidden="true">
-          <img src="/images/Vector.svg" alt="">
+         <div class="welcome-deco welcome-deco--1" aria-hidden="true">
+          <img src="/images/Vector.svg" alt="Decorative icon">
         </div>
         <div class="welcome-deco welcome-deco--2" aria-hidden="true">
-          <img src="/images/Vector (1).svg" alt="">
+          <img src="/images/Vector (1).svg" alt="Decorative icon">
         </div>
         <div class="welcome-deco welcome-deco--3" aria-hidden="true">
-          <img src="/images/Vector (2).svg" alt="">
+          <img src="/images/Vector (2).svg" alt="Decorative icon">
         </div>
       </div>
     </div>
-  </section>
+  </section> 
 
   <!-- Ministry Cards Section - ORIGINAL 4-COLUMN STAGGERED LAYOUT -->
   <section class="ministry-section" id="ministry-section" aria-labelledby="ministry-title">
@@ -165,7 +294,7 @@
       <!-- Card 1: Pink, rotate(6deg) -->
       <article class="ministry-card ministry-card--pink" data-animate>
         <div class="ministry-card__icon">
-          <img src="/images/pink.png" alt="" loading="lazy">
+          <img src="/images/pink.png" alt="Pink icon" loading="lazy">
         </div>
         <h3 class="ministry-card__title">LightMode Children</h3>
         <p class="ministry-card__desc">
@@ -176,7 +305,7 @@
       <!-- Card 2: Green, rotate(-8deg), margin-top -->
       <article class="ministry-card ministry-card--green" data-animate>
         <div class="ministry-card__icon">
-          <img src="/images/green.png" alt="" loading="lazy">
+          <img src="/images/green.png" alt="Green icon" loading="lazy">
         </div>
         <h3 class="ministry-card__title">LightMode Expressions</h3>
         <p class="ministry-card__desc">
@@ -187,7 +316,7 @@
       <!-- Card 3: Yellow, rotate(6deg) -->
       <article class="ministry-card ministry-card--yellow" data-animate>
         <div class="ministry-card__icon">
-          <img src="/images/yellow.png" alt="" loading="lazy">
+          <img src="/images/yellow.png" alt="Yellow icon" loading="lazy">
         </div>
         <h3 class="ministry-card__title">LightMode Publications</h3>
         <p class="ministry-card__desc">
@@ -198,7 +327,7 @@
       <!-- Card 4: Red, rotate(-8deg), margin-top -->
       <article class="ministry-card ministry-card--red" data-animate>
         <div class="ministry-card__icon">
-          <img src="/images/red.png" alt="" loading="lazy">
+          <img src="/images/red.png" alt="Red icon" loading="lazy">
         </div>
         <h3 class="ministry-card__title">LightMode Animations</h3>
         <p class="ministry-card__desc">
@@ -324,11 +453,11 @@
 
     <div class="heroes-slider">
       <button class="heroes-nav heroes-nav--prev" id="heroesPrev" aria-label="Previous hero">
-        <img src="/images/Group 60.svg" alt="">
+        <img src="/images/Group 60.svg" alt="Previous hero">
       </button>
 
       <button class="heroes-nav heroes-nav--next" id="heroesNext" aria-label="Next hero">
-       <img src="/images/Group 59.svg" alt="">
+       <img src="/images/Group 59.svg" alt="Next hero">
       </button>
 
       <div class="heroes-track-container">
@@ -462,7 +591,7 @@
 
       <div class="max-w-md text-center lg:text-left">
         <div class="flex items-center justify-center lg:justify-start gap-2 mb-6">
-          <img src="/images/Vector.svg" alt="" aria-hidden="true">
+          <img src="/images/Vector.svg" alt="Decorative icon" aria-hidden="true">
           <span class="text-gray-400 text-xs tracking-wider uppercase">Join the LightMode Community</span>
         </div>
 
@@ -491,7 +620,7 @@
       
       <div class="max-w-sm text-start lg:text-left">
         <div class="flex items-center justify-center lg:justify-start gap-2 mb-6">
-          <img src="/images/Vector.svg" alt="" aria-hidden="true">
+          <img src="/images/Vector.svg" alt="Decorative icon" aria-hidden="true">
           <span class="text-gray-400 text-xs tracking-wider uppercase">Our Mission & Statement</span>
         </div>
 
@@ -674,7 +803,7 @@
     <div class="news-grid">
       <article class="news-card">
         <div class="news-card__image">
-          <img src="/images/first.png" alt="" loading="lazy">
+          <img src="/images/first.png" alt="First news image" loading="lazy">
         </div>
         <div class="news-card__content">
           <p class="news-card__meta">March 21, 2026 • Press</p>
@@ -686,7 +815,7 @@
 
       <article class="news-card">
         <div class="news-card__image">
-          <img src="/images/sec.png" alt="" loading="lazy">
+          <img src="/images/sec.png" alt="Second news image" loading="lazy">
         </div>
         <div class="news-card__content">
           <p class="news-card__meta">March 21, 2026 • Press</p>
@@ -698,7 +827,7 @@
 
       <article class="news-card">
         <div class="news-card__image">
-          <img src="/images/third.png" alt="" loading="lazy">
+          <img src="/images/third.png" alt="Third news image" loading="lazy">
         </div>
         <div class="news-card__content">
           <p class="news-card__meta">March 21, 2026 • Press</p>

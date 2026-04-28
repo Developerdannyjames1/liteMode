@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us — LightMode Ministries</title>
+    <title>Grow - Let God Grow What Matters | LightMode Ministries</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'RecklessStandard';
@@ -19,8 +19,24 @@
             font-weight: normal; font-style: normal; font-display: swap;
         }
 
-        /* THEME VARIABLES - NIGHT (default) */
+        /* ===== THEME VARIABLES (from resources.html) ===== */
         :root {
+             /* Light Theme (Default) */
+    --navbar-bg: #ffffff;
+    --navbar-text: rgba(30, 30, 30, 0.85);
+    --navbar-text-hover: #000000;
+    --navbar-hover-bg: rgba(0, 0, 0, 0.05);
+    --navbar-active-bg: rgba(0, 0, 0, 0.03);
+    --navbar-border: rgba(0, 0, 0, 0.08);
+    --toggle-bg: rgba(0, 0, 0, 0.06);
+    --toggle-border: rgba(0, 0, 0, 0.1);
+    --toggle-text: rgba(0, 0, 0, 0.5);
+    --icon-color: rgba(0, 0, 0, 0.6);
+    --icon-hover-bg: rgba(0, 0, 0, 0.06);
+    --prayer-btn-from: #7C3AED;
+    --prayer-btn-to: #6366F1;
+    --mobile-toggle-border: rgba(0, 0, 0, 0.2);
+    --mobile-toggle-span: #1a1a1a;
             --bg-primary: #0a0a12;
             --bg-secondary: #12121f;
             --bg-card: rgba(26, 26, 40, 0.7);
@@ -57,7 +73,7 @@
             --footer-bg: #0a0a12;
             --footer-border: rgba(255,255,255,0.05);
             --starfield-opacity: 1;
-            --hero-overlay: linear-gradient(90deg, #080810 0%, #080810 45%, transparent 80%);
+            --hero-overlay: linear-gradient(90deg, #080810 0%, #080810 40%, transparent 75%);
             --hero-bg-filter: saturate(0.3) contrast(1.2) hue-rotate(220deg);
             --hero-bg-opacity: 0.5;
             --hero-gradient-start: #080810;
@@ -65,19 +81,22 @@
             --hero-gradient-end: #1a1a3e;
             --pill-bg: rgba(26, 26, 40, 0.8);
             --pill-border: rgba(255,255,255,0.1);
-            --form-bg: rgba(20, 20, 35, 0.8);
-            --form-input-bg: rgba(15, 15, 25, 0.9);
-            --form-input-border: rgba(255,255,255,0.1);
-            --form-input-focus: rgba(167,139,250,0.4);
-            --help-bg: rgba(20, 20, 35, 0.6);
-            --help-hover: rgba(30, 30, 50, 0.9);
-            --connect-bg: rgba(20, 20, 35, 0.7);
-            --connect-img-bg: rgba(20, 20, 35, 0.5);
-            --bottom-bg: rgba(20, 20, 35, 0.6);
-            --bottom-border: rgba(255,255,255,0.06);
+
+            /* Grow-specific overrides */
+            --grow-deep-forest: #0f172a;
+            --grow-forest-night: #1e293b;
+            --grow-sage: #2d4a3e;
+            --grow-moss: #3d6b54;
+            --grow-warm-green: #4ade80;
+            --grow-soft-gold: #d4a574;
+            --grow-pale-gold: #f4e4bc;
+            --grow-cream: #fefce8;
+            --grow-slate: #94a3b8;
+            --grow-gray: #64748b;
+            --grow-light-glow: rgba(74, 222, 128, 0.08);
+            --grow-gold-glow: rgba(212, 165, 116, 0.12);
         }
 
-        /* THEME VARIABLES - DAY MODE */
         [data-theme="day"] {
             --bg-primary: #faf8f5;
             --bg-secondary: #f5f0eb;
@@ -115,7 +134,7 @@
             --footer-bg: #f5f0eb;
             --footer-border: rgba(0,0,0,0.06);
             --starfield-opacity: 0;
-            --hero-overlay: linear-gradient(90deg, rgba(254,243,199,0.95) 0%, rgba(254,243,199,0.85) 45%, transparent 80%);
+            --hero-overlay: linear-gradient(90deg, rgba(254,243,199,0.95) 0%, rgba(254,243,199,0.85) 45%, transparent 75%);
             --hero-bg-filter: saturate(0.8) contrast(1.1) hue-rotate(10deg);
             --hero-bg-opacity: 0.6;
             --hero-gradient-start: #fef3c7;
@@ -123,18 +142,23 @@
             --hero-gradient-end: #fed7aa;
             --pill-bg: rgba(255, 255, 255, 0.9);
             --pill-border: rgba(0,0,0,0.08);
-            --form-bg: rgba(255, 255, 255, 0.9);
-            --form-input-bg: rgba(250, 248, 245, 0.9);
-            --form-input-border: rgba(0,0,0,0.08);
-            --form-input-focus: rgba(124,58,237,0.3);
-            --help-bg: rgba(255, 255, 255, 0.7);
-            --help-hover: rgba(255, 255, 255, 0.95);
-            --connect-bg: rgba(255, 255, 255, 0.85);
-            --connect-img-bg: rgba(245, 240, 235, 0.5);
-            --bottom-bg: rgba(255, 255, 255, 0.7);
-            --bottom-border: rgba(0,0,0,0.06);
+
+            /* Grow day overrides */
+            --grow-deep-forest: #f8fafc;
+            --grow-forest-night: #f1f5f9;
+            --grow-sage: #dcfce7;
+            --grow-moss: #bbf7d0;
+            --grow-warm-green: #16a34a;
+            --grow-soft-gold: #b45309;
+            --grow-pale-gold: #fef3c7;
+            --grow-cream: #fffbeb;
+            --grow-slate: #475569;
+            --grow-gray: #64748b;
+            --grow-light-glow: rgba(22, 163, 74, 0.06);
+            --grow-gold-glow: rgba(180, 83, 9, 0.08);
         }
 
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
@@ -144,8 +168,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             transition: background-color 0.5s ease, color 0.5s ease;
-        }
-
+        }        /* ===== STARS / AMBIENT ===== */
         .starfield {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
@@ -157,8 +180,7 @@
                 radial-gradient(ellipse at 80% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
                 radial-gradient(ellipse at 50% 50%, rgba(45, 43, 85, 0.15) 0%, transparent 60%);
         }
-
-               /* ===== MERGED NAVBAR STYLES ===== */
+  /* ===== MERGED NAVBAR STYLES ===== */
 .navbar {
     position: fixed; 
     top: 0; 
@@ -464,7 +486,7 @@
     }
     
     .navbar-brand img {
-        height: 60px;
+       height: 60px;
     }
     
     .navbar-toggle {
@@ -474,7 +496,7 @@
     .navbar-menu {
         display: none;
         position: absolute;
-        top: 64px;
+        top: 63px;
         left: 0;
         right: 0;
         background: #0A0E1A;
@@ -488,6 +510,7 @@
     
     .navbar-menu.active {
         display: flex;
+        
     }
     
    /* Light mode (default ya day) */
@@ -508,7 +531,6 @@
 [data-theme="night"] .navbar-link.active {
   color: rgba(255, 255, 255, 1);
 }
-    
     .navbar-prayer {
         display: none;
     }
@@ -516,512 +538,529 @@
     .theme-toggle {
         order: -1;
     }
-}
-        /* ===== HERO SECTION ===== */
+}  
+
+   /* Light theme shadow adjustment */
+    [data-theme="night"] .navbar-menu {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+/* ===== GROW HERO ===== */
         .hero {
             position: relative; z-index: 1;
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex; align-items: center;
             overflow: hidden;
-            background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-mid) 50%, var(--hero-gradient-end) 100%);
+            background: linear-gradient(135deg, var(--grow-deep-forest) 0%, var(--grow-forest-night) 40%, #1E293B 100%);
             transition: background 0.5s ease;
         }
         .hero-bg {
             position: absolute; top: 0; right: 0;
             width: 55%; height: 100%;
-            background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=80') no-repeat center center;
+            background: url('https://images.stockcake.com/public/0/9/8/0987c622-a33e-41d5-8f55-06f7c6e9abd0_large/summit-at-sunset-stockcake.jpg') no-repeat center center;
             background-size: cover;
-            mask-image: linear-gradient(to left, black 30%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%);
-            opacity: var(--hero-bg-opacity);
-            filter: var(--hero-bg-filter);
-            transition: opacity 0.5s ease, filter 0.5s ease;
+            mask-image: linear-gradient(to left, black 50%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to left, black 50%, transparent 100%);
+            opacity: 0.6;
+            transition: opacity 0.5s ease;
+        }
+        [data-theme="day"] .hero-bg {
+            opacity: 0.4;
+            filter: saturate(0.8) contrast(1.1);
         }
         .hero-overlay {
             position: absolute; top: 0; left: 0;
             width: 100%; height: 100%;
-            background: var(--hero-overlay);
+            background: linear-gradient(90deg, var(--grow-deep-forest) 0%, var(--grow-deep-forest) 35%, transparent 70%);
             z-index: 1;
             transition: background 0.5s ease;
         }
         .hero-content {
             position: relative; z-index: 2;
             max-width: 1400px; margin: 0 auto;
-            padding: 140px 60px 60px;
+            padding: 120px 60px;
             width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
         }
         .hero-left {
-            max-width: 500px;
+            max-width: 650px;
+            animation: fadeInUp 1s ease-out;
         }
-        .hero-left h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 4rem; font-weight: 800;
-            line-height: 1.05; margin-bottom: 12px;
-            color: var(--text-primary);
-            letter-spacing: -0.03em;
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-label {
+            font-family: 'Caveat', cursive;
+            color: var(--grow-warm-green);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: block;
+            opacity: 0.9;
             transition: color 0.5s ease;
         }
-        .hero-left .handwritten {
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            transition: color 0.5s ease;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--grow-soft-gold);
+            font-weight: 500;
+            transition: color 0.5s ease;
+        }
+        .hero-subtext {
+            font-size: 1.25rem;
+            color: var(--grow-slate);
+            margin-bottom: 45px;
+            font-weight: 300;
+            line-height: 1.7;
+            max-width: 500px;
+            transition: color 0.5s ease;
+        }
+        .hero-features {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 45px;
+            flex-wrap: wrap;
+        }
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            background: var(--bg-card);
+            padding: 12px 18px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            transition: all 0.5s ease;
+        }
+        .hero-feature-icon {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .hero-feature-icon.safe { background: rgba(74, 222, 128, 0.15); color: var(--grow-warm-green); }
+        .hero-feature-icon.grow { background: rgba(212, 165, 116, 0.15); color: var(--grow-soft-gold); }
+        .hero-feature-icon.anchor { background: rgba(59, 130, 246, 0.15); color: #60A5FA; }
+        .hero-feature-icon.love { background: rgba(236, 72, 153, 0.15); color: #F472B6; }
+        [data-theme="day"] .hero-feature-icon.safe { background: rgba(22, 163, 74, 0.1); }
+        [data-theme="day"] .hero-feature-icon.grow { background: rgba(180, 83, 9, 0.1); }
+        .hero-feature-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+            transition: color 0.5s ease;
+        }
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.15) 0%, rgba(74, 222, 128, 0.25) 100%);
+            border: 1px solid rgba(74, 222, 128, 0.4);
+            color: var(--grow-warm-green);
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(74, 222, 128, 0.15);
+        }
+        .hero-cta:hover {
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.25) 0%, rgba(74, 222, 128, 0.35) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(74, 222, 128, 0.25);
+        }
+        [data-theme="day"] .hero-cta {
+            background: linear-gradient(135deg, rgba(22, 163, 74, 0.1) 0%, rgba(22, 163, 74, 0.2) 100%);
+            border-color: rgba(22, 163, 74, 0.3);
+            color: var(--grow-warm-green);
+            box-shadow: 0 10px 40px rgba(22, 163, 74, 0.1);
+        }
+        .hero-right {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .growth-visual {
+            position: relative;
+            width: 350px;
+            height: 350px;
+        }
+        .growth-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(74, 222, 128, 0.1);
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .growth-ring:nth-child(1) { width: 100px; height: 100px; animation: pulse 4s infinite; }
+        .growth-ring:nth-child(2) { width: 180px; height: 180px; animation: pulse 4s infinite 0.5s; }
+        .growth-ring:nth-child(3) { width: 260px; height: 260px; animation: pulse 4s infinite 1s; }
+        .growth-ring:nth-child(4) { width: 340px; height: 340px; animation: pulse 4s infinite 1.5s; }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.05); }
+        }
+        .growth-center {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px; height: 80px;
+            background: rgba(74, 222, 128, 0.1);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem;
+            border: 2px solid rgba(74, 222, 128, 0.3);
+            box-shadow: 0 0 60px rgba(74, 222, 128, 0.2);
+        }        /* ===== FEATURED TEACHING ===== */
+        .featured-section {
+            position: relative; z-index: 1;
+            padding: 100px 40px;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .section-header { margin-bottom: 50px; }
+        .section-label {
             font-family: 'Caveat', cursive;
+            color: var(--grow-warm-green);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            display: block;
+            transition: color 0.5s ease;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            transition: color 0.5s ease;
+        }
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 300;
+            transition: color 0.5s ease;
+        }
+        .teaching-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: all 0.5s ease;
+        }
+        .teaching-video {
+            background: linear-gradient(135deg, var(--grow-forest-night) 0%, var(--grow-sage) 100%);
+            aspect-ratio: 16/10;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.5s ease;
+        }
+        [data-theme="day"] .teaching-video {
+            background: linear-gradient(135deg, #e2e8f0 0%, #dcfce7 100%);
+        }
+        .play-btn {
+            width: 90px; height: 90px;
+            background: rgba(74, 222, 128, 0.15);
+            border: 2px solid rgba(74, 222, 128, 0.4);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative; z-index: 2;
+            backdrop-filter: blur(10px);
+        }
+        .play-btn:hover {
+            background: rgba(74, 222, 128, 0.25);
+            transform: scale(1.08);
+            box-shadow: 0 0 50px rgba(74, 222, 128, 0.2);
+        }
+        .play-btn span {
             font-size: 1.8rem;
-            color: var(--accent-gold);
+            color: var(--grow-warm-green);
+            margin-left: 4px;
+        }
+        .teaching-info {
+            padding: 50px;
+            display: flex; flex-direction: column;
+            justify-content: center;
+        }
+        .teaching-tag {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(74, 222, 128, 0.1);
+            color: var(--grow-warm-green);
+            padding: 6px 16px; border-radius: 50px;
+            font-size: 0.8rem; font-weight: 500;
+            margin-bottom: 20px;
+            width: fit-content;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            transition: all 0.5s ease;
+        }
+        .teaching-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+            line-height: 1.3;
+            transition: color 0.5s ease;
+        }
+        .teaching-info p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            transition: color 0.5s ease;
+        }
+        .teaching-meta {
+            display: flex; gap: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: color 0.5s ease;
+        }
+
+        /* ===== CLUSTERS ===== */
+        .clusters-section {
+            position: relative; z-index: 1;
+            padding: 100px 40px;
+            background: var(--bg-secondary);
+            transition: background 0.5s ease;
+        }
+        .clusters-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .clusters-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+        .cluster-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 35px 30px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .cluster-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--grow-warm-green), var(--grow-soft-gold));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .cluster-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(74, 222, 128, 0.15);
+            box-shadow: 0 15px 40px var(--shadow-glow);
+        }
+        .cluster-card:hover::before { opacity: 1; }
+        .cluster-icon {
+            width: 50px; height: 50px;
+            background: rgba(74, 222, 128, 0.1);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border: 1px solid rgba(74, 222, 128, 0.15);
+        }
+        .cluster-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-weight: 600;
+            transition: color 0.5s ease;
+        }
+        .cluster-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            transition: color 0.5s ease;
+        }
+        .cluster-topics { list-style: none; }
+        .cluster-topics li {
+            padding: 8px 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            display: flex; align-items: center; gap: 8px;
+            transition: all 0.3s ease;
+        }
+        .cluster-topics li:hover {
+            color: var(--grow-warm-green);
+            padding-left: 4px;
+        }
+        .cluster-topics li::before {
+            content: '→';
+            color: var(--grow-moss);
+            font-size: 0.7rem;
+        }        /* ===== TRUTH CALLOUT ===== */
+        .truth-section {
+            position: relative; z-index: 1;
+            padding: 120px 40px;
+            max-width: 1000px; margin: 0 auto;
+            text-align: center;
+        }
+        .truth-container {
+            background: var(--bg-card);
+            border: 1px solid rgba(74, 222, 128, 0.1);
+            border-radius: 30px;
+            padding: 70px 60px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        .truth-container::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(74, 222, 128, 0.03) 0%, transparent 60%);
+            animation: slowRotate 20s linear infinite;
+        }
+        @keyframes slowRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .truth-label {
+            font-family: 'Caveat', cursive;
+            color: var(--grow-warm-green);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            display: block;
+            position: relative; z-index: 1;
+            transition: color 0.5s ease;
+        }
+        .truth-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin-bottom: 30px;
+            position: relative; z-index: 1;
+            font-weight: 500;
+            transition: color 0.5s ease;
+        }
+        .truth-ref {
+            color: var(--grow-soft-gold);
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            position: relative; z-index: 1;
+            transition: color 0.5s ease;
+        }
+
+        /* ===== NEXT STEP ===== */
+        .next-step-section {
+            position: relative; z-index: 1;
+            padding: 100px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, transparent 0%, var(--bg-secondary) 100%);
+            transition: background 0.5s ease;
+        }
+        .next-step-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .next-step-label {
+            font-family: 'Caveat', cursive;
+            color: var(--grow-warm-green);
+            font-size: 1.5rem;
             margin-bottom: 20px;
             display: block;
             transition: color 0.5s ease;
         }
-        .hero-left p {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            max-width: 420px;
-            margin-bottom: 35px;
-            font-weight: 400; line-height: 1.7;
-            transition: color 0.5s ease;
-        }
-
-        /* ===== YOU MATTER BAR ===== */
-        .matter-bar {
-            position: relative; z-index: 1;
-            padding: 0 40px;
-            max-width: 1100px; margin: -30px auto 40px;
-        }
-        .matter-card {
-            background: linear-gradient(135deg, #1e1e3e 0%, #2a2a4e 100%);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 30px 40px;
-            display: grid;
-            grid-template-columns: auto 1fr 1fr;
-            gap: 30px;
-            align-items: center;
-            transition: all 0.5s ease;
-        }
-        [data-theme="day"] .matter-card {
-            background: linear-gradient(135deg, #1e1e3e 0%, #2a2a4e 100%);
-            border-color: rgba(255,255,255,0.15);
-        }
-        .matter-icon {
-            width: 56px; height: 56px;
-            border-radius: 50%;
-            display: flex; align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            border: 2px solid var(--accent-gold);
-            background: rgba(251, 191, 36, 0.1);
-            flex-shrink: 0;
-        }
-        .matter-text h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem; font-weight: 600;
-            color: white;
-            margin-bottom: 6px;
-        }
-        .matter-text p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.85rem; line-height: 1.5;
-        }
-        .matter-quote {
-            text-align: right;
-            border-left: 2px solid rgba(255,255,255,0.1);
-            padding-left: 30px;
-        }
-        .matter-quote p {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.9rem; line-height: 1.6;
-            font-style: italic;
-            margin-bottom: 8px;
-        }
-        .matter-quote .ref {
-            color: var(--accent-gold);
-            font-size: 0.8rem;
-        }
-
-        /* ===== FORM + HELP SECTION ===== */
-        .form-help-section {
-            position: relative; z-index: 1;
-            padding: 40px 40px 60px;
-            max-width: 1100px; margin: 0 auto;
-        }
-        .form-help-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            align-items: start;
-        }
-        .form-card {
-            background: var(--form-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
-            transition: all 0.5s ease;
-        }
-        .form-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem; font-weight: 700;
+        .next-step-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
             color: var(--text-primary);
-            margin-bottom: 4px;
-            transition: color 0.5s ease;
-        }
-        .form-card > p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 30px;
-            transition: color 0.5s ease;
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-        .form-group {
-            margin-bottom: 16px;
-        }
-        .form-group.full {
-            grid-column: 1 / -1;
-        }
-        .form-input {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px 14px 44px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .form-input::placeholder { color: var(--text-muted); }
-        .form-input:focus {
-            border-color: var(--form-input-focus);
-            box-shadow: 0 0 0 3px rgba(167,139,250,0.1);
-        }
-        .form-input-icon {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            font-size: 1rem;
-            pointer-events: none;
-        }
-        .input-wrap {
-            position: relative;
-        }
-        .form-select {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            appearance: none;
-            -webkit-appearance: none;
-        }
-        .form-select:focus {
-            border-color: var(--form-input-focus);
-        }
-        .form-textarea {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            resize: vertical;
-            min-height: 120px;
-            font-family: inherit;
-        }
-        .form-textarea::placeholder { color: var(--text-muted); }
-        .form-textarea:focus {
-            border-color: var(--form-input-focus);
-            box-shadow: 0 0 0 3px rgba(167,139,250,0.1);
-        }
-        .form-checkbox {
-            display: flex;
-            align-items: center;
-            gap: 10px;
             margin-bottom: 20px;
-        }
-        .form-checkbox input {
-            width: 18px; height: 18px;
-            border-radius: 4px;
-            border: 1px solid var(--form-input-border);
-            background: var(--form-input-bg);
-            cursor: pointer;
-            accent-color: var(--accent-violet);
-        }
-        .form-checkbox label {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            cursor: pointer;
+            font-weight: 600;
             transition: color 0.5s ease;
         }
-        .btn-submit {
-            width: 100%;
-            background: var(--btn-gold-bg);
-            color: #1a1a2e;
-            padding: 16px;
+        .next-step-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            transition: color 0.5s ease;
+        }
+        .next-buttons {
+            display: flex; gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: rgba(74, 222, 128, 0.15);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            color: var(--grow-warm-green);
+            padding: 18px 36px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1rem; font-weight: 700;
+            font-size: 1rem;
+            font-weight: 500;
             transition: all 0.4s ease;
-            border: none; cursor: pointer;
-            box-shadow: 0 8px 30px var(--btn-gold-shadow);
             display: inline-flex;
             align-items: center; gap: 10px;
-            justify-content: center;
         }
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px var(--btn-gold-shadow);
-        }
-        .form-privacy {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            margin-top: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            transition: color 0.5s ease;
-        }
-
-        .help-card {
-            background: var(--help-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
-            transition: all 0.5s ease;
-        }
-        .help-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.2rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 30px;
-            transition: color 0.5s ease;
-        }
-        .help-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .help-item:last-child { border-bottom: none; }
-        .help-item:hover { padding-left: 8px; }
-        .help-item-icon {
-            width: 44px; height: 44px;
-            border-radius: 12px;
-            display: flex; align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-            border: 1px solid var(--border-color);
-        }
-        .help-item:nth-child(1) .help-item-icon { background: rgba(251, 191, 36, 0.1); }
-        .help-item:nth-child(2) .help-item-icon { background: rgba(96, 165, 250, 0.1); }
-        .help-item:nth-child(3) .help-item-icon { background: rgba(74, 222, 128, 0.1); }
-        .help-item:nth-child(4) .help-item-icon { background: rgba(244, 114, 182, 0.1); }
-        .help-item h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            transition: color 0.5s ease;
-        }
-        .help-item p {
-            color: var(--text-muted);
-            font-size: 0.8rem; line-height: 1.5;
-            margin-bottom: 6px;
-            transition: color 0.5s ease;
-        }
-        .help-link {
-            color: var(--accent-gold);
-            font-size: 0.8rem; font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center; gap: 6px;
-            transition: all 0.3s ease;
-        }
-        .help-link:hover { gap: 10px; }
-        .help-link svg { width: 14px; height: 14px; }
-
-        /* ===== CONNECT SECTION ===== */
-        .connect-section {
-            position: relative; z-index: 1;
-            padding: 40px 40px 60px;
-            max-width: 1100px; margin: 0 auto;
-        }
-        .connect-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .connect-left h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            transition: color 0.5s ease;
-        }
-        .connect-left p {
-            color: var(--text-secondary);
-            font-size: 0.9rem; line-height: 1.6;
-            margin-bottom: 24px;
-            transition: color 0.5s ease;
-        }
-        .social-grid {
-            display: flex; gap: 12px;
-        }
-        .social-btn {
-            width: 44px; height: 44px;
-            border-radius: 12px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            display: flex; align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-        .social-btn:hover {
-            background: var(--accent-violet);
-            color: white;
-            border-color: var(--accent-violet);
-            transform: translateY(-3px);
-        }
-        .connect-right {
-            border-radius: 20px;
-            overflow: hidden;
-            height: 200px;
-        }
-        .connect-right img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-
-        /* ===== STAY INSPIRED ===== */
-        .inspired-card {
-            background: var(--connect-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 28px;
-            transition: all 0.5s ease;
-        }
-        .inspired-card h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            transition: color 0.5s ease;
-        }
-        .inspired-card p {
-            color: var(--text-muted);
-            font-size: 0.8rem; line-height: 1.5;
-            margin-bottom: 16px;
-            transition: color 0.5s ease;
-        }
-        .inspired-form {
-            display: flex; gap: 8px;
-        }
-        .inspired-input {
-            flex: 1;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 10px;
-            padding: 10px 14px;
-            color: var(--text-primary);
-            font-size: 0.85rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        .inspired-input::placeholder { color: var(--text-muted); }
-        .inspired-input:focus { border-color: var(--form-input-focus); }
-        .btn-subscribe {
-            background: var(--btn-gold-bg);
-            color: #1a1a2e;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 0.8rem; font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-        .btn-subscribe:hover {
+        .btn-primary:hover {
+            background: rgba(74, 222, 128, 0.25);
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px var(--btn-gold-shadow);
+            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.1);
         }
-
-        /* ===== BOTTOM STRIP ===== */
-        .bottom-strip {
-            position: relative; z-index: 1;
-            padding: 50px 40px;
-            background: var(--bottom-bg);
-            border-top: 1px solid var(--bottom-border);
-            transition: all 0.5s ease;
+        [data-theme="day"] .btn-primary {
+            background: rgba(22, 163, 74, 0.1);
+            border-color: rgba(22, 163, 74, 0.25);
+            color: var(--grow-warm-green);
         }
-        .bottom-grid {
-            max-width: 1100px; margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .bottom-left {
-            display: flex; align-items: center;
-            gap: 20px;
-        }
-        .bottom-img {
-            width: 80px; height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-        .bottom-left-text h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            transition: color 0.5s ease;
-        }
-        .bottom-left-text .handwritten {
-            font-family: 'Caveat', cursive;
-            font-size: 1.2rem;
-            color: var(--accent-gold);
-            transition: color 0.5s ease;
-        }
-        .bottom-center p {
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
             color: var(--text-secondary);
-            font-size: 0.85rem; line-height: 1.6;
-            transition: color 0.5s ease;
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.4s ease;
         }
-        .bottom-right {
-            display: flex;
-            justify-content: flex-end;
+        .btn-outline:hover {
+            border-color: var(--accent-violet);
+            color: var(--accent-violet);
         }
-        .cross-icon {
-            width: 60px; height: 60px;
-            opacity: 0.15;
-            color: var(--text-muted);
-            transition: color 0.5s ease;
-        }
-
-        /* ===== FOOTER (from reference) ===== */
+   /* LumenQuest special styling */
+    .navbar-link.lumenquest {
+      background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
+        /* ===== FOOTER (from resources.html) ===== */
         .footer {
             position: relative; z-index: 1;
             background: var(--footer-bg);
@@ -1061,7 +1100,10 @@
             color: white;
             border-color: var(--accent-violet);
         }
-        .footer-social svg { width: 18px; height: 18px; fill: currentColor; }
+        .footer-social svg {
+            width: 18px; height: 18px;
+            fill: currentColor;
+        }
         .footer-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 0.95rem; font-weight: 600;
@@ -1080,6 +1122,12 @@
             transition: color 0.3s ease;
         }
         .footer-links a:hover { color: var(--accent-violet); }
+        .footer-contact {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            transition: color 0.5s ease;
+        }
         .footer-form { margin-top: 20px; }
         .footer-form-title {
             font-family: 'Space Grotesk', sans-serif;
@@ -1143,9 +1191,10 @@
             transition: color 0.3s ease;
         }
         .footer-legal a:hover { color: var(--accent-violet); }
-        .footer-legal span { color: var(--border-color); transition: color 0.5s ease; }
-
-        /* ===== RESPONSIVE ===== */
+        .footer-legal span {
+            color: var(--border-color);
+            transition: color 0.5s ease;
+        }        /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .navbar-menu { display: none; }
             .navbar-toggle { display: flex; }
@@ -1153,54 +1202,48 @@
                 width: 100%;
                 opacity: 0.2;
                 mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
             }
             .hero-overlay {
-                background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-start) 50%, transparent 100%);
+                background: linear-gradient(180deg, var(--grow-deep-forest) 0%, var(--grow-deep-forest) 50%, transparent 100%);
             }
             .hero-content {
-                text-align: center;
-                padding: 120px 40px 60px;
-            }
-            .hero-left { margin: 0 auto; }
-            .hero-left h1 { font-size: 3rem; }
-            .hero-left p { margin: 0 auto 30px; }
-            .matter-card {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 20px;
+                padding: 80px 40px;
             }
-            .matter-icon { margin: 0 auto; }
-            .matter-quote {
-                text-align: center;
-                border-left: none;
-                border-top: 2px solid rgba(255,255,255,0.1);
-                padding-left: 0;
-                padding-top: 20px;
-            }
-            .form-help-grid { grid-template-columns: 1fr; }
-            .connect-grid { grid-template-columns: 1fr; }
-            .connect-right { height: 180px; }
-            .bottom-grid { grid-template-columns: 1fr; text-align: center; }
-            .bottom-left { justify-content: center; }
-            .bottom-right { justify-content: center; }
+            .hero-left { max-width: 100%; }
+            .hero-subtext { margin: 0 auto 45px; }
+            .hero-features { justify-content: center; }
+            .hero-right { display: none; }
+            .teaching-card { grid-template-columns: 1fr; }
+            .clusters-grid { grid-template-columns: repeat(2, 1fr); }
+            .truth-text { font-size: 1.8rem; }
             .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
         }
         @media (max-width: 768px) {
             .navbar-container { padding: 0 20px; }
-            .hero-left h1 { font-size: 2.5rem; }
-            .form-row { grid-template-columns: 1fr; }
-            .matter-card { padding: 24px; }
+            .hero h1 { font-size: 3rem; }
+            .hero-features { flex-direction: column; align-items: center; }
+            .clusters-grid { grid-template-columns: 1fr; }
+            .teaching-info { padding: 30px; }
+            .truth-container { padding: 40px 30px; }
+            .truth-text { font-size: 1.5rem; }
+            .next-buttons { flex-direction: column; align-items: center; }
+            .btn-primary, .btn-outline {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
             .footer-content { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; text-align: center; }
             .navbar-prayer { display: none;}
         }
     </style>
-</head>
-<body>
+</head><body>
     <div class="starfield"></div>
 
-    <!-- ===== NAVBAR (from reference) ===== -->
-   <nav class="navbar" role="navigation" aria-label="Main navigation">
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar-container">
         <!-- Brand Logo (Only Image) -->
         <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
@@ -1212,14 +1255,14 @@
             <li role="none"><a href="/" class="navbar-link " role="menuitem">Home</a></li>
             <li role="none"><a href="/start-here.html" class="navbar-link start-here " role="menuitem">Start Here</a></li>
             <li role="none"><a href="/rest.html" class="navbar-link " role="menuitem">Rest</a></li>
-            <li role="none"><a href="/grow.html" class="navbar-link " role="menuitem">Grow</a></li>
+            <li role="none"><a href="/grow.html" class="navbar-link active" role="menuitem">Grow</a></li>
             <li role="none"><a href="/stories.html" class="navbar-link" role="menuitem">Stories</a></li>
             <li role="none"><a href="/bible-study.html" class="navbar-link" role="menuitem">Bible Study</a></li>
             <li role="none"><a href="/teens.html" class="navbar-link" role="menuitem">Teens</a></li>
             <li role="none"><a href="/lumenquest.html" class="navbar-link lumenquest" role="menuitem">LumenQuest</a></li>
-            <li role="none"><a href="/resources.html" class="navbar-link " role="menuitem">Resources</a></li>
+            <li role="none"><a href="/resources.html" class="navbar-link" role="menuitem">Resources</a></li>
             <li role="none"><a href="/about.html" class="navbar-link" role="menuitem">About</a></li>
-            <li role="none"><a href="/contact.html" class="navbar-link active" role="menuitem" >Contact</a></li>
+            <li role="none"><a href="/contact.html" class="navbar-link" role="menuitem">Contact</a></li>
         </ul>
 
         <!-- Actions Section -->
@@ -1261,212 +1304,210 @@
 </nav>
 
 
-    <!-- ===== HERO SECTION ===== -->
+    <!-- ===== HERO ===== -->
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-left">
-                <h1>Contact Us</h1>
-                <span class="handwritten">We're here for you.</span>
-                <p>
-                    Whether you need prayer, have a question, want to partner with us, or just want to say hello—we'd love to hear from you.
+                <span class="hero-label">Day 2 of Your Journey</span>
+                <h1>
+                    Let God Grow<br>
+                    What <em>Matters</em>
+                </h1>
+                <p class="hero-subtext">
+                    Growth isn't about being perfect. It's about being present. 
+                    Take one truth at a time and let it take root.
                 </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== YOU MATTER BAR ===== -->
-    <div class="matter-bar">
-        <div class="matter-card">
-            <div class="matter-icon">💛</div>
-            <div class="matter-text">
-                <h4>You matter to us.</h4>
-                <p>Our team is here to listen, encourage, and connect you with the support you need.</p>
-            </div>
-            <div class="matter-quote">
-                <p>"Cast all your anxiety on Him because He cares for you."</p>
-                <div class="ref">— 1 Peter 5:7</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== FORM + HELP SECTION ===== -->
-    <section class="form-help-section">
-        <div class="form-help-grid">
-            <div class="form-card">
-                <h3>Send Us a Message</h3>
-                <p>Fill out the form below and we'll get back to you soon.</p>
-                <form>
-                    <div class="form-row">
-                        <div class="input-wrap">
-                            <span class="form-input-icon">👤</span>
-                            <input type="text" class="form-input" placeholder="First Name" aria-label="First Name">
-                        </div>
-                        <div class="input-wrap">
-                            <span class="form-input-icon">👤</span>
-                            <input type="text" class="form-input" placeholder="Last Name" aria-label="Last Name">
+                
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon safe">🌱</div>
+                        <div class="hero-feature-text">
+                            <strong>Rooted</strong> in Truth
                         </div>
                     </div>
-                    <div class="form-group full">
-                        <div class="input-wrap">
-                            <span class="form-input-icon">✉️</span>
-                            <input type="email" class="form-input" placeholder="Email Address" aria-label="Email Address">
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon grow">📖</div>
+                        <div class="hero-feature-text">
+                            <strong>Biblical</strong> Teaching
                         </div>
                     </div>
-                    <div class="form-group full">
-                        <select class="form-select" aria-label="Subject">
-                            <option value="" disabled selected>Subject</option>
-                            <option value="prayer">Prayer Request</option>
-                            <option value="question">General Question</option>
-                            <option value="partner">Partnership</option>
-                            <option value="story">Share Your Story</option>
-                            <option value="other">Other</option>
-                        </select>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon anchor">⚓</div>
+                        <div class="hero-feature-text">
+                            <strong>Faith</strong> That Holds
+                        </div>
                     </div>
-                    <div class="form-group full">
-                        <label style="color:var(--text-muted);font-size:0.8rem;margin-bottom:8px;display:block;">How can we help you?</label>
-                        <textarea class="form-textarea" placeholder="Tell us more..." aria-label="How can we help you?"></textarea>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon love">💚</div>
+                        <div class="hero-feature-text">
+                            <strong>Real</strong> Life Change
+                        </div>
                     </div>
-                    <div class="form-checkbox">
-                        <input type="checkbox" id="contact-me" aria-label="I would like someone to contact me">
-                        <label for="contact-me">I would like someone to contact me.</label>
-                    </div>
-                    <button type="submit" class="btn-submit">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="22" y1="2" x2="11" y2="13"></line>
-                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                        </svg>
-                        SEND MESSAGE
-                    </button>
-                    <div class="form-privacy">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                        Your information is safe and will never be shared.
-                    </div>
-                </form>
+                </div>
+                
+                <a href="#teaching" class="hero-cta">
+                    <span>🌿</span>
+                    Start Growing Today
+                </a>
             </div>
+            <div class="hero-right">
+                <div class="growth-visual">
+                    <div class="growth-ring"></div>
+                    <div class="growth-ring"></div>
+                    <div class="growth-ring"></div>
+                    <div class="growth-ring"></div>
+                    <div class="growth-center">🌱</div>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- ===== FEATURED TEACHING ===== -->
+    <section class="featured-section" id="teaching">
+        <div class="section-header">
+            <span class="section-label">Today's Teaching</span>
+            <h2 class="section-title">Rooted in Truth</h2>
+            <p class="section-subtitle">Clear, encouraging biblical teaching for real life.</p>
+        </div>
 
-            <div class="help-card">
-                <h3>Other Ways We Can Help</h3>
-                <div class="help-item">
-                    <div class="help-item-icon">🙏</div>
-                    <div>
-                        <h4>Prayer Request</h4>
-                        <p>Need prayer? We're here for you.</p>
-                        <a href="#" class="help-link">
-                            Submit a Prayer Request
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
+        <div class="teaching-card">
+            <div class="teaching-video">
+                <div class="play-btn">
+                    <span>▶</span>
                 </div>
-                <div class="help-item">
-                    <div class="help-item-icon">👥</div>
-                    <div>
-                        <h4>General Questions</h4>
-                        <p>Have a question about our ministry or content?</p>
-                        <a href="#" class="help-link">
-                            Get Answers
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
+            </div>
+            <div class="teaching-info">
+                <div class="teaching-tag">
+                    <span>🌿</span>
+                    Identity in Christ
                 </div>
-                <div class="help-item">
-                    <div class="help-item-icon">🤝</div>
-                    <div>
-                        <h4>Partnerships</h4>
-                        <p>Interested in partnering with LightMode Ministries?</p>
-                        <a href="#" class="help-link">
-                            Partner With Us
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="help-item">
-                    <div class="help-item-icon">💜</div>
-                    <div>
-                        <h4>Share Your Story</h4>
-                        <p>How has God been working in your life?</p>
-                        <a href="#" class="help-link">
-                            Share Your Story
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
+                <h3>You Are Not What They Say You Are</h3>
+                <p>Discover who God says you are — not who your past, your fears, or other people have labeled you to be. Your true identity is found in Him.</p>
+                <div class="teaching-meta">
+                    <span>📖 18 min</span>
+                    <span>📝 Study Guide</span>
+                    <span>🎵 Audio</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== CONNECT + STAY INSPIRED ===== -->
-    <section class="connect-section">
-        <div class="connect-grid">
-            <div class="connect-left">
-                <h3>We'd Love to Connect</h3>
-                <p>Follow us on social media for daily encouragement, updates, and inspiring content.</p>
-                <div class="social-grid">
-                    <a href="#" class="social-btn" aria-label="Instagram">📷</a>
-                    <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
-                    <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
-                    <a href="#" class="social-btn" aria-label="Facebook">f</a>
-                    <a href="#" class="social-btn" aria-label="Email">✉️</a>
+    <!-- ===== CLUSTERS ===== -->
+    <section class="clusters-section">
+        <div class="clusters-container">
+            <div class="section-header">
+                <span class="section-label">Explore by Theme</span>
+                <h2 class="section-title">Life Themes to Grow In</h2>
+                <p class="section-subtitle">Choose the area where you want to see God move.</p>
+            </div>
+
+            <div class="clusters-grid">
+                <div class="cluster-card">
+                    <div class="cluster-icon">🪞</div>
+                    <h3>Identity in Christ</h3>
+                    <p>Who God says you are — not who your past defined you to be.</p>
+                    <ul class="cluster-topics">
+                        <li>Seeing Yourself Through His Eyes</li>
+                        <li>Breaking Off False Labels</li>
+                        <li>The Crown of Righteousness</li>
+                        <li>Chosen, Not Forgotten</li>
+                    </ul>
+                </div>
+
+                <div class="cluster-card">
+                    <div class="cluster-icon">🤝</div>
+                    <h3>Faith and Trust</h3>
+                    <p>Learning to lean on God when you can't see the way forward.</p>
+                    <ul class="cluster-topics">
+                        <li>When Doubt Creeps In</li>
+                        <li>Trusting God's Timing</li>
+                        <li>Faith Over Fear</li>
+                        <li>The Anchor of Hope</li>
+                    </ul>
+                </div>
+
+                <div class="cluster-card">
+                    <div class="cluster-icon">💚</div>
+                    <h3>Healing and Restoration</h3>
+                    <p>God's promise to mend what feels broken inside and out.</p>
+                    <ul class="cluster-topics">
+                        <li>Healing from Past Wounds</li>
+                        <li>Restoring Broken Relationships</li>
+                        <li>Emotional Wholeness</li>
+                        <li>The Balm of Gilead</li>
+                    </ul>
+                </div>
+
+                <div class="cluster-card">
+                    <div class="cluster-icon">🎯</div>
+                    <h3>Purpose and Calling</h3>
+                    <p>Discovering why you were created and how God wants to use you.</p>
+                    <ul class="cluster-topics">
+                        <li>Your Unique Design</li>
+                        <li>Walking in Your Calling</li>
+                        <li>Gifts and Talents</li>
+                        <li>Impact Over Image</li>
+                    </ul>
+                </div>
+
+                <div class="cluster-card">
+                    <div class="cluster-icon">📜</div>
+                    <h3>Obedience and Wisdom</h3>
+                    <p>Walking in God's ways with understanding and discernment.</p>
+                    <ul class="cluster-topics">
+                        <li>The Fear of the Lord</li>
+                        <li>Wise Decisions Daily</li>
+                        <li>Listening Before Acting</li>
+                        <li>Discipline as Love</li>
+                    </ul>
+                </div>
+
+                <div class="cluster-card">
+                    <div class="cluster-icon">🌿</div>
+                    <h3>Spiritual Disciplines</h3>
+                    <p>Practical rhythms that keep you connected to God.</p>
+                    <ul class="cluster-topics">
+                        <li>The Power of Prayer</li>
+                        <li>Studying Scripture</li>
+                        <li>Fasting and Focus</li>
+                        <li>Sabbath and Rest</li>
+                    </ul>
                 </div>
             </div>
-            <div class="connect-right">
-                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Community">
+        </div>
+    </section>    <!-- ===== TRUTH CALLOUT ===== -->
+    <section class="truth-section">
+        <div class="truth-container">
+            <span class="truth-label">Anchor Truth</span>
+            <p class="truth-text">
+                "But grow in the grace and knowledge of our Lord and Savior Jesus Christ. To him be glory both now and forever! Amen."
+            </p>
+            <p class="truth-ref">2 PETER 3:18</p>
+        </div>
+    </section>
+
+    <!-- ===== NEXT STEP ===== -->
+    <section class="next-step-section">
+        <div class="next-step-container">
+            <span class="next-step-label">Keep Growing</span>
+            <h2 class="next-step-title">Go Deeper in Study</h2>
+            <p class="next-step-text">
+                These teachings are just the beginning. Dive into structured Bible study 
+                to build a foundation that lasts.
+            </p>
+            <div class="next-buttons">
+                <a href="/bible-study.html" class="btn-primary">
+                    <span>📖</span>
+                    Start Bible Study
+                </a>
+                <a href="/rest.html" class="btn-outline">
+                    Continue Your Journey
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="connect-section" style="padding-top:0;">
-        <div class="connect-grid">
-            <div></div>
-            <div class="inspired-card">
-                <h4>Stay Inspired</h4>
-                <p>Get weekly devotionals, prayer encouragement, and updates straight to your inbox.</p>
-                <div class="inspired-form">
-                    <input type="email" class="inspired-input" placeholder="Enter your email" aria-label="Your email address">
-                    <button class="btn-subscribe">SUBSCRIBE</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== BOTTOM STRIP ===== -->
-    <section class="bottom-strip">
-        <div class="bottom-grid">
-            <div class="bottom-left">
-                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=200&q=80" alt="Hands reaching" class="bottom-img">
-                <div class="bottom-left-text">
-                    <h4>You are not alone.</h4>
-                    <div class="handwritten">We're honored to walk alongside you.</div>
-                </div>
-            </div>
-            <div class="bottom-center">
-                <p>No matter where you are in your journey, we believe God has something beautiful in store for you.</p>
-            </div>
-            <div class="bottom-right">
-                <svg class="cross-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3v18"></path>
-                    <path d="M3 12h18"></path>
-                </svg>
-            </div>
-        </div>
-    </section>
-    <!-- ===== FOOTER (from reference) ===== -->
+    <!-- ===== FOOTER (from resources.html) ===== -->
     <footer class="footer" role="contentinfo">
         <div class="footer-content">
             <div class="footer-brand">
@@ -1501,32 +1542,32 @@
             <div>
                 <h4 class="footer-title">Teens</h4>
                 <ul class="footer-links">
-                    <li><a href="#">Journeys</a></li>
-                    <li><a href="#">Browse Topics</a></li>
-                    <li><a href="#">Check-In</a></li>
-                    <li><a href="#">Night Mode</a></li>
-                    <li><a href="#">Prayer Library</a></li>
+                    <li><a href="/teens.html">Journeys</a></li>
+                    <li><a href="/teens.html">Browse Topics</a></li>
+                    <li><a href="/teens.html">Check-In</a></li>
+                    <li><a href="/teens.html">Night Mode</a></li>
+                    <li><a href="/teens.html">Prayer Library</a></li>
                 </ul>
             </div>
 
             <div>
                 <h4 class="footer-title">Quick Links</h4>
                 <ul class="footer-links">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Prayer Requests</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="/rest.html">Prayer Requests</a></li>
+                    <li><a href="/resources.html">Resources</a></li>
+                    <li><a href="/stories.html">Stories</a></li>
                 </ul>
             </div>
 
             <div>
                 <h4 class="footer-title">Parents</h4>
                 <ul class="footer-links" style="margin-bottom:20px;">
-                    <li><a href="#">Parent Guide</a></li>
-                    <li><a href="#">Conversation Starters</a></li>
-                    <li><a href="#">Faith at Home</a></li>
-                    <li><a href="#">Resources</a></li>
+                    <li><a href="/family.html">Parent Guide</a></li>
+                    <li><a href="/family.html">Conversation Starters</a></li>
+                    <li><a href="/family.html">Faith at Home</a></li>
+                    <li><a href="/resources.html">Resources</a></li>
                 </ul>
                 <div class="footer-form">
                     <div class="footer-form-title">Get encouragement delivered to you.</div>
@@ -1546,10 +1587,8 @@
                 <a href="#">Privacy Policy</a>
             </div>
         </div>
-    </footer>
-
-    <script>
-        // Theme Toggle
+    </footer>    <script>
+        // ===== THEME TOGGLE (from resources.html) =====
         function setTheme(mode) {
             const html = document.documentElement;
             const btnDay = document.getElementById('btn-day');
@@ -1578,7 +1617,7 @@
             }
         });
 
-       // Mobile menu toggle
+         // Mobile menu toggle
         const navbarToggle = document.querySelector('.navbar-toggle');
         const navbarMenu = document.getElementById('navbar-menu');
 
@@ -1606,7 +1645,8 @@ if (!isExpanded) {
 }
             });
         }
-        // Smooth scroll for anchor links
+
+        // ===== SMOOTH SCROLL =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us — LightMode Ministries</title>
+    <title>Teens: Illuminated — LightMode Ministries</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -11,12 +11,16 @@
         @font-face {
             font-family: 'RecklessStandard';
             src: url('./fonts/RecklessStandardM-TRIAL-Regular.otf') format('opentype');
-            font-weight: normal; font-style: normal; font-display: swap;
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
         }
         @font-face {
             font-family: 'RecklessWide';
             src: url('./fonts/RecklessWideXL-TRIAL-Regular.otf') format('opentype');
-            font-weight: normal; font-style: normal; font-display: swap;
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
         }
 
         /* THEME VARIABLES - NIGHT (default) */
@@ -35,46 +39,33 @@
             --accent-teal: #2dd4bf;
             --accent-green: #4ade80;
             --accent-red: #f87171;
-            --accent-orange: #fb923c;
-            --accent-cyan: #22d3ee;
-            --accent-lavender: #c4b5fd;
-            --accent-indigo: #818cf8;
-            --accent-cream: #fef3c7;
             --border-color: rgba(255,255,255,0.08);
             --border-hover: rgba(167,139,250,0.3);
             --shadow-glow: rgba(139,92,246,0.25);
-            --navbar-bg: rgba(10, 10, 18, 0.85);
-            --navbar-border: rgba(255,255,255,0.06);
-            --toggle-bg: #1a1a2e;
-            --toggle-active: #a78bfa;
-            --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
-            --btn-primary-border: rgba(255,255,255,0.15);
-            --btn-primary-shadow: rgba(0,0,0,0.3);
-            --btn-gold-bg: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-            --btn-gold-shadow: rgba(251,191,36,0.35);
-            --btn-light-bg: rgba(255,255,255,0.08);
-            --btn-light-border: rgba(255,255,255,0.15);
-            --footer-bg: #0a0a12;
-            --footer-border: rgba(255,255,255,0.05);
-            --starfield-opacity: 1;
-            --hero-overlay: linear-gradient(90deg, #080810 0%, #080810 45%, transparent 80%);
-            --hero-bg-filter: saturate(0.3) contrast(1.2) hue-rotate(220deg);
-            --hero-bg-opacity: 0.5;
             --hero-gradient-start: #080810;
             --hero-gradient-mid: #12122a;
             --hero-gradient-end: #1a1a3e;
-            --pill-bg: rgba(26, 26, 40, 0.8);
-            --pill-border: rgba(255,255,255,0.1);
-            --form-bg: rgba(20, 20, 35, 0.8);
-            --form-input-bg: rgba(15, 15, 25, 0.9);
-            --form-input-border: rgba(255,255,255,0.1);
-            --form-input-focus: rgba(167,139,250,0.4);
-            --help-bg: rgba(20, 20, 35, 0.6);
-            --help-hover: rgba(30, 30, 50, 0.9);
-            --connect-bg: rgba(20, 20, 35, 0.7);
-            --connect-img-bg: rgba(20, 20, 35, 0.5);
-            --bottom-bg: rgba(20, 20, 35, 0.6);
-            --bottom-border: rgba(255,255,255,0.06);
+            --hero-overlay: linear-gradient(90deg, #080810 0%, #080810 35%, transparent 70%);
+            --hero-bg-opacity: 0.4;
+            --hero-bg-filter: saturate(0.3) contrast(1.2) hue-rotate(220deg);
+            --starfield-opacity: 1;
+            --btn-primary-bg: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+            --btn-primary-shadow: rgba(124,58,237,0.35);
+            --btn-secondary-bg: transparent;
+            --btn-secondary-border: rgba(255,255,255,0.15);
+            --btn-secondary-text: #e0e0f0;
+            --journey-card-bg: rgba(20, 20, 35, 0.8);
+            --checkin-ring: conic-gradient(from 0deg, #a78bfa, #60a5fa, #a78bfa);
+            --footer-bg: #0a0a12;
+            --footer-border: rgba(255,255,255,0.05);
+            --toggle-bg: #1a1a2e;
+            --toggle-active: #a78bfa;
+            --tag-bg: rgba(255,255,255,0.05);
+            --tag-border: rgba(255,255,255,0.08);
+            --tag-text: #8a8aaa;
+            --relief-arrow: #a78bfa;
+            --navbar-bg: rgba(10, 10, 18, 0.85);
+            --navbar-border: rgba(255,255,255,0.06);
         }
 
         /* THEME VARIABLES - DAY MODE */
@@ -93,46 +84,33 @@
             --accent-teal: #0d9488;
             --accent-green: #16a34a;
             --accent-red: #dc2626;
-            --accent-orange: #ea580c;
-            --accent-cyan: #0891b2;
-            --accent-lavender: #8b5cf6;
-            --accent-indigo: #6366f1;
-            --accent-cream: #fef3c7;
             --border-color: rgba(0,0,0,0.08);
             --border-hover: rgba(124,58,237,0.3);
             --shadow-glow: rgba(124,58,237,0.15);
-            --navbar-bg: rgba(250, 248, 245, 0.9);
-            --navbar-border: rgba(0,0,0,0.06);
-            --toggle-bg: #e5e0db;
-            --toggle-active: #7c3aed;
-            --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
-            --btn-primary-border: rgba(0,0,0,0.12);
-            --btn-primary-shadow: rgba(0,0,0,0.15);
-            --btn-gold-bg: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            --btn-gold-shadow: rgba(245,158,11,0.25);
-            --btn-light-bg: rgba(255,255,255,0.9);
-            --btn-light-border: rgba(0,0,0,0.1);
-            --footer-bg: #f5f0eb;
-            --footer-border: rgba(0,0,0,0.06);
-            --starfield-opacity: 0;
-            --hero-overlay: linear-gradient(90deg, rgba(254,243,199,0.95) 0%, rgba(254,243,199,0.85) 45%, transparent 80%);
-            --hero-bg-filter: saturate(0.8) contrast(1.1) hue-rotate(10deg);
-            --hero-bg-opacity: 0.6;
             --hero-gradient-start: #fef3c7;
             --hero-gradient-mid: #fde68a;
             --hero-gradient-end: #fed7aa;
-            --pill-bg: rgba(255, 255, 255, 0.9);
-            --pill-border: rgba(0,0,0,0.08);
-            --form-bg: rgba(255, 255, 255, 0.9);
-            --form-input-bg: rgba(250, 248, 245, 0.9);
-            --form-input-border: rgba(0,0,0,0.08);
-            --form-input-focus: rgba(124,58,237,0.3);
-            --help-bg: rgba(255, 255, 255, 0.7);
-            --help-hover: rgba(255, 255, 255, 0.95);
-            --connect-bg: rgba(255, 255, 255, 0.85);
-            --connect-img-bg: rgba(245, 240, 235, 0.5);
-            --bottom-bg: rgba(255, 255, 255, 0.7);
-            --bottom-border: rgba(0,0,0,0.06);
+            --hero-overlay: linear-gradient(90deg, rgba(254,243,199,0.95) 0%, rgba(254,243,199,0.8) 40%, transparent 70%);
+            --hero-bg-opacity: 0.6;
+            --hero-bg-filter: saturate(0.8) contrast(1.1) hue-rotate(10deg);
+            --starfield-opacity: 0;
+            --btn-primary-bg: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+            --btn-primary-shadow: rgba(124,58,237,0.25);
+            --btn-secondary-bg: rgba(255,255,255,0.7);
+            --btn-secondary-border: rgba(0,0,0,0.12);
+            --btn-secondary-text: #4a4a5e;
+            --journey-card-bg: rgba(255, 255, 255, 0.9);
+            --checkin-ring: conic-gradient(from 0deg, #7c3aed, #2563eb, #7c3aed);
+            --footer-bg: #f5f0eb;
+            --footer-border: rgba(0,0,0,0.06);
+            --toggle-bg: #e5e0db;
+            --toggle-active: #7c3aed;
+            --tag-bg: rgba(0,0,0,0.04);
+            --tag-border: rgba(0,0,0,0.06);
+            --tag-text: #6a6a7e;
+            --relief-arrow: #7c3aed;
+            --navbar-bg: rgba(250, 248, 245, 0.9);
+            --navbar-border: rgba(0,0,0,0.06);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -158,7 +136,7 @@
                 radial-gradient(ellipse at 50% 50%, rgba(45, 43, 85, 0.15) 0%, transparent 60%);
         }
 
-               /* ===== MERGED NAVBAR STYLES ===== */
+       /* ===== MERGED NAVBAR STYLES ===== */
 .navbar {
     position: fixed; 
     top: 0; 
@@ -474,7 +452,7 @@
     .navbar-menu {
         display: none;
         position: absolute;
-        top: 64px;
+        top: 54px;
         left: 0;
         right: 0;
         background: #0A0E1A;
@@ -508,7 +486,6 @@
 [data-theme="night"] .navbar-link.active {
   color: rgba(255, 255, 255, 1);
 }
-    
     .navbar-prayer {
         display: none;
     }
@@ -517,10 +494,10 @@
         order: -1;
     }
 }
-        /* ===== HERO SECTION ===== */
+        /* Hero */
         .hero {
             position: relative; z-index: 1;
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex; align-items: center;
             overflow: hidden;
             background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-mid) 50%, var(--hero-gradient-end) 100%);
@@ -528,11 +505,11 @@
         }
         .hero-bg {
             position: absolute; top: 0; right: 0;
-            width: 55%; height: 100%;
-            background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=80') no-repeat center center;
+            width: 60%; height: 100%;
+            background: url('https://images.stockcake.com/public/2/7/0/270f38d2-e23f-4047-aca4-86a62c437ff0_large/mountain-path-sunset-stockcake.jpg') no-repeat center center;
             background-size: cover;
-            mask-image: linear-gradient(to left, black 30%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%);
+            mask-image: linear-gradient(to left, black 40%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to left, black 40%, transparent 100%);
             opacity: var(--hero-bg-opacity);
             filter: var(--hero-bg-filter);
             transition: opacity 0.5s ease, filter 0.5s ease;
@@ -547,481 +524,548 @@
         .hero-content {
             position: relative; z-index: 2;
             max-width: 1400px; margin: 0 auto;
-            padding: 140px 60px 60px;
+            padding: 140px 60px 100px;
             width: 100%;
         }
-        .hero-left {
-            max-width: 500px;
-        }
-        .hero-left h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 4rem; font-weight: 800;
-            line-height: 1.05; margin-bottom: 12px;
-            color: var(--text-primary);
-            letter-spacing: -0.03em;
-            transition: color 0.5s ease;
-        }
-        .hero-left .handwritten {
+        .hero-label {
             font-family: 'Caveat', cursive;
-            font-size: 1.8rem;
-            color: var(--accent-gold);
-            margin-bottom: 20px;
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 5px;
             display: block;
             transition: color 0.5s ease;
         }
-        .hero-left p {
-            font-size: 1rem;
+        .hero h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 5.5rem; font-weight: 700;
+            line-height: 1.0; margin-bottom: 20px;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            transition: color 0.5s ease;
+        }
+        .hero h1 .illuminated {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 5rem; font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-violet), var(--accent-blue), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block; margin-top: -5px;
+            letter-spacing: -0.03em;
+        }
+        .hero-subtext {
+            font-size: 1.25rem;
             color: var(--text-secondary);
-            max-width: 420px;
-            margin-bottom: 35px;
-            font-weight: 400; line-height: 1.7;
+            max-width: 480px;
+            margin-bottom: 40px;
+            font-weight: 400; line-height: 1.6;
             transition: color 0.5s ease;
         }
-
-        /* ===== YOU MATTER BAR ===== */
-        .matter-bar {
-            position: relative; z-index: 1;
-            padding: 0 40px;
-            max-width: 1100px; margin: -30px auto 40px;
-        }
-        .matter-card {
-            background: linear-gradient(135deg, #1e1e3e 0%, #2a2a4e 100%);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 30px 40px;
-            display: grid;
-            grid-template-columns: auto 1fr 1fr;
-            gap: 30px;
-            align-items: center;
-            transition: all 0.5s ease;
-        }
-        [data-theme="day"] .matter-card {
-            background: linear-gradient(135deg, #1e1e3e 0%, #2a2a4e 100%);
-            border-color: rgba(255,255,255,0.15);
-        }
-        .matter-icon {
-            width: 56px; height: 56px;
-            border-radius: 50%;
-            display: flex; align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            border: 2px solid var(--accent-gold);
-            background: rgba(251, 191, 36, 0.1);
-            flex-shrink: 0;
-        }
-        .matter-text h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem; font-weight: 600;
-            color: white;
-            margin-bottom: 6px;
-        }
-        .matter-text p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.85rem; line-height: 1.5;
-        }
-        .matter-quote {
-            text-align: right;
-            border-left: 2px solid rgba(255,255,255,0.1);
-            padding-left: 30px;
-        }
-        .matter-quote p {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.9rem; line-height: 1.6;
-            font-style: italic;
-            margin-bottom: 8px;
-        }
-        .matter-quote .ref {
-            color: var(--accent-gold);
-            font-size: 0.8rem;
-        }
-
-        /* ===== FORM + HELP SECTION ===== */
-        .form-help-section {
-            position: relative; z-index: 1;
-            padding: 40px 40px 60px;
-            max-width: 1100px; margin: 0 auto;
-        }
-        .form-help-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            align-items: start;
-        }
-        .form-card {
-            background: var(--form-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
-            transition: all 0.5s ease;
-        }
-        .form-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            transition: color 0.5s ease;
-        }
-        .form-card > p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 30px;
-            transition: color 0.5s ease;
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-        .form-group {
-            margin-bottom: 16px;
-        }
-        .form-group.full {
-            grid-column: 1 / -1;
-        }
-        .form-input {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px 14px 44px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .form-input::placeholder { color: var(--text-muted); }
-        .form-input:focus {
-            border-color: var(--form-input-focus);
-            box-shadow: 0 0 0 3px rgba(167,139,250,0.1);
-        }
-        .form-input-icon {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            font-size: 1rem;
-            pointer-events: none;
-        }
-        .input-wrap {
-            position: relative;
-        }
-        .form-select {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            appearance: none;
-            -webkit-appearance: none;
-        }
-        .form-select:focus {
-            border-color: var(--form-input-focus);
-        }
-        .form-textarea {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            resize: vertical;
-            min-height: 120px;
-            font-family: inherit;
-        }
-        .form-textarea::placeholder { color: var(--text-muted); }
-        .form-textarea:focus {
-            border-color: var(--form-input-focus);
-            box-shadow: 0 0 0 3px rgba(167,139,250,0.1);
-        }
-        .form-checkbox {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .form-checkbox input {
-            width: 18px; height: 18px;
-            border-radius: 4px;
-            border: 1px solid var(--form-input-border);
-            background: var(--form-input-bg);
-            cursor: pointer;
-            accent-color: var(--accent-violet);
-        }
-        .form-checkbox label {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: color 0.5s ease;
-        }
-        .btn-submit {
-            width: 100%;
-            background: var(--btn-gold-bg);
-            color: #1a1a2e;
-            padding: 16px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1rem; font-weight: 700;
-            transition: all 0.4s ease;
-            border: none; cursor: pointer;
-            box-shadow: 0 8px 30px var(--btn-gold-shadow);
-            display: inline-flex;
-            align-items: center; gap: 10px;
-            justify-content: center;
-        }
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px var(--btn-gold-shadow);
-        }
-        .form-privacy {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            margin-top: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            transition: color 0.5s ease;
-        }
-
-        .help-card {
-            background: var(--help-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
-            transition: all 0.5s ease;
-        }
-        .help-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.2rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 30px;
-            transition: color 0.5s ease;
-        }
-        .help-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .help-item:last-child { border-bottom: none; }
-        .help-item:hover { padding-left: 8px; }
-        .help-item-icon {
-            width: 44px; height: 44px;
-            border-radius: 12px;
-            display: flex; align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-            border: 1px solid var(--border-color);
-        }
-        .help-item:nth-child(1) .help-item-icon { background: rgba(251, 191, 36, 0.1); }
-        .help-item:nth-child(2) .help-item-icon { background: rgba(96, 165, 250, 0.1); }
-        .help-item:nth-child(3) .help-item-icon { background: rgba(74, 222, 128, 0.1); }
-        .help-item:nth-child(4) .help-item-icon { background: rgba(244, 114, 182, 0.1); }
-        .help-item h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            transition: color 0.5s ease;
-        }
-        .help-item p {
-            color: var(--text-muted);
-            font-size: 0.8rem; line-height: 1.5;
-            margin-bottom: 6px;
-            transition: color 0.5s ease;
-        }
-        .help-link {
-            color: var(--accent-gold);
-            font-size: 0.8rem; font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center; gap: 6px;
-            transition: all 0.3s ease;
-        }
-        .help-link:hover { gap: 10px; }
-        .help-link svg { width: 14px; height: 14px; }
-
-        /* ===== CONNECT SECTION ===== */
-        .connect-section {
-            position: relative; z-index: 1;
-            padding: 40px 40px 60px;
-            max-width: 1100px; margin: 0 auto;
-        }
-        .connect-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .connect-left h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            transition: color 0.5s ease;
-        }
-        .connect-left p {
-            color: var(--text-secondary);
-            font-size: 0.9rem; line-height: 1.6;
-            margin-bottom: 24px;
-            transition: color 0.5s ease;
-        }
-        .social-grid {
+        .hero-affirmations {
             display: flex; gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
-        .social-btn {
-            width: 44px; height: 44px;
-            border-radius: 12px;
+        .affirmation-pill {
+            display: flex; align-items: center;
+            gap: 8px;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            display: flex; align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-        .social-btn:hover {
-            background: var(--accent-violet);
-            color: white;
-            border-color: var(--accent-violet);
-            transform: translateY(-3px);
-        }
-        .connect-right {
-            border-radius: 20px;
-            overflow: hidden;
-            height: 200px;
-        }
-        .connect-right img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-
-        /* ===== STAY INSPIRED ===== */
-        .inspired-card {
-            background: var(--connect-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 28px;
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
             transition: all 0.5s ease;
         }
-        .inspired-card h4 {
-            font-family: 'Space Grotesk', sans-serif;
+        .affirmation-pill .icon {
+            width: 24px; height: 24px;
+            border-radius: 50%;
+            display: flex; align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        .affirmation-pill:nth-child(1) .icon { background: rgba(45, 212, 191, 0.15); color: var(--accent-teal); }
+        .affirmation-pill:nth-child(2) .icon { background: rgba(244, 114, 182, 0.15); color: var(--accent-pink); }
+        .affirmation-pill:nth-child(3) .icon { background: rgba(167, 139, 250, 0.15); color: var(--accent-violet); }
+        .affirmation-pill:nth-child(4) .icon { background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); }
+
+        .hero-actions {
+            display: flex; gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--btn-primary-bg);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
             font-size: 1rem; font-weight: 600;
+            transition: all 0.4s ease;
+            border: none; cursor: pointer;
+            box-shadow: 0 8px 30px var(--btn-primary-shadow);
+            display: inline-flex;
+            align-items: center; gap: 10px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px var(--btn-primary-shadow);
+        }
+        .btn-secondary {
+            background: var(--btn-secondary-bg);
+            border: 1px solid var(--btn-secondary-border);
+            color: var(--btn-secondary-text);
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem; font-weight: 600;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            display: inline-flex;
+            align-items: center; gap: 10px;
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent-violet);
+            color: var(--accent-violet);
+            transform: translateY(-2px);
+        }
+        .btn-secondary .play-icon {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            border: 2px solid currentColor;
+            display: flex; align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        /* Relief Section */
+        .relief-section {
+            position: relative; z-index: 1;
+            padding: 80px 40px;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .section-header {
+            margin-bottom: 40px;
+            display: flex; align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap; gap: 20px;
+        }
+        .section-header-left h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem; font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 8px;
             transition: color 0.5s ease;
         }
-        .inspired-card p {
+        .section-header-left p {
             color: var(--text-muted);
-            font-size: 0.8rem; line-height: 1.5;
+            font-size: 0.95rem;
+            transition: color 0.5s ease;
+        }
+        .section-header-right {
+            font-family: 'Caveat', cursive;
+            color: var(--relief-arrow);
+            font-size: 1.3rem;
+            display: flex; align-items: center;
+            gap: 8px;
+            transition: color 0.5s ease;
+        }
+        .relief-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+        }
+        .relief-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 28px 16px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        .relief-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--accent-violet), var(--accent-blue));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .relief-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-hover);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            background: var(--bg-card-hover);
+        }
+        .relief-card:hover::before { opacity: 1; }
+        .relief-icon {
+            width: 56px; height: 56px;
+            border-radius: 16px;
+            display: flex; align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.6rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.5s ease;
+        }
+        .relief-card:nth-child(1) .relief-icon { background: rgba(45, 212, 191, 0.1); }
+        .relief-card:nth-child(2) .relief-icon { background: rgba(96, 165, 250, 0.1); }
+        .relief-card:nth-child(3) .relief-icon { background: rgba(74, 222, 128, 0.1); }
+        .relief-card:nth-child(4) .relief-icon { background: rgba(244, 114, 182, 0.1); }
+        .relief-card:nth-child(5) .relief-icon { background: rgba(167, 139, 250, 0.1); }
+        .relief-card:nth-child(6) .relief-icon { background: rgba(251, 191, 36, 0.1); }
+        .relief-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            margin-bottom: 6px; font-weight: 600;
+            transition: color 0.5s ease;
+        }
+        .relief-card p {
+            color: var(--text-muted);
+            font-size: 0.8rem; line-height: 1.4;
+            transition: color 0.5s ease;
+        }
+
+        /* Content Section */
+        .content-section {
+            position: relative; z-index: 1;
+            padding: 80px 40px;
+            background: var(--bg-secondary);
+            transition: background 0.5s ease;
+        }
+        .content-container {
+            max-width: 1200px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 0.8fr;
+            gap: 40px; align-items: start;
+        }
+        .journey-info h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px; line-height: 1.2;
+            transition: color 0.5s ease;
+        }
+        .journey-info .handwritten {
+            font-family: 'Caveat', cursive;
+            color: var(--accent-violet);
+            font-size: 1.4rem;
+            display: block; margin-bottom: 20px;
+            transition: color 0.5s ease;
+        }
+        .journey-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        .journey-features li {
+            padding: 10px 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex; align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            transition: color 0.5s ease, border-color 0.5s ease;
+        }
+        .journey-features li:last-child { border-bottom: none; }
+        .journey-features li::before {
+            content: '';
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            background: rgba(167, 139, 250, 0.15);
+            border: 2px solid var(--accent-violet);
+            flex-shrink: 0;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem; font-weight: 500;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center; gap: 8px;
+        }
+        .btn-outline:hover {
+            border-color: var(--accent-violet);
+            color: var(--accent-violet);
+        }
+        .journey-card {
+            background: var(--journey-card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        .journey-card-visual {
+            position: relative; height: 280px;
+            display: flex; align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .journey-card-visual img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .journey-card-overlay {
+            position: absolute; inset: 0;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            background: rgba(0,0,0,0.4);
+            text-align: center; padding: 20px;
+        }
+        .journey-card-overlay p {
+            color: white; font-size: 0.85rem;
+            opacity: 0.9; margin-bottom: 6px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .journey-card-content {
+            padding: 24px;
+        }
+        .journey-card-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 600; line-height: 1.4;
+            transition: color 0.5s ease;
+        }
+        .btn-play {
+            background: var(--btn-primary-bg);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.95rem; font-weight: 600;
+            transition: all 0.4s ease;
+            border: none; cursor: pointer;
+            box-shadow: 0 8px 25px var(--btn-primary-shadow);
+            display: inline-flex;
+            align-items: center; gap: 10px;
+        }
+        .btn-play:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px var(--btn-primary-shadow);
+        }
+
+        /* Check In */
+        .checkin-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+        .checkin-label {
+            font-family: 'Caveat', cursive;
+            color: var(--accent-violet);
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            transition: color 0.5s ease;
+        }
+        .checkin-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 20px; font-weight: 700;
+            transition: color 0.5s ease;
+        }
+        .checkin-ring {
+            width: 120px; height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            position: relative;
+            background: var(--checkin-ring);
+            padding: 4px;
+        }
+        .checkin-ring-inner {
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            transition: background 0.5s ease;
+        }
+        .checkin-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem; font-weight: 700;
+            color: var(--text-primary); line-height: 1;
+            transition: color 0.5s ease;
+        }
+        .checkin-unit {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.5s ease;
+        }
+        .checkin-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 20px; line-height: 1.5;
+            transition: color 0.5s ease;
+        }
+
+        /* Sidebar */
+        .sidebar-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        .sidebar-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .sidebar-handwritten {
+            font-family: 'Caveat', cursive;
+            color: var(--accent-violet);
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            transition: color 0.5s ease;
+        }
+        .sidebar-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem; line-height: 1.7;
             margin-bottom: 16px;
             transition: color 0.5s ease;
         }
-        .inspired-form {
-            display: flex; gap: 8px;
-        }
-        .inspired-input {
-            flex: 1;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 10px;
-            padding: 10px 14px;
-            color: var(--text-primary);
-            font-size: 0.85rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        .inspired-input::placeholder { color: var(--text-muted); }
-        .inspired-input:focus { border-color: var(--form-input-focus); }
-        .btn-subscribe {
-            background: var(--btn-gold-bg);
-            color: #1a1a2e;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 0.8rem; font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-        .btn-subscribe:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px var(--btn-gold-shadow);
+        .sidebar-signature {
+            font-family: 'Caveat', cursive;
+            color: var(--accent-gold);
+            font-size: 1.4rem;
+            transition: color 0.5s ease;
         }
 
-        /* ===== BOTTOM STRIP ===== */
-        .bottom-strip {
+        /* Start Section */
+        .start-section {
             position: relative; z-index: 1;
-            padding: 50px 40px;
-            background: var(--bottom-bg);
-            border-top: 1px solid var(--bottom-border);
+            padding: 80px 40px;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .start-header {
+            margin-bottom: 40px;
+        }
+        .start-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            transition: color 0.5s ease;
+        }
+        .start-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            transition: color 0.5s ease;
+        }
+        .start-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .start-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .start-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        .start-card .icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            display: flex; align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 1.3rem;
+        }
+        .start-card:nth-child(1) .icon { background: rgba(45, 212, 191, 0.1); }
+        .start-card:nth-child(2) .icon { background: rgba(96, 165, 250, 0.1); }
+        .start-card:nth-child(3) .icon { background: rgba(251, 191, 36, 0.1); }
+        .start-card:nth-child(4) .icon { background: rgba(74, 222, 128, 0.1); }
+        .start-card:nth-child(5) .icon { background: rgba(244, 114, 182, 0.1); }
+        .start-card:nth-child(6) .icon { background: rgba(167, 139, 250, 0.1); }
+        .start-card:nth-child(7) .icon { background: rgba(248, 113, 113, 0.1); }
+        .start-card:nth-child(8) .icon { background: rgba(251, 191, 36, 0.1); }
+        .start-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            transition: color 0.5s ease;
+        }
+        .start-footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem; font-style: italic;
+            transition: color 0.5s ease;
+        }
+
+        /* Encourage Section */
+        .encourage-section {
+            position: relative; z-index: 1;
+            padding: 60px 40px;
+            background: var(--bg-secondary);
+            transition: background 0.5s ease;
+        }
+        .encourage-grid {
+            max-width: 1200px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+        .encourage-item {
+            display: flex; flex-direction: column;
+            align-items: center; gap: 12px;
+        }
+        .encourage-icon {
+            width: 48px; height: 48px;
+            border-radius: 14px;
+            display: flex; align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            border: 1px solid var(--border-color);
             transition: all 0.5s ease;
         }
-        .bottom-grid {
-            max-width: 1100px; margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .bottom-left {
-            display: flex; align-items: center;
-            gap: 20px;
-        }
-        .bottom-img {
-            width: 80px; height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-        .bottom-left-text h4 {
+        .encourage-item:nth-child(1) .encourage-icon { background: rgba(45, 212, 191, 0.1); }
+        .encourage-item:nth-child(2) .encourage-icon { background: rgba(244, 114, 182, 0.1); }
+        .encourage-item:nth-child(3) .encourage-icon { background: rgba(167, 139, 250, 0.1); }
+        .encourage-item:nth-child(4) .encourage-icon { background: rgba(251, 191, 36, 0.1); }
+        .encourage-item h4 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem; font-weight: 700;
+            font-size: 0.95rem;
             color: var(--text-primary);
-            margin-bottom: 4px;
+            font-weight: 600;
             transition: color 0.5s ease;
         }
-        .bottom-left-text .handwritten {
-            font-family: 'Caveat', cursive;
-            font-size: 1.2rem;
-            color: var(--accent-gold);
-            transition: color 0.5s ease;
-        }
-        .bottom-center p {
-            color: var(--text-secondary);
-            font-size: 0.85rem; line-height: 1.6;
-            transition: color 0.5s ease;
-        }
-        .bottom-right {
-            display: flex;
-            justify-content: flex-end;
-        }
-        .cross-icon {
-            width: 60px; height: 60px;
-            opacity: 0.15;
+        .encourage-item p {
             color: var(--text-muted);
+            font-size: 0.85rem; line-height: 1.5;
             transition: color 0.5s ease;
         }
 
-        /* ===== FOOTER (from reference) ===== */
+        /* Footer */
         .footer {
             position: relative; z-index: 1;
             background: var(--footer-bg);
@@ -1061,7 +1105,10 @@
             color: white;
             border-color: var(--accent-violet);
         }
-        .footer-social svg { width: 18px; height: 18px; fill: currentColor; }
+        .footer-social svg {
+            width: 18px; height: 18px;
+            fill: currentColor;
+        }
         .footer-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 0.95rem; font-weight: 600;
@@ -1080,6 +1127,12 @@
             transition: color 0.3s ease;
         }
         .footer-links a:hover { color: var(--accent-violet); }
+        .footer-contact {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            transition: color 0.5s ease;
+        }
         .footer-form { margin-top: 20px; }
         .footer-form-title {
             font-family: 'Space Grotesk', sans-serif;
@@ -1143,9 +1196,20 @@
             transition: color 0.3s ease;
         }
         .footer-legal a:hover { color: var(--accent-violet); }
-        .footer-legal span { color: var(--border-color); transition: color 0.5s ease; }
+        .footer-legal span {
+            color: var(--border-color);
+            transition: color 0.5s ease;
+        }
+           /* LumenQuest special styling */
+    .navbar-link.lumenquest {
+      background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
 
-        /* ===== RESPONSIVE ===== */
+        /* Responsive */
         @media (max-width: 1024px) {
             .navbar-menu { display: none; }
             .navbar-toggle { display: flex; }
@@ -1159,37 +1223,24 @@
             }
             .hero-content {
                 text-align: center;
-                padding: 120px 40px 60px;
+                padding: 120px 40px 80px;
             }
-            .hero-left { margin: 0 auto; }
-            .hero-left h1 { font-size: 3rem; }
-            .hero-left p { margin: 0 auto 30px; }
-            .matter-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 20px;
-            }
-            .matter-icon { margin: 0 auto; }
-            .matter-quote {
-                text-align: center;
-                border-left: none;
-                border-top: 2px solid rgba(255,255,255,0.1);
-                padding-left: 0;
-                padding-top: 20px;
-            }
-            .form-help-grid { grid-template-columns: 1fr; }
-            .connect-grid { grid-template-columns: 1fr; }
-            .connect-right { height: 180px; }
-            .bottom-grid { grid-template-columns: 1fr; text-align: center; }
-            .bottom-left { justify-content: center; }
-            .bottom-right { justify-content: center; }
+            .hero h1 { font-size: 4rem; }
+            .hero-subtext { margin: 0 auto 40px; }
+            .hero-actions { justify-content: center; }
+            .hero-affirmations { justify-content: center; }
+            .relief-grid { grid-template-columns: repeat(3, 1fr); }
+            .content-container { grid-template-columns: 1fr; }
+            .start-grid { grid-template-columns: repeat(2, 1fr); }
+            .encourage-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
             .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
         }
         @media (max-width: 768px) {
             .navbar-container { padding: 0 20px; }
-            .hero-left h1 { font-size: 2.5rem; }
-            .form-row { grid-template-columns: 1fr; }
-            .matter-card { padding: 24px; }
+            .hero h1 { font-size: 3rem; }
+            .relief-grid { grid-template-columns: repeat(2, 1fr); }
+            .start-grid { grid-template-columns: 1fr; }
+            .encourage-grid { grid-template-columns: 1fr; }
             .footer-content { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; text-align: center; }
             .navbar-prayer { display: none;}
@@ -1198,9 +1249,8 @@
 </head>
 <body>
     <div class="starfield"></div>
-
-    <!-- ===== NAVBAR (from reference) ===== -->
-   <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <!-- Navbar -->
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar-container">
         <!-- Brand Logo (Only Image) -->
         <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
@@ -1213,13 +1263,13 @@
             <li role="none"><a href="/start-here.html" class="navbar-link start-here " role="menuitem">Start Here</a></li>
             <li role="none"><a href="/rest.html" class="navbar-link " role="menuitem">Rest</a></li>
             <li role="none"><a href="/grow.html" class="navbar-link " role="menuitem">Grow</a></li>
-            <li role="none"><a href="/stories.html" class="navbar-link" role="menuitem">Stories</a></li>
-            <li role="none"><a href="/bible-study.html" class="navbar-link" role="menuitem">Bible Study</a></li>
-            <li role="none"><a href="/teens.html" class="navbar-link" role="menuitem">Teens</a></li>
+            <li role="none"><a href="/stories.html" class="navbar-link " role="menuitem">Stories</a></li>
+            <li role="none"><a href="/bible-study.html" class="navbar-link " role="menuitem">Bible Study</a></li>
+            <li role="none"><a href="/teens.html" class="navbar-link active" role="menuitem">Teens</a></li>
             <li role="none"><a href="/lumenquest.html" class="navbar-link lumenquest" role="menuitem">LumenQuest</a></li>
-            <li role="none"><a href="/resources.html" class="navbar-link " role="menuitem">Resources</a></li>
+            <li role="none"><a href="/resources.html" class="navbar-link" role="menuitem">Resources</a></li>
             <li role="none"><a href="/about.html" class="navbar-link" role="menuitem">About</a></li>
-            <li role="none"><a href="/contact.html" class="navbar-link active" role="menuitem" >Contact</a></li>
+            <li role="none"><a href="/contact.html" class="navbar-link" role="menuitem">Contact</a></li>
         </ul>
 
         <!-- Actions Section -->
@@ -1261,212 +1311,254 @@
 </nav>
 
 
-    <!-- ===== HERO SECTION ===== -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="hero-left">
-                <h1>Contact Us</h1>
-                <span class="handwritten">We're here for you.</span>
-                <p>
-                    Whether you need prayer, have a question, want to partner with us, or just want to say hello—we'd love to hear from you.
-                </p>
+            <span class="hero-label">Teens:</span>
+            <h1>
+                ILLUMINATED
+            </h1>
+            <p class="hero-subtext">
+                A safe place to breathe, pray, and grow—one step at a time.
+            </p>
+
+            <div class="hero-affirmations">
+                <div class="affirmation-pill">
+                    <span class="icon">🛡️</span>
+                    <span>You Are Safe Here</span>
+                </div>
+                <div class="affirmation-pill">
+                    <span class="icon">💜</span>
+                    <span>You Are Not Alone</span>
+                </div>
+                <div class="affirmation-pill">
+                    <span class="icon">✝️</span>
+                    <span>You Are Loved</span>
+                </div>
+                <div class="affirmation-pill">
+                    <span class="icon">⭐</span>
+                    <span>You Were Created On Purpose</span>
+                </div>
+            </div>
+
+            <div class="hero-actions">
+                <a href="#relief" class="btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                        <line x1="6" y1="1" x2="6" y2="4"></line>
+                        <line x1="10" y1="1" x2="10" y2="4"></line>
+                        <line x1="14" y1="1" x2="14" y2="4"></line>
+                    </svg>
+                    I Need Help Right Now
+                </a>
+                <a href="#journey" class="btn-secondary">
+                    <span class="play-icon">▶</span>
+                    Start The 7-Day Journey
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ===== YOU MATTER BAR ===== -->
-    <div class="matter-bar">
-        <div class="matter-card">
-            <div class="matter-icon">💛</div>
-            <div class="matter-text">
-                <h4>You matter to us.</h4>
-                <p>Our team is here to listen, encourage, and connect you with the support you need.</p>
+    <!-- Quick Relief Section -->
+    <section class="relief-section" id="relief">
+        <div class="section-header">
+            <div class="section-header-left">
+                <h2>QUICK RELIEF</h2>
+                <p>Pick what you need right now.</p>
             </div>
-            <div class="matter-quote">
-                <p>"Cast all your anxiety on Him because He cares for you."</p>
-                <div class="ref">— 1 Peter 5:7</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== FORM + HELP SECTION ===== -->
-    <section class="form-help-section">
-        <div class="form-help-grid">
-            <div class="form-card">
-                <h3>Send Us a Message</h3>
-                <p>Fill out the form below and we'll get back to you soon.</p>
-                <form>
-                    <div class="form-row">
-                        <div class="input-wrap">
-                            <span class="form-input-icon">👤</span>
-                            <input type="text" class="form-input" placeholder="First Name" aria-label="First Name">
-                        </div>
-                        <div class="input-wrap">
-                            <span class="form-input-icon">👤</span>
-                            <input type="text" class="form-input" placeholder="Last Name" aria-label="Last Name">
-                        </div>
-                    </div>
-                    <div class="form-group full">
-                        <div class="input-wrap">
-                            <span class="form-input-icon">✉️</span>
-                            <input type="email" class="form-input" placeholder="Email Address" aria-label="Email Address">
-                        </div>
-                    </div>
-                    <div class="form-group full">
-                        <select class="form-select" aria-label="Subject">
-                            <option value="" disabled selected>Subject</option>
-                            <option value="prayer">Prayer Request</option>
-                            <option value="question">General Question</option>
-                            <option value="partner">Partnership</option>
-                            <option value="story">Share Your Story</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group full">
-                        <label style="color:var(--text-muted);font-size:0.8rem;margin-bottom:8px;display:block;">How can we help you?</label>
-                        <textarea class="form-textarea" placeholder="Tell us more..." aria-label="How can we help you?"></textarea>
-                    </div>
-                    <div class="form-checkbox">
-                        <input type="checkbox" id="contact-me" aria-label="I would like someone to contact me">
-                        <label for="contact-me">I would like someone to contact me.</label>
-                    </div>
-                    <button type="submit" class="btn-submit">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="22" y1="2" x2="11" y2="13"></line>
-                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                        </svg>
-                        SEND MESSAGE
-                    </button>
-                    <div class="form-privacy">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                        Your information is safe and will never be shared.
-                    </div>
-                </form>
-            </div>
-
-            <div class="help-card">
-                <h3>Other Ways We Can Help</h3>
-                <div class="help-item">
-                    <div class="help-item-icon">🙏</div>
-                    <div>
-                        <h4>Prayer Request</h4>
-                        <p>Need prayer? We're here for you.</p>
-                        <a href="#" class="help-link">
-                            Submit a Prayer Request
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="help-item">
-                    <div class="help-item-icon">👥</div>
-                    <div>
-                        <h4>General Questions</h4>
-                        <p>Have a question about our ministry or content?</p>
-                        <a href="#" class="help-link">
-                            Get Answers
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="help-item">
-                    <div class="help-item-icon">🤝</div>
-                    <div>
-                        <h4>Partnerships</h4>
-                        <p>Interested in partnering with LightMode Ministries?</p>
-                        <a href="#" class="help-link">
-                            Partner With Us
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="help-item">
-                    <div class="help-item-icon">💜</div>
-                    <div>
-                        <h4>Share Your Story</h4>
-                        <p>How has God been working in your life?</p>
-                        <a href="#" class="help-link">
-                            Share Your Story
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== CONNECT + STAY INSPIRED ===== -->
-    <section class="connect-section">
-        <div class="connect-grid">
-            <div class="connect-left">
-                <h3>We'd Love to Connect</h3>
-                <p>Follow us on social media for daily encouragement, updates, and inspiring content.</p>
-                <div class="social-grid">
-                    <a href="#" class="social-btn" aria-label="Instagram">📷</a>
-                    <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
-                    <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
-                    <a href="#" class="social-btn" aria-label="Facebook">f</a>
-                    <a href="#" class="social-btn" aria-label="Email">✉️</a>
-                </div>
-            </div>
-            <div class="connect-right">
-                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Community">
-            </div>
-        </div>
-    </section>
-
-    <section class="connect-section" style="padding-top:0;">
-        <div class="connect-grid">
-            <div></div>
-            <div class="inspired-card">
-                <h4>Stay Inspired</h4>
-                <p>Get weekly devotionals, prayer encouragement, and updates straight to your inbox.</p>
-                <div class="inspired-form">
-                    <input type="email" class="inspired-input" placeholder="Enter your email" aria-label="Your email address">
-                    <button class="btn-subscribe">SUBSCRIBE</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== BOTTOM STRIP ===== -->
-    <section class="bottom-strip">
-        <div class="bottom-grid">
-            <div class="bottom-left">
-                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=200&q=80" alt="Hands reaching" class="bottom-img">
-                <div class="bottom-left-text">
-                    <h4>You are not alone.</h4>
-                    <div class="handwritten">We're honored to walk alongside you.</div>
-                </div>
-            </div>
-            <div class="bottom-center">
-                <p>No matter where you are in your journey, we believe God has something beautiful in store for you.</p>
-            </div>
-            <div class="bottom-right">
-                <svg class="cross-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3v18"></path>
-                    <path d="M3 12h18"></path>
+            <div class="section-header-right">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
                 </svg>
             </div>
         </div>
+
+        <div class="relief-grid">
+            <div class="relief-card">
+                <div class="relief-icon">☁️</div>
+                <h3>Peace & Rest</h3>
+                <p>Calm your mind and breathe.</p>
+            </div>
+            <div class="relief-card">
+                <div class="relief-icon">🧠</div>
+                <h3>Anxiety</h3>
+                <p>Find peace in the middle of worry.</p>
+            </div>
+            <div class="relief-card">
+                <div class="relief-icon">📚</div>
+                <h3>School Stress</h3>
+                <p>You've got this. God's got you.</p>
+            </div>
+            <div class="relief-card">
+                <div class="relief-icon">👥</div>
+                <h3>Feeling Pressured</h3>
+                <p>You don't have to fit in to belong.</p>
+            </div>
+            <div class="relief-card">
+                <div class="relief-icon">💬</div>
+                <h3>Speak Life</h3>
+                <p>Truths to repeat every day.</p>
+            </div>
+            <div class="relief-card">
+                <div class="relief-icon">🌙</div>
+                <h3>Calm Night</h3>
+                <p>Sleep prayers & calming audio.</p>
+            </div>
+        </div>
     </section>
-    <!-- ===== FOOTER (from reference) ===== -->
+
+    <!-- Journey + Check In Section -->
+    <section class="content-section" id="journey">
+        <div class="content-container">
+            <!-- Journey Info -->
+            <div class="journey-info">
+                <h2>The 7-Day<br>Journey</h2>
+                <span class="handwritten">You don't have to do life alone.</span>
+                <ul class="journey-features">
+                    <li>Short daily videos</li>
+                    <li>Powerful prayers</li>
+                    <li>One simple step</li>
+                    <li>Real encouragement</li>
+                </ul>
+                <a href="#" class="btn-outline">
+                    Learn More About The Journey
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Journey Card -->
+            <div class="journey-card">
+                <div class="journey-card-visual">
+                    <img src="https://images.stockcake.com/public/2/7/0/270f38d2-e23f-4047-aca4-86a62c437ff0_large/mountain-path-sunset-stockcake.jpg" alt="Journey path">
+                    <div class="journey-card-overlay">
+                        <p>7 DAYS TO PEACE.</p>
+                        <p>7 DAYS TO PURPOSE.</p>
+                        <p style="margin-bottom:20px;">A LIFETIME OF LIGHT.</p>
+                        <button class="btn-play">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                            START DAY 1
+                        </button>
+                    </div>
+                </div>
+                <div class="journey-card-content">
+                    <h3>7 DAYS TO PEACE. 7 DAYS TO PURPOSE. A LIFETIME OF LIGHT.</h3>
+                </div>
+            </div>
+
+            <!-- Check In + Sidebar -->
+            <div style="display:flex;flex-direction:column;gap:20px;">
+                <!-- Check In -->
+                <div class="checkin-card">
+                    <div class="checkin-label">Take 60 Seconds</div>
+                    <div class="checkin-title">Check In</div>
+                    <div class="checkin-ring">
+                        <div class="checkin-ring-inner">
+                            <span class="checkin-number">60</span>
+                            <span class="checkin-unit">SEC</span>
+                        </div>
+                    </div>
+                    <p class="checkin-desc">Pause. Breathe.<br>Connect with God.</p>
+                    <button class="btn-play" style="width:100%;justify-content:center;">
+                        START CHECK-IN
+                    </button>
+                </div>
+
+                <!-- Sidebar Encouragement -->
+                <div class="sidebar-card">
+                    <div class="sidebar-handwritten">Hey...</div>
+                    <p class="sidebar-text">
+                        You don't have to figure everything out today. Just come back tomorrow. I'll be here.
+                    </p>
+                    <div class="sidebar-signature">Always.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Where Should I Start -->
+    <section class="start-section">
+        <div class="start-header">
+            <h2>WHERE SHOULD I START?</h2>
+            <p>Everyone's journey looks different. Find your starting point.</p>
+        </div>
+
+        <div class="start-grid">
+            <div class="start-card">
+                <div class="icon">😰</div>
+                <h4>I feel anxious</h4>
+            </div>
+            <div class="start-card">
+                <div class="icon">😔</div>
+                <h4>I feel overwhelmed</h4>
+            </div>
+            <div class="start-card">
+                <div class="icon">🌧️</div>
+                <h4>I feel sad or low</h4>
+            </div>
+            <div class="start-card">
+                <div class="icon">💪</div>
+                <h4>I need confidence</h4>
+            </div>
+            <div class="start-card">
+                <div class="icon">📚</div>
+                <h4>I'm struggling at school</h4>
+            </div>
+            <div class="start-card">
+                <div class="icon">💔</div>
+                <h4>I'm dealing with hurt or bullying</h4>
+            </div>
+            <div class="start-card">
+                <div class="icon">❓</div>
+                <h4>I'm not sure what I am</h4>
+            </div>
+            <div class="start-card">
+                <div class="icon">✝️</div>
+                <h4>I want a closer relationship with God</h4>
+            </div>
+        </div>
+
+        <p class="start-footer">
+            Not sure? Start with Peace & Rest. God meets you right where you are.
+        </p>
+    </section>
+
+    <!-- Encouragement Strip -->
+    <section class="encourage-section">
+        <div class="encourage-grid">
+            <div class="encourage-item">
+                <div class="encourage-icon">🔒</div>
+                <h4>100% Private</h4>
+                <p>Your privacy matters. Always.</p>
+            </div>
+            <div class="encourage-item">
+                <div class="encourage-icon">💬</div>
+                <h4>Real Talk. Biblical Truth.</h4>
+                <p>Honest answers for real-life situations.</p>
+            </div>
+            <div class="encourage-item">
+                <div class="encourage-icon">🎧</div>
+                <h4>Listen Anytime</h4>
+                <p>Prayers, stories, and encouragement anytime you need it.</p>
+            </div>
+            <div class="encourage-item">
+                <div class="encourage-icon">🤝</div>
+                <h4>You Belong Here</h4>
+                <p>A community built on love, acceptance, and truth.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="footer-content">
             <div class="footer-brand">
@@ -1578,7 +1670,7 @@
             }
         });
 
-       // Mobile menu toggle
+        // Mobile menu toggle
         const navbarToggle = document.querySelector('.navbar-toggle');
         const navbarMenu = document.getElementById('navbar-menu');
 
@@ -1606,6 +1698,7 @@ if (!isExpanded) {
 }
             });
         }
+
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1617,5 +1710,7 @@ if (!isExpanded) {
             });
         });
     </script>
+
+
 </body>
 </html>

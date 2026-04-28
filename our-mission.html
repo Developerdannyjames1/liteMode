@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us — LightMode Ministries</title>
+    <title>Our Mission — LightMode Ministries</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -57,7 +57,7 @@
             --footer-bg: #0a0a12;
             --footer-border: rgba(255,255,255,0.05);
             --starfield-opacity: 1;
-            --hero-overlay: linear-gradient(90deg, #080810 0%, #080810 45%, transparent 80%);
+            --hero-overlay: linear-gradient(90deg, #080810 0%, #080810 40%, transparent 75%);
             --hero-bg-filter: saturate(0.3) contrast(1.2) hue-rotate(220deg);
             --hero-bg-opacity: 0.5;
             --hero-gradient-start: #080810;
@@ -65,16 +65,14 @@
             --hero-gradient-end: #1a1a3e;
             --pill-bg: rgba(26, 26, 40, 0.8);
             --pill-border: rgba(255,255,255,0.1);
-            --form-bg: rgba(20, 20, 35, 0.8);
-            --form-input-bg: rgba(15, 15, 25, 0.9);
-            --form-input-border: rgba(255,255,255,0.1);
-            --form-input-focus: rgba(167,139,250,0.4);
-            --help-bg: rgba(20, 20, 35, 0.6);
-            --help-hover: rgba(30, 30, 50, 0.9);
-            --connect-bg: rgba(20, 20, 35, 0.7);
-            --connect-img-bg: rgba(20, 20, 35, 0.5);
-            --bottom-bg: rgba(20, 20, 35, 0.6);
-            --bottom-border: rgba(255,255,255,0.06);
+            --pillar-bg: rgba(20, 20, 35, 0.6);
+            --pillar-border: rgba(255,255,255,0.06);
+            --story-bg: rgba(20, 20, 35, 0.8);
+            --impact-bg: rgba(20, 20, 35, 0.7);
+            --values-bg: rgba(20, 20, 35, 0.6);
+            --getinvolved-bg: linear-gradient(135deg, rgba(30,30,50,0.9) 0%, rgba(20,20,35,0.9) 100%);
+            --quote-bg: rgba(26, 26, 40, 0.8);
+            --quote-border: rgba(255,255,255,0.08);
         }
 
         /* THEME VARIABLES - DAY MODE */
@@ -115,7 +113,7 @@
             --footer-bg: #f5f0eb;
             --footer-border: rgba(0,0,0,0.06);
             --starfield-opacity: 0;
-            --hero-overlay: linear-gradient(90deg, rgba(254,243,199,0.95) 0%, rgba(254,243,199,0.85) 45%, transparent 80%);
+            --hero-overlay: linear-gradient(90deg, rgba(254,243,199,0.95) 0%, rgba(254,243,199,0.85) 45%, transparent 75%);
             --hero-bg-filter: saturate(0.8) contrast(1.1) hue-rotate(10deg);
             --hero-bg-opacity: 0.6;
             --hero-gradient-start: #fef3c7;
@@ -123,16 +121,14 @@
             --hero-gradient-end: #fed7aa;
             --pill-bg: rgba(255, 255, 255, 0.9);
             --pill-border: rgba(0,0,0,0.08);
-            --form-bg: rgba(255, 255, 255, 0.9);
-            --form-input-bg: rgba(250, 248, 245, 0.9);
-            --form-input-border: rgba(0,0,0,0.08);
-            --form-input-focus: rgba(124,58,237,0.3);
-            --help-bg: rgba(255, 255, 255, 0.7);
-            --help-hover: rgba(255, 255, 255, 0.95);
-            --connect-bg: rgba(255, 255, 255, 0.85);
-            --connect-img-bg: rgba(245, 240, 235, 0.5);
-            --bottom-bg: rgba(255, 255, 255, 0.7);
-            --bottom-border: rgba(0,0,0,0.06);
+            --pillar-bg: rgba(255, 255, 255, 0.7);
+            --pillar-border: rgba(0,0,0,0.06);
+            --story-bg: rgba(255, 255, 255, 0.9);
+            --impact-bg: rgba(255, 255, 255, 0.85);
+            --values-bg: rgba(255, 255, 255, 0.7);
+            --getinvolved-bg: linear-gradient(135deg, rgba(245,240,235,0.95) 0%, rgba(230,225,220,0.95) 100%);
+            --quote-bg: rgba(255, 255, 255, 0.85);
+            --quote-border: rgba(0,0,0,0.08);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -158,7 +154,7 @@
                 radial-gradient(ellipse at 50% 50%, rgba(45, 43, 85, 0.15) 0%, transparent 60%);
         }
 
-               /* ===== MERGED NAVBAR STYLES ===== */
+                   /* ===== MERGED NAVBAR STYLES ===== */
 .navbar {
     position: fixed; 
     top: 0; 
@@ -464,7 +460,7 @@
     }
     
     .navbar-brand img {
-        height: 60px;
+       height: 60px;
     }
     
     .navbar-toggle {
@@ -489,8 +485,7 @@
     .navbar-menu.active {
         display: flex;
     }
-    
-   /* Light mode (default ya day) */
+  /* Light mode (default ya day) */
 [data-theme="day"] .navbar-link {
   color: rgba(5, 5, 5, 0.8);
 }
@@ -508,7 +503,6 @@
 [data-theme="night"] .navbar-link.active {
   color: rgba(255, 255, 255, 1);
 }
-    
     .navbar-prayer {
         display: none;
     }
@@ -520,7 +514,7 @@
         /* ===== HERO SECTION ===== */
         .hero {
             position: relative; z-index: 1;
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex; align-items: center;
             overflow: hidden;
             background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-mid) 50%, var(--hero-gradient-end) 100%);
@@ -528,8 +522,8 @@
         }
         .hero-bg {
             position: absolute; top: 0; right: 0;
-            width: 55%; height: 100%;
-            background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=80') no-repeat center center;
+            width: 60%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&q=80') no-repeat center center;
             background-size: cover;
             mask-image: linear-gradient(to left, black 30%, transparent 100%);
             -webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%);
@@ -547,11 +541,12 @@
         .hero-content {
             position: relative; z-index: 2;
             max-width: 1400px; margin: 0 auto;
-            padding: 140px 60px 60px;
+            padding: 140px 60px 80px;
             width: 100%;
-        }
-        .hero-left {
-            max-width: 500px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
         }
         .hero-left h1 {
             font-family: 'Space Grotesk', sans-serif;
@@ -572,206 +567,449 @@
         .hero-left p {
             font-size: 1rem;
             color: var(--text-secondary);
-            max-width: 420px;
+            max-width: 480px;
             margin-bottom: 35px;
             font-weight: 400; line-height: 1.7;
             transition: color 0.5s ease;
         }
-
-        /* ===== YOU MATTER BAR ===== */
-        .matter-bar {
-            position: relative; z-index: 1;
-            padding: 0 40px;
-            max-width: 1100px; margin: -30px auto 40px;
+        .hero-actions {
+            display: flex; gap: 16px;
+            flex-wrap: wrap;
         }
-        .matter-card {
-            background: linear-gradient(135deg, #1e1e3e 0%, #2a2a4e 100%);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 30px 40px;
-            display: grid;
-            grid-template-columns: auto 1fr 1fr;
-            gap: 30px;
-            align-items: center;
+        .btn-dark {
+            background: var(--btn-primary-bg);
+            border: 1px solid var(--btn-primary-border);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem; font-weight: 600;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center; gap: 10px;
+            box-shadow: 0 4px 20px var(--btn-primary-shadow);
+        }
+        .btn-dark:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px var(--btn-primary-shadow);
+        }
+        .btn-light {
+            background: var(--btn-light-bg);
+            border: 1px solid var(--btn-light-border);
+            color: var(--text-primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem; font-weight: 600;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center; gap: 10px;
+        }
+        .btn-light:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+        .play-icon-small {
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            border: 2px solid currentColor;
+            display: flex; align-items: center;
+            justify-content: center;
+            font-size: 0.5rem;
+        }
+
+        /* Quote Card */
+        .quote-card {
+            background: var(--quote-bg);
+            border: 1px solid var(--quote-border);
+            border-radius: 24px;
+            padding: 32px;
+            position: relative;
             transition: all 0.5s ease;
         }
-        [data-theme="day"] .matter-card {
-            background: linear-gradient(135deg, #1e1e3e 0%, #2a2a4e 100%);
-            border-color: rgba(255,255,255,0.15);
+        .quote-card::before {
+            content: '"';
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            color: var(--accent-gold);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px; left: 20px;
+            line-height: 1;
         }
-        .matter-icon {
-            width: 56px; height: 56px;
+        .quote-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem; line-height: 1.7;
+            margin-bottom: 16px;
+            position: relative; z-index: 1;
+            transition: color 0.5s ease;
+        }
+        .quote-card .ref {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            transition: color 0.5s ease;
+        }
+
+        /* ===== MISSION PILLARS ===== */
+        .pillars-section {
+            position: relative; z-index: 1;
+            padding: 60px 40px;
+            max-width: 1100px; margin: 0 auto;
+            text-align: center;
+        }
+        .pillars-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            transition: color 0.5s ease;
+        }
+        .pillars-section > p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 50px;
+            transition: color 0.5s ease;
+        }
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .pillar-card {
+            background: var(--pillar-bg);
+            border: 1px solid var(--pillar-border);
+            border-radius: 24px;
+            padding: 40px 24px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .pillar-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-hover);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        .pillar-icon {
+            width: 64px; height: 64px;
             border-radius: 50%;
             display: flex; align-items: center;
             justify-content: center;
-            font-size: 1.6rem;
-            border: 2px solid var(--accent-gold);
-            background: rgba(251, 191, 36, 0.1);
-            flex-shrink: 0;
+            font-size: 1.8rem;
+            margin: 0 auto 20px;
+            border: 2px solid var(--border-color);
         }
-        .matter-text h4 {
+        .pillar-card:nth-child(1) .pillar-icon { background: rgba(251, 191, 36, 0.1); border-color: var(--accent-gold); }
+        .pillar-card:nth-child(2) .pillar-icon { background: rgba(96, 165, 250, 0.1); border-color: var(--accent-blue); }
+        .pillar-card:nth-child(3) .pillar-icon { background: rgba(74, 222, 128, 0.1); border-color: var(--accent-green); }
+        .pillar-card:nth-child(4) .pillar-icon { background: rgba(251, 191, 36, 0.1); border-color: var(--accent-gold); }
+        .pillar-card h4 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem; font-weight: 600;
-            color: white;
-            margin-bottom: 6px;
-        }
-        .matter-text p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.85rem; line-height: 1.5;
-        }
-        .matter-quote {
-            text-align: right;
-            border-left: 2px solid rgba(255,255,255,0.1);
-            padding-left: 30px;
-        }
-        .matter-quote p {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.9rem; line-height: 1.6;
-            font-style: italic;
+            font-size: 1rem; font-weight: 600;
+            color: var(--text-primary);
             margin-bottom: 8px;
+            transition: color 0.5s ease;
         }
-        .matter-quote .ref {
-            color: var(--accent-gold);
-            font-size: 0.8rem;
+        .pillar-card p {
+            color: var(--text-muted);
+            font-size: 0.8rem; line-height: 1.5;
+            transition: color 0.5s ease;
         }
 
-        /* ===== FORM + HELP SECTION ===== */
-        .form-help-section {
+        /* ===== OUR STORY SECTION ===== */
+        .story-section {
             position: relative; z-index: 1;
-            padding: 40px 40px 60px;
+            padding: 60px 40px;
             max-width: 1100px; margin: 0 auto;
         }
-        .form-help-grid {
+        .story-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1fr 1.2fr 0.8fr;
             gap: 40px;
             align-items: start;
         }
-        .form-card {
-            background: var(--form-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
-            transition: all 0.5s ease;
+        .story-image {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 100%;
+            min-height: 350px;
         }
-        .form-card h3 {
+        .story-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        .story-center h3 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem; font-weight: 700;
+            font-size: 1.6rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            transition: color 0.5s ease;
+        }
+        .story-center .handwritten {
+            font-family: 'Caveat', cursive;
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            display: block;
+            transition: color 0.5s ease;
+        }
+        .story-center p {
+            color: var(--text-secondary);
+            font-size: 0.9rem; line-height: 1.7;
+            margin-bottom: 16px;
+            transition: color 0.5s ease;
+        }
+        .story-center .handwritten-closing {
+            font-family: 'Caveat', cursive;
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            line-height: 1.5;
+            margin-top: 20px;
+            transition: color 0.5s ease;
+        }
+
+        .story-highlights {
+            display: flex; flex-direction: column;
+            gap: 24px;
+        }
+        .highlight-item {
+            display: flex; align-items: flex-start;
+            gap: 14px;
+        }
+        .highlight-icon {
+            width: 40px; height: 40px;
+            border-radius: 12px;
+            display: flex; align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            border: 1px solid var(--border-color);
+            background: rgba(96, 165, 250, 0.1);
+        }
+        .highlight-item:nth-child(2) .highlight-icon { background: rgba(244, 114, 182, 0.1); }
+        .highlight-item:nth-child(3) .highlight-icon { background: rgba(167, 139, 250, 0.1); }
+        .highlight-item h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem; font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 4px;
             transition: color 0.5s ease;
         }
-        .form-card > p {
+        .highlight-item p {
+            color: var(--text-muted);
+            font-size: 0.8rem; line-height: 1.5;
+            transition: color 0.5s ease;
+        }
+
+        /* ===== VALUES + IMPACT SECTION ===== */
+        .values-impact-section {
+            position: relative; z-index: 1;
+            padding: 60px 40px;
+            max-width: 1100px; margin: 0 auto;
+        }
+        .values-impact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .values-section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            transition: color 0.5s ease;
+        }
+        .values-section > p {
             color: var(--text-muted);
             font-size: 0.85rem;
             margin-bottom: 30px;
             transition: color 0.5s ease;
         }
-        .form-row {
+        .values-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 16px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
-        .form-group {
-            margin-bottom: 16px;
+        .value-card {
+            background: var(--values-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.4s ease;
         }
-        .form-group.full {
-            grid-column: 1 / -1;
+        .value-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
         }
-        .form-input {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px 14px 44px;
+        .value-icon {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            display: flex; align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-color);
+        }
+        .value-card:nth-child(1) .value-icon { background: rgba(96, 165, 250, 0.1); }
+        .value-card:nth-child(2) .value-icon { background: rgba(251, 191, 36, 0.1); }
+        .value-card:nth-child(3) .value-icon { background: rgba(244, 114, 182, 0.1); }
+        .value-card:nth-child(4) .value-icon { background: rgba(74, 222, 128, 0.1); }
+        .value-card:nth-child(5) .value-icon { background: rgba(167, 139, 250, 0.1); }
+        .value-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem; font-weight: 600;
             color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .form-input::placeholder { color: var(--text-muted); }
-        .form-input:focus {
-            border-color: var(--form-input-focus);
-            box-shadow: 0 0 0 3px rgba(167,139,250,0.1);
-        }
-        .form-input-icon {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            font-size: 1rem;
-            pointer-events: none;
-        }
-        .input-wrap {
-            position: relative;
-        }
-        .form-select {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            appearance: none;
-            -webkit-appearance: none;
-        }
-        .form-select:focus {
-            border-color: var(--form-input-focus);
-        }
-        .form-textarea {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            resize: vertical;
-            min-height: 120px;
-            font-family: inherit;
-        }
-        .form-textarea::placeholder { color: var(--text-muted); }
-        .form-textarea:focus {
-            border-color: var(--form-input-focus);
-            box-shadow: 0 0 0 3px rgba(167,139,250,0.1);
-        }
-        .form-checkbox {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .form-checkbox input {
-            width: 18px; height: 18px;
-            border-radius: 4px;
-            border: 1px solid var(--form-input-border);
-            background: var(--form-input-bg);
-            cursor: pointer;
-            accent-color: var(--accent-violet);
-        }
-        .form-checkbox label {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            cursor: pointer;
+            margin-bottom: 4px;
             transition: color 0.5s ease;
         }
-        .btn-submit {
-            width: 100%;
+        .value-card p {
+            color: var(--text-muted);
+            font-size: 0.75rem; line-height: 1.5;
+            transition: color 0.5s ease;
+        }
+
+        .impact-section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            transition: color 0.5s ease;
+        }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .impact-item {
+            text-align: center;
+        }
+        .impact-icon {
+            width: 48px; height: 48px;
+            border-radius: 14px;
+            display: flex; align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin: 0 auto 12px;
+            border: 1px solid var(--border-color);
+        }
+        .impact-item:nth-child(1) .impact-icon { background: rgba(96, 165, 250, 0.1); }
+        .impact-item:nth-child(2) .impact-icon { background: rgba(244, 114, 182, 0.1); }
+        .impact-item:nth-child(3) .impact-icon { background: rgba(74, 222, 128, 0.1); }
+        .impact-item:nth-child(4) .impact-icon { background: rgba(167, 139, 250, 0.1); }
+        .impact-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            transition: color 0.5s ease;
+        }
+        .impact-label {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            line-height: 1.4;
+            transition: color 0.5s ease;
+        }
+        .testimonial {
+            background: var(--impact-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.5s ease;
+        }
+        .testimonial img {
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .testimonial p {
+            color: var(--text-secondary);
+            font-size: 0.85rem; line-height: 1.6;
+            font-style: italic;
+            transition: color 0.5s ease;
+        }
+        .testimonial .author {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-top: 8px;
+            font-style: normal;
+            transition: color 0.5s ease;
+        }
+
+        /* ===== GET INVOLVED SECTION ===== */
+        .getinvolved-section {
+            position: relative; z-index: 1;
+            padding: 60px 40px;
+            max-width: 1100px; margin: 0 auto;
+        }
+        .getinvolved-card {
+            background: var(--getinvolved-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 50px;
+            align-items: center;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .getinvolved-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -20%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .getinvolved-left {
+            position: relative; z-index: 1;
+        }
+        .getinvolved-img {
+            width: 100%; height: 260px;
+            border-radius: 20px;
+            background: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80') no-repeat center center;
+            background-size: cover;
+            position: relative;
+        }
+        .getinvolved-img::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 40%);
+            border-radius: 20px;
+        }
+        .getinvolved-right {
+            position: relative; z-index: 1;
+        }
+        .getinvolved-right h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            transition: color 0.5s ease;
+        }
+        .getinvolved-right > p {
+            color: var(--text-secondary);
+            font-size: 0.95rem; line-height: 1.6;
+            margin-bottom: 30px;
+            transition: color 0.5s ease;
+        }
+        .getinvolved-actions {
+            display: flex; flex-direction: column;
+            gap: 12px;
+        }
+        .btn-gold {
             background: var(--btn-gold-bg);
             color: #1a1a2e;
-            padding: 16px;
+            padding: 16px 36px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1rem; font-weight: 700;
+            font-size: 0.95rem; font-weight: 700;
             transition: all 0.4s ease;
             border: none; cursor: pointer;
             box-shadow: 0 8px 30px var(--btn-gold-shadow);
@@ -779,246 +1017,26 @@
             align-items: center; gap: 10px;
             justify-content: center;
         }
-        .btn-submit:hover {
+        .btn-gold:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 40px var(--btn-gold-shadow);
         }
-        .form-privacy {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            margin-top: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            transition: color 0.5s ease;
-        }
-
-        .help-card {
-            background: var(--help-bg);
+        .btn-outline {
+            background: transparent;
             border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
-            transition: all 0.5s ease;
-        }
-        .help-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.2rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 30px;
-            transition: color 0.5s ease;
-        }
-        .help-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .help-item:last-child { border-bottom: none; }
-        .help-item:hover { padding-left: 8px; }
-        .help-item-icon {
-            width: 44px; height: 44px;
-            border-radius: 12px;
-            display: flex; align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-            border: 1px solid var(--border-color);
-        }
-        .help-item:nth-child(1) .help-item-icon { background: rgba(251, 191, 36, 0.1); }
-        .help-item:nth-child(2) .help-item-icon { background: rgba(96, 165, 250, 0.1); }
-        .help-item:nth-child(3) .help-item-icon { background: rgba(74, 222, 128, 0.1); }
-        .help-item:nth-child(4) .help-item-icon { background: rgba(244, 114, 182, 0.1); }
-        .help-item h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            transition: color 0.5s ease;
-        }
-        .help-item p {
-            color: var(--text-muted);
-            font-size: 0.8rem; line-height: 1.5;
-            margin-bottom: 6px;
-            transition: color 0.5s ease;
-        }
-        .help-link {
-            color: var(--accent-gold);
-            font-size: 0.8rem; font-weight: 600;
+            color: var(--text-secondary);
+            padding: 14px 32px;
+            border-radius: 50px;
             text-decoration: none;
+            font-size: 0.9rem; font-weight: 600;
+            transition: all 0.4s ease;
             display: inline-flex;
-            align-items: center; gap: 6px;
-            transition: all 0.3s ease;
-        }
-        .help-link:hover { gap: 10px; }
-        .help-link svg { width: 14px; height: 14px; }
-
-        /* ===== CONNECT SECTION ===== */
-        .connect-section {
-            position: relative; z-index: 1;
-            padding: 40px 40px 60px;
-            max-width: 1100px; margin: 0 auto;
-        }
-        .connect-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .connect-left h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            transition: color 0.5s ease;
-        }
-        .connect-left p {
-            color: var(--text-secondary);
-            font-size: 0.9rem; line-height: 1.6;
-            margin-bottom: 24px;
-            transition: color 0.5s ease;
-        }
-        .social-grid {
-            display: flex; gap: 12px;
-        }
-        .social-btn {
-            width: 44px; height: 44px;
-            border-radius: 12px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            display: flex; align-items: center;
+            align-items: center; gap: 10px;
             justify-content: center;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
         }
-        .social-btn:hover {
-            background: var(--accent-violet);
-            color: white;
+        .btn-outline:hover {
             border-color: var(--accent-violet);
-            transform: translateY(-3px);
-        }
-        .connect-right {
-            border-radius: 20px;
-            overflow: hidden;
-            height: 200px;
-        }
-        .connect-right img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-
-        /* ===== STAY INSPIRED ===== */
-        .inspired-card {
-            background: var(--connect-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 28px;
-            transition: all 0.5s ease;
-        }
-        .inspired-card h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            transition: color 0.5s ease;
-        }
-        .inspired-card p {
-            color: var(--text-muted);
-            font-size: 0.8rem; line-height: 1.5;
-            margin-bottom: 16px;
-            transition: color 0.5s ease;
-        }
-        .inspired-form {
-            display: flex; gap: 8px;
-        }
-        .inspired-input {
-            flex: 1;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 10px;
-            padding: 10px 14px;
-            color: var(--text-primary);
-            font-size: 0.85rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        .inspired-input::placeholder { color: var(--text-muted); }
-        .inspired-input:focus { border-color: var(--form-input-focus); }
-        .btn-subscribe {
-            background: var(--btn-gold-bg);
-            color: #1a1a2e;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 0.8rem; font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-        .btn-subscribe:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px var(--btn-gold-shadow);
-        }
-
-        /* ===== BOTTOM STRIP ===== */
-        .bottom-strip {
-            position: relative; z-index: 1;
-            padding: 50px 40px;
-            background: var(--bottom-bg);
-            border-top: 1px solid var(--bottom-border);
-            transition: all 0.5s ease;
-        }
-        .bottom-grid {
-            max-width: 1100px; margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .bottom-left {
-            display: flex; align-items: center;
-            gap: 20px;
-        }
-        .bottom-img {
-            width: 80px; height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-        .bottom-left-text h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            transition: color 0.5s ease;
-        }
-        .bottom-left-text .handwritten {
-            font-family: 'Caveat', cursive;
-            font-size: 1.2rem;
-            color: var(--accent-gold);
-            transition: color 0.5s ease;
-        }
-        .bottom-center p {
-            color: var(--text-secondary);
-            font-size: 0.85rem; line-height: 1.6;
-            transition: color 0.5s ease;
-        }
-        .bottom-right {
-            display: flex;
-            justify-content: flex-end;
-        }
-        .cross-icon {
-            width: 60px; height: 60px;
-            opacity: 0.15;
-            color: var(--text-muted);
-            transition: color 0.5s ease;
+            color: var(--accent-violet);
         }
 
         /* ===== FOOTER (from reference) ===== */
@@ -1158,38 +1176,29 @@
                 background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-start) 50%, transparent 100%);
             }
             .hero-content {
-                text-align: center;
-                padding: 120px 40px 60px;
-            }
-            .hero-left { margin: 0 auto; }
-            .hero-left h1 { font-size: 3rem; }
-            .hero-left p { margin: 0 auto 30px; }
-            .matter-card {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 20px;
+                padding: 120px 40px 80px;
             }
-            .matter-icon { margin: 0 auto; }
-            .matter-quote {
-                text-align: center;
-                border-left: none;
-                border-top: 2px solid rgba(255,255,255,0.1);
-                padding-left: 0;
-                padding-top: 20px;
-            }
-            .form-help-grid { grid-template-columns: 1fr; }
-            .connect-grid { grid-template-columns: 1fr; }
-            .connect-right { height: 180px; }
-            .bottom-grid { grid-template-columns: 1fr; text-align: center; }
-            .bottom-left { justify-content: center; }
-            .bottom-right { justify-content: center; }
+            .hero-left h1 { font-size: 3rem; }
+            .hero-left p { margin: 0 auto 30px; }
+            .hero-actions { justify-content: center; }
+            .quote-card { max-width: 500px; margin: 0 auto; }
+            .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+            .story-grid { grid-template-columns: 1fr; }
+            .story-image { min-height: 250px; }
+            .values-impact-grid { grid-template-columns: 1fr; }
+            .impact-grid { grid-template-columns: repeat(2, 1fr); }
+            .getinvolved-card { grid-template-columns: 1fr; }
             .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
         }
         @media (max-width: 768px) {
             .navbar-container { padding: 0 20px; }
             .hero-left h1 { font-size: 2.5rem; }
-            .form-row { grid-template-columns: 1fr; }
-            .matter-card { padding: 24px; }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+            .impact-grid { grid-template-columns: 1fr 1fr; }
+            .getinvolved-card { padding: 30px; }
             .footer-content { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; text-align: center; }
             .navbar-prayer { display: none;}
@@ -1200,7 +1209,7 @@
     <div class="starfield"></div>
 
     <!-- ===== NAVBAR (from reference) ===== -->
-   <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar-container">
         <!-- Brand Logo (Only Image) -->
         <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
@@ -1218,8 +1227,8 @@
             <li role="none"><a href="/teens.html" class="navbar-link" role="menuitem">Teens</a></li>
             <li role="none"><a href="/lumenquest.html" class="navbar-link lumenquest" role="menuitem">LumenQuest</a></li>
             <li role="none"><a href="/resources.html" class="navbar-link " role="menuitem">Resources</a></li>
-            <li role="none"><a href="/about.html" class="navbar-link" role="menuitem">About</a></li>
-            <li role="none"><a href="/contact.html" class="navbar-link active" role="menuitem" >Contact</a></li>
+            <li role="none"><a href="/about.html" class="navbar-link active" role="menuitem">About</a></li>
+            <li role="none"><a href="/contact.html" class="navbar-link" role="menuitem">Contact</a></li>
         </ul>
 
         <!-- Actions Section -->
@@ -1267,205 +1276,208 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-left">
-                <h1>Contact Us</h1>
-                <span class="handwritten">We're here for you.</span>
+                <h1>Our Mission</h1>
+                <span class="handwritten">Illuminating Lives. Transforming Generations.</span>
                 <p>
-                    Whether you need prayer, have a question, want to partner with us, or just want to say hello—we'd love to hear from you.
+                    We exist to connect hearts to the love of God through peace, truth, and transformation—creating pathways where every generation can encounter His light.
                 </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== YOU MATTER BAR ===== -->
-    <div class="matter-bar">
-        <div class="matter-card">
-            <div class="matter-icon">💛</div>
-            <div class="matter-text">
-                <h4>You matter to us.</h4>
-                <p>Our team is here to listen, encourage, and connect you with the support you need.</p>
-            </div>
-            <div class="matter-quote">
-                <p>"Cast all your anxiety on Him because He cares for you."</p>
-                <div class="ref">— 1 Peter 5:7</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== FORM + HELP SECTION ===== -->
-    <section class="form-help-section">
-        <div class="form-help-grid">
-            <div class="form-card">
-                <h3>Send Us a Message</h3>
-                <p>Fill out the form below and we'll get back to you soon.</p>
-                <form>
-                    <div class="form-row">
-                        <div class="input-wrap">
-                            <span class="form-input-icon">👤</span>
-                            <input type="text" class="form-input" placeholder="First Name" aria-label="First Name">
-                        </div>
-                        <div class="input-wrap">
-                            <span class="form-input-icon">👤</span>
-                            <input type="text" class="form-input" placeholder="Last Name" aria-label="Last Name">
-                        </div>
-                    </div>
-                    <div class="form-group full">
-                        <div class="input-wrap">
-                            <span class="form-input-icon">✉️</span>
-                            <input type="email" class="form-input" placeholder="Email Address" aria-label="Email Address">
-                        </div>
-                    </div>
-                    <div class="form-group full">
-                        <select class="form-select" aria-label="Subject">
-                            <option value="" disabled selected>Subject</option>
-                            <option value="prayer">Prayer Request</option>
-                            <option value="question">General Question</option>
-                            <option value="partner">Partnership</option>
-                            <option value="story">Share Your Story</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group full">
-                        <label style="color:var(--text-muted);font-size:0.8rem;margin-bottom:8px;display:block;">How can we help you?</label>
-                        <textarea class="form-textarea" placeholder="Tell us more..." aria-label="How can we help you?"></textarea>
-                    </div>
-                    <div class="form-checkbox">
-                        <input type="checkbox" id="contact-me" aria-label="I would like someone to contact me">
-                        <label for="contact-me">I would like someone to contact me.</label>
-                    </div>
-                    <button type="submit" class="btn-submit">
+                <div class="hero-actions">
+                    <a href="#story" class="btn-dark">
+                        <span class="play-icon-small">▶</span>
+                        Watch Our Story
+                    </a>
+                    <a href="#getinvolved" class="btn-light">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="22" y1="2" x2="11" y2="13"></line>
-                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                         </svg>
-                        SEND MESSAGE
-                    </button>
-                    <div class="form-privacy">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        See Our Mission in Action
+                    </a>
+                </div>
+            </div>
+            <div class="quote-card">
+                <p>You are the light of the world. A city set on a hill cannot be hidden.</p>
+                <div class="ref">— Matthew 5:14</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MISSION PILLARS ===== -->
+    <section class="pillars-section" id="pillars">
+        <h2>Our Mission Pillars</h2>
+        <p>These are the foundations that guide everything we do.</p>
+
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-icon">💛</div>
+                <h4>We Lead with Love</h4>
+                <p>Everything we do flows from God's love.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">📖</div>
+                <h4>We Speak Truth</h4>
+                <p>Biblical truth that is clear, real, and relevant.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">👥</div>
+                <h4>We Walk Together</h4>
+                <p>No one has to walk this journey alone.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">✨</div>
+                <h4>We Create Light</h4>
+                <p>Everything we build points to Jesus—the Light of the world.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== OUR STORY SECTION ===== -->
+    <section class="story-section" id="story">
+        <div class="story-grid">
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=80" alt="Mountain journey">
+            </div>
+
+            <div class="story-center">
+                <h3>Our Story</h3>
+                <span class="handwritten">A Light Born from a Calling</span>
+                <p>
+                    LightMode Ministries began with a simple desire: to create a place where people—young and old—could encounter God in a real, personal way.
+                </p>
+                <p>
+                    What started as a small idea has grown into a vision to reach hearts across the world. But the mission has never changed.
+                </p>
+                <div class="handwritten-closing">
+                    To point people to Jesus...<br>
+                    and help them live in His light.
+                </div>
+            </div>
+
+            <div class="story-highlights">
+                <div class="highlight-item">
+                    <div class="highlight-icon">🌿</div>
+                    <div>
+                        <h4>A Clear Calling</h4>
+                        <p>Guided by God to reach hearts and bring hope.</p>
+                    </div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">👥</div>
+                    <div>
+                        <h4>A Growing Community</h4>
+                        <p>Thousands of lives impacted across the globe.</p>
+                    </div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🌍</div>
+                    <div>
+                        <h4>A Lasting Impact</h4>
+                        <p>Building generational change through the power of God's love.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VALUES + IMPACT SECTION ===== -->
+    <section class="values-impact-section">
+        <div class="values-impact-grid">
+            <div class="values-section">
+                <h3>Our Values</h3>
+                <p>What we believe. How we serve.</p>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">📖</div>
+                        <h4>Faith-Driven</h4>
+                        <p>Everything we do is rooted in God's Word.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🛡️</div>
+                        <h4>Authentic & Relevant</h4>
+                        <p>Real truth for real-life challenges.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">❤️</div>
+                        <h4>Grace & Compassion</h4>
+                        <p>We meet people where they are.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">👥</div>
+                        <h4>Generational Impact</h4>
+                        <p>From children to adults, we reach every generation.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">⭐</div>
+                        <h4>Excellence</h4>
+                        <p>We serve with care, quality, and purpose.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="impact-section">
+                <h3>Lives Are Being Changed</h3>
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <div class="impact-icon">👥</div>
+                        <div class="impact-number">250K+</div>
+                        <div class="impact-label">Lives Reached</div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-icon">❤️</div>
+                        <div class="impact-number">100K+</div>
+                        <div class="impact-label">Encouragements Delivered</div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-icon">▶️</div>
+                        <div class="impact-number">1M+</div>
+                        <div class="impact-label">Minutes Watched</div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-icon">🌍</div>
+                        <div class="impact-number">150+</div>
+                        <div class="impact-label">Countries</div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80" alt="Emma">
+                    <div>
+                        <p>"LightMode Ministries helped me find hope when I felt lost. The messages speak directly to my heart."</p>
+                        <div class="author">— Emma, 17</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BE PART OF THIS LIGHT ===== -->
+    <section class="getinvolved-section" id="getinvolved">
+        <div class="getinvolved-card">
+            <div class="getinvolved-left">
+                <div class="getinvolved-img"></div>
+            </div>
+            <div class="getinvolved-right">
+                <h3>Be Part of This Light</h3>
+                <p>Your support, prayers, and presence help bring God's light to more people in more places.</p>
+                <div class="getinvolved-actions">
+                    <a href="#" class="btn-gold">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                         </svg>
-                        Your information is safe and will never be shared.
-                    </div>
-                </form>
-            </div>
-
-            <div class="help-card">
-                <h3>Other Ways We Can Help</h3>
-                <div class="help-item">
-                    <div class="help-item-icon">🙏</div>
-                    <div>
-                        <h4>Prayer Request</h4>
-                        <p>Need prayer? We're here for you.</p>
-                        <a href="#" class="help-link">
-                            Submit a Prayer Request
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="help-item">
-                    <div class="help-item-icon">👥</div>
-                    <div>
-                        <h4>General Questions</h4>
-                        <p>Have a question about our ministry or content?</p>
-                        <a href="#" class="help-link">
-                            Get Answers
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="help-item">
-                    <div class="help-item-icon">🤝</div>
-                    <div>
-                        <h4>Partnerships</h4>
-                        <p>Interested in partnering with LightMode Ministries?</p>
-                        <a href="#" class="help-link">
-                            Partner With Us
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="help-item">
-                    <div class="help-item-icon">💜</div>
-                    <div>
-                        <h4>Share Your Story</h4>
-                        <p>How has God been working in your life?</p>
-                        <a href="#" class="help-link">
-                            Share Your Story
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
+                        Partner With Us
+                    </a>
+                    <a href="#" class="btn-outline">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        Join the Community
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== CONNECT + STAY INSPIRED ===== -->
-    <section class="connect-section">
-        <div class="connect-grid">
-            <div class="connect-left">
-                <h3>We'd Love to Connect</h3>
-                <p>Follow us on social media for daily encouragement, updates, and inspiring content.</p>
-                <div class="social-grid">
-                    <a href="#" class="social-btn" aria-label="Instagram">📷</a>
-                    <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
-                    <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
-                    <a href="#" class="social-btn" aria-label="Facebook">f</a>
-                    <a href="#" class="social-btn" aria-label="Email">✉️</a>
-                </div>
-            </div>
-            <div class="connect-right">
-                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Community">
-            </div>
-        </div>
-    </section>
-
-    <section class="connect-section" style="padding-top:0;">
-        <div class="connect-grid">
-            <div></div>
-            <div class="inspired-card">
-                <h4>Stay Inspired</h4>
-                <p>Get weekly devotionals, prayer encouragement, and updates straight to your inbox.</p>
-                <div class="inspired-form">
-                    <input type="email" class="inspired-input" placeholder="Enter your email" aria-label="Your email address">
-                    <button class="btn-subscribe">SUBSCRIBE</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== BOTTOM STRIP ===== -->
-    <section class="bottom-strip">
-        <div class="bottom-grid">
-            <div class="bottom-left">
-                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=200&q=80" alt="Hands reaching" class="bottom-img">
-                <div class="bottom-left-text">
-                    <h4>You are not alone.</h4>
-                    <div class="handwritten">We're honored to walk alongside you.</div>
-                </div>
-            </div>
-            <div class="bottom-center">
-                <p>No matter where you are in your journey, we believe God has something beautiful in store for you.</p>
-            </div>
-            <div class="bottom-right">
-                <svg class="cross-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3v18"></path>
-                    <path d="M3 12h18"></path>
-                </svg>
-            </div>
-        </div>
-    </section>
     <!-- ===== FOOTER (from reference) ===== -->
     <footer class="footer" role="contentinfo">
         <div class="footer-content">
@@ -1578,7 +1590,7 @@
             }
         });
 
-       // Mobile menu toggle
+        // Mobile menu toggle
         const navbarToggle = document.querySelector('.navbar-toggle');
         const navbarMenu = document.getElementById('navbar-menu');
 

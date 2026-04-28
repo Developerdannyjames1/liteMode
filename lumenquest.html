@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+
+html_part1 = '''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us — LightMode Ministries</title>
+    <title>LumenQuest — LightMode Ministries</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -37,9 +38,6 @@
             --accent-red: #f87171;
             --accent-orange: #fb923c;
             --accent-cyan: #22d3ee;
-            --accent-lavender: #c4b5fd;
-            --accent-indigo: #818cf8;
-            --accent-cream: #fef3c7;
             --border-color: rgba(255,255,255,0.08);
             --border-hover: rgba(167,139,250,0.3);
             --shadow-glow: rgba(139,92,246,0.25);
@@ -47,34 +45,30 @@
             --navbar-border: rgba(255,255,255,0.06);
             --toggle-bg: #1a1a2e;
             --toggle-active: #a78bfa;
-            --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
-            --btn-primary-border: rgba(255,255,255,0.15);
-            --btn-primary-shadow: rgba(0,0,0,0.3);
-            --btn-gold-bg: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-            --btn-gold-shadow: rgba(251,191,36,0.35);
-            --btn-light-bg: rgba(255,255,255,0.08);
-            --btn-light-border: rgba(255,255,255,0.15);
+            --btn-primary-bg: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+            --btn-primary-shadow: rgba(124,58,237,0.35);
+            --btn-secondary-bg: transparent;
+            --btn-secondary-border: rgba(255,255,255,0.15);
+            --btn-secondary-text: #e0e0f0;
             --footer-bg: #0a0a12;
             --footer-border: rgba(255,255,255,0.05);
             --starfield-opacity: 1;
-            --hero-overlay: linear-gradient(90deg, #080810 0%, #080810 45%, transparent 80%);
+            --hero-overlay: linear-gradient(90deg, #080810 0%, #080810 35%, transparent 70%);
             --hero-bg-filter: saturate(0.3) contrast(1.2) hue-rotate(220deg);
-            --hero-bg-opacity: 0.5;
+            --hero-bg-opacity: 0.4;
             --hero-gradient-start: #080810;
             --hero-gradient-mid: #12122a;
             --hero-gradient-end: #1a1a3e;
+            --tag-bg: rgba(255,255,255,0.05);
+            --tag-border: rgba(255,255,255,0.08);
+            --tag-text: #8a8aaa;
+            --relief-arrow: #a78bfa;
+            --journey-card-bg: rgba(20, 20, 35, 0.8);
+            --checkin-ring: conic-gradient(from 0deg, #a78bfa, #60a5fa, #a78bfa);
             --pill-bg: rgba(26, 26, 40, 0.8);
             --pill-border: rgba(255,255,255,0.1);
-            --form-bg: rgba(20, 20, 35, 0.8);
-            --form-input-bg: rgba(15, 15, 25, 0.9);
-            --form-input-border: rgba(255,255,255,0.1);
-            --form-input-focus: rgba(167,139,250,0.4);
-            --help-bg: rgba(20, 20, 35, 0.6);
-            --help-hover: rgba(30, 30, 50, 0.9);
-            --connect-bg: rgba(20, 20, 35, 0.7);
-            --connect-img-bg: rgba(20, 20, 35, 0.5);
-            --bottom-bg: rgba(20, 20, 35, 0.6);
-            --bottom-border: rgba(255,255,255,0.06);
+            --section-alt-bg: #0e0e18;
+            --card-glow: rgba(139,92,246,0.08);
         }
 
         /* THEME VARIABLES - DAY MODE */
@@ -95,9 +89,6 @@
             --accent-red: #dc2626;
             --accent-orange: #ea580c;
             --accent-cyan: #0891b2;
-            --accent-lavender: #8b5cf6;
-            --accent-indigo: #6366f1;
-            --accent-cream: #fef3c7;
             --border-color: rgba(0,0,0,0.08);
             --border-hover: rgba(124,58,237,0.3);
             --shadow-glow: rgba(124,58,237,0.15);
@@ -105,34 +96,30 @@
             --navbar-border: rgba(0,0,0,0.06);
             --toggle-bg: #e5e0db;
             --toggle-active: #7c3aed;
-            --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
-            --btn-primary-border: rgba(0,0,0,0.12);
-            --btn-primary-shadow: rgba(0,0,0,0.15);
-            --btn-gold-bg: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            --btn-gold-shadow: rgba(245,158,11,0.25);
-            --btn-light-bg: rgba(255,255,255,0.9);
-            --btn-light-border: rgba(0,0,0,0.1);
+            --btn-primary-bg: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+            --btn-primary-shadow: rgba(124,58,237,0.25);
+            --btn-secondary-bg: rgba(255,255,255,0.7);
+            --btn-secondary-border: rgba(0,0,0,0.12);
+            --btn-secondary-text: #4a4a5e;
             --footer-bg: #f5f0eb;
             --footer-border: rgba(0,0,0,0.06);
             --starfield-opacity: 0;
-            --hero-overlay: linear-gradient(90deg, rgba(254,243,199,0.95) 0%, rgba(254,243,199,0.85) 45%, transparent 80%);
+            --hero-overlay: linear-gradient(90deg, rgba(254,243,199,0.95) 0%, rgba(254,243,199,0.8) 40%, transparent 70%);
             --hero-bg-filter: saturate(0.8) contrast(1.1) hue-rotate(10deg);
             --hero-bg-opacity: 0.6;
             --hero-gradient-start: #fef3c7;
             --hero-gradient-mid: #fde68a;
             --hero-gradient-end: #fed7aa;
+            --tag-bg: rgba(0,0,0,0.04);
+            --tag-border: rgba(0,0,0,0.06);
+            --tag-text: #6a6a7e;
+            --relief-arrow: #7c3aed;
+            --journey-card-bg: rgba(255, 255, 255, 0.9);
+            --checkin-ring: conic-gradient(from 0deg, #7c3aed, #2563eb, #7c3aed);
             --pill-bg: rgba(255, 255, 255, 0.9);
             --pill-border: rgba(0,0,0,0.08);
-            --form-bg: rgba(255, 255, 255, 0.9);
-            --form-input-bg: rgba(250, 248, 245, 0.9);
-            --form-input-border: rgba(0,0,0,0.08);
-            --form-input-focus: rgba(124,58,237,0.3);
-            --help-bg: rgba(255, 255, 255, 0.7);
-            --help-hover: rgba(255, 255, 255, 0.95);
-            --connect-bg: rgba(255, 255, 255, 0.85);
-            --connect-img-bg: rgba(245, 240, 235, 0.5);
-            --bottom-bg: rgba(255, 255, 255, 0.7);
-            --bottom-border: rgba(0,0,0,0.06);
+            --section-alt-bg: #f0ebe6;
+            --card-glow: rgba(124,58,237,0.06);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -158,7 +145,7 @@
                 radial-gradient(ellipse at 50% 50%, rgba(45, 43, 85, 0.15) 0%, transparent 60%);
         }
 
-               /* ===== MERGED NAVBAR STYLES ===== */
+        /* ===== MERGED NAVBAR STYLES ===== */
 .navbar {
     position: fixed; 
     top: 0; 
@@ -520,7 +507,7 @@
         /* ===== HERO SECTION ===== */
         .hero {
             position: relative; z-index: 1;
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex; align-items: center;
             overflow: hidden;
             background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-mid) 50%, var(--hero-gradient-end) 100%);
@@ -528,8 +515,8 @@
         }
         .hero-bg {
             position: absolute; top: 0; right: 0;
-            width: 55%; height: 100%;
-            background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=80') no-repeat center center;
+            width: 65%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80') no-repeat center center;
             background-size: cover;
             mask-image: linear-gradient(to left, black 30%, transparent 100%);
             -webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%);
@@ -547,478 +534,574 @@
         .hero-content {
             position: relative; z-index: 2;
             max-width: 1400px; margin: 0 auto;
-            padding: 140px 60px 60px;
+            padding: 140px 60px 100px;
             width: 100%;
         }
-        .hero-left {
-            max-width: 500px;
+        .hero-welcome {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+            display: block;
+            transition: color 0.5s ease;
         }
-        .hero-left h1 {
+        .hero h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 4rem; font-weight: 800;
-            line-height: 1.05; margin-bottom: 12px;
+            font-size: 5.5rem; font-weight: 800;
+            line-height: 1.0; margin-bottom: 20px;
             color: var(--text-primary);
             letter-spacing: -0.03em;
             transition: color 0.5s ease;
         }
-        .hero-left .handwritten {
-            font-family: 'Caveat', cursive;
-            font-size: 1.8rem;
-            color: var(--accent-gold);
-            margin-bottom: 20px;
-            display: block;
+        .hero h1 .lumen { color: var(--accent-blue); }
+        .hero h1 .quest {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-tagline {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin-bottom: 40px;
+            font-weight: 400; line-height: 1.6;
             transition: color 0.5s ease;
         }
-        .hero-left p {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            max-width: 420px;
-            margin-bottom: 35px;
-            font-weight: 400; line-height: 1.7;
-            transition: color 0.5s ease;
+        .hero-actions {
+            display: flex; gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--btn-primary-bg);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem; font-weight: 600;
+            transition: all 0.4s ease;
+            border: none; cursor: pointer;
+            box-shadow: 0 8px 30px var(--btn-primary-shadow);
+            display: inline-flex;
+            align-items: center; gap: 10px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px var(--btn-primary-shadow);
+        }
+        .btn-secondary {
+            background: var(--btn-secondary-bg);
+            border: 1px solid var(--btn-secondary-border);
+            color: var(--btn-secondary-text);
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem; font-weight: 600;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            display: inline-flex;
+            align-items: center; gap: 10px;
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent-violet);
+            color: var(--accent-violet);
+            transform: translateY(-2px);
+        }
+        .btn-green {
+            background: linear-gradient(135deg, #16a34a 0%, #059669 100%);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem; font-weight: 600;
+            transition: all 0.4s ease;
+            border: none; cursor: pointer;
+            box-shadow: 0 8px 30px rgba(22,163,74,0.35);
+            display: inline-flex;
+            align-items: center; gap: 10px;
+        }
+        .btn-green:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(22,163,74,0.4);
         }
 
-        /* ===== YOU MATTER BAR ===== */
-        .matter-bar {
+        /* ===== QUEST BEGINS SECTION ===== */
+        .quest-section {
             position: relative; z-index: 1;
-            padding: 0 40px;
-            max-width: 1100px; margin: -30px auto 40px;
+            padding: 80px 40px;
+            max-width: 1200px; margin: 0 auto;
         }
-        .matter-card {
-            background: linear-gradient(135deg, #1e1e3e 0%, #2a2a4e 100%);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 30px 40px;
+        .quest-grid {
             display: grid;
-            grid-template-columns: auto 1fr 1fr;
-            gap: 30px;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 50px;
             align-items: center;
-            transition: all 0.5s ease;
         }
-        [data-theme="day"] .matter-card {
-            background: linear-gradient(135deg, #1e1e3e 0%, #2a2a4e 100%);
-            border-color: rgba(255,255,255,0.15);
+        .quest-left h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px; line-height: 1.2;
+            transition: color 0.5s ease;
         }
-        .matter-icon {
+        .quest-left h2 .highlight {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .quest-left p {
+            color: var(--text-secondary);
+            font-size: 1rem; line-height: 1.7;
+            margin-bottom: 30px;
+            transition: color 0.5s ease;
+        }
+        .quest-icons {
+            display: flex; gap: 30px;
+            margin-bottom: 30px;
+        }
+        .quest-icon-item {
+            text-align: center;
+        }
+        .quest-icon-item .icon-circle {
             width: 56px; height: 56px;
             border-radius: 50%;
             display: flex; align-items: center;
             justify-content: center;
-            font-size: 1.6rem;
-            border: 2px solid var(--accent-gold);
-            background: rgba(251, 191, 36, 0.1);
-            flex-shrink: 0;
-        }
-        .matter-text h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem; font-weight: 600;
-            color: white;
-            margin-bottom: 6px;
-        }
-        .matter-text p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.85rem; line-height: 1.5;
-        }
-        .matter-quote {
-            text-align: right;
-            border-left: 2px solid rgba(255,255,255,0.1);
-            padding-left: 30px;
-        }
-        .matter-quote p {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.9rem; line-height: 1.6;
-            font-style: italic;
-            margin-bottom: 8px;
-        }
-        .matter-quote .ref {
-            color: var(--accent-gold);
-            font-size: 0.8rem;
-        }
-
-        /* ===== FORM + HELP SECTION ===== */
-        .form-help-section {
-            position: relative; z-index: 1;
-            padding: 40px 40px 60px;
-            max-width: 1100px; margin: 0 auto;
-        }
-        .form-help-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            align-items: start;
-        }
-        .form-card {
-            background: var(--form-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
+            font-size: 1.5rem;
+            margin: 0 auto 8px;
+            border: 2px solid var(--border-color);
+            background: var(--bg-card);
             transition: all 0.5s ease;
         }
-        .form-card h3 {
+        .quest-icon-item:nth-child(1) .icon-circle { border-color: var(--accent-blue); }
+        .quest-icon-item:nth-child(2) .icon-circle { border-color: var(--accent-pink); }
+        .quest-icon-item:nth-child(3) .icon-circle { border-color: var(--accent-green); }
+        .quest-icon-item span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.5s ease;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem; font-weight: 500;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center; gap: 8px;
+        }
+        .btn-outline:hover {
+            border-color: var(--accent-violet);
+            color: var(--accent-violet);
+        }
+
+        .featured-episode {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+        .featured-episode:hover {
+            border-color: var(--border-hover);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        .episode-visual {
+            position: relative; height: 280px;
+            background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80') no-repeat center center;
+            background-size: cover;
+        }
+        .episode-visual::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+        }
+        .episode-badge {
+            position: absolute; top: 20px; left: 20px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem; font-weight: 600;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+        .episode-play {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            display: flex; align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        .episode-play:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: white;
+        }
+        .episode-play svg {
+            width: 24px; height: 24px;
+            fill: var(--accent-violet);
+            margin-left: 4px;
+        }
+        .episode-content {
+            padding: 24px;
+            position: relative; z-index: 2;
+        }
+        .episode-content h3 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.3rem; font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 4px;
+            margin-bottom: 8px;
             transition: color 0.5s ease;
         }
-        .form-card > p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 30px;
-            transition: color 0.5s ease;
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-        .form-group {
-            margin-bottom: 16px;
-        }
-        .form-group.full {
-            grid-column: 1 / -1;
-        }
-        .form-input {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px 14px 44px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .form-input::placeholder { color: var(--text-muted); }
-        .form-input:focus {
-            border-color: var(--form-input-focus);
-            box-shadow: 0 0 0 3px rgba(167,139,250,0.1);
-        }
-        .form-input-icon {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            font-size: 1rem;
-            pointer-events: none;
-        }
-        .input-wrap {
-            position: relative;
-        }
-        .form-select {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            appearance: none;
-            -webkit-appearance: none;
-        }
-        .form-select:focus {
-            border-color: var(--form-input-focus);
-        }
-        .form-textarea {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            resize: vertical;
-            min-height: 120px;
-            font-family: inherit;
-        }
-        .form-textarea::placeholder { color: var(--text-muted); }
-        .form-textarea:focus {
-            border-color: var(--form-input-focus);
-            box-shadow: 0 0 0 3px rgba(167,139,250,0.1);
-        }
-        .form-checkbox {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .form-checkbox input {
-            width: 18px; height: 18px;
-            border-radius: 4px;
-            border: 1px solid var(--form-input-border);
-            background: var(--form-input-bg);
-            cursor: pointer;
-            accent-color: var(--accent-violet);
-        }
-        .form-checkbox label {
+        .episode-content p {
             color: var(--text-secondary);
-            font-size: 0.85rem;
-            cursor: pointer;
+            font-size: 0.9rem; line-height: 1.5;
+            margin-bottom: 16px;
             transition: color 0.5s ease;
         }
-        .btn-submit {
-            width: 100%;
-            background: var(--btn-gold-bg);
-            color: #1a1a2e;
-            padding: 16px;
+        .btn-watch {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            color: white;
+            padding: 12px 28px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1rem; font-weight: 700;
+            font-size: 0.9rem; font-weight: 600;
             transition: all 0.4s ease;
             border: none; cursor: pointer;
-            box-shadow: 0 8px 30px var(--btn-gold-shadow);
+            box-shadow: 0 4px 20px rgba(251,191,36,0.3);
             display: inline-flex;
-            align-items: center; gap: 10px;
-            justify-content: center;
+            align-items: center; gap: 8px;
         }
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px var(--btn-gold-shadow);
+        .btn-watch:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(251,191,36,0.4);
         }
-        .form-privacy {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            margin-top: 16px;
-            display: flex;
-            align-items: center;
+
+        /* ===== CONTINUE JOURNEY SECTION ===== */
+        .journey-section {
+            position: relative; z-index: 1;
+            padding: 60px 40px 80px;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .section-header {
+            margin-bottom: 40px;
+            display: flex; align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap; gap: 20px;
+        }
+        .section-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem; font-weight: 700;
+            color: var(--text-primary);
+            transition: color 0.5s ease;
+        }
+        .section-header h2 .sparkle {
+            color: var(--accent-gold);
+        }
+        .section-nav {
+            display: flex; gap: 8px;
+        }
+        .nav-arrow {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            display: flex; align-items: center;
             justify-content: center;
-            gap: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .nav-arrow:hover {
+            border-color: var(--accent-violet);
+            color: var(--accent-violet);
+        }
+        .nav-arrow svg { width: 18px; height: 18px; }
+
+        .journey-carousel {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+        .journey-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        .journey-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-hover);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+        .journey-item-img {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .journey-item-img::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
+        }
+        .journey-item-number {
+            position: absolute; top: 12px; left: 12px;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: var(--accent-orange);
+            color: white;
+            display: flex; align-items: center;
+            justify-content: center;
+            font-size: 0.8rem; font-weight: 700;
+            z-index: 2;
+        }
+        .journey-item:nth-child(2) .journey-item-number { background: var(--accent-pink); }
+        .journey-item:nth-child(3) .journey-item-number { background: var(--accent-teal); }
+        .journey-item:nth-child(4) .journey-item-number { background: var(--accent-green); }
+        .journey-item:nth-child(5) .journey-item-number { background: var(--accent-violet); }
+        .journey-item-title {
+            padding: 16px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem; font-weight: 600;
+            color: var(--text-primary);
             transition: color 0.5s ease;
         }
 
-        .help-card {
-            background: var(--help-bg);
+        /* ===== RESOURCES GRID SECTION ===== */
+        .resources-section {
+            position: relative; z-index: 1;
+            padding: 60px 40px 80px;
+            background: var(--section-alt-bg);
+            transition: background 0.5s ease;
+        }
+        .resources-container {
+            max-width: 1200px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 24px;
+        }
+        .resource-card {
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 24px;
-            padding: 40px;
+            padding: 32px 24px;
             transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
         }
-        .help-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.2rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 30px;
-            transition: color 0.5s ease;
+        .resource-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
         }
-        .help-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            cursor: pointer;
+        .resource-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 3px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
-        .help-item:last-child { border-bottom: none; }
-        .help-item:hover { padding-left: 8px; }
-        .help-item-icon {
+        .resource-card:hover::before { opacity: 1; }
+        .resource-card:nth-child(1)::before { background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan)); }
+        .resource-card:nth-child(2)::before { background: linear-gradient(90deg, var(--accent-green), var(--accent-teal)); }
+        .resource-card:nth-child(3)::before { background: linear-gradient(90deg, var(--accent-pink), var(--accent-violet)); }
+        .resource-card:nth-child(4)::before { background: linear-gradient(90deg, var(--accent-gold), var(--accent-orange)); }
+
+        .resource-header {
+            display: flex; align-items: center;
+            gap: 12px; margin-bottom: 16px;
+        }
+        .resource-icon {
             width: 44px; height: 44px;
             border-radius: 12px;
             display: flex; align-items: center;
             justify-content: center;
             font-size: 1.3rem;
-            flex-shrink: 0;
             border: 1px solid var(--border-color);
         }
-        .help-item:nth-child(1) .help-item-icon { background: rgba(251, 191, 36, 0.1); }
-        .help-item:nth-child(2) .help-item-icon { background: rgba(96, 165, 250, 0.1); }
-        .help-item:nth-child(3) .help-item-icon { background: rgba(74, 222, 128, 0.1); }
-        .help-item:nth-child(4) .help-item-icon { background: rgba(244, 114, 182, 0.1); }
-        .help-item h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            transition: color 0.5s ease;
-        }
-        .help-item p {
-            color: var(--text-muted);
-            font-size: 0.8rem; line-height: 1.5;
-            margin-bottom: 6px;
-            transition: color 0.5s ease;
-        }
-        .help-link {
-            color: var(--accent-gold);
-            font-size: 0.8rem; font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center; gap: 6px;
-            transition: all 0.3s ease;
-        }
-        .help-link:hover { gap: 10px; }
-        .help-link svg { width: 14px; height: 14px; }
-
-        /* ===== CONNECT SECTION ===== */
-        .connect-section {
-            position: relative; z-index: 1;
-            padding: 40px 40px 60px;
-            max-width: 1100px; margin: 0 auto;
-        }
-        .connect-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .connect-left h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            transition: color 0.5s ease;
-        }
-        .connect-left p {
-            color: var(--text-secondary);
-            font-size: 0.9rem; line-height: 1.6;
-            margin-bottom: 24px;
-            transition: color 0.5s ease;
-        }
-        .social-grid {
-            display: flex; gap: 12px;
-        }
-        .social-btn {
-            width: 44px; height: 44px;
-            border-radius: 12px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            display: flex; align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-        .social-btn:hover {
-            background: var(--accent-violet);
-            color: white;
-            border-color: var(--accent-violet);
-            transform: translateY(-3px);
-        }
-        .connect-right {
-            border-radius: 20px;
-            overflow: hidden;
-            height: 200px;
-        }
-        .connect-right img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-
-        /* ===== STAY INSPIRED ===== */
-        .inspired-card {
-            background: var(--connect-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 28px;
-            transition: all 0.5s ease;
-        }
-        .inspired-card h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            transition: color 0.5s ease;
-        }
-        .inspired-card p {
-            color: var(--text-muted);
-            font-size: 0.8rem; line-height: 1.5;
-            margin-bottom: 16px;
-            transition: color 0.5s ease;
-        }
-        .inspired-form {
-            display: flex; gap: 8px;
-        }
-        .inspired-input {
-            flex: 1;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 10px;
-            padding: 10px 14px;
-            color: var(--text-primary);
-            font-size: 0.85rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        .inspired-input::placeholder { color: var(--text-muted); }
-        .inspired-input:focus { border-color: var(--form-input-focus); }
-        .btn-subscribe {
-            background: var(--btn-gold-bg);
-            color: #1a1a2e;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 0.8rem; font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-        .btn-subscribe:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px var(--btn-gold-shadow);
-        }
-
-        /* ===== BOTTOM STRIP ===== */
-        .bottom-strip {
-            position: relative; z-index: 1;
-            padding: 50px 40px;
-            background: var(--bottom-bg);
-            border-top: 1px solid var(--bottom-border);
-            transition: all 0.5s ease;
-        }
-        .bottom-grid {
-            max-width: 1100px; margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .bottom-left {
-            display: flex; align-items: center;
-            gap: 20px;
-        }
-        .bottom-img {
-            width: 80px; height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-        .bottom-left-text h4 {
+        .resource-card:nth-child(1) .resource-icon { background: rgba(96, 165, 250, 0.1); }
+        .resource-card:nth-child(2) .resource-icon { background: rgba(74, 222, 128, 0.1); }
+        .resource-card:nth-child(3) .resource-icon { background: rgba(244, 114, 182, 0.1); }
+        .resource-card:nth-child(4) .resource-icon { background: rgba(251, 191, 36, 0.1); }
+        .resource-header h3 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.1rem; font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 4px;
             transition: color 0.5s ease;
         }
-        .bottom-left-text .handwritten {
-            font-family: 'Caveat', cursive;
-            font-size: 1.2rem;
-            color: var(--accent-gold);
-            transition: color 0.5s ease;
+        .resource-header .tag {
+            font-size: 0.7rem; font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 50px;
+            background: var(--tag-bg);
+            border: 1px solid var(--tag-border);
+            color: var(--tag-text);
+            transition: all 0.5s ease;
         }
-        .bottom-center p {
+        .resource-card p {
             color: var(--text-secondary);
-            font-size: 0.85rem; line-height: 1.6;
+            font-size: 0.9rem; line-height: 1.6;
+            margin-bottom: 20px;
             transition: color 0.5s ease;
         }
-        .bottom-right {
+        .resource-list {
+            list-style: none;
+        }
+        .resource-list li {
+            padding: 8px 0;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            display: flex; align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+        .resource-list li:last-child { border-bottom: none; }
+        .resource-list li:hover { color: var(--accent-violet); }
+        .resource-list li .bullet {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--accent-violet);
+            flex-shrink: 0;
+        }
+        .resource-cta {
+            margin-top: 20px;
+            display: flex; align-items: center;
+            gap: 8px;
+            color: var(--accent-violet);
+            font-size: 0.85rem; font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .resource-cta:hover { gap: 12px; }
+        .resource-cta svg { width: 16px; height: 16px; }
+
+        /* ===== ENCOURAGEMENT CARD ===== */
+        .encourage-card {
+            background: linear-gradient(135deg, rgba(30,30,60,0.9) 0%, rgba(20,20,40,0.9) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        [data-theme="day"] .encourage-card {
+            background: linear-gradient(135deg, rgba(124,58,237,0.08) 0%, rgba(79,70,229,0.06) 100%);
+        }
+        .encourage-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -30%;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .encourage-card img {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--accent-violet);
+        }
+        .encourage-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            transition: color 0.5s ease;
+        }
+        .encourage-card p {
+            color: var(--text-secondary);
+            font-size: 1rem; line-height: 1.7;
+            transition: color 0.5s ease;
+        }
+
+        /* ===== JOURNEY DOESN'T STOP ===== */
+        .continue-section {
+            position: relative; z-index: 1;
+            padding: 60px 40px;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .continue-bar {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 30px 40px;
             display: flex;
-            justify-content: flex-end;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
         }
-        .cross-icon {
-            width: 60px; height: 60px;
-            opacity: 0.15;
-            color: var(--text-muted);
+        .continue-bar::before {
+            content: '';
+            position: absolute; bottom: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-teal), var(--accent-green), var(--accent-gold));
+            opacity: 0.5;
+        }
+        .continue-item {
+            display: flex; align-items: center;
+            gap: 16px; flex: 1; min-width: 200px;
+        }
+        .continue-item .icon-wrap {
+            width: 48px; height: 48px;
+            border-radius: 14px;
+            display: flex; align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+        .continue-item:nth-child(1) .icon-wrap { background: rgba(96, 165, 250, 0.1); }
+        .continue-item:nth-child(2) .icon-wrap { background: rgba(45, 212, 191, 0.1); }
+        .continue-item:nth-child(3) .icon-wrap { background: rgba(251, 191, 36, 0.1); }
+        .continue-item h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem; font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
             transition: color 0.5s ease;
+        }
+        .continue-item p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            transition: color 0.5s ease;
+        }
+        .continue-visual {
+            width: 200px; height: 100px;
+            border-radius: 16px;
+            background: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&q=80') no-repeat center center;
+            background-size: cover;
+            flex-shrink: 0;
+            mask-image: linear-gradient(to left, black 60%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
         }
 
         /* ===== FOOTER (from reference) ===== */
@@ -1159,39 +1242,27 @@
             }
             .hero-content {
                 text-align: center;
-                padding: 120px 40px 60px;
+                padding: 120px 40px 80px;
             }
-            .hero-left { margin: 0 auto; }
-            .hero-left h1 { font-size: 3rem; }
-            .hero-left p { margin: 0 auto 30px; }
-            .matter-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 20px;
-            }
-            .matter-icon { margin: 0 auto; }
-            .matter-quote {
-                text-align: center;
-                border-left: none;
-                border-top: 2px solid rgba(255,255,255,0.1);
-                padding-left: 0;
-                padding-top: 20px;
-            }
-            .form-help-grid { grid-template-columns: 1fr; }
-            .connect-grid { grid-template-columns: 1fr; }
-            .connect-right { height: 180px; }
-            .bottom-grid { grid-template-columns: 1fr; text-align: center; }
-            .bottom-left { justify-content: center; }
-            .bottom-right { justify-content: center; }
+            .hero h1 { font-size: 4rem; }
+            .hero-tagline { margin: 0 auto 40px; }
+            .hero-actions { justify-content: center; }
+            .quest-grid { grid-template-columns: 1fr; }
+            .journey-carousel { grid-template-columns: repeat(3, 1fr); }
+            .resources-container { grid-template-columns: repeat(2, 1fr); }
+            .continue-bar { flex-direction: column; align-items: flex-start; }
+            .continue-visual { width: 100%; height: 150px; mask-image: none; -webkit-mask-image: none; border-radius: 16px; }
             .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
         }
         @media (max-width: 768px) {
             .navbar-container { padding: 0 20px; }
-            .hero-left h1 { font-size: 2.5rem; }
-            .form-row { grid-template-columns: 1fr; }
-            .matter-card { padding: 24px; }
+            .hero h1 { font-size: 3rem; }
+            .journey-carousel { grid-template-columns: repeat(2, 1fr); }
+            .resources-container { grid-template-columns: 1fr; }
             .footer-content { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; text-align: center; }
+            .quest-icons { gap: 16px; }
+            .section-header { flex-direction: column; align-items: flex-start; }
             .navbar-prayer { display: none;}
         }
     </style>
@@ -1200,7 +1271,7 @@
     <div class="starfield"></div>
 
     <!-- ===== NAVBAR (from reference) ===== -->
-   <nav class="navbar" role="navigation" aria-label="Main navigation">
+ <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar-container">
         <!-- Brand Logo (Only Image) -->
         <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
@@ -1216,10 +1287,10 @@
             <li role="none"><a href="/stories.html" class="navbar-link" role="menuitem">Stories</a></li>
             <li role="none"><a href="/bible-study.html" class="navbar-link" role="menuitem">Bible Study</a></li>
             <li role="none"><a href="/teens.html" class="navbar-link" role="menuitem">Teens</a></li>
-            <li role="none"><a href="/lumenquest.html" class="navbar-link lumenquest" role="menuitem">LumenQuest</a></li>
-            <li role="none"><a href="/resources.html" class="navbar-link " role="menuitem">Resources</a></li>
+            <li role="none"><a href="/lumenquest.html" class="navbar-link lumenquest active" role="menuitem">LumenQuest</a></li>
+            <li role="none"><a href="/resources.html" class="navbar-link" role="menuitem">Resources</a></li>
             <li role="none"><a href="/about.html" class="navbar-link" role="menuitem">About</a></li>
-            <li role="none"><a href="/contact.html" class="navbar-link active" role="menuitem" >Contact</a></li>
+            <li role="none"><a href="/contact.html" class="navbar-link" role="menuitem">Contact</a></li>
         </ul>
 
         <!-- Actions Section -->
@@ -1259,213 +1330,253 @@
         </div>
     </div>
 </nav>
-
-
     <!-- ===== HERO SECTION ===== -->
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="hero-left">
-                <h1>Contact Us</h1>
-                <span class="handwritten">We're here for you.</span>
+            <span class="hero-welcome">Welcome to</span>
+            <h1>
+                <span class="lumen">Lumen</span><span class="quest">Quest</span>
+            </h1>
+            <p class="hero-tagline">
+                Where every adventure leads you closer to the light of God's Word.
+            </p>
+            <div class="hero-actions">
+                <a href="#episodes" class="btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Start the Adventure
+                </a>
+                <a href="#explore" class="btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                    Explore Episodes
+                </a>
+                <a href="#parents" class="btn-green">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    For Parents
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== THE QUEST BEGINS + FEATURED EPISODE ===== -->
+    <section class="quest-section" id="explore">
+        <div class="quest-grid">
+            <div class="quest-left">
+                <h2>The Quest Begins <span class="highlight">With You</span></h2>
                 <p>
-                    Whether you need prayer, have a question, want to partner with us, or just want to say hello—we'd love to hear from you.
+                    LumenQuest is a journey into the light — a place where courage grows, truth is discovered, and every child learns that they carry light within them.
                 </p>
+                <div class="quest-icons">
+                    <div class="quest-icon-item">
+                        <div class="icon-circle">✨</div>
+                        <span>Discover<br>Who You Are</span>
+                    </div>
+                    <div class="quest-icon-item">
+                        <div class="icon-circle">❤️</div>
+                        <span>Grow Your<br>Matter</span>
+                    </div>
+                    <div class="quest-icon-item">
+                        <div class="icon-circle">✝️</div>
+                        <span>Follow God's<br>Light</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-outline">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Watch the Intro
+                </a>
             </div>
-        </div>
-    </section>
 
-    <!-- ===== YOU MATTER BAR ===== -->
-    <div class="matter-bar">
-        <div class="matter-card">
-            <div class="matter-icon">💛</div>
-            <div class="matter-text">
-                <h4>You matter to us.</h4>
-                <p>Our team is here to listen, encourage, and connect you with the support you need.</p>
-            </div>
-            <div class="matter-quote">
-                <p>"Cast all your anxiety on Him because He cares for you."</p>
-                <div class="ref">— 1 Peter 5:7</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== FORM + HELP SECTION ===== -->
-    <section class="form-help-section">
-        <div class="form-help-grid">
-            <div class="form-card">
-                <h3>Send Us a Message</h3>
-                <p>Fill out the form below and we'll get back to you soon.</p>
-                <form>
-                    <div class="form-row">
-                        <div class="input-wrap">
-                            <span class="form-input-icon">👤</span>
-                            <input type="text" class="form-input" placeholder="First Name" aria-label="First Name">
-                        </div>
-                        <div class="input-wrap">
-                            <span class="form-input-icon">👤</span>
-                            <input type="text" class="form-input" placeholder="Last Name" aria-label="Last Name">
-                        </div>
+            <div class="featured-episode">
+                <div class="episode-visual">
+                    <div class="episode-badge">Featured Episode</div>
+                    <div class="episode-play" aria-label="Play episode">
+                        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                     </div>
-                    <div class="form-group full">
-                        <div class="input-wrap">
-                            <span class="form-input-icon">✉️</span>
-                            <input type="email" class="form-input" placeholder="Email Address" aria-label="Email Address">
-                        </div>
-                    </div>
-                    <div class="form-group full">
-                        <select class="form-select" aria-label="Subject">
-                            <option value="" disabled selected>Subject</option>
-                            <option value="prayer">Prayer Request</option>
-                            <option value="question">General Question</option>
-                            <option value="partner">Partnership</option>
-                            <option value="story">Share Your Story</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group full">
-                        <label style="color:var(--text-muted);font-size:0.8rem;margin-bottom:8px;display:block;">How can we help you?</label>
-                        <textarea class="form-textarea" placeholder="Tell us more..." aria-label="How can we help you?"></textarea>
-                    </div>
-                    <div class="form-checkbox">
-                        <input type="checkbox" id="contact-me" aria-label="I would like someone to contact me">
-                        <label for="contact-me">I would like someone to contact me.</label>
-                    </div>
-                    <button type="submit" class="btn-submit">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="22" y1="2" x2="11" y2="13"></line>
-                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </div>
+                <div class="episode-content">
+                    <h3>Episode 1: The Light Within</h3>
+                    <p>Join the journey as the first step into discovering courage, truth, and purpose.</p>
+                    <button class="btn-watch">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
                         </svg>
-                        SEND MESSAGE
+                        Watch Now
                     </button>
-                    <div class="form-privacy">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                        Your information is safe and will never be shared.
-                    </div>
-                </form>
-            </div>
-
-            <div class="help-card">
-                <h3>Other Ways We Can Help</h3>
-                <div class="help-item">
-                    <div class="help-item-icon">🙏</div>
-                    <div>
-                        <h4>Prayer Request</h4>
-                        <p>Need prayer? We're here for you.</p>
-                        <a href="#" class="help-link">
-                            Submit a Prayer Request
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="help-item">
-                    <div class="help-item-icon">👥</div>
-                    <div>
-                        <h4>General Questions</h4>
-                        <p>Have a question about our ministry or content?</p>
-                        <a href="#" class="help-link">
-                            Get Answers
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="help-item">
-                    <div class="help-item-icon">🤝</div>
-                    <div>
-                        <h4>Partnerships</h4>
-                        <p>Interested in partnering with LightMode Ministries?</p>
-                        <a href="#" class="help-link">
-                            Partner With Us
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="help-item">
-                    <div class="help-item-icon">💜</div>
-                    <div>
-                        <h4>Share Your Story</h4>
-                        <p>How has God been working in your life?</p>
-                        <a href="#" class="help-link">
-                            Share Your Story
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== CONNECT + STAY INSPIRED ===== -->
-    <section class="connect-section">
-        <div class="connect-grid">
-            <div class="connect-left">
-                <h3>We'd Love to Connect</h3>
-                <p>Follow us on social media for daily encouragement, updates, and inspiring content.</p>
-                <div class="social-grid">
-                    <a href="#" class="social-btn" aria-label="Instagram">📷</a>
-                    <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
-                    <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
-                    <a href="#" class="social-btn" aria-label="Facebook">f</a>
-                    <a href="#" class="social-btn" aria-label="Email">✉️</a>
-                </div>
+    <!-- ===== CONTINUE THE JOURNEY ===== -->
+    <section class="journey-section" id="episodes">
+        <div class="section-header">
+            <h2>Continue the Journey <span class="sparkle">✨</span></h2>
+            <div class="section-nav">
+                <button class="nav-arrow" aria-label="Previous episodes">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 18l-6-6 6-6"></path>
+                    </svg>
+                </button>
+                <button class="nav-arrow" aria-label="Next episodes">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </button>
             </div>
-            <div class="connect-right">
-                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Community">
+        </div>
+
+        <div class="journey-carousel">
+            <div class="journey-item">
+                <div class="journey-item-img" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80');">
+                    <div class="journey-item-number">1</div>
+                </div>
+                <div class="journey-item-title">The Light Within</div>
+            </div>
+            <div class="journey-item">
+                <div class="journey-item-img" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&q=80');">
+                    <div class="journey-item-number">2</div>
+                </div>
+                <div class="journey-item-title">Courage to Shine</div>
+            </div>
+            <div class="journey-item">
+                <div class="journey-item-img" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=400&q=80');">
+                    <div class="journey-item-number">3</div>
+                </div>
+                <div class="journey-item-title">The Truth Compass</div>
+            </div>
+            <div class="journey-item">
+                <div class="journey-item-img" style="background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&q=80');">
+                    <div class="journey-item-number">4</div>
+                </div>
+                <div class="journey-item-title">Stronger Together</div>
+            </div>
+            <div class="journey-item">
+                <div class="journey-item-img" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&q=80');">
+                    <div class="journey-item-number">5</div>
+                </div>
+                <div class="journey-item-title">The Quest Continues</div>
             </div>
         </div>
     </section>
 
-    <section class="connect-section" style="padding-top:0;">
-        <div class="connect-grid">
-            <div></div>
-            <div class="inspired-card">
-                <h4>Stay Inspired</h4>
-                <p>Get weekly devotionals, prayer encouragement, and updates straight to your inbox.</p>
-                <div class="inspired-form">
-                    <input type="email" class="inspired-input" placeholder="Enter your email" aria-label="Your email address">
-                    <button class="btn-subscribe">SUBSCRIBE</button>
+    <!-- ===== RESOURCES GRID ===== -->
+    <section class="resources-section" id="resources">
+        <div class="resources-container">
+            <!-- What We Learned -->
+            <div class="resource-card">
+                <div class="resource-header">
+                    <div class="resource-icon">📖</div>
+                    <h3>What We Learned</h3>
                 </div>
+                <p>Scripture and lessons from each episode to help your child grow in faith.</p>
+                <ul class="resource-list">
+                    <li><span class="bullet"></span> You are never alone.</li>
+                    <li><span class="bullet"></span> Scripture: "I am with you always..." Matthew 28:20</li>
+                    <li><span class="bullet"></span> Even when you feel afraid, God is right there with you.</li>
+                </ul>
+                <a href="#" class="resource-cta">
+                    Read More
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- For Parents -->
+            <div class="resource-card">
+                <div class="resource-header">
+                    <div class="resource-icon">👨‍👩‍👧‍👦</div>
+                    <h3>For Parents</h3>
+                </div>
+                <p>Conversation guides and activities to do together as a family.</p>
+                <ul class="resource-list">
+                    <li><span class="bullet"></span> What your child learned & what it means.</li>
+                    <li><span class="bullet"></span> Ask your child: "What was your favorite moment?"</li>
+                    <li><span class="bullet"></span> "What have you felt afraid of, but God helped you?"</li>
+                </ul>
+                <a href="#" class="resource-cta">
+                    Parent Guide
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Activity Zone -->
+            <div class="resource-card">
+                <div class="resource-header">
+                    <div class="resource-icon">🎨</div>
+                    <h3>Activity Zone</h3>
+                </div>
+                <p>Fun, faith-filled activities to bring the lessons to life.</p>
+                <ul class="resource-list">
+                    <li><span class="bullet"></span> Coloring Pages — Download and color!</li>
+                    <li><span class="bullet"></span> Memory Verse Cards — Learn and share!</li>
+                    <li><span class="bullet"></span> Quest Challenges — Fun activities to grow in your faith!</li>
+                </ul>
+                <a href="#" class="resource-cta">
+                    Download Activity Pack
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Encouragement Card -->
+            <div class="encourage-card">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Encouragement">
+                <h4>You carry light within you.</h4>
+                <p>Keep shining!</p>
             </div>
         </div>
     </section>
 
-    <!-- ===== BOTTOM STRIP ===== -->
-    <section class="bottom-strip">
-        <div class="bottom-grid">
-            <div class="bottom-left">
-                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=200&q=80" alt="Hands reaching" class="bottom-img">
-                <div class="bottom-left-text">
-                    <h4>You are not alone.</h4>
-                    <div class="handwritten">We're honored to walk alongside you.</div>
+    <!-- ===== THE JOURNEY DOESN'T STOP HERE ===== -->
+    <section class="continue-section">
+        <div class="continue-bar">
+            <div class="continue-item">
+                <div class="icon-wrap">🌙</div>
+                <div>
+                    <h4>Rest in the Light</h4>
+                    <p>Find peace and calm.</p>
                 </div>
             </div>
-            <div class="bottom-center">
-                <p>No matter where you are in your journey, we believe God has something beautiful in store for you.</p>
+            <div class="continue-item">
+                <div class="icon-wrap">🌱</div>
+                <div>
+                    <h4>Grow in the Light</h4>
+                    <p>Learn and grow in God's Word.</p>
+                </div>
             </div>
-            <div class="bottom-right">
-                <svg class="cross-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3v18"></path>
-                    <path d="M3 12h18"></path>
-                </svg>
+            <div class="continue-item">
+                <div class="icon-wrap">🌟</div>
+                <div>
+                    <h4>Start the Light Journey</h4>
+                    <p>A path for the whole family.</p>
+                </div>
             </div>
+            <div class="continue-visual"></div>
         </div>
     </section>
+
     <!-- ===== FOOTER (from reference) ===== -->
     <footer class="footer" role="contentinfo">
         <div class="footer-content">
@@ -1578,7 +1689,7 @@
             }
         });
 
-       // Mobile menu toggle
+         // Mobile menu toggle
         const navbarToggle = document.querySelector('.navbar-toggle');
         const navbarMenu = document.getElementById('navbar-menu');
 
@@ -1606,6 +1717,7 @@ if (!isExpanded) {
 }
             });
         }
+
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {

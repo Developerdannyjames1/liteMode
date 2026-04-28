@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us — LightMode Ministries</title>
+    <title>Stories - Real Lives, Real Hope | LightMode Ministries</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'RecklessStandard';
@@ -19,7 +19,7 @@
             font-weight: normal; font-style: normal; font-display: swap;
         }
 
-        /* THEME VARIABLES - NIGHT (default) */
+        /* ===== THEME VARIABLES (from resources.html) ===== */
         :root {
             --bg-primary: #0a0a12;
             --bg-secondary: #12121f;
@@ -57,7 +57,7 @@
             --footer-bg: #0a0a12;
             --footer-border: rgba(255,255,255,0.05);
             --starfield-opacity: 1;
-            --hero-overlay: linear-gradient(90deg, #080810 0%, #080810 45%, transparent 80%);
+            --hero-overlay: linear-gradient(90deg, #080810 0%, #080810 40%, transparent 75%);
             --hero-bg-filter: saturate(0.3) contrast(1.2) hue-rotate(220deg);
             --hero-bg-opacity: 0.5;
             --hero-gradient-start: #080810;
@@ -65,19 +65,22 @@
             --hero-gradient-end: #1a1a3e;
             --pill-bg: rgba(26, 26, 40, 0.8);
             --pill-border: rgba(255,255,255,0.1);
-            --form-bg: rgba(20, 20, 35, 0.8);
-            --form-input-bg: rgba(15, 15, 25, 0.9);
-            --form-input-border: rgba(255,255,255,0.1);
-            --form-input-focus: rgba(167,139,250,0.4);
-            --help-bg: rgba(20, 20, 35, 0.6);
-            --help-hover: rgba(30, 30, 50, 0.9);
-            --connect-bg: rgba(20, 20, 35, 0.7);
-            --connect-img-bg: rgba(20, 20, 35, 0.5);
-            --bottom-bg: rgba(20, 20, 35, 0.6);
-            --bottom-border: rgba(255,255,255,0.06);
+
+            /* Stories-specific cinematic palette */
+            --stories-midnight: #0a0e1a;
+            --stories-deep-night: #0f1525;
+            --stories-twilight: #1a1f35;
+            --stories-soft-purple: #2d1b4e;
+            --stories-warm-amber: #d4a574;
+            --stories-pale-amber: #f4e4bc;
+            --stories-soft-rose: #c9a6a6;
+            --stories-breath: #f0f0f5;
+            --stories-slate: #8a8fa8;
+            --stories-gray: #6b7194;
+            --stories-cinematic-glow: rgba(212, 165, 116, 0.08);
+            --stories-hope-glow: rgba(201, 166, 166, 0.06);
         }
 
-        /* THEME VARIABLES - DAY MODE */
         [data-theme="day"] {
             --bg-primary: #faf8f5;
             --bg-secondary: #f5f0eb;
@@ -115,7 +118,7 @@
             --footer-bg: #f5f0eb;
             --footer-border: rgba(0,0,0,0.06);
             --starfield-opacity: 0;
-            --hero-overlay: linear-gradient(90deg, rgba(254,243,199,0.95) 0%, rgba(254,243,199,0.85) 45%, transparent 80%);
+            --hero-overlay: linear-gradient(90deg, rgba(254,243,199,0.95) 0%, rgba(254,243,199,0.85) 45%, transparent 75%);
             --hero-bg-filter: saturate(0.8) contrast(1.1) hue-rotate(10deg);
             --hero-bg-opacity: 0.6;
             --hero-gradient-start: #fef3c7;
@@ -123,16 +126,20 @@
             --hero-gradient-end: #fed7aa;
             --pill-bg: rgba(255, 255, 255, 0.9);
             --pill-border: rgba(0,0,0,0.08);
-            --form-bg: rgba(255, 255, 255, 0.9);
-            --form-input-bg: rgba(250, 248, 245, 0.9);
-            --form-input-border: rgba(0,0,0,0.08);
-            --form-input-focus: rgba(124,58,237,0.3);
-            --help-bg: rgba(255, 255, 255, 0.7);
-            --help-hover: rgba(255, 255, 255, 0.95);
-            --connect-bg: rgba(255, 255, 255, 0.85);
-            --connect-img-bg: rgba(245, 240, 235, 0.5);
-            --bottom-bg: rgba(255, 255, 255, 0.7);
-            --bottom-border: rgba(0,0,0,0.06);
+
+            /* Stories day overrides */
+            --stories-midnight: #faf8f5;
+            --stories-deep-night: #f5f0eb;
+            --stories-twilight: #e8e0d5;
+            --stories-soft-purple: #ede9fe;
+            --stories-warm-amber: #b45309;
+            --stories-pale-amber: #fef3c7;
+            --stories-soft-rose: #a16207;
+            --stories-breath: #1a1a2e;
+            --stories-slate: #475569;
+            --stories-gray: #64748b;
+            --stories-cinematic-glow: rgba(180, 83, 9, 0.06);
+            --stories-hope-glow: rgba(161, 98, 7, 0.04);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -141,11 +148,10 @@
             font-family: 'RecklessStandard', 'Inter', sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
             transition: background-color 0.5s ease, color 0.5s ease;
-        }
-
+        }        /* ===== STARS / AMBIENT ===== */
         .starfield {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
@@ -158,7 +164,8 @@
                 radial-gradient(ellipse at 50% 50%, rgba(45, 43, 85, 0.15) 0%, transparent 60%);
         }
 
-               /* ===== MERGED NAVBAR STYLES ===== */
+            
+  /* ===== MERGED NAVBAR STYLES ===== */
 .navbar {
     position: fixed; 
     top: 0; 
@@ -490,7 +497,7 @@
         display: flex;
     }
     
-   /* Light mode (default ya day) */
+  /* Light mode (default ya day) */
 [data-theme="day"] .navbar-link {
   color: rgba(5, 5, 5, 0.8);
 }
@@ -508,7 +515,6 @@
 [data-theme="night"] .navbar-link.active {
   color: rgba(255, 255, 255, 1);
 }
-    
     .navbar-prayer {
         display: none;
     }
@@ -516,512 +522,435 @@
     .theme-toggle {
         order: -1;
     }
-}
-        /* ===== HERO SECTION ===== */
+}           /* ===== CINEMATIC HERO ===== */
         .hero {
             position: relative; z-index: 1;
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex; align-items: center;
             overflow: hidden;
-            background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-mid) 50%, var(--hero-gradient-end) 100%);
+            background: linear-gradient(135deg, #070a12 0%, var(--stories-deep-night) 50%, #1a1025 100%);
             transition: background 0.5s ease;
         }
         .hero-bg {
             position: absolute; top: 0; right: 0;
-            width: 55%; height: 100%;
-            background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=80') no-repeat center center;
+            width: 60%; height: 100%;
+            background: url('https://images.stockcake.com/public/2/7/0/270f38d2-e23f-4047-aca4-86a62c437ff0_large/mountain-path-sunset-stockcake.jpg') no-repeat center center;
             background-size: cover;
-            mask-image: linear-gradient(to left, black 30%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%);
-            opacity: var(--hero-bg-opacity);
-            filter: var(--hero-bg-filter);
-            transition: opacity 0.5s ease, filter 0.5s ease;
+            mask-image: linear-gradient(to left, black 40%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to left, black 40%, transparent 100%);
+            opacity: 0.5;
+            filter: saturate(0.8) contrast(1.1);
+            transition: opacity 0.5s ease;
+        }
+        [data-theme="day"] .hero-bg {
+            opacity: 0.35;
+            filter: saturate(0.9) contrast(1.05);
         }
         .hero-overlay {
             position: absolute; top: 0; left: 0;
             width: 100%; height: 100%;
-            background: var(--hero-overlay);
+            background: linear-gradient(90deg, #070a12 0%, #070a12 30%, transparent 70%);
             z-index: 1;
             transition: background 0.5s ease;
+        }
+        [data-theme="day"] .hero-overlay {
+            background: linear-gradient(90deg, var(--stories-midnight) 0%, var(--stories-midnight) 30%, transparent 70%);
         }
         .hero-content {
             position: relative; z-index: 2;
             max-width: 1400px; margin: 0 auto;
-            padding: 140px 60px 60px;
+            padding: 120px 60px;
             width: 100%;
         }
-        .hero-left {
-            max-width: 500px;
-        }
-        .hero-left h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 4rem; font-weight: 800;
-            line-height: 1.05; margin-bottom: 12px;
-            color: var(--text-primary);
-            letter-spacing: -0.03em;
+        .hero-label {
+            font-family: 'Caveat', cursive;
+            color: var(--stories-warm-amber);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: block;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out;
             transition: color 0.5s ease;
         }
-        .hero-left .handwritten {
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            max-width: 700px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            transition: color 0.5s ease;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--stories-warm-amber);
+            font-weight: 500;
+            transition: color 0.5s ease;
+        }
+        .hero-subtext {
+            font-size: 1.3rem;
+            color: var(--stories-slate);
+            max-width: 550px;
+            margin-bottom: 50px;
+            font-weight: 300;
+            line-height: 1.7;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            transition: color 0.5s ease;
+        }
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            color: var(--stories-pale-amber);
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        .hero-cta:hover {
+            background: rgba(212, 165, 116, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(212, 165, 116, 0.15);
+        }
+        [data-theme="day"] .hero-cta {
+            background: rgba(180, 83, 9, 0.08);
+            border-color: rgba(180, 83, 9, 0.25);
+            color: var(--stories-warm-amber);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }        /* ===== FEATURED STORY ===== */
+        .featured-section {
+            position: relative; z-index: 1;
+            padding: 120px 40px;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        .section-label {
             font-family: 'Caveat', cursive;
+            color: var(--stories-warm-amber);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: block;
+            transition: color 0.5s ease;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            transition: color 0.5s ease;
+        }
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 300;
+            transition: color 0.5s ease;
+        }
+        .featured-story {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 0;
+            background: var(--bg-card);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+            transition: all 0.5s ease;
+        }
+        .story-image {
+            position: relative;
+            min-height: 500px;
+            background: linear-gradient(135deg, #1a1025 0%, var(--stories-soft-purple) 100%);
+            overflow: hidden;
+            transition: background 0.5s ease;
+        }
+        [data-theme="day"] .story-image {
+            background: linear-gradient(135deg, #ede9fe 0%, #f5f0eb 100%);
+        }
+        .story-image::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(212,165,116,0.1)" stroke-width="0.5"/><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(212,165,116,0.08)" stroke-width="0.5"/></svg>');
+            background-size: 400px;
+            opacity: 0.5;
+        }
+        .story-image-content {
+            position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 6rem; opacity: 0.6;
+        }
+        .story-badge {
+            position: absolute; top: 30px; left: 30px;
+            background: rgba(212, 165, 116, 0.15);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            color: var(--stories-pale-amber);
+            padding: 8px 20px; border-radius: 50px;
+            font-size: 0.85rem; font-weight: 500;
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+        }
+        [data-theme="day"] .story-badge {
+            background: rgba(180, 83, 9, 0.1);
+            border-color: rgba(180, 83, 9, 0.2);
+            color: var(--stories-warm-amber);
+        }
+        .story-content {
+            padding: 60px 50px;
+            display: flex; flex-direction: column;
+            justify-content: center;
+        }
+        .story-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 30px;
+            border-left: 3px solid rgba(212, 165, 116, 0.4);
+            transition: color 0.5s ease, border-color 0.5s ease;
+        }
+        .story-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            transition: color 0.5s ease;
+        }
+        .story-author {
+            display: flex; align-items: center;
+            gap: 15px; margin-bottom: 30px;
+        }
+        .author-avatar {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--stories-warm-amber), var(--stories-soft-rose));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+        .author-info h4 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 4px;
+            transition: color 0.5s ease;
+        }
+        .author-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: color 0.5s ease;
+        }
+        .story-cta {
+            display: inline-flex; align-items: center;
+            gap: 8px;
+            color: var(--stories-warm-amber);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: gap 0.3s ease, color 0.5s ease;
+            width: fit-content;
+        }
+        .story-cta:hover { gap: 12px; }
+
+        /* ===== ARC CLUSTERS ===== */
+        .clusters-section {
+            position: relative; z-index: 1;
+            padding: 100px 40px;
+            background: var(--bg-secondary);
+            transition: background 0.5s ease;
+        }
+        .clusters-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .arc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        .arc-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+        .arc-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 165, 116, 0.15);
+            box-shadow: 0 25px 60px var(--shadow-glow);
+        }
+        .arc-header {
+            padding: 35px 35px 20px;
+            position: relative;
+        }
+        .arc-icon {
+            width: 120px; height: 60px;
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
             font-size: 1.8rem;
-            color: var(--accent-gold);
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            transition: all 0.5s ease;
+        }
+        .arc-card:nth-child(1) .arc-icon { background: rgba(212, 165, 116, 0.1); }
+        .arc-card:nth-child(2) .arc-icon { background: rgba(201, 166, 166, 0.1); }
+        .arc-card:nth-child(3) .arc-icon { background: rgba(138, 143, 168, 0.1); }
+        .arc-card:nth-child(4) .arc-icon { background: rgba(107, 113, 148, 0.1); }
+        .arc-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-weight: 600;
+            transition: color 0.5s ease;
+        }
+        .arc-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            transition: color 0.5s ease;
+        }
+        .arc-stories { padding: 0 35px 35px; }
+        .arc-story-item {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex; align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+        .arc-story-item:last-child { border-bottom: none; }
+        .arc-story-item:hover { padding-left: 8px; }
+        .arc-story-thumb {
+            width: 60px; height: 60px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--stories-twilight), var(--stories-soft-purple));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            border: 1px solid var(--border-color);
+            transition: all 0.5s ease;
+        }
+        [data-theme="day"] .arc-story-thumb {
+            background: linear-gradient(135deg, #e8e0d5, #ede9fe);
+        }
+        .arc-story-info h4 {
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            transition: color 0.5s ease;
+        }
+        .arc-story-info p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            transition: color 0.5s ease;
+        }
+        .arc-story-duration {
+            margin-left: auto;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            background: var(--pill-bg);
+            padding: 4px 12px;
+            border-radius: 50px;
+            transition: all 0.5s ease;
+        }        /* ===== NEXT STEP ===== */
+        .next-step-section {
+            position: relative; z-index: 1;
+            padding: 120px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, transparent 0%, var(--bg-secondary) 100%);
+            transition: background 0.5s ease;
+        }
+        .next-step-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .next-step-label {
+            font-family: 'Caveat', cursive;
+            color: var(--stories-warm-amber);
+            font-size: 1.6rem;
             margin-bottom: 20px;
             display: block;
             transition: color 0.5s ease;
         }
-        .hero-left p {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            max-width: 420px;
-            margin-bottom: 35px;
-            font-weight: 400; line-height: 1.7;
-            transition: color 0.5s ease;
-        }
-
-        /* ===== YOU MATTER BAR ===== */
-        .matter-bar {
-            position: relative; z-index: 1;
-            padding: 0 40px;
-            max-width: 1100px; margin: -30px auto 40px;
-        }
-        .matter-card {
-            background: linear-gradient(135deg, #1e1e3e 0%, #2a2a4e 100%);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 30px 40px;
-            display: grid;
-            grid-template-columns: auto 1fr 1fr;
-            gap: 30px;
-            align-items: center;
-            transition: all 0.5s ease;
-        }
-        [data-theme="day"] .matter-card {
-            background: linear-gradient(135deg, #1e1e3e 0%, #2a2a4e 100%);
-            border-color: rgba(255,255,255,0.15);
-        }
-        .matter-icon {
-            width: 56px; height: 56px;
-            border-radius: 50%;
-            display: flex; align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            border: 2px solid var(--accent-gold);
-            background: rgba(251, 191, 36, 0.1);
-            flex-shrink: 0;
-        }
-        .matter-text h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem; font-weight: 600;
-            color: white;
-            margin-bottom: 6px;
-        }
-        .matter-text p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.85rem; line-height: 1.5;
-        }
-        .matter-quote {
-            text-align: right;
-            border-left: 2px solid rgba(255,255,255,0.1);
-            padding-left: 30px;
-        }
-        .matter-quote p {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.9rem; line-height: 1.6;
-            font-style: italic;
-            margin-bottom: 8px;
-        }
-        .matter-quote .ref {
-            color: var(--accent-gold);
-            font-size: 0.8rem;
-        }
-
-        /* ===== FORM + HELP SECTION ===== */
-        .form-help-section {
-            position: relative; z-index: 1;
-            padding: 40px 40px 60px;
-            max-width: 1100px; margin: 0 auto;
-        }
-        .form-help-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            align-items: start;
-        }
-        .form-card {
-            background: var(--form-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
-            transition: all 0.5s ease;
-        }
-        .form-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem; font-weight: 700;
+        .next-step-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
             color: var(--text-primary);
-            margin-bottom: 4px;
-            transition: color 0.5s ease;
-        }
-        .form-card > p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 30px;
-            transition: color 0.5s ease;
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-        .form-group {
-            margin-bottom: 16px;
-        }
-        .form-group.full {
-            grid-column: 1 / -1;
-        }
-        .form-input {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px 14px 44px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .form-input::placeholder { color: var(--text-muted); }
-        .form-input:focus {
-            border-color: var(--form-input-focus);
-            box-shadow: 0 0 0 3px rgba(167,139,250,0.1);
-        }
-        .form-input-icon {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            font-size: 1rem;
-            pointer-events: none;
-        }
-        .input-wrap {
-            position: relative;
-        }
-        .form-select {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            appearance: none;
-            -webkit-appearance: none;
-        }
-        .form-select:focus {
-            border-color: var(--form-input-focus);
-        }
-        .form-textarea {
-            width: 100%;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 12px;
-            padding: 14px 16px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-            resize: vertical;
-            min-height: 120px;
-            font-family: inherit;
-        }
-        .form-textarea::placeholder { color: var(--text-muted); }
-        .form-textarea:focus {
-            border-color: var(--form-input-focus);
-            box-shadow: 0 0 0 3px rgba(167,139,250,0.1);
-        }
-        .form-checkbox {
-            display: flex;
-            align-items: center;
-            gap: 10px;
             margin-bottom: 20px;
-        }
-        .form-checkbox input {
-            width: 18px; height: 18px;
-            border-radius: 4px;
-            border: 1px solid var(--form-input-border);
-            background: var(--form-input-bg);
-            cursor: pointer;
-            accent-color: var(--accent-violet);
-        }
-        .form-checkbox label {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            cursor: pointer;
+            font-weight: 600;
             transition: color 0.5s ease;
         }
-        .btn-submit {
-            width: 100%;
-            background: var(--btn-gold-bg);
-            color: #1a1a2e;
-            padding: 16px;
+        .next-step-text {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            margin-bottom: 45px;
+            line-height: 1.7;
+            transition: color 0.5s ease;
+        }
+        .next-buttons {
+            display: flex; gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-gold {
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            color: var(--stories-pale-amber);
+            padding: 18px 36px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1rem; font-weight: 700;
+            font-size: 1rem;
+            font-weight: 500;
             transition: all 0.4s ease;
-            border: none; cursor: pointer;
-            box-shadow: 0 8px 30px var(--btn-gold-shadow);
             display: inline-flex;
             align-items: center; gap: 10px;
-            justify-content: center;
         }
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px var(--btn-gold-shadow);
-        }
-        .form-privacy {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            margin-top: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            transition: color 0.5s ease;
-        }
-
-        .help-card {
-            background: var(--help-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
-            transition: all 0.5s ease;
-        }
-        .help-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.2rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 30px;
-            transition: color 0.5s ease;
-        }
-        .help-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .help-item:last-child { border-bottom: none; }
-        .help-item:hover { padding-left: 8px; }
-        .help-item-icon {
-            width: 44px; height: 44px;
-            border-radius: 12px;
-            display: flex; align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-            border: 1px solid var(--border-color);
-        }
-        .help-item:nth-child(1) .help-item-icon { background: rgba(251, 191, 36, 0.1); }
-        .help-item:nth-child(2) .help-item-icon { background: rgba(96, 165, 250, 0.1); }
-        .help-item:nth-child(3) .help-item-icon { background: rgba(74, 222, 128, 0.1); }
-        .help-item:nth-child(4) .help-item-icon { background: rgba(244, 114, 182, 0.1); }
-        .help-item h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            transition: color 0.5s ease;
-        }
-        .help-item p {
-            color: var(--text-muted);
-            font-size: 0.8rem; line-height: 1.5;
-            margin-bottom: 6px;
-            transition: color 0.5s ease;
-        }
-        .help-link {
-            color: var(--accent-gold);
-            font-size: 0.8rem; font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center; gap: 6px;
-            transition: all 0.3s ease;
-        }
-        .help-link:hover { gap: 10px; }
-        .help-link svg { width: 14px; height: 14px; }
-
-        /* ===== CONNECT SECTION ===== */
-        .connect-section {
-            position: relative; z-index: 1;
-            padding: 40px 40px 60px;
-            max-width: 1100px; margin: 0 auto;
-        }
-        .connect-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .connect-left h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            transition: color 0.5s ease;
-        }
-        .connect-left p {
-            color: var(--text-secondary);
-            font-size: 0.9rem; line-height: 1.6;
-            margin-bottom: 24px;
-            transition: color 0.5s ease;
-        }
-        .social-grid {
-            display: flex; gap: 12px;
-        }
-        .social-btn {
-            width: 44px; height: 44px;
-            border-radius: 12px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            display: flex; align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-        .social-btn:hover {
-            background: var(--accent-violet);
-            color: white;
-            border-color: var(--accent-violet);
-            transform: translateY(-3px);
-        }
-        .connect-right {
-            border-radius: 20px;
-            overflow: hidden;
-            height: 200px;
-        }
-        .connect-right img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-
-        /* ===== STAY INSPIRED ===== */
-        .inspired-card {
-            background: var(--connect-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 28px;
-            transition: all 0.5s ease;
-        }
-        .inspired-card h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            transition: color 0.5s ease;
-        }
-        .inspired-card p {
-            color: var(--text-muted);
-            font-size: 0.8rem; line-height: 1.5;
-            margin-bottom: 16px;
-            transition: color 0.5s ease;
-        }
-        .inspired-form {
-            display: flex; gap: 8px;
-        }
-        .inspired-input {
-            flex: 1;
-            background: var(--form-input-bg);
-            border: 1px solid var(--form-input-border);
-            border-radius: 10px;
-            padding: 10px 14px;
-            color: var(--text-primary);
-            font-size: 0.85rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        .inspired-input::placeholder { color: var(--text-muted); }
-        .inspired-input:focus { border-color: var(--form-input-focus); }
-        .btn-subscribe {
-            background: var(--btn-gold-bg);
-            color: #1a1a2e;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 0.8rem; font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-        .btn-subscribe:hover {
+        .btn-gold:hover {
+            background: rgba(212, 165, 116, 0.2);
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px var(--btn-gold-shadow);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.1);
         }
-
-        /* ===== BOTTOM STRIP ===== */
-        .bottom-strip {
-            position: relative; z-index: 1;
-            padding: 50px 40px;
-            background: var(--bottom-bg);
-            border-top: 1px solid var(--bottom-border);
-            transition: all 0.5s ease;
+        [data-theme="day"] .btn-gold {
+            background: rgba(180, 83, 9, 0.08);
+            border-color: rgba(180, 83, 9, 0.25);
+            color: var(--stories-warm-amber);
         }
-        .bottom-grid {
-            max-width: 1100px; margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .bottom-left {
-            display: flex; align-items: center;
-            gap: 20px;
-        }
-        .bottom-img {
-            width: 80px; height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-        .bottom-left-text h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            transition: color 0.5s ease;
-        }
-        .bottom-left-text .handwritten {
-            font-family: 'Caveat', cursive;
-            font-size: 1.2rem;
-            color: var(--accent-gold);
-            transition: color 0.5s ease;
-        }
-        .bottom-center p {
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
             color: var(--text-secondary);
-            font-size: 0.85rem; line-height: 1.6;
-            transition: color 0.5s ease;
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.4s ease;
         }
-        .bottom-right {
-            display: flex;
-            justify-content: flex-end;
-        }
-        .cross-icon {
-            width: 60px; height: 60px;
-            opacity: 0.15;
-            color: var(--text-muted);
-            transition: color 0.5s ease;
+        .btn-outline:hover {
+            border-color: var(--accent-violet);
+            color: var(--accent-violet);
         }
 
-        /* ===== FOOTER (from reference) ===== */
+        /* ===== FOOTER (from resources.html) ===== */
         .footer {
             position: relative; z-index: 1;
             background: var(--footer-bg);
@@ -1061,7 +990,10 @@
             color: white;
             border-color: var(--accent-violet);
         }
-        .footer-social svg { width: 18px; height: 18px; fill: currentColor; }
+        .footer-social svg {
+            width: 18px; height: 18px;
+            fill: currentColor;
+        }
         .footer-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 0.95rem; font-weight: 600;
@@ -1080,6 +1012,12 @@
             transition: color 0.3s ease;
         }
         .footer-links a:hover { color: var(--accent-violet); }
+        .footer-contact {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            transition: color 0.5s ease;
+        }
         .footer-form { margin-top: 20px; }
         .footer-form-title {
             font-family: 'Space Grotesk', sans-serif;
@@ -1143,9 +1081,19 @@
             transition: color 0.3s ease;
         }
         .footer-legal a:hover { color: var(--accent-violet); }
-        .footer-legal span { color: var(--border-color); transition: color 0.5s ease; }
-
-        /* ===== RESPONSIVE ===== */
+        .footer-legal span {
+            color: var(--border-color);
+            transition: color 0.5s ease;
+        }  
+        
+        .navbar-link.lumenquest {
+      background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
+/* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .navbar-menu { display: none; }
             .navbar-toggle { display: flex; }
@@ -1153,54 +1101,47 @@
                 width: 100%;
                 opacity: 0.2;
                 mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
             }
             .hero-overlay {
-                background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-start) 50%, transparent 100%);
+                background: linear-gradient(180deg, #070a12 0%, #070a12 50%, transparent 100%);
             }
             .hero-content {
                 text-align: center;
-                padding: 120px 40px 60px;
+                padding: 100px 40px;
             }
-            .hero-left { margin: 0 auto; }
-            .hero-left h1 { font-size: 3rem; }
-            .hero-left p { margin: 0 auto 30px; }
-            .matter-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 20px;
+            .hero h1 {
+                font-size: 3.5rem;
+                max-width: 100%;
             }
-            .matter-icon { margin: 0 auto; }
-            .matter-quote {
-                text-align: center;
-                border-left: none;
-                border-top: 2px solid rgba(255,255,255,0.1);
-                padding-left: 0;
-                padding-top: 20px;
-            }
-            .form-help-grid { grid-template-columns: 1fr; }
-            .connect-grid { grid-template-columns: 1fr; }
-            .connect-right { height: 180px; }
-            .bottom-grid { grid-template-columns: 1fr; text-align: center; }
-            .bottom-left { justify-content: center; }
-            .bottom-right { justify-content: center; }
+            .hero-subtext { margin: 0 auto 50px; }
+            .featured-story { grid-template-columns: 1fr; }
+            .story-image { min-height: 300px; }
+            .arc-grid { grid-template-columns: 1fr; }
             .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
         }
         @media (max-width: 768px) {
             .navbar-container { padding: 0 20px; }
-            .hero-left h1 { font-size: 2.5rem; }
-            .form-row { grid-template-columns: 1fr; }
-            .matter-card { padding: 24px; }
+            .hero h1 { font-size: 2.8rem; }
+            .section-title { font-size: 2.2rem; }
+            .story-content { padding: 35px 25px; }
+            .story-quote { font-size: 1.3rem; }
+            .next-step-title { font-size: 2.2rem; }
+            .next-buttons { flex-direction: column; align-items: center; }
+            .btn-gold, .btn-outline {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
             .footer-content { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; text-align: center; }
             .navbar-prayer { display: none;}
         }
     </style>
-</head>
-<body>
+</head><body>
     <div class="starfield"></div>
 
-    <!-- ===== NAVBAR (from reference) ===== -->
-   <nav class="navbar" role="navigation" aria-label="Main navigation">
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar-container">
         <!-- Brand Logo (Only Image) -->
         <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
@@ -1213,13 +1154,13 @@
             <li role="none"><a href="/start-here.html" class="navbar-link start-here " role="menuitem">Start Here</a></li>
             <li role="none"><a href="/rest.html" class="navbar-link " role="menuitem">Rest</a></li>
             <li role="none"><a href="/grow.html" class="navbar-link " role="menuitem">Grow</a></li>
-            <li role="none"><a href="/stories.html" class="navbar-link" role="menuitem">Stories</a></li>
+            <li role="none"><a href="/stories.html" class="navbar-link active" role="menuitem">Stories</a></li>
             <li role="none"><a href="/bible-study.html" class="navbar-link" role="menuitem">Bible Study</a></li>
             <li role="none"><a href="/teens.html" class="navbar-link" role="menuitem">Teens</a></li>
             <li role="none"><a href="/lumenquest.html" class="navbar-link lumenquest" role="menuitem">LumenQuest</a></li>
-            <li role="none"><a href="/resources.html" class="navbar-link " role="menuitem">Resources</a></li>
+            <li role="none"><a href="/resources.html" class="navbar-link" role="menuitem">Resources</a></li>
             <li role="none"><a href="/about.html" class="navbar-link" role="menuitem">About</a></li>
-            <li role="none"><a href="/contact.html" class="navbar-link active" role="menuitem" >Contact</a></li>
+            <li role="none"><a href="/contact.html" class="navbar-link" role="menuitem">Contact</a></li>
         </ul>
 
         <!-- Actions Section -->
@@ -1260,213 +1201,234 @@
     </div>
 </nav>
 
-
-    <!-- ===== HERO SECTION ===== -->
+    <!-- ===== HERO ===== -->
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="hero-left">
-                <h1>Contact Us</h1>
-                <span class="handwritten">We're here for you.</span>
-                <p>
-                    Whether you need prayer, have a question, want to partner with us, or just want to say hello—we'd love to hear from you.
+            <span class="hero-label">Real Lives. Real Hope.</span>
+            <h1>
+                Every Story Is a<br>
+                <em>Testimony</em> of Grace
+            </h1>
+            <p class="hero-subtext">
+                These aren't perfect stories. They're real stories of real people 
+                who found hope when everything felt hopeless.
+            </p>
+            <a href="#featured" class="hero-cta">
+                <span>✨</span>
+                Read Their Stories
+            </a>
+        </div>
+    </section>    <!-- ===== FEATURED STORY ===== -->
+    <section class="featured-section" id="featured">
+        <div class="section-header">
+            <span class="section-label">Featured Story</span>
+            <h2 class="section-title">This Week's Story of Hope</h2>
+            <p class="section-subtitle">A journey from the darkest night to the brightest morning.</p>
+        </div>
+
+        <div class="featured-story">
+            <div class="story-image">
+                <div class="story-image-content">🌅</div>
+                <div class="story-badge">Brokenness to Redemption</div>
+            </div>
+            <div class="story-content">
+                <div class="story-quote">
+                    "I thought God had given up on me. Turns out, He was just getting started."
+                </div>
+                <p class="story-text">
+                    Sarah spent years running from everything — her past, her pain, and the God she thought had abandoned her. 
+                    One night, at rock bottom, she whispered a prayer she didn't even believe would be heard. 
+                    That whisper became the first word of a new story.
                 </p>
+                <div class="story-author">
+                    <div class="author-avatar">S</div>
+                    <div class="author-info">
+                        <h4>Sarah M.</h4>
+                        <p>Found hope after 10 years of addiction</p>
+                    </div>
+                </div>
+                <a href="#" class="story-cta">
+                    Read Full Story →
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ===== YOU MATTER BAR ===== -->
-    <div class="matter-bar">
-        <div class="matter-card">
-            <div class="matter-icon">💛</div>
-            <div class="matter-text">
-                <h4>You matter to us.</h4>
-                <p>Our team is here to listen, encourage, and connect you with the support you need.</p>
+    <!-- ===== ARC CLUSTERS ===== -->
+    <section class="clusters-section">
+        <div class="clusters-container">
+            <div class="section-header">
+                <span class="section-label">Browse by Journey</span>
+                <h2 class="section-title">Stories That Mirror Your Own</h2>
+                <p class="section-subtitle">Find the story that speaks to where you are right now.</p>
             </div>
-            <div class="matter-quote">
-                <p>"Cast all your anxiety on Him because He cares for you."</p>
-                <div class="ref">— 1 Peter 5:7</div>
-            </div>
-        </div>
-    </div>
 
-    <!-- ===== FORM + HELP SECTION ===== -->
-    <section class="form-help-section">
-        <div class="form-help-grid">
-            <div class="form-card">
-                <h3>Send Us a Message</h3>
-                <p>Fill out the form below and we'll get back to you soon.</p>
-                <form>
-                    <div class="form-row">
-                        <div class="input-wrap">
-                            <span class="form-input-icon">👤</span>
-                            <input type="text" class="form-input" placeholder="First Name" aria-label="First Name">
+            <div class="arc-grid">
+                <!-- Brokenness to Redemption -->
+                <div class="arc-card">
+                    <div class="arc-header">
+                        <div class="arc-icon">💔→❤️</div>
+                        <h3>Brokenness to Redemption</h3>
+                        <p>Stories of being shattered and made whole again.</p>
+                    </div>
+                    <div class="arc-stories">
+                        <div class="arc-story-item">
+                            <div class="arc-story-thumb">🌑</div>
+                            <div class="arc-story-info">
+                                <h4>The Night I Lost Everything</h4>
+                                <p>Michael's journey through bankruptcy and back</p>
+                            </div>
+                            <span class="arc-story-duration">12 min</span>
                         </div>
-                        <div class="input-wrap">
-                            <span class="form-input-icon">👤</span>
-                            <input type="text" class="form-input" placeholder="Last Name" aria-label="Last Name">
+                        <div class="arc-story-item">
+                            <div class="arc-story-thumb">🕊️</div>
+                            <div class="arc-story-info">
+                                <h4>Grace for the Prodigal</h4>
+                                <p>Returning home after years of running</p>
+                            </div>
+                            <span class="arc-story-duration">15 min</span>
+                        </div>
+                        <div class="arc-story-item">
+                            <div class="arc-story-thumb">✨</div>
+                            <div class="arc-story-info">
+                                <h4>Beauty from Ashes</h4>
+                                <p>How loss became a launching pad</p>
+                            </div>
+                            <span class="arc-story-duration">10 min</span>
                         </div>
                     </div>
-                    <div class="form-group full">
-                        <div class="input-wrap">
-                            <span class="form-input-icon">✉️</span>
-                            <input type="email" class="form-input" placeholder="Email Address" aria-label="Email Address">
+                </div>
+
+                <!-- Fear to Faith -->
+                <div class="arc-card">
+                    <div class="arc-header">
+                        <div class="arc-icon">😰→🙏</div>
+                        <h3>Fear to Faith</h3>
+                        <p>When anxiety met the God who calms storms.</p>
+                    </div>
+                    <div class="arc-stories">
+                        <div class="arc-story-item">
+                            <div class="arc-story-thumb">⛈️</div>
+                            <div class="arc-story-info">
+                                <h4>Peace in the Panic Attack</h4>
+                                <p>Emma's battle with anxiety and God's presence</p>
+                            </div>
+                            <span class="arc-story-duration">8 min</span>
+                        </div>
+                        <div class="arc-story-item">
+                            <div class="arc-story-thumb">🚶</div>
+                            <div class="arc-story-info">
+                                <h4>Stepping Into the Unknown</h4>
+                                <p>Leaving a secure job to follow God's call</p>
+                            </div>
+                            <span class="arc-story-duration">14 min</span>
+                        </div>
+                        <div class="arc-story-item">
+                            <div class="arc-story-thumb">🌊</div>
+                            <div class="arc-story-info">
+                                <h4>When the Diagnosis Came</h4>
+                                <p>Finding faith in the face of fear</p>
+                            </div>
+                            <span class="arc-story-duration">11 min</span>
                         </div>
                     </div>
-                    <div class="form-group full">
-                        <select class="form-select" aria-label="Subject">
-                            <option value="" disabled selected>Subject</option>
-                            <option value="prayer">Prayer Request</option>
-                            <option value="question">General Question</option>
-                            <option value="partner">Partnership</option>
-                            <option value="story">Share Your Story</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group full">
-                        <label style="color:var(--text-muted);font-size:0.8rem;margin-bottom:8px;display:block;">How can we help you?</label>
-                        <textarea class="form-textarea" placeholder="Tell us more..." aria-label="How can we help you?"></textarea>
-                    </div>
-                    <div class="form-checkbox">
-                        <input type="checkbox" id="contact-me" aria-label="I would like someone to contact me">
-                        <label for="contact-me">I would like someone to contact me.</label>
-                    </div>
-                    <button type="submit" class="btn-submit">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="22" y1="2" x2="11" y2="13"></line>
-                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                        </svg>
-                        SEND MESSAGE
-                    </button>
-                    <div class="form-privacy">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                        Your information is safe and will never be shared.
-                    </div>
-                </form>
-            </div>
+                </div>
 
-            <div class="help-card">
-                <h3>Other Ways We Can Help</h3>
-                <div class="help-item">
-                    <div class="help-item-icon">🙏</div>
-                    <div>
-                        <h4>Prayer Request</h4>
-                        <p>Need prayer? We're here for you.</p>
-                        <a href="#" class="help-link">
-                            Submit a Prayer Request
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
+                <!-- Loss to Restoration -->
+                <div class="arc-card">
+                    <div class="arc-header">
+                        <div class="arc-icon">😢→🌻</div>
+                        <h3>Loss to Restoration</h3>
+                        <p>Grieving what was while hoping for what will be.</p>
+                    </div>
+                    <div class="arc-stories">
+                        <div class="arc-story-item">
+                            <div class="arc-story-thumb">💐</div>
+                            <div class="arc-story-info">
+                                <h4>The Empty Chair at Christmas</h4>
+                                <p>Navigating grief without losing hope</p>
+                            </div>
+                            <span class="arc-story-duration">13 min</span>
+                        </div>
+                        <div class="arc-story-item">
+                            <div class="arc-story-thumb">🏠</div>
+                            <div class="arc-story-info">
+                                <h4>Rebuilding After the Fire</h4>
+                                <p>When life burns down, God rebuilds</p>
+                            </div>
+                            <span class="arc-story-duration">16 min</span>
+                        </div>
+                        <div class="arc-story-item">
+                            <div class="arc-story-thumb">🤝</div>
+                            <div class="arc-story-info">
+                                <h4>Forgiving the Unforgivable</h4>
+                                <p>Restoration that started with letting go</p>
+                            </div>
+                            <span class="arc-story-duration">12 min</span>
+                        </div>
                     </div>
                 </div>
-                <div class="help-item">
-                    <div class="help-item-icon">👥</div>
-                    <div>
-                        <h4>General Questions</h4>
-                        <p>Have a question about our ministry or content?</p>
-                        <a href="#" class="help-link">
-                            Get Answers
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
+
+                <!-- When God Made a Way -->
+                <div class="arc-card">
+                    <div class="arc-header">
+                        <div class="arc-icon">🚧→🛤️</div>
+                        <h3>When God Made a Way</h3>
+                        <p>Impossible situations. Miraculous outcomes.</p>
                     </div>
-                </div>
-                <div class="help-item">
-                    <div class="help-item-icon">🤝</div>
-                    <div>
-                        <h4>Partnerships</h4>
-                        <p>Interested in partnering with LightMode Ministries?</p>
-                        <a href="#" class="help-link">
-                            Partner With Us
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="help-item">
-                    <div class="help-item-icon">💜</div>
-                    <div>
-                        <h4>Share Your Story</h4>
-                        <p>How has God been working in your life?</p>
-                        <a href="#" class="help-link">
-                            Share Your Story
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
+                    <div class="arc-stories">
+                        <div class="arc-story-item">
+                            <div class="arc-story-thumb">🚪</div>
+                            <div class="arc-story-info">
+                                <h4>The Door That Wouldn't Open</h4>
+                                <p>Closed doors that led to better ones</p>
+                            </div>
+                            <span class="arc-story-duration">9 min</span>
+                        </div>
+                        <div class="arc-story-item">
+                            <div class="arc-story-thumb">💰</div>
+                            <div class="arc-story-info">
+                                <h4>The $47 Miracle</h4>
+                                <p>Provision in the most unexpected way</p>
+                            </div>
+                            <span class="arc-story-duration">7 min</span>
+                        </div>
+                        <div class="arc-story-item">
+                            <div class="arc-story-thumb">✈️</div>
+                            <div class="arc-story-info">
+                                <h4>Stranded, But Not Alone</h4>
+                                <p>Divine appointments in desperate moments</p>
+                            </div>
+                            <span class="arc-story-duration">11 min</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- ===== CONNECT + STAY INSPIRED ===== -->
-    <section class="connect-section">
-        <div class="connect-grid">
-            <div class="connect-left">
-                <h3>We'd Love to Connect</h3>
-                <p>Follow us on social media for daily encouragement, updates, and inspiring content.</p>
-                <div class="social-grid">
-                    <a href="#" class="social-btn" aria-label="Instagram">📷</a>
-                    <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
-                    <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
-                    <a href="#" class="social-btn" aria-label="Facebook">f</a>
-                    <a href="#" class="social-btn" aria-label="Email">✉️</a>
-                </div>
-            </div>
-            <div class="connect-right">
-                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Community">
-            </div>
-        </div>
-    </section>
-
-    <section class="connect-section" style="padding-top:0;">
-        <div class="connect-grid">
-            <div></div>
-            <div class="inspired-card">
-                <h4>Stay Inspired</h4>
-                <p>Get weekly devotionals, prayer encouragement, and updates straight to your inbox.</p>
-                <div class="inspired-form">
-                    <input type="email" class="inspired-input" placeholder="Enter your email" aria-label="Your email address">
-                    <button class="btn-subscribe">SUBSCRIBE</button>
-                </div>
+    </section>    <!-- ===== NEXT STEP ===== -->
+    <section class="next-step-section">
+        <div class="next-step-container">
+            <span class="next-step-label">Your Story Is Still Being Written</span>
+            <h2 class="next-step-title">Ready to Grow Your Own Faith?</h2>
+            <p class="next-step-text">
+                These stories started with one step. Yours can too. 
+                Continue your journey and discover the story God is writing for you.
+            </p>
+            <div class="next-buttons">
+                <a href="/grow.html" class="btn-gold">
+                    <span>🌱</span>
+                    Continue to Grow
+                </a>
+                <a href="/rest.html" class="btn-outline">
+                    See Full 7-Day Journey
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ===== BOTTOM STRIP ===== -->
-    <section class="bottom-strip">
-        <div class="bottom-grid">
-            <div class="bottom-left">
-                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=200&q=80" alt="Hands reaching" class="bottom-img">
-                <div class="bottom-left-text">
-                    <h4>You are not alone.</h4>
-                    <div class="handwritten">We're honored to walk alongside you.</div>
-                </div>
-            </div>
-            <div class="bottom-center">
-                <p>No matter where you are in your journey, we believe God has something beautiful in store for you.</p>
-            </div>
-            <div class="bottom-right">
-                <svg class="cross-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3v18"></path>
-                    <path d="M3 12h18"></path>
-                </svg>
-            </div>
-        </div>
-    </section>
-    <!-- ===== FOOTER (from reference) ===== -->
+    <!-- ===== FOOTER (from resources.html) ===== -->
     <footer class="footer" role="contentinfo">
         <div class="footer-content">
             <div class="footer-brand">
@@ -1501,32 +1463,32 @@
             <div>
                 <h4 class="footer-title">Teens</h4>
                 <ul class="footer-links">
-                    <li><a href="#">Journeys</a></li>
-                    <li><a href="#">Browse Topics</a></li>
-                    <li><a href="#">Check-In</a></li>
-                    <li><a href="#">Night Mode</a></li>
-                    <li><a href="#">Prayer Library</a></li>
+                    <li><a href="/teens.html">Journeys</a></li>
+                    <li><a href="/teens.html">Browse Topics</a></li>
+                    <li><a href="/teens.html">Check-In</a></li>
+                    <li><a href="/teens.html">Night Mode</a></li>
+                    <li><a href="/teens.html">Prayer Library</a></li>
                 </ul>
             </div>
 
             <div>
                 <h4 class="footer-title">Quick Links</h4>
                 <ul class="footer-links">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Prayer Requests</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="/rest.html">Prayer Requests</a></li>
+                    <li><a href="/resources.html">Resources</a></li>
+                    <li><a href="/stories.html">Stories</a></li>
                 </ul>
             </div>
 
             <div>
                 <h4 class="footer-title">Parents</h4>
                 <ul class="footer-links" style="margin-bottom:20px;">
-                    <li><a href="#">Parent Guide</a></li>
-                    <li><a href="#">Conversation Starters</a></li>
-                    <li><a href="#">Faith at Home</a></li>
-                    <li><a href="#">Resources</a></li>
+                    <li><a href="/family.html">Parent Guide</a></li>
+                    <li><a href="/family.html">Conversation Starters</a></li>
+                    <li><a href="/family.html">Faith at Home</a></li>
+                    <li><a href="/resources.html">Resources</a></li>
                 </ul>
                 <div class="footer-form">
                     <div class="footer-form-title">Get encouragement delivered to you.</div>
@@ -1546,10 +1508,8 @@
                 <a href="#">Privacy Policy</a>
             </div>
         </div>
-    </footer>
-
-    <script>
-        // Theme Toggle
+    </footer>    <script>
+        // ===== THEME TOGGLE (from resources.html) =====
         function setTheme(mode) {
             const html = document.documentElement;
             const btnDay = document.getElementById('btn-day');
@@ -1578,7 +1538,7 @@
             }
         });
 
-       // Mobile menu toggle
+         // Mobile menu toggle
         const navbarToggle = document.querySelector('.navbar-toggle');
         const navbarMenu = document.getElementById('navbar-menu');
 
@@ -1606,7 +1566,7 @@ if (!isExpanded) {
 }
             });
         }
-        // Smooth scroll for anchor links
+        // ===== SMOOTH SCROLL =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
