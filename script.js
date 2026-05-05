@@ -2,7 +2,144 @@
        UTILITY FUNCTIONS
        ============================================ */
 
+ (function() {
+    const stepCards = document.querySelectorAll('.lj-step');
+    const progressFill = document.getElementById('progressFill');
+    const progressMsgSpan = document.getElementById('progressMsg');
+    const progressContainer = document.querySelector('.lj-progress');
 
+    stepCards.forEach(card => {
+      card.style.opacity = '0';
+      card.style.willChange = 'transform, opacity';
+      card.classList.remove('is-visible');
+      card.classList.remove('is-active');
+    });
+
+    let revealedIndices = new Array(stepCards.length).fill(false);
+    let revealedCount = 0;
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -30px 0px',
+      threshold: 0.35
+    };
+
+    function updateProgressUI() {
+      const percent = (revealedCount / stepCards.length) * 100;
+      if (progressFill) progressFill.style.width = percent + '%';
+
+      const stepMessages = [
+        'Begin Your Journey',
+        '🕊️ Day 1: Rest in Peace',
+        '🌿 Day 2: Grow in Grace',
+        '💚 Day 3: Receive Healing',
+        '🪶 Day 4: Know Your Identity',
+        '🛡️ Day 5: Trust His Plan',
+        '💪 Day 6: Walk in Strength',
+        '✨ You Have Reached the Light! ✨'
+      ];
+
+      if (progressMsgSpan) {
+        progressMsgSpan.textContent = stepMessages[revealedCount] || stepMessages[0];
+      }
+
+      if (revealedCount === stepCards.length && progressContainer) {
+        progressContainer.classList.add('is-complete');
+      } else if (progressContainer && revealedCount !== stepCards.length) {
+        progressContainer.classList.remove('is-complete');
+      }
+    }
+
+    function revealStep(stepElement, stepIndex) {
+      if (!stepElement || revealedIndices[stepIndex]) return;
+      stepElement.classList.add('is-visible');
+      stepElement.style.opacity = '';
+      revealedIndices[stepIndex] = true;
+      revealedCount++;
+      updateProgressUI();
+      if (revealedCount === stepCards.length) {
+        setTimeout(() => {
+          if (progressFill) progressFill.style.backgroundPosition = '200% 0%';
+        }, 100);
+      }
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const stepEl = entry.target;
+          const stepIndex = parseInt(stepEl.dataset.step, 10) - 1;
+          if (stepIndex >= 0 && !revealedIndices[stepIndex]) {
+            const delay = (stepIndex) * 120;
+            if (delay > 0) {
+              setTimeout(() => { revealStep(stepEl, stepIndex); }, delay);
+            } else {
+              revealStep(stepEl, stepIndex);
+            }
+          }
+        }
+      });
+    }, observerOptions);
+
+    stepCards.forEach(card => { observer.observe(card); });
+
+    window.addEventListener('load', function() {
+      stepCards.forEach((card, idx) => {
+        const rect = card.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const isVisible = (rect.top < windowHeight - 80 && rect.bottom > 60);
+        if (isVisible && !revealedIndices[idx]) {
+          setTimeout(() => revealStep(card, idx), idx * 70);
+        }
+      });
+    });
+
+    stepCards.forEach(card => {
+      card.addEventListener('click', function(e) {
+        stepCards.forEach(c => c.classList.remove('is-active'));
+        this.classList.add('is-active');
+
+        const hrefAttr = this.getAttribute('href');
+        if (hrefAttr && hrefAttr.startsWith('#')) {
+          e.preventDefault();
+          const targetElement = document.querySelector(hrefAttr);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            document.querySelector('.lj-path-wrapper')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        } else {
+          this.blur();
+        }
+      });
+    });
+
+    updateProgressUI();
+
+    const motionMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (motionMedia.matches) {
+      stepCards.forEach((card, idx) => {
+        if (!revealedIndices[idx]) revealStep(card, idx);
+      });
+    }
+
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        stepCards.forEach((card, idx) => {
+          if (!revealedIndices[idx]) {
+            const rect = card.getBoundingClientRect();
+            const winH = window.innerHeight;
+            const visiblePart = (rect.top < winH - 60 && rect.bottom > 40);
+            if (visiblePart) {
+              revealStep(card, idx);
+            }
+          }
+        });
+      }, 150);
+    });
+  })();
        
     const debounce = (func, wait) => {
       let timeout;

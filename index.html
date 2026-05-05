@@ -119,7 +119,6 @@
         
         <!-- Rest -->
         <div class="pathway-card rest">
-          <img src="/images/pathway-rest.jpg" alt="Rest">
           <div class="pathway-card-overlay">
             <h3 class="pathway-card-title">Rest In<br>The Light</h3>
             <p class="pathway-card-subtitle">Peace and meditation</p>
@@ -128,7 +127,6 @@
 
         <!-- See the Light -->
         <div class="pathway-card see">
-          <img src="/images/pathway-see.jpg" alt="See the Light">
           <div class="pathway-card-overlay">
             <h3 class="pathway-card-title">See the<br>Light</h3>
             <p class="pathway-card-subtitle">Inspiring Video Stories</p>
@@ -145,7 +143,6 @@
 
         <!-- Start Here -->
         <div class="pathway-card start">
-          <img src="/images/pathway-start.jpg" alt="Start Here">
           <div class="pathway-card-overlay">
             <h3 class="pathway-card-title">Start<br>Here</h3>
             <p class="pathway-card-subtitle">7-Day Light Journey</p>
@@ -154,7 +151,6 @@
 
         <!-- Teens -->
         <div class="pathway-card teens">
-          <img src="/images/pathway-teens.jpg" alt="Teens">
           <div class="pathway-card-overlay">
             <h3 class="pathway-card-title" style="color: #FF6B6B;">Teens:<br>Illuminated</h3>
             <p class="pathway-card-subtitle" style="color: #333;">Navigating The Light</p>
@@ -171,7 +167,6 @@
 
         <!-- Walk in the Light -->
         <div class="pathway-card walk">
-          <img src="/images/pathway-walk.jpg" alt="Walk in the Light">
           <div class="pathway-card-overlay">
             <h3 class="pathway-card-title" style="color: #D4A853;">Walk In<br>The Light</h3>
             <p class="pathway-card-subtitle" style="color: #333;">Bible Studies and Sermons</p>
@@ -180,7 +175,6 @@
 
         <!-- Grow in the Light -->
         <div class="pathway-card grow">
-          <img src="/images/pathway-grow.jpg" alt="Grow in the Light">
           <div class="pathway-card-overlay">
             <h3 class="pathway-card-title" style="color: #D4A853;">Grow In<br>The Light</h3>
             <p class="pathway-card-subtitle" style="color: #333;">Devotionals, Books, Resources</p>
@@ -211,72 +205,230 @@
     </div>
   </section> -->
 
-  <!-- Welcome Section - PINNED SCROLL ANIMATION -->
-   <section class="welcome-section" id="welcome-section" aria-label="Welcome section">
-    <div class="welcome-bg-blobs" aria-hidden="true">
-      <div class="welcome-blob welcome-blob--yellow"></div>
-      <div class="welcome-blob welcome-blob--orange"></div>
-      <div class="welcome-blob welcome-blob--pink"></div>
+<section id="light-journey" class="light-journey" aria-label="7-Day Light Journey">
+
+  <header class="lj-header">
+    <span class="lj-label">✨ Walk in Light ✨</span>
+    <h2 class="lj-subheading">A Guided Journey Into God's Light</h2>
+    <p class="lj-description">
+      Discover peace, healing, and purpose — one deliberate step at a time.
+    </p>
+    <h1 class="lj-title">The Light Journey <span class="lj-title-em">7-Day Experience</span></h1>
+  </header>
+
+  <div class="lj-path-wrapper">
+    <div class="lj-path-bg">
+      <img 
+        src="images/bg-new.png" 
+        alt="Sunlit forest pathway, dirt road leading into golden light" 
+        loading="eager"
+        onerror="this.src='https://placehold.co/1600x900/1a1714/d4a853?text=Peaceful+Path&font=playfair'; this.onerror=null;"
+      >
     </div>
 
-    <div class="welcome-content">
-      <div class="welcome-header">
-        <h2 class="welcome-title">
-          <span class="welcome-title-accent">Welcome Lets Begin</span>
-        </h2>
-        <p class="welcome-text">
-          LightMode Ministries is a Christian media ministry dedicated to illuminating lives with the truth of God's Word through storytelling, digital media, and Scripture-centered teaching.
-        </p>
-      </div>
+    <!-- Connecting Path — links all 7 day cards with numbered nodes -->
+    <div class="lj-connecting-path" aria-hidden="true">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="lj-path-svg">
+        <defs>
+          <!-- Glow filter -->
+          <filter id="node-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="1.5" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
 
-      <div class="welcome-gallery"> 
-        <!-- Left Images -->
-         <div class="welcome-img welcome-img--left-1" data-welcome-animate="left">
-          <div class="welcome-img-container">
-            <img src="/images/left-top-kids.png" alt="Left top kids" loading="lazy">
-          </div>
-        </div>
+          <!-- Path glow -->
+          <filter id="path-glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="0.6" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
 
-        <div class="welcome-img welcome-img--left-2" data-welcome-animate="left">
-          <div class="welcome-img-container">
-            <img src="/images/Ellipse 1.png" alt="Ellipse 1" loading="lazy">
-          </div>
-        </div> 
+          <!-- Golden gradient for path -->
+          <linearGradient id="path-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#c9842c" stop-opacity="0.85"/>
+            <stop offset="40%" stop-color="#e7bc6e" stop-opacity="0.95"/>
+            <stop offset="70%" stop-color="#f3d68a" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#ffd700" stop-opacity="0.9"/>
+          </linearGradient>
 
-        <!-- Center Image -->
-         <div class="welcome-img welcome-img--center" data-welcome-animate="center">
-          <div class="welcome-img-container">
-            <img src="/images/center-kids.png" alt="Children learning about the Bible" loading="lazy">
-          </div>
-        </div> 
+          <!-- Node gradient -->
+          <radialGradient id="node-gradient" cx="30%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#fff8e7"/>
+            <stop offset="50%" stop-color="#f3d68a"/>
+            <stop offset="100%" stop-color="#c9842c"/>
+          </radialGradient>
 
-        <!-- Right Images -->
-         <div class="welcome-img welcome-img--right-1" data-welcome-animate="right">
-          <div class="welcome-img-container">
-            <img src="/images/single-kid.png" alt="Single kid" loading="lazy">
-          </div>
-        </div>
+          <!-- Final node gradient -->
+          <radialGradient id="node-final-gradient" cx="30%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#fffacd"/>
+            <stop offset="50%" stop-color="#ffd700"/>
+            <stop offset="100%" stop-color="#e7ab3c"/>
+          </radialGradient>
 
-        <div class="welcome-img welcome-img--right-2" data-welcome-animate="right">
-          <div class="welcome-img-container">
-            <img src="/images/right-bottom.png" alt="Right bottom" loading="lazy">
-          </div>
-        </div>
+          <!-- Dark node gradient -->
+          <radialGradient id="node-dark-gradient" cx="30%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#3a3028"/>
+            <stop offset="50%" stop-color="#2a2018"/>
+            <stop offset="100%" stop-color="#1a1410"/>
+          </radialGradient>
+        </defs>
 
-        <!-- Decorative Icons -->
-         <div class="welcome-deco welcome-deco--1" aria-hidden="true">
-          <img src="/images/Vector.svg" alt="Decorative icon">
-        </div>
-        <div class="welcome-deco welcome-deco--2" aria-hidden="true">
-          <img src="/images/Vector (1).svg" alt="Decorative icon">
-        </div>
-        <div class="welcome-deco welcome-deco--3" aria-hidden="true">
-          <img src="/images/Vector (2).svg" alt="Decorative icon">
-        </div>
-      </div>
+        <!-- Main connecting curve — follows the dirt path -->
+        <path 
+          class="lj-path-line"
+          d="M 8 92 
+             C 12 88, 15 85, 18 80
+             S 25 72, 28 68
+             S 35 60, 38 56
+             S 45 48, 48 44
+             S 55 36, 58 32
+             S 65 24, 68 20
+             S 72 14, 74 10"
+          fill="none"
+          stroke="url(#path-gradient)"
+          stroke-width="0.55"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          filter="url(#path-glow)"
+          vector-effect="non-scaling-stroke"
+        />
+
+        <!-- Shimmer overlay -->
+        <path 
+          class="lj-path-shimmer"
+          d="M 8 92 
+             C 12 88, 15 85, 18 80
+             S 25 72, 28 68
+             S 35 60, 38 56
+             S 45 48, 48 44
+             S 55 36, 58 32
+             S 65 24, 68 20
+             S 72 14, 74 10"
+          fill="none"
+          stroke="#ffffff"
+          stroke-width="0.25"
+          stroke-linecap="round"
+          stroke-dasharray="3 6"
+          stroke-dashoffset="0"
+          vector-effect="non-scaling-stroke"
+          opacity="0.5"
+        />
+
+        <!-- Connected Nodes on the path -->
+        <!-- Node 1 -->
+        <circle cx="8" cy="92" r="1.6" fill="url(#node-gradient)" filter="url(#node-glow)" opacity="0.9"/>
+        <text x="8" y="92.4" text-anchor="middle" dominant-baseline="central" font-size="1.2" font-weight="800" fill="#2a2018">1</text>
+
+        <!-- Node 2 -->
+        <circle cx="18" cy="80" r="1.6" fill="url(#node-gradient)" filter="url(#node-glow)" opacity="0.9"/>
+        <text x="18" y="80.4" text-anchor="middle" dominant-baseline="central" font-size="1.2" font-weight="800" fill="#2a2018">2</text>
+
+        <!-- Node 3 -->
+        <circle cx="28" cy="68" r="1.6" fill="url(#node-gradient)" filter="url(#node-glow)" opacity="0.9"/>
+        <text x="28" y="68.4" text-anchor="middle" dominant-baseline="central" font-size="1.2" font-weight="800" fill="#2a2018">3</text>
+
+        <!-- Node 4 -->
+        <circle cx="38" cy="56" r="1.6" fill="url(#node-gradient)" filter="url(#node-glow)" opacity="0.9"/>
+        <text x="38" y="56.4" text-anchor="middle" dominant-baseline="central" font-size="1.2" font-weight="800" fill="#2a2018">4</text>
+
+        <!-- Node 5 -->
+        <circle cx="48" cy="44" r="1.6" fill="url(#node-gradient)" filter="url(#node-glow)" opacity="0.9"/>
+        <text x="48" y="44.4" text-anchor="middle" dominant-baseline="central" font-size="1.2" font-weight="800" fill="#2a2018">5</text>
+
+        <!-- Node 6 -->
+        <circle cx="58" cy="32" r="1.6" fill="url(#node-gradient)" filter="url(#node-glow)" opacity="0.9"/>
+        <text x="58" y="32.4" text-anchor="middle" dominant-baseline="central" font-size="1.2" font-weight="800" fill="#2a2018">6</text>
+
+        <!-- Node 7 (Final) -->
+        <circle cx="74" cy="10" r="2" fill="url(#node-final-gradient)" filter="url(#node-glow)" opacity="0.95"/>
+        <text x="74" y="10.4" text-anchor="middle" dominant-baseline="central" font-size="1.2" font-weight="800" fill="#2a2018">7</text>
+
+        <!-- Outer glow ring for final node -->
+        <circle cx="74" cy="10" r="2.8" fill="none" stroke="rgba(255,215,0,0.3)" stroke-width="0.3" filter="url(#path-glow)"/>
+
+      </svg>
     </div>
-  </section> 
 
+    <div class="lj-steps">
+      <a href="rest.html" class="lj-step" data-step="1">
+        <div class="lj-step-inner">
+          <div class="lj-step-day">Day 1</div>
+          <div class="lj-step-keyword">Rest</div>
+          <div class="lj-step-text">Find Peace<br><span class="lj-step-accent">For Your Mind</span></div>
+        </div>
+      </a>
+
+      <a href="grow.html" class="lj-step" data-step="2">
+        <div class="lj-step-inner">
+          <div class="lj-step-day">Day 2</div>
+          <div class="lj-step-keyword">Grow</div>
+          <div class="lj-step-text">Let God Grow<br><span class="lj-step-accent">What Matters</span></div>
+        </div>
+      </a>
+
+      <a href="#day3-heal" class="lj-step" data-step="3">
+        <div class="lj-step-inner">
+          <div class="lj-step-day">Day 3</div>
+          <div class="lj-step-keyword">Heal</div>
+          <div class="lj-step-text">Healing for the<br><span class="lj-step-accent">Hurts You Carry</span></div>
+        </div>
+      </a>
+
+      <a href="#day4-id" class="lj-step" data-step="4">
+        <div class="lj-step-inner">
+          <div class="lj-step-day">Day 4</div>
+          <div class="lj-step-keyword">Identity</div>
+          <div class="lj-step-text">Discover Who<br><span class="lj-step-accent">You Really Are</span></div>
+        </div>
+      </a>
+
+      <a href="#day5-trust" class="lj-step" data-step="5">
+        <div class="lj-step-inner">
+          <div class="lj-step-day">Day 5</div>
+          <div class="lj-step-keyword">Trust</div>
+          <div class="lj-step-text">Trust God in<br><span class="lj-step-accent">Every Season</span></div>
+        </div>
+      </a>
+
+      <a href="#day6-strength" class="lj-step" data-step="6">
+        <div class="lj-step-inner">
+          <div class="lj-step-day">Day 6</div>
+          <div class="lj-step-keyword">Strength</div>
+          <div class="lj-step-text">Rise Up in Faith<br><span class="lj-step-accent">and Courage</span></div>
+        </div>
+      </a>
+
+      <a href="#day7-purpose" class="lj-step lj-step--final" data-step="7">
+        <div class="lj-step-inner lj-step-inner--final">
+          <div class="lj-step-day">Day 7</div>
+          <div class="lj-step-keyword">Purpose</div>
+          <div class="lj-step-text">Live the Life<br><span class="lj-step-accent">You Were Made For</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="lj-progress" aria-label="Journey Progress">
+    <div class="lj-progress-track">
+      <div class="lj-progress-fill" id="progressFill"></div>
+    </div>
+    <span class="lj-progress-text" id="progressMsg">Begin Your Journey</span>
+  </div>
+
+  <div id="day1-rest" style="scroll-margin-top: 80px;"></div>
+  <div id="day2-grow" style="scroll-margin-top: 80px;"></div>
+  <div id="day3-heal" style="scroll-margin-top: 80px;"></div>
+  <div id="day4-id" style="scroll-margin-top: 80px;"></div>
+  <div id="day5-trust" style="scroll-margin-top: 80px;"></div>
+  <div id="day6-strength" style="scroll-margin-top: 80px;"></div>
+  <div id="day7-purpose" style="scroll-margin-top: 80px;"></div>
+
+</section>
   <!-- Ministry Cards Section - ORIGINAL 4-COLUMN STAGGERED LAYOUT -->
   <section class="ministry-section" id="ministry-section" aria-labelledby="ministry-title">
     <div class="ministry-pattern" aria-hidden="true"></div>
