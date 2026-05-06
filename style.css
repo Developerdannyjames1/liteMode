@@ -515,41 +515,67 @@
       font-weight: 600;
     }
 
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+  .hero-buttons {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-    .hero-btn {
-      padding: 5px 10px;
-      background: var(--color-white);
-      color: var(--color-primary);
-      border: none;
-      border-radius: 12px;
-      font-family: var(--font-heading);
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 300ms ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      min-width: 140px;
-    }
+/* PREMIUM BUTTON */
+.hero-btn {
+  padding: 14px 28px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 14px;
 
-    .hero-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-      background: var(--color-accent);
-    }
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition: all 0.4s ease;
+  min-width: 160px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* GOLD GLOW LAYER */
+.hero-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(212,175,55,0.15), transparent);
+  transform: translateX(-100%);
+  transition: 0.6s;
+}
+
+/* HOVER EFFECT */
+.hero-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  border-color: rgba(212, 175, 55, 0.7);
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+  color: #d4af37;
+}
+
+.hero-btn:hover::before {
+  transform: translateX(100%);
+}
 
     /* ============================================
        TAGLINE SECTION
        ============================================ */
     .tagline-section {
       text-align: center;
-      padding: 0rem 1.5rem;
+      padding: 2rem 1.5rem;
       background: var(--color-primary);
     }
 
@@ -2332,11 +2358,11 @@
   /* Individual rotation variables to keep exact look */
   .lj-step[data-step="1"] { --rot: 31deg; left: 18%;  bottom: 3%; }
   .lj-step[data-step="2"] { --rot: 25deg; left: 25%; bottom: 11%; }
-  .lj-step[data-step="3"] { --rot: 46.5deg; left: 30%; bottom: 20%; }
+  .lj-step[data-step="3"] { --rot: 46.5deg; left: 30%; bottom: 23%; }
   .lj-step[data-step="4"] { --rot: 62.2deg; left: 40%; bottom: 24%; }
   .lj-step[data-step="5"] { --rot: 43.5deg; left: 50%; bottom: 26%; }
   .lj-step[data-step="6"] { --rot: 29.8deg; left: 57%; bottom: 32%; }
-  .lj-step[data-step="7"] { --rot: 1.5deg; left: 60%; bottom: 43%; }
+  .lj-step[data-step="7"] { --rot: 15.5deg; left: 61%; bottom: 45%; }
 
   /* Card inner style — DARK PREMIUM */
   .lj-step-inner {
@@ -2464,11 +2490,11 @@
 
   /* Typography inside cards — DARK */
   .lj-step-day {
-    font-size: 0.5rem;
+    font-size: 0.8rem;
     font-weight: 800;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #a09080;
+    color: #ffffff;
     margin-bottom: 0.1rem;
   }
 
@@ -2481,8 +2507,8 @@
   }
 
   .lj-step-text {
-    font-size: 0.58rem;
-    color: #b0a090;
+    font-size: 0.68rem;
+    color: #ffffff;
     line-height: 1.3;
     font-weight: 500;
   }
