@@ -86,9 +86,7 @@
 
   <!-- Hero Section -->
   <section class="hero" aria-label="Hero section">
-    <h1 style="font-size: clamp(0.5rem, 1vw, 2.5rem);" class="hero-heading">
-      Step Into the <span class="highlight">Light</span> That Transforms The Heart
-    </h1>
+   
     
    
 
@@ -96,14 +94,18 @@
       <!-- Tagline Section -->
   <section class="tagline-section" aria-label="Tagline">
     
-     <h1 class="hero-heading">
+     <h1 class="hero-heading mt-5">
   Discover peace for your heart,<br>
   truth
   <video src="/videos/bible.mp4" class="hero-video-inline" autoplay loop muted playsinline aria-label="Bible video"></video>
   for your journey,<br> and light for 
   every season of life.
 </h1>
+<p class="hero-tagline">
+  Step Into The Light That Transforms Heart.
+</p>
      <div class="hero-buttons">
+      
       <a href="/rest.html" class="hero-btn">I Need Peace</a>
       <a href="/stories.html" class="hero-btn">I Need Inspiration</a>
     </div>
@@ -194,19 +196,8 @@
   </section>
 
 
-
-
-  <!-- Scrolling Banner -->
-  <!-- <section class="scroll-banner" aria-label="Scrolling banner">
-    <div class="scroll-track">
-      <img src="/images/sec-img.svg" alt="" loading="lazy">
-      <img src="/images/sec-img.svg" alt="" loading="lazy">
-      <img src="/images/sec-img.svg" alt="" loading="lazy">
-    </div>
-  </section> -->
-
 <!-- step cards section -->
-<section id="light-journey" class="light-journey" aria-label="7-Day Light Journey">
+   <section id="light-journey" class="light-journey" aria-label="7-Day Light Journey">
 
   <header class="lj-header">
     <span class="lj-label">✨ Walk in Light ✨</span>
@@ -220,195 +211,68 @@
   <div class="lj-path-wrapper">
     <div class="lj-path-bg">
       <img 
-        src="images/bg-new.png" 
+        src="images/back.png" 
         alt="Sunlit forest pathway, dirt road leading into golden light" 
         loading="eager"
         onerror="this.src='https://placehold.co/1600x900/1a1714/d4a853?text=Peaceful+Path&font=playfair'; this.onerror=null;"
       >
     </div>
 
-    <!-- Connecting Path — links all 7 day cards with numbered nodes -->
-    <div class="lj-connecting-path" aria-hidden="true">
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="lj-path-svg">
-        <defs>
-          <!-- Glow filter -->
-          <filter id="node-glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="1.5" result="blur"/>
-            <feMerge>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-
-          <!-- Path glow -->
-          <filter id="path-glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="0.6" result="blur"/>
-            <feMerge>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-
-          <!-- Golden gradient for path -->
-          <linearGradient id="path-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#c9842c" stop-opacity="0.85"/>
-            <stop offset="40%" stop-color="#e7bc6e" stop-opacity="0.95"/>
-            <stop offset="70%" stop-color="#f3d68a" stop-opacity="1"/>
-            <stop offset="100%" stop-color="#ffd700" stop-opacity="0.9"/>
-          </linearGradient>
-
-          <!-- Node gradient -->
-          <radialGradient id="node-gradient" cx="30%" cy="30%" r="70%">
-            <stop offset="0%" stop-color="#fff8e7"/>
-            <stop offset="50%" stop-color="#f3d68a"/>
-            <stop offset="100%" stop-color="#c9842c"/>
-          </radialGradient>
-
-          <!-- Final node gradient -->
-          <radialGradient id="node-final-gradient" cx="30%" cy="30%" r="70%">
-            <stop offset="0%" stop-color="#fffacd"/>
-            <stop offset="50%" stop-color="#ffd700"/>
-            <stop offset="100%" stop-color="#e7ab3c"/>
-          </radialGradient>
-
-          <!-- Dark node gradient -->
-          <radialGradient id="node-dark-gradient" cx="30%" cy="30%" r="70%">
-            <stop offset="0%" stop-color="#3a3028"/>
-            <stop offset="50%" stop-color="#2a2018"/>
-            <stop offset="100%" stop-color="#1a1410"/>
-          </radialGradient>
-        </defs>
-
-        <!-- Main connecting curve — follows the dirt path -->
-        <path 
-          class="lj-path-line"
-          d="M 8 92 
-             C 12 88, 15 85, 18 80
-             S 25 72, 28 68
-             S 35 60, 38 56
-             S 45 48, 48 44
-             S 55 36, 58 32
-             S 65 24, 68 20
-             S 72 14, 74 10"
-          fill="none"
-          stroke="url(#path-gradient)"
-          stroke-width="0.55"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          filter="url(#path-glow)"
-          vector-effect="non-scaling-stroke"
-        />
-
-        <!-- Shimmer overlay -->
-        <path 
-          class="lj-path-shimmer"
-          d="M 8 92 
-             C 12 88, 15 85, 18 80
-             S 25 72, 28 68
-             S 35 60, 38 56
-             S 45 48, 48 44
-             S 55 36, 58 32
-             S 65 24, 68 20
-             S 72 14, 74 10"
-          fill="none"
-          stroke="#ffffff"
-          stroke-width="0.25"
-          stroke-linecap="round"
-          stroke-dasharray="3 6"
-          stroke-dashoffset="0"
-          vector-effect="non-scaling-stroke"
-          opacity="0.5"
-        />
-
-        <!-- Connected Nodes on the path -->
-        <!-- Node 1 -->
-        <circle cx="8" cy="92" r="1.6" fill="url(#node-gradient)" filter="url(#node-glow)" opacity="0.9"/>
-        <text x="8" y="92.4" text-anchor="middle" dominant-baseline="central" font-size="1.2" font-weight="800" fill="#2a2018">1</text>
-
-        <!-- Node 2 -->
-        <circle cx="18" cy="80" r="1.6" fill="url(#node-gradient)" filter="url(#node-glow)" opacity="0.9"/>
-        <text x="18" y="80.4" text-anchor="middle" dominant-baseline="central" font-size="1.2" font-weight="800" fill="#2a2018">2</text>
-
-        <!-- Node 3 -->
-        <circle cx="28" cy="68" r="1.6" fill="url(#node-gradient)" filter="url(#node-glow)" opacity="0.9"/>
-        <text x="28" y="68.4" text-anchor="middle" dominant-baseline="central" font-size="1.2" font-weight="800" fill="#2a2018">3</text>
-
-        <!-- Node 4 -->
-        <circle cx="38" cy="56" r="1.6" fill="url(#node-gradient)" filter="url(#node-glow)" opacity="0.9"/>
-        <text x="38" y="56.4" text-anchor="middle" dominant-baseline="central" font-size="1.2" font-weight="800" fill="#2a2018">4</text>
-
-        <!-- Node 5 -->
-        <circle cx="48" cy="44" r="1.6" fill="url(#node-gradient)" filter="url(#node-glow)" opacity="0.9"/>
-        <text x="48" y="44.4" text-anchor="middle" dominant-baseline="central" font-size="1.2" font-weight="800" fill="#2a2018">5</text>
-
-        <!-- Node 6 -->
-        <circle cx="58" cy="32" r="1.6" fill="url(#node-gradient)" filter="url(#node-glow)" opacity="0.9"/>
-        <text x="58" y="32.4" text-anchor="middle" dominant-baseline="central" font-size="1.2" font-weight="800" fill="#2a2018">6</text>
-
-        <!-- Node 7 (Final) -->
-        <circle cx="74" cy="10" r="2" fill="url(#node-final-gradient)" filter="url(#node-glow)" opacity="0.95"/>
-        <text x="74" y="10.4" text-anchor="middle" dominant-baseline="central" font-size="1.2" font-weight="800" fill="#2a2018">7</text>
-
-        <!-- Outer glow ring for final node -->
-        <circle cx="74" cy="10" r="2.8" fill="none" stroke="rgba(255,215,0,0.3)" stroke-width="0.3" filter="url(#path-glow)"/>
-
-      </svg>
-    </div>
 
     <div class="lj-steps">
       <a href="rest.html" class="lj-step" data-step="1">
         <div class="lj-step-inner">
-          <div class="lj-step-day">Day 1</div>
-          <div class="lj-step-keyword">Rest</div>
-          <div class="lj-step-text">Find Peace<br><span class="lj-step-accent">For Your Mind</span></div>
+         
+          <div class="lj-step-keyword">Day 1  &nbsp; | &nbsp; Rest</div>
+          
         </div>
       </a>
 
       <a href="grow.html" class="lj-step" data-step="2">
         <div class="lj-step-inner">
-          <div class="lj-step-day">Day 2</div>
-          <div class="lj-step-keyword">Grow</div>
-          <div class="lj-step-text">Let God Grow<br><span class="lj-step-accent">What Matters</span></div>
+         
+          <div class="lj-step-keyword">Day 2  &nbsp; | &nbsp;Grow</div>
+          
         </div>
       </a>
 
       <a href="#day3-heal" class="lj-step" data-step="3">
         <div class="lj-step-inner">
-          <div class="lj-step-day">Day 3</div>
-          <div class="lj-step-keyword">Heal</div>
-          <div class="lj-step-text">Healing for the<br><span class="lj-step-accent">Hurts You Carry</span></div>
+         
+          <div class="lj-step-keyword">Day 3  &nbsp; | &nbsp;Heal</div>
+        
         </div>
       </a>
 
       <a href="#day4-id" class="lj-step" data-step="4">
         <div class="lj-step-inner">
-          <div class="lj-step-day">Day 4</div>
-          <div class="lj-step-keyword">Identity</div>
-          <div class="lj-step-text">Discover Who<br><span class="lj-step-accent">You Really Are</span></div>
+          
+          <div class="lj-step-keyword">Day 4  &nbsp; | &nbsp;Identity</div>
+       
         </div>
       </a>
 
       <a href="#day5-trust" class="lj-step" data-step="5">
         <div class="lj-step-inner">
-          <div class="lj-step-day">Day 5</div>
-          <div class="lj-step-keyword">Trust</div>
-          <div class="lj-step-text">Trust God in<br><span class="lj-step-accent">Every Season</span></div>
+    
+          <div class="lj-step-keyword">Day 5  &nbsp; | &nbsp;Trust</div>
+          
         </div>
       </a>
 
       <a href="#day6-strength" class="lj-step" data-step="6">
         <div class="lj-step-inner">
-          <div class="lj-step-day">Day 6</div>
-          <div class="lj-step-keyword">Strength</div>
-          <div class="lj-step-text">Rise Up in Faith<br><span class="lj-step-accent">and Courage</span></div>
+      
+          <div class="lj-step-keyword">Day 6   &nbsp; | &nbsp;Strength</div>
+  
         </div>
       </a>
 
       <a href="#day7-purpose" class="lj-step lj-step--final" data-step="7">
         <div class="lj-step-inner lj-step-inner--final">
-          <div class="lj-step-day">Day 7</div>
-          <div class="lj-step-keyword">Purpose</div>
-          <div class="lj-step-text">Live the Life<br><span class="lj-step-accent">You Were Made For</span></div>
+          
+          <div class="lj-step-keyword">Day 7  &nbsp; | &nbsp;Purpose</div>
+    
         </div>
       </a>
     </div>
@@ -1082,3 +946,5 @@
 <script src="script.js"></script>
 </body>
 </html>
+
+

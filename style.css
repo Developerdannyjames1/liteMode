@@ -115,7 +115,7 @@
 }
 
 .navbar-brand img {
-    height: 70px;
+    height: 80px;
     width: auto;
     object-fit: contain;
     display: block;
@@ -488,18 +488,82 @@
         /* ============================================
        HERO SECTION
        ============================================ */
-    .hero {
+   .hero {
       position: relative;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
-      background: var(--color-primary);
+      background: url(/images/hero-bg.png) no-repeat center center/cover;
       color: var(--color-accent);
       text-align: center;
-      padding: 3rem 1.5rem;
+      padding: 5rem 1.5rem 3rem;
       overflow: hidden;
+    }
+
+  
+
+    .hero-video-inline {
+      height: clamp(40px, 8vw, 60px);
+      width: auto;
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 0.5rem;
+      border-radius: 8px;
+    }
+
+    .hero-description {
+      color: var(--color-white);
+      font-size: clamp(0.875rem, 2vw, 1rem);
+      max-width: 600px;
+      margin-top: 2rem;
+      opacity: 0.9;
+    }
+
+    /* Bridge Carousel */
+    .bridge-container {
+      width: 100%;
+      max-width: 1400px;
+      height: clamp(250px, 30vw, 320px);
+      position: relative;
+      overflow: hidden;
+      margin: 1.5rem auto;
+      cursor: grab;
+      border-radius: 24px;
+    }
+
+    .bridge-container:active {
+      cursor: grabbing;
+    }
+
+    .bridge-track {
+      display: flex;
+      align-items: flex-end;
+      height: 100%;
+      width: max-content;
+      will-change: transform;
+      transform: translate3d(0, 0, 0);
+      padding-bottom: 1.5rem;
+    }
+
+    .bridge-card {
+      flex: 0 0 auto;
+      width: clamp(180px, 25vw, 320px);
+      height: clamp(120px, 18vw, 220px);
+      border-radius: 20px;
+      overflow: hidden;
+      transform-origin: bottom center;
+      will-change: transform;
+      backface-visibility: hidden;
+      margin-right: -15px;
+      position: relative;
+    }
+
+    .bridge-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .hero-heading {
@@ -524,11 +588,11 @@
 
 /* PREMIUM BUTTON */
 .hero-btn {
-  padding: 14px 28px;
+  padding: 8px 16px;
   background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
   border: 1px solid rgba(212, 175, 55, 0.35);
-  border-radius: 14px;
+  border-radius: 50px;
 
   font-family: var(--font-heading);
   font-size: 1rem;
@@ -575,7 +639,6 @@
        ============================================ */
     .tagline-section {
       text-align: center;
-      padding: 2rem 1.5rem;
       background: var(--color-primary);
     }
 
@@ -650,7 +713,30 @@
       height: 100%;
       object-fit: cover;
     }
+.hero-tagline{
+  margin-top: 1.2rem;
+  margin-bottom: 1.1rem;
+  font-size: clamp(.9rem,1.8vw,1.1rem);
+  color: rgba(255,255,255,.82);
+  text-align:center;
+  font-weight:500;
+  letter-spacing:.04em;
+  line-height:1.5;
+  max-width:620px;
+  margin-inline:auto;
+}
 
+.hero-tagline::before{
+  content:"✦";
+  color:#d4a853;
+  margin-right:.5rem;
+}
+
+.hero-tagline::after{
+  content:"✦";
+  color:#d4a853;
+  margin-left:.5rem;
+}
     .pathway-card-overlay {
       position: absolute;
       inset: 0;
@@ -2356,13 +2442,13 @@
   }
 
   /* Individual rotation variables to keep exact look */
-  .lj-step[data-step="1"] { --rot: 31deg; left: 18%;  bottom: 3%; }
-  .lj-step[data-step="2"] { --rot: 25deg; left: 25%; bottom: 11%; }
-  .lj-step[data-step="3"] { --rot: 46.5deg; left: 30%; bottom: 23%; }
-  .lj-step[data-step="4"] { --rot: 62.2deg; left: 40%; bottom: 24%; }
-  .lj-step[data-step="5"] { --rot: 43.5deg; left: 50%; bottom: 26%; }
-  .lj-step[data-step="6"] { --rot: 29.8deg; left: 57%; bottom: 32%; }
-  .lj-step[data-step="7"] { --rot: 15.5deg; left: 61%; bottom: 45%; }
+  .lj-step[data-step="1"] { --rot: 0deg; left: 41%;  bottom: 2%; }
+  .lj-step[data-step="2"] { --rot: 8deg; left: 42%; bottom: 16%; }
+  .lj-step[data-step="3"] { --rot: 26.5deg; left: 44%; bottom: 30%; }
+  .lj-step[data-step="4"] { --rot: 36.2deg; left: 50%; bottom: 38%; }
+  .lj-step[data-step="5"] { --rot: 37.5deg; left: 56%; bottom: 46%; }
+  .lj-step[data-step="6"] { --rot: 31.8deg; left: 62%; bottom: 52%; }
+  .lj-step[data-step="7"] { --rot: 27.5deg; left: 66%; bottom: 59%; }
 
   /* Card inner style — DARK PREMIUM */
   .lj-step-inner {
@@ -2380,30 +2466,37 @@
   .lj-step[data-step="1"] .lj-step-inner {
     background: rgba(30, 25, 18, 0.92);
     border: 1px solid rgba(200, 160, 100, 0.35);
+    padding: 8px;
   }
   .lj-step[data-step="2"] .lj-step-inner {
     background: rgba(18, 28, 22, 0.92);
     border: 1px solid rgba(120, 180, 140, 0.35);
+    padding: 8px;
   }
   .lj-step[data-step="3"] .lj-step-inner {
     background: rgba(28, 20, 25, 0.92);
     border: 1px solid rgba(180, 130, 160, 0.35);
+    padding: 8px;
   }
   .lj-step[data-step="4"] .lj-step-inner {
     background: rgba(20, 24, 32, 0.92);
     border: 1px solid rgba(130, 160, 200, 0.35);
+    padding: 8px;
   }
   .lj-step[data-step="5"] .lj-step-inner {
     background: rgba(30, 25, 18, 0.92);
     border: 1px solid rgba(190, 150, 100, 0.35);
+    padding: 8px;
   }
   .lj-step[data-step="6"] .lj-step-inner {
     background: rgba(32, 22, 18, 0.92);
     border: 1px solid rgba(200, 130, 90, 0.35);
+    padding: 8px;
   }
   .lj-step[data-step="7"] .lj-step-inner {
     background: rgba(35, 30, 15, 0.95);
     border: 1px solid rgba(212, 175, 55, 0.45);
+    padding: 8px;
   }
 
   /* final day special */
