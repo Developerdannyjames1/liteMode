@@ -31,7 +31,7 @@
         </a>
 
         <!-- Menu Items -->
-        <ul class="navbar-menu" id="navbar-menu" role="menubar" style=" top: 65px; left: 15px; right: 15px; background: var(--navbar-bg); padding: 20px; backdrop-filter: blur(20px); border-bottom: 1px solid var(--navbar-border); z-index: 999; border-radius: 0px 0px 20px 20px; ">
+        <ul class="navbar-menu" id="navbar-menu" role="menubar" style=" top: 65px; left: 15px; right: 15px; background: var(--navbar-bg); padding: 20px;border-bottom: 1px solid var(--navbar-border); z-index: 999; border-radius: 0px 0px 20px 20px; ">
             <li role="none"><a href="/" class="navbar-link active" role="menuitem">Home</a></li>
             <li role="none"><a href="/start-here.html" class="navbar-link start-here" role="menuitem">Start Here</a></li>
             <li role="none"><a href="/rest.html" class="navbar-link" role="menuitem">Rest</a></li>
@@ -41,8 +41,16 @@
             <li role="none"><a href="/teens.html" class="navbar-link" role="menuitem">Teens</a></li>
             <li role="none"><a href="/lumenquest.html" class="navbar-link lumenquest" role="menuitem">LumenQuest</a></li>
             <li role="none"><a href="/resources.html" class="navbar-link" role="menuitem">Resources</a></li>
-            <li role="none"><a href="/about.html" class="navbar-link" role="menuitem">About</a></li>
-            <li role="none"><a href="/contact.html" class="navbar-link" role="menuitem">Contact</a></li>
+                   <li class="nav-dropdown" role="none">
+    <a href="#" class="navbar-link dropdown-toggle" role="menuitem" aria-expanded="false">
+        About Us
+        <span class="dropdown-arrow">▼</span>
+    </a>
+
+    <ul class="dropdown-menu">
+        <li><a href="/about.html" class="dropdown-link">About</a></li>
+        <li><a href="/contact.html" class="dropdown-link">Contact</a></li>
+    </ul>
         </ul>
 
         <!-- Actions Section -->
@@ -104,11 +112,7 @@
 <p class="hero-tagline">
   Step Into The Light That Transforms Heart.
 </p>
-     <div class="hero-buttons">
-      
-      <a href="/rest.html" class="hero-btn">I Need Peace</a>
-      <a href="/stories.html" class="hero-btn">I Need Inspiration</a>
-    </div>
+   
 
  
 
@@ -119,69 +123,7 @@
     <div class="bridge-container" id="bridgeContainer">
       <div class="bridge-track" id="bridgeTrack">
         
-        <!-- Rest -->
-        <div class="pathway-card rest">
-          <div class="pathway-card-overlay">
-            <h3 class="pathway-card-title">Rest In<br>The Light</h3>
-            <p class="pathway-card-subtitle">Peace and meditation</p>
-          </div>
-        </div>
-
-        <!-- See the Light -->
-        <div class="pathway-card see">
-          <div class="pathway-card-overlay">
-            <h3 class="pathway-card-title">See the<br>Light</h3>
-            <p class="pathway-card-subtitle">Inspiring Video Stories</p>
-          </div>
-        </div>
-
-        <!-- LumenQuest Animations -->
-        <div class="pathway-card lumen">
-          <div class="pathway-card-overlay">
-            <h3 class="pathway-card-title" style="color: #FF6B6B;">Lumen<span style="color: #4ECDC4;">Quest</span></h3>
-            <p class="pathway-card-subtitle" style="color: #333;">Animations</p>
-          </div>
-        </div>
-
-        <!-- Start Here -->
-        <div class="pathway-card start">
-          <div class="pathway-card-overlay">
-            <h3 class="pathway-card-title">Start<br>Here</h3>
-            <p class="pathway-card-subtitle">7-Day Light Journey</p>
-          </div>
-        </div>
-
-        <!-- Teens -->
-        <div class="pathway-card teens">
-          <div class="pathway-card-overlay">
-            <h3 class="pathway-card-title" style="color: #FF6B6B;">Teens:<br>Illuminated</h3>
-            <p class="pathway-card-subtitle" style="color: #333;">Navigating The Light</p>
-          </div>
-        </div>
-
-        <!-- LumenQuest Animations (duplicate) -->
-        <div class="pathway-card lumen">
-          <div class="pathway-card-overlay">
-            <h3 class="pathway-card-title" style="color: #FF6B6B;">Lumen<span style="color: #4ECDC4;">Quest</span></h3>
-            <p class="pathway-card-subtitle" style="color: #333;">Animations</p>
-          </div>
-        </div>
-
-        <!-- Walk in the Light -->
-        <div class="pathway-card walk">
-          <div class="pathway-card-overlay">
-            <h3 class="pathway-card-title" style="color: #D4A853;">Walk In<br>The Light</h3>
-            <p class="pathway-card-subtitle" style="color: #333;">Bible Studies and Sermons</p>
-          </div>
-        </div>
-
-        <!-- Grow in the Light -->
-        <div class="pathway-card grow">
-          <div class="pathway-card-overlay">
-            <h3 class="pathway-card-title" style="color: #D4A853;">Grow In<br>The Light</h3>
-            <p class="pathway-card-subtitle" style="color: #333;">Devotionals, Books, Resources</p>
-          </div>
-        </div>
+  
 
       </div>
     </div>
@@ -296,65 +238,148 @@
 </section>
 
 
-  <!-- Ministry Cards Section - ORIGINAL 4-COLUMN STAGGERED LAYOUT -->
-  <section class="ministry-section" id="ministry-section" aria-labelledby="ministry-title">
-    <div class="ministry-pattern" aria-hidden="true"></div>
-    
-    <div class="ministry-header">
-      <p class="ministry-label">Our Division</p>
-      <h2 class="ministry-title" id="ministry-title">Watch, Read,<br>Listen, and Learn.</h2>
-      <p class="ministry-subtitle">
-        LightMode Ministries Is A Christian Media Ministry Dedicated To Illuminating Lives With The Truth Of God's 
-        Word Through Storytelling, Digital Media, And Scripture-Centered Teaching.
+  
+<!-- Bible Study Section - IMPROVED 4-COLUMN STAGGERED LAYOUT -->
+<section class="bible-study-section" id="bible-study-section" aria-labelledby="bible-study-title">
+  <div class="bible-study-pattern" aria-hidden="true"></div>
+
+  <div class="bible-study-header">
+    <p class="bible-study-label">Grow in Faith</p>
+    <h2 class="bible-study-title" id="bible-study-title">
+      Bible Study Resources
+      <span>Deepen Your Walk with Christ</span>
+    </h2>
+    <p class="bible-study-subtitle">
+      Explore our carefully curated Bible study materials designed to help you understand Scripture, 
+      grow spiritually, and apply God's Word to your daily life.
+    </p>
+    <div class="bible-study-verse">
+      <p>"Your word is a lamp to my feet and a light to my path."</p>
+      <cite>— Psalm 119:105</cite>
+    </div>
+  </div>
+
+  <div class="bible-study-grid">
+    <!-- Card 1: Pink, rotate(6deg) -->
+    <article class="bible-study-card bible-study-card--pink" data-animate>
+      <div class="bible-study-card__icon-wrap">
+        <div class="bible-study-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#DB2777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            <line x1="8" y1="7" x2="16" y2="7"/>
+            <line x1="8" y1="11" x2="14" y2="11"/>
+            <line x1="8" y1="15" x2="12" y2="15"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="bible-study-card__title">Daily Devotionals</h3>
+      <p class="bible-study-card__desc">
+        Start each morning with guided reflections on Scripture. Short, powerful readings to center your heart on God's Word.
       </p>
-    </div>
+      <div class="bible-study-card__topics">
+        <span class="bible-study-card__tag">Morning</span>
+        <span class="bible-study-card__tag">15 Min</span>
+        <span class="bible-study-card__tag">Audio</span>
+      </div>
+      <a href="/bible-study.html" class="bible-study-card__cta">
+        Start Reading
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </article>
 
-    <div class="ministry-grid">
-      <!-- Card 1: Pink, rotate(6deg) -->
-      <article class="ministry-card ministry-card--pink" data-animate>
-        <div class="ministry-card__icon">
-          <img src="/images/pink.png" alt="Pink icon" loading="lazy">
+    <!-- Card 2: Green, rotate(-8deg), margin-top -->
+    <article class="bible-study-card bible-study-card--green" data-animate>
+      <div class="bible-study-card__icon-wrap">
+        <div class="bible-study-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            <path d="M2 12h20"/>
+          </svg>
         </div>
-        <h3 class="ministry-card__title">LightMode Children</h3>
-        <p class="ministry-card__desc">
-          Christian cartoons, books, and activities designed to spark faith in young hearts.
-        </p>
-      </article>
+      </div>
+      <h3 class="bible-study-card__title">Bible Study Plans</h3>
+      <p class="bible-study-card__desc">
+        Structured 30-day and 90-day reading plans covering books of the Bible, themes, and character studies.
+      </p>
+      <div class="bible-study-card__topics">
+        <span class="bible-study-card__tag">30 Days</span>
+        <span class="bible-study-card__tag">90 Days</span>
+        <span class="bible-study-card__tag">Printable</span>
+      </div>
+      <a href="/bible-study.html" class="bible-study-card__cta">
+        View Plans
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </article>
 
-      <!-- Card 2: Green, rotate(-8deg), margin-top -->
-      <article class="ministry-card ministry-card--green" data-animate>
-        <div class="ministry-card__icon">
-          <img src="/images/green.png" alt="Green icon" loading="lazy">
+    <!-- Card 3: Yellow, rotate(6deg) -->
+    <article class="bible-study-card bible-study-card--yellow" data-animate>
+      <div class="bible-study-card__icon-wrap">
+        <div class="bible-study-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#CA8A04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
         </div>
-        <h3 class="ministry-card__title">LightMode Expressions</h3>
-        <p class="ministry-card__desc">
-          Bible Studies, Sermons, Teen Talks, And Women's Lifestyle Content.
-        </p>
-      </article>
+      </div>
+      <h3 class="bible-study-card__title">Group Studies</h3>
+      <p class="bible-study-card__desc">
+        Join or lead a small group study with discussion guides, video teachings, and community prayer resources.
+      </p>
+      <div class="bible-study-card__topics">
+        <span class="bible-study-card__tag">Small Groups</span>
+        <span class="bible-study-card__tag">Video</span>
+        <span class="bible-study-card__tag">Community</span>
+      </div>
+      <a href="/bible-study.html" class="bible-study-card__cta">
+        Find a Group
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </article>
 
-      <!-- Card 3: Yellow, rotate(6deg) -->
-      <article class="ministry-card ministry-card--yellow" data-animate>
-        <div class="ministry-card__icon">
-          <img src="/images/yellow.png" alt="Yellow icon" loading="lazy">
+    <!-- Card 4: Red, rotate(-8deg), margin-top -->
+    <article class="bible-study-card bible-study-card--red" data-animate>
+      <div class="bible-study-card__icon-wrap">
+        <div class="bible-study-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
         </div>
-        <h3 class="ministry-card__title">LightMode Publications</h3>
-        <p class="ministry-card__desc">
-          Devotionals And Spiritual Books.
-        </p>
-      </article>
+      </div>
+      <h3 class="bible-study-card__title">Topical Studies</h3>
+      <p class="bible-study-card__desc">
+        Dive deep into specific topics like faith, prayer, forgiveness, and spiritual warfare with comprehensive guides.
+      </p>
+      <div class="bible-study-card__topics">
+        <span class="bible-study-card__tag">Faith</span>
+        <span class="bible-study-card__tag">Prayer</span>
+        <span class="bible-study-card__tag">Warfare</span>
+      </div>
+      <a href="/bible-study.html" class="bible-study-card__cta">
+        Explore Topics
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </article>
+  </div>
+</section>
 
-      <!-- Card 4: Red, rotate(-8deg), margin-top -->
-      <article class="ministry-card ministry-card--red" data-animate>
-        <div class="ministry-card__icon">
-          <img src="/images/red.png" alt="Red icon" loading="lazy">
-        </div>
-        <h3 class="ministry-card__title">LightMode Animations</h3>
-        <p class="ministry-card__desc">
-          Animated Bible Teachings And Scripture Meditations.
-        </p>
-      </article>
-    </div>
-  </section>
 
   <!-- Video Background Section -->
   <!-- <section class="video-bg-section" aria-label="Featured video background">
@@ -372,7 +397,7 @@
       <div class="featured-filters" role="group" aria-label="Content filters">
         <button class="filter-btn" aria-pressed="false">Children</button>
         <button class="filter-btn" aria-pressed="false">Families</button>
-        <button class="filter-btn" aria-pressed="false">Bible Teachings</button>
+        <button class="filter-btn" aria-pressed="false">Stories</button>
         <button class="filter-btn" aria-pressed="false">Others</button>
       </div>
     </div>
@@ -486,7 +511,7 @@
             <div class="heroes-content">
               <div class="heroes-character">
                 <div class="heroes-avatar">
-                  <img src="/images/slide-immg.png" alt="Kalypso character portrait" loading="lazy">
+                  <img src="/images/small1.png" alt="Kalypso character portrait" loading="lazy">
                 </div>
                 <div>
                   <h3 class="heroes-name">Kalypso (Kal)</h3>
@@ -503,9 +528,11 @@
             </div>
             <div class="heroes-video-wrap">
               <div class="heroes-video">
-                <video autoplay muted loop playsinline poster="/images/slide-immg.png">
-                  <source src="/videos/video-1.mp4" type="video/mp4">
-                </video>
+                <img 
+  src="/images/big2.png" 
+  alt="Slide Image"
+  style="width:100%; height:100%; object-fit:cover;"
+/>
               </div>
             </div>
           </div>
@@ -515,7 +542,7 @@
             <div class="heroes-content">
               <div class="heroes-character">
                 <div class="heroes-avatar">
-                  <img src="/images/slide-immg.png" alt="Zion character portrait" loading="lazy">
+                  <img src="/images/small2.png" alt="Zion character portrait" loading="lazy">
                 </div>
                 <div>
                   <h3 class="heroes-name">Zion (Zee)</h3>
@@ -531,9 +558,11 @@
             </div>
             <div class="heroes-video-wrap">
               <div class="heroes-video">
-                <video muted loop playsinline poster="/images/slide-immg.png">
-                  <source src="/videos/video-2.mp4" type="video/mp4">
-                </video>
+                <img 
+  src="/images/big1.png" 
+  alt="Slide Image"
+  style="width:100%; height:100%; object-fit:cover;"
+/>
               </div>
             </div>
           </div>
@@ -543,7 +572,7 @@
             <div class="heroes-content">
               <div class="heroes-character">
                 <div class="heroes-avatar">
-                  <img src="/images/slide-immg.png" alt="Aria character portrait" loading="lazy">
+                  <img src="/images/small3.png" alt="Aria character portrait" loading="lazy">
                 </div>
                 <div>
                   <h3 class="heroes-name">Aria (Ari)</h3>
@@ -558,20 +587,54 @@
             </div>
             <div class="heroes-video-wrap">
               <div class="heroes-video">
-                <video muted loop playsinline poster="/images/slide-immg.png">
-                  <source src="/videos/video-3.mp4" type="video/mp4">
-                </video>
+                <img 
+  src="/images/big4.png" 
+  alt="Slide Image"
+  style="width:100%; height:100%; object-fit:cover;"
+/>
+              </div>
+            </div>
+          </div>
+            <!-- Slide 3 - Aria -->
+          <div class="heroes-slide" data-slide="3">
+            <div class="heroes-content">
+              <div class="heroes-character">
+                <div class="heroes-avatar">
+                  <img src="/images/small4.png" alt="Aria character portrait" loading="lazy">
+                </div>
+                <div>
+                  <h3 class="heroes-name">Aria (Ari)</h3>
+                  <p class="heroes-meta">Age: 8 | Pronounce: She/Her</p>
+                </div>
+              </div>
+              <p class="heroes-desc">
+                A sweet and compassionate young girl who spreads love and kindness everywhere 
+                she goes. Aria helps children understand the importance of love, forgiveness, 
+                and friendship through her gentle stories and songs.
+              </p>
+            </div>
+            <div class="heroes-video-wrap">
+              <div class="heroes-video">
+                <img 
+  src="/images/big3.png" 
+  alt="Slide Image"
+  style="width:100%; height:100%; object-fit:cover;"
+/>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="heroes-dots" role="tablist" aria-label="Hero navigation">
-        <button class="heroes-dot is-active" data-slide="0" role="tab" aria-selected="true" aria-label="Go to slide 1"></button>
-        <button class="heroes-dot" data-slide="1" role="tab" aria-selected="false" aria-label="Go to slide 2"></button>
-        <button class="heroes-dot" data-slide="2" role="tab" aria-selected="false" aria-label="Go to slide 3"></button>
-      </div>
+   <div class="heroes-dots" role="tablist" aria-label="Hero navigation">
+  <button class="heroes-dot is-active" data-slide="0" role="tab" aria-selected="true" aria-label="Go to slide 1"></button>
+
+  <button class="heroes-dot" data-slide="1" role="tab" aria-selected="false" aria-label="Go to slide 2"></button>
+
+  <button class="heroes-dot" data-slide="2" role="tab" aria-selected="false" aria-label="Go to slide 3"></button>
+
+  <button class="heroes-dot" data-slide="3" role="tab" aria-selected="false" aria-label="Go to slide 4"></button>
+</div>
     </div>
   </section>
 

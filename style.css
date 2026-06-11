@@ -341,6 +341,110 @@
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
+      .nav-dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dropdown-arrow {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 8px 0;
+    margin-top: 10px;
+    list-style: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-link {
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s ease;
+}
+
+.dropdown-link:hover {
+    background: rgba(0,0,0,0.05);
+}/* Light Theme */
+.dropdown-menu {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+}
+
+.dropdown-link {
+    color: #111827;
+}
+
+.dropdown-link:hover {
+    background: #f3f4f6;
+}
+
+/* Dark Theme */
+[data-theme="night"] .dropdown-menu,
+body.night-theme .dropdown-menu {
+    background: #1e293b;
+    border: 1px solid #334155;
+}
+
+[data-theme="night"] .dropdown-link,
+body.night-theme .dropdown-link {
+    color: #f8fafc;
+}
+
+[data-theme="night"] .dropdown-link:hover,
+body.night-theme .dropdown-link:hover {
+    background: #334155;
+}    @media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav-dropdown.active .dropdown-menu {
+        max-height: 200px;
+    }
+
+    .nav-dropdown:hover .dropdown-menu {
+        transform: none;
+    }
+}  
 /* Mobile Responsive */
 @media (max-width: 1200px) {
     .navbar-container {
@@ -718,7 +822,7 @@
 .hero-tagline{
   margin-top: 1.2rem;
   margin-bottom: 1.1rem;
-  font-size: clamp(.9rem,1.8vw,1.1rem);
+  font-size: clamp(.9rem,1.8vw,13rem);
   color: rgba(255,255,255,.82);
   text-align:center;
   font-weight:500;
@@ -876,197 +980,433 @@
 
  
 
-    /* ============================================
-       MINISTRY CARDS SECTION - ORIGINAL 4-COLUMN LAYOUT
-       ============================================ */
-    .ministry-section {
-      position: relative;
-      width: 100%;
-      padding: 5rem 1.5rem;
-      background: var(--color-bg-warm);
-      overflow: hidden;
-    }
+  .bible-study-section {
+  position: relative;
+  width: 100%;
+  padding: 6rem 1.5rem;
+  background: var(--color-bg-warm);
+  overflow: hidden;
+}
 
-    .ministry-pattern {
-      position: absolute;
-      inset: 0;
-      background-image: 
-        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
-      pointer-events: none;
-    }
+/* Animated background pattern */
+.bible-study-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 15% 25%, rgba(244, 114, 182, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(21, 128, 61, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(234, 179, 8, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+  animation: patternPulse 8s ease-in-out infinite;
+}
 
-    .ministry-header {
-      text-align: center;
-      margin-bottom: 3rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+@keyframes patternPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
 
-    .ministry-label {
-      font-size: 0.875rem;
-      color: var(--color-primary);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 1rem;
-    }
+.bible-study-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
 
-    .ministry-title {
-      font-size: clamp(2rem, 5vw, 3rem);
-      color: var(--color-primary);
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-    }
+.bible-study-label {
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border: 2px solid rgba(26, 26, 46, 0.15);
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.6);
+}
 
-    .ministry-subtitle {
-      color: var(--color-primary);
-      font-size: clamp(0.875rem, 2vw, 1rem);
-      opacity: 0.9;
-      line-height: 1.7;
-    }
+.bible-study-title {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
 
-    /* Original 4-column grid with staggered layout */
-    .ministry-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
+.bible-study-title span {
+  display: block;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: var(--color-text-muted);
+  font-weight: 400;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
 
-    .ministry-card {
-      position: relative;
-      background: var(--color-white);
-      border-radius: 24px;
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      transition: transform var(--transition-base), box-shadow var(--transition-base);
-      will-change: transform, opacity;
-      transform: translate3d(0, 0, 0);
-      opacity: 1;
-    }
+.bible-study-subtitle {
+  color: var(--color-text-muted);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
 
-    /* Card 1 - Pink */
-    .ministry-card--pink {
-      border: 4px solid #F472B6;
-      transform: rotate(6deg);
-    }
+/* Scripture verse decoration */
+.bible-study-verse {
+  margin-top: 2rem;
+  padding: 1.2rem 2rem;
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), rgba(234, 179, 8, 0.1));
+  border-radius: 16px;
+  border-left: 4px solid #EAB308;
+  display: inline-block;
+}
 
-    .ministry-card--pink h3 { color: #DB2777; }
-    .ministry-card--pink p { color: #DB2777; }
+.bible-study-verse p {
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: var(--color-primary);
+  font-size: 1rem;
+  line-height: 1.6;
+}
 
-    /* Card 2 - Green (offset down) */
-    .ministry-card--green {
-      border: 4px solid #15803D;
-      transform: rotate(-8deg);
-      margin-top: 2rem;
-    }
+.bible-study-verse cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
 
-    .ministry-card--green h3 { color: #15803D; }
-    .ministry-card--green p { color: #15803D; }
+/* Original 4-column grid with staggered layout */
+.bible-study-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
 
-    /* Card 3 - Yellow */
-    .ministry-card--yellow {
-      border: 4px solid #EAB308;
-      transform: rotate(6deg);
-    }
+.bible-study-card {
+  position: relative;
+  background: var(--color-white);
+  border-radius: 28px;
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    .ministry-card--yellow h3 { color: #CA8A04; }
-    .ministry-card--yellow p { color: #CA8A04; }
+/* Decorative top accent bar */
+.bible-study-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 4px;
+  border-radius: 0 0 4px 4px;
+  transition: width 0.4s ease;
+}
 
-    /* Card 4 - Red (offset down) */
-    .ministry-card--red {
-      border: 4px solid #DC2626;
-      transform: rotate(-8deg);
-      margin-top: 2rem;
-    }
+.bible-study-card:hover::before {
+  width: 80%;
+}
 
-    .ministry-card--red h3 { color: #B91C1C; }
-    .ministry-card--red p { color: #B91C1C; }
+/* Card 1 - Pink */
+.bible-study-card--pink {
+  border: 3px solid #F472B6;
+  transform: rotate(6deg);
+}
 
-    .ministry-card:hover {
-      transform: translateY(-12px) rotate(0deg) scale(1.02);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-      z-index: 10;
-    }
+.bible-study-card--pink::before {
+  background: #F472B6;
+}
 
-    .ministry-card__icon {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 1.5rem;
-    }
+.bible-study-card--pink h3 { color: #DB2777; }
+.bible-study-card--pink p { color: #831843; }
 
-    .ministry-card__icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+/* Card 2 - Green (offset down) */
+.bible-study-card--green {
+  border: 3px solid #15803D;
+  transform: rotate(-8deg);
+  margin-top: 2.5rem;
+}
 
-    .ministry-card__title {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      font-family: var(--font-heading);
-    }
+.bible-study-card--green::before {
+  background: #15803D;
+}
 
-    .ministry-card__desc {
-      font-size: 0.875rem;
-      line-height: 1.6;
-    }
+.bible-study-card--green h3 { color: #15803D; }
+.bible-study-card--green p { color: #14532D; }
 
-    /* Animation States - Initial (hidden, off-screen right) */
-    .ministry-card[data-animate] {
-      opacity: 0;
-      transform: translate3d(120px, 0, 0) rotate(6deg);
-    }
+/* Card 3 - Yellow */
+.bible-study-card--yellow {
+  border: 3px solid #EAB308;
+  transform: rotate(6deg);
+}
 
-    .ministry-card[data-animate].ministry-card--green,
-    .ministry-card[data-animate].ministry-card--red {
-      transform: translate3d(120px, 0, 0) rotate(-8deg);
-    }
+.bible-study-card--yellow::before {
+  background: #EAB308;
+}
 
-    /* Animation States - Visible */
-    .ministry-card.is-visible {
-      opacity: 1;
-      transform: translate3d(0, 0, 0) rotate(6deg);
-      transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
-                  transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
+.bible-study-card--yellow h3 { color: #CA8A04; }
+.bible-study-card--yellow p { color: #713F12; }
 
-    .ministry-card.is-visible.ministry-card--green,
-    .ministry-card.is-visible.ministry-card--red {
-      transform: translate3d(0, 0, 0) rotate(-8deg);
-    }
+/* Card 4 - Red (offset down) */
+.bible-study-card--red {
+  border: 3px solid #DC2626;
+  transform: rotate(-8deg);
+  margin-top: 2.5rem;
+}
 
-    /* Tablet: 2 columns */
-    @media (max-width: 1024px) {
-      .ministry-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .ministry-card--green,
-      .ministry-card--red {
-        margin-top: 0;
-      }
-    }
+.bible-study-card--red::before {
+  background: #DC2626;
+}
 
-    /* Mobile: 1 column */
-    @media (max-width: 640px) {
-      .ministry-grid {
-        grid-template-columns: 1fr;
-        max-width: 320px;
-      }
-      
-      .ministry-card {
-        transform: rotate(0deg) !important;
-      }
-      
-      .ministry-card.is-visible {
-        transform: translate3d(0, 0, 0) rotate(0deg) !important;
-      }
-    }
+.bible-study-card--red h3 { color: #B91C1C; }
+.bible-study-card--red p { color: #7F1D1D; }
+
+.bible-study-card:hover {
+  transform: translateY(-16px) rotate(0deg) scale(1.03);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+/* Card icon with background circle */
+.bible-study-card__icon-wrap {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.bible-study-card--pink .bible-study-card__icon-wrap {
+  background: linear-gradient(135deg, #FBCFE8, #FCE7F3);
+}
+
+.bible-study-card--green .bible-study-card__icon-wrap {
+  background: linear-gradient(135deg, #BBF7D0, #DCFCE7);
+}
+
+.bible-study-card--yellow .bible-study-card__icon-wrap {
+  background: linear-gradient(135deg, #FEF08A, #FEF9C3);
+}
+
+.bible-study-card--red .bible-study-card__icon-wrap {
+  background: linear-gradient(135deg, #FECACA, #FEE2E2);
+}
+
+.bible-study-card__icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bible-study-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.bible-study-card__title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.bible-study-card__desc {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+/* Topic tags */
+.bible-study-card__topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}
+
+.bible-study-card__tag {
+  font-size: 0.65rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.bible-study-card--pink .bible-study-card__tag {
+  background: #FCE7F3;
+  color: #DB2777;
+}
+
+.bible-study-card--green .bible-study-card__tag {
+  background: #DCFCE7;
+  color: #15803D;
+}
+
+.bible-study-card--yellow .bible-study-card__tag {
+  background: #FEF9C3;
+  color: #CA8A04;
+}
+
+.bible-study-card--red .bible-study-card__tag {
+  background: #FEE2E2;
+  color: #B91C1C;
+}
+
+/* CTA Button */
+.bible-study-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.45rem 1rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  margin-top: auto;
+}
+
+.bible-study-card--pink .bible-study-card__cta {
+  background: #DB2777;
+  color: white;
+}
+
+.bible-study-card--green .bible-study-card__cta {
+  background: #15803D;
+  color: white;
+}
+
+.bible-study-card--yellow .bible-study-card__cta {
+  background: #CA8A04;
+  color: white;
+}
+
+.bible-study-card--red .bible-study-card__cta {
+  background: #B91C1C;
+  color: white;
+}
+
+.bible-study-card__cta:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.bible-study-card__cta svg {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.3s ease;
+}
+
+.bible-study-card__cta:hover svg {
+  transform: translateX(3px);
+}
+
+/* ============================================
+   ANIMATION STATES - REVERSE ENABLED
+   ============================================ */
+
+/* Initial hidden state (off-screen right) */
+.bible-study-card[data-animate] {
+  opacity: 0;
+  transform: translate3d(120px, 0, 0) rotate(6deg);
+}
+
+.bible-study-card[data-animate].bible-study-card--green,
+.bible-study-card[data-animate].bible-study-card--red {
+  transform: translate3d(120px, 0, 0) rotate(-8deg);
+}
+
+/* Visible state */
+.bible-study-card.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotate(6deg);
+}
+
+.bible-study-card.is-visible.bible-study-card--green,
+.bible-study-card.is-visible.bible-study-card--red {
+  transform: translate3d(0, 0, 0) rotate(-8deg);
+}
+
+/* Staggered delay for cards */
+.bible-study-card.is-visible:nth-child(1) { transition-delay: 0s; }
+.bible-study-card.is-visible:nth-child(2) { transition-delay: 0.1s; }
+.bible-study-card.is-visible:nth-child(3) { transition-delay: 0.2s; }
+.bible-study-card.is-visible:nth-child(4) { transition-delay: 0.3s; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Tablet: 2 columns */
+@media (max-width: 1024px) {
+  .bible-study-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .bible-study-card--green,
+  .bible-study-card--red {
+    margin-top: 0;
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 640px) {
+  .bible-study-section {
+    padding: 4rem 1rem;
+  }
+
+  .bible-study-grid {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+    gap: 1.5rem;
+  }
+
+  .bible-study-card {
+    transform: rotate(0deg) !important;
+    padding: 1.5rem 1.2rem;
+  }
+
+  .bible-study-card.is-visible {
+    transform: translate3d(0, 0, 0) rotate(0deg) !important;
+  }
+
+  .bible-study-verse {
+    padding: 1rem 1.2rem;
+  }
+}
 
     /* ============================================
        VIDEO BACKGROUND SECTION
@@ -1348,7 +1688,7 @@
 
     .heroes-avatar {
       width: 90px;
-      height: 100px;
+      height: 115px;
       border-radius: 8px;
       overflow: hidden;
       flex-shrink: 0;
@@ -1393,7 +1733,7 @@
       border-radius: 200px 200px 0 0;
       overflow: hidden;
       box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
-      background: var(--color-secondary);
+      
     }
 
     .heroes-video video {
@@ -2319,442 +2659,738 @@
   }
 
 
+/* ============================================================
+   LIGHT JOURNEY — PREMIUM GLOWING CARDS EDITION
+   ============================================================ */
 
-  /* Section Container */
-  .light-journey {
-    position: relative;
-    width: 100%;
-    padding: 2rem 0 3.5rem;
-    overflow-x: clip;
-  }
+/* Section Container */
+.light-journey {
+  position: relative;
+  width: 100%;
+  padding: 2rem 0 3.5rem;
+  overflow-x: clip;
+}
 
-  /* Header */
-  .lj-header {
-    text-align: center;
-    padding: 0 1.5rem 1.8rem;
-    max-width: 700px;
-    margin: 0 auto;
-    opacity: 0;
-    animation: lj-fade-up 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.1s forwards;
-  }
+/* ─── Header ─── */
+.lj-header {
+  text-align: center;
+  padding: 0 1.5rem 1.8rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: lj-fade-up 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.1s forwards;
+}
 
-  .lj-label {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: #d4a853;
-    background: rgba(212, 168, 83, 0.08);
-    backdrop-filter: blur(2px);
-    padding: 0.2rem 0.9rem;
-    border-radius: 30px;
-    margin-bottom: 0.75rem;
-    border: 1px solid rgba(212, 168, 83, 0.15);
-  }
+.lj-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #d4a853;
+  background: rgba(212, 168, 83, 0.08);
+  backdrop-filter: blur(2px);
+  padding: 0.2rem 0.9rem;
+  border-radius: 30px;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(212, 168, 83, 0.15);
+}
 
-  .lj-subheading {
-    font-size: clamp(1.25rem, 3.5vw, 1.9rem);
-    font-weight: 700;
-    color: var(--color-accent);
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
-  }
+.lj-subheading {
+  font-size: clamp(1.25rem, 3.5vw, 1.9rem);
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
 
-  .lj-description {
-    font-size: clamp(0.85rem, 2vw, 1.05rem);
-    color: #a09080;
-    margin-bottom: 0.75rem;
-    line-height: 1.45;
-  }
+.lj-description {
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  color: #a09080;
+  margin-bottom: 0.75rem;
+  line-height: 1.45;
+}
 
-  .lj-title {
-    font-size: clamp(1.4rem, 4vw, 2rem);
-    font-weight: 800;
-    color: #d4a853;
-    letter-spacing: -0.01em;
-    line-height: 1.1;
-  }
+.lj-title {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 800;
+  color: #d4a853;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
 
-  .lj-title-em {
-    font-style: italic;
-    font-weight: 500;
-    color: #c98a5a;
-    display: inline-block;
-    font-size: 0.55em;
-    margin-left: 0.3rem;
-  }
+.lj-title-em {
+  font-style: italic;
+  font-weight: 500;
+  color: #c98a5a;
+  display: inline-block;
+  font-size: 0.55em;
+  margin-left: 0.3rem;
+}
 
-  /* Wrapper with rounded depth */
-  .lj-path-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
-    aspect-ratio: 16 / 9;
-    min-height: 480px;
-    border-radius: 2rem;
-    overflow: hidden;
-    box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,240,0.05);
-    background: #1a1714;
-  }
+/* ─── Wrapper with rounded depth ─── */
+.lj-path-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  min-height: 480px;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,240,0.05);
+  background: #1a1714;
+}
 
-  /* Background Image */
-  .lj-path-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-  }
+/* Background Image */
+.lj-path-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
 
+.lj-path-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 35% 20%;
+  display: block;
+}
+
+/* Steps container */
+.lj-steps {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════════════════════════
+   STEP CARD — PREMIUM GLOWING DESIGN
+   ════════════════════════════════════════════════════════════ */
+
+.lj-step {
+  position: absolute;
+  text-decoration: none;
+  width: 195px;
+  pointer-events: auto;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(28px) scale(0.92) rotate(var(--rot, 0deg));
+  transition: opacity 0.4s ease, transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
+  will-change: transform, opacity;
+  z-index: 20;
+}
+
+.lj-step.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) rotate(var(--rot, 0deg)) !important;
+  transition: opacity 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.2), transform 0.55s cubic-bezier(0.25, 1.2, 0.35, 1);
+}
+
+/* ─── Positions (UNCHANGED) ─── */
+.lj-step[data-step="1"] { --rot: 0deg; left: 41%;  bottom: 2%; }
+.lj-step[data-step="2"] { --rot: 8deg; left: 42%; bottom: 16%; }
+.lj-step[data-step="3"] { --rot: 26.5deg; left: 44%; bottom: 30%; }
+.lj-step[data-step="4"] { --rot: 36.2deg; left: 50%; bottom: 38%; }
+.lj-step[data-step="5"] { --rot: 37.5deg; left: 56%; bottom: 46%; }
+.lj-step[data-step="6"] { --rot: 31.8deg; left: 62%; bottom: 52%; }
+.lj-step[data-step="7"] { --rot: 27.5deg; left: 66%; bottom: 59%; }
+
+/* ════════════════════════════════════════════════════════════
+   CARD INNER — PREMIUM GLASSMORPHISM + GLOW
+   ════════════════════════════════════════════════════════════ */
+
+.lj-step-inner {
+  position: relative;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 0.85rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  box-shadow:
+    0 12px 28px -10px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255,255,255,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  transition: all 0.35s cubic-bezier(0.2, 0.95, 0.4, 1.1);
+  overflow: hidden;
+}
+
+/* ─── Glow pseudo-element for each card ─── */
+.lj-step-inner::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(from var(--glow-angle, 0deg), transparent, var(--glow-color, #d4a853), transparent 30%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ─── Animated rotating glow border ─── */
+.lj-step-inner::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--glow-angle, 0deg), transparent, var(--glow-color, #d4a853), transparent 40%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(3px);
+}
+
+/* ─── Unique GLOW colors per day ─── */
+.lj-step[data-step="1"] { --glow-color: #c8a064; }
+.lj-step[data-step="2"] { --glow-color: #78b48c; }
+.lj-step[data-step="3"] { --glow-color: #b482a0; }
+.lj-step[data-step="4"] { --glow-color: #82a0c8; }
+.lj-step[data-step="5"] { --glow-color: #be9664; }
+.lj-step[data-step="6"] { --glow-color: #c8825a; }
+.lj-step[data-step="7"] { --glow-color: #d4af37; }
+
+/* ─── Unique DARK backgrounds per day ─── */
+.lj-step[data-step="1"] .lj-step-inner {
+  background: rgba(30, 25, 18, 0.92);
+  border: 1px solid rgba(200, 160, 100, 0.35);
+}
+.lj-step[data-step="2"] .lj-step-inner {
+  background: rgba(18, 28, 22, 0.92);
+  border: 1px solid rgba(120, 180, 140, 0.35);
+}
+.lj-step[data-step="3"] .lj-step-inner {
+  background: rgba(28, 20, 25, 0.92);
+  border: 1px solid rgba(180, 130, 160, 0.35);
+}
+.lj-step[data-step="4"] .lj-step-inner {
+  background: rgba(20, 24, 32, 0.92);
+  border: 1px solid rgba(130, 160, 200, 0.35);
+}
+.lj-step[data-step="5"] .lj-step-inner {
+  background: rgba(30, 25, 18, 0.92);
+  border: 1px solid rgba(190, 150, 100, 0.35);
+}
+.lj-step[data-step="6"] .lj-step-inner {
+  background: rgba(32, 22, 18, 0.92);
+  border: 1px solid rgba(200, 130, 90, 0.35);
+}
+.lj-step[data-step="7"] .lj-step-inner {
+  background: rgba(35, 30, 15, 0.95);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+}
+
+/* ─── Final day special glow ─── */
+.lj-step-inner--final {
+  box-shadow:
+    0 8px 25px rgba(180, 110, 30, 0.2),
+    0 0 0 1px rgba(212, 175, 55, 0.3),
+    0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+/* ════════════════════════════════════════════════════════════
+   HOVER — PREMIUM GLOW + SCALE + FLOAT
+   ════════════════════════════════════════════════════════════ */
+
+.lj-step:hover {
+  z-index: 40;
+}
+
+.lj-step:hover .lj-step-inner {
+  transform: scale(1.1) translateY(-10px);
+  box-shadow:
+    0 24px 40px -10px rgba(0, 0, 0, 0.55),
+    0 0 0 2px rgba(255,255,255,0.1),
+    0 0 30px var(--glow-color),
+    0 0 60px var(--glow-color);
+  transition: all 0.3s cubic-bezier(0.2, 0.95, 0.4, 1.1);
+}
+
+.lj-step:hover .lj-step-inner::before {
+  opacity: 0.6;
+  animation: glow-rotate 3s linear infinite;
+}
+
+.lj-step:hover .lj-step-inner::after {
+  opacity: 0.4;
+  animation: glow-rotate 3s linear infinite;
+}
+
+@keyframes glow-rotate {
+  from { --glow-angle: 0deg; }
+  to { --glow-angle: 360deg; }
+}
+
+@property --glow-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* ─── Unique hover backgrounds per card ─── */
+.lj-step[data-step="1"]:hover .lj-step-inner {
+  background: rgba(45, 35, 20, 0.98);
+  border-color: rgba(200, 160, 100, 0.8);
+}
+.lj-step[data-step="2"]:hover .lj-step-inner {
+  background: rgba(25, 40, 30, 0.98);
+  border-color: rgba(120, 180, 140, 0.8);
+}
+.lj-step[data-step="3"]:hover .lj-step-inner {
+  background: rgba(40, 28, 35, 0.98);
+  border-color: rgba(180, 130, 160, 0.8);
+}
+.lj-step[data-step="4"]:hover .lj-step-inner {
+  background: rgba(28, 35, 50, 0.98);
+  border-color: rgba(130, 160, 200, 0.8);
+}
+.lj-step[data-step="5"]:hover .lj-step-inner {
+  background: rgba(45, 35, 20, 0.98);
+  border-color: rgba(190, 150, 100, 0.8);
+}
+.lj-step[data-step="6"]:hover .lj-step-inner {
+  background: rgba(50, 30, 20, 0.98);
+  border-color: rgba(200, 130, 90, 0.8);
+}
+.lj-step[data-step="7"]:hover .lj-step-inner {
+  background: rgba(55, 45, 20, 0.98);
+  border-color: rgba(212, 175, 55, 0.85);
+}
+
+/* ════════════════════════════════════════════════════════════
+   ACTIVE STATE (CLICKED) — PREMIUM GLOW
+   ════════════════════════════════════════════════════════════ */
+
+.lj-step.is-active .lj-step-inner {
+  box-shadow:
+    0 0 0 3px rgba(212, 175, 55, 0.5),
+    0 8px 20px rgba(0, 0, 0, 0.3),
+    0 0 25px var(--glow-color);
+  transform: scale(1.04) translateY(-3px);
+}
+
+.lj-step.is-active .lj-step-inner::before {
+  opacity: 0.5;
+}
+
+/* ─── Unique active backgrounds per card ─── */
+.lj-step[data-step="1"].is-active .lj-step-inner {
+  background: rgba(50, 38, 22, 1);
+  border-color: rgba(200, 160, 100, 0.9);
+}
+.lj-step[data-step="2"].is-active .lj-step-inner {
+  background: rgba(28, 45, 33, 1);
+  border-color: rgba(120, 180, 140, 0.9);
+}
+.lj-step[data-step="3"].is-active .lj-step-inner {
+  background: rgba(45, 32, 38, 1);
+  border-color: rgba(180, 130, 160, 0.9);
+}
+.lj-step[data-step="4"].is-active .lj-step-inner {
+  background: rgba(32, 40, 55, 1);
+  border-color: rgba(130, 160, 200, 0.9);
+}
+.lj-step[data-step="5"].is-active .lj-step-inner {
+  background: rgba(50, 38, 22, 1);
+  border-color: rgba(190, 150, 100, 0.9);
+}
+.lj-step[data-step="6"].is-active .lj-step-inner {
+  background: rgba(55, 35, 22, 1);
+  border-color: rgba(200, 130, 90, 0.9);
+}
+.lj-step[data-step="7"].is-active .lj-step-inner {
+  background: rgba(60, 50, 22, 1);
+  border-color: rgba(212, 175, 55, 0.9);
+}
+
+/* ════════════════════════════════════════════════════════════
+   TYPOGRAPHY — PREMIUM DARK
+   ════════════════════════════════════════════════════════════ */
+
+.lj-step-day {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.1rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+.lj-step-keyword {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #d4a853;
+  margin-bottom: 0.1rem;
+  letter-spacing: -0.2px;
+  text-shadow: 0 0 8px rgba(212, 168, 83, 0.3);
+}
+
+.lj-step-text {
+  font-size: 0.68rem;
+  color: #ffffff;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.lj-step-accent {
+  color: #c98a5a;
+  font-weight: 700;
+}
+
+/* ════════════════════════════════════════════════════════════
+   PROGRESS BAR
+   ════════════════════════════════════════════════════════════ */
+
+.lj-progress {
+  text-align: center;
+  margin-top: 2.4rem;
+  padding: 0 1.2rem;
+  opacity: 0;
+  animation: lj-fade-up 0.7s ease-out 0.35s forwards;
+}
+
+.lj-progress-track {
+  width: 100%;
+  max-width: 300px;
+  height: 5px;
+  background: #2a2520;
+  border-radius: 10px;
+  margin: 0 auto 0.7rem;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.lj-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #c9842c, #f3c26b, #edb15d);
+  background-size: 200% 100%;
+  border-radius: 10px;
+  transition: width 0.5s cubic-bezier(0.25, 0.8, 0.45, 1);
+}
+
+.lj-progress-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #a09080;
+  transition: color 0.2s;
+}
+
+.lj-progress.is-complete .lj-progress-text {
+  color: #d4a853;
+  font-weight: 700;
+}
+
+@keyframes lj-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ════════════════════════════════════════════════════════════
+   CONNECTING PATH
+   ════════════════════════════════════════════════════════════ */
+
+.lj-connecting-path {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.lj-path-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.lj-path-line {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: path-draw 2.5s ease-out 0.5s forwards;
+}
+
+@keyframes path-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+.lj-path-shimmer {
+  animation: path-shimmer 3s linear 2s infinite;
+}
+
+@keyframes path-shimmer {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -9; }
+}
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE — COMPACT TABLET
+   ════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
   .lj-path-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 35% 20%;
-    display: block;
-    opacity: 0.45;
+    object-position: 60% 20%;
+    opacity: 0.5;
   }
+  .lj-step { width: 175px; }
+  .lj-step-inner { padding: 0.4rem 0.85rem; border-radius: 0.8rem; }
+  .lj-step-keyword { font-size: 0.78rem; }
+  .lj-step-text { font-size: 0.54rem; }
+  .lj-step-day { font-size: 0.48rem; }
+  .lj-step[data-step="1"] { left: 2%; bottom: 5%; }
+  .lj-step[data-step="2"] { left: 10%; bottom: 18%; }
+  .lj-step[data-step="3"] { left: 19%; bottom: 32%; }
+  .lj-step[data-step="4"] { left: 30%; bottom: 44%; }
+  .lj-step[data-step="5"] { left: 42%; bottom: 55%; }
+  .lj-step[data-step="6"] { left: 53%; bottom: 67%; }
+  .lj-step[data-step="7"] { left: 65%; bottom: 79%; }
+}
 
-  /* Steps container */
-  .lj-steps {
-    position: absolute;
-    inset: 0;
-    z-index: 15;
-    pointer-events: none;
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE — COMPACT MOBILE
+   ════════════════════════════════════════════════════════════ */
+
+@media (max-width: 600px) {
+  .lj-path-wrapper { aspect-ratio: 3 / 4; min-height: 460px; border-radius: 1.2rem; }
+  .lj-step { width: 148px; }
+  .lj-step-inner { padding: 0.35rem 0.7rem; border-radius: 0.75rem; }
+  .lj-step-keyword { font-size: 0.72rem; }
+  .lj-step-text { font-size: 0.52rem; }
+  .lj-step-day { font-size: 0.46rem; }
+  .lj-step[data-step="1"] { left: 12%; bottom: 1%; }
+  .lj-step[data-step="2"] { left: 15%; bottom: 15%; }
+  .lj-step[data-step="3"] { left: 21%; bottom: 28%; }
+  .lj-step[data-step="4"] { left: 32%; bottom: 39%; }
+  .lj-step[data-step="5"] { left: 46%; bottom: 47%; }
+  .lj-step[data-step="6"] { left: 61%; bottom: 53%; --rot: 43.8deg; }
+  .lj-step[data-step="7"] { left: 70%; bottom: 60%; --rot: 42deg; }
+}
+
+@media (max-width: 480px) {
+  .lj-step { width: 132px; }
+  .lj-step-inner { padding: 0.3rem 0.55rem; }
+  .lj-step-keyword { font-size: 0.68rem; }
+  .lj-step-text { font-size: 0.5rem; }
+}
+
+/* ════════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .lj-step, .lj-step-inner, .lj-progress-fill, .lj-step-crown {
+    transition: none;
+    animation: none;
   }
-
-  /* Step Card base */
+  .lj-path-line { animation: none; stroke-dashoffset: 0; }
+  .lj-path-shimmer { animation: none; }
   .lj-step {
-    position: absolute;
-    text-decoration: none;
-    width: 195px;
-    pointer-events: auto;
-    cursor: pointer;
-    opacity: 0;
-    transform: translateY(28px) scale(0.92) rotate(var(--rot, 0deg));
-    transition: opacity 0.4s ease, transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
-    will-change: transform, opacity;
-    z-index: 20;
-  }
-
-  .lj-step.is-visible {
     opacity: 1 !important;
     transform: translateY(0) scale(1) rotate(var(--rot, 0deg)) !important;
-    transition: opacity 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.2), transform 0.55s cubic-bezier(0.25, 1.2, 0.35, 1);
   }
+  .lj-header, .lj-progress {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .lj-step:hover .lj-step-inner::before,
+  .lj-step:hover .lj-step-inner::after {
+    animation: none;
+    opacity: 0;
+  }
+}
 
-  /* Individual rotation variables to keep exact look */
-  .lj-step[data-step="1"] { --rot: 0deg; left: 41%;  bottom: 2%; }
-  .lj-step[data-step="2"] { --rot: 8deg; left: 42%; bottom: 16%; }
-  .lj-step[data-step="3"] { --rot: 26.5deg; left: 44%; bottom: 30%; }
-  .lj-step[data-step="4"] { --rot: 36.2deg; left: 50%; bottom: 38%; }
-  .lj-step[data-step="5"] { --rot: 37.5deg; left: 56%; bottom: 46%; }
-  .lj-step[data-step="6"] { --rot: 31.8deg; left: 62%; bottom: 52%; }
-  .lj-step[data-step="7"] { --rot: 27.5deg; left: 66%; bottom: 59%; }
+/* ════════════════════════════════════════════════════════════
+   PREMIUM SEQUENTIAL GLOW TRAIL — Steps 1 → 7
+   Inspired by Aceternity UI & Cursor-style glow effects
+   ════════════════════════════════════════════════════════════ */
 
-  /* Card inner style — DARK PREMIUM */
-  .lj-step-inner {
-    position: relative;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-radius: 0.7rem;
-    padding: 0.35rem 0.9rem;
-    text-align: center;
-    box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255,255,255,0.06);
-    transition: all 0.3s cubic-bezier(0.2, 0.95, 0.4, 1.1);
-  }
+/* ─── Base glow state for all visible cards ─── */
+.lj-step.is-visible .lj-step-inner {
+  transition: 
+    box-shadow 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+    border-color 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+    background 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+    transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
 
-  /* Unique DARK colors for each day card */
-  .lj-step[data-step="1"] .lj-step-inner {
-    background: rgba(30, 25, 18, 0.92);
-    border: 1px solid rgba(200, 160, 100, 0.35);
-    padding: 8px;
-  }
-  .lj-step[data-step="2"] .lj-step-inner {
-    background: rgba(18, 28, 22, 0.92);
-    border: 1px solid rgba(120, 180, 140, 0.35);
-    padding: 8px;
-  }
-  .lj-step[data-step="3"] .lj-step-inner {
-    background: rgba(28, 20, 25, 0.92);
-    border: 1px solid rgba(180, 130, 160, 0.35);
-    padding: 8px;
-  }
-  .lj-step[data-step="4"] .lj-step-inner {
-    background: rgba(20, 24, 32, 0.92);
-    border: 1px solid rgba(130, 160, 200, 0.35);
-    padding: 8px;
-  }
-  .lj-step[data-step="5"] .lj-step-inner {
-    background: rgba(30, 25, 18, 0.92);
-    border: 1px solid rgba(190, 150, 100, 0.35);
-    padding: 8px;
-  }
-  .lj-step[data-step="6"] .lj-step-inner {
-    background: rgba(32, 22, 18, 0.92);
-    border: 1px solid rgba(200, 130, 90, 0.35);
-    padding: 8px;
-  }
-  .lj-step[data-step="7"] .lj-step-inner {
-    background: rgba(35, 30, 15, 0.95);
-    border: 1px solid rgba(212, 175, 55, 0.45);
-    padding: 8px;
-  }
+/* ─── Sequential glow trail animation ─── */
+/* Each card gets a turn to "light up" like a beacon/firefly passing through */
 
-  /* final day special */
-  .lj-step-inner--final {
-    box-shadow: 0 8px 25px rgba(180, 110, 30, 0.2), 0 0 0 1px rgba(212, 175, 55, 0.3);
-  }
+/* Step 1 lights up first (0-2.5s) */
+.lj-step[data-step="1"].is-visible .lj-step-inner {
+  animation: lj-glow-beacon 17.5s cubic-bezier(0.4, 0, 0.2, 1) 0s infinite;
+}
 
-  /* Hover effect: scale + glow */
-  .lj-step:hover {
-    z-index: 40;
-  }
+/* Step 2 (2.5-5s) */
+.lj-step[data-step="2"].is-visible .lj-step-inner {
+  animation: lj-glow-beacon 17.5s cubic-bezier(0.4, 0, 0.2, 1) 2.5s infinite;
+}
 
-  .lj-step:hover .lj-step-inner {
-    transform: scale(1.08) translateY(-8px);
-    box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(212, 175, 55, 0.25);
-    transition: all 0.25s ease-out;
-  }
+/* Step 3 (5-7.5s) */
+.lj-step[data-step="3"].is-visible .lj-step-inner {
+  animation: lj-glow-beacon 17.5s cubic-bezier(0.4, 0, 0.2, 1) 5s infinite;
+}
 
-  /* Unique hover colors per card */
-  .lj-step[data-step="1"]:hover .lj-step-inner {
-    background: rgba(45, 35, 20, 0.98);
-    border-color: rgba(200, 160, 100, 0.7);
-  }
-  .lj-step[data-step="2"]:hover .lj-step-inner {
-    background: rgba(25, 40, 30, 0.98);
-    border-color: rgba(120, 180, 140, 0.7);
-  }
-  .lj-step[data-step="3"]:hover .lj-step-inner {
-    background: rgba(40, 28, 35, 0.98);
-    border-color: rgba(180, 130, 160, 0.7);
-  }
-  .lj-step[data-step="4"]:hover .lj-step-inner {
-    background: rgba(28, 35, 50, 0.98);
-    border-color: rgba(130, 160, 200, 0.7);
-  }
-  .lj-step[data-step="5"]:hover .lj-step-inner {
-    background: rgba(45, 35, 20, 0.98);
-    border-color: rgba(190, 150, 100, 0.7);
-  }
-  .lj-step[data-step="6"]:hover .lj-step-inner {
-    background: rgba(50, 30, 20, 0.98);
-    border-color: rgba(200, 130, 90, 0.7);
-  }
-  .lj-step[data-step="7"]:hover .lj-step-inner {
-    background: rgba(55, 45, 20, 0.98);
-    border-color: rgba(212, 175, 55, 0.75);
-  }
+/* Step 4 (7.5-10s) */
+.lj-step[data-step="4"].is-visible .lj-step-inner {
+  animation: lj-glow-beacon 17.5s cubic-bezier(0.4, 0, 0.2, 1) 7.5s infinite;
+}
 
-  /* active state (clicked) */
-  .lj-step.is-active .lj-step-inner {
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.5), 0 8px 20px rgba(0, 0, 0, 0.3);
+/* Step 5 (10-12.5s) */
+.lj-step[data-step="5"].is-visible .lj-step-inner {
+  animation: lj-glow-beacon 17.5s cubic-bezier(0.4, 0, 0.2, 1) 10s infinite;
+}
+
+/* Step 6 (12.5-15s) */
+.lj-step[data-step="6"].is-visible .lj-step-inner {
+  animation: lj-glow-beacon 17.5s cubic-bezier(0.4, 0, 0.2, 1) 12.5s infinite;
+}
+
+/* Step 7 (15-17.5s) */
+.lj-step[data-step="7"].is-visible .lj-step-inner {
+  animation: lj-glow-beacon 17.5s cubic-bezier(0.4, 0, 0.2, 1) 15s infinite;
+}
+
+/* ─── The glow beacon keyframes ─── */
+/* 0-12%: Building up glow (1.5s build)
+   12-22%: Peak brightness (1.75s hold)
+   22-100%: Fading back to dim (13.75s rest) */
+@keyframes lj-glow-beacon {
+  0% {
+    box-shadow:
+      0 12px 28px -10px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255,255,255,0.08),
+      inset 0 1px 0 rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.08);
+    transform: scale(1) translateY(0);
+  }
+  8% {
+    box-shadow:
+      0 16px 32px -8px rgba(0, 0, 0, 0.4),
+      0 0 0 1.5px rgba(255,255,255,0.15),
+      0 0 12px var(--glow-color),
+      0 0 24px var(--glow-color),
+      inset 0 1px 0 rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+    transform: scale(1.02) translateY(-2px);
+  }
+  14% {
+    box-shadow:
+      0 20px 40px -6px rgba(0, 0, 0, 0.35),
+      0 0 0 2px rgba(255,255,255,0.25),
+      0 0 25px var(--glow-color),
+      0 0 50px var(--glow-color),
+      0 0 80px rgba(var(--glow-color-rgb, 212, 168, 83), 0.15),
+      inset 0 1px 0 rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.35);
     transform: scale(1.04) translateY(-3px);
   }
+  22% {
+    box-shadow:
+      0 24px 48px -4px rgba(0, 0, 0, 0.3),
+      0 0 0 2.5px rgba(255,255,255,0.3),
+      0 0 35px var(--glow-color),
+      0 0 70px var(--glow-color),
+      0 0 110px rgba(var(--glow-color-rgb, 212, 168, 83), 0.2),
+      inset 0 1px 0 rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.45);
+    transform: scale(1.05) translateY(-4px);
+  }
+  30% {
+    box-shadow:
+      0 20px 40px -6px rgba(0, 0, 0, 0.35),
+      0 0 0 2px rgba(255,255,255,0.2),
+      0 0 20px var(--glow-color),
+      0 0 40px var(--glow-color),
+      inset 0 1px 0 rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.25);
+    transform: scale(1.02) translateY(-2px);
+  }
+  100% {
+    box-shadow:
+      0 12px 28px -10px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255,255,255,0.08),
+      inset 0 1px 0 rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.08);
+    transform: scale(1) translateY(0);
+  }
+}
 
-  /* Unique active colors per card */
-  .lj-step[data-step="1"].is-active .lj-step-inner {
-    background: rgba(50, 38, 22, 1);
-    border-color: rgba(200, 160, 100, 0.9);
-  }
-  .lj-step[data-step="2"].is-active .lj-step-inner {
-    background: rgba(28, 45, 33, 1);
-    border-color: rgba(120, 180, 140, 0.9);
-  }
-  .lj-step[data-step="3"].is-active .lj-step-inner {
-    background: rgba(45, 32, 38, 1);
-    border-color: rgba(180, 130, 160, 0.9);
-  }
-  .lj-step[data-step="4"].is-active .lj-step-inner {
-    background: rgba(32, 40, 55, 1);
-    border-color: rgba(130, 160, 200, 0.9);
-  }
-  .lj-step[data-step="5"].is-active .lj-step-inner {
-    background: rgba(50, 38, 22, 1);
-    border-color: rgba(190, 150, 100, 0.9);
-  }
-  .lj-step[data-step="6"].is-active .lj-step-inner {
-    background: rgba(55, 35, 22, 1);
-    border-color: rgba(200, 130, 90, 0.9);
-  }
-  .lj-step[data-step="7"].is-active .lj-step-inner {
-    background: rgba(60, 50, 22, 1);
-    border-color: rgba(212, 175, 55, 0.9);
-  }
+/* ─── Add subtle inner glow pulse on text during beacon ─── */
+.lj-step.is-visible .lj-step-keyword {
+  transition: text-shadow 0.6s ease, color 0.6s ease;
+}
 
-  /* Typography inside cards — DARK */
-  .lj-step-day {
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #ffffff;
-    margin-bottom: 0.1rem;
-  }
+.lj-step[data-step="1"].is-visible .lj-step-keyword { animation: lj-text-glow 17.5s ease 0s infinite; }
+.lj-step[data-step="2"].is-visible .lj-step-keyword { animation: lj-text-glow 17.5s ease 2.5s infinite; }
+.lj-step[data-step="3"].is-visible .lj-step-keyword { animation: lj-text-glow 17.5s ease 5s infinite; }
+.lj-step[data-step="4"].is-visible .lj-step-keyword { animation: lj-text-glow 17.5s ease 7.5s infinite; }
+.lj-step[data-step="5"].is-visible .lj-step-keyword { animation: lj-text-glow 17.5s ease 10s infinite; }
+.lj-step[data-step="6"].is-visible .lj-step-keyword { animation: lj-text-glow 17.5s ease 12.5s infinite; }
+.lj-step[data-step="7"].is-visible .lj-step-keyword { animation: lj-text-glow 17.5s ease 15s infinite; }
 
-  .lj-step-keyword {
-    font-size: 0.82rem;
-    font-weight: 800;
+@keyframes lj-text-glow {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(212, 168, 83, 0.3);
     color: #d4a853;
-    margin-bottom: 0.1rem;
-    letter-spacing: -0.2px;
   }
+  14% {
+    text-shadow: 0 0 15px rgba(212, 168, 83, 0.6), 0 0 30px rgba(212, 168, 83, 0.3);
+    color: #e8c070;
+  }
+  22% {
+    text-shadow: 0 0 20px rgba(212, 168, 83, 0.8), 0 0 40px rgba(212, 168, 83, 0.4);
+    color: #f0d080;
+  }
+  30% {
+    text-shadow: 0 0 12px rgba(212, 168, 83, 0.5);
+    color: #ddb060;
+  }
+}
 
-  .lj-step-text {
-    font-size: 0.68rem;
-    color: #ffffff;
-    line-height: 1.3;
-    font-weight: 500;
-  }
+/* ─── Hover overrides animation ─── */
+.lj-step:hover .lj-step-inner {
+  animation: none !important;
+  transform: scale(1.1) translateY(-10px);
+  box-shadow:
+    0 24px 40px -10px rgba(0, 0, 0, 0.55),
+    0 0 0 2px rgba(255,255,255,0.1),
+    0 0 30px var(--glow-color),
+    0 0 60px var(--glow-color);
+  transition: all 0.3s cubic-bezier(0.2, 0.95, 0.4, 1.1);
+}
 
-  .lj-step-accent {
-    color: #c98a5a;
-    font-weight: 700;
-  }
+.lj-step:hover .lj-step-keyword {
+  animation: none !important;
+  text-shadow: 0 0 15px rgba(212, 168, 83, 0.6);
+}
 
-  /* Progress bar */
-  .lj-progress {
-    text-align: center;
-    margin-top: 2.4rem;
-    padding: 0 1.2rem;
-    opacity: 0;
-    animation: lj-fade-up 0.7s ease-out 0.35s forwards;
-  }
+/* ─── Active/clicked state ─── */
+.lj-step.is-active .lj-step-inner {
+  animation: none !important;
+}
 
-  .lj-progress-track {
-    width: 100%;
-    max-width: 300px;
-    height: 5px;
-    background: #2a2520;
-    border-radius: 10px;
-    margin: 0 auto 0.7rem;
-    overflow: hidden;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-  }
+.lj-step.is-active .lj-step-keyword {
+  animation: none !important;
+}
 
-  .lj-progress-fill {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #c9842c, #f3c26b, #edb15d);
-    background-size: 200% 100%;
-    border-radius: 10px;
-    transition: width 0.5s cubic-bezier(0.25, 0.8, 0.45, 1);
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .lj-step.is-visible .lj-step-inner,
+  .lj-step.is-visible .lj-step-keyword {
+    animation: none !important;
   }
+}
 
-  .lj-progress-text {
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    color: #a09080;
-    transition: color 0.2s;
-  }
 
-  .lj-progress.is-complete .lj-progress-text {
-    color: #d4a853;
-    font-weight: 700;
-  }
-
-  @keyframes lj-fade-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ─── Connecting Path ─── */
-  .lj-connecting-path {
-    position: absolute;
-    inset: 0;
-    z-index: 10;
-    pointer-events: none;
-    overflow: visible;
-  }
-
-  .lj-path-svg {
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-  }
-
-  /* Main path line */
-  .lj-path-line {
-    stroke-dasharray: 200;
-    stroke-dashoffset: 200;
-    animation: path-draw 2.5s ease-out 0.5s forwards;
-  }
-
-  @keyframes path-draw {
-    to { stroke-dashoffset: 0; }
-  }
-
-  /* Shimmer animation */
-  .lj-path-shimmer {
-    animation: path-shimmer 3s linear 2s infinite;
-  }
-
-  @keyframes path-shimmer {
-    0% { stroke-dashoffset: 0; }
-    100% { stroke-dashoffset: -9; }
-  }
-
-  /* Responsive tweaks — COMPACT TABLET */
-  @media (max-width: 768px) {
-     .lj-path-bg img {
-        object-position: 60% 20%;
-        opacity: 0.5;
-    }
-    .lj-step { width: 175px; }
-    .lj-step-inner { padding: 0.3rem 0.75rem; border-radius: 0.75rem; }
-    .lj-step-keyword { font-size: 0.78rem; }
-    .lj-step-text { font-size: 0.54rem; }
-    .lj-step-day { font-size: 0.48rem; }
-    .lj-step[data-step="1"] { left: 2%; bottom: 5%; }
-    .lj-step[data-step="2"] { left: 10%; bottom: 18%; }
-    .lj-step[data-step="3"] { left: 19%; bottom: 32%; }
-    .lj-step[data-step="4"] { left: 30%; bottom: 44%; }
-    .lj-step[data-step="5"] { left: 42%; bottom: 55%; }
-    .lj-step[data-step="6"] { left: 53%; bottom: 67%; }
-    .lj-step[data-step="7"] { left: 65%; bottom: 79%; }
-  }
-
-  /* Responsive tweaks — COMPACT MOBILE */
-  @media (max-width: 600px) {
-    .lj-path-wrapper { aspect-ratio: 3 / 4; min-height: 460px; margin: 0 0.8rem; border-radius: 1.2rem; }
-    .lj-step { width: 148px; }
-    .lj-step-inner { padding: 0.28rem 0.6rem; border-radius: 0.7rem; }
-    .lj-step-keyword { font-size: 0.72rem; }
-    .lj-step-text { font-size: 0.52rem; }
-    .lj-step-day { font-size: 0.46rem; }
-    .lj-step[data-step="1"] { left: 1%; bottom: 3%; }
-    .lj-step[data-step="2"] { left: 8%; bottom: 16%; }
-    .lj-step[data-step="3"] { left: 16%; bottom: 30%; }
-    .lj-step[data-step="4"] { left: 26%; bottom: 42%; }
-    .lj-step[data-step="5"] { left: 37%; bottom: 54%; }
-    .lj-step[data-step="6"] { left: 48%; bottom: 66%; }
-    .lj-step[data-step="7"] { left: 60%; bottom: 78%; }
-  }
-
-  @media (max-width: 480px) {
-    .lj-step { width: 132px; }
-    .lj-step-inner { padding: 0.25rem 0.5rem; }
-    .lj-step-keyword { font-size: 0.68rem; }
-    .lj-step-text { font-size: 0.5rem; }
-  }
-
-  /* Reduced motion preference */
-  @media (prefers-reduced-motion: reduce) {
-    .lj-step, .lj-step-inner, .lj-progress-fill, .lj-step-crown {
-      transition: none;
-      animation: none;
-    }
-    .lj-path-line { animation: none; stroke-dashoffset: 0; }
-    .lj-path-shimmer { animation: none; }
-    .lj-step {
-      opacity: 1 !important;
-      transform: translateY(0) scale(1) rotate(var(--rot, 0deg)) !important;
-    }
-    .lj-header, .lj-progress {
-      animation: none;
-      opacity: 1;
-      transform: none;
-    }
-  }
