@@ -743,28 +743,30 @@ body.night-theme .dropdown-link:hover {
     /* ============================================
        TAGLINE SECTION
        ============================================ */
-    .tagline-section {
-      text-align: center;
-      background: var(--color-primary);
-    }
+  .tagline-section {
+    background: var(--color-primary);
+    min-height: 50vh; /* optional */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
 
-    .tagline-box {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--color-white);
-      padding: 1rem 2rem;
-      border-radius: 16px;
-      font-size: clamp(1rem, 2.5vw, 1.5rem);
-      color: var(--color-primary);
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+.hero-heading {
+    max-width: 900px;
+    margin: 0 auto;
+}
 
-    .tagline-box img {
-      height: 40px;
-      width: auto;
-    }
+.hero-tagline {
+    margin-top: 1.5rem;
+}
+
+.hero-video-inline {
+    display: inline-block;
+    vertical-align: middle;
+}
 
     /* ============================================
        VISUAL PATHWAYS - BRIDGE CAROUSEL
@@ -828,7 +830,7 @@ body.night-theme .dropdown-link:hover {
   font-weight: 500;
   letter-spacing: .04em;
   line-height: 1.5;
-  max-width: 820px;
+
   margin-inline: auto;
 
   animation: textGlow 3s ease-in-out infinite alternate;
