@@ -127,7 +127,7 @@
     list-style: none;
     gap: 30px; 
     align-items: center;
-    
+    margin-left: 20px;
     margin-right: 20px;
 }
 
@@ -488,65 +488,190 @@ body.night-theme .dropdown-link:hover {
         height: 28px;
     }
 }
+/* ======================================================
+   MOBILE NAVBAR
+====================================================== */
+@media (max-width:768px){
 
-@media (max-width: 768px) {
-    .navbar-container {
-        height: 64px;
-        padding: 0 16px;
+    .navbar-container{
+        height:70px;
+        padding:0 18px;
     }
-    
-    .navbar-brand img {
-        height: 60px;
+
+    .navbar-brand img{
+        height:58px;
+        width:auto;
     }
-    
-    .navbar-toggle {
-        display: flex;
+
+    .navbar-toggle{
+        display:flex;
+        z-index:1002;
     }
-    
-    .navbar-menu {
+
+    .navbar-icons{
+        display:none;
+    }
+
+    .navbar-prayer{
+        display:none;
+    }
+
+    .theme-toggle{
+        order:-1;
+    }
+
+    .navbar-menu{
         
-        position: absolute;
-        top: 64px;
-        left: 0;
-        right: 0;
-        background: #0A0E1A;
-        flex-direction: column;
-        padding: 20px;
-        gap: 12px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        margin: 0;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        position:fixed;
+        top:75px;
+        left:15px;
+        right:15px;
+
+        flex-direction:column;
+        gap:8px;
+
+        padding:18px;
+
+        border-radius:18px;
+
+        backdrop-filter:blur(20px);
+
+        box-shadow:0 15px 45px rgba(0,0,0,.35);
+
+        z-index:1001;
+
+        max-height:calc(100vh - 95px);
+        overflow-y:auto;
     }
-    
-    .navbar-menu.active {
-        display: flex;
+
+    .navbar-menu.active{
+        display:flex;
     }
-    
-   /* Light mode (default ya day) */
-[data-theme="day"] .navbar-link {
-  color: rgba(5, 5, 5, 0.8);
-}
 
-[data-theme="day"] .navbar-link.active {
-  color: rgba(5, 5, 5, 1);
-}
-
-
-/* Dark mode */
-[data-theme="night"] .navbar-link {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-[data-theme="night"] .navbar-link.active {
-  color: rgba(255, 255, 255, 1);
-}
-    
-    .navbar-prayer {
-        display: none;
+    .navbar-menu li{
+        width:100%;
+        list-style:none;
     }
-    
-    .theme-toggle {
-        order: -1;
+
+    .navbar-link{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+
+        width:100%;
+
+        padding:14px 18px;
+
+        font-size:1rem;
+        font-weight:600;
+
+        border-radius:12px;
+
+        transition:.3s;
+    }
+
+    .navbar-link.active::after{
+        display:none;
+    }
+
+    /* Dropdown */
+
+    .dropdown-menu{
+        position:static;
+        display:none;
+        opacity:1;
+        visibility:visible;
+        transform:none;
+
+        margin-top:6px;
+        margin-left:14px;
+
+        border-radius:12px;
+
+        padding:8px 0;
+
+        box-shadow:none;
+    }
+
+    .nav-dropdown.active .dropdown-menu{
+        display:block;
+    }
+
+    .dropdown-link{
+        display:block;
+        padding:12px 16px;
+        border-radius:10px;
+        font-size:.95rem;
+    }
+
+    .dropdown-arrow{
+        transition:.3s;
+    }
+
+    .nav-dropdown.active .dropdown-arrow{
+        transform:rotate(180deg);
+    }
+
+    /* ==========================
+       DAY THEME
+    ========================== */
+
+    [data-theme="day"] .navbar-menu{
+        background:rgba(255,255,255,.98);
+        border:1px solid #e5e7eb;
+    }
+
+    [data-theme="day"] .navbar-link{
+        color:#111827;
+    }
+
+    [data-theme="day"] .navbar-link:hover{
+        background:#f3f4f6;
+        color:#000;
+    }
+
+    [data-theme="day"] .dropdown-menu{
+        background:#f9fafb;
+        border:1px solid #e5e7eb;
+    }
+
+    [data-theme="day"] .dropdown-link{
+        color:#111827;
+    }
+
+    [data-theme="day"] .dropdown-link:hover{
+        background:#eceff3;
+    }
+
+    /* ==========================
+       NIGHT THEME
+    ========================== */
+
+    [data-theme="night"] .navbar-menu{
+        background:#0A0E1A;
+        border:1px solid rgba(255,255,255,.08);
+    }
+
+    [data-theme="night"] .navbar-link{
+        color:rgba(255,255,255,.88);
+    }
+
+    [data-theme="night"] .navbar-link:hover{
+        background:rgba(255,255,255,.08);
+        color:#fff;
+    }
+
+    [data-theme="night"] .dropdown-menu{
+        background:#111827;
+        border:1px solid rgba(255,255,255,.08);
+    }
+
+    [data-theme="night"] .dropdown-link{
+        color:#fff;
+    }
+
+    [data-theme="night"] .dropdown-link:hover{
+        background:rgba(255,255,255,.08);
     }
 }
     /* ============================================
