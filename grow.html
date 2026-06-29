@@ -221,7 +221,7 @@
 .navbar-menu {
     display: flex; 
     list-style: none;
-    gap: 8px; 
+    gap: 30px; 
     align-items: center;
     
     margin-right: 20px;
@@ -230,7 +230,7 @@
 .navbar-link {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.8);  /* White text with slight opacity */
-    font-size: 0.85rem; 
+    font-size: 1rem; 
     font-weight: 500;
     padding: 8px 12px; 
     border-radius: 8px;
@@ -1356,30 +1356,93 @@ body.night-theme .dropdown-link:hover {
             <img src="/images/logo.png" alt="LightMode Ministries">
         </a>
 
-        <!-- Menu Items -->
-        <ul class="navbar-menu" id="navbar-menu" role="menubar">
-            <li role="none"><a href="/" class="navbar-link " role="menuitem">Home</a></li>
-            <li role="none"><a href="/start-here.html" class="navbar-link start-here " role="menuitem">Start Here</a></li>
-            <li role="none"><a href="/rest.html" class="navbar-link " role="menuitem">Rest</a></li>
-            <li role="none"><a href="/grow.html" class="navbar-link active" role="menuitem">Grow</a></li>
-            <li role="none"><a href="/stories.html" class="navbar-link" role="menuitem">Stories</a></li>
-            <li role="none"><a href="/bible-study.html" class="navbar-link" role="menuitem">Bible Study</a></li>
-            <li role="none"><a href="/teens.html" class="navbar-link" role="menuitem">Teens</a></li>
-            <li role="none"><a href="/lumenquest.html" class="navbar-link lumenquest" role="menuitem">LumenQuest</a></li>
-            <li role="none"><a href="/resources.html" class="navbar-link" role="menuitem">Resources</a></li>
-           <li class="nav-dropdown" role="none">
-    <a href="#" class="navbar-link dropdown-toggle" role="menuitem" aria-expanded="false">
-        About Us
-        <span class="dropdown-arrow">▼</span>
-    </a>
+        <!-- ===== MERGED NAVBAR ===== -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-container">
+        <!-- Brand Logo (Only Image) -->
+        <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
+            <img src="/images/logo.png" alt="LightMode Ministries">
+        </a>
 
-    <ul class="dropdown-menu">
-        <li><a href="/about.html" class="dropdown-link">About</a></li>
-        <li><a href="/contact.html" class="dropdown-link">Contact</a></li>
-    </ul>
-</li>
+       <ul class="navbar-menu" id="navbar-menu" role="menubar">
+
+    <li role="none"><a href="/" class="navbar-link">Home</a></li>
+
+    <li role="none"><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
+
+    <li role="none"><a href="/rest.html" class="navbar-link ">Rest</a></li>
+
+    <!-- GROW DROPDOWN (NEW ORGANIZED STRUCTURE) -->
+    <li class="nav-dropdown" role="none">
+        <a href="#" class="navbar-link dropdown-toggle">
+            Grow <span class="dropdown-arrow">▼</span>
+        </a>
+
+        <ul class="dropdown-menu">
+            <li><a href="/grow.html" class="dropdown-link active">Grow Overview</a></li>
+            <li><a href="/bible-study.html" class="dropdown-link">Bible Study</a></li>
+            <li><a href="/stories.html" class="dropdown-link">Stories</a></li>
+            <li><a href="/teens.html" class="dropdown-link">Teens</a></li>
+            <li><a href="/resources.html" class="dropdown-link">Resources</a></li>
         </ul>
+    </li>
 
+    <!-- LUMENQUEST -->
+    <li role="none">
+        <a href="/lumenquest.html" class="navbar-link lumenquest">LumenQuest</a>
+    </li>
+
+    <!-- ABOUT DROPDOWN -->
+    <li class="nav-dropdown" role="none">
+        <a href="#" class="navbar-link dropdown-toggle">
+            About Us <span class="dropdown-arrow">▼</span>
+        </a>
+
+        <ul class="dropdown-menu">
+            <li><a href="/about.html" class="dropdown-link">About</a></li>
+            <li><a href="/contact.html" class="dropdown-link">Contact</a></li>
+        </ul>
+    </li>
+
+</ul>
+
+        <!-- Actions Section -->
+        <div class="navbar-actions">
+            <!-- Theme Toggle -->
+            <div class="theme-toggle" role="group" aria-label="Theme toggle">
+                <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+
+        
+
+          
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</nav>
         <!-- Actions Section -->
         <div class="navbar-actions">
             <!-- Theme Toggle -->
@@ -1718,15 +1781,16 @@ body.night-theme .dropdown-link:hover {
             }
         }
 
-        // Load saved theme
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'day') {
-                setTheme('day');
-            } else {
-                setTheme('night');
-            }
-        });
+        // Load saved theme (DEFAULT = DAY)
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'night') {
+        setTheme('night');
+    } else {
+        setTheme('day'); // 👈 DEFAULT NOW DAY
+    }
+});
 
          // Mobile menu toggle
         const navbarToggle = document.querySelector('.navbar-toggle');

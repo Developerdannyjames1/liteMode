@@ -192,33 +192,45 @@ const initBridgeCarousel = () => {
     "/start-here.html","/rest.html", "/grow.html", "/stories.html",
     "/teens.html", "/lumenquest.html", "/resources.html", "/about.html", "/contact.html"
   ];
-
+const LABELS = [
+  "Start Here", "Rest", "Grow", "Stories",
+  "Teens", "LumenQuest", "Resources", "About Us", "Contact"
+];
   const track = document.getElementById('bridgeTrack');
   if (!track) return;
 
-  const buildTrack = () => {
-    track.innerHTML = '';
-    for (let i = 0; i < 3; i++) {
-      IMAGES.forEach((src, idx) => {
-        const card = document.createElement('div');
-        card.className = 'bridge-card';
-        
-        // Create anchor tag
-        const link = document.createElement('a');
-        link.href = LINKS[idx];
-        
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = `Featured scene ${idx + 1}`;
-        img.loading = 'eager';
-        
-        link.appendChild(img);
-        card.appendChild(link);
-        track.appendChild(card);
-      });
-    }
-  };
+ const buildTrack = () => {
+  track.innerHTML = '';
 
+  for (let i = 0; i < 3; i++) {
+    IMAGES.forEach((src, idx) => {
+
+      const card = document.createElement('div');
+      card.className = 'bridge-card';
+
+      // ✅ FIX: create link first
+      const link = document.createElement('a');
+      link.href = LINKS[idx];
+
+      // image
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = LABELS[idx];
+
+      // label
+      const label = document.createElement('div');
+      label.className = 'bridge-label';
+      label.innerText = LABELS[idx];
+
+      // append correctly
+      link.appendChild(img);
+      link.appendChild(label);
+
+      card.appendChild(link);
+      track.appendChild(card);
+    });
+  }
+};
   buildTrack();
 
   const cards = Array.from(track.querySelectorAll('.bridge-card'));
