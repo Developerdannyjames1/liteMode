@@ -591,6 +591,8 @@ body.night-theme .dropdown-link:hover {
         padding:8px 0;
 
         box-shadow:none;
+        max-height: 220px;
+        overflow-y: auto;
     }
 
     .nav-dropdown.active .dropdown-menu{
