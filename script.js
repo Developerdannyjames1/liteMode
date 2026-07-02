@@ -162,22 +162,24 @@ const initNavbar = () => {
   });
 
   document.querySelectorAll('.navbar-link').forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-};
-document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-    toggle.addEventListener('click', function (e) {
-        if (window.innerWidth <= 768) {
-            e.preventDefault();
+    link.addEventListener('click', (e) => {
 
-            const parent = this.parentElement;
-            parent.classList.toggle('active');
+        // Mobile par dropdown toggle click ho to menu close na karo
+        if (window.innerWidth <= 768 && link.classList.contains('dropdown-toggle')) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            link.parentElement.classList.toggle('active');
+            return;
         }
+
+        // Baaki links par menu close ho
+        menu.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
     });
 });
+};
+
 /* ============================================
    BRIDGE CAROUSEL
    ============================================ */
