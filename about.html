@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+      <style>
         @font-face {
             font-family: 'RecklessStandard';
             src: url('./fonts/RecklessStandardM-TRIAL-Regular.otf') format('opentype');
@@ -19,7 +19,6 @@
             font-weight: normal; font-style: normal; font-display: swap;
         }
 
-        /* THEME VARIABLES - NIGHT (default) */
         :root {
             --bg-primary: #0a0a12;
             --bg-secondary: #12121f;
@@ -74,7 +73,6 @@
             --getinvolved-bg: linear-gradient(135deg, rgba(30,30,50,0.9) 0%, rgba(20,20,35,0.9) 100%);
         }
 
-        /* THEME VARIABLES - DAY MODE */
         [data-theme="day"] {
             --bg-primary: #faf8f5;
             --bg-secondary: #f5f0eb;
@@ -130,15 +128,21 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; overflow-x: hidden;}
+        html { scroll-behavior: smooth; overflow-x: hidden; -webkit-text-size-adjust: 100%; touch-action: manipulation; }
         body {
             font-family: 'RecklessStandard', 'Inter', sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
+            -webkit-tap-highlight-color: transparent;
+            overscroll-behavior-x: none;
             transition: background-color 0.5s ease, color 0.5s ease;
         }
+        img, video, iframe, svg { max-width: 100%; height: auto; display: block; }
+        * { min-width: 0; min-height: 0; }
+        h1, h2, h3, h4, h5, h6, p, span, a, li { word-break: break-word; overflow-wrap: break-word; }
 
         .starfield {
             position: fixed; top: 0; left: 0;
@@ -151,409 +155,234 @@
                 radial-gradient(ellipse at 80% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
                 radial-gradient(ellipse at 50% 50%, rgba(45, 43, 85, 0.15) 0%, transparent 60%);
         }
-    /* ===== MERGED NAVBAR STYLES ===== */
-.navbar {
-    position: fixed; 
-    top: 0; 
-    left: 0;
-    width: 100%; 
-    z-index: 1000;
-    background: #0A0E1A;  /* Solid dark background with contrast */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.3s ease;
-}
 
-.navbar-container {
-    max-width: 1440px; 
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex; 
-    align-items: center;
-    justify-content: space-between;
-    height: 72px;
-}
+        .navbar {
+            position: fixed; top: 0; left: 0;
+            width: 100%; z-index: 1000;
+            background: #0A0E1A;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .navbar-container {
+            max-width: 1440px; margin: 0 auto;
+            padding: 0 40px;
+            display: flex; align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .navbar-brand {
+            display: flex; align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+        .navbar-brand img {
+            height: 80px; width: auto;
+            object-fit: contain; display: block;
+        }
+        .navbar-menu {
+            display: flex; list-style: none;
+            gap: 20px; align-items: center;
+        }
+        .navbar-link {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem; font-weight: 500;
+            padding: 8px 12px; border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+        }
+        .navbar-link:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .navbar-link.active {
+            color: #ffffff; font-weight: 600;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .navbar-link.active::after {
+            content: ''; position: absolute;
+            bottom: -2px; left: 50%;
+            transform: translateX(-50%);
+            width: 20px; height: 2px;
+            background: var(--accent-violet, #8B5CF6);
+            border-radius: 1px;
+        }
+        .navbar-link.start-here {
+            background: linear-gradient(135deg, #8B5CF6, #6366F1);
+            color: #ffffff; font-weight: 600;
+            padding: 8px 16px;
+            box-shadow: 0 2px 12px rgba(139, 92, 246, 0.4);
+            border: none;
+        }
+        .navbar-link.start-here:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.6);
+            color: #ffffff;
+            background: linear-gradient(135deg, #9B6CF6, #7373F1);
+        }
+        .navbar-link.start-here.active::after { display: none; }
+        .navbar-link.lumenquest {
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700; font-size: 0.9rem;
+        }
+          .navbar-link.inspiration {
+            background: linear-gradient(90deg, #fbbf24, #f472b6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700; font-size: 0.9rem;
+        }
+        .navbar-link.inspiration:hover {
+            transform: scale(1.05); filter: brightness(1.2);
+        }
+        .navbar-link.inspiration.active::after {
+            background: linear-gradient(90deg, #fbbf24, #f472b6);
+        }
+        .navbar-link.lumenquest:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+        .navbar-link.lumenquest.active::after {
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+        }
+        .navbar-actions {
+            display: flex; align-items: center;
+            gap: 12px; flex-shrink: 0;
+        }
+        .theme-toggle {
+            display: flex; align-items: center;
+            gap: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50px; padding: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .theme-btn {
+            width: 32px; height: 32px;
+            border-radius: 50%; border: none;
+            background: transparent; cursor: pointer;
+            display: flex; align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 0;
+        }
+        .theme-btn.active {
+            background: #6366F1; color: #ffffff;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+        }
+        .theme-btn:hover:not(.active) {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .theme-btn svg { width: 16px; height: 16px; }
+        .navbar-icons {
+            display: flex; align-items: center; gap: 8px;
+        }
+        .navbar-icon {
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer; transition: all 0.3s ease;
+            background: none; border: none;
+            padding: 6px; border-radius: 50%;
+            display: flex; align-items: center;
+            justify-content: center;
+        }
+        .navbar-icon:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .navbar-prayer {
+            background: linear-gradient(135deg, #8B5CF6, #6366F1);
+            color: #ffffff; border: none;
+            padding: 10px 20px; border-radius: 50px;
+            font-size: 0.85rem; font-weight: 600;
+            cursor: pointer;
+            display: flex; align-items: center; gap: 6px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            white-space: nowrap;
+        }
+        .navbar-prayer:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.6);
+        }
+        .navbar-toggle {
+            display: none; flex-direction: column;
+            gap: 5px; background: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px; cursor: pointer;
+            padding: 8px; margin-left: 8px;
+        }
+        .navbar-toggle span {
+            display: block; width: 24px; height: 2px;
+            background: #ffffff; border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .navbar-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .navbar-toggle.active span:nth-child(2) { opacity: 0; }
+        .navbar-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
 
-/* Brand Logo - Image Only */
-.navbar-brand {
-    display: flex; 
-    align-items: center;
-    text-decoration: none;
-    flex-shrink: 0;
-}
+        @media (max-width: 1200px) {
+            .navbar-container { padding: 0 20px; }
+            .navbar-menu { gap: 2px; }
+            .navbar-link { padding: 6px 10px; font-size: 0.8rem; }
+            .navbar-prayer { padding: 8px 14px; font-size: 0.8rem; }
+            .navbar-brand img { height: 60px; }
+        }
+        @media (max-width: 1024px) {
+            .navbar-icons { gap: 4px; }
+            .navbar-icon { padding: 4px; }
+            .theme-toggle { gap: 2px; }
+            .theme-btn { width: 28px; height: 28px; }
+        }
+        @media (max-width: 768px) {
+            .navbar-container { height: 70px; padding: 0 18px; }
+            .navbar-brand img { height: 55px; width: auto; }
+            .navbar-toggle { display: flex; z-index: 1002; }
+            .navbar-menu {
+                display: none; flex-direction: column;
+                align-items: stretch; position: fixed;
+                top: 80px; left: 15px; right: 15px;
+                max-height: calc(100vh - 100px);
+                overflow-y: auto; padding: 20px; gap: 8px;
+                background: rgba(10, 14, 26, 0.96);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255,255,255,.08);
+                border-radius: 18px;
+                box-shadow: 0 20px 60px rgba(0,0,0,.35);
+                z-index: 1001;
+            }
+            .navbar-menu.active { display: flex; }
+            .navbar-menu li { width: 100%; list-style: none; }
+            .navbar-link {
+                display: flex; align-items: center;
+                justify-content: space-between;
+                width: 100%; padding: 14px 16px;
+                font-size: 1rem; font-weight: 600;
+                border-radius: 12px;
+            }
+            .navbar-link:hover { background: rgba(255,255,255,.08); }
+            .dropdown-menu {
+                position: static; opacity: 1;
+                visibility: visible; transform: none;
+                display: none; margin-top: 8px;
+                margin-left: 12px; background: transparent;
+                border: none; box-shadow: none; padding: 0;
+            }
+            .nav-dropdown.active .dropdown-menu { display: block; }
+            .dropdown-link {
+                display: block; padding: 12px 14px;
+                border-radius: 10px; font-size: .95rem;
+            }
+            .navbar-icons { display: none; }
+        }
 
-.navbar-brand img {
-    height: 80px;
-    width: auto;
-    object-fit: contain;
-    display: block;
-}
-
-/* Menu Items */
-.navbar-menu {
-    display: flex; 
-    list-style: none;
-    gap: 20px; 
-    align-items: center;
-    
-   
-}
-
-.navbar-link {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.8);  /* White text with slight opacity */
-    font-size: 1rem; 
-    font-weight: 500;
-    padding: 8px 12px; 
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    position: relative;
-    white-space: nowrap;
-}
-
-.navbar-link:hover {
-    color: #ffffff;  /* Pure white on hover */
-    background: rgba(255, 255, 255, 0.08);
-}
-
-.navbar-link.active {
-    color: #ffffff;
-    font-weight: 600;
-    background: rgba(255, 255, 255, 0.05);
-}
-
-/* Active indicator */
-.navbar-link.active::after {
-    content: ''; 
-    position: absolute;
-    bottom: -2px; 
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px; 
-    height: 2px;
-    background: var(--accent-violet, #8B5CF6);
-    border-radius: 1px;
-}
-
-/* Start Here - Special Button */
-.navbar-link.start-here {
-    background: linear-gradient(135deg, #8B5CF6, #6366F1);
-    color: #ffffff;
-    font-weight: 600;
-    padding: 8px 16px;
-    box-shadow: 0 2px 12px rgba(139, 92, 246, 0.4);
-    border: none;
-}
-
-.navbar-link.start-here:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.6);
-    color: #ffffff;
-    background: linear-gradient(135deg, #9B6CF6, #7373F1);
-}
-
-.navbar-link.start-here.active::after {
-    display: none;
-}
-
-/* LumenQuest - Rainbow Gradient Text (Special) */
-.navbar-link.lumenquest {
-    background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 700;
-    font-size: 0.9rem;
-}
-
-.navbar-link.lumenquest:hover {
-    transform: scale(1.05);
-    filter: brightness(1.2);
-}
-
-.navbar-link.lumenquest.active::after {
-    background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
-}
-
-/* Actions Section */
-.navbar-actions {
-    display: flex; 
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-}
-
-/* Theme Toggle */
-.theme-toggle {
-    display: flex; 
-    align-items: center;
-    gap: 4px; 
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 50px; 
-    padding: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.theme-btn {
-    width: 32px; 
-    height: 32px;
-    border-radius: 50%; 
-    border: none;
-    background: transparent; 
-    cursor: pointer;
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    color: rgba(255, 255, 255, 0.6);
-    padding: 0;
-}
-
-.theme-btn.active {
-    background: #6366F1;
-    color: #ffffff;
-    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
-}
-
-.theme-btn:hover:not(.active) {
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.theme-btn svg { 
-    width: 16px; 
-    height: 16px; 
-}
-
-/* Navigation Icons */
-.navbar-icons {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.navbar-icon {
-    color: rgba(255, 255, 255, 0.7);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: none;
-    border: none;
-    padding: 6px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.navbar-icon:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-/* Prayer Button */
-.navbar-prayer {
-    background: linear-gradient(135deg, #8B5CF6, #6366F1);
-    color: #ffffff; 
-    border: none;
-    padding: 10px 20px; 
-    border-radius: 50px;
-    font-size: 0.85rem; 
-    font-weight: 600;
-    cursor: pointer;
-    display: flex; 
-    align-items: center;
-    gap: 6px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-    white-space: nowrap;
-}
-
-.navbar-prayer:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(99, 102, 241, 0.6);
-}
-
-/* Mobile Toggle */
-.navbar-toggle {
-    display: none; 
-    flex-direction: column;
-    gap: 5px; 
-    background: none;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
-    cursor: pointer;
-    padding: 8px;
-    margin-left: 8px;
-}
-
-.navbar-toggle span {
-    display: block; 
-    width: 24px; 
-    height: 2px;
-    background: #ffffff;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
-
-/* Toggle open animation */
-.navbar-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.navbar-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.navbar-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Mobile Responsive */
-@media (max-width: 1200px) {
-    .navbar-container {
-        padding: 0 20px;
-    }
-    
-    .navbar-menu {
-        gap: 2px;
-    }
-    
-    .navbar-link {
-        padding: 6px 10px;
-        font-size: 0.8rem;
-    }
-    
-    .navbar-prayer {
-        padding: 8px 14px;
-        font-size: 0.8rem;
-    }
-    
-    .navbar-brand img {
-        height: 60px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .navbar-icons {
-        gap: 4px;
-    }
-    
-    .navbar-icon {
-        padding: 4px;
-    }
-    
-    .theme-toggle {
-        gap: 2px;
-    }
-    
-    .theme-btn {
-        width: 28px;
-        height: 28px;
-    }
-}
-@media (max-width: 768px) {
-
-    .navbar-container {
-        height: 70px;
-        padding: 0 18px;
-    }
-
-    .navbar-brand img {
-        height: 55px;
-        width: auto;
-    }
-
-    .navbar-toggle {
-        display: flex;
-        z-index: 1002;
-    }
-
-    .navbar-menu {
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-
-        position: fixed;
-        top: 80px;
-        left: 15px;
-        right: 15px;
-
-        max-height: calc(100vh - 100px);
-        overflow-y: auto;
-
-        padding: 20px;
-        gap: 8px;
-
-        background: rgba(10, 14, 26, 0.96);
-        backdrop-filter: blur(20px);
-
-        border: 1px solid rgba(255,255,255,.08);
-        border-radius: 18px;
-
-        box-shadow: 0 20px 60px rgba(0,0,0,.35);
-
-        z-index: 1001;
-    }
-
-    .navbar-menu.active {
-        display: flex;
-    }
-
-    .navbar-menu li {
-        width: 100%;
-        list-style: none;
-    }
-
-    .navbar-link {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        width: 100%;
-
-        padding: 14px 16px;
-
-        font-size: 1rem;
-        font-weight: 600;
-
-        border-radius: 12px;
-    }
-
-    .navbar-link:hover {
-        background: rgba(255,255,255,.08);
-    }
-
-    .dropdown-menu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-
-        display: none;
-
-        margin-top: 8px;
-        margin-left: 12px;
-
-        background: transparent;
-        border: none;
-        box-shadow: none;
-        padding: 0;
-    }
-
-    .nav-dropdown.active .dropdown-menu {
-        display: block;
-    }
-
-    .dropdown-link {
-        display: block;
-        padding: 12px 14px;
-        border-radius: 10px;
-        font-size: .95rem;
-    }
-
-    .navbar-icons {
-        display: none;
-    }
-}
-        /* ===== HERO SECTION ===== */
         .hero {
             position: relative; z-index: 1;
             min-height: 100vh;
@@ -586,13 +415,13 @@
             padding: 140px 60px 80px;
             width: 100%;
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 60px;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+            gap: clamp(20px, 4vw, 60px);
             align-items: center;
         }
         .hero-left h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 4rem; font-weight: 800;
+            font-size: clamp(2rem, 5vw, 4rem); font-weight: 800;
             line-height: 1.05; margin-bottom: 12px;
             color: var(--text-primary);
             letter-spacing: -0.03em;
@@ -619,10 +448,8 @@
             flex-wrap: wrap;
         }
         .btn-primary {
-            background: var(--btn-primary-bg);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 50px;
+            background: var(--btn-primary-bg); color: white;
+            padding: 16px 32px; border-radius: 50px;
             text-decoration: none;
             font-size: 0.95rem; font-weight: 600;
             transition: all 0.4s ease;
@@ -639,8 +466,7 @@
             background: var(--btn-secondary-bg);
             border: 1px solid var(--btn-secondary-border);
             color: var(--btn-secondary-text);
-            padding: 16px 32px;
-            border-radius: 50px;
+            padding: 16px 32px; border-radius: 50px;
             text-decoration: none;
             font-size: 0.95rem; font-weight: 600;
             transition: all 0.4s ease;
@@ -652,12 +478,10 @@
             color: var(--accent-violet);
         }
 
-        /* Quote Card */
         .quote-card {
             background: var(--quote-bg);
             border: 1px solid var(--quote-border);
-            border-radius: 24px;
-            padding: 32px;
+            border-radius: 24px; padding: 32px;
             position: relative;
             transition: all 0.5s ease;
         }
@@ -684,7 +508,7 @@
             font-style: italic;
             transition: color 0.5s ease;
         }
-        /* ===== MISSION + STATS SECTION ===== */
+
         .mission-section {
             position: relative; z-index: 1;
             padding: 60px 40px;
@@ -692,15 +516,14 @@
         }
         .mission-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 40px;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+            gap: clamp(20px, 3vw, 40px);
             align-items: start;
         }
         .mission-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px 32px;
+            border-radius: 24px; padding: 40px 32px;
             transition: all 0.5s ease;
         }
         .mission-card:hover {
@@ -733,8 +556,7 @@
         .stats-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px 32px;
+            border-radius: 24px; padding: 40px 32px;
             transition: all 0.5s ease;
         }
         .stats-card h3 {
@@ -746,12 +568,10 @@
         }
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: clamp(12px, 2vw, 24px);
         }
-        .stat-item {
-            text-align: center;
-        }
+        .stat-item { text-align: center; }
         .stat-icon {
             width: 48px; height: 48px;
             border-radius: 14px;
@@ -779,7 +599,6 @@
             transition: color 0.5s ease;
         }
 
-        /* ===== STORIES SECTION ===== */
         .stories-section {
             position: relative; z-index: 1;
             padding: 60px 40px;
@@ -812,9 +631,7 @@
             max-width: 400px;
             transition: color 0.5s ease;
         }
-        .stories-nav {
-            display: flex; gap: 8px;
-        }
+        .stories-nav { display: flex; gap: 8px; }
         .story-nav-btn {
             width: 40px; height: 40px;
             border-radius: 50%;
@@ -834,8 +651,8 @@
 
         .stories-grid {
             display: grid;
-            grid-template-columns: 0.8fr repeat(3, 1fr);
-            gap: 24px;
+            grid-template-columns: minmax(0, 0.8fr) repeat(3, minmax(0, 1fr));
+            gap: clamp(12px, 2vw, 24px);
             align-items: start;
         }
         .stories-intro {
@@ -854,8 +671,7 @@
             background: transparent;
             border: 1px solid var(--border-color);
             color: var(--text-secondary);
-            padding: 12px 24px;
-            border-radius: 50px;
+            padding: 12px 24px; border-radius: 50px;
             text-decoration: none;
             font-size: 0.85rem; font-weight: 500;
             transition: all 0.4s ease;
@@ -891,9 +707,7 @@
             position: absolute; inset: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
         }
-        .story-card-content {
-            padding: 20px;
-        }
+        .story-card-content { padding: 20px; }
         .story-card-content h4 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1rem; font-weight: 600;
@@ -918,7 +732,6 @@
         .story-link:hover { gap: 10px; }
         .story-link svg { width: 14px; height: 14px; }
 
-        /* ===== PROGRAMS SECTION ===== */
         .programs-section {
             position: relative; z-index: 1;
             padding: 60px 40px;
@@ -941,14 +754,13 @@
         }
         .programs-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: clamp(12px, 2vw, 24px);
         }
         .program-card {
             background: var(--program-bg);
             border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px 24px;
+            border-radius: 24px; padding: 40px 24px;
             transition: all 0.4s ease;
             cursor: pointer;
         }
@@ -994,9 +806,6 @@
         .program-link:hover { gap: 10px; }
         .program-link svg { width: 14px; height: 14px; }
 
-
-
-        /* ===== GET INVOLVED SECTION ===== */
         .getinvolved-section {
             position: relative; z-index: 1;
             padding: 60px 40px;
@@ -1006,10 +815,10 @@
             background: var(--getinvolved-bg);
             border: 1px solid var(--border-color);
             border-radius: 24px;
-            padding: 50px;
+            padding: clamp(24px, 4vw, 50px);
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: clamp(24px, 4vw, 50px);
             align-items: center;
             transition: all 0.5s ease;
             position: relative;
@@ -1023,9 +832,7 @@
             background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%);
             pointer-events: none;
         }
-        .getinvolved-left {
-            position: relative; z-index: 1;
-        }
+        .getinvolved-left { position: relative; z-index: 1; }
         .getinvolved-img {
             width: 100%; height: 280px;
             border-radius: 20px;
@@ -1039,9 +846,7 @@
             background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 40%);
             border-radius: 20px;
         }
-        .getinvolved-right {
-            position: relative; z-index: 1;
-        }
+        .getinvolved-right { position: relative; z-index: 1; }
         .getinvolved-right h3 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.8rem; font-weight: 700;
@@ -1057,13 +862,11 @@
         }
         .getinvolved-options {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: clamp(12px, 2vw, 20px);
             margin-bottom: 30px;
         }
-        .getinvolved-option {
-            text-align: center;
-        }
+        .getinvolved-option { text-align: center; }
         .getinvolved-option .opt-icon {
             width: 48px; height: 48px;
             border-radius: 14px;
@@ -1091,10 +894,8 @@
             transition: color 0.5s ease;
         }
         .btn-involved {
-            background: var(--btn-primary-bg);
-            color: white;
-            padding: 16px 36px;
-            border-radius: 50px;
+            background: var(--btn-primary-bg); color: white;
+            padding: 16px 36px; border-radius: 50px;
             text-decoration: none;
             font-size: 0.95rem; font-weight: 600;
             transition: all 0.4s ease;
@@ -1108,7 +909,6 @@
             box-shadow: 0 12px 40px var(--btn-primary-shadow);
         }
 
-        /* ===== FOOTER (from reference) ===== */
         .footer {
             position: relative; z-index: 1;
             background: var(--footer-bg);
@@ -1119,8 +919,8 @@
         .footer-content {
             max-width: 1200px; margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 60px;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr);
+            gap: clamp(24px, 4vw, 60px);
             margin-bottom: 40px;
         }
         .footer-brand p {
@@ -1129,9 +929,7 @@
             margin-bottom: 20px;
             transition: color 0.5s ease;
         }
-        .footer-social {
-            display: flex; gap: 12px;
-        }
+        .footer-social { display: flex; gap: 12px; }
         .footer-social a {
             width: 36px; height: 36px;
             border-radius: 10px;
@@ -1175,9 +973,7 @@
             margin-bottom: 12px;
             transition: color 0.5s ease;
         }
-        .footer-form-body {
-            display: flex; gap: 8px;
-        }
+        .footer-form-body { display: flex; gap: 8px; }
         .footer-input {
             flex: 1;
             background: var(--bg-card);
@@ -1192,6 +988,7 @@
         .footer-input::placeholder { color: var(--text-muted); }
         .footer-input:focus { border-color: var(--accent-violet); }
         .footer-submit {
+            min-height: 44px;
             background: var(--btn-primary-bg);
             color: white; border: none;
             padding: 10px 20px;
@@ -1231,16 +1028,113 @@
         }
         .footer-legal a:hover { color: var(--accent-violet); }
         .footer-legal span { color: var(--border-color); transition: color 0.5s ease; }
-           /* LumenQuest special styling */
-    .navbar-link.lumenquest {
-      background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 700;
-    }
 
-        /* ===== RESPONSIVE ===== */
+        .nav-dropdown { position: relative; }
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .dropdown-arrow {
+            font-size: 10px;
+            transition: transform 0.3s ease;
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%; left: 0;
+            min-width: 180px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 8px 0;
+            margin-top: 10px;
+            list-style: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .nav-dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+        .dropdown-link {
+            display: block;
+            padding: 10px 16px;
+            text-decoration: none;
+            color: inherit;
+            transition: background 0.2s ease;
+        }
+        .dropdown-link:hover { background: rgba(0,0,0,0.05); }
+        .dropdown-menu {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+        }
+        .dropdown-link { color: #111827; }
+        .dropdown-link:hover { background: #f3f4f6; }
+        [data-theme="night"] .dropdown-menu,
+        body.night-theme .dropdown-menu {
+            background: #1e293b;
+            border: 1px solid #334155;
+        }
+        [data-theme="night"] .dropdown-link,
+        body.night-theme .dropdown-link { color: #f8fafc; }
+        [data-theme="night"] .dropdown-link:hover,
+        body.night-theme .dropdown-link:hover { background: #334155; }
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                max-height: 0;
+                overflow-y: auto;
+                padding: 0; margin: 0;
+                transition: max-height 0.3s ease;
+            }
+            .nav-dropdown.active .dropdown-menu { max-height: 200px; }
+            .nav-dropdown:hover .dropdown-menu { transform: none; }
+        }
+
+        .programs-grid.about-resources {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: clamp(12px, 2vw, 24px);
+        }
+        .programs-grid.about-resources .program-card:nth-child(9) {
+            grid-column: span 1;
+            max-width: 100%;
+        }
+        @media (max-width: 1024px) {
+            .programs-grid.about-resources { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .programs-grid.about-resources { grid-template-columns: 1fr; }
+        }
+        .belief-card { transition: all 0.3s ease; }
+        .belief-card:hover {
+            border-color: var(--border-hover) !important;
+            transform: translateX(4px);
+        }
+        .lumenquest-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: clamp(24px, 4vw, 50px);
+            align-items: center;
+        }
+        @media (max-width: 1024px) {
+            .lumenquest-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
         @media (max-width: 1024px) {
             .navbar-menu { display: none; }
             .navbar-toggle { display: flex; }
@@ -1248,6 +1142,7 @@
                 width: 100%;
                 opacity: 0.2;
                 mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
             }
             .hero-overlay {
                 background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-start) 50%, transparent 100%);
@@ -1281,205 +1176,286 @@
             .navbar-prayer { display: none;}
         }
 
-      .nav-dropdown {
-    position: relative;
-}
-
-.dropdown-toggle {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.dropdown-arrow {
-    font-size: 10px;
-    transition: transform 0.3s ease;
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 180px;
-    background: #fff;
-    border-radius: 10px;
-    padding: 8px 0;
-    margin-top: 10px;
-    list-style: none;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
-
-.nav-dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.nav-dropdown:hover .dropdown-arrow {
-    transform: rotate(180deg);
-}
-
-.dropdown-link {
-    display: block;
-    padding: 10px 16px;
-    text-decoration: none;
-    color: inherit;
-    transition: background 0.2s ease;
-}
-
-.dropdown-link:hover {
-    background: rgba(0,0,0,0.05);
-}/* Light Theme */
-.dropdown-menu {
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-}
-
-.dropdown-link {
-    color: #111827;
-}
-
-.dropdown-link:hover {
-    background: #f3f4f6;
-}
-
-/* Dark Theme */
-[data-theme="night"] .dropdown-menu,
-body.night-theme .dropdown-menu {
-    background: #1e293b;
-    border: 1px solid #334155;
-}
-
-[data-theme="night"] .dropdown-link,
-body.night-theme .dropdown-link {
-    color: #f8fafc;
-}
-
-[data-theme="night"] .dropdown-link:hover,
-body.night-theme .dropdown-link:hover {
-    background: #334155;
-}    @media (max-width: 768px) {
-    .dropdown-menu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        max-height: 0;
-        overflow-y: auto;
-        padding: 0;
-        margin: 0;
-        transition: max-height 0.3s ease;
-    }
-
-    .nav-dropdown.active .dropdown-menu {
-        max-height: 200px;
-    }
-
-    .nav-dropdown:hover .dropdown-menu {
-        transform: none;
-    }
-}    
+        @media (min-width: 1441px) {
+            .hero-content, .mission-section, .stories-section,
+            .programs-section, .getinvolved-section, .footer-content, .footer-bottom {
+                max-width: 1400px;
+            }
+        }
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                padding: 120px 40px 60px;
+                text-align: center;
+            }
+            .hero-left p { margin: 0 auto 30px; }
+            .hero-actions { justify-content: center; }
+            .quote-card { max-width: 500px; margin: 0 auto; }
+            .mission-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .stories-grid { grid-template-columns: repeat(2, 1fr); }
+            .stories-intro { grid-column: 1 / -1; min-height: auto; }
+            .programs-grid { grid-template-columns: repeat(2, 1fr); }
+            .programs-grid.about-resources { grid-template-columns: repeat(2, 1fr); }
+            .getinvolved-card { grid-template-columns: 1fr; gap: 30px; }
+            .getinvolved-options { grid-template-columns: repeat(3, 1fr); }
+            .lumenquest-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        }
+        @media (max-width: 768px) and (min-width: 481px) {
+            .navbar-container { padding: 0 16px; height: 64px; }
+            .navbar-brand img { height: 48px; }
+            .hero-content {
+                grid-template-columns: 1fr;
+                padding: 100px 20px 50px;
+                text-align: center;
+                gap: 30px;
+            }
+            .hero-left h1 { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+            .hero-left .handwritten { font-size: 1.3rem; }
+            .hero-left p { font-size: 0.9rem; margin: 0 auto 24px; max-width: 100%; }
+            .hero-actions { justify-content: center; flex-direction: column; align-items: center; }
+            .hero-actions .btn-primary, .hero-actions .btn-outline { width: 100%; max-width: 300px; justify-content: center; }
+            .hero-bg {
+                width: 100%;
+                opacity: 0.15;
+                mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+            }
+            .hero-overlay {
+                background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-start) 60%, transparent 100%);
+            }
+            .quote-card { padding: 24px; margin: 0 auto; max-width: 100%; }
+            .quote-card::before { font-size: 3rem; }
+            .mission-section, .stories-section, .programs-section,
+            .getinvolved-section { padding: 40px 16px; }
+            .mission-grid { grid-template-columns: 1fr; gap: 24px; }
+            .mission-card { padding: 28px 24px; }
+            .stats-card { padding: 28px 24px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .stat-number { font-size: 1.4rem; }
+            .stories-header { flex-direction: column; text-align: center; }
+            .stories-header-left p { margin: 0 auto; }
+            .stories-grid { grid-template-columns: 1fr; gap: 16px; }
+            .stories-intro { min-height: auto; }
+            .programs-section h2 { font-size: 1.6rem; }
+            .programs-grid { grid-template-columns: 1fr; gap: 16px; }
+            .programs-grid.about-resources { grid-template-columns: 1fr; }
+            .program-card { padding: 28px 20px; }
+            .getinvolved-card { grid-template-columns: 1fr; padding: 28px; gap: 24px; }
+            .getinvolved-img { height: 200px; }
+            .getinvolved-right h3 { font-size: 1.4rem; }
+            .getinvolved-options { grid-template-columns: 1fr; gap: 16px; }
+            .lumenquest-grid { grid-template-columns: 1fr; gap: 24px; }
+            .footer { padding: 40px 16px 24px; }
+            .footer-content { grid-template-columns: 1fr; gap: 32px; }
+            .footer-brand img { width: 80px; }
+            .footer-form-body { flex-direction: column; }
+            .footer-input { width: 100%; }
+            .footer-submit { width: 100%; }
+            .footer-bottom { flex-direction: column; text-align: center; gap: 12px; }
+            .navbar-prayer { display: none; }
+            .navbar-icons { display: none; }
+        }
+        @media (max-width: 480px) {
+            .navbar-container { padding: 0 12px; height: 60px; }
+            .navbar-brand img { height: 42px; }
+            .navbar-toggle { padding: 6px; }
+            .hero-content {
+                padding: 90px 14px 40px;
+                gap: 24px;
+            }
+            .hero-left h1 { font-size: 1.7rem; line-height: 1.1; }
+            .hero-left .handwritten { font-size: 1.15rem; }
+            .hero-left p { font-size: 0.85rem; line-height: 1.6; }
+            .hero-actions { flex-direction: column; gap: 10px; }
+            .hero-actions .btn-primary, .hero-actions .btn-outline {
+                width: 100%;
+                padding: 14px 20px;
+                font-size: 0.9rem;
+                justify-content: center;
+            }
+            .quote-card { padding: 20px; }
+            .quote-card p { font-size: 0.85rem; }
+            .quote-card::before { font-size: 2.5rem; top: 6px; left: 12px; }
+            .mission-section, .stories-section, .programs-section,
+            .getinvolved-section { padding: 32px 12px; }
+            .mission-card { padding: 24px 18px; }
+            .mission-icon { width: 52px; height: 52px; font-size: 1.5rem; }
+            .mission-card h3 { font-size: 1.1rem; }
+            .stats-card { padding: 24px 18px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .stat-icon { width: 40px; height: 40px; font-size: 1.2rem; }
+            .stat-number { font-size: 1.3rem; }
+            .stat-label { font-size: 0.7rem; }
+            .stories-header-left h2 { font-size: 1.5rem; }
+            .stories-header-left p { font-size: 0.85rem; }
+            .story-card-img { height: 160px; }
+            .story-card-content { padding: 16px; }
+            .story-card-content h4 { font-size: 0.95rem; }
+            .programs-section h2 { font-size: 1.4rem; }
+            .programs-section > p { font-size: 0.85rem; margin-bottom: 32px; }
+            .program-card { padding: 24px 18px; }
+            .program-icon { width: 52px; height: 52px; font-size: 1.5rem; }
+            .program-card h4 { font-size: 1rem; }
+            .program-card p { font-size: 0.8rem; }
+            .getinvolved-card { padding: 20px; gap: 20px; }
+            .getinvolved-img { height: 180px; }
+            .getinvolved-right h3 { font-size: 1.25rem; }
+            .getinvolved-right > p { font-size: 0.85rem; }
+            .getinvolved-option .opt-icon { width: 40px; height: 40px; font-size: 1.2rem; }
+            .getinvolved-option h4 { font-size: 0.85rem; }
+            .btn-involved { width: 100%; justify-content: center; padding: 14px 24px; }
+            #closing > div { padding: 40px 20px; }
+            #closing h2 { font-size: 1.5rem; }
+            #closing p { font-size: 0.95rem; }
+            .footer { padding: 32px 12px 20px; }
+            .footer-title { font-size: 0.85rem; }
+            .footer-links a { font-size: 0.85rem; }
+            .footer-credit { font-size: 0.8rem; }
+            .navbar-menu {
+                top: 72px;
+                left: 10px;
+                right: 10px;
+                padding: 16px;
+                border-radius: 14px;
+            }
+            .navbar-link { padding: 12px 14px; font-size: 0.95rem; }
+        }
+        @media (max-width: 360px) {
+            .hero-left h1 { font-size: 1.5rem; }
+            .hero-left .handwritten { font-size: 1rem; }
+            .btn-primary, .btn-outline, .btn-involved { padding: 12px 16px; font-size: 0.85rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .stat-number { font-size: 1.1rem; }
+            .program-card { padding: 20px 14px; }
+            .quote-card { padding: 16px; }
+        }
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero { min-height: auto; padding: 80px 0 40px; }
+            .hero-content { padding-top: 80px; }
+            .navbar-menu { max-height: 70vh; }
+        }
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .hero-bg { image-rendering: -webkit-optimize-contrast; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+        @media print {
+            .navbar, .starfield, .hero-bg, .hero-overlay, .footer-social,
+            .theme-toggle, .navbar-toggle, .navbar-actions, .btn-primary,
+            .btn-outline, .btn-involved, .btn-viewall, .story-nav-btn {
+                display: none !important;
+            }
+            body { background: white !important; color: black !important; }
+            .hero { min-height: auto; }
+            .hero-content { padding: 20px; }
+            .mission-card, .stats-card, .story-card, .program-card,
+            .quote-card, .getinvolved-card {
+                break-inside: avoid;
+                border: 1px solid #ccc;
+                background: white !important;
+            }
+        }
+        @supports (padding: max(0px)) {
+            .navbar-container {
+                padding-left: max(40px, env(safe-area-inset-left));
+                padding-right: max(40px, env(safe-area-inset-right));
+            }
+            .hero-content {
+                padding-left: max(60px, env(safe-area-inset-left));
+                padding-right: max(60px, env(safe-area-inset-right));
+            }
+        }
+        @supports (padding: max(0px)) {
+            @media (max-width: 768px) {
+                .navbar-container {
+                    padding-left: max(16px, env(safe-area-inset-left));
+                    padding-right: max(16px, env(safe-area-inset-right));
+                }
+                .hero-content {
+                    padding-left: max(20px, env(safe-area-inset-left));
+                    padding-right: max(20px, env(safe-area-inset-right));
+                }
+            }
+        }
     </style>
 </head>
 <body>
+  
     <div class="starfield"></div>
 
-    <!-- ===== NAVBAR (from reference) ===== -->
-   <nav class="navbar" role="navigation" aria-label="Main navigation">
-    <div class="navbar-container">
-        <!-- Brand Logo (Only Image) -->
-        <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
-            <img src="/images/logo.png" alt="LightMode Ministries">
-        </a>
-
-        <!-- Menu Items -->
-          <ul class="navbar-menu" id="navbar-menu" role="menubar">
-
-    <li role="none"><a href="/" class="navbar-link">Home</a></li>
-
-    <li role="none"><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
-
-    <li role="none"><a href="/rest.html" class="navbar-link ">Rest</a></li>
-
-    <!-- GROW DROPDOWN (NEW ORGANIZED STRUCTURE) -->
-    <li class="nav-dropdown" role="none">
-        <a href="#" class="navbar-link dropdown-toggle">
-            Grow <span class="dropdown-arrow">▼</span>
-        </a>
-
-        <ul class="dropdown-menu">
-            <li><a href="/grow.html" class="dropdown-link ">Grow Overview</a></li>
-            <li><a href="/bible-study.html" class="dropdown-link ">Bible Study</a></li>
-            <li><a href="/stories.html" class="dropdown-link ">Stories</a></li>
-            <li><a href="/teens.html" class="dropdown-link ">Teens</a></li>
-            <li><a href="/resources.html" class="dropdown-link">Resources</a></li>
-        </ul>
-    </li>
-
-    <!-- LUMENQUEST -->
-    <li role="none">
-        <a href="/lumenquest.html" class="navbar-link lumenquest ">LumenQuest</a>
-    </li>
-
-    <!-- ABOUT DROPDOWN -->
-    <li class="nav-dropdown" role="none">
-        <a href="#" class="navbar-link dropdown-toggle">
-            About Us <span class="dropdown-arrow">▼</span>
-        </a>
-
-        <ul class="dropdown-menu">
-            <li><a href="/about.html" class="dropdown-link active">About</a></li>
-            <li><a href="/contact.html" class="dropdown-link">Contact</a></li>
-            <li><a href="/our-mission.html" class="dropdown-link">Our Mission</a></li>
-        </ul>
-    </li>
-
-</ul>
-
-
-        <!-- Actions Section -->
-        <div class="navbar-actions">
-            <!-- Theme Toggle -->
-            <div class="theme-toggle" role="group" aria-label="Theme toggle">
-                <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
+                <img src="/images/logo.png" alt="LightMode Ministries">
+            </a>
+            <ul class="navbar-menu" id="navbar-menu" role="menubar">
+                <li role="none"><a href="/" class="navbar-link">Home</a></li>
+                <li role="none"><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
+                <li role="none"><a href="/rest.html" class="navbar-link">Rest</a></li>
+                <li class="nav-dropdown" role="none">
+                    <a href="#" class="navbar-link dropdown-toggle">
+                        Grow <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/grow.html" class="dropdown-link">Grow Overview</a></li>
+                        <li><a href="/bible-study.html" class="dropdown-link">Bible Study</a></li>
+                        <li><a href="/stories.html" class="dropdown-link">Stories</a></li>
+                        <li><a href="/teens.html" class="dropdown-link">Teens</a></li>
+                        <li><a href="/resources.html" class="dropdown-link">Resources</a></li>
+                    </ul>
+                </li>
+                <li role="none">
+                    <a href="/lumenquest.html" class="navbar-link lumenquest">LumenQuest</a>
+                </li>
+                <li role="none"><a href="/inspiration.html" class="navbar-link inspiration ">Inspiration</a></li>
+                <li class="nav-dropdown" role="none">
+                    <a href="#" class="navbar-link dropdown-toggle">
+                        About Us <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/about.html" class="dropdown-link active">About</a></li>
+                        <li><a href="/contact.html" class="dropdown-link">Contact</a></li>
+                        <li><a href="/our-mission.html" class="dropdown-link">Our Mission</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="navbar-actions">
+                <div class="theme-toggle" role="group" aria-label="Theme toggle">
+                    <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                    <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
             </div>
-
-        
-
-          
-
-            <!-- Mobile Toggle -->
-            <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
-    </div>
-</nav>
+    </nav>
 
     <!-- ===== HERO SECTION ===== -->
     <section class="hero">
@@ -1487,145 +1463,159 @@ body.night-theme .dropdown-link:hover {
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-left">
-                <h1>Illuminating Lives</h1>
-                <span class="handwritten">Transforming Hearts. Empowering Futures.</span>
+                <h1>About LightMode Ministries</h1>
+                <span class="handwritten">A Place of Light, Truth, and Transformation</span>
                 <p>
-                    We believe every life has value and purpose. Through compassion, faith, and practical support, we're bringing hope and opportunity to those who need it most.
+                    LightMode Ministries was born from a deep desire to help hearts come closer to the love of God, rest in the finished work of Jesus Christ, and discover who they truly are in Him. What began as a seed in my heart has grown into a digital ministry created to serve children, teens, adults, and families through biblical teaching, prayer, devotion, encouragement, and creative storytelling. Every resource is designed to point hearts back to the Father and help people walk in the light of His Word.
                 </p>
                 <div class="hero-actions">
-                    <a href="#mission" class="btn-primary">
+                    <a href="#heart" class="btn-primary">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                         </svg>
-                        See Our Impact
+                        Discover Our Heart
                     </a>
-                    <a href="#getinvolved" class="btn-outline">
+                    <a href="#what-you-find" class="btn-outline">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                         </svg>
-                        Get Involved
+                        Explore Resources
                     </a>
                 </div>
             </div>
-            <div class="quote-card">
-                <p>Let your light shine before others, that they may see your good deeds and glorify your Father in heaven.</p>
-                <div class="ref">— Matthew 5:16</div>
+            <div class="quote-card" style="border-left: 4px solid var(--accent-gold); position: relative;">
+                <p style="font-size: 1.15rem; font-weight: 500; color: var(--text-primary); font-style: italic; line-height: 1.8;">
+                    God loves you. Jesus has finished the work. You are invited to live daily from the truth of who you are in Christ.
+                </p>
+                <div class="ref" style="margin-top: 16px; font-weight: 600; color: var(--accent-gold);">— The Heart of LightMode Ministries</div>
             </div>
         </div>
     </section>
 
-    <!-- ===== MISSION + STATS SECTION ===== -->
-    <section class="mission-section" id="mission">
+    <!-- ===== THE HEART BEHIND THE VISION ===== -->
+    <section class="mission-section" id="heart">
         <div class="mission-grid">
             <div class="mission-card">
-                <div class="mission-icon">💛</div>
-                <h3>Our Mission</h3>
-                <p>To illuminate lives through the love of Jesus by providing hope, resources, and opportunities that transform individuals, families, and communities.</p>
+                <div class="mission-icon">✨</div>
+                <h3>The Heart Behind the Vision</h3>
+                <p>LightMode Ministries was created to be a welcoming, peaceful, and spiritually nourishing place where people can pause, breathe, receive truth, and remember that God is near.</p>
             </div>
-
-            <div class="stats-card">
-                <h3>Making a Difference Every Day</h3>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-icon">👥</div>
-                        <div class="stat-number">125K+</div>
-                        <div class="stat-label">Lives Impacted</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">❤️</div>
-                        <div class="stat-number">250+</div>
-                        <div class="stat-label">Communities Served</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">🌱</div>
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Programs & Initiatives</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">🌍</div>
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Countries Reached</div>
+            <div class="stats-card" style="text-align: left;">
+                <h3 style="margin-bottom: 24px;">A Ministry for Every Heart</h3>
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                        So many people are carrying fear, stress, shame, confusion, pressure, or uncertainty. Some are seeking peace. Some are longing to grow spiritually. Some have known religion but still desire a deeper relationship with God.
+                    </p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                        Children and teens need to know early that they are loved, chosen, valuable, and created with purpose. Adults need to be reminded that they are not forgotten, disqualified, or alone.
+                    </p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                        This ministry exists to meet those needs with the truth of God's Word, the love of the Father, and the finished work of Jesus Christ.
+                    </p>
+                    <div style="margin-top: 8px; padding: 20px; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border-color);">
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 8px;">The goal is not simply to provide information.</p>
+                        <p style="color: var(--accent-gold); font-size: 1.1rem; font-weight: 700; font-family: 'Space Grotesk', sans-serif;">The goal is transformation.</p>
                     </div>
                 </div>
             </div>
         </div>
+    </section>   
+    
+    <!-- ===== WHAT YOU WILL FIND HERE ===== -->
+    <section class="programs-section" id="what-you-find">
+        <div class="handwritten" style="font-family: 'Caveat', cursive; font-size: 1.3rem; color: var(--accent-gold); margin-bottom: 8px;">Faith-Filled Resources</div>
+        <h2>What You Will Find Here</h2>
+        <p>LightMode Ministries offers a growing collection of resources designed to help you grow, rest, and walk in the light of His Word.</p>
+
+        <div class="programs-grid about-resources">
+            <div class="program-card">
+                <div class="program-icon">📖</div>
+                <h4>Bible Studies</h4>
+                <p>Deep, engaging studies that illuminate Scripture and strengthen your walk with God.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">🎤</div>
+                <h4>Biblical Teachings</h4>
+                <p>Sound, grace-filled teaching that points you to the finished work of Christ.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">🌅</div>
+                <h4>Daily Devotionals</h4>
+                <p>Morning reflections to start your day anchored in truth and peace.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">🙏</div>
+                <h4>Prayer Resources</h4>
+                <p>Guided prayers, prayer libraries, and tools to deepen your conversation with God.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">💬</div>
+                <h4>Teen Encouragement</h4>
+                <p>Content created specifically for teens navigating identity, faith, and life.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">🌙</div>
+                <h4>Children's Bedtime Stories</h4>
+                <p>Faith-filled stories that help little hearts rest in God's love each night.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">👨‍👩‍👧‍👦</div>
+                <h4>Family Discipleship Tools</h4>
+                <p>Resources to help families grow in faith together at home.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">🎵</div>
+                <h4>Original Music</h4>
+                <p>Worship and creative songs born from the heart of this ministry.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">🎬</div>
+                <h4>Creative Biblical Storytelling</h4>
+                <p>Animated adventures and stories that bring Scripture to life for all ages.</p>
+            </div>
+        </div>
+
+        <div style="max-width: 800px; margin: 50px auto 0; text-align: center;">
+            <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">
+                Each pathway has been prayerfully created to help you find peace, grow in faith, renew your mind, strengthen your identity in Christ, and take your next step with God.
+            </p>
+            <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7;">
+                Whether you are looking for rest, encouragement, teaching, prayer, family resources, or creative faith-filled content for children and teens, LightMode Ministries was created to meet you with light, truth, and hope.
+            </p>
+        </div>
     </section>
 
-    <!-- ===== STORIES OF TRANSFORMATION ===== -->
-    <section class="stories-section" id="stories">
+    <!-- ===== ABOUT LUMENQUEST ===== -->
+    <section class="stories-section" id="lumenquest">
         <div class="stories-header">
             <div class="stories-header-left">
-                <div class="handwritten">Real People. Real Hope.</div>
-                <h2>Stories of Transformation</h2>
-                <p>See how God is changing lives and creating brighter tomorrows.</p>
-            </div>
-            <div class="stories-nav">
-                <button class="story-nav-btn" aria-label="Previous stories">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M15 18l-6-6 6-6"></path>
-                    </svg>
-                </button>
-                <button class="story-nav-btn" aria-label="Next stories">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 18l6-6-6-6"></path>
-                    </svg>
-                </button>
+                <div class="handwritten">Adventure. Wonder. Faith.</div>
+                <h2>About LumenQuest</h2>
+                <p>A creative storytelling branch of LightMode Ministries, bringing biblical truth to life through animated adventure.</p>
             </div>
         </div>
 
-        <div class="stories-grid">
-            <div class="stories-intro">
-                <p>Every story is a testament to God's love and the power of community. These are real people whose lives have been transformed through faith, support, and compassion.</p>
-                <a href="#" class="btn-viewall">
-                    View All Stories
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-            </div>
-
-            <div class="story-card">
-                <div class="story-card-img" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80');"></div>
-                <div class="story-card-content">
-                    <h4>A New Beginning</h4>
-                    <p>After years of struggling, Maria found hope and a future through our youth mentorship program.</p>
-                    <a href="#" class="story-link">
-                        Read Maria's Story
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14"></path>
-                            <path d="M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
+        <div class="getinvolved-card" style="margin-top: 20px; display: block; padding: 50px;">
+            <div class="lumenquest-grid">
+                <div>
+                    <div style="width: 100%; border-radius: 20px; background: linear-gradient(135deg, rgba(139,92,246,0.15) 0%, rgba(59,130,246,0.15) 100%); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+                        <img src="/images/char5.png" alt="">
+                    </div>
                 </div>
-            </div>
-
-            <div class="story-card">
-                <div class="story-card-img" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80');"></div>
-                <div class="story-card-content">
-                    <h4>From Broken to Restored</h4>
-                    <p>James encountered God's love and support that helped him rebuild his life and restore his family.</p>
-                    <a href="#" class="story-link">
-                        Read James' Story
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14"></path>
-                            <path d="M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
-            <div class="story-card">
-                <div class="story-card-img" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&q=80');"></div>
-                <div class="story-card-content">
-                    <h4>Hope for Families</h4>
-                    <p>Families are being strengthened through resources, guidance, and a caring community.</p>
-                    <a href="#" class="story-link">
-                        Read Their Story
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div>
+                    <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.8; margin-bottom: 16px;">
+                        LumenQuest is a creative storytelling branch of LightMode Ministries.
+                    </p>
+                    <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.8; margin-bottom: 16px;">
+                        Created for children and families, LumenQuest is a Christian animated adventure series designed to help young hearts discover truth, courage, wisdom, identity, teamwork, and faith through exciting stories filled with light, wonder, and biblical meaning.
+                    </p>
+                    <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.8;">
+                        LumenQuest carries the same heart as LightMode Ministries—to illuminate lives and transform generations through the language of story, adventure, creativity, and childlike wonder.
+                    </p>
+                    <a href="/lumenquest.html" class="btn-involved" style="margin-top: 24px;">
+                        Explore LumenQuest
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M5 12h14"></path>
                             <path d="M12 5l7 7-7 7"></path>
                         </svg>
@@ -1633,103 +1623,82 @@ body.night-theme .dropdown-link:hover {
                 </div>
             </div>
         </div>
-    </section>
+    </section>   
+  
 
-    <!-- ===== HOW WE ILLUMINATE LIVES ===== -->
-    <section class="programs-section" id="programs">
-        <h2>How We Illuminate Lives</h2>
-        <p>Our key programs and initiatives bring hope and create lasting change.</p>
-
-        <div class="programs-grid">
-            <div class="program-card">
-                <div class="program-icon">💛</div>
-                <h4>Hope & Essentials</h4>
-                <p>Providing food, clothing, and essential resources to families in need.</p>
-                <a href="#" class="program-link">
-                    Learn More
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-            </div>
-            <div class="program-card">
-                <div class="program-icon">🎓</div>
-                <h4>Education & Empowerment</h4>
-                <p>Equipping individuals with skills, mentorship, and resources to build a better future.</p>
-                <a href="#" class="program-link">
-                    Learn More
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-            </div>
-            <div class="program-card">
-                <div class="program-icon">👥</div>
-                <h4>Community & Outreach</h4>
-                <p>Building stronger communities through events, outreach, and local partnerships.</p>
-                <a href="#" class="program-link">
-                    Learn More
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-            </div>
-            <div class="program-card">
-                <div class="program-icon">🌍</div>
-                <h4>Global Impact</h4>
-                <p>Bringing the light of Christ to communities around the world through missions.</p>
-                <a href="#" class="program-link">
-                    Learn More
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== BE PART OF THIS LIGHT ===== -->
-    <section class="getinvolved-section" id="getinvolved">
+    <!-- ===== OUR MISSION ===== -->
+    <section class="getinvolved-section" id="mission">
         <div class="getinvolved-card">
             <div class="getinvolved-left">
-                <div class="getinvolved-img"></div>
+                <div class="getinvolved-img" style="background: linear-gradient(135deg, rgba(139,92,246,0.2) 0%, rgba(251,191,36,0.2) 100%), url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&q=80') no-repeat center center; background-size: cover;"></div>
             </div>
             <div class="getinvolved-right">
-                <h3>Be Part of This Light</h3>
-                <p>Together, we can illuminate more lives and create hope that lasts for generations.</p>
-                <div class="getinvolved-options">
-                    <div class="getinvolved-option">
-                        <div class="opt-icon">❤️</div>
-                        <h4>Donate</h4>
-                        <p>Give your time and hope to someone in need.</p>
-                    </div>
-                    <div class="getinvolved-option">
-                        <div class="opt-icon">👥</div>
-                        <h4>Volunteer</h4>
-                        <p>Use your gifts and talent to make an eternal impact.</p>
-                    </div>
-                    <div class="getinvolved-option">
-                        <div class="opt-icon">🤝</div>
-                        <h4>Partner</h4>
-                        <p>Join us in changing lives and transforming communities.</p>
+                <h3>Our Mission</h3>
+                <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">
+                    The mission of LightMode Ministries is to connect hearts to the love of God, illuminate lives through the truth of His Word, and help transform generations through the finished work of Jesus Christ.
+                </p>
+
+                <div style="margin-bottom: 30px;">
+                    <div style="font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px;">What We Believe</div>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-color); transition: all 0.3s ease;">
+                            <div style="width: 24px; height: 24px; border-radius: 50%; background: rgba(74, 222, 128, 0.15); border: 1px solid var(--accent-green); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <span style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;">We believe God's Word brings light.</span>
+                        </div>
+                        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-color); transition: all 0.3s ease;">
+                            <div style="width: 24px; height: 24px; border-radius: 50%; background: rgba(244, 114, 182, 0.15); border: 1px solid var(--accent-pink); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-pink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <span style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;">We believe His love restores hearts.</span>
+                        </div>
+                        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-color); transition: all 0.3s ease;">
+                            <div style="width: 24px; height: 24px; border-radius: 50%; background: rgba(96, 165, 250, 0.15); border: 1px solid var(--accent-blue); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <span style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;">We believe Jesus has finished the work.</span>
+                        </div>
+                        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-color); transition: all 0.3s ease;">
+                            <div style="width: 24px; height: 24px; border-radius: 50%; background: rgba(167, 139, 250, 0.15); border: 1px solid var(--accent-violet); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-violet)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <span style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;">We believe identity in Christ changes everything.</span>
+                        </div>
+                        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-color); transition: all 0.3s ease;">
+                            <div style="width: 24px; height: 24px; border-radius: 50%; background: rgba(251, 191, 36, 0.15); border: 1px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <span style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;">We believe children, teens, adults, and families can be strengthened through truth, prayer, creativity, and daily relationship with God.</span>
+                        </div>
                     </div>
                 </div>
-                <a href="#" class="btn-involved">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CLOSING SECTION ===== -->
+    <section class="programs-section" id="closing" style="padding-bottom: 80px;">
+        <div style="max-width: 700px; margin: 0 auto; text-align: center; padding: 60px 40px; background: var(--bg-card); border-radius: 24px; border: 1px solid var(--border-color); position: relative; overflow: hidden;">
+            <div style="position: absolute; top: -50%; left: -20%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%); pointer-events: none;"></div>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; margin-bottom: 24px; position: relative; z-index: 1;">
+                LightMode Ministries was created to be a place where God's light meets people where they are and leads them forward.
+            </p>
+            <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 700; color: var(--text-primary); position: relative; z-index: 1;">
+                Welcome to LightMode Ministries
+            </h2>
+            <div style="margin-top: 30px; position: relative; z-index: 1;">
+                <a href="/start-here.html" class="btn-primary">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                     </svg>
-                    Get Involved Today
+                    Start Your Journey
                 </a>
             </div>
         </div>
     </section>
 
-
-    <!-- ===== FOOTER (from reference) ===== -->
+    <!-- ===== FOOTER (unchanged) ===== -->
     <footer class="footer" role="contentinfo">
         <div class="footer-content">
             <div class="footer-brand">
@@ -1806,6 +1775,7 @@ body.night-theme .dropdown-link:hover {
             </div>
         </div>
     </footer>
+
 
     <script>
         // Theme Toggle
@@ -1957,4 +1927,9 @@ document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
     </script>
 </body>
 </html>
+
+
+
+
+
 

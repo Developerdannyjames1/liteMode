@@ -418,7 +418,19 @@
 
 .navbar-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
-}
+}  .navbar-link.inspiration {
+            background: linear-gradient(90deg, #fbbf24, #f472b6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700; font-size: 0.9rem;
+        }
+        .navbar-link.inspiration:hover {
+            transform: scale(1.05); filter: brightness(1.2);
+        }
+        .navbar-link.inspiration.active::after {
+            background: linear-gradient(90deg, #fbbf24, #f472b6);
+        }
 
 /* Mobile Responsive */
 @media (max-width: 1200px) {
@@ -1325,6 +1337,7 @@ body.night-theme .dropdown-link:hover {
     <li role="none">
         <a href="/lumenquest.html" class="navbar-link lumenquest">LumenQuest</a>
     </li>
+    <li role="none"><a href="/inspiration.html" class="navbar-link inspiration">Inspiration</a></li>
 
     <!-- ABOUT DROPDOWN -->
     <li class="nav-dropdown" role="none">

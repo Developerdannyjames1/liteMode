@@ -1103,7 +1103,19 @@ body.night-theme .dropdown-link:hover {
       font-weight: 700;
       margin-bottom: 1rem;
     }
-
+  .navbar-link.inspiration {
+            background: linear-gradient(90deg, #fbbf24, #f472b6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700; font-size: 0.9rem;
+        }
+        .navbar-link.inspiration:hover {
+            transform: scale(1.05); filter: brightness(1.2);
+        }
+        .navbar-link.inspiration.active::after {
+            background: linear-gradient(90deg, #fbbf24, #f472b6);
+        }
     .lumenquest-logo .lumen { color: #FF6B6B; }
     .lumenquest-logo .quest { color: #4ECDC4; }
 
