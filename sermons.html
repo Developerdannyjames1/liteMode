@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sermons — Let God Grow What Matters | LightMode Ministries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'RecklessStandard';
+            src: url('./fonts/RecklessStandardM-TRIAL-Regular.otf') format('opentype');
+            font-weight: normal; font-style: normal; font-display: swap;
+        }
+        @font-face {
+            font-family: 'RecklessWide';
+            src: url('./fonts/RecklessWideXL-TRIAL-Regular.otf') format('opentype');
+            font-weight: normal; font-style: normal; font-display: swap;
+        }
+
+        /* ===== ROOT = NIGHT MODE (Default) ===== */
+        :root {
+            --bg-primary: #0a0a12;
+            --bg-secondary: #12121f;
+            --bg-card: rgba(26, 26, 40, 0.7);
+            --bg-card-hover: rgba(30, 30, 50, 0.9);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b8a;
+            --accent-violet: #a78bfa;
+            --accent-blue: #60a5fa;
+            --accent-gold: #fbbf24;
+            --accent-pink: #f472b6;
+            --accent-teal: #2dd4bf;
+            --accent-green: #4ade80;
+            --accent-red: #f87171;
+            --accent-orange: #fb923c;
+            --accent-cyan: #22d3ee;
+            --accent-lavender: #c4b5fd;
+            --accent-indigo: #818cf8;
+            --accent-cream: #fef3c7;
+            --border-color: rgba(255,255,255,0.08);
+            --border-hover: rgba(167,139,250,0.3);
+            --shadow-glow: rgba(139,92,246,0.25);
+            --navbar-bg: #0A0E1A;
+            --navbar-border: rgba(255,255,255,0.06);
+            --toggle-bg: #1a1a2e;
+            --toggle-active: #a78bfa;
+            --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+            --btn-primary-border: rgba(255,255,255,0.15);
+            --btn-primary-shadow: rgba(0,0,0,0.3);
+            --btn-gold-bg: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            --btn-gold-shadow: rgba(251,191,36,0.35);
+            --btn-light-bg: rgba(255,255,255,0.08);
+            --btn-light-border: rgba(255,255,255,0.15);
+            --footer-bg: #0a0a12;
+            --footer-border: rgba(255,255,255,0.05);
+            --starfield-opacity: 1;
+            --grow-deep-forest: #0f172a;
+            --grow-forest-night: #1e293b;
+            --grow-sage: #2d4a3e;
+            --grow-moss: #3d6b54;
+            --grow-warm-green: #4ade80;
+            --grow-soft-gold: #d4a574;
+            --grow-pale-gold: #f4e4bc;
+            --grow-cream: #fefce8;
+            --grow-slate: #94a3b8;
+            --grow-gray: #64748b;
+            --grow-light-glow: rgba(74, 222, 128, 0.08);
+            --grow-gold-glow: rgba(212, 165, 116, 0.12);
+        }
+
+        /* ===== DAY MODE OVERRIDE ===== */
+        [data-theme="day"] {
+            --bg-primary: #faf8f5;
+            --bg-secondary: #f5f0eb;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --bg-card-hover: rgba(255, 255, 255, 0.95);
+            --text-primary: #1a1a2e;
+            --text-secondary: #5a5a6e;
+            --text-muted: #8a8a9e;
+            --accent-violet: #7c3aed;
+            --accent-blue: #2563eb;
+            --accent-gold: #d97706;
+            --accent-pink: #db2777;
+            --accent-teal: #0d9488;
+            --accent-green: #16a34a;
+            --accent-red: #dc2626;
+            --accent-orange: #ea580c;
+            --accent-cyan: #0891b2;
+            --accent-lavender: #8b5cf6;
+            --accent-indigo: #6366f1;
+            --accent-cream: #fef3c7;
+            --border-color: rgba(0,0,0,0.08);
+            --border-hover: rgba(124,58,237,0.3);
+            --shadow-glow: rgba(124,58,237,0.15);
+            --navbar-bg: #0A0E1A;
+            --navbar-border: rgba(255,255,255,0.08);
+            --toggle-bg: rgba(255,255,255,0.08);
+            --toggle-active: #6366F1;
+            --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+            --btn-primary-border: rgba(0,0,0,0.12);
+            --btn-primary-shadow: rgba(0,0,0,0.15);
+            --btn-gold-bg: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --btn-gold-shadow: rgba(245,158,11,0.25);
+            --btn-light-bg: rgba(255,255,255,0.9);
+            --btn-light-border: rgba(0,0,0,0.1);
+            --footer-bg: #f5f0eb;
+            --footer-border: rgba(0,0,0,0.06);
+            --starfield-opacity: 0;
+            --grow-deep-forest: #f8fafc;
+            --grow-forest-night: #f1f5f9;
+            --grow-sage: #dcfce7;
+            --grow-moss: #bbf7d0;
+            --grow-warm-green: #16a34a;
+            --grow-soft-gold: #b45309;
+            --grow-pale-gold: #fef3c7;
+            --grow-cream: #fffbeb;
+            --grow-slate: #475569;
+            --grow-gray: #64748b;
+            --grow-light-glow: rgba(22, 163, 74, 0.06);
+            --grow-gold-glow: rgba(180, 83, 9, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'RecklessStandard', 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .starfield {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
+            opacity: var(--starfield-opacity);
+            transition: opacity 0.5s ease;
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 50%, rgba(45, 43, 85, 0.15) 0%, transparent 60%);
+        }
+        
+
+                /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed; top: 0; left: 0;
+            width: 100%; z-index: 1000;
+            background: #0A0E1A;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .navbar-container {
+            max-width: 1440px; margin: 0 auto;
+            padding: 0 40px;
+            display: flex; align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .navbar-brand {
+            display: flex; align-items: center;
+            text-decoration: none; flex-shrink: 0;
+        }
+        .navbar-brand img {
+            height: 80px; width: auto;
+            object-fit: contain; display: block;
+        }
+        .navbar-menu {
+            display: flex; list-style: none;
+            gap: 20px; align-items: center;
+            margin-right: 20px;
+        }
+        .navbar-link {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem; font-weight: 500;
+            padding: 8px 12px; border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative; white-space: nowrap;
+        }
+        .navbar-link:hover { color: #ffffff; }
+        .navbar-link.active {
+            color: #ffffff; font-weight: 600;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .navbar-link.active::after {
+            content: ''; position: absolute;
+            bottom: -2px; left: 50%;
+            transform: translateX(-50%);
+            width: 20px; height: 2px;
+            background: var(--accent-violet, #8B5CF6);
+            border-radius: 1px;
+        }
+        .navbar-link.start-here {
+            background: linear-gradient(135deg, #8B5CF6, #6366F1);
+            color: #ffffff; font-weight: 600;
+            padding: 8px 16px;
+            box-shadow: 0 2px 12px rgba(139, 92, 246, 0.4);
+            border: none;
+        }
+        .navbar-link.start-here:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.6);
+            color: #ffffff;
+            background: linear-gradient(135deg, #9B6CF6, #7373F1);
+        }
+        .navbar-link.start-here.active::after { display: none; }
+        .navbar-link.inspiration {
+            background: linear-gradient(90deg, #fbbf24, #f472b6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700; font-size: 0.9rem;
+        }
+        .navbar-link.inspiration:hover { transform: scale(1.05); filter: brightness(1.2); }
+        .navbar-link.inspiration.active::after {
+            background: linear-gradient(90deg, #fbbf24, #f472b6);
+        }
+        .navbar-link.lumenquest {
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700; font-size: 0.9rem;
+        }
+        .navbar-link.lumenquest:hover { transform: scale(1.05); filter: brightness(1.2); }
+        .navbar-link.lumenquest.active::after {
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+        }
+        .navbar-actions {
+            display: flex; align-items: center;
+            gap: 12px; flex-shrink: 0;
+        }
+        .theme-toggle {
+            display: flex; align-items: center;
+            gap: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50px; padding: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .theme-btn {
+            width: 32px; height: 32px;
+            border-radius: 50%; border: none;
+            background: transparent; cursor: pointer;
+            display: flex; align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 0;
+        }
+        .theme-btn.active {
+            background: #6366F1;
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+        }
+        .theme-btn:hover:not(.active) { color: rgba(255, 255, 255, 0.9); }
+        .theme-btn svg { width: 16px; height: 16px; }
+        .navbar-prayer {
+            background: linear-gradient(135deg, #8B5CF6, #6366F1);
+            color: #ffffff; border: none;
+            padding: 10px 20px; border-radius: 50px;
+            font-size: 0.85rem; font-weight: 600;
+            cursor: pointer; display: flex;
+            align-items: center; gap: 6px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            white-space: nowrap;
+        }
+        .navbar-prayer:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.6);
+        }
+        .navbar-toggle {
+            display: none; flex-direction: column;
+            gap: 5px; background: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px; cursor: pointer;
+            padding: 8px; margin-left: 8px;
+        }
+        .navbar-toggle span {
+            display: block; width: 24px; height: 2px;
+            background: #ffffff; border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .navbar-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .navbar-toggle.active span:nth-child(2) { opacity: 0; }
+        .navbar-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* ===== DROPDOWN ===== */
+        .nav-dropdown { position: relative; }
+        .dropdown-toggle { display: flex; align-items: center; gap: 6px; }
+        .dropdown-arrow { font-size: 10px; transition: transform 0.3s ease; }
+        .nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+        .dropdown-menu {
+            position: absolute; top: 100%; left: 0;
+            min-width: 220px;
+            background: linear-gradient(135deg, #0A1A2F 0%, #102A4A 35%, #173E6B 70%, #1E4F87 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px; padding: 10px 0;
+            margin-top: 12px; list-style: none;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 20px 50px rgba(0,0,0,.45), 0 0 25px rgba(37,99,235,.15);
+            opacity: 0; visibility: hidden;
+            transform: translateY(10px);
+            transition: all .35s ease;
+            z-index: 1000;
+        }
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1; visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-link {
+            display: block; padding: 12px 18px;
+            color: #F8FAFC; text-decoration: none;
+            border-radius: 10px; transition: all .3s ease;
+        }
+        .dropdown-link:hover {
+            background: rgba(255,255,255,.08);
+            color: #F5C542; padding-left: 24px;
+        }
+
+               /* ===== SERMONS HERO ===== */
+        .sermons-hero {
+            position: relative; z-index: 1;
+            min-height: 60vh;
+            display: flex; align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--grow-deep-forest) 0%, var(--grow-forest-night) 40%, #1E293B 100%);
+            transition: background 0.5s ease;
+            padding-top: 72px;
+        }
+        .sermons-hero-bg {
+            position: absolute; top: 0; right: 0;
+            width: 55%; height: 100%;
+            background: url('https://images.stockcake.com/public/0/9/8/0987c622-a33e-41d5-8f55-06f7c6e9abd0_large/summit-at-sunset-stockcake.jpg') no-repeat center center;
+            background-size: cover;
+            mask-image: linear-gradient(to left, black 50%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to left, black 50%, transparent 100%);
+            opacity: 0.3;
+            transition: opacity 0.5s ease;
+        }
+        [data-theme="day"] .sermons-hero-bg { opacity: 0.2; filter: saturate(0.8) contrast(1.1); }
+        .sermons-hero-overlay {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, var(--grow-deep-forest) 0%, var(--grow-deep-forest) 35%, transparent 70%);
+            z-index: 1;
+            transition: background 0.5s ease;
+        }
+        .sermons-hero-content {
+            position: relative; z-index: 2;
+            max-width: 1400px; margin: 0 auto;
+            padding: 80px 60px;
+            width: 100%;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .sermons-hero-label {
+            font-family: 'Caveat', cursive;
+            color: var(--grow-warm-green);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: block;
+            opacity: 0.9;
+            transition: color 0.5s ease;
+        }
+        .sermons-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            transition: color 0.5s ease;
+        }
+        .sermons-hero h1 em {
+            font-style: italic;
+            color: var(--grow-soft-gold);
+            font-weight: 500;
+            transition: color 0.5s ease;
+        }
+        .sermons-hero-subtext {
+            font-size: 1.25rem;
+            color: var(--grow-slate);
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.7;
+            max-width: 600px;
+            margin-left: auto; margin-right: auto;
+            transition: color 0.5s ease;
+        }
+        .sermons-search-bar {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+        .sermons-search-bar input {
+            width: 100%;
+            padding: 18px 24px 18px 56px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+        .sermons-search-bar input::placeholder { color: var(--text-muted); }
+        .sermons-search-bar input:focus {
+            border-color: rgba(74, 222, 128, 0.4);
+            box-shadow: 0 0 30px rgba(74, 222, 128, 0.1);
+        }
+        .sermons-search-icon {
+            position: absolute;
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+        .sermons-filter-tags {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .filter-tag {
+            padding: 10px 22px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .filter-tag:hover {
+            border-color: rgba(74, 222, 128, 0.3);
+            color: var(--grow-warm-green);
+        }
+        .filter-tag.active {
+            background: rgba(74, 222, 128, 0.15);
+            border-color: rgba(74, 222, 128, 0.4);
+            color: var(--grow-warm-green);
+            font-weight: 500;
+        }
+        [data-theme="day"] .filter-tag.active {
+            background: rgba(22, 163, 74, 0.1);
+            border-color: rgba(22, 163, 74, 0.3);
+        }
+
+        /* ===== FEATURED SERMON ===== */
+        .featured-section {
+            position: relative; z-index: 1;
+            padding: 100px 40px;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .section-header { margin-bottom: 50px; }
+        .section-label {
+            font-family: 'Caveat', cursive;
+            color: var(--grow-warm-green);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            display: block;
+            transition: color 0.5s ease;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            transition: color 0.5s ease;
+        }
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 300;
+            transition: color 0.5s ease;
+        }
+        .featured-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: all 0.5s ease;
+        }
+        .featured-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+        .featured-video {
+            background: linear-gradient(135deg, var(--grow-forest-night) 0%, var(--grow-sage) 100%);
+            aspect-ratio: 16/10;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.5s ease;
+        }
+        [data-theme="day"] .featured-video {
+            background: linear-gradient(135deg, #e2e8f0 0%, #dcfce7 100%);
+        }
+        .featured-video img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            position: absolute; top: 0; left: 0;
+            opacity: 0.6;
+        }
+        .play-btn {
+            width: 90px; height: 90px;
+            background: rgba(74, 222, 128, 0.15);
+            border: 2px solid rgba(74, 222, 128, 0.4);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative; z-index: 2;
+            backdrop-filter: blur(10px);
+        }
+        .play-btn:hover {
+            background: rgba(74, 222, 128, 0.25);
+            transform: scale(1.08);
+            box-shadow: 0 0 50px rgba(74, 222, 128, 0.2);
+        }
+        .play-btn span {
+            font-size: 1.8rem;
+            color: var(--grow-warm-green);
+            margin-left: 4px;
+        }
+        .featured-info {
+            padding: 50px;
+            display: flex; flex-direction: column;
+            justify-content: center;
+        }
+        .featured-tag {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(74, 222, 128, 0.1);
+            color: var(--grow-warm-green);
+            padding: 6px 16px; border-radius: 50px;
+            font-size: 0.8rem; font-weight: 500;
+            margin-bottom: 20px;
+            width: fit-content;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            transition: all 0.5s ease;
+        }
+        .featured-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+            line-height: 1.3;
+            transition: color 0.5s ease;
+        }
+        .featured-info p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            transition: color 0.5s ease;
+        }
+        .featured-meta {
+            display: flex; gap: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: color 0.5s ease;
+            margin-bottom: 25px;
+        }
+        .featured-actions {
+            display: flex; gap: 12px;
+            flex-wrap: wrap;
+        }
+        .btn-sm {
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center; gap: 8px;
+            text-decoration: none;
+            border: none;
+        }
+        .btn-sm-primary {
+            background: rgba(74, 222, 128, 0.15);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            color: var(--grow-warm-green);
+        }
+        .btn-sm-primary:hover {
+            background: rgba(74, 222, 128, 0.25);
+            transform: translateY(-2px);
+        }
+        [data-theme="day"] .btn-sm-primary {
+            background: rgba(22, 163, 74, 0.1);
+            border-color: rgba(22, 163, 74, 0.25);
+        }
+        .btn-sm-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+        .btn-sm-outline:hover {
+            border-color: var(--accent-violet);
+            color: var(--accent-violet);
+        }
+               /* ===== SERMONS GRID ===== */
+        .sermons-section {
+            position: relative; z-index: 1;
+            padding: 0 40px 100px;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .sermons-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .sermon-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .sermon-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(74, 222, 128, 0.15);
+            box-shadow: 0 20px 50px var(--shadow-glow);
+        }
+        .sermon-thumb {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, var(--grow-forest-night) 0%, var(--grow-sage) 100%);
+            overflow: hidden;
+            transition: background 0.5s ease;
+        }
+        [data-theme="day"] .sermon-thumb {
+            background: linear-gradient(135deg, #e2e8f0 0%, #dcfce7 100%);
+        }
+        .sermon-thumb img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        .sermon-card:hover .sermon-thumb img {
+            transform: scale(1.05);
+            opacity: 0.85;
+        }
+        .sermon-play-overlay {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 56px; height: 56px;
+            background: rgba(74, 222, 128, 0.15);
+            border: 2px solid rgba(74, 222, 128, 0.4);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+        .sermon-card:hover .sermon-play-overlay { opacity: 1; }
+        .sermon-play-overlay span {
+            font-size: 1.2rem;
+            color: var(--grow-warm-green);
+            margin-left: 3px;
+        }
+        .sermon-duration {
+            position: absolute;
+            bottom: 12px; right: 12px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+        .sermon-body {
+            padding: 24px;
+        }
+        .sermon-tag {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: rgba(74, 222, 128, 0.08);
+            color: var(--grow-warm-green);
+            padding: 4px 12px; border-radius: 50px;
+            font-size: 0.75rem; font-weight: 500;
+            margin-bottom: 12px;
+            border: 1px solid rgba(74, 222, 128, 0.15);
+            transition: all 0.5s ease;
+        }
+        .sermon-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            font-weight: 600;
+            line-height: 1.3;
+            transition: color 0.5s ease;
+        }
+        .sermon-body p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            transition: color 0.5s ease;
+        }
+        .sermon-meta {
+            display: flex; gap: 16px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            transition: color 0.5s ease;
+        }
+        .sermon-meta span {
+            display: flex; align-items: center; gap: 4px;
+        }
+
+        /* ===== SERIES SECTION ===== */
+        .series-section {
+            position: relative; z-index: 1;
+            padding: 100px 40px;
+            background: var(--bg-secondary);
+            transition: background 0.5s ease;
+        }
+        .series-container {
+            max-width: 1200px; margin: 0 auto;
+        }
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 50px;
+        }
+        .series-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .series-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(74, 222, 128, 0.15);
+            box-shadow: 0 15px 40px var(--shadow-glow);
+        }
+        .series-cover {
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, var(--grow-forest-night) 0%, var(--grow-sage) 100%);
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.5s ease;
+        }
+        [data-theme="day"] .series-cover {
+            background: linear-gradient(135deg, #e2e8f0 0%, #dcfce7 100%);
+        }
+        .series-cover .series-icon {
+            font-size: 3rem;
+            opacity: 0.7;
+        }
+        .series-count {
+            position: absolute;
+            bottom: 12px; left: 12px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+        .series-info {
+            padding: 24px;
+        }
+        .series-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-weight: 600;
+            transition: color 0.5s ease;
+        }
+        .series-info p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            transition: color 0.5s ease;
+        }
+               /* ===== TRUTH CALLOUT ===== */
+        .truth-section {
+            position: relative; z-index: 1;
+            padding: 120px 40px;
+            max-width: 1000px; margin: 0 auto;
+            text-align: center;
+        }
+        .truth-container {
+            background: var(--bg-card);
+            border: 1px solid rgba(74, 222, 128, 0.1);
+            border-radius: 30px;
+            padding: 70px 60px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        .truth-container::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(74, 222, 128, 0.03) 0%, transparent 60%);
+            animation: slowRotate 20s linear infinite;
+        }
+        @keyframes slowRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .truth-label {
+            font-family: 'Caveat', cursive;
+            color: var(--grow-warm-green);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            display: block;
+            position: relative; z-index: 1;
+            transition: color 0.5s ease;
+        }
+        .truth-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin-bottom: 30px;
+            position: relative; z-index: 1;
+            font-weight: 500;
+            transition: color 0.5s ease;
+        }
+        .truth-ref {
+            color: var(--grow-soft-gold);
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            position: relative; z-index: 1;
+            transition: color 0.5s ease;
+        }
+
+        /* ===== NEXT STEP ===== */
+        .next-step-section {
+            position: relative; z-index: 1;
+            padding: 100px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, transparent 0%, var(--bg-secondary) 100%);
+            transition: background 0.5s ease;
+        }
+        .next-step-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .next-step-label {
+            font-family: 'Caveat', cursive;
+            color: var(--grow-warm-green);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: block;
+            transition: color 0.5s ease;
+        }
+        .next-step-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-weight: 600;
+            transition: color 0.5s ease;
+        }
+        .next-step-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            transition: color 0.5s ease;
+        }
+        .next-buttons {
+            display: flex; gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: rgba(74, 222, 128, 0.15);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            color: var(--grow-warm-green);
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center; gap: 10px;
+        }
+        .btn-primary:hover {
+            background: rgba(74, 222, 128, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.1);
+        }
+        [data-theme="day"] .btn-primary {
+            background: rgba(22, 163, 74, 0.1);
+            border-color: rgba(22, 163, 74, 0.25);
+            color: var(--grow-warm-green);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.4s ease;
+        }
+        .btn-outline:hover {
+            border-color: var(--accent-violet);
+            color: var(--accent-violet);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            position: relative; z-index: 1;
+            background: var(--footer-bg);
+            border-top: 1px solid var(--footer-border);
+            padding: 60px 40px 30px;
+            transition: all 0.5s ease;
+        }
+        .footer-content {
+            max-width: 1200px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem; line-height: 1.6;
+            margin-bottom: 20px;
+            transition: color 0.5s ease;
+        }
+        .footer-social {
+            display: flex; gap: 12px;
+        }
+        .footer-social a {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            display: flex; align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .footer-social a:hover {
+            background: var(--accent-violet);
+            color: white;
+            border-color: var(--accent-violet);
+        }
+        .footer-social svg {
+            width: 18px; height: 18px;
+            fill: currentColor;
+        }
+        .footer-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem; font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.5s ease;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover { color: var(--accent-violet); }
+        .footer-form { margin-top: 20px; }
+        .footer-form-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem; font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            transition: color 0.5s ease;
+        }
+        .footer-form-body {
+            display: flex; gap: 8px;
+        }
+        .footer-input {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 10px 14px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .footer-input::placeholder { color: var(--text-muted); }
+        .footer-input:focus { border-color: var(--accent-violet); }
+        .footer-submit {
+            background: var(--btn-primary-bg);
+            color: white; border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.85rem; font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .footer-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px var(--btn-primary-shadow);
+        }
+        .footer-bottom {
+            max-width: 1200px; margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid var(--footer-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; gap: 20px;
+            transition: border-color 0.5s ease;
+        }
+        .footer-credit {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            transition: color 0.5s ease;
+        }
+        .footer-legal {
+            display: flex; gap: 16px;
+            align-items: center;
+        }
+        .footer-legal a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+        .footer-legal a:hover { color: var(--accent-violet); }
+        .footer-legal span {
+            color: var(--border-color);
+            transition: color 0.5s ease;
+        }
+               /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .navbar-container { padding: 0 20px; }
+            .navbar-menu { gap: 2px; }
+            .navbar-link { padding: 6px 10px; font-size: 0.8rem; }
+            .navbar-prayer { padding: 8px 14px; font-size: 0.8rem; }
+            .navbar-brand img { height: 60px; }
+        }
+        @media (max-width: 1024px) {
+            .navbar-icons { gap: 4px; }
+            .navbar-icon { padding: 4px; }
+            .theme-toggle { gap: 2px; }
+            .theme-btn { width: 28px; height: 28px; }
+            .sermons-hero h1 { font-size: 3rem; }
+            .sermons-grid { grid-template-columns: repeat(2, 1fr); }
+            .series-grid { grid-template-columns: repeat(2, 1fr); }
+            .featured-card { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            .navbar-container { height: 70px; padding: 0 16px; }
+            .navbar-brand img { height: 60px; }
+            .navbar-toggle { display: flex; }
+            .navbar-menu {
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                position: fixed;
+                top: 80px; left: 15px; right: 15px;
+                max-height: calc(100vh - 100px);
+                overflow-y: auto;
+                padding: 20px; gap: 8px;
+                background: rgba(10, 14, 26, 0.96);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255,255,255,.08);
+                border-radius: 18px;
+                box-shadow: 0 20px 60px rgba(0,0,0,.35);
+                z-index: 1001;
+            }
+            .navbar-menu.active { display: flex; }
+            .navbar-menu li { width: 100%; list-style: none; }
+            .navbar-link {
+                display: flex; align-items: center;
+                justify-content: space-between;
+                width: 100%; padding: 14px 16px;
+                font-size: 1rem; font-weight: 600;
+                border-radius: 12px;
+            }
+            .navbar-link:hover { background: rgba(255,255,255,.08); }
+            .navbar-prayer { display: none; }
+            .theme-toggle { order: -1; }
+            .dropdown-menu {
+                position: static;
+                opacity: 1; visibility: visible;
+                transform: none;
+                box-shadow: none;
+                max-height: 0;
+                overflow: hidden;
+                padding: 0; margin: 0;
+                transition: max-height 0.3s ease;
+                background: rgba(255,255,255,0.03);
+                border: none;
+            }
+            .nav-dropdown.active .dropdown-menu {
+                max-height: 300px;
+                padding: 8px 0;
+            }
+            .sermons-hero { min-height: auto; padding-top: 70px; }
+            .sermons-hero-bg {
+                width: 100%; opacity: 0.15;
+                mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+            }
+            .sermons-hero-overlay {
+                background: linear-gradient(180deg, var(--grow-deep-forest) 0%, var(--grow-deep-forest) 50%, transparent 100%);
+            }
+            .sermons-hero-content {
+                padding: 60px 24px;
+                text-align: center;
+            }
+            .sermons-hero h1 { font-size: 2.4rem; }
+            .sermons-hero-subtext { font-size: 1.05rem; }
+            .sermons-grid { grid-template-columns: 1fr; }
+            .series-grid { grid-template-columns: 1fr; }
+            .featured-info { padding: 30px; }
+            .truth-container { padding: 40px 24px; }
+            .truth-text { font-size: 1.5rem; }
+            .next-buttons { flex-direction: column; align-items: center; }
+            .btn-primary, .btn-outline {
+                width: 100%; max-width: 300px;
+                justify-content: center;
+            }
+            .footer-content { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="starfield"></div>
+
+       <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
+                <img src="/images/logo.png" alt="LightMode Ministries">
+            </a>
+
+            <ul class="navbar-menu" id="navbar-menu" role="menubar">
+                <li class="nav-dropdown" role="none">
+                    <a href="/index.html" class="navbar-link dropdown-toggle">
+                        Home <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/about.html" class="dropdown-link">About Us</a></li>
+                        <li><a href="/contact.html" class="dropdown-link">Contact</a></li>
+                    </ul>
+                </li>
+                <li role="none"><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/rest.html" class="navbar-link dropdown-toggle">
+                        Rest <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/deep-sleep.html" class="dropdown-link">Deep Sleep</a></li>
+                        <li><a href="/prayer-video.html" class="dropdown-link">Prayer Video</a></li>
+                        <li><a href="/bedtime-fables.html" class="dropdown-link">BedTime Fables</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/inspiration.html" class="navbar-link inspiration dropdown-toggle">
+                        Inspiration <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/stories.html" class="dropdown-link">Stories</a></li>
+                        <li><a href="/videos.html" class="dropdown-link">Videos</a></li>
+                        <li><a href="/resources.html" class="dropdown-link">Resources</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/grow.html" class="navbar-link dropdown-toggle active">
+                        Grow <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/bible-study.html" class="dropdown-link">Bible Studies</a></li>
+                        <li><a href="/sermons.html" class="dropdown-link">Sermons</a></li>
+                        <li><a href="/devotionals.html" class="dropdown-link">Devotionals</a></li>
+                        <li><a href="/study-guides.html" class="dropdown-link">Study Guides</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/teens.html" class="navbar-link dropdown-toggle">
+                        Teens <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li>
+                        <li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li>
+                        <li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">
+                        LumenQuest <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/animations.html" class="dropdown-link">Animations</a></li>
+                        <li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li>
+                        <li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li>
+                        <li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="navbar-actions">
+                <div class="theme-toggle" role="group" aria-label="Theme toggle">
+                    <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                    <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+       <!-- ===== SERMONS HERO ===== -->
+    <section class="sermons-hero">
+        <div class="sermons-hero-bg"></div>
+        <div class="sermons-hero-overlay"></div>
+        <div class="sermons-hero-content">
+            <span class="sermons-hero-label">Grow Deeper in Faith</span>
+            <h1>
+                Sermons That<br>
+                <em>Transform</em>
+            </h1>
+            <p class="sermons-hero-subtext">
+                Powerful, biblical messages designed to help you grow in grace and knowledge of our Lord Jesus Christ.
+            </p>
+            <div class="sermons-search-bar">
+                <span class="sermons-search-icon">🔍</span>
+                <input type="text" placeholder="Search sermons by title, topic, or scripture..." aria-label="Search sermons">
+            </div>
+            <div class="sermons-filter-tags">
+                <button class="filter-tag active">All</button>
+                <button class="filter-tag">Identity</button>
+                <button class="filter-tag">Faith</button>
+                <button class="filter-tag">Healing</button>
+                <button class="filter-tag">Purpose</button>
+                <button class="filter-tag">Obedience</button>
+                <button class="filter-tag">Disciplines</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURED SERMON ===== -->
+    <section class="featured-section" id="featured">
+        <div class="section-header">
+            <span class="section-label">Featured This Week</span>
+            <h2 class="section-title">Sermon of the Week</h2>
+            <p class="section-subtitle">A message chosen to speak directly to where you are right now.</p>
+        </div>
+
+        <div class="featured-card">
+            <div class="featured-video">
+                <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?w=800&q=80" alt="Mountain sunrise">
+                <div class="play-btn">
+                    <span>▶</span>
+                </div>
+            </div>
+            <div class="featured-info">
+                <div class="featured-tag">
+                    <span>🌿</span>
+                    Identity in Christ
+                </div>
+                <h3>You Are Not What They Say You Are</h3>
+                <p>Discover who God says you are — not who your past, your fears, or other people have labeled you to be. Your true identity is found in Him.</p>
+                <div class="featured-meta">
+                    <span>📖 18 min</span>
+                    <span>📝 Study Guide</span>
+                    <span>🎵 Audio</span>
+                </div>
+                <div class="featured-actions">
+                    <button class="btn-sm btn-sm-primary">▶ Watch Now</button>
+                    <button class="btn-sm btn-sm-outline">📝 Notes</button>
+                    <button class="btn-sm btn-sm-outline">🎧 Audio</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===== SERMONS GRID ===== -->
+    <section class="sermons-section">
+        <div class="section-header">
+            <span class="section-label">Latest Messages</span>
+            <h2 class="section-title">Recent Sermons</h2>
+            <p class="section-subtitle">Browse our collection of life-changing messages.</p>
+        </div>
+
+        <div class="sermons-grid">
+            <div class="sermon-card">
+                <div class="sermon-thumb">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Mountain landscape">
+                    <div class="sermon-play-overlay"><span>▶</span></div>
+                    <div class="sermon-duration">24 min</div>
+                </div>
+                <div class="sermon-body">
+                    <div class="sermon-tag">🤝 Faith</div>
+                    <h3>When Doubt Creeps In</h3>
+                    <p>How to hold onto faith when everything around you feels uncertain.</p>
+                    <div class="sermon-meta">
+                        <span>📖 24 min</span>
+                        <span>📝 Guide</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sermon-card">
+                <div class="sermon-thumb">
+                    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&q=80" alt="Forest fog">
+                    <div class="sermon-play-overlay"><span>▶</span></div>
+                    <div class="sermon-duration">32 min</div>
+                </div>
+                <div class="sermon-body">
+                    <div class="sermon-tag">💚 Healing</div>
+                    <h3>The Balm of Gilead</h3>
+                    <p>God's promise to mend what feels broken inside and out.</p>
+                    <div class="sermon-meta">
+                        <span>📖 32 min</span>
+                        <span>📝 Guide</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sermon-card">
+                <div class="sermon-thumb">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80" alt="Sunrise valley">
+                    <div class="sermon-play-overlay"><span>▶</span></div>
+                    <div class="sermon-duration">28 min</div>
+                </div>
+                <div class="sermon-body">
+                    <div class="sermon-tag">🎯 Purpose</div>
+                    <h3>Your Unique Design</h3>
+                    <p>Discovering why you were created and how God wants to use you.</p>
+                    <div class="sermon-meta">
+                        <span>📖 28 min</span>
+                        <span>📝 Guide</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sermon-card">
+                <div class="sermon-thumb">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80" alt="Lake reflection">
+                    <div class="sermon-play-overlay"><span>▶</span></div>
+                    <div class="sermon-duration">21 min</div>
+                </div>
+                <div class="sermon-body">
+                    <div class="sermon-tag">📜 Obedience</div>
+                    <h3>The Fear of the Lord</h3>
+                    <p>Understanding what it truly means to walk in reverence and wisdom.</p>
+                    <div class="sermon-meta">
+                        <span>📖 21 min</span>
+                        <span>📝 Guide</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sermon-card">
+                <div class="sermon-thumb">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80" alt="Forest path">
+                    <div class="sermon-play-overlay"><span>▶</span></div>
+                    <div class="sermon-duration">35 min</div>
+                </div>
+                <div class="sermon-body">
+                    <div class="sermon-tag">🌿 Disciplines</div>
+                    <h3>The Power of Prayer</h3>
+                    <p>Practical rhythms that keep you connected to God every day.</p>
+                    <div class="sermon-meta">
+                        <span>📖 35 min</span>
+                        <span>📝 Guide</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sermon-card">
+                <div class="sermon-thumb">
+                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80" alt="Aerial landscape">
+                    <div class="sermon-play-overlay"><span>▶</span></div>
+                    <div class="sermon-duration">26 min</div>
+                </div>
+                <div class="sermon-body">
+                    <div class="sermon-tag">🪞 Identity</div>
+                    <h3>Chosen, Not Forgotten</h3>
+                    <p>You were handpicked by God before the world began.</p>
+                    <div class="sermon-meta">
+                        <span>📖 26 min</span>
+                        <span>📝 Guide</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ===== SERIES SECTION ===== -->
+    <section class="series-section">
+        <div class="series-container">
+            <div class="section-header">
+                <span class="section-label">Go Deeper</span>
+                <h2 class="section-title">Sermon Series</h2>
+                <p class="section-subtitle">Multi-week journeys through themes that transform.</p>
+            </div>
+
+            <div class="series-grid">
+                <div class="series-card">
+                    <div class="series-cover">
+                        <div class="series-icon">🪞</div>
+                        <div class="series-count">6 sermons</div>
+                    </div>
+                    <div class="series-info">
+                        <h3>Identity in Christ</h3>
+                        <p>Who God says you are — not who your past defined you to be.</p>
+                    </div>
+                </div>
+
+                <div class="series-card">
+                    <div class="series-cover">
+                        <div class="series-icon">🤝</div>
+                        <div class="series-count">5 sermons</div>
+                    </div>
+                    <div class="series-info">
+                        <h3>Faith and Trust</h3>
+                        <p>Learning to lean on God when you cannot see the way forward.</p>
+                    </div>
+                </div>
+
+                <div class="series-card">
+                    <div class="series-cover">
+                        <div class="series-icon">💚</div>
+                        <div class="series-count">4 sermons</div>
+                    </div>
+                    <div class="series-info">
+                        <h3>Healing and Restoration</h3>
+                        <p>God's promise to mend what feels broken inside and out.</p>
+                    </div>
+                </div>
+
+                <div class="series-card">
+                    <div class="series-cover">
+                        <div class="series-icon">🎯</div>
+                        <div class="series-count">7 sermons</div>
+                    </div>
+                    <div class="series-info">
+                        <h3>Purpose and Calling</h3>
+                        <p>Discovering why you were created and how God wants to use you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TRUTH CALLOUT ===== -->
+    <section class="truth-section">
+        <div class="truth-container">
+            <span class="truth-label">Anchor Truth</span>
+            <p class="truth-text">
+                "So faith comes from hearing, and hearing through the word of Christ."
+            </p>
+            <p class="truth-ref">ROMANS 10:17</p>
+        </div>
+    </section>
+
+    <!-- ===== NEXT STEP ===== -->
+    <section class="next-step-section">
+        <div class="next-step-container">
+            <span class="next-step-label">Keep Growing</span>
+            <h2 class="next-step-title">Go Deeper in Study</h2>
+            <p class="next-step-text">
+                These sermons are just the beginning. Dive into structured Bible study to build a foundation that lasts.
+            </p>
+            <div class="next-buttons">
+                <a href="/bible-study.html" class="btn-primary">
+                    <span>📖</span>
+                    Start Bible Study
+                </a>
+                <a href="/devotionals.html" class="btn-outline">
+                    Read Devotionals
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+                    <img width="20%" src="/images/logo-crop.png" alt="LightMode Ministries Logo">
+                    <div>
+                        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;color:var(--text-primary);transition:color 0.5s ease;">LightMode</div>
+                        <div style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);transition:color 0.5s ease;">Ministries LLC</div>
+                    </div>
+                </div>
+                <p>Illuminating Lives.<br>One Heart at a Time.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="#" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Teens</h4>
+                <ul class="footer-links">
+                    <li><a href="/teens.html">Journeys</a></li>
+                    <li><a href="/teens.html">Browse Topics</a></li>
+                    <li><a href="/teens.html">Check-In</a></li>
+                    <li><a href="/teens.html">Night Mode</a></li>
+                    <li><a href="/teens.html">Prayer Library</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="/rest.html">Prayer Requests</a></li>
+                    <li><a href="/resources.html">Resources</a></li>
+                    <li><a href="/stories.html">Stories</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Parents</h4>
+                <ul class="footer-links" style="margin-bottom:20px;">
+                    <li><a href="/family.html">Parent Guide</a></li>
+                    <li><a href="/family.html">Conversation Starters</a></li>
+                    <li><a href="/family.html">Faith at Home</a></li>
+                    <li><a href="/resources.html">Resources</a></li>
+                </ul>
+                <div class="footer-form">
+                    <div class="footer-form-title">Get encouragement delivered to you.</div>
+                    <div class="footer-form-body">
+                        <input type="email" class="footer-input" placeholder="Enter your email" aria-label="Your email address">
+                        <button class="footer-submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-credit">Designed By Digital Software Labs</p>
+            <div class="footer-legal">
+                <a href="#">Terms & Conditions</a>
+                <span>|</span>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== THEME TOGGLE =====
+        function setTheme(mode) {
+            const html = document.documentElement;
+            const btnDay = document.getElementById('btn-day');
+            const btnNight = document.getElementById('btn-night');
+
+            if (mode === 'day') {
+                html.setAttribute('data-theme', 'day');
+                btnDay.classList.add('active');
+                btnNight.classList.remove('active');
+                localStorage.setItem('theme', 'day');
+            } else {
+                html.removeAttribute('data-theme');
+                btnDay.classList.remove('active');
+                btnNight.classList.add('active');
+                localStorage.setItem('theme', 'night');
+            }
+        }
+
+        // Load saved theme (DEFAULT = DAY)
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'night') {
+                setTheme('night');
+            } else {
+                setTheme('day');
+            }
+        });
+
+        // Mobile menu toggle
+        const navbarToggle = document.querySelector('.navbar-toggle');
+        const navbarMenu = document.getElementById('navbar-menu');
+
+        if (navbarToggle && navbarMenu) {
+            navbarToggle.addEventListener('click', function () {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+                this.classList.toggle('active');
+                navbarMenu.classList.toggle('active');
+            });
+
+            navbarMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.classList.contains('dropdown-toggle')) {
+                        e.preventDefault();
+                        return;
+                    }
+                    navbarMenu.classList.remove('active');
+                    navbarToggle.classList.remove('active');
+                    navbarToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    navbarMenu.classList.remove('active');
+                    navbarToggle.classList.remove('active');
+                    navbarToggle.setAttribute('aria-expanded', 'false');
+                    document.querySelectorAll('.nav-dropdown').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                }
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Mobile Dropdown
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function (e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const parent = this.parentElement;
+                    document.querySelectorAll('.nav-dropdown').forEach(item => {
+                        if (item !== parent) {
+                            item.classList.remove('active');
+                        }
+                    });
+                    parent.classList.toggle('active');
+                }
+            });
+        });
+
+        // Filter tags
+        document.querySelectorAll('.filter-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
+

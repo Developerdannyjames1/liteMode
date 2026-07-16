@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BedTime Fables — Stories for Peaceful Sleep | LightMode Ministries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a12;
+            --bg-secondary: #12121f;
+            --bg-card: rgba(26, 26, 40, 0.7);
+            --bg-card-hover: rgba(30, 30, 50, 0.9);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b8a;
+            --accent-violet: #a78bfa;
+            --accent-blue: #60a5fa;
+            --accent-gold: #fbbf24;
+            --accent-pink: #f472b6;
+            --accent-teal: #2dd4bf;
+            --accent-green: #4ade80;
+            --accent-red: #f87171;
+            --accent-orange: #fb923c;
+            --accent-cyan: #22d3ee;
+            --accent-lavender: #c4b5fd;
+            --accent-indigo: #818cf8;
+            --accent-cream: #fef3c7;
+            --border-color: rgba(255,255,255,0.08);
+            --border-hover: rgba(167,139,250,0.3);
+            --shadow-glow: rgba(139,92,246,0.25);
+            --navbar-bg: rgba(10, 10, 18, 0.85);
+            --navbar-border: rgba(255,255,255,0.06);
+            --toggle-bg: #1a1a2e;
+            --toggle-active: #a78bfa;
+            --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+            --btn-primary-border: rgba(255,255,255,0.15);
+            --btn-primary-shadow: rgba(0,0,0,0.3);
+            --footer-bg: #0a0a12;
+            --footer-border: rgba(255,255,255,0.05);
+            --starfield-opacity: 1;
+        }
+
+        [data-theme="day"] {
+            --bg-primary: #faf8f5;
+            --bg-secondary: #f5f0eb;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --bg-card-hover: rgba(255, 255, 255, 0.95);
+            --text-primary: #1a1a2e;
+            --text-secondary: #5a5a6e;
+            --text-muted: #8a8a9e;
+            --accent-violet: #7c3aed;
+            --accent-blue: #2563eb;
+            --accent-gold: #d97706;
+            --accent-pink: #db2777;
+            --accent-teal: #0d9488;
+            --accent-green: #16a34a;
+            --accent-red: #dc2626;
+            --accent-orange: #ea580c;
+            --accent-cyan: #0891b2;
+            --accent-lavender: #8b5cf6;
+            --accent-indigo: #6366f1;
+            --accent-cream: #fef3c7;
+            --border-color: rgba(0,0,0,0.08);
+            --border-hover: rgba(124,58,237,0.3);
+            --shadow-glow: rgba(124,58,237,0.15);
+            --navbar-bg: rgba(250, 248, 245, 0.9);
+            --navbar-border: rgba(0,0,0,0.06);
+            --toggle-bg: #e5e0db;
+            --toggle-active: #7c3aed;
+            --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+            --btn-primary-border: rgba(0,0,0,0.12);
+            --btn-primary-shadow: rgba(0,0,0,0.15);
+            --footer-bg: #f5f0eb;
+            --footer-border: rgba(0,0,0,0.06);
+            --starfield-opacity: 0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .starfield {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
+            opacity: var(--starfield-opacity);
+            transition: opacity 0.5s ease;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(244, 228, 188, 0.05) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 0%, rgba(61, 90, 128, 0.1) 0%, transparent 60%);
+        }
+
+        .ambient-glow {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
+            opacity: var(--starfield-opacity);
+            transition: opacity 0.5s ease;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(244, 228, 188, 0.05) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 0%, rgba(61, 90, 128, 0.1) 0%, transparent 60%);
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed; top: 0; left: 0;
+            width: 100%; z-index: 1000;
+            background: #0A0E1A;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .navbar-container {
+            max-width: 1440px; margin: 0 auto;
+            padding: 0 40px;
+            display: flex; align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .navbar-brand {
+            display: flex; align-items: center;
+            text-decoration: none; flex-shrink: 0;
+        }
+        .navbar-brand img {
+            height: 80px; width: auto;
+            object-fit: contain; display: block;
+        }
+        .navbar-menu {
+            display: flex; list-style: none;
+            gap: 20px; align-items: center;
+            margin-right: 20px;
+        }
+        .navbar-link {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem; font-weight: 500;
+            padding: 8px 12px; border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative; white-space: nowrap;
+        }
+        .navbar-link:hover { color: #ffffff; }
+        .navbar-link.active {
+            color: #ffffff; font-weight: 600;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .navbar-link.active::after {
+            content: ''; position: absolute;
+            bottom: -2px; left: 50%;
+            transform: translateX(-50%);
+            width: 20px; height: 2px;
+            background: var(--accent-violet, #8B5CF6);
+            border-radius: 1px;
+        }
+        .navbar-link.start-here {
+            background: linear-gradient(135deg, #8B5CF6, #6366F1);
+            color: #ffffff; font-weight: 600;
+            padding: 8px 16px;
+            box-shadow: 0 2px 12px rgba(139, 92, 246, 0.4);
+            border: none;
+        }
+        .navbar-link.start-here:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.6);
+            color: #ffffff;
+            background: linear-gradient(135deg, #9B6CF6, #7373F1);
+        }
+        .navbar-link.start-here.active::after { display: none; }
+        .navbar-link.inspiration {
+            background: linear-gradient(90deg, #fbbf24, #f472b6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700; font-size: 0.9rem;
+        }
+        .navbar-link.inspiration:hover { transform: scale(1.05); filter: brightness(1.2); }
+        .navbar-link.inspiration.active::after {
+            background: linear-gradient(90deg, #fbbf24, #f472b6);
+        }
+        .navbar-link.lumenquest {
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700; font-size: 0.9rem;
+        }
+        .navbar-link.lumenquest:hover { transform: scale(1.05); filter: brightness(1.2); }
+        .navbar-link.lumenquest.active::after {
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+        }
+        .navbar-actions {
+            display: flex; align-items: center;
+            gap: 12px; flex-shrink: 0;
+        }
+        .theme-toggle {
+            display: flex; align-items: center;
+            gap: 4px; background: rgba(255, 255, 255, 0.08);
+            border-radius: 50px; padding: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .theme-btn {
+            width: 32px; height: 32px;
+            border-radius: 50%; border: none;
+            background: transparent; cursor: pointer;
+            display: flex; align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 0;
+        }
+        .theme-btn.active {
+            background: #6366F1; color: #ffffff;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+        }
+        .theme-btn:hover:not(.active) { color: rgba(255, 255, 255, 0.9); }
+        .theme-btn svg { width: 16px; height: 16px; }
+        .navbar-toggle {
+            display: none; flex-direction: column;
+            gap: 5px; background: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px; cursor: pointer;
+            padding: 8px; margin-left: 8px;
+        }
+        .navbar-toggle span {
+            display: block; width: 24px; height: 2px;
+            background: #ffffff; border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .navbar-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .navbar-toggle.active span:nth-child(2) { opacity: 0; }
+        .navbar-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Dropdown */
+        .nav-dropdown { position: relative; }
+        .dropdown-toggle { display: flex; align-items: center; gap: 6px; }
+        .dropdown-arrow { font-size: 10px; transition: transform 0.3s ease; }
+        .dropdown-menu {
+            position: absolute; top: 100%; left: 0;
+            min-width: 220px;
+            background: linear-gradient(135deg, #0A1A2F 0%, #102A4A 35%, #173E6B 70%, #1E4F87 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px; padding: 10px 0;
+            margin-top: 12px; list-style: none;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 20px 50px rgba(0,0,0,.45), 0 0 25px rgba(37,99,235,.15);
+            opacity: 0; visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.35s ease;
+            z-index: 1000;
+        }
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1; visibility: visible;
+            transform: translateY(0);
+        }
+        .nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+        .dropdown-link {
+            display: block; padding: 12px 18px;
+            color: #F8FAFC; text-decoration: none;
+            border-radius: 10px; transition: all 0.3s ease;
+        }
+        .dropdown-link:hover {
+            background: rgba(255,255,255,.08);
+            color: #F5C542; padding-left: 24px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative; z-index: 1;
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 60px 40px;
+        }
+        .hero-content {
+            max-width: 800px;
+            animation: gentleFade 1.5s ease-out;
+            margin-top: 40px;
+        }
+        @keyframes gentleFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-label {
+            font-family: 'Caveat', cursive;
+            color: var(--accent-gold);
+            font-size: 1.6rem; margin-bottom: 20px;
+            display: block; opacity: 0.9;
+            transition: color 0.5s ease;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem; font-weight: 400;
+            line-height: 1.15; margin-bottom: 30px;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            transition: color 0.5s ease;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent-gold);
+            transition: color 0.5s ease;
+        }
+        .hero-subtext {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px; margin: 0 auto 50px;
+            font-weight: 300; line-height: 1.7;
+            transition: color 0.5s ease;
+        }
+        .hero-cta {
+            display: inline-flex; align-items: center; gap: 12px;
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            color: var(--accent-gold);
+            padding: 18px 36px; border-radius: 50px;
+            text-decoration: none; font-size: 1rem; font-weight: 500;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+        .hero-cta:hover {
+            background: rgba(251, 191, 36, 0.2);
+            border-color: rgba(251, 191, 36, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(251, 191, 36, 0.1);
+        }
+        .scroll-hint {
+            position: absolute; bottom: 40px; left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-muted);
+            font-size: 0.85rem; opacity: 0.6;
+            animation: gentleBounce 3s infinite;
+            transition: color 0.5s ease;
+        }
+        @keyframes gentleBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* ===== SECTIONS COMMON ===== */
+        .section {
+            position: relative; z-index: 1;
+            padding: 100px 40px;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .section-header {
+            text-align: center; margin-bottom: 60px;
+        }
+        .section-label {
+            font-family: 'Caveat', cursive;
+            color: var(--accent-gold);
+            font-size: 1.4rem; margin-bottom: 12px;
+            display: block;
+            transition: color 0.5s ease;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem; font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            transition: color 0.5s ease;
+        }
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem; font-weight: 300;
+            transition: color 0.5s ease;
+        }
+
+        /* ===== FEATURED FABLE ===== */
+        .featured-fable {
+            position: relative;
+            background: var(--bg-card);
+            border-radius: 24px; overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+            transition: all 0.5s ease;
+        }
+        .featured-fable:hover {
+            border-color: rgba(251, 191, 36, 0.2);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 60px rgba(251,191,36,0.05);
+        }
+        .fable-illustration {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card-hover) 50%, var(--bg-secondary) 100%);
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+        .fable-illustration::before {
+            content: ''; position: absolute; inset: 0;
+            background:
+                radial-gradient(circle at 30% 50%, rgba(251,191,36,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(167,139,250,0.06) 0%, transparent 50%);
+        }
+        .fable-illustration img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .featured-fable:hover .fable-illustration img { transform: scale(1.05); }
+        .read-btn {
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            background: rgba(251, 191, 36, 0.15);
+            border: 2px solid rgba(251, 191, 36, 0.4);
+            color: var(--accent-gold);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.4s ease;
+            font-size: 1.8rem; padding-left: 6px;
+            position: relative; z-index: 1;
+            backdrop-filter: blur(10px);
+        }
+        .read-btn:hover {
+            background: rgba(251, 191, 36, 0.25);
+            transform: scale(1.1);
+            box-shadow: 0 0 60px rgba(251, 191, 36, 0.2);
+        }
+        .fable-info {
+            padding: 35px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; gap: 20px;
+        }
+        .fable-meta h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 8px; font-weight: 500;
+            transition: color 0.5s ease;
+        }
+        .fable-meta p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            transition: color 0.5s ease;
+        }
+        .fable-tags {
+            display: flex; gap: 8px;
+            flex-wrap: wrap;
+        }
+        .fable-tag {
+            font-size: 0.75rem;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            border: 1px solid var(--border-color);
+            background: rgba(128,128,128,0.05);
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+        .fable-tag:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            background: rgba(251,191,36,0.08);
+        }
+        .fable-tag.active {
+            background: rgba(251,191,36,0.15);
+            color: var(--accent-gold);
+            border-color: rgba(251,191,36,0.3);
+        }
+
+        /* ===== CATEGORIES ===== */
+        .categories-section {
+            background: var(--bg-secondary);
+            padding: 80px 40px;
+            position: relative; z-index: 1;
+            transition: background 0.5s ease;
+        }
+        .categories-container {
+            max-width: 1000px; margin: 0 auto;
+            text-align: center;
+        }
+        .categories-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 40px; font-weight: 400;
+            transition: color 0.5s ease;
+        }
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+        .category-card {
+            background: var(--bg-card);
+            border: 1.5px solid var(--border-color);
+            border-radius: 20px;
+            padding: 28px 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.23,1,0.32,1);
+            backdrop-filter: blur(10px);
+        }
+        .category-card:hover {
+            border-color: rgba(251,191,36,0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            background: var(--bg-card-hover);
+        }
+        .category-card.active {
+            border-color: var(--accent-gold);
+            background: rgba(251,191,36,0.08);
+            box-shadow: 0 0 40px rgba(251,191,36,0.1);
+        }
+        .category-icon {
+            width: 56px; height: 56px;
+            border-radius: 16px;
+            background: rgba(251,191,36,0.1);
+            border: 1.5px solid rgba(251,191,36,0.2);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
+        }
+        .category-card:hover .category-icon {
+            background: rgba(251,191,36,0.18);
+            transform: scale(1.1) rotate(5deg);
+        }
+        .category-name {
+            color: var(--text-primary);
+            font-size: 0.9rem; font-weight: 600;
+            margin-bottom: 4px;
+            transition: color 0.5s ease;
+        }
+        .category-count {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            transition: color 0.5s ease;
+        }
+
+        /* ===== FABLE GRID ===== */
+        .fable-grid-section {
+            position: relative; z-index: 1;
+            padding: 100px 40px;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .fable-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 50px;
+        }
+        .fable-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.23,1,0.32,1);
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+        .fable-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(251,191,36,0.15);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+            background: var(--bg-card-hover);
+        }
+        .fable-thumb {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+            position: relative; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .fable-thumb img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .fable-card:hover .fable-thumb img { transform: scale(1.05); }
+        .fable-thumb-overlay {
+            position: absolute; inset: 0;
+            background: rgba(0,0,0,0.3);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .fable-card:hover .fable-thumb-overlay { opacity: 1; }
+        .fable-thumb-read {
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: rgba(251,191,36,0.2);
+            border: 2px solid rgba(251,191,36,0.4);
+            color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; padding-left: 4px;
+            backdrop-filter: blur(10px);
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+        .fable-card:hover .fable-thumb-read { transform: scale(1); }
+        .fable-duration-badge {
+            position: absolute;
+            bottom: 12px; right: 12px;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem; font-weight: 500;
+        }
+        .fable-card-body {
+            padding: 24px;
+        }
+        .fable-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            margin-bottom: 8px; font-weight: 500;
+            line-height: 1.4;
+            transition: color 0.5s ease;
+        }
+        .fable-card-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem; line-height: 1.6;
+            margin-bottom: 16px;
+            transition: color 0.5s ease;
+        }
+        .fable-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .fable-card-author {
+            display: flex; align-items: center; gap: 8px;
+        }
+        .fable-author-avatar {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-violet), var(--accent-blue));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.7rem; color: #fff; font-weight: 600;
+        }
+        .fable-author-name {
+            color: var(--text-secondary);
+            font-size: 0.8rem; font-weight: 500;
+            transition: color 0.5s ease;
+        }
+        .fable-card-reads {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            display: flex; align-items: center; gap: 4px;
+            transition: color 0.5s ease;
+        }
+
+        /* ===== SCRIPTURE ===== */
+        .scripture-section {
+            position: relative; z-index: 1;
+            padding: 120px 40px;
+            text-align: center;
+            max-width: 900px; margin: 0 auto;
+        }
+        .scripture-container {
+            position: relative;
+            padding: 60px 50px;
+            background: var(--bg-card);
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+        }
+        .scripture-container::before {
+            content: '"';
+            position: absolute; top: 20px; left: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            color: rgba(251,191,36,0.1);
+            line-height: 1; pointer-events: none;
+        }
+        .scripture-container:hover {
+            border-color: rgba(251,191,36,0.2);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+        }
+        .scripture-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem; font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.6; margin-bottom: 30px;
+            position: relative; z-index: 1;
+            transition: color 0.5s ease;
+        }
+        .scripture-ref {
+            color: var(--accent-gold);
+            font-size: 1rem; font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.5s ease;
+        }
+        .scripture-divider {
+            width: 60px; height: 1px;
+            background: rgba(251,191,36,0.3);
+            margin: 30px auto;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            position: relative; z-index: 1;
+            padding: 100px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, transparent 0%, var(--bg-secondary) 100%);
+            transition: background 0.5s ease;
+        }
+        .cta-container {
+            max-width: 700px; margin: 0 auto;
+        }
+        .cta-label {
+            font-family: 'Caveat', cursive;
+            color: var(--accent-gold);
+            font-size: 1.5rem; margin-bottom: 20px;
+            display: block;
+            transition: color 0.5s ease;
+        }
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 20px; font-weight: 400;
+            transition: color 0.5s ease;
+        }
+        .cta-text {
+            color: var(--text-muted);
+            font-size: 1.1rem; margin-bottom: 40px;
+            line-height: 1.7;
+            transition: color 0.5s ease;
+        }
+        .cta-buttons {
+            display: flex; gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-gold {
+            background: rgba(251, 191, 36, 0.15);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            color: var(--accent-gold);
+            padding: 16px 32px; border-radius: 50px;
+            text-decoration: none; font-size: 0.95rem;
+            font-weight: 500; transition: all 0.4s ease;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-gold:hover {
+            background: rgba(251, 191, 36, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.1);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 16px 32px; border-radius: 50px;
+            text-decoration: none; font-size: 0.95rem;
+            font-weight: 400; transition: all 0.4s ease;
+        }
+        .btn-outline:hover {
+            border-color: var(--accent-violet);
+            color: var(--accent-violet);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            position: relative; z-index: 1;
+            background: var(--footer-bg);
+            border-top: 1px solid var(--footer-border);
+            padding: 60px 40px 30px;
+            transition: all 0.5s ease;
+        }
+        .footer-content {
+            max-width: 1200px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem; line-height: 1.6;
+            margin-bottom: 20px;
+            transition: color 0.5s ease;
+        }
+        .footer-social {
+            display: flex; gap: 12px;
+        }
+        .footer-social a {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            display: flex; align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .footer-social a:hover {
+            background: var(--accent-violet);
+            color: white;
+            border-color: var(--accent-violet);
+        }
+        .footer-social svg { width: 18px; height: 18px; fill: currentColor; }
+        .footer-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem; font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.5s ease;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover { color: var(--accent-violet); }
+        .footer-form { margin-top: 20px; }
+        .footer-form-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem; font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            transition: color 0.5s ease;
+        }
+        .footer-form-body {
+            display: flex; gap: 8px;
+        }
+        .footer-input {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 10px 14px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .footer-input::placeholder { color: var(--text-muted); }
+        .footer-input:focus { border-color: var(--accent-violet); }
+        .footer-submit {
+            background: var(--btn-primary-bg);
+            color: white; border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.85rem; font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .footer-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px var(--btn-primary-shadow);
+        }
+        .footer-bottom {
+            max-width: 1200px; margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid var(--footer-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; gap: 20px;
+            transition: border-color 0.5s ease;
+        }
+        .footer-credit {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            transition: color 0.5s ease;
+        }
+        .footer-legal {
+            display: flex; gap: 16px;
+            align-items: center;
+        }
+        .footer-legal a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+        .footer-legal a:hover { color: var(--accent-violet); }
+        .footer-legal span { color: var(--border-color); transition: color 0.5s ease; }
+
+        /* ===== FABLE MODAL ===== */
+        .modal-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(15px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            padding: 20px;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.4s cubic-bezier(0.23,1,0.32,1);
+        }
+        .modal-overlay.active .modal-container {
+            transform: scale(1) translateY(0);
+        }
+        .modal-fable-wrapper {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: #000;
+            overflow: hidden;
+        }
+        .modal-fable-wrapper img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .modal-fable-read {
+            position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(0,0,0,0.4);
+        }
+        .modal-fable-read button {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: rgba(251,191,36,0.25);
+            border: 2px solid rgba(251,191,36,0.5);
+            color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.3s ease;
+            font-size: 1.8rem; padding-left: 6px;
+        }
+        .modal-fable-read button:hover {
+            background: rgba(251,191,36,0.4);
+            transform: scale(1.1);
+        }
+        .modal-fable-info {
+            padding: 28px 32px;
+        }
+        .modal-fable-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 8px; font-weight: 500;
+            transition: color 0.5s ease;
+        }
+        .modal-fable-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem; margin-bottom: 16px;
+            transition: color 0.5s ease;
+        }
+        .modal-fable-tags {
+            display: flex; gap: 8px; flex-wrap: wrap;
+        }
+        .modal-close {
+            position: absolute;
+            top: 16px; right: 16px;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .modal-close:hover {
+            background: rgba(244,114,182,0.3);
+            border-color: rgba(244,114,182,0.5);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        [data-animate].is-visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s cubic-bezier(0.23,1,0.32,1);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .navbar-container { padding: 0 20px; }
+            .navbar-menu { gap: 2px; }
+            .navbar-link { padding: 6px 10px; font-size: 0.8rem; }
+            .navbar-brand img { height: 60px; }
+        }
+        @media (max-width: 1024px) {
+            .navbar-menu { display: none; }
+            .navbar-toggle { display: flex; }
+            .hero h1 { font-size: 3.5rem; }
+            .categories-grid { grid-template-columns: repeat(3, 1fr); }
+            .fable-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            .navbar-container { padding: 0 18px; height: 70px; }
+            .navbar-brand img { height: 55px; }
+            .navbar-toggle { display: flex; z-index: 1002; }
+            .navbar-menu {
+                display: none; flex-direction: column;
+                align-items: stretch;
+                position: fixed; top: 80px; left: 15px; right: 15px;
+                max-height: calc(100vh - 100px); overflow-y: auto;
+                padding: 20px; gap: 8px;
+                background: rgba(10, 14, 26, 0.96);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255,255,255,.08);
+                border-radius: 18px;
+                box-shadow: 0 20px 60px rgba(0,0,0,.35);
+                z-index: 1001;
+            }
+            .navbar-menu.active { display: flex; }
+            .navbar-menu li { width: 100%; list-style: none; }
+            .navbar-link {
+                display: flex; align-items: center; justify-content: space-between;
+                width: 100%; padding: 14px 16px;
+                font-size: 1rem; font-weight: 600;
+                border-radius: 12px;
+            }
+            .navbar-link:hover { background: rgba(255,255,255,.08); }
+            .dropdown-menu {
+                position: static; opacity: 1; visibility: visible;
+                transform: none; display: none;
+                margin-top: 8px; margin-left: 12px;
+                background: transparent; border: none;
+                box-shadow: none; padding: 0;
+            }
+            .nav-dropdown.active .dropdown-menu { display: block; }
+            .dropdown-link { display: block; padding: 12px 14px; border-radius: 10px; font-size: .95rem; }
+            .hero { min-height: 70vh; padding: 40px 24px; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero-subtext { font-size: 1.1rem; }
+            .section { padding: 60px 24px; }
+            .section-title { font-size: 2.2rem; }
+            .categories-grid { grid-template-columns: repeat(2, 1fr); }
+            .fable-grid { grid-template-columns: 1fr; }
+            .scripture-container { padding: 40px 30px; }
+            .scripture-text { font-size: 1.5rem; }
+            .scripture-container::before { font-size: 5rem; top: 10px; left: 20px; }
+            .fable-info { padding: 25px; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .btn-gold, .btn-outline { width: 100%; max-width: 300px; justify-content: center; }
+            .footer-content { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .modal-container { border-radius: 16px; }
+            .modal-fable-info { padding: 20px 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="starfield"></div>
+    <div class="ambient-glow"></div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
+                <img src="/images/logo.png" alt="LightMode Ministries">
+            </a>
+            <ul class="navbar-menu" id="navbar-menu" role="menubar">
+                <li class="nav-dropdown" role="none">
+                    <a href="/index.html" class="navbar-link dropdown-toggle">
+                        Home <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/about.html" class="dropdown-link">About Us</a></li>
+                        <li><a href="/contact.html" class="dropdown-link">Contact</a></li>
+                    </ul>
+                </li>
+                <li role="none"><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/rest.html" class="navbar-link active dropdown-toggle">
+                        Rest <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/deep-sleep.html" class="dropdown-link">Deep Sleep</a></li>
+                        <li><a href="/prayer-video.html" class="dropdown-link">Prayer Video</a></li>
+                        <li><a href="/bedtime-fables.html" class="dropdown-link">BedTime Fables</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/inspiration.html" class="navbar-link inspiration dropdown-toggle">
+                        Inspiration <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/stories.html" class="dropdown-link">Stories</a></li>
+                        <li><a href="/videos.html" class="dropdown-link">Videos</a></li>
+                        <li><a href="/resources.html" class="dropdown-link">Resources</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/grow.html" class="navbar-link dropdown-toggle">
+                        Grow <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/bible-study.html" class="dropdown-link">Bible Studies</a></li>
+                        <li><a href="/sermons.html" class="dropdown-link">Sermons</a></li>
+                        <li><a href="/devotionals.html" class="dropdown-link">Devotionals</a></li>
+                        <li><a href="/study-guides.html" class="dropdown-link">Study Guides</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/teens.html" class="navbar-link dropdown-toggle">
+                        Teens <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li>
+                        <li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li>
+                        <li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">
+                        LumenQuest <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/animations.html" class="dropdown-link">Animations</a></li>
+                        <li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li>
+                        <li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li>
+                        <li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="navbar-actions">
+                <div class="theme-toggle" role="group" aria-label="Theme toggle">
+                    <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                    <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-label">Stories for Peaceful Sleep</span>
+            <h1>
+                Let a Story<br>
+                Carry You to <em>Dreams</em>
+            </h1>
+            <p class="hero-subtext">
+                Gentle bedtime fables woven with faith, hope, and wonder. 
+                Perfect for children and the child within us all.
+            </p>
+            <a href="#featured" class="hero-cta">
+                <span>📖</span>
+                Read a Fable Tonight
+            </a>
+        </div>
+        <div class="scroll-hint">Scroll gently ↓</div>
+    </section>
+
+    <!-- ===== FEATURED FABLE ===== -->
+    <section class="section" id="featured">
+        <div class="section-header" data-animate>
+            <span class="section-label">Tonight's Tale</span>
+            <h2 class="section-title">Featured BedTime Fable</h2>
+            <p class="section-subtitle">A fresh story chosen to meet you where you are.</p>
+        </div>
+
+        <div class="featured-fable" data-animate data-fable="lost-star">
+            <div class="fable-illustration">
+                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=900&h=506&fit=crop" alt="The Lost Star" loading="lazy">
+                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.3);">
+                    <button class="read-btn" aria-label="Read fable">
+                        <span>▶</span>
+                    </button>
+                </div>
+            </div>
+            <div class="fable-info">
+                <div class="fable-meta">
+                    <h3>The Lost Star</h3>
+                    <p>A little star learns that even when we feel small, God never loses sight of us.</p>
+                </div>
+                <div class="fable-tags">
+                    <span class="fable-tag active">Bedtime</span>
+                    <span class="fable-tag">5 Min</span>
+                    <span class="fable-tag">Faith</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CATEGORIES ===== -->
+    <section class="categories-section">
+        <div class="categories-container">
+            <h2 class="categories-title">Browse by Story Type</h2>
+            <div class="categories-grid">
+                <div class="category-card active" data-category="all">
+                    <div class="category-icon">📚</div>
+                    <div class="category-name">All</div>
+                    <div class="category-count">18 stories</div>
+                </div>
+                <div class="category-card" data-category="faith">
+                    <div class="category-icon">✨</div>
+                    <div class="category-name">Faith</div>
+                    <div class="category-count">6 stories</div>
+                </div>
+                <div class="category-card" data-category="courage">
+                    <div class="category-icon">🦁</div>
+                    <div class="category-name">Courage</div>
+                    <div class="category-count">4 stories</div>
+                </div>
+                <div class="category-card" data-category="kindness">
+                    <div class="category-icon">💛</div>
+                    <div class="category-name">Kindness</div>
+                    <div class="category-count">5 stories</div>
+                </div>
+                <div class="category-card" data-category="wonder">
+                    <div class="category-icon">🌌</div>
+                    <div class="category-name">Wonder</div>
+                    <div class="category-count">3 stories</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FABLE GRID ===== -->
+    <section class="fable-grid-section">
+        <div class="section-header" data-animate>
+            <span class="section-label">Story Library</span>
+            <h2 class="section-title">Find Your Fable</h2>
+            <p class="section-subtitle">A growing collection of bedtime stories for every heart.</p>
+        </div>
+
+        <div class="fable-grid" id="fable-grid">
+            <!-- Card 1 -->
+            <div class="fable-card" data-category="faith" data-fable="lost-star" data-animate>
+                <div class="fable-thumb">
+                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&h=340&fit=crop" alt="The Lost Star" loading="lazy">
+                    <div class="fable-thumb-overlay">
+                        <div class="fable-thumb-read">▶</div>
+                    </div>
+                    <span class="fable-duration-badge">5 min</span>
+                </div>
+                <div class="fable-card-body">
+                    <h3 class="fable-card-title">The Lost Star</h3>
+                    <p class="fable-card-desc">A little star learns that even when we feel small, God never loses sight of us.</p>
+                    <div class="fable-card-footer">
+                        <div class="fable-card-author">
+                            <div class="fable-author-avatar">LM</div>
+                            <span class="fable-author-name">LightMode Team</span>
+                        </div>
+                        <span class="fable-card-reads">8.4K reads</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="fable-card" data-category="courage" data-fable="brave-little-seed" data-animate>
+                <div class="fable-thumb">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=340&fit=crop" alt="The Brave Little Seed" loading="lazy">
+                    <div class="fable-thumb-overlay">
+                        <div class="fable-thumb-read">▶</div>
+                    </div>
+                    <span class="fable-duration-badge">7 min</span>
+                </div>
+                <div class="fable-card-body">
+                    <h3 class="fable-card-title">The Brave Little Seed</h3>
+                    <p class="fable-card-desc">A tiny seed must find the courage to grow in rocky soil, trusting God's plan.</p>
+                    <div class="fable-card-footer">
+                        <div class="fable-card-author">
+                            <div class="fable-author-avatar">SR</div>
+                            <span class="fable-author-name">Sarah Rivers</span>
+                        </div>
+                        <span class="fable-card-reads">5.2K reads</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="fable-card" data-category="kindness" data-fable="kindness-bridge" data-animate>
+                <div class="fable-thumb">
+                    <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=600&h=340&fit=crop" alt="The Bridge of Kindness" loading="lazy">
+                    <div class="fable-thumb-overlay">
+                        <div class="fable-thumb-read">▶</div>
+                    </div>
+                    <span class="fable-duration-badge">6 min</span>
+                </div>
+                <div class="fable-card-body">
+                    <h3 class="fable-card-title">The Bridge of Kindness</h3>
+                    <p class="fable-card-desc">Two villages divided by a river discover that love is the strongest bridge of all.</p>
+                    <div class="fable-card-footer">
+                        <div class="fable-card-author">
+                            <div class="fable-author-avatar">LM</div>
+                            <span class="fable-author-name">LightMode Team</span>
+                        </div>
+                        <span class="fable-card-reads">12.1K reads</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="fable-card" data-category="wonder" data-fable="whispering-woods" data-animate>
+                <div class="fable-thumb">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=340&fit=crop" alt="The Whispering Woods" loading="lazy">
+                    <div class="fable-thumb-overlay">
+                        <div class="fable-thumb-read">▶</div>
+                    </div>
+                    <span class="fable-duration-badge">8 min</span>
+                </div>
+                <div class="fable-card-body">
+                    <h3 class="fable-card-title">The Whispering Woods</h3>
+                    <p class="fable-card-desc">A child discovers that the trees have been praying for them all along.</p>
+                    <div class="fable-card-footer">
+                        <div class="fable-card-author">
+                            <div class="fable-author-avatar">JD</div>
+                            <span class="fable-author-name">James Daniels</span>
+                        </div>
+                        <span class="fable-card-reads">6.7K reads</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="fable-card" data-category="faith" data-fable="lighthouse-keeper" data-animate>
+                <div class="fable-thumb">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=340&fit=crop" alt="The Lighthouse Keeper" loading="lazy">
+                    <div class="fable-thumb-overlay">
+                        <div class="fable-thumb-read">▶</div>
+                    </div>
+                    <span class="fable-duration-badge">6 min</span>
+                </div>
+                <div class="fable-card-body">
+                    <h3 class="fable-card-title">The Lighthouse Keeper</h3>
+                    <p class="fable-card-desc">An old keeper teaches that the light we shine for others never truly goes out.</p>
+                    <div class="fable-card-footer">
+                        <div class="fable-card-author">
+                            <div class="fable-author-avatar">LM</div>
+                            <span class="fable-author-name">LightMode Team</span>
+                        </div>
+                        <span class="fable-card-reads">9.3K reads</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="fable-card" data-category="kindness" data-fable="invisible-thread" data-animate>
+                <div class="fable-thumb">
+                    <img src="https://images.unsplash.com/photo-1518173946687-a4c036bc3c95?w=600&h=340&fit=crop" alt="The Invisible Thread" loading="lazy">
+                    <div class="fable-thumb-overlay">
+                        <div class="fable-thumb-read">▶</div>
+                    </div>
+                    <span class="fable-duration-badge">5 min</span>
+                </div>
+                <div class="fable-card-body">
+                    <h3 class="fable-card-title">The Invisible Thread</h3>
+                    <p class="fable-card-desc">A grandmother shows her grandchild how God weaves invisible threads of love between hearts.</p>
+                    <div class="fable-card-footer">
+                        <div class="fable-card-author">
+                            <div class="fable-author-avatar">SR</div>
+                            <span class="fable-author-name">Sarah Rivers</span>
+                        </div>
+                        <span class="fable-card-reads">7.8K reads</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SCRIPTURE ===== -->
+    <section class="scripture-section">
+        <div class="scripture-container" data-animate>
+            <p class="scripture-text">
+                "Train up a child in the way he should go; even when he is old he will not depart from it."
+            </p>
+            <div class="scripture-divider"></div>
+            <p class="scripture-ref">PROVERBS 22:6</p>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+        <div class="cta-container" data-animate>
+            <span class="cta-label">Stories Shape Hearts</span>
+            <h2 class="cta-title">Share a Fable Tonight</h2>
+            <p class="cta-text">
+                The stories we tell our children become the whispers they hear when life gets hard. 
+                Choose a fable and make bedtime sacred.
+            </p>
+            <div class="cta-buttons">
+                <a href="#featured" class="btn-gold">
+                    <span>📖</span>
+                    Read a Fable Now
+                </a>
+                <a href="/prayer-video.html" class="btn-outline">Prayer Videos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+                    <img width="20%" src="/images/logo-crop.png" alt="LightMode Ministries Logo">
+                    <div>
+                        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;color:var(--text-primary);transition:color 0.5s ease;">LightMode</div>
+                        <div style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);transition:color 0.5s ease;">Ministries LLC</div>
+                    </div>
+                </div>
+                <p>Illuminating Lives.<br>One Heart at a Time.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="#" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Teens</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Journeys</a></li>
+                    <li><a href="#">Browse Topics</a></li>
+                    <li><a href="#">Check-In</a></li>
+                    <li><a href="#">Night Mode</a></li>
+                    <li><a href="#">Prayer Library</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Prayer Requests</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Parents</h4>
+                <ul class="footer-links" style="margin-bottom:20px;">
+                    <li><a href="#">Parent Guide</a></li>
+                    <li><a href="#">Conversation Starters</a></li>
+                    <li><a href="#">Faith at Home</a></li>
+                    <li><a href="#">Resources</a></li>
+                </ul>
+                <div class="footer-form">
+                    <div class="footer-form-title">Get encouragement delivered to you.</div>
+                    <div class="footer-form-body">
+                        <input type="email" class="footer-input" placeholder="Enter your email" aria-label="Your email address">
+                        <button class="footer-submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-credit">Designed By Digital Software Labs</p>
+            <div class="footer-legal">
+                <a href="#">Terms & Conditions</a>
+                <span>|</span>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== FABLE MODAL ===== -->
+    <div class="modal-overlay" id="fable-modal" aria-hidden="true">
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close" aria-label="Close fable">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="modal-fable-wrapper">
+                <img id="modal-thumb" src="" alt="Fable illustration">
+                <div class="modal-fable-read">
+                    <button aria-label="Read fable">▶</button>
+                </div>
+            </div>
+            <div class="modal-fable-info">
+                <h3 id="modal-title">Fable Title</h3>
+                <p id="modal-desc">Fable description goes here.</p>
+                <div class="modal-fable-tags" id="modal-tags"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // Theme Toggle
+        function setTheme(mode) {
+            const html = document.documentElement;
+            const btnDay = document.getElementById('btn-day');
+            const btnNight = document.getElementById('btn-night');
+
+            if (mode === 'day') {
+                html.setAttribute('data-theme', 'day');
+                btnDay.classList.add('active');
+                btnNight.classList.remove('active');
+                localStorage.setItem('theme', 'day');
+            } else {
+                html.removeAttribute('data-theme');
+                btnDay.classList.remove('active');
+                btnNight.classList.add('active');
+                localStorage.setItem('theme', 'night');
+            }
+        }
+
+        // Load saved theme (DEFAULT = DAY)
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'night') {
+                setTheme('night');
+            } else {
+                setTheme('day');
+            }
+        });
+
+        // Mobile menu toggle
+        const navbarToggle = document.querySelector('.navbar-toggle');
+        const navbarMenu = document.getElementById('navbar-menu');
+
+        if (navbarToggle && navbarMenu) {
+            navbarToggle.addEventListener('click', function () {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+                this.classList.toggle('active');
+                navbarMenu.classList.toggle('active');
+            });
+
+            // Close menu on link click (except dropdown toggles)
+            navbarMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.classList.contains('dropdown-toggle')) {
+                        e.preventDefault();
+                        return;
+                    }
+                    navbarMenu.classList.remove('active');
+                    navbarToggle.classList.remove('active');
+                    navbarToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // Close menu on desktop resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    navbarMenu.classList.remove('active');
+                    navbarToggle.classList.remove('active');
+                    navbarToggle.setAttribute('aria-expanded', 'false');
+                    document.querySelectorAll('.nav-dropdown').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                }
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile Dropdown
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function (e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const parent = this.parentElement;
+                    document.querySelectorAll('.nav-dropdown').forEach(item => {
+                        if (item !== parent) {
+                            item.classList.remove('active');
+                        }
+                    });
+                    parent.classList.toggle('active');
+                }
+            });
+        });
+
+        // Scroll Animation Observer
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+        // Category Filter
+        const categoryCards = document.querySelectorAll('.category-card');
+        const fableCards = document.querySelectorAll('.fable-card');
+
+        categoryCards.forEach(card => {
+            card.addEventListener('click', () => {
+                categoryCards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+                const category = card.dataset.category;
+
+                fableCards.forEach(fc => {
+                    if (category === 'all' || fc.dataset.category === category) {
+                        fc.style.display = 'block';
+                        setTimeout(() => fc.style.opacity = '1', 10);
+                    } else {
+                        fc.style.opacity = '0';
+                        setTimeout(() => fc.style.display = 'none', 300);
+                    }
+                });
+            });
+        });
+
+        // Fable Modal
+        const modal = document.getElementById('fable-modal');
+        const modalClose = document.getElementById('modal-close');
+        const modalThumb = document.getElementById('modal-thumb');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalTags = document.getElementById('modal-tags');
+
+        const fableData = {
+            'lost-star': {
+                title: 'The Lost Star',
+                desc: 'A little star learns that even when we feel small, God never loses sight of us.',
+                thumb: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=900&h=506&fit=crop',
+                tags: ['Bedtime', '5 Min', 'Faith']
+            },
+            'brave-little-seed': {
+                title: 'The Brave Little Seed',
+                desc: 'A tiny seed must find the courage to grow in rocky soil, trusting God\'s plan.',
+                thumb: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&h=506&fit=crop',
+                tags: ['Courage', '7 Min', 'Growth']
+            },
+            'kindness-bridge': {
+                title: 'The Bridge of Kindness',
+                desc: 'Two villages divided by a river discover that love is the strongest bridge of all.',
+                thumb: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=900&h=506&fit=crop',
+                tags: ['Kindness', '6 Min', 'Community']
+            },
+            'whispering-woods': {
+                title: 'The Whispering Woods',
+                desc: 'A child discovers that the trees have been praying for them all along.',
+                thumb: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=900&h=506&fit=crop',
+                tags: ['Wonder', '8 Min', 'Nature']
+            },
+            'lighthouse-keeper': {
+                title: 'The Lighthouse Keeper',
+                desc: 'An old keeper teaches that the light we shine for others never truly goes out.',
+                thumb: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=900&h=506&fit=crop',
+                tags: ['Faith', '6 Min', 'Service']
+            },
+            'invisible-thread': {
+                title: 'The Invisible Thread',
+                desc: 'A grandmother shows her grandchild how God weaves invisible threads of love between hearts.',
+                thumb: 'https://images.unsplash.com/photo-1518173946687-a4c036bc3c95?w=900&h=506&fit=crop',
+                tags: ['Kindness', '5 Min', 'Family']
+            }
+        };
+
+        function openModal(fableId) {
+            const data = fableData[fableId];
+            if (!data) return;
+            modalThumb.src = data.thumb;
+            modalTitle.textContent = data.title;
+            modalDesc.textContent = data.desc;
+            modalTags.innerHTML = data.tags.map(t => '<span class="fable-tag active">' + t + '</span>').join('');
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('[data-fable]').forEach(el => {
+            el.addEventListener('click', (e) => {
+                if (e.target.closest('.read-btn') || e.target.closest('.fable-thumb') || e.target.closest('.fable-card')) {
+                    e.preventDefault();
+                    openModal(el.dataset.fable);
+                }
+            });
+        });
+
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+        });
+    </script>
+</body>
+</html>
+
