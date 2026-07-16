@@ -32,43 +32,76 @@
 
   <ul class="navbar-menu" id="navbar-menu" role="menubar">
 
-    <li role="none"><a href="/" class="navbar-link active">Home</a></li>
-
-    <li role="none"><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
-
-    <li role="none"><a href="/rest.html" class="navbar-link">Rest</a></li>
-
-    <!-- GROW DROPDOWN (NEW ORGANIZED STRUCTURE) -->
+    <!-- HOME -->
     <li class="nav-dropdown" role="none">
-        <a href="#" class="navbar-link dropdown-toggle">
-            Grow <span class="dropdown-arrow">▼</span>
+        <a href="/index.html" class="navbar-link dropdown-toggle">
+            Home <span class="dropdown-arrow">▼</span>
         </a>
-
         <ul class="dropdown-menu">
-            <li><a href="/grow.html" class="dropdown-link">Grow Overview</a></li>
-            <li><a href="/bible-study.html" class="dropdown-link">Bible Study</a></li>
+            <li><a href="/about.html" class="dropdown-link">About Us</a></li>
+            <li><a href="/contact.html" class="dropdown-link">Contact</a></li>
+        </ul>
+    </li>
+<li role="none"><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
+    <!-- REST -->
+    <li class="nav-dropdown" role="none">
+        <a href="/rest.html" class="navbar-link dropdown-toggle">
+            Rest <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="/deep-sleep.html" class="dropdown-link">Deep Sleep</a></li>
+            <li><a href="/prayer-video.html" class="dropdown-link">Prayer Video</a></li>
+            <li><a href="/bedtime-fables.html" class="dropdown-link">BedTime Fables</a></li>
+        </ul>
+    </li>
+
+    <!-- INSPIRATION -->
+    <li class="nav-dropdown" role="none">
+        <a href="/inspiration.html" class="navbar-link inspiration dropdown-toggle">
+            Inspiration <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
             <li><a href="/stories.html" class="dropdown-link">Stories</a></li>
-            <li><a href="/teens.html" class="dropdown-link">Teens</a></li>
+            <li><a href="/videos.html" class="dropdown-link">Videos</a></li>
             <li><a href="/resources.html" class="dropdown-link">Resources</a></li>
         </ul>
     </li>
 
-    <!-- LUMENQUEST -->
-    <li role="none">
-        <a href="/lumenquest.html" class="navbar-link lumenquest">LumenQuest</a>
-    </li>
-    <li role="none"><a href="/inspiration.html" class="navbar-link inspiration ">Inspiration</a></li>
-
-    <!-- ABOUT DROPDOWN -->
+    <!-- GROW -->
     <li class="nav-dropdown" role="none">
-        <a href="#" class="navbar-link dropdown-toggle">
-            About Us <span class="dropdown-arrow">▼</span>
+        <a href="/grow.html" class="navbar-link dropdown-toggle">
+            Grow <span class="dropdown-arrow">▼</span>
         </a>
-
         <ul class="dropdown-menu">
-            <li><a href="/about.html" class="dropdown-link">About</a></li>
-            <li><a href="/contact.html" class="dropdown-link">Contact</a></li>
-            <li><a href="/our-mission.html" class="dropdown-link">Our Mission</a></li>
+            <li><a href="/bible-study.html" class="dropdown-link">Bible Studies</a></li>
+            <li><a href="/sermons.html" class="dropdown-link">Sermons</a></li>
+            <li><a href="/devotionals.html" class="dropdown-link">Devotionals</a></li>
+            <li><a href="/study-guides.html" class="dropdown-link">Study Guides</a></li>
+        </ul>
+    </li>
+
+    <!-- TEENS -->
+    <li class="nav-dropdown" role="none">
+        <a href="/teens.html" class="navbar-link dropdown-toggle">
+            Teens <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li>
+            <li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li>
+            <li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li>
+        </ul>
+    </li>
+
+    <!-- LUMENQUEST -->
+    <li class="nav-dropdown" role="none">
+        <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">
+            LumenQuest <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="/animations.html" class="dropdown-link">Animations</a></li>
+            <li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li>
+            <li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li>
+            <li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li>
         </ul>
     </li>
 
@@ -249,9 +282,15 @@
 
 <!-- Bible Study Section - IMPROVED 4-COLUMN STAGGERED LAYOUT -->
 <section class="bible-study-section" id="bible-study-section" aria-labelledby="bible-study-title">
-  <div class="bible-study-pattern" aria-hidden="true"></div>
+  <div class="bible-study-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  
+  <div class="section-line" aria-hidden="true"></div>
 
-  <div class="bible-study-header">
+  <div class="bible-study-header" data-animate>
     <p class="bible-study-label">Grow in Faith</p>
     <h2 class="bible-study-title" id="bible-study-title">
       Bible Study Resources
@@ -268,11 +307,12 @@
   </div>
 
   <div class="bible-study-grid">
-    <!-- Card 1: Pink, rotate(6deg) -->
+    <!-- Card 1: Daily Devotionals -->
     <article class="bible-study-card bible-study-card--pink" data-animate>
+      <span class="bible-study-card__number">01</span>
       <div class="bible-study-card__icon-wrap">
         <div class="bible-study-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#DB2777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF6B9D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
             <line x1="8" y1="7" x2="16" y2="7"/>
@@ -299,11 +339,12 @@
       </a>
     </article>
 
-    <!-- Card 2: Green, rotate(-8deg), margin-top -->
+    <!-- Card 2: Bible Study Plans -->
     <article class="bible-study-card bible-study-card--green" data-animate>
+      <span class="bible-study-card__number">02</span>
       <div class="bible-study-card__icon-wrap">
         <div class="bible-study-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"/>
             <path d="M12 6v6l4 2"/>
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
@@ -329,11 +370,12 @@
       </a>
     </article>
 
-    <!-- Card 3: Yellow, rotate(6deg) -->
+    <!-- Card 3: Group Studies -->
     <article class="bible-study-card bible-study-card--yellow" data-animate>
+      <span class="bible-study-card__number">03</span>
       <div class="bible-study-card__icon-wrap">
         <div class="bible-study-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#CA8A04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FACC15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
             <circle cx="9" cy="7" r="4"/>
             <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
@@ -359,11 +401,12 @@
       </a>
     </article>
 
-    <!-- Card 4: Red, rotate(-8deg), margin-top -->
+    <!-- Card 4: Topical Studies -->
     <article class="bible-study-card bible-study-card--red" data-animate>
+      <span class="bible-study-card__number">04</span>
       <div class="bible-study-card__icon-wrap">
         <div class="bible-study-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FB7185" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
           </svg>
         </div>
@@ -387,6 +430,9 @@
     </article>
   </div>
 </section>
+
+ 
+
 
 
   <!-- Video Background Section -->
@@ -719,11 +765,27 @@ ges through subtle guidance and encouragement. Calm, loyal, and quietly wise, he
 
     <div class="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 mb-20">
       
-      <div class="relative">
-        <div class="w-[320px] h-[320px] md:w-[400px] md:h-[500px] rounded-full overflow-hidden border-4 border-[#0B1B2B] shadow-2xl">
-          <img src="/images/rounded.png" alt="Community members smiling" class="w-full h-full object-cover" loading="lazy">
-        </div>
-      </div>
+     <div class="flex flex-col gap-6">
+
+    <!-- Top Image -->
+    <div class="w-[580px] h-[260px] md:w-[580px] md:h-[280px] rounded-3xl overflow-hidden shadow-2xl">
+        <img
+            src="/images/news1.png"
+            alt="News Image 1"
+            class="w-full h-full object-cover"
+            loading="lazy">
+    </div>
+
+    <!-- Bottom Image -->
+    <div class="w-[580px] h-[260px] md:w-[580px] md:h-[280px] rounded-3xl overflow-hidden shadow-2xl">
+        <img
+            src="/images/news2.png"
+            alt="News Image 2"
+            class="w-full h-full object-cover"
+            loading="lazy">
+    </div>
+
+</div>
 
       <div class="max-w-md text-center lg:text-left">
         <div class="flex items-center justify-center lg:justify-start gap-2 mb-6">
@@ -731,61 +793,115 @@ ges through subtle guidance and encouragement. Calm, loyal, and quietly wise, he
           <span class="text-gray-400 text-xs tracking-wider uppercase">Join the LightMode Community</span>
         </div>
 
-        <p class="text-white text-3xl text-start mb-8">
-          Receive devotionals, Bible study resources, and new Christian media content straight to your inbox.
+        <p class="text-white text-3xl text-start mb-2">
+         You Belong Here
+        </p><p class="text-white text-start mb-8">
+         You're not meant to do alone. Join a growing community of people seeking god together.
         </p>
 
-        <form class="flex flex-col sm:flex-row items-center gap-2" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-          <input 
-            type="email" 
-            placeholder="Enter your email address" 
-            class="px-4 py-3 rounded-full border border-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-auto" 
-            required
-            aria-label="Email address"
-          >
+        
           <button type="submit" class="px-8 py-3 bg-[#D4A853] text-[#0B1B2B] text-sm font-medium rounded-full hover:bg-[#C9A962] transition-all duration-300 w-full sm:w-auto">
             Join Community
           </button>
-        </form>
+       
       </div>
     </div>
 
     <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-20"></div>
 
-    <div class="flex flex-col lg:flex-row items-center justify-evenly gap-12 lg:gap-24">
-      
-      <div class="max-w-sm text-start lg:text-left">
+   <div class="flex flex-col lg:flex-row items-center justify-evenly gap-12 lg:gap-24">
+
+    <!-- Left Content -->
+    <div class="max-w-sm text-start lg:text-left">
+
         <div class="flex items-center justify-center lg:justify-start gap-2 mb-6">
-          <img src="/images/Vector.svg" alt="Decorative icon" aria-hidden="true">
-          <span class="text-gray-400 text-xs tracking-wider uppercase">Our Mission & Statement</span>
+            <img src="/images/Vector.svg" alt="Decorative icon" aria-hidden="true">
+            <span class="text-gray-400 text-xs tracking-wider uppercase">
+                Our Mission & Statement
+            </span>
         </div>
 
-        <p class="text-white text-3xl text-start mb-8">
-          To illuminate lives with the truth of God's Word through creative Scripture-based media.
+        <p class="text-white mb-2">
+            The mission of LightMode Ministries is to connect hearts to the love of God,
+            illuminate lives through the truth of His Word, and transform generations
+            through the finished work of Jesus Christ.
         </p>
 
-        <button class="px-6 py-2 bg-white text-[#0B1B2B] border border-gray-600 text-xs rounded-full hover:bg-[#0B1B2B] hover:text-white transition-all duration-300">
-          Learn More
+        <p class="text-white mb-2">
+            The mission of LightMode Ministries is to connect hearts to the love of God,
+            illuminate lives through the truth of His Word, and transform generations
+            through the finished work of Jesus Christ.
+        </p>
+
+        <p class="text-white mb-2">We believe God's Word brings light.</p>
+        <p class="text-white mb-2">We believe His love restores hearts.</p>
+        <p class="text-white mb-2">We believe Jesus has finished the work.</p>
+        <p class="text-white mb-2">We believe identity in Christ changes everything.</p>
+
+        <p class="text-white mb-2">
+            We believe children, teens, adults, and families can be strengthened
+            through truth, prayer, creativity, and daily relationship with God.
+        </p>
+
+        <p class="text-white mb-8">
+            LightMode Ministries was created to be a place where light meets people
+            where they are and leads them to where God is calling them to be.
+        </p>
+
+        <button
+            class="px-12 py-3 bg-white text-[#0B1B2B] border border-gray-600 text-xs rounded-full hover:bg-[#0B1B2B] hover:text-white transition-all duration-300">
+            Learn More
         </button>
-      </div>
-
-      <div class="relative w-[300px] h-[400px] md:w-[380px] md:h-[480px]">
-        
-        <div class="absolute top-0 left-0 w-[180px] h-[320px] md:w-[220px] md:h-[300px] overflow-hidden shadow-2xl z-10 transform transition-transform duration-500 ease-in-out hover:translate-x-12">
-          <img src="/images/Rectangle 30.png" alt="Children with books" class="w-full h-full object-cover" loading="lazy">
-        </div>
-
-        <div class="absolute top-0 right-[-20px] w-[140px] h-[100px] md:w-[140px] md:h-[120px] rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-500 ease-in-out hover:translate-x-12" style="margin-top: -50px;">
-          <img src="/images/Rectangle 32.png" alt="Kids learning together" class="w-full h-full object-cover" loading="lazy">
-        </div>
-
-        <div class="absolute top-[110px] md:top-[130px] right-[-80px] w-[140px] h-[100px] md:w-[200px] md:h-[140px] rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-500 ease-in-out hover:translate-x-12">
-          <img src="/images/Rectangle 31.png" alt="Kids reading Bible" class="w-full h-full object-cover" loading="lazy">
-        </div>
-
-      </div>
 
     </div>
+
+    <!-- Right Newsletter Card -->
+    <div class="relative w-full max-w-[560px] h-[260px] rounded-3xl overflow-hidden bg-white shadow-2xl">
+
+    <!-- Background Image -->
+    <img
+        src="/images/newsletter.png"
+        alt="Newsletter"
+        class="absolute inset-0 w-full h-full object-cover object-right"
+    >
+
+    <!-- White Blur / Fade -->
+    <div
+        class="absolute inset-0 bg-gradient-to-r from-white via-white/95 via-[55%] to-transparent">
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 h-full flex flex-col justify-center p-8 max-w-[360px]">
+
+        <h3 class="text-3xl font-bold text-[#17385F] leading-tight mb-4">
+            Encouragement Delivered to You
+        </h3>
+
+        <p class="text-gray-600 mb-8">
+            Weekly devotionals and uplifting messages straight to your inbox.
+        </p>
+
+      <form class="flex items-center bg-white rounded-full shadow-lg overflow-hidden w-full max-w-[380px] h-[52px]">
+
+    <input
+        type="email"
+        placeholder="Enter your email address"
+        class="flex-1 h-full px-5 text-sm outline-none bg-transparent"
+    >
+
+    <button
+        type="submit"
+        class="h-full px-2 bg-[#F3B23A] text-[#2B2B2B] text-sm font-semibold hover:bg-[#e0a22d] transition whitespace-nowrap">
+        SUBSCRIBE
+    </button>
+
+</form>
+
+    </div>
+
+</div>
+
+</div>
 
   </div>
 
@@ -1059,7 +1175,9 @@ ges through subtle guidance and encouragement. Calm, loyal, and quietly wise, he
     </div>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- JavaScript --> <script>
+    
+  </script>
 <script src="script.js"></script>
 </body>
 </html>

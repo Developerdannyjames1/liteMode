@@ -1316,18 +1316,96 @@
     background: rgba(0,0,0,0.05);
 }/* Light Theme */
 .dropdown-menu {
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
+
+    position: absolute;
+
+    top: 100%;
+
+    left: 0;
+
+    min-width: 220px;
+
+
+
+    background: linear-gradient(
+
+        135deg,
+
+        #0A1A2F 0%,
+
+        #102A4A 35%,
+
+        #173E6B 70%,
+
+        #1E4F87 100%
+
+    );
+
+
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 16px;
+
+    padding: 10px 0;
+
+    margin-top: 12px;
+
+    list-style: none;
+
+
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+
+
+    box-shadow:
+
+        0 20px 50px rgba(0,0,0,.45),
+
+        0 0 25px rgba(37,99,235,.15);
+
+
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(10px);
+
+    transition: all .35s ease;
+
+    z-index: 1000;
+
+}.dropdown-link {
+
+    display: block;
+
+    padding: 12px 18px;
+
+    color: #F8FAFC;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    transition: all .3s ease;
+
 }
 
-.dropdown-link {
-    color: #111827;
-}
+
 
 .dropdown-link:hover {
-    background: #f3f4f6;
-}
 
+    background: rgba(255,255,255,.08);
+
+    color: #F5C542;
+
+    padding-left: 24px;
+
+}
 /* Dark Theme */
 [data-theme="night"] .dropdown-menu,
 body.night-theme .dropdown-menu {
@@ -1381,43 +1459,76 @@ body.night-theme .dropdown-link:hover {
         <!-- Menu Items -->
        <ul class="navbar-menu" id="navbar-menu" role="menubar">
 
-    <li role="none"><a href="/" class="navbar-link">Home</a></li>
-
-    <li role="none"><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
-
-    <li role="none"><a href="/rest.html" class="navbar-link ">Rest</a></li>
-
-    <!-- GROW DROPDOWN (NEW ORGANIZED STRUCTURE) -->
+    <!-- HOME -->
     <li class="nav-dropdown" role="none">
-        <a href="#" class="navbar-link dropdown-toggle">
-            Grow <span class="dropdown-arrow">▼</span>
+        <a href="/index.html" class="navbar-link dropdown-toggle">
+            Home <span class="dropdown-arrow">▼</span>
         </a>
-
         <ul class="dropdown-menu">
-            <li><a href="/grow.html" class="dropdown-link ">Grow Overview</a></li>
-            <li><a href="/bible-study.html" class="dropdown-link ">Bible Study</a></li>
-            <li><a href="/stories.html" class="dropdown-link ">Stories</a></li>
-            <li><a href="/teens.html" class="dropdown-link ">Teens</a></li>
+            <li><a href="/about.html" class="dropdown-link">About Us</a></li>
+            <li><a href="/contact.html" class="dropdown-link">Contact</a></li>
+        </ul>
+    </li>
+<li role="none"><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
+    <!-- REST -->
+    <li class="nav-dropdown" role="none">
+        <a href="/rest.html" class="navbar-link dropdown-toggle">
+            Rest <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="/deep-sleep.html" class="dropdown-link">Deep Sleep</a></li>
+            <li><a href="/prayer-video.html" class="dropdown-link">Prayer Video</a></li>
+            <li><a href="/bedtime-fables.html" class="dropdown-link">BedTime Fables</a></li>
+        </ul>
+    </li>
+
+    <!-- INSPIRATION -->
+    <li class="nav-dropdown" role="none">
+        <a href="/inspiration.html" class="navbar-link inspiration dropdown-toggle">
+            Inspiration <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="/stories.html" class="dropdown-link">Stories</a></li>
+            <li><a href="/videos.html" class="dropdown-link">Videos</a></li>
             <li><a href="/resources.html" class="dropdown-link">Resources</a></li>
         </ul>
     </li>
 
-    <!-- LUMENQUEST -->
-    <li role="none">
-        <a href="/lumenquest.html" class="navbar-link lumenquest ">LumenQuest</a>
-    </li>
-    <li role="none"><a href="/inspiration.html" class="navbar-link inspiration ">Inspiration</a></li>
-
-    <!-- ABOUT DROPDOWN -->
+    <!-- GROW -->
     <li class="nav-dropdown" role="none">
-        <a href="#" class="navbar-link dropdown-toggle">
-            About Us <span class="dropdown-arrow">▼</span>
+        <a href="/grow.html" class="navbar-link dropdown-toggle">
+            Grow <span class="dropdown-arrow">▼</span>
         </a>
-
         <ul class="dropdown-menu">
-            <li><a href="/about.html" class="dropdown-link ">About</a></li>
-            <li><a href="/contact.html" class="dropdown-link">Contact</a></li>
-            <li><a href="/our-mission.html" class="dropdown-link">Our Mission</a></li>
+            <li><a href="/bible-study.html" class="dropdown-link">Bible Studies</a></li>
+            <li><a href="/sermons.html" class="dropdown-link">Sermons</a></li>
+            <li><a href="/devotionals.html" class="dropdown-link">Devotionals</a></li>
+            <li><a href="/study-guides.html" class="dropdown-link">Study Guides</a></li>
+        </ul>
+    </li>
+
+    <!-- TEENS -->
+    <li class="nav-dropdown" role="none">
+        <a href="/teens.html" class="navbar-link dropdown-toggle">
+            Teens <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li>
+            <li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li>
+            <li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li>
+        </ul>
+    </li>
+
+    <!-- LUMENQUEST -->
+    <li class="nav-dropdown" role="none">
+        <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">
+            LumenQuest <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="/animations.html" class="dropdown-link">Animations</a></li>
+            <li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li>
+            <li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li>
+            <li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li>
         </ul>
     </li>
 

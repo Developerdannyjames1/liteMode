@@ -146,7 +146,44 @@ const debounce = (func, wait) => {
     }, 150);
   });
 })();
+ const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.1
+  };
 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('[data-animate]').forEach(el => {
+    observer.observe(el);
+  });
+
+  const section = document.querySelector('.bible-study-section');
+  const orbs = document.querySelectorAll('.orb');
+
+  section.addEventListener('mousemove', (e) => {
+    const rect = section.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+    orbs.forEach((orb, index) => {
+      const speed = (index + 1) * 15;
+      orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+    });
+  });
+
+  section.addEventListener('mouseleave', () => {
+    orbs.forEach(orb => {
+      orb.style.transform = '';
+    });
+  });
 /* ============================================
    NAVBAR
    ============================================ */
