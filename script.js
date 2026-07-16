@@ -41,18 +41,20 @@ const debounce = (func, wait) => {
     if (progressFill) progressFill.style.width = percent + '%';
 
     const stepMessages = [
-      'Begin Your Journey',
+      '✨ Begin Your Journey',      // Day 0
       '🕊️ Day 1: Rest in Peace',
       '🌿 Day 2: Grow in Grace',
       '💚 Day 3: Receive Healing',
       '🪶 Day 4: Know Your Identity',
       '🛡️ Day 5: Trust His Plan',
       '💪 Day 6: Walk in Strength',
-      '✨ You Have Reached the Light! ✨'
+      '✨ You Have Reached the Light! ✨'  // Day 7
     ];
 
     if (progressMsgSpan) {
-      progressMsgSpan.textContent = stepMessages[revealedCount] || stepMessages[0];
+      // Use revealedCount as index directly since it matches the number of revealed cards
+      const msgIndex = Math.min(revealedCount, stepMessages.length - 1);
+      progressMsgSpan.textContent = stepMessages[msgIndex] || stepMessages[0];
     }
 
     if (progressContainer) {
@@ -78,10 +80,14 @@ const debounce = (func, wait) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const stepEl = entry.target;
-        const stepIndex = parseInt(stepEl.dataset.step, 10) - 1;
-        if (stepIndex >= 0 && !revealedIndices[stepIndex]) {
-          const delay = stepIndex * 400;
-          setTimeout(() => revealStep(stepEl, stepIndex), delay);
+        // Get index from data-step attribute directly
+        const stepIndex = parseInt(stepEl.dataset.step, 10);
+        // Map data-step to array index
+        // data-step="0" -> index 0, data-step="1" -> index 1, etc.
+        const arrayIndex = stepIndex;
+        if (arrayIndex >= 0 && arrayIndex < stepCards.length && !revealedIndices[arrayIndex]) {
+          const delay = arrayIndex * 400;
+          setTimeout(() => revealStep(stepEl, arrayIndex), delay);
         }
       }
     });
@@ -146,6 +152,8 @@ const debounce = (func, wait) => {
     }, 150);
   });
 })();
+
+  
  const observerOptions = {
     root: null,
     rootMargin: '0px 0px -50px 0px',
@@ -222,18 +230,18 @@ const initNavbar = () => {
    ============================================ */
 const initBridgeCarousel = () => {
   const IMAGES = [
-    "/images/start.jpg", "/images/rest.jpg", "/images/grow.jpg", "/images/stories.jpg",
-    "/images/teens.jpg", "/images/lumenquest.jpg", "/images/resources.jpg", "/images/about.jpg", "/images/contact.jpg"
+    "/images/lumenquest.jpg", "/images/rest.jpg", "/images/inspiration.jpg", "/images/lumenquest.jpg",
+    "/images/grow.jpg","/images/lumenquest.jpg", "/images/teens.jpg", 
   ];
 
   // Define your links corresponding to each image
   const LINKS = [
-    "/start-here.html","/rest.html", "/grow.html", "/stories.html",
-    "/teens.html", "/lumenquest.html", "/resources.html", "/about.html", "/contact.html"
+    "/lumenquest.html","/rest.html", "/inspiration.html", "/lumenquest.html",
+    "/grow.html", "/lumenquest.html","/teens.html", 
   ];
 const LABELS = [
-  "Start Here", "Rest", "Grow", "Stories",
-  "Teens", "LumenQuest", "Resources", "About Us", "Contact"
+  "LumenQuest", "Rest", "Inspiration", "Lumenquest",
+  "Grow","LumenQuest", "Teens", 
 ];
   const track = document.getElementById('bridgeTrack');
   if (!track) return;

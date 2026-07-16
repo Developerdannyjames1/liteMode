@@ -3153,10 +3153,7 @@ body.night-theme .dropdown-link:hover {
   margin: 0 auto;
   aspect-ratio: 16 / 9;
   min-height: 480px;
-  border-radius: 2rem;
-  overflow: hidden;
-  box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,240,0.05);
-  background: #1a1714;
+ 
 }
 
 /* Background Image */
@@ -3181,7 +3178,6 @@ body.night-theme .dropdown-link:hover {
   z-index: 15;
   pointer-events: none;
 }
-
 /* ════════════════════════════════════════════════════════════
    STEP CARD — PREMIUM GLOWING DESIGN
    ════════════════════════════════════════════════════════════ */
@@ -3192,7 +3188,7 @@ body.night-theme .dropdown-link:hover {
   width: 195px;
   pointer-events: auto;
   cursor: pointer;
-  opacity: 0;
+ 
   transform: translateY(28px) scale(0.92) rotate(var(--rot, 0deg));
   transition: opacity 0.4s ease, transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
   will-change: transform, opacity;
@@ -3205,14 +3201,15 @@ body.night-theme .dropdown-link:hover {
   transition: opacity 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.2), transform 0.55s cubic-bezier(0.25, 1.2, 0.35, 1);
 }
 
-/* ─── Positions (UNCHANGED) ─── */
-.lj-step[data-step="1"] { --rot: 0deg; left: 41%;  bottom: 2%; }
-.lj-step[data-step="2"] { --rot: 8deg; left: 42%; bottom: 16%; }
-.lj-step[data-step="3"] { --rot: 26.5deg; left: 44%; bottom: 30%; }
-.lj-step[data-step="4"] { --rot: 36.2deg; left: 50%; bottom: 38%; }
-.lj-step[data-step="5"] { --rot: 37.5deg; left: 56%; bottom: 46%; }
-.lj-step[data-step="6"] { --rot: 31.8deg; left: 62%; bottom: 52%; }
-.lj-step[data-step="7"] { --rot: 27.5deg; left: 66%; bottom: 59%; }
+/* ─── Positions ─── */
+.lj-step[data-step="0"] { --rot: 26deg; left: 28%; bottom: 5%; }
+.lj-step[data-step="1"] { --rot: 28deg; left: 33%; bottom: 12%; }
+.lj-step[data-step="2"] { --rot: 32deg; left: 39%; bottom: 25%; }
+.lj-step[data-step="3"] { --rot: 41.5deg; left: 46%; bottom: 36%; }
+.lj-step[data-step="4"] { --rot: 42.2deg; left: 54%; bottom: 45%; }
+.lj-step[data-step="5"] { --rot: 37.5deg; left: 65%; bottom: 51%; }
+.lj-step[data-step="6"] { --rot: 31.8deg; left: 70%; bottom: 61%; }
+.lj-step[data-step="7"] { --rot: 53.5deg; left: 78%; bottom: 70%; }
 
 /* ════════════════════════════════════════════════════════════
    CARD INNER — PREMIUM GLASSMORPHISM + GLOW
@@ -3223,7 +3220,7 @@ body.night-theme .dropdown-link:hover {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-radius: 0.85rem;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   text-align: center;
   box-shadow:
     0 12px 28px -10px rgba(0, 0, 0, 0.5),
@@ -3268,6 +3265,7 @@ body.night-theme .dropdown-link:hover {
 }
 
 /* ─── Unique GLOW colors per day ─── */
+.lj-step[data-step="0"] { --glow-color: #f0e6d3; }
 .lj-step[data-step="1"] { --glow-color: #c8a064; }
 .lj-step[data-step="2"] { --glow-color: #78b48c; }
 .lj-step[data-step="3"] { --glow-color: #b482a0; }
@@ -3277,6 +3275,11 @@ body.night-theme .dropdown-link:hover {
 .lj-step[data-step="7"] { --glow-color: #d4af37; }
 
 /* ─── Unique DARK backgrounds per day ─── */
+.lj-step[data-step="0"] .lj-step-inner {
+  background: linear-gradient(145deg, rgba(30, 28, 24, 0.95), rgba(20, 18, 15, 0.98));
+  border: 1px solid rgba(240, 230, 211, 0.2);
+  box-shadow: 0 8px 25px rgba(240, 230, 211, 0.05);
+}
 .lj-step[data-step="1"] .lj-step-inner {
   background: rgba(30, 25, 18, 0.92);
   border: 1px solid rgba(200, 160, 100, 0.35);
@@ -3354,6 +3357,11 @@ body.night-theme .dropdown-link:hover {
 }
 
 /* ─── Unique hover backgrounds per card ─── */
+.lj-step[data-step="0"]:hover .lj-step-inner {
+  background: rgba(45, 40, 35, 0.98);
+  border-color: rgba(240, 230, 211, 0.6);
+  box-shadow: 0 8px 40px rgba(240, 230, 211, 0.12);
+}
 .lj-step[data-step="1"]:hover .lj-step-inner {
   background: rgba(45, 35, 20, 0.98);
   border-color: rgba(200, 160, 100, 0.8);
@@ -3400,6 +3408,10 @@ body.night-theme .dropdown-link:hover {
 }
 
 /* ─── Unique active backgrounds per card ─── */
+.lj-step[data-step="0"].is-active .lj-step-inner {
+  background: rgba(50, 45, 38, 1);
+  border-color: rgba(240, 230, 211, 0.7);
+}
 .lj-step[data-step="1"].is-active .lj-step-inner {
   background: rgba(50, 38, 22, 1);
   border-color: rgba(200, 160, 100, 0.9);
@@ -3513,7 +3525,6 @@ body.night-theme .dropdown-link:hover {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 /* ════════════════════════════════════════════════════════════
    CONNECTING PATH
    ════════════════════════════════════════════════════════════ */
