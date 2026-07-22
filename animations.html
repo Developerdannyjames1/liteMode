@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LumenQuest Animations — LightMode Ministries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'RecklessStandard';
+            src: url('./fonts/RecklessStandardM-TRIAL-Regular.otf') format('opentype');
+            font-weight: normal; font-style: normal; font-display: swap;
+        }
+        @font-face {
+            font-family: 'RecklessWide';
+            src: url('./fonts/RecklessWideXL-TRIAL-Regular.otf') format('opentype');
+            font-weight: normal; font-style: normal; font-display: swap;
+        }
+
+        /* ═══════════════════════════════════════
+           THEME VARIABLES — NIGHT (default)
+           ═══════════════════════════════════════ */
+        :root {
+            --bg-primary: #0a0a12;
+            --bg-secondary: #12121f;
+            --bg-card: rgba(26, 26, 40, 0.7);
+            --bg-card-hover: rgba(30, 30, 50, 0.9);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b8a;
+            --accent-violet: #a78bfa;
+            --accent-blue: #60a5fa;
+            --accent-gold: #fbbf24;
+            --accent-pink: #f472b6;
+            --accent-teal: #2dd4bf;
+            --accent-green: #4ade80;
+            --accent-red: #f87171;
+            --accent-orange: #fb923c;
+            --accent-cyan: #22d3ee;
+            --border-color: rgba(255,255,255,0.08);
+            --border-hover: rgba(167,139,250,0.3);
+            --shadow-glow: rgba(139,92,246,0.25);
+            --navbar-bg: #0A0E1A;
+            --navbar-border: rgba(255,255,255,0.08);
+            --toggle-bg: #1a1a2e;
+            --toggle-active: #a78bfa;
+            --btn-primary-bg: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+            --btn-primary-shadow: rgba(124,58,237,0.35);
+            --btn-secondary-bg: transparent;
+            --btn-secondary-border: rgba(255,255,255,0.15);
+            --btn-secondary-text: #e0e0f0;
+            --footer-bg: #0a0a12;
+            --footer-border: rgba(255,255,255,0.05);
+            --starfield-opacity: 1;
+            --hero-overlay: linear-gradient(90deg, #080810 0%, #080810 35%, transparent 70%);
+            --hero-bg-filter: saturate(0.3) contrast(1.2) hue-rotate(220deg);
+            --hero-bg-opacity: 0.4;
+            --hero-gradient-start: #080810;
+            --hero-gradient-mid: #12122a;
+            --hero-gradient-end: #1a1a3e;
+            --tag-bg: rgba(255,255,255,0.05);
+            --tag-border: rgba(255,255,255,0.08);
+            --tag-text: #8a8aaa;
+            --section-alt-bg: #0e0e18;
+            --card-glow: rgba(139,92,246,0.08);
+            --dropdown-bg: linear-gradient(135deg, #0A1A2F 0%, #102A4A 35%, #173E6B 70%, #1E4F87 100%);
+        }
+
+        /* ═══════════════════════════════════════
+           THEME VARIABLES — DAY MODE
+           ═══════════════════════════════════════ */
+        [data-theme="day"] {
+            --bg-primary: #faf8f5;
+            --bg-secondary: #f5f0eb;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --bg-card-hover: rgba(255, 255, 255, 0.95);
+            --text-primary: #1a1a2e;
+            --text-secondary: #5a5a6e;
+            --text-muted: #8a8a9e;
+            --accent-violet: #7c3aed;
+            --accent-blue: #2563eb;
+            --accent-gold: #d97706;
+            --accent-pink: #db2777;
+            --accent-teal: #0d9488;
+            --accent-green: #16a34a;
+            --accent-red: #dc2626;
+            --accent-orange: #ea580c;
+            --accent-cyan: #0891b2;
+            --border-color: rgba(0,0,0,0.08);
+            --border-hover: rgba(124,58,237,0.3);
+            --shadow-glow: rgba(124,58,237,0.15);
+            --navbar-bg:#0A0E1A;
+            --navbar-border: rgba(0,0,0,0.06);
+             --toggle-bg: #1a1a2e;
+            --toggle-active: #7c3aed;
+            --btn-primary-bg: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+            --btn-primary-shadow: rgba(124,58,237,0.25);
+            --btn-secondary-bg: rgba(255,255,255,0.7);
+            --btn-secondary-border: rgba(0,0,0,0.12);
+            --btn-secondary-text: #4a4a5e;
+            --footer-bg: #f5f0eb;
+            --footer-border: rgba(0,0,0,0.06);
+            --starfield-opacity: 0;
+            --hero-overlay: linear-gradient(90deg, rgba(254,243,199,0.95) 0%, rgba(254,243,199,0.8) 40%, transparent 70%);
+            --hero-bg-filter: saturate(0.8) contrast(1.1) hue-rotate(10deg);
+            --hero-bg-opacity: 0.6;
+            --hero-gradient-start: #fef3c7;
+            --hero-gradient-mid: #fde68a;
+            --hero-gradient-end: #fed7aa;
+            --tag-bg: rgba(0,0,0,0.04);
+            --tag-border: rgba(0,0,0,0.06);
+            --tag-text: #6a6a7e;
+            --section-alt-bg: #f0ebe6;
+            --card-glow: rgba(124,58,237,0.06);
+            --dropdown-bg: linear-gradient(135deg, #0A1A2F 0%, #102A4A 35%, #173E6B 70%, #1E4F87 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'RecklessStandard', 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .starfield {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
+            opacity: var(--starfield-opacity);
+            transition: opacity 0.5s ease;
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 50%, rgba(45, 43, 85, 0.15) 0%, transparent 60%);
+        }
+    </style>
+</head>
+    <style>
+        /* ═══════════════════════════════════════
+           NAVBAR
+           ═══════════════════════════════════════ */
+        .navbar {
+            position: fixed; top: 0; left: 0;
+            width: 100%; z-index: 1000;
+            background: var(--navbar-bg);
+            border-bottom: 1px solid var(--navbar-border);
+            transition: all 0.3s ease;
+        }
+        .navbar-container {
+            max-width: 1440px; margin: 0 auto;
+            padding: 0 40px;
+            display: flex; align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .navbar-brand {
+            display: flex; align-items: center;
+            text-decoration: none; flex-shrink: 0;
+        }
+        .navbar-brand img {
+            height: 80px; width: auto;
+            object-fit: contain; display: block;
+        }
+        .navbar-menu {
+            display: flex; list-style: none;
+            gap: 20px; align-items: center;
+            margin-right: 20px;
+        }
+        .navbar-link {
+            text-decoration: none;
+            color: white;
+            opacity: 0.8;
+            font-size: 1rem; font-weight: 500;
+            padding: 8px 12px; border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative; white-space: nowrap;
+        }
+        .navbar-link:hover { opacity: 1; }
+        .navbar-link.active {
+            opacity: 1; font-weight: 600;
+            background: var(--tag-bg);
+        }
+        .navbar-link.active::after {
+            content: ''; position: absolute;
+            bottom: -2px; left: 50%;
+            transform: translateX(-50%);
+            width: 20px; height: 2px;
+            background: var(--accent-violet);
+            border-radius: 1px;
+        }
+        .navbar-link.start-here {
+            background: linear-gradient(135deg, #8B5CF6, #6366F1);
+            color: #ffffff; font-weight: 600;
+            padding: 8px 16px;
+            box-shadow: 0 2px 12px rgba(139, 92, 246, 0.4);
+            border: none; opacity: 1;
+        }
+        .navbar-link.start-here:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.6);
+        }
+        .navbar-link.start-here.active::after { display: none; }
+        .navbar-link.lumenquest {
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700; font-size: 0.9rem;
+        }
+        .navbar-link.lumenquest:hover {
+            transform: scale(1.05); filter: brightness(1.2);
+        }
+        .navbar-link.lumenquest.active::after {
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+        }
+        .navbar-link.inspiration {
+            background: linear-gradient(90deg, #fbbf24, #f472b6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700; font-size: 0.9rem;
+        }
+        .navbar-link.inspiration:hover {
+            transform: scale(1.05); filter: brightness(1.2);
+        }
+        .navbar-actions {
+            display: flex; align-items: center;
+            gap: 12px; flex-shrink: 0;
+        }
+        .theme-toggle {
+            display: flex; align-items: center;
+            gap: 4px; background: var(--toggle-bg);
+            border-radius: 50px; padding: 4px;
+            border: 1px solid var(--border-color);
+        }
+        .theme-btn {
+            width: 32px; height: 32px;
+            border-radius: 50%; border: none;
+            background: transparent; cursor: pointer;
+            display: flex; align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--text-muted); padding: 0;
+        }
+        .theme-btn.active {
+            background: #6366F1; color: #ffffff;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+        }
+        .theme-btn:hover:not(.active) { color: var(--text-primary); }
+        .theme-btn svg { width: 16px; height: 16px; }
+
+        /* Dropdown */
+        .nav-dropdown { position: relative; }
+        .dropdown-toggle {
+            display: flex; align-items: center; gap: 6px;
+        }
+        .dropdown-arrow { font-size: 10px; transition: transform 0.3s ease; }
+        .dropdown-menu {
+            position: absolute; top: 100%; left: 0;
+            min-width: 220px;
+            background: var(--dropdown-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px; padding: 10px 0;
+            margin-top: 12px; list-style: none;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.45), 0 0 25px rgba(37,99,235,0.15);
+            opacity: 0; visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.35s ease; z-index: 1000;
+        }
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1; visibility: visible; transform: translateY(0);
+        }
+        .nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+        .dropdown-link {
+            display: block; padding: 12px 18px;
+            color: #F8FAFC; text-decoration: none;
+            border-radius: 10px; transition: all 0.3s ease;
+        }
+        .dropdown-link:hover {
+            background: rgba(255,255,255,0.08);
+            color: #F5C542; padding-left: 24px;
+        }
+        [data-theme="day"] .dropdown-link { color: white; }
+        [data-theme="day"] .dropdown-link:hover { background: var(--tag-bg); color: var(--accent-violet); }
+
+        /* Mobile Toggle */
+        .navbar-toggle {
+            display: none; flex-direction: column;
+            gap: 5px; background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 6px; cursor: pointer;
+            padding: 8px; margin-left: 8px;
+        }
+        .navbar-toggle span {
+            display: block; width: 24px; height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px; transition: all 0.3s ease;
+        }
+        .navbar-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .navbar-toggle.active span:nth-child(2) { opacity: 0; }
+        .navbar-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* ═══════════════════════════════════════
+           NAVBAR RESPONSIVE
+           ═══════════════════════════════════════ */
+        @media (max-width: 1200px) {
+            .navbar-container { padding: 0 20px; }
+            .navbar-menu { gap: 2px; }
+            .navbar-link { padding: 6px 10px; font-size: 0.8rem; }
+            .navbar-brand img { height: 60px; }
+        }
+        @media (max-width: 1024px) {
+            .theme-toggle { gap: 2px; }
+            .theme-btn { width: 28px; height: 28px; }
+        }
+        @media (max-width: 768px) {
+            .navbar-container { height: 70px; padding: 0 18px; }
+            .navbar-brand img { height: 55px; width: auto; }
+            .navbar-toggle { display: flex; z-index: 1002; }
+            .navbar-menu {
+                display: none; flex-direction: column;
+                align-items: stretch;
+                position: fixed; top: 80px; left: 15px; right: 15px;
+                max-height: calc(100vh - 100px); overflow-y: auto;
+                padding: 20px; gap: 8px;
+                background: var(--navbar-bg);
+                backdrop-filter: blur(20px);
+                border: 1px solid var(--border-color);
+                border-radius: 18px;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+                z-index: 1001;
+            }
+            .navbar-menu.active { display: flex; }
+            .navbar-menu li { width: 100%; list-style: none; }
+            .navbar-link {
+                display: flex; align-items: center; justify-content: space-between;
+                width: 100%; padding: 14px 16px;
+                font-size: 1rem; font-weight: 600;
+                border-radius: 12px; color: var(--text-primary);
+            }
+            .navbar-link:hover { background: var(--tag-bg); }
+            .dropdown-menu {
+                position: static; opacity: 1; visibility: visible;
+                transform: none; display: none;
+                margin-top: 8px; margin-left: 12px;
+                background: transparent; border: none;
+                box-shadow: none; padding: 0;
+            }
+            .nav-dropdown.active .dropdown-menu { display: block; }
+            .dropdown-link {
+                display: block; padding: 12px 14px;
+                border-radius: 10px; font-size: 0.95rem;
+                color: var(--text-secondary);
+            }
+            .nav-dropdown:hover .dropdown-menu {
+                opacity: 1; visibility: visible; transform: none;
+            }
+        }
+        
+        /* ═══════════════════════════════════════
+           ANIMATIONS PAGE — HERO
+           ═══════════════════════════════════════ */
+        .page-hero {
+            position: relative; z-index: 1;
+            min-height: 55vh;
+            display: flex; align-items: center;
+            overflow: hidden;
+            background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-mid) 50%, var(--hero-gradient-end) 100%);
+            transition: background 0.5s ease;
+            padding-top: 72px;
+        }
+        .page-hero-bg {
+            position: absolute; top: 0; right: 0;
+            width: 55%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1600&q=80') no-repeat center center;
+            background-size: cover;
+            mask-image: linear-gradient(to left, black 30%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%);
+            opacity: var(--hero-bg-opacity);
+            filter: var(--hero-bg-filter);
+            transition: opacity 0.5s ease, filter 0.5s ease;
+        }
+        .page-hero-overlay {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--hero-overlay);
+            z-index: 1;
+            transition: background 0.5s ease;
+        }
+        .page-hero-content {
+            position: relative; z-index: 2;
+            max-width: 1400px; margin: 0 auto;
+            padding: 80px 60px 60px;
+            width: 100%;
+        }
+        .page-hero-breadcrumb {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 0.85rem; color: var(--text-muted);
+            margin-bottom: 16px; text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .page-hero-breadcrumb a {
+            color: var(--text-muted); text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .page-hero-breadcrumb a:hover { color: var(--accent-violet); }
+        .page-hero-breadcrumb .sep { opacity: 0.5; }
+        .page-hero-breadcrumb .current { color: var(--accent-violet); font-weight: 600; }
+        .page-hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem; font-weight: 800;
+            line-height: 1.05; margin-bottom: 16px;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+            transition: color 0.5s ease;
+        }
+        .page-hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-hero-desc {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 550px;
+            line-height: 1.7;
+            transition: color 0.5s ease;
+        }
+
+        /* ═══════════════════════════════════════
+           ANIMATIONS GRID
+           ═══════════════════════════════════════ */
+        .animations-section {
+            position: relative; z-index: 1;
+            padding: 60px 40px 80px;
+            max-width: 1400px; margin: 0 auto;
+        }
+        .section-intro {
+            text-align: center; max-width: 700px;
+            margin: 0 auto 50px;
+        }
+        .section-intro h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            transition: color 0.5s ease;
+        }
+        .section-intro p {
+            color: var(--text-secondary);
+            font-size: 1.05rem; line-height: 1.7;
+            transition: color 0.5s ease;
+        }
+
+        .animations-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .animation-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        .animation-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-hover);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15), 0 0 30px var(--card-glow);
+        }
+        .animation-thumb {
+            position: relative; height: 220px;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+        .animation-thumb::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+            transition: opacity 0.3s ease;
+        }
+        .animation-card:hover .animation-thumb::after {
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%);
+        }
+        .play-overlay {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 64px; height: 64px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.95);
+            display: flex; align-items: center;
+            justify-content: center;
+            z-index: 2;
+            opacity: 0;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        .animation-card:hover .play-overlay {
+            opacity: 1; transform: translate(-50%, -50%) scale(1);
+        }
+        .play-overlay svg {
+            width: 22px; height: 22px;
+            fill: var(--accent-violet);
+            margin-left: 3px;
+        }
+        .animation-duration {
+            position: absolute; bottom: 12px; right: 12px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem; font-weight: 600;
+            color: #fff; z-index: 2;
+        }
+        .animation-badge {
+            position: absolute; top: 16px; left: 16px;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+        .badge-new {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+            color: white;
+        }
+        .badge-popular {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            color: white;
+        }
+        .badge-series {
+            background: linear-gradient(135deg, var(--accent-violet), var(--accent-blue));
+            color: white;
+        }
+        .animation-info {
+            padding: 22px 24px 24px;
+        }
+        .animation-info h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            transition: color 0.5s ease;
+        }
+        .animation-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem; line-height: 1.6;
+            margin-bottom: 16px;
+            transition: color 0.5s ease;
+        }
+        .animation-meta {
+            display: flex; align-items: center;
+            gap: 16px;
+        }
+        .meta-item {
+            display: flex; align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .meta-item svg {
+            width: 14px; height: 14px;
+            stroke: var(--text-muted);
+        }
+
+        /* ═══════════════════════════════════════
+           SERIES SECTION
+           ═══════════════════════════════════════ */
+        .series-section {
+            position: relative; z-index: 1;
+            padding: 60px 40px 80px;
+            background: var(--section-alt-bg);
+            transition: background 0.5s ease;
+        }
+        .series-container {
+            max-width: 1400px; margin: 0 auto;
+        }
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+        .series-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            display: flex;
+            position: relative;
+        }
+        .series-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+            transform: translateY(-4px);
+        }
+        .series-thumb {
+            width: 280px; min-height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .series-thumb::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(to right, transparent 30%, var(--bg-card) 100%);
+        }
+        .series-content {
+            padding: 30px;
+            display: flex; flex-direction: column;
+            justify-content: center;
+        }
+        .series-content .tag {
+            display: inline-block;
+            font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px;
+            padding: 5px 12px; border-radius: 50px;
+            background: var(--tag-bg);
+            border: 1px solid var(--tag-border);
+            color: var(--tag-text);
+            margin-bottom: 12px;
+            width: fit-content;
+            transition: all 0.5s ease;
+        }
+        .series-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            transition: color 0.5s ease;
+        }
+        .series-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem; line-height: 1.6;
+            margin-bottom: 20px;
+            transition: color 0.5s ease;
+        }
+        .series-episodes {
+            display: flex; gap: 8px; flex-wrap: wrap;
+        }
+        .episode-pill {
+            background: var(--pill-bg);
+            border: 1px solid var(--pill-border);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .episode-pill:hover {
+            border-color: var(--accent-violet);
+            color: var(--accent-violet);
+        }
+        .episode-pill.active {
+            background: var(--btn-primary-bg);
+            color: white; border-color: transparent;
+        }
+
+        /* ═══════════════════════════════════════
+           CTA BANNER
+           ═══════════════════════════════════════ */
+        .cta-banner {
+            position: relative; z-index: 1;
+            padding: 80px 40px;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .cta-card {
+            background: linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(79,70,229,0.1) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            padding: 50px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        [data-theme="day"] .cta-card {
+            background: linear-gradient(135deg, rgba(124,58,237,0.08) 0%, rgba(79,70,229,0.05) 100%);
+        }
+        .cta-card::before {
+            content: '';
+            position: absolute; top: -50%; left: -20%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-card h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            position: relative; z-index: 1;
+            transition: color 0.5s ease;
+        }
+        .cta-card p {
+            color: var(--text-secondary);
+            font-size: 1.05rem; line-height: 1.7;
+            max-width: 500px; margin: 0 auto 28px;
+            position: relative; z-index: 1;
+            transition: color 0.5s ease;
+        }
+        /* ═══════════════════════════════════════
+           BUTTONS (Shared)
+           ═══════════════════════════════════════ */
+        .btn-primary {
+            background: var(--btn-primary-bg);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.95rem; font-weight: 600;
+            transition: all 0.4s ease;
+            border: none; cursor: pointer;
+            box-shadow: 0 8px 30px var(--btn-primary-shadow);
+            display: inline-flex;
+            align-items: center; gap: 10px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px var(--btn-primary-shadow);
+        }
+        .btn-secondary {
+            background: var(--btn-secondary-bg);
+            border: 1px solid var(--btn-secondary-border);
+            color: var(--btn-secondary-text);
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.95rem; font-weight: 600;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            display: inline-flex;
+            align-items: center; gap: 10px;
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent-violet);
+            color: var(--accent-violet);
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem; font-weight: 500;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center; gap: 8px;
+        }
+        .btn-outline:hover {
+            border-color: var(--accent-violet);
+            color: var(--accent-violet);
+        }
+
+        /* ═══════════════════════════════════════
+           FOOTER
+           ═══════════════════════════════════════ */
+        .footer {
+            position: relative; z-index: 1;
+            background: var(--footer-bg);
+            border-top: 1px solid var(--footer-border);
+            padding: 60px 40px 30px;
+            transition: all 0.5s ease;
+        }
+        .footer-content {
+            max-width: 1200px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem; line-height: 1.6;
+            margin-bottom: 20px;
+            transition: color 0.5s ease;
+        }
+        .footer-social {
+            display: flex; gap: 12px;
+        }
+        .footer-social a {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            display: flex; align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .footer-social a:hover {
+            background: var(--accent-violet);
+            color: white;
+            border-color: var(--accent-violet);
+        }
+        .footer-social svg { width: 18px; height: 18px; fill: currentColor; }
+        .footer-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem; font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.5s ease;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover { color: var(--accent-violet); }
+        .footer-form { margin-top: 20px; }
+        .footer-form-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem; font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            transition: color 0.5s ease;
+        }
+        .footer-form-body {
+            display: flex; gap: 8px;
+        }
+        .footer-input {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 10px 14px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .footer-input::placeholder { color: var(--text-muted); }
+        .footer-input:focus { border-color: var(--accent-violet); }
+        .footer-submit {
+            background: var(--btn-primary-bg);
+            color: white; border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.85rem; font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .footer-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px var(--btn-primary-shadow);
+        }
+        .footer-bottom {
+            max-width: 1200px; margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid var(--footer-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; gap: 20px;
+            transition: border-color 0.5s ease;
+        }
+        .footer-credit {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            transition: color 0.5s ease;
+        }
+        .footer-legal {
+            display: flex; gap: 16px;
+            align-items: center;
+        }
+        .footer-legal a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+        .footer-legal a:hover { color: var(--accent-violet); }
+        .footer-legal span { color: var(--border-color); transition: color 0.5s ease; }
+
+        /* ═══════════════════════════════════════
+           PAGE RESPONSIVE
+           ═══════════════════════════════════════ */
+        @media (max-width: 1024px) {
+            .page-hero-bg {
+                width: 100%; opacity: 0.2;
+                mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+            }
+            .page-hero-overlay {
+                background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-start) 50%, transparent 100%);
+            }
+            .page-hero-content {
+                text-align: center;
+                padding: 100px 40px 60px;
+            }
+            .page-hero h1 { font-size: 3rem; }
+            .page-hero-desc { margin: 0 auto; }
+            .animations-grid { grid-template-columns: repeat(2, 1fr); }
+            .series-grid { grid-template-columns: 1fr; }
+            .series-card { flex-direction: column; }
+            .series-thumb {
+                width: 100%; height: 200px;
+            }
+            .series-thumb::after {
+                background: linear-gradient(to top, var(--bg-card) 0%, transparent 100%);
+            }
+            .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 2.4rem; }
+            .page-hero-content { padding: 90px 24px 50px; }
+            .animations-section { padding: 40px 24px 60px; }
+            .animations-grid { grid-template-columns: 1fr; gap: 20px; }
+            .section-intro h2 { font-size: 1.7rem; }
+            .series-section { padding: 40px 24px 60px; }
+            .series-content { padding: 24px; }
+            .cta-banner { padding: 40px 24px; }
+            .cta-card { padding: 36px 28px; }
+            .cta-card h2 { font-size: 1.5rem; }
+            .footer-content { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+   <body>
+    <div class="starfield"></div>
+
+    <!-- ═══════════════════════════════════════
+         NAVBAR
+         ═══════════════════════════════════════ -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
+                <img src="/images/logo.png" alt="LightMode Ministries">
+            </a>
+
+            <ul class="navbar-menu" id="navbar-menu" role="menubar">
+                <li class="nav-dropdown" role="none">
+                    <a href="/index.html" class="navbar-link dropdown-toggle">
+                        Home <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/about.html" class="dropdown-link">About Us</a></li>
+                        <li><a href="/contact.html" class="dropdown-link">Contact</a></li>
+                    </ul>
+                </li>
+                <li role="none"><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/rest.html" class="navbar-link dropdown-toggle">
+                        Rest <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/deep-sleep.html" class="dropdown-link">Deep Sleep</a></li>
+                        <li><a href="/prayer-video.html" class="dropdown-link">Prayer Video</a></li>
+                        <li><a href="/bedtime-fables.html" class="dropdown-link">BedTime Fables</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/inspiration.html" class="navbar-link inspiration dropdown-toggle">
+                        Inspiration <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/stories.html" class="dropdown-link">Stories</a></li>
+                        <li><a href="/videos.html" class="dropdown-link">Videos</a></li>
+                        <li><a href="/resources.html" class="dropdown-link">Resources</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/grow.html" class="navbar-link dropdown-toggle">
+                        Grow <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/bible-study.html" class="dropdown-link">Bible Studies</a></li>
+                        <li><a href="/sermons.html" class="dropdown-link">Sermons</a></li>
+                        <li><a href="/devotionals.html" class="dropdown-link">Devotionals</a></li>
+                        <li><a href="/study-guides.html" class="dropdown-link">Study Guides</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/teens.html" class="navbar-link dropdown-toggle">
+                        Teens <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li>
+                        <li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li>
+                        <li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle active">
+                        LumenQuest <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/animations.html" class="dropdown-link">Animations</a></li>
+                        <li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li>
+                        <li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li>
+                        <li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="navbar-actions">
+                <div class="theme-toggle" role="group" aria-label="Theme toggle">
+                    <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                    <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+        <!-- ═══════════════════════════════════════
+         PAGE HERO
+         ═══════════════════════════════════════ -->
+    <section class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-breadcrumb">
+                <a href="/lumenquest.html">LumenQuest</a>
+                <span class="sep">/</span>
+                <span class="current">Animations</span>
+            </div>
+            <h1>Faith-Filled <span class="gradient-text">Animations</span></h1>
+            <p class="page-hero-desc">
+                Watch stories come alive with vibrant animations that teach courage, kindness, and God's love — crafted for young hearts to discover His light.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         ANIMATIONS GRID
+         ═══════════════════════════════════════ -->
+    <section class="animations-section">
+        <div class="section-intro">
+            <h2>Watch & Wonder</h2>
+            <p>Each animation weaves Scripture into adventure, helping children see God's truth in colorful, captivating stories.</p>
+        </div>
+
+        <div class="animations-grid">
+            <!-- Card 1 -->
+            <div class="animation-card">
+                <div class="animation-thumb" style="background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&q=80');">
+                    <span class="animation-badge badge-new">New</span>
+                    <div class="play-overlay">
+                        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </div>
+                    <span class="animation-duration">4:32</span>
+                </div>
+                <div class="animation-info">
+                    <h3>The Light Within</h3>
+                    <p>A young adventurer discovers that true light comes from faith, not from a lantern.</p>
+                    <div class="animation-meta">
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            12.4K views
+                        </span>
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            Ages 4-8
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="animation-card">
+                <div class="animation-thumb" style="background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=600&q=80');">
+                    <span class="animation-badge badge-popular">Popular</span>
+                    <div class="play-overlay">
+                        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </div>
+                    <span class="animation-duration">6:15</span>
+                </div>
+                <div class="animation-info">
+                    <h3>Courage to Shine</h3>
+                    <p>When darkness falls on the village, one child learns that courage is doing what's right.</p>
+                    <div class="animation-meta">
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            28.1K views
+                        </span>
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            Ages 5-10
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="animation-card">
+                <div class="animation-thumb" style="background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80');">
+                    <div class="play-overlay">
+                        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </div>
+                    <span class="animation-duration">5:48</span>
+                </div>
+                <div class="animation-info">
+                    <h3>The Truth Compass</h3>
+                    <p>A magical compass always points to truth — but its bearer must choose to follow it.</p>
+                    <div class="animation-meta">
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            9.7K views
+                        </span>
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            Ages 6-12
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="animation-card">
+                <div class="animation-thumb" style="background-image: url('https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=600&q=80');">
+                    <span class="animation-badge badge-new">New</span>
+                    <div class="play-overlay">
+                        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </div>
+                    <span class="animation-duration">7:02</span>
+                </div>
+                <div class="animation-info">
+                    <h3>Stronger Together</h3>
+                    <p>Three friends learn that unity in Christ makes them stronger than any challenge alone.</p>
+                    <div class="animation-meta">
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            15.3K views
+                        </span>
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            Ages 5-10
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="animation-card">
+                <div class="animation-thumb" style="background-image: url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=600&q=80');">
+                    <div class="play-overlay">
+                        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </div>
+                    <span class="animation-duration">3:55</span>
+                </div>
+                <div class="animation-info">
+                    <h3>The Shepherd's Call</h3>
+                    <p>A lost lamb hears the shepherd's voice and finds the way home through the storm.</p>
+                    <div class="animation-meta">
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            21.6K views
+                        </span>
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            Ages 3-7
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="animation-card">
+                <div class="animation-thumb" style="background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80');">
+                    <span class="animation-badge badge-popular">Popular</span>
+                    <div class="play-overlay">
+                        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </div>
+                    <span class="animation-duration">8:20</span>
+                </div>
+                <div class="animation-info">
+                    <h3>Seeds of Kindness</h3>
+                    <p>A small act of kindness plants seeds that grow into a garden of love for the whole town.</p>
+                    <div class="animation-meta">
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            34.2K views
+                        </span>
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            Ages 4-9
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- ═══════════════════════════════════════
+         ANIMATION SERIES
+         ═══════════════════════════════════════ -->
+    <section class="series-section">
+        <div class="series-container">
+            <div class="section-intro">
+                <h2>Animation Series</h2>
+                <p>Dive deeper into multi-episode journeys that build faith one chapter at a time.</p>
+            </div>
+
+            <div class="series-grid">
+                <!-- Series 1 -->
+                <div class="series-card">
+                    <div class="series-thumb" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80');"></div>
+                    <div class="series-content">
+                        <span class="tag">5 Episodes</span>
+                        <h3>The LumenQuest Chronicles</h3>
+                        <p>Follow the full journey of young heroes discovering God's light across five epic adventures filled with courage, friendship, and faith.</p>
+                        <div class="series-episodes">
+                            <span class="episode-pill active">Ep 1</span>
+                            <span class="episode-pill">Ep 2</span>
+                            <span class="episode-pill">Ep 3</span>
+                            <span class="episode-pill">Ep 4</span>
+                            <span class="episode-pill">Ep 5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Series 2 -->
+                <div class="series-card">
+                    <div class="series-thumb" style="background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80');"></div>
+                    <div class="series-content">
+                        <span class="tag">4 Episodes</span>
+                        <h3>Parables for Little Hearts</h3>
+                        <p>Jesus' parables retold in vibrant animation — simple enough for children, profound enough to touch every heart in the family.</p>
+                        <div class="series-episodes">
+                            <span class="episode-pill active">Ep 1</span>
+                            <span class="episode-pill">Ep 2</span>
+                            <span class="episode-pill">Ep 3</span>
+                            <span class="episode-pill">Ep 4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Series 3 -->
+                <div class="series-card">
+                    <div class="series-thumb" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&q=80');"></div>
+                    <div class="series-content">
+                        <span class="tag">6 Episodes</span>
+                        <h3>Bible Heroes Unlocked</h3>
+                        <p>Meet the heroes of Scripture like never before — David, Esther, Daniel, and more — in action-packed animated stories of faith.</p>
+                        <div class="series-episodes">
+                            <span class="episode-pill active">Ep 1</span>
+                            <span class="episode-pill">Ep 2</span>
+                            <span class="episode-pill">Ep 3</span>
+                            <span class="episode-pill">Ep 4</span>
+                            <span class="episode-pill">Ep 5</span>
+                            <span class="episode-pill">Ep 6</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Series 4 -->
+                <div class="series-card">
+                    <div class="series-thumb" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80');"></div>
+                    <div class="series-content">
+                        <span class="tag">3 Episodes</span>
+                        <h3>Fruit of the Spirit Stories</h3>
+                        <p>Each episode explores one fruit of the Spirit — love, joy, peace, and more — through relatable, heartwarming tales for kids.</p>
+                        <div class="series-episodes">
+                            <span class="episode-pill active">Ep 1</span>
+                            <span class="episode-pill">Ep 2</span>
+                            <span class="episode-pill">Ep 3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CTA BANNER
+         ═══════════════════════════════════════ -->
+    <section class="cta-banner">
+        <div class="cta-card">
+            <h2>Never Miss a New Animation</h2>
+            <p>Subscribe to get notified when new episodes and series drop. Plus, receive free coloring pages and activity packs!</p>
+            <a href="#" class="btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"></path>
+                </svg>
+                Get Notified
+            </a>
+        </div>
+    </section>
+        <!-- ═══════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════ -->
+       <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+                    <img width="20%" src="/images/logo-crop.png" alt="LightMode Ministries Logo">
+                    <div>
+                        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;color:var(--text-primary);transition:color 0.5s ease;">LightMode</div>
+                        <div style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);transition:color 0.5s ease;">Ministries LLC</div>
+                    </div>
+                </div>
+                <p>Illuminating Lives.<br>One Heart at a Time.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="#" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Teens</h4>
+                <ul class="footer-links">
+                    <li><a href="/teens.html">Journeys</a></li>
+                    <li><a href="/teens-videos.html">Browse Videos</a></li>
+                    <li><a href="/teens-devotionals.html">Devotionals</a></li>
+                    <li><a href="/audio-wall.html">Audio Wall</a></li>
+                    <li><a href="/teens.html">Check-In</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="/rest.html">Prayer Requests</a></li>
+                    <li><a href="/resources.html">Resources</a></li>
+                    <li><a href="/stories.html">Stories</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Parents</h4>
+                <ul class="footer-links" style="margin-bottom:20px;">
+                    <li><a href="/family.html">Parent Guide</a></li>
+                    <li><a href="/family.html">Conversation Starters</a></li>
+                    <li><a href="/family.html">Faith at Home</a></li>
+                    <li><a href="/resources.html">Resources</a></li>
+                </ul>
+                <div class="footer-form">
+                    <div class="footer-form-title">Get encouragement delivered to you.</div>
+                    <div class="footer-form-body">
+                        <input type="email" class="footer-input" placeholder="Enter your email" aria-label="Your email address">
+                        <button class="footer-submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-credit">Designed By Digital Software Labs</p>
+            <div class="footer-legal">
+                <a href="#">Terms & Conditions</a>
+                <span>|</span>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        /* ============================================
+   THEME TOGGLE
+   ============================================ */
+function setTheme(mode) {
+    const html = document.documentElement;
+    const btnDay = document.getElementById('btn-day');
+    const btnNight = document.getElementById('btn-night');
+
+    if (mode === 'day') {
+        html.setAttribute('data-theme', 'day');
+        btnDay.classList.add('active');
+        btnNight.classList.remove('active');
+        localStorage.setItem('theme', 'day');
+    } else {
+        html.removeAttribute('data-theme');
+        btnDay.classList.remove('active');
+        btnNight.classList.add('active');
+        localStorage.setItem('theme', 'night');
+    }
+}
+
+// Load saved theme (DEFAULT = NIGHT)
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'day') {
+        setTheme('day');
+    } else {
+        setTheme('night');
+    }
+});
+
+/* ============================================
+   NAVBAR TOGGLE (MOBILE)
+   ============================================ */
+const navbarToggle = document.querySelector('.navbar-toggle');
+const navbarMenu = document.getElementById('navbar-menu');
+
+if (navbarToggle && navbarMenu) {
+    navbarToggle.addEventListener('click', function() {
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !isExpanded);
+        this.classList.toggle('active');
+        navbarMenu.classList.toggle('active');
+    });
+
+    // Close menu on link click (except dropdown toggles on mobile)
+    navbarMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            // If dropdown toggle on mobile, don't close
+            if (window.innerWidth <= 768 && this.classList.contains('dropdown-toggle')) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.parentElement.classList.toggle('active');
+                return;
+            }
+            navbarMenu.classList.remove('active');
+            navbarToggle.classList.remove('active');
+            navbarToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Close menu on resize to desktop
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            navbarMenu.classList.remove('active');
+            navbarToggle.classList.remove('active');
+            navbarToggle.setAttribute('aria-expanded', 'false');
+            document.querySelectorAll('.nav-dropdown').forEach(item => {
+                item.classList.remove('active');
+            });
+        }
+    });
+}
+
+/* ============================================
+   SMOOTH SCROLL FOR ANCHOR LINKS
+   ============================================ */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const target = document.querySelector(targetId);
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+/* ============================================
+   ANIMATION CARDS — HOVER PLAY BUTTON EFFECT
+   ============================================ */
+document.querySelectorAll('.animation-card').forEach(card => {
+    const playBtn = card.querySelector('.play-overlay');
+    const thumb = card.querySelector('.animation-thumb');
+    
+    if (thumb) {
+        card.addEventListener('mouseenter', function() {
+            if (playBtn) {
+                playBtn.style.opacity = '1';
+                playBtn.style.transform = 'translate(-50%, -50%) scale(1)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            if (playBtn) {
+                playBtn.style.opacity = '0';
+                playBtn.style.transform = 'translate(-50%, -50%) scale(0.9)';
+            }
+        });
+    }
+});
+
+/* ============================================
+   ANIMATION CARDS — CLICK TO PLAY (SIMULATED)
+   ============================================ */
+document.querySelectorAll('.animation-card, .play-overlay').forEach(el => {
+    el.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const card = this.closest('.animation-card');
+        if (!card) return;
+        
+        // Remove active state from all cards
+        document.querySelectorAll('.animation-card').forEach(c => {
+            c.style.borderColor = '';
+            c.style.boxShadow = '';
+        });
+        
+        // Highlight clicked card
+        card.style.borderColor = 'var(--accent-violet)';
+        card.style.boxShadow = '0 25px 60px rgba(0,0,0,0.2), 0 0 40px var(--card-glow)';
+        
+        // Simulate video play notification
+        const title = card.querySelector('h3')?.textContent || 'Animation';
+        showNotification('▶ Now playing: ' + title);
+    });
+});
+
+/* ============================================
+   NOTIFICATION SYSTEM (LIGHTWEIGHT TOAST)
+   ============================================ */
+function showNotification(message) {
+    // Remove existing notification
+    const existing = document.querySelector('.toast-notification');
+    if (existing) existing.remove();
+    
+    const toast = document.createElement('div');
+    toast.className = 'toast-notification';
+    toast.textContent = message;
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background: var(--bg-card);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 14px 28px;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        z-index: 9999;
+        opacity: 0;
+        transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        max-width: 90vw;
+        text-align: center;
+        pointer-events: none;
+    `;
+    document.body.appendChild(toast);
+    
+    // Trigger entrance
+    requestAnimationFrame(() => {
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateX(-50%) translateY(0)';
+    });
+    
+    // Auto dismiss
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(-50%) translateY(20px)';
+        setTimeout(() => toast.remove(), 500);
+    }, 2500);
+}
+
+/* ============================================
+   SERIES EPISODE PILLS — INTERACTIVE
+   ============================================ */
+document.querySelectorAll('.series-episodes').forEach(episodeContainer => {
+    const pills = episodeContainer.querySelectorAll('.episode-pill');
+    
+    pills.forEach(pill => {
+        pill.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Remove active from siblings
+            pills.forEach(p => p.classList.remove('active'));
+            
+            // Add active to clicked
+            this.classList.add('active');
+            
+            // Show notification
+            const seriesTitle = this.closest('.series-content')?.querySelector('h3')?.textContent || 'Series';
+            showNotification('▶ Loading ' + seriesTitle + ' — ' + this.textContent);
+        });
+    });
+});
+
+/* ============================================
+   SERIES CARDS — CLICK TO VIEW
+   ============================================ */
+document.querySelectorAll('.series-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+        // Don't trigger if clicked on episode pill
+        if (e.target.closest('.episode-pill')) return;
+        
+        const title = this.querySelector('h3')?.textContent || 'Series';
+        showNotification('📺 Loading series: ' + title);
+        
+        // Visual feedback
+        this.style.borderColor = 'var(--accent-violet)';
+        setTimeout(() => {
+            this.style.borderColor = '';
+        }, 1500);
+    });
+});
+
+/* ============================================
+   CTA BUTTON INTERACTION
+   ============================================ */
+document.querySelector('.btn-primary')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    showNotification('📬 You\'re subscribed! Check your email for updates.');
+    
+    // Visual feedback
+    const originalText = this.innerHTML;
+    this.innerHTML = '✅ Subscribed!';
+    this.style.transform = 'scale(0.95)';
+    
+    setTimeout(() => {
+        this.innerHTML = originalText;
+        this.style.transform = '';
+    }, 2000);
+});
+
+/* ============================================
+   FOOTER FORM SUBMISSION
+   ============================================ */
+document.querySelector('.footer-submit')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    const input = this.closest('.footer-form-body')?.querySelector('.footer-input');
+    const email = input?.value?.trim();
+    
+    if (!email) {
+        showNotification('✉️ Please enter your email address.');
+        if (input) {
+            input.style.borderColor = 'var(--accent-red)';
+            setTimeout(() => {
+                input.style.borderColor = '';
+            }, 1500);
+        }
+        return;
+    }
+    
+    if (!email.includes('@') || !email.includes('.')) {
+        showNotification('✉️ Please enter a valid email address.');
+        if (input) {
+            input.style.borderColor = 'var(--accent-red)';
+            setTimeout(() => {
+                input.style.borderColor = '';
+            }, 1500);
+        }
+        return;
+    }
+    
+    showNotification('✅ Subscribed successfully! Check your inbox.');
+    if (input) input.value = '';
+});
+
+// Also handle Enter key on footer input
+document.querySelector('.footer-input')?.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        document.querySelector('.footer-submit')?.click();
+    }
+});
+
+/* ============================================
+   FOOTER SOCIAL LINKS — PREVENT DEFAULT
+   ============================================ */
+document.querySelectorAll('.footer-social a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const label = this.getAttribute('aria-label') || 'Social';
+        showNotification('🔗 Opening ' + label + ' (coming soon)');
+    });
+});
+
+/* ============================================
+   FOOTER LEGAL LINKS — PREVENT DEFAULT
+   ============================================ */
+document.querySelectorAll('.footer-legal a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showNotification('📄 ' + this.textContent + ' — coming soon.');
+    });
+});
+
+/* ============================================
+   KEYBOARD ACCESSIBILITY — ESC TO CLOSE MENU
+   ============================================ */
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        if (navbarMenu?.classList.contains('active')) {
+            navbarMenu.classList.remove('active');
+            navbarToggle?.classList.remove('active');
+            navbarToggle?.setAttribute('aria-expanded', 'false');
+        }
+        // Close any open dropdowns
+        document.querySelectorAll('.nav-dropdown.active').forEach(item => {
+            item.classList.remove('active');
+        });
+    }
+});
+
+/* ============================================
+   INTERSECTION OBSERVER — ANIMATION CARDS
+   ============================================ */
+const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.1
+};
+
+const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            cardObserver.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Apply entrance animation to cards
+document.querySelectorAll('.animation-card, .series-card').forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(40px)';
+    card.style.transition = `all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) ${index * 0.08}s`;
+    cardObserver.observe(card);
+});
+
+/* ============================================
+   REDUCED MOTION PREFERENCE
+   ============================================ */
+const motionMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (motionMedia.matches) {
+    document.querySelectorAll('.animation-card, .series-card').forEach(card => {
+        card.style.opacity = '1';
+        card.style.transform = 'none';
+        card.style.transition = 'none';
+    });
+}
+
+console.log('🌟 LumenQuest Animations — Loaded Successfully');
+console.log('📺 Watch, Learn, and Grow in Faith!');
+    </script>
+    </body>
+</html>
