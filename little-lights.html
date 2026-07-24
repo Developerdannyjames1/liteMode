@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Lights | LumenQuest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           CSS VARIABLES (matches lumenquest.html)
+        ============================================ */
+        :root {
+            --navy: #0f1a2e;
+            --navy-light: #1a2a4a;
+            --navy-mid: #2a3d5e;
+            --orange: #c87a1f;
+            --orange-hover: #b06a18;
+            --orange-light: #e8a84a;
+            --gold: #c9a84c;
+            --gold-light: #e0c97a;
+            --teal: #3a8b7d;
+            --teal-dark: #2d7a6e;
+            --teal-light: #4a9e8e;
+            --purple: #7b5fa8;
+            --purple-light: #9b7fc8;
+            --pink: #c75b7a;
+            --cream: #f5f0e8;
+            --cream-light: #faf7f2;
+            --white: #ffffff;
+            --text-dark: #1a1a2e;
+            --text-gray: #5a5a6e;
+            --text-light: #8a8a9e;
+            --border: #e8e4dc;
+            --shadow: 0 4px 24px rgba(26, 42, 74, 0.08);
+            --shadow-md: 0 8px 32px rgba(26, 42, 74, 0.12);
+            --shadow-lg: 0 12px 48px rgba(26, 42, 74, 0.15);
+            --r-sm: 8px;
+            --r-md: 12px;
+            --r-lg: 16px;
+            --r-xl: 24px;
+            --r-2xl: 32px;
+            --r-3xl: 40px;
+            --ease: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-h: 'Playfair Display', Georgia, serif;
+            --font-b: 'Inter', -apple-system, sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-b);
+            color: var(--text-dark);
+            background: var(--cream-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; transition: var(--ease); }
+        button { border: none; background: none; cursor: pointer; font-family: var(--font-b); transition: var(--ease); }
+        ul, ol { list-style: none; }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 5vw, 60px);
+        }
+
+        /* ============================================
+           ANIMATIONS
+        ============================================ */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .d1 { transition-delay: 0.1s; }
+        .d2 { transition-delay: 0.2s; }
+        .d3 { transition-delay: 0.3s; }
+        .d4 { transition-delay: 0.4s; }
+        .d5 { transition-delay: 0.5s; }
+
+        /* ============================================
+           NAVBAR WITH DROPDOWN
+        ============================================ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--navy);
+            transition: var(--ease);
+        }
+        .nav.scrolled {
+            box-shadow: 0 2px 30px rgba(0,0,0,0.3);
+        }
+        .nav__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+        }
+        .nav__logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1px;
+        }
+        .nav__logo-text {
+            font-family: var(--font-h);
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+        .nav__logo-text span { color: var(--orange); }
+        .nav__logo-tag {
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+        }
+        .nav__links {
+            display: flex;
+            align-items: center;
+            gap: clamp(14px, 2vw, 28px);
+        }
+        .nav__link {
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 6px 0;
+            position: relative;
+            transition: var(--ease);
+            cursor: pointer;
+        }
+        .nav__link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--orange);
+            border-radius: 2px;
+            transition: var(--ease);
+        }
+        .nav__link:hover, .nav__link.active {
+            color: var(--white);
+        }
+        .nav__link:hover::after, .nav__link.active::after {
+            width: 100%;
+        }
+
+        /* ===== DROPDOWN STYLES ===== */
+        .nav__link--dropdown {
+            position: relative;
+        }
+        .nav__link--dropdown .dropdown-arrow {
+            display: inline-block;
+            margin-left: 4px;
+            font-size: 10px;
+            transition: var(--ease);
+        }
+        .nav__link--dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .nav__dropdown {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--navy);
+            min-width: 210px;
+            padding: 10px 0;
+            border-radius: var(--r-lg);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(15,26,46,0.98);
+            backdrop-filter: blur(10px);
+        }
+        .nav__dropdown::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 16px;
+            height: 16px;
+            background: var(--navy);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-left: 1px solid rgba(255,255,255,0.06);
+            background: rgba(15,26,46,0.98);
+        }
+        .nav__link--dropdown:hover .nav__dropdown {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .nav__dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            margin: 0 6px;
+            border-radius: var(--r-sm);
+        }
+        .nav__dropdown-item .item-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+            transition: var(--ease);
+        }
+        .nav__dropdown-item .item-icon--teal { background: rgba(58,139,125,0.2); color: var(--teal); }
+        .nav__dropdown-item .item-icon--navy { background: rgba(26,42,74,0.2); color: var(--navy-mid); }
+        .nav__dropdown-item .item-icon--purple { background: rgba(123,95,168,0.2); color: var(--purple); }
+        .nav__dropdown-item .item-icon--pink { background: rgba(199,91,122,0.2); color: var(--pink); }
+        .nav__dropdown-item .item-icon--gold { background: rgba(201,168,76,0.2); color: var(--gold); }
+
+        .nav__dropdown-item .item-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        .nav__dropdown-item .item-name {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+        }
+        .nav__dropdown-item .item-role {
+            font-size: 0.55rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 0.04em;
+            text-transform: none;
+        }
+        .nav__dropdown-item .item-arrow {
+            margin-left: auto;
+            color: rgba(255,255,255,0.15);
+            font-size: 12px;
+            transition: var(--ease);
+        }
+        .nav__dropdown-item:hover {
+            background: rgba(255,255,255,0.05);
+            color: var(--white);
+        }
+        .nav__dropdown-item:hover .item-arrow {
+            color: var(--gold);
+            transform: translateX(4px);
+        }
+        .nav__dropdown-item:hover .item-icon {
+            transform: scale(1.1);
+        }
+        .nav__dropdown-divider {
+            height: 1px;
+            margin: 6px 16px;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.06), transparent);
+        }
+
+        .nav__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--orange);
+            color: var(--white);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border-radius: var(--r-md);
+            border: 2px solid var(--orange);
+            transition: var(--ease);
+        }
+        .nav__cta:hover {
+            background: transparent;
+            color: var(--orange);
+            transform: translateY(-2px);
+        }
+        .nav__burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+            cursor: pointer;
+            background: none;
+        }
+        .nav__burger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: var(--ease);
+        }
+
+        /* Mobile dropdown fix */
+        @media(max-width:992px){
+            .nav__link--dropdown .nav__dropdown {
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                display: none;
+                background: transparent;
+                box-shadow: none;
+                border: none;
+                padding: 0 0 0 16px;
+                min-width: auto;
+                backdrop-filter: none;
+                background: transparent;
+                margin-top: 4px;
+            }
+            .nav__dropdown::before {
+                display: none;
+            }
+            .nav__link--dropdown:hover .nav__dropdown {
+                transform: none;
+            }
+            .nav__link--dropdown.active-dropdown .nav__dropdown {
+                display: block;
+            }
+            .nav__dropdown-item {
+                padding: 8px 12px;
+                font-size: 0.72rem;
+                margin: 0;
+                border-radius: 0;
+            }
+            .nav__dropdown-item .item-icon {
+                width: 24px;
+                height: 24px;
+                font-size: 11px;
+            }
+            .nav__dropdown-item .item-name {
+                font-size: 0.65rem;
+            }
+            .nav__dropdown-item .item-role {
+                font-size: 0.5rem;
+            }
+            .nav__dropdown-divider {
+                display: none;
+            }
+            .nav__links.open .nav__link--dropdown .nav__dropdown {
+                display: block;
+            }
+            .nav__link--dropdown > span {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+        }
+
+        /* ============================================
+           HERO (matches meet-the-team page)
+        ============================================ */
+        .hero {
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a2a4a 0%, #0f1a2e 50%, #1a1a2e 100%);
+        }
+        .hero__bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: url('images/team.png');
+            background-repeat: no-repeat;
+            background-position: 36% 20%;
+            background-size: 100%;
+        }
+        .hero__bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(15, 26, 46, 0.92) 0%, rgba(15, 26, 46, 0.7) 45%, rgba(15, 26, 46, 0.2) 70%, transparent 100%);
+        }
+        .hero__bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 26, 46, 0.6) 0%, transparent 40%);
+        }
+        .hero__content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px clamp(24px, 5vw, 60px) 60px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .hero__title {
+            font-family: var(--font-h);
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            max-width: 520px;
+        }
+        .hero__title span { display: block; }
+        .hero__subtitle {
+            font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-top: 16px;
+        }
+        .hero__text {
+            font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.75;
+            max-width: 420px;
+            margin-top: 20px;
+        }
+        .hero__feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 24px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--white);
+        }
+        .hero__feature svg {
+            width: 20px;
+            height: 20px;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+        .hero__buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .hero__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: var(--r-md);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: var(--ease);
+        }
+        .hero__btn--gold {
+            background: var(--gold);
+            color: var(--navy);
+            border: 2px solid var(--gold);
+        }
+        .hero__btn--gold:hover {
+            background: transparent;
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(201, 168, 76, 0.25);
+        }
+        .hero__btn--outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero__btn--outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* ============================================
+           WHAT IS LITTLE LIGHTS
+        ============================================ */
+        .what-lights { padding: 80px 0; background: var(--cream-light); }
+        .what-lights__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .what-lights__img-wrap { position: relative; display: flex; justify-content: center; }
+        .what-lights__img {
+            width: 100%;
+            max-width: 440px;
+            border-radius: var(--r-2xl);
+            box-shadow: var(--shadow-lg);
+        }
+        .what-lights__right { display: flex; flex-direction: column; gap: 16px; }
+        .what-lights__title {
+            font-family: var(--font-h);
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 1.2;
+            position: relative;
+            display: inline-block;
+        }
+        .what-lights__title span { color: var(--gold); }
+        .what-lights__title::before,
+        .what-lights__title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 1px;
+            background: var(--gold);
+        }
+        .what-lights__title::before { right: calc(100% + 14px); }
+        .what-lights__title::after { left: calc(100% + 14px); }
+        .what-lights__text {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+        .what-lights__list { display: flex; flex-direction: column; gap: 14px; margin-top: 4px; }
+        .what-item { display: flex; gap: 14px; align-items: flex-start; }
+        .what-item__icon {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            border-radius: 50%;
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+        .what-item__text {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+        .what-item__text strong {
+            display: block;
+            color: var(--navy);
+            font-weight: 700;
+            margin-bottom: 2px;
+            font-size: 0.88rem;
+        }
+
+        /* ============================================
+           AGE GROUPS
+        ============================================ */
+        .age-groups { padding: 80px 0; background: var(--cream); }
+        .age-groups__head { text-align: center; margin-bottom: 48px; }
+        .age-groups__title {
+            font-family: var(--font-h);
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+        .age-groups__title::before,
+        .age-groups__title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 1px;
+            background: var(--gold);
+        }
+        .age-groups__title::before { right: calc(100% + 14px); }
+        .age-groups__title::after { left: calc(100% + 14px); }
+        .age-groups__sub {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-top: 10px;
+        }
+        .age-groups__grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .age-card {
+            background: var(--white);
+            border-radius: var(--r-xl);
+            padding: 36px 24px;
+            text-align: center;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: var(--ease);
+            position: relative;
+            overflow: hidden;
+        }
+        .age-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+        .age-card__ribbon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+        .age-card__ribbon--green { background: var(--teal); }
+        .age-card__ribbon--gold { background: var(--gold); }
+        .age-card__ribbon--orange { background: var(--orange); }
+        .age-card__icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            background: var(--cream);
+            border: 2px solid var(--gold);
+        }
+        .age-card__age {
+            font-family: var(--font-h);
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+        .age-card__label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+        .age-card__text {
+            font-size: 0.82rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           ACTIVITIES
+        ============================================ */
+        .activities-lights { padding: 80px 0; background: var(--cream-light); }
+        .activities-lights__head { text-align: center; margin-bottom: 48px; }
+        .activities-lights__title {
+            font-family: var(--font-h);
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+        .activities-lights__title::before,
+        .activities-lights__title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 1px;
+            background: var(--gold);
+        }
+        .activities-lights__title::before { right: calc(100% + 14px); }
+        .activities-lights__title::after { left: calc(100% + 14px); }
+        .activities-lights__sub {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-top: 10px;
+        }
+        .activities-lights__grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .activity-card {
+            background: var(--white);
+            border-radius: var(--r-xl);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: var(--ease);
+            display: flex;
+            flex-direction: column;
+        }
+        .activity-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .activity-card__img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+        .activity-card__img img { width: 100%; height: 100%; object-fit: cover; }
+        .activity-card__body {
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .activity-card__title {
+            font-family: var(--font-h);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: 0.5px;
+        }
+        .activity-card__desc {
+            font-size: 0.78rem;
+            color: var(--text-gray);
+            line-height: 1.5;
+            flex: 1;
+        }
+        .activity-card__btn {
+            display: inline-block;
+            width: 100%;
+            padding: 10px 0;
+            border-radius: var(--r-sm);
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--white);
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            transition: var(--ease);
+            margin-top: auto;
+            border: 2px solid transparent;
+        }
+        .activity-card__btn--green { background: var(--teal); border-color: var(--teal); }
+        .activity-card__btn--green:hover { background: transparent; color: var(--teal); }
+        .activity-card__btn--gold { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+        .activity-card__btn--gold:hover { background: transparent; color: var(--gold); }
+        .activity-card__btn--pink { background: var(--pink); border-color: var(--pink); }
+        .activity-card__btn--pink:hover { background: transparent; color: var(--pink); }
+        .activity-card__btn--teal { background: var(--teal); border-color: var(--teal); }
+        .activity-card__btn--teal:hover { background: transparent; color: var(--teal); }
+
+        /* ============================================
+           PARENTS
+        ============================================ */
+        .parents-lights {
+            padding: 80px 0;
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+        .parents-lights__bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(42, 122, 138, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .parents-lights__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .parents-lights__left { display: flex; flex-direction: column; gap: 18px; }
+        .parents-lights__title {
+            font-family: var(--font-h);
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+        .parents-lights__title span { color: var(--white); }
+        .parents-lights__text {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.7;
+        }
+        .parents-lights__list { display: flex; flex-direction: column; gap: 14px; }
+        .parent-item { display: flex; gap: 14px; align-items: flex-start; }
+        .parent-item__icon {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            border-radius: 50%;
+            background: rgba(201, 168, 76, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+        .parent-item__text {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.5;
+        }
+        .parents-lights__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 12px 24px;
+            border-radius: var(--r-md);
+            border: 2px solid var(--gold);
+            transition: var(--ease);
+            width: fit-content;
+            margin-top: 8px;
+        }
+        .parents-lights__btn:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+            transform: translateY(-2px);
+        }
+        .parents-lights__img-wrap { display: flex; justify-content: center; }
+        .parents-lights__img {
+            width: 100%;
+            max-width: 420px;
+            border-radius: var(--r-2xl);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ============================================
+           TESTIMONIAL
+        ============================================ */
+        .testimonial { padding: 80px 0; background: var(--cream); }
+        .testimonial__inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+            text-align: center;
+        }
+        .testimonial__quote {
+            font-family: var(--font-h);
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.5;
+            font-style: italic;
+            margin-bottom: 24px;
+            position: relative;
+        }
+        .testimonial__quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.3;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            line-height: 1;
+        }
+        .testimonial__quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.3;
+            position: absolute;
+            bottom: -40px;
+            right: -10px;
+            line-height: 1;
+        }
+        .testimonial__author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 32px;
+        }
+        .testimonial__avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+        }
+        .testimonial__name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .testimonial__role {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        /* ============================================
+           JOIN CTA
+        ============================================ */
+        .join-lights {
+            padding: 80px 0;
+            background: var(--cream-light);
+        }
+        .join-lights__inner {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+            text-align: center;
+        }
+        .join-lights__title {
+            font-family: var(--font-h);
+            font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+            font-weight: 900;
+            color: var(--navy);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .join-lights__title span { color: var(--gold); }
+        .join-lights__text {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+        .join-lights__form {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .join-lights__input {
+            padding: 14px 20px;
+            border-radius: var(--r-md);
+            border: 1.5px solid var(--border);
+            font-size: 0.9rem;
+            font-family: var(--font-b);
+            color: var(--text);
+            background: var(--white);
+            min-width: 200px;
+            transition: var(--ease);
+        }
+        .join-lights__input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.12);
+        }
+        .join-lights__input::placeholder { color: var(--text-light); }
+        .join-lights__select {
+            padding: 14px 20px;
+            border-radius: var(--r-md);
+            border: 1.5px solid var(--border);
+            font-size: 0.9rem;
+            font-family: var(--font-b);
+            color: var(--text);
+            background: var(--white);
+            min-width: 160px;
+            cursor: pointer;
+            transition: var(--ease);
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234a5a65' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+        .join-lights__select:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        .join-lights__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--navy-light);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 14px 32px;
+            border-radius: var(--r-md);
+            border: 2px solid var(--navy-light);
+            transition: var(--ease);
+            cursor: pointer;
+        }
+        .join-lights__btn:hover {
+            background: var(--navy-mid);
+            border-color: var(--navy-mid);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .join-lights__note {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        /* ============================================
+           FOOTER (matches lumenquest.html)
+        ============================================ */
+        .footer-cta {
+            background: var(--navy);
+            padding: 52px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .footer-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 40%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(201, 168, 76, 0.08) 0%, transparent 55%);
+            pointer-events: none;
+        }
+        .footer-cta__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 36px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 5vw, 60px);
+        }
+        .footer-cta__content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .footer-cta__title {
+            font-family: var(--font-h);
+            font-size: clamp(1.15rem, 2vw, 1.5rem);
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .footer-cta__text {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 420px;
+            line-height: 1.6;
+        }
+        .footer-cta__buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .footer-cta__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border-radius: var(--r-md);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: var(--ease);
+            white-space: nowrap;
+        }
+        .footer-cta__btn--outline {
+            background: transparent;
+            color: var(--white);
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+        }
+        .footer-cta__btn--outline:hover {
+            background: var(--white);
+            color: var(--navy);
+            border-color: var(--white);
+        }
+        .footer-cta__btn--teal {
+            background: var(--teal);
+            color: var(--white);
+            border: 1.5px solid var(--teal);
+        }
+        .footer-cta__btn--teal:hover {
+            background: var(--teal-light);
+            transform: translateY(-2px);
+        }
+        .footer-cta__btn--orange {
+            background: var(--orange);
+            color: var(--white);
+            border: 1.5px solid var(--orange);
+        }
+        .footer-cta__btn--orange:hover {
+            background: var(--orange-hover);
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: var(--navy);
+            padding: 28px 0;
+            text-align: center;
+        }
+        .footer__text {
+            font-size: 0.74rem;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        /* ============================================
+           RESPONSIVE (matches lumenquest.html)
+        ============================================ */
+        @media (max-width: 1200px) {
+            .what-lights__inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .age-groups__grid { grid-template-columns: repeat(3, 1fr); }
+            .activities-lights__grid { grid-template-columns: repeat(2, 1fr); }
+            .parents-lights__inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+        }
+        @media (max-width: 1024px) {
+            .hero { min-height: auto; padding: 80px 0 40px; }
+            .hero__content { padding-top: 90px; }
+            .what-lights__inner { grid-template-columns: 1fr; text-align: center; }
+            .what-lights__right { align-items: center; }
+            .what-lights__list { text-align: left; max-width: 500px; margin: 0 auto; }
+            .what-lights__img-wrap { order: -1; }
+            .parents-lights__inner { grid-template-columns: 1fr; text-align: center; }
+            .parents-lights__left { align-items: center; }
+            .parents-lights__list { text-align: left; max-width: 500px; margin: 0 auto; }
+            .parents-lights__img-wrap { order: -1; }
+            .age-groups__grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 992px) {
+            .nav__links {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: var(--navy);
+                flex-direction: column;
+                padding: 24px;
+                gap: 12px;
+                border-radius: 0 0 var(--r-lg) var(--r-lg);
+                box-shadow: var(--shadow-md);
+            }
+            .nav__links.open { display: flex; }
+            .nav__link { font-size: 0.85rem; padding: 10px 0; }
+            .nav__cta { display: none; }
+            .nav__burger { display: flex; }
+            .age-groups__grid { grid-template-columns: 1fr 1fr; }
+            .activities-lights__grid { grid-template-columns: 1fr 1fr; }
+            .footer-cta__inner { flex-direction: column; text-align: center; }
+            .footer-cta__content { align-items: center; }
+        }
+        @media (max-width: 768px) {
+            .hero__title { font-size: 2.4rem; }
+            .hero__buttons { flex-direction: column; }
+            .hero__btn { width: 100%; justify-content: center; }
+            .age-groups__grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+            .activities-lights__grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+            .join-lights__form { flex-direction: column; width: 100%; }
+            .join-lights__input { width: 100%; }
+            .join-lights__select { width: 100%; }
+            .join-lights__btn { width: 100%; justify-content: center; }
+            .footer-cta__buttons { flex-direction: column; width: 100%; }
+            .footer-cta__btn { width: 100%; justify-content: center; }
+            .what-lights__title::before,
+            .what-lights__title::after { display: none; }
+        }
+        @media (max-width: 576px) {
+            .nav__inner { height: 64px; }
+            .nav__logo-text { font-size: 1.35rem; }
+            .hero { min-height: auto; padding: 80px 0 40px; }
+            .hero__title { font-size: 2rem; }
+            .hero__content { padding: 80px 20px 40px; }
+            .age-groups__title::before,
+            .age-groups__title::after,
+            .activities-lights__title::before,
+            .activities-lights__title::after { display: none; }
+            .age-groups__grid { max-width: 320px; }
+            .activities-lights__grid { max-width: 320px; }
+            .testimonial__quote::before,
+            .testimonial__quote::after { font-size: 2.5rem; }
+        }
+        @media (max-width: 480px) {
+            .hero__title { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+           NAVBAR WITH DROPDOWN
+        ============================================ -->
+    <header class="nav" role="banner">
+        <div class="nav__inner">
+            <a href="lumenquest.html" class="nav__logo" aria-label="LumenQuest Home">
+                <span class="nav__logo-text">Lumen<span>Quest</span></span>
+                <span class="nav__logo-tag">Light Leads the Way</span>
+            </a>
+            <nav class="nav__links" role="navigation" aria-label="Main navigation">
+                <a href="lumenquest.html" class="nav__link">Home</a>
+                
+                <!-- Meet the Team with Dropdown -->
+                <div class="nav__link nav__link--dropdown">
+                    <span>Meet the Team <span class="dropdown-arrow">&#9662;</span></span>
+                    <div class="nav__dropdown">
+                        <a href="amara.html" class="nav__dropdown-item">
+                            <span class="item-icon item-icon--teal">&#9679;</span>
+                            <span class="item-text">
+                                <span class="item-name">Amara</span>
+                                <span class="item-role">The Aligner</span>
+                            </span>
+                            <span class="item-arrow">&#9654;</span>
+                        </a>
+                        <a href="leo.html" class="nav__dropdown-item">
+                            <span class="item-icon item-icon--navy">&#9679;</span>
+                            <span class="item-text">
+                                <span class="item-name">Leo</span>
+                                <span class="item-role">The Guardian</span>
+                            </span>
+                            <span class="item-arrow">&#9654;</span>
+                        </a>
+                        <a href="kai.html" class="nav__dropdown-item">
+                            <span class="item-icon item-icon--purple">&#9679;</span>
+                            <span class="item-text">
+                                <span class="item-name">Kai</span>
+                                <span class="item-role">The Pattern Seeker</span>
+                            </span>
+                            <span class="item-arrow">&#9654;</span>
+                        </a>
+                        <a href="joy.html" class="nav__dropdown-item">
+                            <span class="item-icon item-icon--pink">&#9679;</span>
+                            <span class="item-text">
+                                <span class="item-name">Joy</span>
+                                <span class="item-role">The Restorer of Hope</span>
+                            </span>
+                            <span class="item-arrow">&#9654;</span>
+                        </a>
+                        <div class="nav__dropdown-divider"></div>
+                        <a href="lumi.html" class="nav__dropdown-item">
+                            <span class="item-icon item-icon--gold">&#9679;</span>
+                            <span class="item-text">
+                                <span class="item-name">Lumi</span>
+                                <span class="item-role">The Lightwing Guide</span>
+                            </span>
+                            <span class="item-arrow">&#9654;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="explore-the-realm.html" class="nav__link">Explore the Realm</a>
+                <a href="adventure-club.html" class="nav__link">Adventure Club</a>
+                <a href="little-lights.html" class="nav__link active">Little Lights</a>
+                <a href="parents.html" class="nav__link">Parents</a>
+            </nav>
+            <a href="#club" class="nav__cta">Join the Adventure Club</a>
+            <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============================================
+           HERO (matches meet-the-team page)
+        ============================================ -->
+    <section class="hero" aria-label="Little Lights">
+        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="hero__content">
+            <h1 class="hero__title">
+                <span>Little</span>
+                <span>Lights</span>
+            </h1>
+            <p class="hero__subtitle">Gentle Faith. Simple Truth. For Ages 3&ndash;7.</p>
+            <p class="hero__text">Gentle, faith-filled content designed for the youngest Adventurers. Simple stories, sweet songs, and activities that plant seeds of truth, love, and light in little hearts.</p>
+            <div class="hero__feature">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                No one completes a LumenQuest alone.
+            </div>
+            <div class="hero__buttons">
+                <button class="hero__btn hero__btn--gold" onclick="alert('Coming soon!')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                    Explore Activities
+                </button>
+                <a href="#for-parents" class="hero__btn hero__btn--outline">For Parents</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           WHAT IS LITTLE LIGHTS
+        ============================================ -->
+    <section class="what-lights" aria-label="About Little Lights">
+        <div class="what-lights__inner">
+            <div class="what-lights__img-wrap reveal">
+                <img src="images/lumi-moon-removebg-preview.png" alt="Lumi the owl with little lights" class="what-lights__img">
+            </div>
+            <div class="what-lights__right reveal d1">
+                <h2 class="what-lights__title">Truth Made <span>Simple</span> For Little Hearts</h2>
+                <p class="what-lights__text">Little Lights is LumenQuest's early childhood experience, created especially for preschoolers and early readers. We believe it's never too early to discover that God loves you, truth matters, and light always wins.</p>
+                <div class="what-lights__list">
+                    <div class="what-item">
+                        <div class="what-item__icon">&#127908;</div>
+                        <div class="what-item__text">
+                            <strong>Short Audio Stories</strong>
+                            Gentle, 5-minute adventures with Lumi and friends that teach one simple truth.
+                        </div>
+                    </div>
+                    <div class="what-item">
+                        <div class="what-item__icon">&#127912;</div>
+                        <div class="what-item__text">
+                            <strong>Simple Crafts & Coloring</strong>
+                            Easy activities with big meaning. Perfect for tiny hands and growing imaginations.
+                        </div>
+                    </div>
+                    <div class="what-item">
+                        <div class="what-item__icon">&#127925;</div>
+                        <div class="what-item__text">
+                            <strong>Songs & Lullabies</strong>
+                            Original worship songs and bedtime melodies that settle hearts and lift spirits.
+                        </div>
+                    </div>
+                    <div class="what-item">
+                        <div class="what-item__icon">&#10084;</div>
+                        <div class="what-item__text">
+                            <strong>Bedtime Prayers</strong>
+                            Short, sweet prayers to end the day with peace, gratitude, and light.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           AGE GROUPS
+        ============================================ -->
+    <section class="age-groups" aria-labelledby="age-title">
+        <div class="age-groups__head reveal">
+            <h2 id="age-title" class="age-groups__title">Made For Every Little Light</h2>
+            <p class="age-groups__sub">Content tailored to your child's stage of discovery and wonder.</p>
+        </div>
+        <div class="age-groups__grid">
+            <div class="age-card reveal d1">
+                <div class="age-card__ribbon age-card__ribbon--green"></div>
+                <div class="age-card__icon">&#127775;</div>
+                <div class="age-card__age">Ages 3 &mdash; 4</div>
+                <div class="age-card__label">Sparklers</div>
+                <div class="age-card__text">Picture books, simple songs, and sensory activities that introduce God's love through color, sound, and touch.</div>
+            </div>
+            <div class="age-card reveal d2">
+                <div class="age-card__ribbon age-card__ribbon--gold"></div>
+                <div class="age-card__icon">&#127775;&#127775;</div>
+                <div class="age-card__age">Ages 5 &mdash; 6</div>
+                <div class="age-card__label">Glow Worms</div>
+                <div class="age-card__text">Short stories with gentle conflict, memory verses, and guided crafts that build early faith vocabulary.</div>
+            </div>
+            <div class="age-card reveal d3">
+                <div class="age-card__ribbon age-card__ribbon--orange"></div>
+                <div class="age-card__icon">&#127775;&#127775;&#127775;</div>
+                <div class="age-card__age">Ages 6 &mdash; 7</div>
+                <div class="age-card__label">Bright Stars</div>
+                <div class="age-card__text">Chapter-style audio adventures, journaling prompts, and independent activities that deepen understanding.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           ACTIVITIES
+        ============================================ -->
+    <section class="activities-lights" aria-labelledby="activities-title">
+        <div class="activities-lights__head reveal">
+            <h2 id="activities-title" class="activities-lights__title">This Week's Activities</h2>
+            <p class="activities-lights__sub">New gentle adventures, crafts, and stories every week for your little one.</p>
+        </div>
+        <div class="activities-lights__grid">
+            <div class="activity-card reveal d1">
+                <div class="activity-card__img">
+                    <img src="images/disney.png" alt="Story time" loading="lazy">
+                </div>
+                <div class="activity-card__body">
+                    <h3 class="activity-card__title">Lumi's Bedtime Story</h3>
+                    <p class="activity-card__desc">A gentle tale about listening for God's voice in the quiet. 5-minute audio included.</p>
+                    <button class="activity-card__btn activity-card__btn--green" onclick="alert('Coming soon!')">Listen Now</button>
+                </div>
+            </div>
+            <div class="activity-card reveal d2">
+                <div class="activity-card__img">
+                    <img src="images/disney.png" alt="Coloring page" loading="lazy">
+                </div>
+                <div class="activity-card__body">
+                    <h3 class="activity-card__title">Light In The Dark</h3>
+                    <p class="activity-card__desc">Print and color Lumi glowing in the night sky. A simple lesson about Jesus as the light.</p>
+                    <button class="activity-card__btn activity-card__btn--gold" onclick="alert('Coming soon!')">Color Now</button>
+                </div>
+            </div>
+            <div class="activity-card reveal d3">
+                <div class="activity-card__img">
+                    <img src="images/disney.png" alt="Paper lantern craft" loading="lazy">
+                </div>
+                <div class="activity-card__body">
+                    <h3 class="activity-card__title">Paper Lantern Craft</h3>
+                    <p class="activity-card__desc">Make a lantern that shines! Supplies: paper, glue, and a battery tea light.</p>
+                    <button class="activity-card__btn activity-card__btn--pink" onclick="alert('Coming soon!')">Make It</button>
+                </div>
+            </div>
+            <div class="activity-card reveal d4">
+                <div class="activity-card__img">
+                    <img src="images/disney.png" alt="Worship song" loading="lazy">
+                </div>
+                <div class="activity-card__body">
+                    <h3 class="activity-card__title">Shine, Little Light</h3>
+                    <p class="activity-card__desc">A joyful worship song with motions. Perfect for morning routines or car rides.</p>
+                    <button class="activity-card__btn activity-card__btn--teal" onclick="alert('Coming soon!')">Sing Along</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           FOR PARENTS
+        ============================================ -->
+    <section class="parents-lights" id="for-parents" aria-label="For parents">
+        <div class="parents-lights__bg" aria-hidden="true"></div>
+        <div class="parents-lights__inner">
+            <div class="parents-lights__left reveal">
+                <h2 class="parents-lights__title">For <span>Parents</span> & Caregivers</h2>
+                <p class="parents-lights__text">You are your child's first and most important teacher. Little Lights gives you simple, meaningful tools to plant seeds of faith in everyday moments.</p>
+                <div class="parents-lights__list">
+                    <div class="parent-item">
+                        <div class="parent-item__icon">&#10004;</div>
+                        <div class="parent-item__text">Conversation guides for every story and activity</div>
+                    </div>
+                    <div class="parent-item">
+                        <div class="parent-item__icon">&#10004;</div>
+                        <div class="parent-item__text">Printable Scripture cards to display around the home</div>
+                    </div>
+                    <div class="parent-item">
+                        <div class="parent-item__icon">&#10004;</div>
+                        <div class="parent-item__text">Bedtime blessing scripts to end each day with peace</div>
+                    </div>
+                    <div class="parent-item">
+                        <div class="parent-item__icon">&#10004;</div>
+                        <div class="parent-item__text">Weekly email updates with new content and tips</div>
+                    </div>
+                </div>
+                <a href="#" class="parents-lights__btn">View Parent Resources</a>
+            </div>
+            <div class="parents-lights__img-wrap reveal d1">
+                <img src="images/team.png" alt="Parent reading with child" class="parents-lights__img">
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           TESTIMONIAL
+        ============================================ -->
+    <section class="testimonial" aria-label="Parent testimonial">
+        <div class="testimonial__inner reveal">
+            <p class="testimonial__quote">My daughter asks for Lumi's bedtime story every single night. It's become our sacred ritual &mdash; a few quiet minutes to breathe, listen, and remember that light is always near.</p>
+            <div class="testimonial__author">
+                <img src="images/char2.png" alt="Sarah M." class="testimonial__avatar">
+                <div>
+                    <div class="testimonial__name">Sarah M.</div>
+                    <div class="testimonial__role">Mom of a 4-year-old Glow Worm</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           JOIN CTA
+        ============================================ -->
+    <section class="join-lights" id="join" aria-label="Sign up">
+        <div class="join-lights__inner reveal">
+            <h2 class="join-lights__title">Light Up Your <span>Little One's</span> World</h2>
+            <p class="join-lights__text">Join Little Lights for free and receive weekly stories, crafts, songs, and parent guides delivered straight to your inbox. No spam. Just light.</p>
+            <form class="join-lights__form" onsubmit="event.preventDefault(); alert('Thank you for joining Little Lights! We\'ll be in touch soon.');">
+                <input type="text" class="join-lights__input" placeholder="Parent's First Name" aria-label="Parent's first name">
+                <input type="email" class="join-lights__input" placeholder="Email Address" aria-label="Email address">
+                <select class="join-lights__select" aria-label="Child's age">
+                    <option value="">Child's Age</option>
+                    <option value="3-4">Ages 3 &mdash; 4</option>
+                    <option value="5-6">Ages 5 &mdash; 6</option>
+                    <option value="6-7">Ages 6 &mdash; 7</option>
+                </select>
+                <button type="submit" class="join-lights__btn">
+                    Join Little Lights Free
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+            </form>
+            <p class="join-lights__note">A ministry of LightMode Ministries LLC. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+           FOOTER CTA (matches lumenquest.html)
+        ============================================ -->
+    <section class="footer-cta" aria-label="Call to action">
+        <div class="footer-cta__inner">
+            <div class="footer-cta__content">
+                <h2 class="footer-cta__title">The Next Step Is Waiting</h2>
+                <p class="footer-cta__text">Meet the team, explore the activities, and join the Adventure Club. Follow where the light leads.</p>
+            </div>
+            <div class="footer-cta__buttons">
+                <a href="meet-the-team.html" class="footer-cta__btn footer-cta__btn--outline">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Meet the Team
+                </a>
+                <a href="explore-the-realm.html" class="footer-cta__btn footer-cta__btn--teal">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    Explore the Realm
+                </a>
+                <a href="adventure-club.html" class="footer-cta__btn footer-cta__btn--orange">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Join the Adventure Club
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           FOOTER
+        ============================================ -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p class="footer__text">&copy; 2026 LumenQuest. Light Leads the Way. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+           JAVASCRIPT (matches lumenquest.html)
+        ============================================ -->
+    <script>
+    (function() {
+        'use strict';
+
+        // Mobile menu
+        const burger = document.querySelector('.nav__burger');
+        const links = document.querySelector('.nav__links');
+        if (burger && links) {
+            burger.addEventListener('click', function() {
+                const open = links.classList.toggle('open');
+                this.setAttribute('aria-expanded', open);
+                const spans = this.querySelectorAll('span');
+                if (open) {
+                    spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+            links.querySelectorAll('.nav__link, .nav__dropdown-item').forEach(function(l) {
+                l.addEventListener('click', function() {
+                    if (window.innerWidth <= 992) {
+                        links.classList.remove('open');
+                        burger.setAttribute('aria-expanded', 'false');
+                        const spans = burger.querySelectorAll('span');
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    }
+                });
+            });
+        }
+
+        // Handle dropdown on mobile
+        const dropdownToggles = document.querySelectorAll('.nav__link--dropdown > span');
+        dropdownToggles.forEach(function(toggle) {
+            toggle.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    const parent = this.closest('.nav__link--dropdown');
+                    parent.classList.toggle('active-dropdown');
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 40) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+        reveals.forEach(function(el) { obs.observe(el); });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+            a.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                const t = document.querySelector(href);
+                if (t) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: t.getBoundingClientRect().top + window.pageYOffset - 86,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    })();
+    </script>
+</body>
+</html>

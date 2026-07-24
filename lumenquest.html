@@ -3,2106 +3,1143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LumenQuest — LightMode Ministries</title>
+    <title>LumenQuest - Light Leads the Way</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'RecklessStandard';
-            src: url('./fonts/RecklessStandardM-TRIAL-Regular.otf') format('opentype');
-            font-weight: normal; font-style: normal; font-display: swap;
-        }
-        @font-face {
-            font-family: 'RecklessWide';
-            src: url('./fonts/RecklessWideXL-TRIAL-Regular.otf') format('opentype');
-            font-weight: normal; font-style: normal; font-display: swap;
-        }
-
-        /* THEME VARIABLES - NIGHT (default) */
         :root {
-            --bg-primary: #0a0a12;
-            --bg-secondary: #12121f;
-            --bg-card: rgba(26, 26, 40, 0.7);
-            --bg-card-hover: rgba(30, 30, 50, 0.9);
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0b8;
-            --text-muted: #6b6b8a;
-            --accent-violet: #a78bfa;
-            --accent-blue: #60a5fa;
-            --accent-gold: #fbbf24;
-            --accent-pink: #f472b6;
-            --accent-teal: #2dd4bf;
-            --accent-green: #4ade80;
-            --accent-red: #f87171;
-            --accent-orange: #fb923c;
-            --accent-cyan: #22d3ee;
-            --border-color: rgba(255,255,255,0.08);
-            --border-hover: rgba(167,139,250,0.3);
-            --shadow-glow: rgba(139,92,246,0.25);
-            --navbar-bg: rgba(10, 10, 18, 0.85);
-            --navbar-border: rgba(255,255,255,0.06);
-            --toggle-bg: #1a1a2e;
-            --toggle-active: #a78bfa;
-            --btn-primary-bg: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
-            --btn-primary-shadow: rgba(124,58,237,0.35);
-            --btn-secondary-bg: transparent;
-            --btn-secondary-border: rgba(255,255,255,0.15);
-            --btn-secondary-text: #e0e0f0;
-            --footer-bg: #0a0a12;
-            --footer-border: rgba(255,255,255,0.05);
-            --starfield-opacity: 1;
-            --hero-overlay: linear-gradient(90deg, #080810 0%, #080810 35%, transparent 70%);
-            --hero-bg-filter: saturate(0.3) contrast(1.2) hue-rotate(220deg);
-            --hero-bg-opacity: 0.4;
-            --hero-gradient-start: #080810;
-            --hero-gradient-mid: #12122a;
-            --hero-gradient-end: #1a1a3e;
-            --tag-bg: rgba(255,255,255,0.05);
-            --tag-border: rgba(255,255,255,0.08);
-            --tag-text: #8a8aaa;
-            --relief-arrow: #a78bfa;
-            --journey-card-bg: rgba(20, 20, 35, 0.8);
-            --checkin-ring: conic-gradient(from 0deg, #a78bfa, #60a5fa, #a78bfa);
-            --pill-bg: rgba(26, 26, 40, 0.8);
-            --pill-border: rgba(255,255,255,0.1);
-            --section-alt-bg: #0e0e18;
-            --card-glow: rgba(139,92,246,0.08);
+            --navy: #0f1a2e;
+            --navy-light: #1a2a4a;
+            --navy-mid: #2a3d5e;
+            --orange: #c87a1f;
+            --orange-hover: #b06a18;
+            --gold: #c9a84c;
+            --gold-light: #e0c97a;
+            --teal: #3a8b7d;
+            --teal-dark: #2d7a6e;
+            --purple: #7b5fa8;
+            --pink: #c75b7a;
+            --cream: #f5f0e8;
+            --cream-light: #faf7f2;
+            --white: #ffffff;
+            --text: #1a1a2e;
+            --text-gray: #5a5a6e;
+            --text-light: #8a8a9e;
+            --border: #e8e4dc;
+            --shadow: 0 4px 20px rgba(15,26,46,0.08);
+            --shadow-md: 0 8px 32px rgba(15,26,46,0.12);
+            --shadow-lg: 0 16px 48px rgba(15,26,46,0.15);
+            --r-sm: 8px;
+            --r-md: 12px;
+            --r-lg: 16px;
+            --r-xl: 20px;
+            --r-2xl: 24px;
+            --ease: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            --font-h: 'Playfair Display', Georgia, serif;
+            --font-b: 'Inter', sans-serif;
         }
 
-        /* THEME VARIABLES - DAY MODE */
-        [data-theme="day"] {
-            --bg-primary: #faf8f5;
-            --bg-secondary: #f5f0eb;
-            --bg-card: rgba(255, 255, 255, 0.85);
-            --bg-card-hover: rgba(255, 255, 255, 0.95);
-            --text-primary: #1a1a2e;
-            --text-secondary: #5a5a6e;
-            --text-muted: #8a8a9e;
-            --accent-violet: #7c3aed;
-            --accent-blue: #2563eb;
-            --accent-gold: #d97706;
-            --accent-pink: #db2777;
-            --accent-teal: #0d9488;
-            --accent-green: #16a34a;
-            --accent-red: #dc2626;
-            --accent-orange: #ea580c;
-            --accent-cyan: #0891b2;
-            --border-color: rgba(0,0,0,0.08);
-            --border-hover: rgba(124,58,237,0.3);
-            --shadow-glow: rgba(124,58,237,0.15);
-            --navbar-bg: rgba(250, 248, 245, 0.9);
-            --navbar-border: rgba(0,0,0,0.06);
-            --toggle-bg: #e5e0db;
-            --toggle-active: #7c3aed;
-            --btn-primary-bg: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
-            --btn-primary-shadow: rgba(124,58,237,0.25);
-            --btn-secondary-bg: rgba(255,255,255,0.7);
-            --btn-secondary-border: rgba(0,0,0,0.12);
-            --btn-secondary-text: #4a4a5e;
-            --footer-bg: #f5f0eb;
-            --footer-border: rgba(0,0,0,0.06);
-            --starfield-opacity: 0;
-            --hero-overlay: linear-gradient(90deg, rgba(254,243,199,0.95) 0%, rgba(254,243,199,0.8) 40%, transparent 70%);
-            --hero-bg-filter: saturate(0.8) contrast(1.1) hue-rotate(10deg);
-            --hero-bg-opacity: 0.6;
-            --hero-gradient-start: #fef3c7;
-            --hero-gradient-mid: #fde68a;
-            --hero-gradient-end: #fed7aa;
-            --tag-bg: rgba(0,0,0,0.04);
-            --tag-border: rgba(0,0,0,0.06);
-            --tag-text: #6a6a7e;
-            --relief-arrow: #7c3aed;
-            --journey-card-bg: rgba(255, 255, 255, 0.9);
-            --checkin-ring: conic-gradient(from 0deg, #7c3aed, #2563eb, #7c3aed);
-            --pill-bg: rgba(255, 255, 255, 0.9);
-            --pill-border: rgba(0,0,0,0.08);
-            --section-alt-bg: #f0ebe6;
-            --card-glow: rgba(124,58,237,0.06);
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;font-size:16px}
+        body{font-family:var(--font-b);color:var(--text);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+        img{max-width:100%;height:auto;display:block}
+        a{text-decoration:none;color:inherit;transition:var(--ease)}
+        button{border:none;background:none;cursor:pointer;font-family:var(--font-b);transition:var(--ease)}
+
+        .container{width:100%;max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,60px)}
+
+        /* ============================================
+           NAVBAR - DARK WITH DROPDOWN
+        ============================================ */
+        .nav {
+            position:fixed;top:0;left:0;right:0;z-index:1000;
+            background:var(--navy);transition:var(--ease);
+        }
+        .nav.scrolled {
+            box-shadow:0 2px 30px rgba(0,0,0,0.3);
+        }
+        .nav__inner {
+            display:flex;align-items:center;justify-content:space-between;
+            height:72px;max-width:1400px;margin:0 auto;
+            padding:0 clamp(20px,4vw,48px);
+        }
+        .nav__logo {display:flex;flex-direction:column;align-items:flex-start;gap:1px}
+        .nav__logo-text {font-family:var(--font-h);font-size:1.6rem;font-weight:800;color:var(--white);line-height:1;letter-spacing:-0.02em}
+        .nav__logo-text span {color:var(--orange)}
+        .nav__logo-tag {font-size:0.55rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light)}
+        .nav__links {display:flex;align-items:center;gap:clamp(14px,2vw,28px)}
+        .nav__link {
+            font-size:0.68rem;font-weight:600;letter-spacing:0.07em;
+            text-transform:uppercase;color:rgba(255,255,255,0.7);
+            padding:6px 0;position:relative;transition:var(--ease);
+            cursor:pointer;
+        }
+        .nav__link::after {
+            content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;
+            background:var(--orange);border-radius:2px;transition:var(--ease);
+        }
+        .nav__link:hover,.nav__link.active{color:var(--white)}
+        .nav__link:hover::after,.nav__link.active::after{width:100%}
+
+        /* ===== DROPDOWN - BEAUTIFUL DESIGN ===== */
+        .nav__link--dropdown {
+            position:relative;
+        }
+        .nav__link--dropdown .dropdown-arrow {
+            display:inline-block;
+            margin-left:4px;
+            font-size:10px;
+            transition:var(--ease);
+        }
+        .nav__link--dropdown:hover .dropdown-arrow {
+            transform:rotate(180deg);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'RecklessStandard', 'Inter', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: background-color 0.5s ease, color 0.5s ease;
+        /* Dropdown Menu */
+        .nav__dropdown {
+            position:absolute;
+            top:calc(100% + 10px);
+            left:50%;
+            transform:translateX(-50%) translateY(10px);
+            background:var(--navy);
+            min-width:220px;
+            padding:10px 0;
+            border-radius:var(--r-lg);
+            box-shadow:0 20px 60px rgba(0,0,0,0.4);
+            opacity:0;
+            visibility:hidden;
+            pointer-events:none;
+            transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
+            border:1px solid rgba(255,255,255,0.06);
+            backdrop-filter:blur(10px);
+            background:rgba(15,26,46,0.98);
+        }
+        /* Dropdown arrow */
+        .nav__dropdown::before {
+            content:'';
+            position:absolute;
+            top:-8px;
+            left:50%;
+            transform:translateX(-50%) rotate(45deg);
+            width:16px;
+            height:16px;
+            background:var(--navy);
+            border-top:1px solid rgba(255,255,255,0.06);
+            border-left:1px solid rgba(255,255,255,0.06);
+            background:rgba(15,26,46,0.98);
+        }
+        .nav__link--dropdown:hover .nav__dropdown {
+            opacity:1;
+            visibility:visible;
+            pointer-events:auto;
+            transform:translateX(-50%) translateY(0);
         }
 
-        .starfield {
-            position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none; z-index: 0;
-            opacity: var(--starfield-opacity);
-            transition: opacity 0.5s ease;
-            background:
-                radial-gradient(ellipse at 20% 30%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
-                radial-gradient(ellipse at 50% 50%, rgba(45, 43, 85, 0.15) 0%, transparent 60%);
+        /* Dropdown items */
+        .nav__dropdown-item {
+            display:flex;
+            align-items:center;
+            gap:12px;
+            padding:10px 20px;
+            font-size:0.65rem;
+            font-weight:600;
+            letter-spacing:0.06em;
+            text-transform:uppercase;
+            color:rgba(255,255,255,0.7);
+            transition:all 0.25s ease;
+            white-space:nowrap;
+            position:relative;
+            margin:0 6px;
+            border-radius:var(--r-sm);
+        }
+        .nav__dropdown-item .item-icon {
+            width:28px;
+            height:28px;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:14px;
+            flex-shrink:0;
+            transition:var(--ease);
+        }
+        .nav__dropdown-item .item-icon--teal { background:rgba(58,139,125,0.2); color:var(--teal); }
+        .nav__dropdown-item .item-icon--navy { background:rgba(26,42,74,0.2); color:var(--navy-mid); }
+        .nav__dropdown-item .item-icon--purple { background:rgba(123,95,168,0.2); color:var(--purple); }
+        .nav__dropdown-item .item-icon--pink { background:rgba(199,91,122,0.2); color:var(--pink); }
+        .nav__dropdown-item .item-icon--gold { background:rgba(201,168,76,0.2); color:var(--gold); }
+
+        .nav__dropdown-item .item-text {
+            display:flex;
+            flex-direction:column;
+            gap:1px;
+        }
+        .nav__dropdown-item .item-name {
+            font-size:0.7rem;
+            font-weight:700;
+            color:var(--white);
+            line-height:1.2;
+        }
+        .nav__dropdown-item .item-role {
+            font-size:0.55rem;
+            font-weight:400;
+            color:rgba(255,255,255,0.4);
+            letter-spacing:0.04em;
+            text-transform:none;
+        }
+        .nav__dropdown-item .item-arrow {
+            margin-left:auto;
+            color:rgba(255,255,255,0.15);
+            font-size:12px;
+            transition:var(--ease);
+        }
+        .nav__dropdown-item:hover {
+            background:rgba(255,255,255,0.05);
+            color:var(--white);
+        }
+        .nav__dropdown-item:hover .item-arrow {
+            color:var(--gold);
+            transform:translateX(4px);
+        }
+        .nav__dropdown-item:hover .item-icon {
+            transform:scale(1.1);
+        }
+        .nav__dropdown-item.active {
+            color:var(--gold);
+        }
+        .nav__dropdown-item.active .item-name {
+            color:var(--gold);
         }
 
-        /* ===== MERGED NAVBAR STYLES ===== */
-.navbar {
-    position: fixed; 
-    top: 0; 
-    left: 0;
-    width: 100%; 
-    z-index: 1000;
-    background: #0A0E1A;  /* Solid dark background with contrast */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.3s ease;
-}
-
-.navbar-container {
-    max-width: 1440px; 
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex; 
-    align-items: center;
-    justify-content: space-between;
-    height: 72px;
-}
-
-/* Brand Logo - Image Only */
-.navbar-brand {
-    display: flex; 
-    align-items: center;
-    text-decoration: none;
-    flex-shrink: 0;
-}
-
-.navbar-brand img {
-    height: 80px;
-    width: auto;
-    object-fit: contain;
-    display: block;
-}
-
-/* Menu Items */
-.navbar-menu {
-    display: flex; 
-    list-style: none;
-    gap: 20px; 
-    align-items: center;
-    
-    margin-right: 20px;
-}
-
-.navbar-link {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.8);  /* White text with slight opacity */
-    font-size: 1rem; 
-    font-weight: 500;
-    padding: 8px 12px; 
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    position: relative;
-    white-space: nowrap;
-}
-
-.navbar-link:hover {
-    color: #ffffff;  /* Pure white on hover */
-   
-}
-
-.navbar-link.active {
-    color: #ffffff;
-    font-weight: 600;
-    background: rgba(255, 255, 255, 0.05);
-}
-
-/* Active indicator */
-.navbar-link.active::after {
-    content: ''; 
-    position: absolute;
-    bottom: -2px; 
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px; 
-    height: 2px;
-    background: var(--accent-violet, #8B5CF6);
-    border-radius: 1px;
-}
-
-/* Start Here - Special Button */
-.navbar-link.start-here {
-    background: linear-gradient(135deg, #8B5CF6, #6366F1);
-    color: #ffffff;
-    font-weight: 600;
-    padding: 8px 16px;
-    box-shadow: 0 2px 12px rgba(139, 92, 246, 0.4);
-    border: none;
-}
-
-.navbar-link.start-here:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.6);
-    color: #ffffff;
-    background: linear-gradient(135deg, #9B6CF6, #7373F1);
-}
-
-.navbar-link.start-here.active::after {
-    display: none;
-}
-
-/* LumenQuest - Rainbow Gradient Text (Special) */
-.navbar-link.lumenquest {
-    background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 700;
-    font-size: 0.9rem;
-}
-
-.navbar-link.lumenquest:hover {
-    transform: scale(1.05);
-    filter: brightness(1.2);
-}
-
-.navbar-link.lumenquest.active::after {
-    background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
-}
-
-/* Actions Section */
-.navbar-actions {
-    display: flex; 
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-}
-
-/* Theme Toggle */
-.theme-toggle {
-    display: flex; 
-    align-items: center;
-    gap: 4px; 
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 50px; 
-    padding: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.theme-btn {
-    width: 32px; 
-    height: 32px;
-    border-radius: 50%; 
-    border: none;
-    background: transparent; 
-    cursor: pointer;
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    color: rgba(255, 255, 255, 0.6);
-    padding: 0;
-}
-
-.theme-btn.active {
-    background: #6366F1;
-    color: #ffffff;
-    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
-}
-
-.theme-btn:hover:not(.active) {
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.theme-btn svg { 
-    width: 16px; 
-    height: 16px; 
-}
-
-/* Navigation Icons */
-.navbar-icons {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-  .navbar-link.inspiration {
-            background: linear-gradient(90deg, #fbbf24, #f472b6, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700; font-size: 0.9rem;
+        /* Divider in dropdown */
+        .nav__dropdown-divider {
+            height:1px;
+            margin:6px 16px;
+            background:linear-gradient(to right, transparent, rgba(255,255,255,0.06), transparent);
         }
-        .navbar-link.inspiration:hover {
-            transform: scale(1.05); filter: brightness(1.2);
+
+        .nav__cta {
+            display:inline-flex;align-items:center;gap:8px;
+            background:var(--orange);color:var(--white);
+            font-size:0.65rem;font-weight:700;letter-spacing:0.06em;
+            text-transform:uppercase;padding:10px 20px;border-radius:var(--r-md);
+            border:2px solid var(--orange);transition:var(--ease);
         }
-        .navbar-link.inspiration.active::after {
-            background: linear-gradient(90deg, #fbbf24, #f472b6);
+        .nav__cta:hover {background:transparent;color:var(--orange);transform:translateY(-2px)}
+        .nav__burger {display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer;background:none}
+        .nav__burger span {display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:var(--ease)}
+
+        /* Mobile dropdown fix */
+        @media(max-width:992px){
+            .nav__link--dropdown .nav__dropdown {
+                position:static;
+                transform:none;
+                opacity:1;
+                visibility:visible;
+                pointer-events:auto;
+                display:none;
+                background:transparent;
+                box-shadow:none;
+                border:none;
+                padding:0 0 0 16px;
+                min-width:auto;
+                backdrop-filter:none;
+                background:transparent;
+                margin-top:4px;
+            }
+            .nav__dropdown::before {
+                display:none;
+            }
+            .nav__link--dropdown:hover .nav__dropdown {
+                transform:none;
+            }
+            .nav__link--dropdown.active-dropdown .nav__dropdown {
+                display:block;
+            }
+            .nav__dropdown-item {
+                padding:8px 12px;
+                font-size:0.72rem;
+                margin:0;
+                border-radius:0;
+            }
+            .nav__dropdown-item .item-icon {
+                width:24px;
+                height:24px;
+                font-size:12px;
+            }
+            .nav__dropdown-item .item-name {
+                font-size:0.65rem;
+            }
+            .nav__dropdown-item .item-role {
+                font-size:0.5rem;
+            }
+            .nav__dropdown-divider {
+                display:none;
+            }
+            .nav__links.open .nav__link--dropdown .nav__dropdown {
+                display:block;
+            }
+            .nav__link--dropdown > span {
+                display:flex;
+                align-items:center;
+                gap:4px;
+            }
         }
-.navbar-icon {
-    color: rgba(255, 255, 255, 0.7);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: none;
-    border: none;
-    padding: 6px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.navbar-icon:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-/* Prayer Button */
-.navbar-prayer {
-    background: linear-gradient(135deg, #8B5CF6, #6366F1);
-    color: #ffffff; 
-    border: none;
-    padding: 10px 20px; 
-    border-radius: 50px;
-    font-size: 0.85rem; 
-    font-weight: 600;
-    cursor: pointer;
-    display: flex; 
-    align-items: center;
-    gap: 6px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-    white-space: nowrap;
-}
-
-.navbar-prayer:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(99, 102, 241, 0.6);
-}
-
-/* Mobile Toggle */
-.navbar-toggle {
-    display: none; 
-    flex-direction: column;
-    gap: 5px; 
-    background: none;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
-    cursor: pointer;
-    padding: 8px;
-    margin-left: 8px;
-}
-
-.navbar-toggle span {
-    display: block; 
-    width: 24px; 
-    height: 2px;
-    background: #ffffff;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
-
-/* Toggle open animation */
-.navbar-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.navbar-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.navbar-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Mobile Responsive */
-@media (max-width: 1200px) {
-    .navbar-container {
-        padding: 0 20px;
-    }
-    
-    .navbar-menu {
-        gap: 2px;
-    }
-    
-    .navbar-link {
-        padding: 6px 10px;
-        font-size: 0.8rem;
-    }
-    
-    .navbar-prayer {
-        padding: 8px 14px;
-        font-size: 0.8rem;
-    }
-    
-    .navbar-brand img {
-         height: 60px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .navbar-icons {
-        gap: 4px;
-    }
-    
-    .navbar-icon {
-        padding: 4px;
-    }
-    
-    .theme-toggle {
-        gap: 2px;
-    }
-    
-    .theme-btn {
-        width: 28px;
-        height: 28px;
-    }
-}
-@media (max-width: 768px) {
-
-    .navbar-container {
-        height: 70px;
-        padding: 0 18px;
-    }
-
-    .navbar-brand img {
-        height: 55px;
-        width: auto;
-    }
-
-    .navbar-toggle {
-        display: flex;
-        z-index: 1002;
-    }
-
-    .navbar-menu {
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-
-        position: fixed;
-        top: 80px;
-        left: 15px;
-        right: 15px;
-
-        max-height: calc(100vh - 100px);
-        overflow-y: auto;
-
-        padding: 20px;
-        gap: 8px;
-
-        background: rgba(10, 14, 26, 0.96);
-        backdrop-filter: blur(20px);
-
-        border: 1px solid rgba(255,255,255,.08);
-        border-radius: 18px;
-
-        box-shadow: 0 20px 60px rgba(0,0,0,.35);
-
-        z-index: 1001;
-    }
-
-    .navbar-menu.active {
-        display: flex;
-    }
-
-    .navbar-menu li {
-        width: 100%;
-        list-style: none;
-    }
-
-    .navbar-link {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        width: 100%;
-
-        padding: 14px 16px;
-
-        font-size: 1rem;
-        font-weight: 600;
-
-        border-radius: 12px;
-    }
-
-    .navbar-link:hover {
-        background: rgba(255,255,255,.08);
-    }
-
-    .dropdown-menu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-
-        display: none;
-
-        margin-top: 8px;
-        margin-left: 12px;
-
-        background: transparent;
-        border: none;
-        box-shadow: none;
-        padding: 0;
-    }
-
-    .nav-dropdown.active .dropdown-menu {
-        display: block;
-    }
-
-    .dropdown-link {
-        display: block;
-        padding: 12px 14px;
-        border-radius: 10px;
-        font-size: .95rem;
-    }
-
-    .navbar-icons {
-        display: none;
-    }
-}
-        /* ===== HERO SECTION ===== */
+        /* ============================================
+           HERO - FULL WIDTH
+        ============================================ */
         .hero {
-            position: relative; z-index: 1;
-            min-height: 100vh;
-            display: flex; align-items: center;
-            overflow: hidden;
-            background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-mid) 50%, var(--hero-gradient-end) 100%);
-            transition: background 0.5s ease;
-        }
-        .hero-bg {
-            position: absolute; top: 0; right: 0;
-            width: 65%; height: 100%;
-            background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80') no-repeat center center;
-            background-size: cover;
-            mask-image: linear-gradient(to left, black 30%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%);
-            opacity: var(--hero-bg-opacity);
-            filter: var(--hero-bg-filter);
-            transition: opacity 0.5s ease, filter 0.5s ease;
-        }
-        .hero-overlay {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: var(--hero-overlay);
-            z-index: 1;
-            transition: background 0.5s ease;
-        }
-        .hero-content {
-            position: relative; z-index: 2;
-            max-width: 1400px; margin: 0 auto;
-            padding: 140px 60px 100px;
-            width: 100%;
-        }
-        .hero-welcome {
-            font-family: 'Caveat', cursive;
-            font-size: 1.8rem;
-            color: var(--text-primary);
-            margin-bottom: 5px;
-            display: block;
-            transition: color 0.5s ease;
-        }
-        .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 5.5rem; font-weight: 800;
-            line-height: 1.0; margin-bottom: 20px;
-            color: var(--text-primary);
-            letter-spacing: -0.03em;
-            transition: color 0.5s ease;
-        }
-        .hero h1 .lumen { color: var(--accent-blue); }
-        .hero h1 .quest {
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero-tagline {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            max-width: 500px;
-            margin-bottom: 40px;
-            font-weight: 400; line-height: 1.6;
-            transition: color 0.5s ease;
-        }
-        .hero-actions {
-            display: flex; gap: 16px;
-            flex-wrap: wrap;
-        }
-        .btn-primary {
-            background: var(--btn-primary-bg);
-            color: white;
-            padding: 18px 36px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1rem; font-weight: 600;
-            transition: all 0.4s ease;
-            border: none; cursor: pointer;
-            box-shadow: 0 8px 30px var(--btn-primary-shadow);
-            display: inline-flex;
-            align-items: center; gap: 10px;
-        }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px var(--btn-primary-shadow);
-        }
-        .btn-secondary {
-            background: var(--btn-secondary-bg);
-            border: 1px solid var(--btn-secondary-border);
-            color: var(--btn-secondary-text);
-            padding: 18px 36px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1rem; font-weight: 600;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-            display: inline-flex;
-            align-items: center; gap: 10px;
-        }
-        .btn-secondary:hover {
-            border-color: var(--accent-violet);
-            color: var(--accent-violet);
-            transform: translateY(-2px);
-        }
-        .btn-green {
-            background: linear-gradient(135deg, #16a34a 0%, #059669 100%);
-            color: white;
-            padding: 18px 36px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1rem; font-weight: 600;
-            transition: all 0.4s ease;
-            border: none; cursor: pointer;
-            box-shadow: 0 8px 30px rgba(22,163,74,0.35);
-            display: inline-flex;
-            align-items: center; gap: 10px;
-        }
-        .btn-green:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(22,163,74,0.4);
-        }
-
-        /* ===== QUEST BEGINS SECTION ===== */
-        .quest-section {
-            position: relative; z-index: 1;
-            padding: 80px 40px;
-            max-width: 1200px; margin: 0 auto;
-        }
-        .quest-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.3fr;
-            gap: 50px;
-            align-items: center;
-        }
-        .quest-left h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 16px; line-height: 1.2;
-            transition: color 0.5s ease;
-        }
-        .quest-left h2 .highlight {
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .quest-left p {
-            color: var(--text-secondary);
-            font-size: 1rem; line-height: 1.7;
-            margin-bottom: 30px;
-            transition: color 0.5s ease;
-        }
-        .quest-icons {
-            display: flex; gap: 30px;
-            margin-bottom: 30px;
-        }
-        .quest-icon-item {
-            text-align: center;
-        }
-        .quest-icon-item .icon-circle {
-            width: 56px; height: 56px;
-            border-radius: 50%;
-            display: flex; align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin: 0 auto 8px;
-            border: 2px solid var(--border-color);
-            background: var(--bg-card);
-            transition: all 0.5s ease;
-        }
-        .quest-icon-item:nth-child(1) .icon-circle { border-color: var(--accent-blue); }
-        .quest-icon-item:nth-child(2) .icon-circle { border-color: var(--accent-pink); }
-        .quest-icon-item:nth-child(3) .icon-circle { border-color: var(--accent-green); }
-        .quest-icon-item span {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            transition: color 0.5s ease;
-        }
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            padding: 14px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.9rem; font-weight: 500;
-            transition: all 0.4s ease;
-            display: inline-flex;
-            align-items: center; gap: 8px;
-        }
-        .btn-outline:hover {
-            border-color: var(--accent-violet);
-            color: var(--accent-violet);
-        }
-
-        .featured-episode {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            position: relative;
-        }
-        .featured-episode:hover {
-            border-color: var(--border-hover);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-        .episode-visual {
-            position: relative; height: 280px;
-            background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80') no-repeat center center;
-            background-size: cover;
-        }
-        .episode-visual::after {
-            content: '';
-            position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
-        }
-        .episode-badge {
-            position: absolute; top: 20px; left: 20px;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(10px);
-            padding: 6px 14px;
-            border-radius: 50px;
-            font-size: 0.75rem; font-weight: 600;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            z-index: 2;
-        }
-        .episode-play {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px; height: 70px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.9);
-            display: flex; align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 2;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-        }
-        .episode-play:hover {
-            transform: translate(-50%, -50%) scale(1.1);
-            background: white;
-        }
-        .episode-play svg {
-            width: 24px; height: 24px;
-            fill: var(--accent-violet);
-            margin-left: 4px;
-        }
-        .episode-content {
-            padding: 24px;
-            position: relative; z-index: 2;
-        }
-        .episode-content h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            transition: color 0.5s ease;
-        }
-        .episode-content p {
-            color: var(--text-secondary);
-            font-size: 0.9rem; line-height: 1.5;
-            margin-bottom: 16px;
-            transition: color 0.5s ease;
-        }
-        .btn-watch {
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
-            color: white;
-            padding: 12px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.9rem; font-weight: 600;
-            transition: all 0.4s ease;
-            border: none; cursor: pointer;
-            box-shadow: 0 4px 20px rgba(251,191,36,0.3);
-            display: inline-flex;
-            align-items: center; gap: 8px;
-        }
-        .btn-watch:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(251,191,36,0.4);
-        }
-
-        /* ===== CONTINUE JOURNEY SECTION ===== */
-        .journey-section {
-            position: relative; z-index: 1;
-            padding: 60px 40px 80px;
-            max-width: 1200px; margin: 0 auto;
-        }
-        .section-header {
-            margin-bottom: 40px;
-            display: flex; align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap; gap: 20px;
-        }
-        .section-header h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem; font-weight: 700;
-            color: var(--text-primary);
-            transition: color 0.5s ease;
-        }
-        .section-header h2 .sparkle {
-            color: var(--accent-gold);
-        }
-        .section-nav {
-            display: flex; gap: 8px;
-        }
-        .nav-arrow {
-            width: 40px; height: 40px;
-            border-radius: 50%;
-            border: 1px solid var(--border-color);
-            background: var(--bg-card);
-            color: var(--text-secondary);
-            display: flex; align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .nav-arrow:hover {
-            border-color: var(--accent-violet);
-            color: var(--accent-violet);
-        }
-        .nav-arrow svg { width: 18px; height: 18px; }
-
-        .journey-carousel {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-        }
-        .journey-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            position: relative;
-        }
-        .journey-item:hover {
-            transform: translateY(-8px);
-            border-color: var(--border-hover);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-        }
-        .journey-item-img {
-            height: 160px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-        .journey-item-img::after {
-            content: '';
-            position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
-        }
-        .journey-item-number {
-            position: absolute; top: 12px; left: 12px;
-            width: 32px; height: 32px;
-            border-radius: 50%;
-            background: var(--accent-orange);
-            color: white;
-            display: flex; align-items: center;
-            justify-content: center;
-            font-size: 0.8rem; font-weight: 700;
-            z-index: 2;
-        }
-        .journey-item:nth-child(2) .journey-item-number { background: var(--accent-pink); }
-        .journey-item:nth-child(3) .journey-item-number { background: var(--accent-teal); }
-        .journey-item:nth-child(4) .journey-item-number { background: var(--accent-green); }
-        .journey-item:nth-child(5) .journey-item-number { background: var(--accent-violet); }
-        .journey-item-title {
-            padding: 16px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem; font-weight: 600;
-            color: var(--text-primary);
-            transition: color 0.5s ease;
-        }
-
-        /* ===== RESOURCES GRID SECTION ===== */
-        .resources-section {
-            position: relative; z-index: 1;
-            padding: 60px 40px 80px;
-            background: var(--section-alt-bg);
-            transition: background 0.5s ease;
-        }
-        .resources-container {
-            max-width: 1200px; margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: 24px;
-        }
-        .resource-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 32px 24px;
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .resource-card:hover {
-            border-color: var(--border-hover);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            transform: translateY(-4px);
-        }
-        .resource-card::before {
-            content: '';
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 3px;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        .resource-card:hover::before { opacity: 1; }
-        .resource-card:nth-child(1)::before { background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan)); }
-        .resource-card:nth-child(2)::before { background: linear-gradient(90deg, var(--accent-green), var(--accent-teal)); }
-        .resource-card:nth-child(3)::before { background: linear-gradient(90deg, var(--accent-pink), var(--accent-violet)); }
-        .resource-card:nth-child(4)::before { background: linear-gradient(90deg, var(--accent-gold), var(--accent-orange)); }
-
-        .resource-header {
-            display: flex; align-items: center;
-            gap: 12px; margin-bottom: 16px;
-        }
-        .resource-icon {
-            width: 44px; height: 44px;
-            border-radius: 12px;
-            display: flex; align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            border: 1px solid var(--border-color);
-        }
-        .resource-card:nth-child(1) .resource-icon { background: rgba(96, 165, 250, 0.1); }
-        .resource-card:nth-child(2) .resource-icon { background: rgba(74, 222, 128, 0.1); }
-        .resource-card:nth-child(3) .resource-icon { background: rgba(244, 114, 182, 0.1); }
-        .resource-card:nth-child(4) .resource-icon { background: rgba(251, 191, 36, 0.1); }
-        .resource-header h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem; font-weight: 700;
-            color: var(--text-primary);
-            transition: color 0.5s ease;
-        }
-        .resource-header .tag {
-            font-size: 0.7rem; font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 4px 10px;
-            border-radius: 50px;
-            background: var(--tag-bg);
-            border: 1px solid var(--tag-border);
-            color: var(--tag-text);
-            transition: all 0.5s ease;
-        }
-        .resource-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem; line-height: 1.6;
-            margin-bottom: 20px;
-            transition: color 0.5s ease;
-        }
-        .resource-list {
-            list-style: none;
-        }
-        .resource-list li {
-            padding: 8px 0;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            display: flex; align-items: center;
-            gap: 10px;
-            border-bottom: 1px solid var(--border-color);
-            transition: all 0.5s ease;
-            cursor: pointer;
-        }
-        .resource-list li:last-child { border-bottom: none; }
-        .resource-list li:hover { color: var(--accent-violet); }
-        .resource-list li .bullet {
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: var(--accent-violet);
-            flex-shrink: 0;
-        }
-        .resource-cta {
-            margin-top: 20px;
-            display: flex; align-items: center;
-            gap: 8px;
-            color: var(--accent-violet);
-            font-size: 0.85rem; font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .resource-cta:hover { gap: 12px; }
-        .resource-cta svg { width: 16px; height: 16px; }
-
-        /* ===== ENCOURAGEMENT CARD ===== */
-        .encourage-card {
-            background: linear-gradient(135deg, rgba(30,30,60,0.9) 0%, rgba(20,20,40,0.9) 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s ease;
-        }
-        [data-theme="day"] .encourage-card {
-            background: linear-gradient(135deg, rgba(124,58,237,0.08) 0%, rgba(79,70,229,0.06) 100%);
-        }
-        .encourage-card::before {
-            content: '';
-            position: absolute;
-            top: -50%; right: -30%;
-            width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .encourage-card img {
-            width: 80px; height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 3px solid var(--accent-violet);
-        }
-        .encourage-card h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 12px;
-            transition: color 0.5s ease;
-        }
-        .encourage-card p {
-            color: var(--text-secondary);
-            font-size: 1rem; line-height: 1.7;
-            transition: color 0.5s ease;
-        }
-
-        /* ===== JOURNEY DOESN'T STOP ===== */
-        .continue-section {
-            position: relative; z-index: 1;
-            padding: 60px 40px;
-            max-width: 1200px; margin: 0 auto;
-        }
-        .continue-bar {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 30px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-            flex-wrap: wrap;
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .continue-bar::before {
-            content: '';
-            position: absolute; bottom: 0; left: 0;
-            width: 100%; height: 3px;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-teal), var(--accent-green), var(--accent-gold));
-            opacity: 0.5;
-        }
-        .continue-item {
-            display: flex; align-items: center;
-            gap: 16px; flex: 1; min-width: 200px;
-        }
-        .continue-item .icon-wrap {
-            width: 48px; height: 48px;
-            border-radius: 14px;
-            display: flex; align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            flex-shrink: 0;
-        }
-        .continue-item:nth-child(1) .icon-wrap { background: rgba(96, 165, 250, 0.1); }
-        .continue-item:nth-child(2) .icon-wrap { background: rgba(45, 212, 191, 0.1); }
-        .continue-item:nth-child(3) .icon-wrap { background: rgba(251, 191, 36, 0.1); }
-        .continue-item h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 2px;
-            transition: color 0.5s ease;
-        }
-        .continue-item p {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            transition: color 0.5s ease;
-        }
-        .continue-visual {
-            width: 200px; height: 100px;
-            border-radius: 16px;
-            background: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&q=80') no-repeat center center;
-            background-size: cover;
-            flex-shrink: 0;
-            mask-image: linear-gradient(to left, black 60%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
-        }
-
-        /* ===== FOOTER (from reference) ===== */
-        .footer {
-            position: relative; z-index: 1;
-            background: var(--footer-bg);
-            border-top: 1px solid var(--footer-border);
-            padding: 60px 40px 30px;
-            transition: all 0.5s ease;
-        }
-        .footer-content {
-            max-width: 1200px; margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 60px;
-            margin-bottom: 40px;
-        }
-        .footer-brand p {
-            color: var(--text-muted);
-            font-size: 0.9rem; line-height: 1.6;
-            margin-bottom: 20px;
-            transition: color 0.5s ease;
-        }
-        .footer-social {
-            display: flex; gap: 12px;
-        }
-        .footer-social a {
-            width: 36px; height: 36px;
-            border-radius: 10px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            display: flex; align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .footer-social a:hover {
-            background: var(--accent-violet);
-            color: white;
-            border-color: var(--accent-violet);
-        }
-        .footer-social svg { width: 18px; height: 18px; fill: currentColor; }
-        .footer-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.5s ease;
-        }
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-        .footer-links a:hover { color: var(--accent-violet); }
-        .footer-form { margin-top: 20px; }
-        .footer-form-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 12px;
-            transition: color 0.5s ease;
-        }
-        .footer-form-body {
-            display: flex; gap: 8px;
-        }
-        .footer-input {
-            flex: 1;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 10px 14px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        .footer-input::placeholder { color: var(--text-muted); }
-        .footer-input:focus { border-color: var(--accent-violet); }
-        .footer-submit {
-            background: var(--btn-primary-bg);
-            color: white; border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 0.85rem; font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .footer-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px var(--btn-primary-shadow);
-        }
-        .footer-bottom {
-            max-width: 1200px; margin: 0 auto;
-            padding-top: 30px;
-            border-top: 1px solid var(--footer-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap; gap: 20px;
-            transition: border-color 0.5s ease;
-        }
-        .footer-credit {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            transition: color 0.5s ease;
-        }
-        .footer-legal {
-            display: flex; gap: 16px;
-            align-items: center;
-        }
-        .footer-legal a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.3s ease;
-        }
-        .footer-legal a:hover { color: var(--accent-violet); }
-        .footer-legal span { color: var(--border-color); transition: color 0.5s ease; }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .navbar-menu { display: none; }
-            .navbar-toggle { display: flex; }
-            .hero-bg {
-                width: 100%;
-                opacity: 0.2;
-                mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
-            }
-            .hero-overlay {
-                background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-start) 50%, transparent 100%);
-            }
-            .hero-content {
-                text-align: center;
-                padding: 120px 40px 80px;
-            }
-            .hero h1 { font-size: 4rem; }
-            .hero-tagline { margin: 0 auto 40px; }
-            .hero-actions { justify-content: center; }
-            .quest-grid { grid-template-columns: 1fr; }
-            .journey-carousel { grid-template-columns: repeat(3, 1fr); }
-            .resources-container { grid-template-columns: repeat(2, 1fr); }
-            .continue-bar { flex-direction: column; align-items: flex-start; }
-            .continue-visual { width: 100%; height: 150px; mask-image: none; -webkit-mask-image: none; border-radius: 16px; }
-            .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
-        }
-        @media (max-width: 768px) {
-            .navbar-container { padding: 0 20px; }
-            .hero h1 { font-size: 3rem; }
-            .journey-carousel { grid-template-columns: repeat(2, 1fr); }
-            .resources-container { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; text-align: center; }
-            .quest-icons { gap: 16px; }
-            .section-header { flex-direction: column; align-items: flex-start; }
-            .navbar-prayer { display: none;}
-        }
-
-      .nav-dropdown {
-    position: relative;
-}
-
-.dropdown-toggle {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.dropdown-arrow {
-    font-size: 10px;
-    transition: transform 0.3s ease;
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 180px;
-    background: #fff;
-    border-radius: 10px;
-    padding: 8px 0;
-    margin-top: 10px;
-    list-style: none;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
-
-.nav-dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.nav-dropdown:hover .dropdown-arrow {
-    transform: rotate(180deg);
-}
-
-.dropdown-link {
-    display: block;
-    padding: 10px 16px;
-    text-decoration: none;
-    color: inherit;
-    transition: background 0.2s ease;
-}
-
-.dropdown-link:hover {
-    background: rgba(0,0,0,0.05);
-}/* Light Theme */
-.dropdown-menu {
-
-    position: absolute;
-
-    top: 100%;
-
-    left: 0;
-
-    min-width: 220px;
-
-
-
-    background: linear-gradient(
-
-        135deg,
-
-        #0A1A2F 0%,
-
-        #102A4A 35%,
-
-        #173E6B 70%,
-
-        #1E4F87 100%
-
-    );
-
-
-
-    border: 1px solid rgba(255,255,255,0.08);
-
-    border-radius: 16px;
-
-    padding: 10px 0;
-
-    margin-top: 12px;
-
-    list-style: none;
-
-
-
-    backdrop-filter: blur(20px);
-
-    -webkit-backdrop-filter: blur(20px);
-
-
-
-    box-shadow:
-
-        0 20px 50px rgba(0,0,0,.45),
-
-        0 0 25px rgba(37,99,235,.15);
-
-
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transform: translateY(10px);
-
-    transition: all .35s ease;
-
-    z-index: 1000;
-
-}.dropdown-link {
-
-    display: block;
-
-    padding: 12px 18px;
-
-    color: #F8FAFC;
-
-    text-decoration: none;
-
-    border-radius: 10px;
-
-    transition: all .3s ease;
-
-}
-
-
-
-.dropdown-link:hover {
-
-    background: rgba(255,255,255,.08);
-
-    color: #F5C542;
-
-    padding-left: 24px;
-
-}
-
-/* Dark Theme */
-[data-theme="night"] .dropdown-menu,
-body.night-theme .dropdown-menu {
-    background: #1e293b;
-    border: 1px solid #334155;
-}
-
-[data-theme="night"] .dropdown-link,
-body.night-theme .dropdown-link {
-    color: #f8fafc;
-}
-
-[data-theme="night"] .dropdown-link:hover,
-body.night-theme .dropdown-link:hover {
-    background: #334155;
-}    @media (max-width: 768px) {
-    .dropdown-menu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        max-height: 0;
-        overflow-y: auto;
-        padding: 0;
-        margin: 0;
-        transition: max-height 0.3s ease;
-    }
-
-    .nav-dropdown.active .dropdown-menu {
-        max-height: 200px;
-    }
-
-    .nav-dropdown:hover .dropdown-menu {
-        transform: none;
-    }
-}    
+            width:100%;min-height:100vh;position:relative;
+            display:flex;align-items:center;overflow:hidden;
+            background:linear-gradient(135deg,#1a2a4a 0%,#0f1a2e 50%,#1a1a2e 100%);
+        }
+        .hero__bg {
+            position:absolute;inset:0;z-index:0;
+            background: url('images/team.png');
+            background-repeat: no-repeat;
+            background-position: 36% 20%;
+            background-size: 100%;
+        }
+        .hero__bg::after {
+            content:'';position:absolute;inset:0;
+            background:linear-gradient(90deg,rgba(15,26,46,0.92) 0%,rgba(15,26,46,0.7) 45%,rgba(15,26,46,0.2) 70%,transparent 100%);
+        }
+        .hero__bg::before {
+            content:'';position:absolute;inset:0;
+            background:linear-gradient(to top,rgba(15,26,46,0.6) 0%,transparent 40%);
+        }
+        .hero__content {
+            position:relative;z-index:2;max-width:1400px;margin:0 auto;
+            padding:100px clamp(24px,5vw,60px) 60px;width:100%;
+            display:flex;flex-direction:column;justify-content:center;
+            min-height:100vh;
+        }
+        .hero__title {
+            font-family:var(--font-h);font-size:clamp(2.2rem,5vw,4rem);
+            font-weight:800;color:var(--white);line-height:1.08;
+            letter-spacing:-0.02em;text-transform:uppercase;max-width:520px;
+        }
+        .hero__title span {display:block}
+        .hero__subtitle {
+            font-size:clamp(0.8rem,1.2vw,0.95rem);font-weight:700;
+            letter-spacing:0.12em;text-transform:uppercase;
+            color:var(--gold);margin-top:16px;
+        }
+        .hero__text {
+            font-size:clamp(0.9rem,1.1vw,1.05rem);color:rgba(255,255,255,0.75);
+            line-height:1.75;max-width:420px;margin-top:20px;
+        }
+        .hero__feature {
+            display:flex;align-items:center;gap:10px;margin-top:24px;
+            font-size:0.78rem;font-weight:700;letter-spacing:0.06em;
+            text-transform:uppercase;color:var(--white);
+        }
+        .hero__feature svg {width:20px;height:20px;color:var(--gold);flex-shrink:0}
+        .hero__buttons {
+            display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;
+        }
+        .hero__btn {
+            display:inline-flex;align-items:center;gap:10px;
+            padding:14px 28px;border-radius:var(--r-md);
+            font-size:0.72rem;font-weight:700;letter-spacing:0.06em;
+            text-transform:uppercase;transition:var(--ease);
+        }
+        .hero__btn--dark {
+            background:var(--white);color:var(--navy);border:2px solid var(--white);
+        }
+        .hero__btn--dark:hover {background:transparent;color:var(--white);transform:translateY(-3px);}
+        .hero__btn--orange {
+            background:var(--orange);color:var(--white);border:2px solid var(--orange);
+        }
+        .hero__btn--orange:hover {background:transparent;color:var(--orange);transform:translateY(-3px);}
+        .hero__link {
+            display:inline-flex;align-items:center;gap:8px;
+            font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.8);
+            margin-top:12px;
+        }
+        .hero__link:hover {color:var(--gold);gap:12px;}
+
+        /* ============================================
+           QUICK REST OF SECTIONS (minimal)
+        ============================================ */
+        .adventure {padding:60px 0;background:var(--cream-light);}
+        .adventure__card {
+            background:var(--white);border-radius:var(--r-2xl);
+            box-shadow:var(--shadow);overflow:hidden;
+            display:grid;grid-template-columns:1fr 1fr;min-height:360px;
+            border:1px solid var(--border);
+        }
+        .adventure__content {
+            padding:clamp(36px,4.5vw,56px);
+            display:flex;flex-direction:column;justify-content:center;gap:18px;
+        }
+        .adventure__title {
+            font-family:var(--font-h);font-size:clamp(1.3rem,2.2vw,1.8rem);
+            font-weight:700;color:var(--navy-light);line-height:1.25;
+            text-transform:uppercase;letter-spacing:0.03em;
+        }
+        .adventure__line {width:48px;height:3px;background:var(--gold);border-radius:2px;}
+        .adventure__text {
+            font-size:clamp(0.88rem,1vw,0.98rem);color:var(--text-gray);line-height:1.75;
+        }
+        .adventure__img-wrap {position:relative;overflow:hidden;}
+        .adventure__img {width:100%;height:100%;object-fit:cover;}
+
+        .team {padding:56px 0;background:var(--cream-light);}
+        .team__head {text-align:center;margin-bottom:44px;}
+        .team__title {
+            font-family:var(--font-h);font-size:clamp(1.2rem,2.2vw,1.6rem);
+            font-weight:700;color:var(--navy-light);text-transform:uppercase;
+            letter-spacing:0.06em;position:relative;display:inline-block;
+        }
+        .team__title::before,.team__title::after {
+            content:'';position:absolute;top:50%;width:40px;height:1px;background:var(--gold);
+        }
+        .team__title::before {right:calc(100% + 12px);}
+        .team__title::after {left:calc(100% + 12px);}
+        .team__sub {
+            font-size:0.82rem;font-weight:600;color:var(--orange);
+            text-transform:uppercase;letter-spacing:0.08em;margin-top:10px;
+        }
+        .team__grid {
+            display:grid;grid-template-columns:repeat(5,1fr);gap:18px;
+            max-width:1400px;margin:0 auto;padding:0 clamp(20px,4vw,48px);
+        }
+        .team__card {
+            background:var(--white);border-radius:var(--r-xl);
+            padding:28px 18px;text-align:center;
+            box-shadow:0 2px 12px rgba(26,42,74,0.05);
+            border:1px solid var(--border);transition:var(--ease);
+        }
+        .team__card:hover {transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:transparent;}
+        .team__avatar {
+            width:84px;height:84px;border-radius:50%;margin:0 auto 14px;
+            object-fit:cover;border:3px solid var(--cream);
+            box-shadow:0 4px 12px rgba(0,0,0,0.08);
+        }
+        .team__name {
+            font-size:0.78rem;font-weight:700;color:var(--teal);
+            text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;
+        }
+        .team__role {
+            font-family:var(--font-h);font-size:0.76rem;font-weight:600;
+            color:var(--navy-light);margin-bottom:10px;
+        }
+        .team__desc {font-size:0.72rem;color:var(--text-gray);line-height:1.55;}
+        .team__cta {text-align:center;margin-top:20px;}
+        .team__btn {
+            display:inline-flex;align-items:center;gap:10px;
+            background:var(--navy-light);color:var(--white);
+            font-size:0.72rem;font-weight:700;letter-spacing:0.06em;
+            text-transform:uppercase;padding:14px 32px;border-radius:var(--r-md);
+            transition:var(--ease);border:2px solid var(--navy-light);
+        }
+        .team__btn:hover {background:transparent;color:var(--navy-light);transform:translateY(-2px);}
+
+        .little-lights {
+            padding:64px 0;
+            background:linear-gradient(145deg,#e8dff5 0%,#ddd0ee 50%,#d4c4e8 100%);
+            position:relative;overflow:hidden;
+        }
+        .little-lights__inner {
+            display:grid;grid-template-columns:1fr 1fr;align-items:center;
+            gap:48px;position:relative;z-index:1;
+            max-width:1400px;margin:0 auto;padding:0 clamp(20px,4vw,48px);
+        }
+        .little-lights__content {display:flex;flex-direction:column;gap:18px;}
+        .little-lights__title {
+            font-family:var(--font-h);font-size:clamp(1.15rem,2vw,1.5rem);
+            font-weight:700;color:var(--navy);text-transform:uppercase;
+            letter-spacing:0.04em;line-height:1.35;
+        }
+        .little-lights__text {
+            font-size:clamp(0.88rem,1vw,0.98rem);color:var(--text-gray);
+            line-height:1.75;max-width:440px;
+        }
+        .little-lights__buttons {display:flex;gap:14px;flex-wrap:wrap;margin-top:6px;}
+        .little-lights__btn {
+            display:inline-flex;align-items:center;gap:10px;
+            padding:14px 28px;border-radius:var(--r-md);
+            font-size:0.7rem;font-weight:700;letter-spacing:0.06em;
+            text-transform:uppercase;transition:var(--ease);
+        }
+        .little-lights__btn--fill {
+            background:var(--navy-light);color:var(--white);border:2px solid var(--navy-light);
+        }
+        .little-lights__btn--fill:hover {background:transparent;color:var(--navy-light);transform:translateY(-2px);}
+        .little-lights__btn--outline {
+            background:transparent;color:var(--navy-light);border:2px solid var(--navy-light);
+        }
+        .little-lights__btn--outline:hover {background:var(--navy-light);color:var(--white);}
+        .little-lights__img-wrap {display:flex;justify-content:center;align-items:center;}
+        .little-lights__img {
+            height:300px;width:600px;animation:float 5s ease-in-out infinite;
+            filter:drop-shadow(0 20px 40px rgba(26,42,74,0.15));
+        }
+        @keyframes float {0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+        .activities {padding:64px 0;background:var(--white);}
+        .activities__head {text-align:center;margin-bottom:44px;}
+        .activities__title {
+            font-family:var(--font-h);font-size:clamp(1.15rem,2vw,1.5rem);
+            font-weight:700;color:var(--navy-light);text-transform:uppercase;
+            letter-spacing:0.06em;position:relative;display:inline-block;
+        }
+        .activities__title::before,.activities__title::after {
+            content:'';position:absolute;top:50%;width:40px;height:1px;background:var(--gold);
+        }
+        .activities__title::before {right:calc(100% + 12px);}
+        .activities__title::after {left:calc(100% + 12px);}
+        .activities__grid {
+            display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+            max-width:1400px;margin:0 auto;padding:0 clamp(20px,4vw,48px);
+        }
+        .activity__card {
+            display:flex;gap:16px;padding:28px 22px;
+            background:var(--white);border-radius:var(--r-xl);
+            border:1px solid var(--border);
+            box-shadow:0 2px 8px rgba(26,42,74,0.03);transition:var(--ease);
+        }
+        .activity__card:hover {box-shadow:var(--shadow);transform:translateY(-4px);border-color:transparent;}
+        .activity__icon {
+            flex-shrink:0;width:52px;height:52px;
+            display:flex;align-items:center;justify-content:center;
+            border-radius:var(--r-md);
+        }
+        .activity__icon--green {background:rgba(58,139,125,0.1);color:var(--teal);}
+        .activity__icon--blue {background:rgba(26,42,74,0.06);color:var(--navy-light);}
+        .activity__icon--navy {background:rgba(26,42,74,0.06);color:var(--navy-light);}
+        .activity__icon--gold {background:rgba(201,168,76,0.12);color:var(--gold);}
+        .activity__icon svg {width:26px;height:26px;}
+        .activity__content {display:flex;flex-direction:column;gap:8px;}
+        .activity__name {
+            font-size:0.74rem;font-weight:700;color:var(--teal);
+            text-transform:uppercase;letter-spacing:0.06em;
+        }
+        .activity__name--orange {color:var(--orange);}
+        .activity__desc {font-size:0.76rem;color:var(--text-gray);line-height:1.55;}
+        .activities__cta {text-align:center;margin-top:20px;}
+        .activities__btn {
+            display:inline-flex;align-items:center;gap:10px;
+            background:transparent;color:var(--navy-light);border:2px solid var(--navy-light);
+            font-size:0.72rem;font-weight:700;letter-spacing:0.06em;
+            text-transform:uppercase;padding:14px 32px;border-radius:var(--r-md);
+            transition:var(--ease);
+        }
+        .activities__btn:hover {background:var(--navy-light);color:var(--white);transform:translateY(-2px);}
+
+        .club {padding:60px 0;background:var(--cream-light);}
+        .club__card {
+            background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%);
+            border-radius:var(--r-2xl);padding:clamp(40px,5vw,60px);
+            display:grid;grid-template-columns:auto 1fr auto;
+            align-items:center;gap:clamp(24px,3vw,40px);
+            color:var(--white);position:relative;overflow:hidden;
+            box-shadow:0 8px 32px rgba(58,139,125,0.25);
+            max-width:1400px;margin:0 auto;padding:0 clamp(20px,4vw,48px);
+            min-height:200px;
+        }
+        .club__card::before {
+            content:'';position:absolute;top:-60%;right:-15%;width:65%;height:220%;
+            background:radial-gradient(ellipse at center,rgba(255,255,255,0.1) 0%,transparent 55%);
+            pointer-events:none;
+        }
+        .club__icon-wrap {
+            width:76px;height:76px;background:rgba(255,255,255,0.12);
+            border-radius:50%;display:flex;align-items:center;justify-content:center;
+            flex-shrink:0;border:2px solid rgba(255,255,255,0.15);
+            position:relative;z-index:1;
+        }
+        .club__icon-wrap svg {width:38px;height:38px;color:var(--gold);}
+        .club__content {display:flex;flex-direction:column;gap:8px;position:relative;z-index:1;padding:clamp(12px,2vw,20px) 0;}
+        .club__label {font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-light);}
+        .club__title {font-family:var(--font-h);font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;line-height:1.2;}
+        .club__text {font-size:0.88rem;opacity:0.92;line-height:1.65;max-width:500px;}
+        .club__buttons {display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:1;flex-shrink:0;}
+        .club__btn {
+            display:inline-flex;align-items:center;gap:10px;
+            padding:14px 24px;border-radius:var(--r-md);
+            font-size:0.68rem;font-weight:700;letter-spacing:0.06em;
+            text-transform:uppercase;transition:var(--ease);
+            white-space:nowrap;border:2px solid transparent;
+        }
+        .club__btn--light {background:var(--white);color:var(--teal-dark);border-color:var(--white);}
+        .club__btn--light:hover {background:transparent;color:var(--white);border-color:var(--white);transform:translateY(-2px);}
+        .club__btn--ghost {background:transparent;color:var(--white);border-color:rgba(255,255,255,0.35);}
+        .club__btn--ghost:hover {background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.55);transform:translateY(-2px);}
+
+        .parents {padding:60px 0;background:var(--cream);}
+        .parents__card {
+            background:var(--white);border-radius:var(--r-2xl);
+            padding:clamp(36px,4.5vw,56px);
+            display:grid;grid-template-columns:auto 1fr auto;
+            align-items:center;gap:clamp(24px,3vw,40px);
+            box-shadow:var(--shadow);border:1px solid var(--border);
+            max-width:1400px;margin:0 auto;padding:0 clamp(20px,4vw,48px);
+            min-height:180px;
+        }
+        .parents__icon-wrap {
+            width:76px;height:76px;background:var(--cream);
+            border-radius:50%;display:flex;align-items:center;justify-content:center;
+            flex-shrink:0;border:2px solid var(--border);
+        }
+        .parents__icon-wrap svg {width:38px;height:38px;color:var(--orange);}
+        .parents__content {display:flex;flex-direction:column;gap:6px;padding:clamp(8px,1.5vw,16px) 0;}
+        .parents__title {font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);}
+        .parents__text {font-size:clamp(0.88rem,1vw,0.98rem);color:var(--text-gray);line-height:1.75;max-width:580px;}
+        .parents__btn {
+            display:inline-flex;align-items:center;gap:10px;
+            background:var(--orange);color:var(--white);
+            font-size:0.68rem;font-weight:700;letter-spacing:0.06em;
+            text-transform:uppercase;padding:14px 28px;border-radius:var(--r-md);
+            transition:var(--ease);white-space:nowrap;flex-shrink:0;
+            border:2px solid var(--orange);
+        }
+        .parents__btn:hover {background:transparent;color:var(--orange);border-color:var(--orange);transform:translateY(-2px);}
+
+        .footer-cta {
+            background:var(--navy);padding:20px 0;position:relative;
+        }
+        .footer-cta__inner {
+            display:flex;align-items:center;justify-content:space-between;
+            gap:24px;flex-wrap:wrap;max-width:1400px;margin:0 auto;
+            padding:0 clamp(20px,4vw,48px);
+        }
+        .footer-cta__text {
+            font-size:clamp(0.8rem,1vw,0.92rem);color:rgba(255,255,255,0.8);
+            line-height:1.5;
+        }
+        .footer-cta__text strong {color:var(--gold);font-weight:700}
+        .footer-cta__btn {
+            display:inline-flex;align-items:center;gap:8px;
+            background:var(--orange);color:var(--white);
+            font-size:0.7rem;font-weight:700;letter-spacing:0.06em;
+            text-transform:uppercase;padding:12px 28px;border-radius:var(--r-md);
+            border:2px solid var(--orange);white-space:nowrap;transition:var(--ease);
+        }
+        .footer-cta__btn:hover {background:transparent;color:var(--orange);transform:translateY(-2px)}
+        .footer-cta__btn svg {width:14px;height:14px}
+
+        .footer {background:var(--navy);padding:20px 0;text-align:center;border-top:1px solid rgba(255,255,255,0.08)}
+        .footer__text {font-size:0.7rem;color:rgba(255,255,255,0.4)}
+
+        /* ============================================
+           RESPONSIVE
+        ============================================ */
+        @media(max-width:1200px){
+            .team__grid,.activities__grid{grid-template-columns:repeat(3,1fr)}
+        }
+        @media(max-width:1024px){
+            .hero__content{padding-top:90px}
+            .team__grid{grid-template-columns:repeat(3,1fr)}
+            .activities__grid{grid-template-columns:repeat(2,1fr)}
+            .adventure__card{grid-template-columns:1fr}
+            .adventure__img-wrap{min-height:260px}
+            .little-lights__inner{grid-template-columns:1fr;text-align:center}
+            .little-lights__content{align-items:center}
+            .little-lights__img-wrap{order:-1}
+            .club__card{grid-template-columns:1fr;text-align:center;padding:32px 24px}
+            .club__icon-wrap{margin:0 auto}
+            .club__buttons{justify-content:center}
+            .parents__card{grid-template-columns:1fr;text-align:center;padding:32px 24px}
+            .parents__icon-wrap{margin:0 auto}
+            .parents__btn{width:100%;justify-content:center}
+        }
+        @media(max-width:992px){
+            .nav__links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--navy);flex-direction:column;padding:24px;gap:12px;border-radius:0 0 var(--r-lg) var(--r-lg);box-shadow:var(--shadow-md)}
+            .nav__links.open{display:flex}
+            .nav__link{font-size:0.85rem;padding:10px 0}
+            .nav__cta{display:none}
+            .nav__burger{display:flex}
+            .team__grid{grid-template-columns:repeat(2,1fr)}
+            .activities__grid{grid-template-columns:1fr}
+        }
+        @media(max-width:768px){
+            .hero__title{font-size:2.4rem}
+            .team__grid{grid-template-columns:repeat(2,1fr);gap:12px}
+            .team__card{padding:22px 14px}
+            .team__avatar{width:68px;height:68px}
+            .footer-cta__inner{flex-direction:column;text-align:center}
+            .little-lights__buttons{flex-direction:column}
+            .little-lights__btn{width:100%;justify-content:center}
+            .club__buttons{flex-direction:column;width:100%}
+            .club__btn{width:100%;justify-content:center}
+            .parents__btn{width:100%;justify-content:center}
+            .club__card{padding:24px 20px}
+            .parents__card{padding:24px 20px}
+        }
+        @media(max-width:576px){
+            .nav__inner{height:64px}
+            .nav__logo-text{font-size:1.35rem}
+            .hero__title{font-size:2rem}
+            .hero__content{padding:80px 20px 40px}
+            .team__grid{grid-template-columns:1fr;max-width:320px;margin:0 auto}
+            .activities__grid{grid-template-columns:1fr;max-width:320px;margin:0 auto}
+            .team__title::before,.team__title::after,.activities__title::before,.activities__title::after{display:none}
+            .footer-cta__btn{width:100%;justify-content:center}
+            .club__icon-wrap{width:64px;height:64px}
+            .club__icon-wrap svg{width:32px;height:32px}
+            .parents__icon-wrap{width:64px;height:64px}
+            .parents__icon-wrap svg{width:32px;height:32px}
+        }
+        @media(max-width:390px){
+            .hero__title{font-size:1.7rem}
+            .club__card{padding:20px 16px}
+            .parents__card{padding:20px 16px}
+        }
+
+        .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+        .d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}.d4{transition-delay:0.4s}.d5{transition-delay:0.5s}
     </style>
 </head>
 <body>
-    <div class="starfield"></div>
 
-    <!-- ===== NAVBAR (from reference) ===== -->
- <nav class="navbar" role="navigation" aria-label="Main navigation">
-    <div class="navbar-container">
-        <!-- Brand Logo (Only Image) -->
-        <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
-            <img src="/images/logo.png" alt="LightMode Ministries">
-        </a>
+    <!-- ============================================
+           NAVBAR WITH BEAUTIFUL DROPDOWN
+        ============================================ -->
+    <header class="nav" role="banner">
+        <div class="nav__inner">
+            <a href="lumenquest.html" class="nav__logo" aria-label="LumenQuest Home">
+                <span class="nav__logo-text">Lumen<span>Quest</span></span>
+                <span class="nav__logo-tag">Light Leads the Way</span>
+            </a>
+            <nav class="nav__links" role="navigation" aria-label="Main navigation">
+                <a href="lumenquest.html" class="nav__link active" aria-current="page">Home</a>
+                
+                <!-- Meet the Team with Beautiful Dropdown -->
+                <div class="nav__link nav__link--dropdown">
+                    <a href="meet-the-team.html">Meet the Team <span class="dropdown-arrow">&#9662;</span></a>
+                    <div class="nav__dropdown">
+                        <a href="amara.html" class="nav__dropdown-item">
+                            <span class="item-icon item-icon--teal">&#9679;</span>
+                            <span class="item-text">
+                                <span class="item-name">Amara</span>
+                                <span class="item-role">The Aligner</span>
+                            </span>
+                            <span class="item-arrow">&#9654;</span>
+                        </a>
+                        <a href="leo.html" class="nav__dropdown-item">
+                            <span class="item-icon item-icon--navy">&#9679;</span>
+                            <span class="item-text">
+                                <span class="item-name">Leo</span>
+                                <span class="item-role">The Guardian</span>
+                            </span>
+                            <span class="item-arrow">&#9654;</span>
+                        </a>
+                        <a href="kai.html" class="nav__dropdown-item">
+                            <span class="item-icon item-icon--purple">&#9679;</span>
+                            <span class="item-text">
+                                <span class="item-name">Kai</span>
+                                <span class="item-role">The Pattern Seeker</span>
+                            </span>
+                            <span class="item-arrow">&#9654;</span>
+                        </a>
+                        <a href="joy.html" class="nav__dropdown-item">
+                            <span class="item-icon item-icon--pink">&#9679;</span>
+                            <span class="item-text">
+                                <span class="item-name">Joy</span>
+                                <span class="item-role">The Restorer of Hope</span>
+                            </span>
+                            <span class="item-arrow">&#9654;</span>
+                        </a>
+                        <div class="nav__dropdown-divider"></div>
+                        <a href="lumi.html" class="nav__dropdown-item">
+                            <span class="item-icon item-icon--gold">&#9679;</span>
+                            <span class="item-text">
+                                <span class="item-name">Lumi</span>
+                                <span class="item-role">The Lightwing Guide</span>
+                            </span>
+                            <span class="item-arrow">&#9654;</span>
+                        </a>
+                    </div>
+                </div>
 
-       <ul class="navbar-menu" id="navbar-menu" role="menubar">
-
-    <!-- HOME -->
-    <li class="nav-dropdown" role="none">
-        <a href="/index.html" class="navbar-link dropdown-toggle">
-            Home <span class="dropdown-arrow">▼</span>
-        </a>
-        <ul class="dropdown-menu">
-            <li><a href="/about.html" class="dropdown-link">About Us</a></li>
-            <li><a href="/contact.html" class="dropdown-link">Contact</a></li>
-        </ul>
-    </li>
-<li role="none"><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
-    <!-- REST -->
-    <li class="nav-dropdown" role="none">
-        <a href="/rest.html" class="navbar-link dropdown-toggle">
-            Rest <span class="dropdown-arrow">▼</span>
-        </a>
-        <ul class="dropdown-menu">
-            <li><a href="/deep-sleep.html" class="dropdown-link">Deep Sleep</a></li>
-            <li><a href="/prayer-video.html" class="dropdown-link">Prayer Video</a></li>
-            <li><a href="/bedtime-fables.html" class="dropdown-link">BedTime Fables</a></li>
-        </ul>
-    </li>
-
-    <!-- INSPIRATION -->
-    <li class="nav-dropdown" role="none">
-        <a href="/inspiration.html" class="navbar-link inspiration dropdown-toggle">
-            Inspiration <span class="dropdown-arrow">▼</span>
-        </a>
-        <ul class="dropdown-menu">
-            <li><a href="/stories.html" class="dropdown-link">Stories</a></li>
-            <li><a href="/videos.html" class="dropdown-link">Videos</a></li>
-            <li><a href="/resources.html" class="dropdown-link">Resources</a></li>
-        </ul>
-    </li>
-
-    <!-- GROW -->
-    <li class="nav-dropdown" role="none">
-        <a href="/grow.html" class="navbar-link dropdown-toggle">
-            Grow <span class="dropdown-arrow">▼</span>
-        </a>
-        <ul class="dropdown-menu">
-            <li><a href="/bible-study.html" class="dropdown-link">Bible Studies</a></li>
-            <li><a href="/sermons.html" class="dropdown-link">Sermons</a></li>
-            <li><a href="/devotionals.html" class="dropdown-link">Devotionals</a></li>
-            <li><a href="/study-guides.html" class="dropdown-link">Study Guides</a></li>
-        </ul>
-    </li>
-
-    <!-- TEENS -->
-    <li class="nav-dropdown" role="none">
-        <a href="/teens.html" class="navbar-link dropdown-toggle">
-            Teens <span class="dropdown-arrow">▼</span>
-        </a>
-        <ul class="dropdown-menu">
-            <li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li>
-            <li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li>
-            <li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li>
-        </ul>
-    </li>
-
-    <!-- LUMENQUEST -->
-    <li class="nav-dropdown" role="none">
-        <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">
-            LumenQuest <span class="dropdown-arrow">▼</span>
-        </a>
-        <ul class="dropdown-menu">
-            <li><a href="/animations.html" class="dropdown-link">Animations</a></li>
-            <li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li>
-            <li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li>
-            <li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li>
-        </ul>
-    </li>
-
-</ul>
-
-
-        <!-- Actions Section -->
-        <div class="navbar-actions">
-            <!-- Theme Toggle -->
-            <div class="theme-toggle" role="group" aria-label="Theme toggle">
-                <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
-            </div>
-
-        
-
-          
-
-            <!-- Mobile Toggle -->
-            <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <a href="explore-the-realm.html" class="nav__link">Explore the Realm</a>
+                <a href="adventure-club.html" class="nav__link">Adventure Club</a>
+                <a href="little-lights.html" class="nav__link">Little Lights</a>
+                <a href="parents.html" class="nav__link">Parents</a>
+            </nav>
+            <a href="#club" class="nav__cta">Join the Adventure Club</a>
+            <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
             </button>
         </div>
-    </div>
-</nav>
-    <!-- ===== HERO SECTION ===== -->
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <span class="hero-welcome">Welcome to</span>
-            <h1>
-                <span class="lumen">Lumen</span><span class="quest">Quest</span>
+    </header>
+
+    <!-- ============================================
+           HERO
+        ============================================ -->
+    <section class="hero" aria-label="LumenQuest Hero">
+        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="hero__content">
+            <h1 class="hero__title">
+                <span>LumenQuest</span>
             </h1>
-            <p class="hero-tagline">
-                Where every adventure leads you closer to the light of God's Word.
-            </p>
-            <div class="hero-actions">
-                <a href="#episodes" class="btn-primary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                    Start the Adventure
-                </a>
-                <a href="#explore" class="btn-secondary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="8" x2="12" y2="16"></line>
-                        <line x1="8" y1="12" x2="16" y2="12"></line>
-                    </svg>
-                    Explore Episodes
-                </a>
-                <a href="#parents" class="btn-green">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <p class="hero__subtitle">Light Leads the Way</p>
+            <p class="hero__text">Enter a living world of wonder, mystery, faith, and discovery. Join Amara, Leo, Kai, Joy, and Lumi as they prepare to follow the light into an adventure where truth, courage, wisdom, hope, and unity reveal the way.</p>
+            <div class="hero__feature">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                No one completes a LumenQuest alone.
+            </div>
+            <div class="hero__buttons">
+                <button class="hero__btn hero__btn--dark" onclick="alert('Teaser coming soon!')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                    Watch the Teaser
+                </button>
+                <a href="meet-the-team.html" class="hero__btn hero__btn--orange">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                         <circle cx="9" cy="7" r="4"></circle>
                         <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                         <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                     </svg>
-                    For Parents
+                    Meet the Team
+                </a>
+            </div>
+            <a href="explore-the-realm.html" class="hero__link">
+                Discover LumenQuest
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================
+           ADVENTURE SECTION
+        ============================================ -->
+    <section class="adventure" id="explore" aria-labelledby="adv-title">
+        <div class="container">
+            <div class="adventure__card reveal">
+                <div class="adventure__content">
+                    <h2 id="adv-title" class="adventure__title">A Christian Adventure Where Truth Reveals the Way</h2>
+                    <div class="adventure__line" aria-hidden="true"></div>
+                    <p class="adventure__text">LumenQuest is a Christian animated adventure series filled with wonder, friendship, prayer, discovery, meaningful challenges, and hopeful restoration. The places the children explore help them see what fear, courage, truth, wisdom, forgiveness, hope, and unity can do. They don't simply hear a lesson—they experience it and choose how to respond.</p>
+                </div>
+                <div class="adventure__img-wrap">
+                    <img src="images/disney.png" alt="A magical fantasy realm with a castle, rainbow, and waterfall" class="adventure__img" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           TEAM SECTION
+        ============================================ -->
+    <section class="team" id="team" aria-labelledby="team-title">
+        <div class="container">
+            <div class="team__head reveal">
+                <h2 id="team-title" class="team__title">Meet the LumenQuest Team</h2>
+                <p class="team__sub">Four Adventurers. Four Gifts. One Purpose.</p>
+            </div>
+            <div class="team__grid">
+                <div class="team__card reveal d1">
+                    <img src="images/char2.png" alt="Amara" class="team__avatar" loading="lazy">
+                    <h3 class="team__name">Amara</h3>
+                    <p class="team__role">The Aligner</p>
+                    <p class="team__desc">Aligns the team back together.</p>
+                </div>
+                <div class="team__card reveal d2">
+                    <img src="images/char1.png" alt="Leo" class="team__avatar" loading="lazy">
+                    <h3 class="team__name">Leo</h3>
+                    <p class="team__role">The Guardian</p>
+                    <p class="team__desc">Stays forward with courageous care.</p>
+                </div>
+                <div class="team__card reveal d3">
+                    <img src="images/char4.png" alt="Kai" class="team__avatar" loading="lazy">
+                    <h3 class="team__name">Kai</h3>
+                    <p class="team__role">The Pattern Seeker</p>
+                    <p class="team__desc">Finds what others may overlook.</p>
+                </div>
+                <div class="team__card reveal d4">
+                    <img src="images/char3.png" alt="Joy" class="team__avatar" loading="lazy">
+                    <h3 class="team__name">Joy</h3>
+                    <p class="team__role">The Restorer of Hope</p>
+                    <p class="team__desc">Helps hope rise through words and encouragement.</p>
+                </div>
+                <div class="team__card reveal d5">
+                    <img src="images/char5.png" alt="Lumi" class="team__avatar" loading="lazy">
+                    <h3 class="team__name">Lumi</h3>
+                    <p class="team__role">The LumenGuide</p>
+                    <p class="team__desc">Signals, guides, and responds to alignment.</p>
+                </div>
+            </div>
+            <div class="team__cta reveal">
+                <a href="meet-the-team.html" class="team__btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Meet the Team
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ===== THE QUEST BEGINS + FEATURED EPISODE ===== -->
-    <section class="quest-section" id="explore">
-        <div class="quest-grid">
-            <div class="quest-left">
-                <h2>The Quest Begins <span class="highlight">With You</span></h2>
-                <p>
-                    LumenQuest is a journey into the light — a place where courage grows, truth is discovered, and every child learns that they carry light within them.
-                </p>
-                <div class="quest-icons">
-                    <div class="quest-icon-item">
-                        <div class="icon-circle">✨</div>
-                        <span>Discover<br>Who You Are</span>
-                    </div>
-                    <div class="quest-icon-item">
-                        <div class="icon-circle">❤️</div>
-                        <span>Grow Your<br>Matter</span>
-                    </div>
-                    <div class="quest-icon-item">
-                        <div class="icon-circle">✝️</div>
-                        <span>Follow God's<br>Light</span>
-                    </div>
-                </div>
-                <a href="#" class="btn-outline">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                    Watch the Intro
-                </a>
-            </div>
-
-            <div class="featured-episode">
-                <div class="episode-visual">
-                    <div class="episode-badge">Featured Episode</div>
-                    <div class="episode-play" aria-label="Play episode">
-                        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                    </div>
-                </div>
-                <div class="episode-content">
-                    <h3>Episode 1: The Light Within</h3>
-                    <p>Join the journey as the first step into discovering courage, truth, and purpose.</p>
-                    <button class="btn-watch">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+    <!-- ============================================
+           LITTLE LIGHTS SECTION
+        ============================================ -->
+    <section class="little-lights" id="little-lights" aria-labelledby="ll-title">
+        <div class="little-lights__inner">
+            <div class="little-lights__content reveal">
+                <h2 id="ll-title" class="little-lights__title">Little Lights Activities<br>Created Especially for Ages 3&ndash;8<br>and Their Grown-Ups</h2>
+                <p class="little-lights__text">Sing, learn, create, pray, and grow with Little Lights activities. A gentle beginning for our youngest adventurers.</p>
+                <div class="little-lights__buttons">
+                    <a href="#little-lights-activities" class="little-lights__btn little-lights__btn--fill">Explore Little Lights</a>
+                    <a href="#little-lights-rest" class="little-lights__btn little-lights__btn--outline">
+                        Little Lights at Rest
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
-                        Watch Now
-                    </button>
+                    </a>
+                </div>
+            </div>
+            <div class="little-lights__img-wrap reveal">
+                <img src="images/lumi-moon-removebg-preview.png" alt="Lumi the owl sitting on a crescent moon with stars" class="little-lights__img" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           ACTIVITIES SECTION
+        ============================================ -->
+    <section class="activities" id="adventure" aria-labelledby="act-title">
+        <div class="container">
+            <div class="activities__head reveal">
+                <h2 id="act-title" class="activities__title">LumenQuest Activities</h2>
+            </div>
+            <div class="activities__grid">
+                <div class="activity__card reveal d1">
+                    <div class="activity__icon activity__icon--green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                    </div>
+                    <div class="activity__content">
+                        <h3 class="activity__name">Character Fun</h3>
+                        <p class="activity__desc">Discover the team through games, coloring pages, and creative fun.</p>
+                    </div>
+                </div>
+                <div class="activity__card reveal d2">
+                    <div class="activity__icon activity__icon--blue">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="activity__content">
+                        <h3 class="activity__name">Team Challenge</h3>
+                        <p class="activity__desc">Practice listening, courage, teamwork, and wise choices together.</p>
+                    </div>
+                </div>
+                <div class="activity__card reveal d3">
+                    <div class="activity__icon activity__icon--navy">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polygon points="1 6 1 22 8 18 16 22 21 18 21 2 16 6 8 2 1 6"></polygon>
+                            <line x1="8" y1="2" x2="8" y2="18"></line>
+                            <line x1="16" y1="6" x2="16" y2="22"></line>
+                        </svg>
+                    </div>
+                    <div class="activity__content">
+                        <h3 class="activity__name">Realm Discoveries</h3>
+                        <p class="activity__desc">Explore symbols, maps, and secrets from the world of LumenQuest.</p>
+                    </div>
+                </div>
+                <div class="activity__card reveal d4">
+                    <div class="activity__icon activity__icon--gold">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                        </svg>
+                    </div>
+                    <div class="activity__content">
+                        <h3 class="activity__name activity__name--orange">Carry the Light Missions</h3>
+                        <p class="activity__desc">Apply truth, kindness, courage, and gratitude through real-life challenges.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="activities__cta reveal">
+                <a href="#quiz" class="activities__btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    Take the Character Quiz
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           CLUB SECTION
+        ============================================ -->
+    <section class="club" id="club" aria-labelledby="club-title">
+        <div class="container">
+            <div class="club__card reveal">
+                <div class="club__icon-wrap" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                    </svg>
+                </div>
+                <div class="club__content">
+                    <p class="club__label">The Adventure Continues With You</p>
+                    <h2 id="club-title" class="club__title">Little Lights Club</h2>
+                    <p class="club__text">Join Little Lights Club to explore fun activities, devotionals, special surprises, and more! Little Lights Club is a safe and joyful space just for young hearts.</p>
+                </div>
+                <div class="club__buttons">
+                    <a href="#club-activities" class="club__btn club__btn--light">Explore Club Activities</a>
+                    <a href="#join-club" class="club__btn club__btn--ghost">Join the Little Lights Club</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== CONTINUE THE JOURNEY ===== -->
-    <section class="journey-section" id="episodes">
-        <div class="section-header">
-            <h2>Continue the Journey <span class="sparkle">✨</span></h2>
-            <div class="section-nav">
-                <button class="nav-arrow" aria-label="Previous episodes">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M15 18l-6-6 6-6"></path>
+    <!-- ============================================
+           PARENTS SECTION
+        ============================================ -->
+    <section class="parents" id="parents" aria-labelledby="par-title">
+        <div class="container">
+            <div class="parents__card reveal">
+                <div class="parents__icon-wrap" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                     </svg>
-                </button>
-                <button class="nav-arrow" aria-label="Next episodes">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 18l6-6-6-6"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <div class="journey-carousel">
-            <div class="journey-item">
-                <div class="journey-item-img" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80');">
-                    <div class="journey-item-number">1</div>
                 </div>
-                <div class="journey-item-title">The Light Within</div>
-            </div>
-            <div class="journey-item">
-                <div class="journey-item-img" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&q=80');">
-                    <div class="journey-item-number">2</div>
+                <div class="parents__content">
+                    <h2 id="par-title" class="parents__title">Created for Children. Designed with Families in Mind.</h2>
+                    <p class="parents__text">LumenQuest empowers children to truly experience adventures, emotional truths, family conversations, and growth invitations. Children enter adventures together, grow through their choices, and return safely to ordinary life.</p>
                 </div>
-                <div class="journey-item-title">Courage to Shine</div>
-            </div>
-            <div class="journey-item">
-                <div class="journey-item-img" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=400&q=80');">
-                    <div class="journey-item-number">3</div>
-                </div>
-                <div class="journey-item-title">The Truth Compass</div>
-            </div>
-            <div class="journey-item">
-                <div class="journey-item-img" style="background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&q=80');">
-                    <div class="journey-item-number">4</div>
-                </div>
-                <div class="journey-item-title">Stronger Together</div>
-            </div>
-            <div class="journey-item">
-                <div class="journey-item-img" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&q=80');">
-                    <div class="journey-item-number">5</div>
-                </div>
-                <div class="journey-item-title">The Quest Continues</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== RESOURCES GRID ===== -->
-    <section class="resources-section" id="resources">
-        <div class="resources-container">
-            <!-- What We Learned -->
-            <div class="resource-card">
-                <div class="resource-header">
-                    <div class="resource-icon">📖</div>
-                    <h3>What We Learned</h3>
-                </div>
-                <p>Scripture and lessons from each episode to help your child grow in faith.</p>
-                <ul class="resource-list">
-                    <li><span class="bullet"></span> You are never alone.</li>
-                    <li><span class="bullet"></span> Scripture: "I am with you always..." Matthew 28:20</li>
-                    <li><span class="bullet"></span> Even when you feel afraid, God is right there with you.</li>
-                </ul>
-                <a href="#" class="resource-cta">
-                    Read More
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
+                <a href="#parents-learn" class="parents__btn">
+                    Parents, Learn More
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
                 </a>
             </div>
-
-            <!-- For Parents -->
-            <div class="resource-card">
-                <div class="resource-header">
-                    <div class="resource-icon">👨‍👩‍👧‍👦</div>
-                    <h3>For Parents</h3>
-                </div>
-                <p>Conversation guides and activities to do together as a family.</p>
-                <ul class="resource-list">
-                    <li><span class="bullet"></span> What your child learned & what it means.</li>
-                    <li><span class="bullet"></span> Ask your child: "What was your favorite moment?"</li>
-                    <li><span class="bullet"></span> "What have you felt afraid of, but God helped you?"</li>
-                </ul>
-                <a href="#" class="resource-cta">
-                    Parent Guide
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-            </div>
-
-            <!-- Activity Zone -->
-            <div class="resource-card">
-                <div class="resource-header">
-                    <div class="resource-icon">🎨</div>
-                    <h3>Activity Zone</h3>
-                </div>
-                <p>Fun, faith-filled activities to bring the lessons to life.</p>
-                <ul class="resource-list">
-                    <li><span class="bullet"></span> Coloring Pages — Download and color!</li>
-                    <li><span class="bullet"></span> Memory Verse Cards — Learn and share!</li>
-                    <li><span class="bullet"></span> Quest Challenges — Fun activities to grow in your faith!</li>
-                </ul>
-                <a href="#" class="resource-cta">
-                    Download Activity Pack
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                </a>
-            </div>
-
-            <!-- Encouragement Card -->
-            <div class="encourage-card">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Encouragement">
-                <h4>You carry light within you.</h4>
-                <p>Keep shining!</p>
-            </div>
         </div>
     </section>
 
-    <!-- ===== THE JOURNEY DOESN'T STOP HERE ===== -->
-    <section class="continue-section">
-        <div class="continue-bar">
-            <div class="continue-item">
-                <div class="icon-wrap">🌙</div>
-                <div>
-                    <h4>Rest in the Light</h4>
-                    <p>Find peace and calm.</p>
-                </div>
-            </div>
-            <div class="continue-item">
-                <div class="icon-wrap">🌱</div>
-                <div>
-                    <h4>Grow in the Light</h4>
-                    <p>Learn and grow in God's Word.</p>
-                </div>
-            </div>
-            <div class="continue-item">
-                <div class="icon-wrap">🌟</div>
-                <div>
-                    <h4>Start the Light Journey</h4>
-                    <p>A path for the whole family.</p>
-                </div>
-            </div>
-            <div class="continue-visual"></div>
+    <!-- ============================================
+           FOOTER CTA
+        ============================================ -->
+    <section class="footer-cta" aria-label="Join the Adventure Club">
+        <div class="footer-cta__inner">
+            <p class="footer-cta__text">
+                <strong>New adventures. New truths. New discoveries.</strong><br>
+                Join the Adventure Club and be the first to know!
+            </p>
+            <a href="#join-club" class="footer-cta__btn">
+                Join the Adventure Club Today!
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
         </div>
     </section>
 
-    <!-- ===== FOOTER (from reference) ===== -->
+    <!-- ============================================
+           FOOTER
+        ============================================ -->
     <footer class="footer" role="contentinfo">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-                          <img width="20%" src="/images/logo-crop.png" alt="LightMode Ministries Logo">
-                    <div>
-                        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;color:var(--text-primary);transition:color 0.5s ease;">LightMode</div>
-                        <div style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);transition:color 0.5s ease;">Ministries LLC</div>
-                    </div>
-                </div>
-                <p>Illuminating Lives.<br>One Heart at a Time.</p>
-                <div class="footer-social">
-                    <a href="#" aria-label="YouTube">
-                        <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-                    </a>
-                    <a href="#" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </a>
-                    <a href="#" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    </a>
-                    <a href="#" aria-label="TikTok">
-                        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-                    </a>
-                </div>
-            </div>
-
-            <div>
-                <h4 class="footer-title">Teens</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Journeys</a></li>
-                    <li><a href="#">Browse Topics</a></li>
-                    <li><a href="#">Check-In</a></li>
-                    <li><a href="#">Night Mode</a></li>
-                    <li><a href="#">Prayer Library</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="footer-title">Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Prayer Requests</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Blog</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="footer-title">Parents</h4>
-                <ul class="footer-links" style="margin-bottom:20px;">
-                    <li><a href="#">Parent Guide</a></li>
-                    <li><a href="#">Conversation Starters</a></li>
-                    <li><a href="#">Faith at Home</a></li>
-                    <li><a href="#">Resources</a></li>
-                </ul>
-                <div class="footer-form">
-                    <div class="footer-form-title">Get encouragement delivered to you.</div>
-                    <div class="footer-form-body">
-                        <input type="email" class="footer-input" placeholder="Enter your email" aria-label="Your email address">
-                        <button class="footer-submit">Subscribe</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p class="footer-credit">Designed By Digital Software Labs</p>
-            <div class="footer-legal">
-                <a href="#">Terms & Conditions</a>
-                <span>|</span>
-                <a href="#">Privacy Policy</a>
-            </div>
-        </div>
+        <p class="footer__text">&copy; 2026 LumenQuest. Light Leads the Way. All rights reserved.</p>
     </footer>
 
+    <!-- ============================================
+           JAVASCRIPT
+        ============================================ -->
     <script>
-        // Theme Toggle
-        function setTheme(mode) {
-            const html = document.documentElement;
-            const btnDay = document.getElementById('btn-day');
-            const btnNight = document.getElementById('btn-night');
+    (function(){
+        'use strict';
 
-            if (mode === 'day') {
-                html.setAttribute('data-theme', 'day');
-                btnDay.classList.add('active');
-                btnNight.classList.remove('active');
-                localStorage.setItem('theme', 'day');
-            } else {
-                html.removeAttribute('data-theme');
-                btnDay.classList.remove('active');
-                btnNight.classList.add('active');
-                localStorage.setItem('theme', 'night');
-            }
-        }
-
-       // Load saved theme (DEFAULT = DAY)
-document.addEventListener('DOMContentLoaded', function() {
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme === 'night') {
-        setTheme('night');
-    } else {
-        setTheme('day'); // 👈 DEFAULT NOW DAY
-    }
-});
-// Mobile menu toggle
-const navbarToggle = document.querySelector('.navbar-toggle');
-const navbarMenu = document.getElementById('navbar-menu');
-
-if (navbarToggle && navbarMenu) {
-
-    // Toggle Mobile Menu
-    navbarToggle.addEventListener('click', function () {
-
-        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-
-        this.setAttribute('aria-expanded', !isExpanded);
-
-        this.classList.toggle('active');
-        navbarMenu.classList.toggle('active');
-    });
-
-    // Close menu only on normal links
-    navbarMenu.querySelectorAll('a').forEach(link => {
-
-        link.addEventListener('click', function (e) {
-
-            // Don't close menu if dropdown button is clicked
-            if (
-                window.innerWidth <= 768 &&
-                this.classList.contains('dropdown-toggle')
-            ) {
-                e.preventDefault();
-                return;
-            }
-
-            navbarMenu.classList.remove('active');
-            navbarToggle.classList.remove('active');
-            navbarToggle.setAttribute('aria-expanded', 'false');
-        });
-
-    });
-
-    // Close menu on desktop resize
-    window.addEventListener('resize', () => {
-
-        if (window.innerWidth > 768) {
-
-            navbarMenu.classList.remove('active');
-            navbarToggle.classList.remove('active');
-            navbarToggle.setAttribute('aria-expanded', 'false');
-
-            document.querySelectorAll('.nav-dropdown').forEach(item => {
-                item.classList.remove('active');
-            });
-
-        }
-
-    });
-
-}
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-    anchor.addEventListener('click', function (e) {
-
-        const target = document.querySelector(this.getAttribute('href'));
-
-        if (target) {
-            e.preventDefault();
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-
-    });
-
-});
-
-// Time option selection
-document.querySelectorAll('.time-option').forEach(opt => {
-
-    opt.addEventListener('click', function () {
-
-        document.querySelectorAll('.time-option').forEach(o => {
-            o.classList.remove('active');
-        });
-
-        this.classList.add('active');
-
-    });
-
-});
-
-// Mobile Dropdown
-document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-
-    toggle.addEventListener('click', function (e) {
-
-        if (window.innerWidth <= 768) {
-
-            e.preventDefault();
-            e.stopPropagation();
-
-            const parent = this.parentElement;
-
-            // Optional: close other dropdowns
-            document.querySelectorAll('.nav-dropdown').forEach(item => {
-                if (item !== parent) {
-                    item.classList.remove('active');
+        // Mobile menu
+        const burger=document.querySelector('.nav__burger');
+        const links=document.querySelector('.nav__links');
+        if(burger&&links){
+            burger.addEventListener('click',function(){
+                const open=links.classList.toggle('open');
+                this.setAttribute('aria-expanded',open);
+                const spans=this.querySelectorAll('span');
+                if(open){
+                    spans[0].style.transform='rotate(45deg) translate(5px,5px)';
+                    spans[1].style.opacity='0';
+                    spans[2].style.transform='rotate(-45deg) translate(5px,-5px)';
+                }else{
+                    spans[0].style.transform='none';
+                    spans[1].style.opacity='1';
+                    spans[2].style.transform='none';
                 }
             });
-
-            parent.classList.toggle('active');
-
+            links.querySelectorAll('.nav__link, .nav__dropdown-item').forEach(function(l){
+                l.addEventListener('click',function(){
+                    if(window.innerWidth <= 992){
+                        links.classList.remove('open');
+                        burger.setAttribute('aria-expanded','false');
+                        const spans=burger.querySelectorAll('span');
+                        spans[0].style.transform='none';
+                        spans[1].style.opacity='1';
+                        spans[2].style.transform='none';
+                    }
+                });
+            });
         }
 
-    });
+        // Handle dropdown on mobile
+        const dropdownToggles = document.querySelectorAll('.nav__link--dropdown > span');
+        dropdownToggles.forEach(function(toggle){
+            toggle.addEventListener('click', function(e){
+                if(window.innerWidth <= 992){
+                    e.preventDefault();
+                    const parent = this.closest('.nav__link--dropdown');
+                    parent.classList.toggle('active-dropdown');
+                }
+            });
+        });
 
-});
+        // Navbar scroll effect
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', function(){
+            if(window.pageYOffset > 40){
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal
+        const reveals=document.querySelectorAll('.reveal');
+        const obs=new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+            });
+        },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+        reveals.forEach(function(el){obs.observe(el);});
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(function(a){
+            a.addEventListener('click',function(e){
+                const href=this.getAttribute('href');
+                if(href==='#')return;
+                const t=document.querySelector(href);
+                if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-80,behavior:'smooth'});}
+            });
+        });
+    })();
     </script>
 </body>
 </html>

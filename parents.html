@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parents | LumenQuest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           CSS VARIABLES (matches lumenquest.html)
+        ============================================ */
+        :root {
+            --navy: #0f1a2e;
+            --navy-light: #1a2a4a;
+            --navy-mid: #2a3d5e;
+            --orange: #c87a1f;
+            --orange-hover: #b06a18;
+            --orange-light: #e8a84a;
+            --gold: #c9a84c;
+            --gold-light: #e0c97a;
+            --teal: #3a8b7d;
+            --teal-dark: #2d7a6e;
+            --teal-light: #4a9e8e;
+            --purple: #7b5fa8;
+            --purple-light: #9b7fc8;
+            --pink: #c75b7a;
+            --cream: #f5f0e8;
+            --cream-light: #faf7f2;
+            --white: #ffffff;
+            --text-dark: #1a1a2e;
+            --text-gray: #5a5a6e;
+            --text-light: #8a8a9e;
+            --border: #e8e4dc;
+            --shadow: 0 4px 24px rgba(26, 42, 74, 0.08);
+            --shadow-md: 0 8px 32px rgba(26, 42, 74, 0.12);
+            --shadow-lg: 0 12px 48px rgba(26, 42, 74, 0.15);
+            --r-sm: 8px;
+            --r-md: 12px;
+            --r-lg: 16px;
+            --r-xl: 24px;
+            --r-2xl: 32px;
+            --r-3xl: 40px;
+            --ease: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-h: 'Playfair Display', Georgia, serif;
+            --font-b: 'Inter', -apple-system, sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-b);
+            color: var(--text-dark);
+            background: var(--cream-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; transition: var(--ease); }
+        button { border: none; background: none; cursor: pointer; font-family: var(--font-b); transition: var(--ease); }
+        ul, ol { list-style: none; }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 5vw, 60px);
+        }
+
+        /* ============================================
+           ANIMATIONS
+        ============================================ */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .d1 { transition-delay: 0.1s; }
+        .d2 { transition-delay: 0.2s; }
+        .d3 { transition-delay: 0.3s; }
+        .d4 { transition-delay: 0.4s; }
+        .d5 { transition-delay: 0.5s; }
+
+        /* ============================================
+           NAVBAR WITH DROPDOWN
+        ============================================ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--navy);
+            transition: var(--ease);
+        }
+        .nav.scrolled {
+            box-shadow: 0 2px 30px rgba(0,0,0,0.3);
+        }
+        .nav__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+        }
+        .nav__logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1px;
+        }
+        .nav__logo-text {
+            font-family: var(--font-h);
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+        .nav__logo-text span { color: var(--orange); }
+        .nav__logo-tag {
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+        }
+        .nav__links {
+            display: flex;
+            align-items: center;
+            gap: clamp(14px, 2vw, 28px);
+        }
+        .nav__link {
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 6px 0;
+            position: relative;
+            transition: var(--ease);
+            cursor: pointer;
+        }
+        .nav__link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--orange);
+            border-radius: 2px;
+            transition: var(--ease);
+        }
+        .nav__link:hover, .nav__link.active {
+            color: var(--white);
+        }
+        .nav__link:hover::after, .nav__link.active::after {
+            width: 100%;
+        }
+
+        /* ===== DROPDOWN STYLES ===== */
+        .nav__link--dropdown {
+            position: relative;
+        }
+        .nav__link--dropdown .dropdown-arrow {
+            display: inline-block;
+            margin-left: 4px;
+            font-size: 10px;
+            transition: var(--ease);
+        }
+        .nav__link--dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .nav__dropdown {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--navy);
+            min-width: 210px;
+            padding: 10px 0;
+            border-radius: var(--r-lg);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(15,26,46,0.98);
+            backdrop-filter: blur(10px);
+        }
+        .nav__dropdown::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 16px;
+            height: 16px;
+            background: var(--navy);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-left: 1px solid rgba(255,255,255,0.06);
+            background: rgba(15,26,46,0.98);
+        }
+        .nav__link--dropdown:hover .nav__dropdown {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .nav__dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            margin: 0 6px;
+            border-radius: var(--r-sm);
+        }
+        .nav__dropdown-item .item-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+            transition: var(--ease);
+        }
+        .nav__dropdown-item .item-icon--teal { background: rgba(58,139,125,0.2); color: var(--teal); }
+        .nav__dropdown-item .item-icon--navy { background: rgba(26,42,74,0.2); color: var(--navy-mid); }
+        .nav__dropdown-item .item-icon--purple { background: rgba(123,95,168,0.2); color: var(--purple); }
+        .nav__dropdown-item .item-icon--pink { background: rgba(199,91,122,0.2); color: var(--pink); }
+        .nav__dropdown-item .item-icon--gold { background: rgba(201,168,76,0.2); color: var(--gold); }
+
+        .nav__dropdown-item .item-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        .nav__dropdown-item .item-name {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+        }
+        .nav__dropdown-item .item-role {
+            font-size: 0.55rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 0.04em;
+            text-transform: none;
+        }
+        .nav__dropdown-item .item-arrow {
+            margin-left: auto;
+            color: rgba(255,255,255,0.15);
+            font-size: 12px;
+            transition: var(--ease);
+        }
+        .nav__dropdown-item:hover {
+            background: rgba(255,255,255,0.05);
+            color: var(--white);
+        }
+        .nav__dropdown-item:hover .item-arrow {
+            color: var(--gold);
+            transform: translateX(4px);
+        }
+        .nav__dropdown-item:hover .item-icon {
+            transform: scale(1.1);
+        }
+        .nav__dropdown-divider {
+            height: 1px;
+            margin: 6px 16px;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.06), transparent);
+        }
+
+        .nav__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--orange);
+            color: var(--white);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border-radius: var(--r-md);
+            border: 2px solid var(--orange);
+            transition: var(--ease);
+        }
+        .nav__cta:hover {
+            background: transparent;
+            color: var(--orange);
+            transform: translateY(-2px);
+        }
+        .nav__burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+            cursor: pointer;
+            background: none;
+        }
+        .nav__burger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: var(--ease);
+        }
+
+        /* Mobile dropdown fix */
+        @media(max-width:992px){
+            .nav__link--dropdown .nav__dropdown {
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                display: none;
+                background: transparent;
+                box-shadow: none;
+                border: none;
+                padding: 0 0 0 16px;
+                min-width: auto;
+                backdrop-filter: none;
+                background: transparent;
+                margin-top: 4px;
+            }
+            .nav__dropdown::before {
+                display: none;
+            }
+            .nav__link--dropdown:hover .nav__dropdown {
+                transform: none;
+            }
+            .nav__link--dropdown.active-dropdown .nav__dropdown {
+                display: block;
+            }
+            .nav__dropdown-item {
+                padding: 8px 12px;
+                font-size: 0.72rem;
+                margin: 0;
+                border-radius: 0;
+            }
+            .nav__dropdown-item .item-icon {
+                width: 24px;
+                height: 24px;
+                font-size: 11px;
+            }
+            .nav__dropdown-item .item-name {
+                font-size: 0.65rem;
+            }
+            .nav__dropdown-item .item-role {
+                font-size: 0.5rem;
+            }
+            .nav__dropdown-divider {
+                display: none;
+            }
+            .nav__links.open .nav__link--dropdown .nav__dropdown {
+                display: block;
+            }
+            .nav__link--dropdown > span {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+        }
+
+        /* ============================================
+           HERO (matches meet-the-team page)
+        ============================================ */
+        .hero {
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a2a4a 0%, #0f1a2e 50%, #1a1a2e 100%);
+        }
+        .hero__bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: url('images/team.png');
+            background-repeat: no-repeat;
+            background-position: 36% 20%;
+            background-size: 100%;
+        }
+        .hero__bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(15, 26, 46, 0.92) 0%, rgba(15, 26, 46, 0.7) 45%, rgba(15, 26, 46, 0.2) 70%, transparent 100%);
+        }
+        .hero__bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 26, 46, 0.6) 0%, transparent 40%);
+        }
+        .hero__content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px clamp(24px, 5vw, 60px) 60px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .hero__title {
+            font-family: var(--font-h);
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            max-width: 520px;
+        }
+        .hero__title span { display: block; }
+        .hero__subtitle {
+            font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-top: 16px;
+        }
+        .hero__text {
+            font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.75;
+            max-width: 420px;
+            margin-top: 20px;
+        }
+        .hero__feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 24px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--white);
+        }
+        .hero__feature svg {
+            width: 20px;
+            height: 20px;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+        .hero__buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .hero__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: var(--r-md);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: var(--ease);
+        }
+        .hero__btn--gold {
+            background: var(--gold);
+            color: var(--navy);
+            border: 2px solid var(--gold);
+        }
+        .hero__btn--gold:hover {
+            background: transparent;
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(201, 168, 76, 0.25);
+        }
+        .hero__btn--outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero__btn--outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* ============================================
+           RESOURCES
+        ============================================ */
+        .resources { padding: 80px 0; background: var(--white); }
+        .resources__head { text-align: center; margin-bottom: 48px; }
+        .resources__title {
+            font-family: var(--font-h);
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+        .resources__title::before,
+        .resources__title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 1px;
+            background: var(--gold);
+        }
+        .resources__title::before { right: calc(100% + 14px); }
+        .resources__title::after { left: calc(100% + 14px); }
+        .resources__sub {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-top: 10px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .resources__grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .resource-card {
+            background: var(--cream-light);
+            border-radius: var(--r-xl);
+            padding: 36px 28px;
+            text-align: center;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: var(--ease);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .resource-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+        .resource-card__icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            background: var(--cream);
+            border: 2px solid var(--gold);
+            color: var(--gold-dark);
+        }
+        .resource-card__title {
+            font-family: var(--font-h);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+        .resource-card__text {
+            font-size: 0.82rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+            flex: 1;
+        }
+        .resource-card__btn {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 10px 22px;
+            border-radius: var(--r-sm);
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--white);
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            transition: var(--ease);
+            background: var(--navy-light);
+            border: 2px solid var(--navy-light);
+        }
+        .resource-card__btn:hover {
+            background: transparent;
+            color: var(--navy-light);
+            transform: translateY(-1px);
+        }
+
+        /* ============================================
+           PROGRAMS
+        ============================================ */
+        .programs { padding: 80px 0; background: var(--cream-light); }
+        .programs__head { text-align: center; margin-bottom: 48px; }
+        .programs__title {
+            font-family: var(--font-h);
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+        .programs__title::before,
+        .programs__title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 1px;
+            background: var(--gold);
+        }
+        .programs__title::before { right: calc(100% + 14px); }
+        .programs__title::after { left: calc(100% + 14px); }
+        .programs__sub {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-top: 10px;
+        }
+        .programs__grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .program-card {
+            background: var(--white);
+            border-radius: var(--r-xl);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: var(--ease);
+            display: flex;
+            flex-direction: column;
+        }
+        .program-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .program-card__img {
+            width: 100%;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+        }
+        .program-card__img img { width: 100%; height: 100%; object-fit: cover; }
+        .program-card__body { padding: 24px; text-align: center; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+        .program-card__age {
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        .program-card__title {
+            font-family: var(--font-h);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: 0.5px;
+        }
+        .program-card__desc {
+            font-size: 0.82rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+            flex: 1;
+        }
+        .program-card__btn {
+            display: inline-block;
+            width: 100%;
+            padding: 10px 0;
+            border-radius: var(--r-sm);
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--white);
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            transition: var(--ease);
+            margin-top: auto;
+            border: 2px solid transparent;
+        }
+        .program-card__btn--green { background: var(--teal); border-color: var(--teal); }
+        .program-card__btn--green:hover { background: transparent; color: var(--teal); }
+        .program-card__btn--gold { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+        .program-card__btn--gold:hover { background: transparent; color: var(--gold); }
+        .program-card__btn--orange { background: var(--orange); border-color: var(--orange); }
+        .program-card__btn--orange:hover { background: transparent; color: var(--orange); }
+
+        /* ============================================
+           HOW IT WORKS
+        ============================================ */
+        .how-parents {
+            padding: 80px 0;
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+        .how-parents__bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(201, 168, 76, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(42, 122, 138, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .how-parents__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+            position: relative;
+            z-index: 2;
+        }
+        .how-parents__head { text-align: center; margin-bottom: 48px; }
+        .how-parents__title {
+            font-family: var(--font-h);
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+        .how-parents__title::before,
+        .how-parents__title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.5;
+        }
+        .how-parents__title::before { right: calc(100% + 14px); }
+        .how-parents__title::after { left: calc(100% + 14px); }
+        .how-parents__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+        .how-parents__grid::before {
+            content: '';
+            position: absolute;
+            top: 35px;
+            left: 12.5%;
+            right: 12.5%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.25;
+            z-index: 0;
+        }
+        .step-parent { text-align: center; position: relative; z-index: 1; }
+        .step-parent__num {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--navy);
+            font-family: var(--font-h);
+            font-size: 1.3rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--navy);
+            box-shadow: 0 0 0 3px var(--gold);
+        }
+        .step-parent__title {
+            font-family: var(--font-h);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .step-parent__text {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           SAFETY
+        ============================================ */
+        .safety { padding: 80px 0; background: var(--white); }
+        .safety__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .safety__left { display: flex; flex-direction: column; gap: 18px; }
+        .safety__title {
+            font-family: var(--font-h);
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+        .safety__title span { color: var(--gold); }
+        .safety__text {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+        .safety__list { display: flex; flex-direction: column; gap: 14px; margin-top: 4px; }
+        .safety-item { display: flex; gap: 14px; align-items: flex-start; }
+        .safety-item__icon {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            border-radius: 50%;
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--teal);
+            border: 1px solid var(--gold);
+        }
+        .safety-item__text {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+        .safety-item__text strong {
+            display: block;
+            color: var(--navy);
+            font-weight: 700;
+            margin-bottom: 2px;
+            font-size: 0.88rem;
+        }
+        .safety__img-wrap { position: relative; display: flex; justify-content: center; }
+        .safety__img {
+            width: 100%;
+            max-width: 440px;
+            border-radius: var(--r-2xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ============================================
+           TESTIMONIAL
+        ============================================ */
+        .testimonial-parents { padding: 80px 0; background: var(--cream); }
+        .testimonial-parents__inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .testimonial-parents__img-wrap { display: flex; justify-content: center; }
+        .testimonial-parents__img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: var(--r-2xl);
+            box-shadow: var(--shadow-md);
+        }
+        .testimonial-parents__right { display: flex; flex-direction: column; gap: 16px; }
+        .testimonial-parents__quote {
+            font-family: var(--font-h);
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.5;
+            font-style: italic;
+            position: relative;
+            padding-left: 24px;
+            border-left: 3px solid var(--gold);
+        }
+        .testimonial-parents__text {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+        .testimonial-parents__author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 8px;
+        }
+        .testimonial-parents__avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+        }
+        .testimonial-parents__name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .testimonial-parents__role {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        /* ============================================
+           CTA
+        ============================================ */
+        .cta-parents {
+            padding: 80px 0;
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-parents__bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(201, 168, 76, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .cta-parents__inner {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .cta-parents__title {
+            font-family: var(--font-h);
+            font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+            font-weight: 900;
+            color: var(--white);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .cta-parents__title span { color: var(--gold); }
+        .cta-parents__text {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+        .cta-parents__form {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .cta-parents__input {
+            padding: 14px 20px;
+            border-radius: var(--r-md);
+            border: 1.5px solid rgba(201, 168, 76, 0.3);
+            font-size: 0.9rem;
+            font-family: var(--font-b);
+            color: var(--text);
+            background: var(--white);
+            min-width: 200px;
+            transition: var(--ease);
+        }
+        .cta-parents__input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.15);
+        }
+        .cta-parents__input::placeholder { color: var(--text-light); }
+        .cta-parents__select {
+            padding: 14px 20px;
+            border-radius: var(--r-md);
+            border: 1.5px solid rgba(201, 168, 76, 0.3);
+            font-size: 0.9rem;
+            font-family: var(--font-b);
+            color: var(--text);
+            background: var(--white);
+            min-width: 160px;
+            cursor: pointer;
+            transition: var(--ease);
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234a5a65' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+        .cta-parents__select:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        .cta-parents__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 14px 32px;
+            border-radius: var(--r-md);
+            border: 2px solid var(--gold);
+            transition: var(--ease);
+            cursor: pointer;
+        }
+        .cta-parents__btn:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201, 168, 76, 0.25);
+        }
+        .cta-parents__note {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ============================================
+           FOOTER (matches lumenquest.html)
+        ============================================ */
+        .footer-cta {
+            background: var(--navy);
+            padding: 52px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .footer-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 40%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(201, 168, 76, 0.08) 0%, transparent 55%);
+            pointer-events: none;
+        }
+        .footer-cta__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 36px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 5vw, 60px);
+        }
+        .footer-cta__content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .footer-cta__title {
+            font-family: var(--font-h);
+            font-size: clamp(1.15rem, 2vw, 1.5rem);
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .footer-cta__text {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 420px;
+            line-height: 1.6;
+        }
+        .footer-cta__buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .footer-cta__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border-radius: var(--r-md);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: var(--ease);
+            white-space: nowrap;
+        }
+        .footer-cta__btn--outline {
+            background: transparent;
+            color: var(--white);
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+        }
+        .footer-cta__btn--outline:hover {
+            background: var(--white);
+            color: var(--navy);
+            border-color: var(--white);
+        }
+        .footer-cta__btn--teal {
+            background: var(--teal);
+            color: var(--white);
+            border: 1.5px solid var(--teal);
+        }
+        .footer-cta__btn--teal:hover {
+            background: var(--teal-light);
+            transform: translateY(-2px);
+        }
+        .footer-cta__btn--orange {
+            background: var(--orange);
+            color: var(--white);
+            border: 1.5px solid var(--orange);
+        }
+        .footer-cta__btn--orange:hover {
+            background: var(--orange-hover);
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: var(--navy);
+            padding: 28px 0;
+            text-align: center;
+        }
+        .footer__text {
+            font-size: 0.74rem;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        /* ============================================
+           RESPONSIVE (matches lumenquest.html)
+        ============================================ */
+        @media (max-width: 1200px) {
+            .resources__grid { grid-template-columns: repeat(2, 1fr); }
+            .programs__grid { grid-template-columns: repeat(3, 1fr); }
+            .how-parents__grid { grid-template-columns: repeat(2, 1fr); }
+            .how-parents__grid::before { display: none; }
+            .safety__inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .testimonial-parents__inner { grid-template-columns: 1fr 1fr; gap: 30px; }
+        }
+        @media (max-width: 1024px) {
+            .hero { min-height: auto; padding: 80px 0 40px; }
+            .hero__content { padding-top: 90px; }
+            .resources__grid { grid-template-columns: 1fr 1fr; }
+            .programs__grid { grid-template-columns: 1fr 1fr; }
+            .safety__inner { grid-template-columns: 1fr; text-align: center; }
+            .safety__left { align-items: center; }
+            .safety__list { text-align: left; max-width: 500px; margin: 0 auto; }
+            .safety__img-wrap { order: -1; }
+            .testimonial-parents__inner { grid-template-columns: 1fr; text-align: center; }
+            .testimonial-parents__right { align-items: center; }
+            .testimonial-parents__quote { text-align: left; }
+            .testimonial-parents__img-wrap { order: -1; }
+        }
+        @media (max-width: 992px) {
+            .nav__links {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: var(--navy);
+                flex-direction: column;
+                padding: 24px;
+                gap: 12px;
+                border-radius: 0 0 var(--r-lg) var(--r-lg);
+                box-shadow: var(--shadow-md);
+            }
+            .nav__links.open { display: flex; }
+            .nav__link { font-size: 0.85rem; padding: 10px 0; }
+            .nav__cta { display: none; }
+            .nav__burger { display: flex; }
+            .resources__grid { grid-template-columns: 1fr 1fr; }
+            .programs__grid { grid-template-columns: 1fr 1fr; }
+            .footer-cta__inner { flex-direction: column; text-align: center; }
+            .footer-cta__content { align-items: center; }
+        }
+        @media (max-width: 768px) {
+            .hero__title { font-size: 2.4rem; }
+            .hero__buttons { flex-direction: column; }
+            .hero__btn { width: 100%; justify-content: center; }
+            .resources__grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+            .programs__grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+            .how-parents__grid { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto; }
+            .cta-parents__form { flex-direction: column; width: 100%; }
+            .cta-parents__input { width: 100%; }
+            .cta-parents__select { width: 100%; }
+            .cta-parents__btn { width: 100%; justify-content: center; }
+            .footer-cta__buttons { flex-direction: column; width: 100%; }
+            .footer-cta__btn { width: 100%; justify-content: center; }
+        }
+        @media (max-width: 576px) {
+            .nav__inner { height: 64px; }
+            .nav__logo-text { font-size: 1.35rem; }
+            .hero { min-height: auto; padding: 80px 0 40px; }
+            .hero__title { font-size: 2rem; }
+            .hero__content { padding: 80px 20px 40px; }
+            .resources__title::before,
+            .resources__title::after,
+            .programs__title::before,
+            .programs__title::after,
+            .how-parents__title::before,
+            .how-parents__title::after { display: none; }
+            .resources__grid { max-width: 320px; }
+            .programs__grid { max-width: 320px; }
+        }
+        @media (max-width: 480px) {
+            .hero__title { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+           NAVBAR WITH DROPDOWN
+        ============================================ -->
+    <header class="nav" role="banner">
+        <div class="nav__inner">
+            <a href="lumenquest.html" class="nav__logo" aria-label="LumenQuest Home">
+                <span class="nav__logo-text">Lumen<span>Quest</span></span>
+                <span class="nav__logo-tag">Light Leads the Way</span>
+            </a>
+            <nav class="nav__links" role="navigation" aria-label="Main navigation">
+                <a href="lumenquest.html" class="nav__link">Home</a>
+                
+                <!-- Meet the Team with Dropdown -->
+                <div class="nav__link nav__link--dropdown">
+                    <span>Meet the Team <span class="dropdown-arrow">&#9662;</span></span>
+                    <div class="nav__dropdown">
+                        <a href="amara.html" class="nav__dropdown-item">
+                            <span class="item-icon item-icon--teal">&#9679;</span>
+                            <span class="item-text">
+                                <span class="item-name">Amara</span>
+                                <span class="item-role">The Aligner</span>
+                            </span>
+                            <span class="item-arrow">&#9654;</span>
+                        </a>
+                        <a href="leo.html" class="nav__dropdown-item">
+                            <span class="item-icon item-icon--navy">&#9679;</span>
+                            <span class="item-text">
+                                <span class="item-name">Leo</span>
+                                <span class="item-role">The Guardian</span>
+                            </span>
+                            <span class="item-arrow">&#9654;</span>
+                        </a>
+                        <a href="kai.html" class="nav__dropdown-item">
+                            <span class="item-icon item-icon--purple">&#9679;</span>
+                            <span class="item-text">
+                                <span class="item-name">Kai</span>
+                                <span class="item-role">The Pattern Seeker</span>
+                            </span>
+                            <span class="item-arrow">&#9654;</span>
+                        </a>
+                        <a href="joy.html" class="nav__dropdown-item">
+                            <span class="item-icon item-icon--pink">&#9679;</span>
+                            <span class="item-text">
+                                <span class="item-name">Joy</span>
+                                <span class="item-role">The Restorer of Hope</span>
+                            </span>
+                            <span class="item-arrow">&#9654;</span>
+                        </a>
+                        <div class="nav__dropdown-divider"></div>
+                        <a href="lumi.html" class="nav__dropdown-item">
+                            <span class="item-icon item-icon--gold">&#9679;</span>
+                            <span class="item-text">
+                                <span class="item-name">Lumi</span>
+                                <span class="item-role">The Lightwing Guide</span>
+                            </span>
+                            <span class="item-arrow">&#9654;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="explore-the-realm.html" class="nav__link">Explore the Realm</a>
+                <a href="adventure-club.html" class="nav__link">Adventure Club</a>
+                <a href="little-lights.html" class="nav__link">Little Lights</a>
+                <a href="parents.html" class="nav__link active">Parents</a>
+            </nav>
+            <a href="#join" class="nav__cta">Join the Adventure Club</a>
+            <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============================================
+           HERO (matches meet-the-team page)
+        ============================================ -->
+    <section class="hero" aria-label="For Parents">
+        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="hero__content">
+            <h1 class="hero__title">
+                <span>Raising Lights</span>
+                <span>Together</span>
+            </h1>
+            <p class="hero__subtitle">Built With Parents In Mind</p>
+            <p class="hero__text">LumenQuest is more than entertainment — it's a partner in your child's spiritual growth. We provide the tools, conversation guides, and Scripture-based resources you need to nurture faith at home.</p>
+            <div class="hero__feature">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                No one completes a LumenQuest alone.
+            </div>
+            <div class="hero__buttons">
+                <button class="hero__btn hero__btn--gold" onclick="alert('Coming soon!')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                    View Parent Guides
+                </button>
+                <a href="#safety" class="hero__btn hero__btn--outline">Our Safety Promise</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           RESOURCES
+        ============================================ -->
+    <section class="resources" aria-labelledby="resources-title">
+        <div class="resources__head reveal">
+            <h2 id="resources-title" class="resources__title">Resources For Every Step</h2>
+            <p class="resources__sub">Everything you need to guide your child's journey — from first questions to deep conversations about faith, truth, and purpose.</p>
+        </div>
+        <div class="resources__grid">
+            <div class="resource-card reveal d1">
+                <div class="resource-card__icon">&#128172;</div>
+                <h3 class="resource-card__title">Conversation Guides</h3>
+                <p class="resource-card__text">Scripture-based discussion prompts for every episode and character story. Turn screen time into heart time.</p>
+                <button class="resource-card__btn" onclick="alert('Coming soon!')">View Guides</button>
+            </div>
+            <div class="resource-card reveal d2">
+                <div class="resource-card__icon">&#128218;</div>
+                <h3 class="resource-card__title">Family Devotionals</h3>
+                <p class="resource-card__text">Weekly devotionals that connect LumenQuest themes to real life. 10 minutes. Big impact.</p>
+                <button class="resource-card__btn" onclick="alert('Coming soon!')">Read Devotionals</button>
+            </div>
+            <div class="resource-card reveal d3">
+                <div class="resource-card__icon">&#127912;</div>
+                <h3 class="resource-card__title">Activities & Crafts</h3>
+                <p class="resource-card__text">Printable coloring pages, crafts, and hands-on projects that reinforce the week's lesson.</p>
+                <button class="resource-card__btn" onclick="alert('Coming soon!')">Browse Activities</button>
+            </div>
+            <div class="resource-card reveal d1">
+                <div class="resource-card__icon">&#127919;</div>
+                <h3 class="resource-card__title">Adventure Club Missions</h3>
+                <p class="resource-card__text">Track your child's progress, celebrate badges, and encourage them through weekly challenges.</p>
+                <button class="resource-card__btn" onclick="alert('Coming soon!')">See Missions</button>
+            </div>
+            <div class="resource-card reveal d2">
+                <div class="resource-card__icon">&#128221;</div>
+                <h3 class="resource-card__title">Scripture Memory Cards</h3>
+                <p class="resource-card__text">Beautiful printable cards with weekly memory verses. Display them on the fridge, mirror, or bedside table.</p>
+                <button class="resource-card__btn" onclick="alert('Coming soon!')">Download Cards</button>
+            </div>
+            <div class="resource-card reveal d3">
+                <div class="resource-card__icon">&#128107;</div>
+                <h3 class="resource-card__title">Parent Community</h3>
+                <p class="resource-card__text">Connect with other LumenQuest families. Share ideas, ask questions, and grow together.</p>
+                <button class="resource-card__btn" onclick="alert('Coming soon!')">Join Community</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           PROGRAMS
+        ============================================ -->
+    <section class="programs" aria-labelledby="programs-title">
+        <div class="programs__head reveal">
+            <h2 id="programs-title" class="programs__title">Programs For Every Age</h2>
+            <p class="programs__sub">LumenQuest grows with your child. Choose the path that fits their stage of discovery.</p>
+        </div>
+        <div class="programs__grid">
+            <div class="program-card reveal d1">
+                <div class="program-card__img">
+                    <img src="images/disney.png" alt="Little Lights" loading="lazy">
+                </div>
+                <div class="program-card__body">
+                    <div class="program-card__age">Ages 3 &mdash; 7</div>
+                    <h3 class="program-card__title">Little Lights</h3>
+                    <p class="program-card__desc">Gentle stories, songs, and crafts for preschoolers. Planting seeds of truth in the youngest hearts.</p>
+                    <button class="program-card__btn program-card__btn--green" onclick="alert('Coming soon!')">Explore Little Lights</button>
+                </div>
+            </div>
+            <div class="program-card reveal d2">
+                <div class="program-card__img">
+                    <img src="images/disney.png" alt="Adventure Club" loading="lazy">
+                </div>
+                <div class="program-card__body">
+                    <div class="program-card__age">Ages 6 &mdash; 12</div>
+                    <h3 class="program-card__title">Adventure Club</h3>
+                    <p class="program-card__desc">Weekly missions, character activities, and devotionals for growing Adventurers ready to explore deeper.</p>
+                    <button class="program-card__btn program-card__btn--gold" onclick="alert('Coming soon!')">Join The Club</button>
+                </div>
+            </div>
+            <div class="program-card reveal d3">
+                <div class="program-card__img">
+                    <img src="images/disney.png" alt="Explore the Realm" loading="lazy">
+                </div>
+                <div class="program-card__body">
+                    <div class="program-card__age">All Ages</div>
+                    <h3 class="program-card__title">Explore The Realm</h3>
+                    <p class="program-card__desc">Discover the world of LumenQuest together. Watch episodes, meet characters, and explore the story as a family.</p>
+                    <button class="program-card__btn program-card__btn--orange" onclick="alert('Coming soon!')">Start Exploring</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           HOW IT WORKS
+        ============================================ -->
+    <section class="how-parents" aria-labelledby="how-title">
+        <div class="how-parents__bg" aria-hidden="true"></div>
+        <div class="how-parents__inner">
+            <div class="how-parents__head reveal">
+                <h2 id="how-title" class="how-parents__title">How It Works</h2>
+            </div>
+            <div class="how-parents__grid">
+                <div class="step-parent reveal d1">
+                    <div class="step-parent__num">1</div>
+                    <h3 class="step-parent__title">Choose A Program</h3>
+                    <p class="step-parent__text">Pick Little Lights, Adventure Club, or both based on your child's age and interests.</p>
+                </div>
+                <div class="step-parent reveal d2">
+                    <div class="step-parent__num">2</div>
+                    <h3 class="step-parent__title">Explore Together</h3>
+                    <p class="step-parent__text">Watch episodes, read stories, and complete activities side by side with your child.</p>
+                </div>
+                <div class="step-parent reveal d3">
+                    <div class="step-parent__num">3</div>
+                    <h3 class="step-parent__title">Talk & Reflect</h3>
+                    <p class="step-parent__text">Use our conversation guides to discuss the lesson and connect it to real life.</p>
+                </div>
+                <div class="step-parent reveal d4">
+                    <div class="step-parent__num">4</div>
+                    <h3 class="step-parent__title">Grow In Faith</h3>
+                    <p class="step-parent__text">Celebrate milestones, earn badges, and watch your child's faith and confidence grow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           SAFETY
+        ============================================ -->
+    <section class="safety" id="safety" aria-label="Our safety promise">
+        <div class="safety__inner">
+            <div class="safety__left reveal">
+                <h2 class="safety__title">A Safe Space For <span>Every</span> Child</h2>
+                <p class="safety__text">We built LumenQuest with your child's safety as our highest priority. No ads. No data tracking. No external links. Just truth, light, and love.</p>
+                <div class="safety__list">
+                    <div class="safety-item">
+                        <div class="safety-item__icon">&#128274;</div>
+                        <div class="safety-item__text">
+                            <strong>Ad-Free Experience</strong>
+                            No advertisements, pop-ups, or sponsored content. Ever.
+                        </div>
+                    </div>
+                    <div class="safety-item">
+                        <div class="safety-item__icon">&#128373;</div>
+                        <div class="safety-item__text">
+                            <strong>No Data Tracking</strong>
+                            We don't sell or share your child's data. Privacy is a promise.
+                        </div>
+                    </div>
+                    <div class="safety-item">
+                        <div class="safety-item__icon">&#9989;</div>
+                        <div class="safety-item__text">
+                            <strong>Parent-Approved Content</strong>
+                            Every story, activity, and lesson is reviewed for age-appropriateness and biblical accuracy.
+                        </div>
+                    </div>
+                    <div class="safety-item">
+                        <div class="safety-item__icon">&#127775;</div>
+                        <div class="safety-item__text">
+                            <strong>Positive Messaging Only</strong>
+                            Content that uplifts, encourages, and points children toward truth and love.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="safety__img-wrap reveal d1">
+                <img src="images/team.png" alt="Family enjoying LumenQuest safely" class="safety__img">
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           TESTIMONIAL
+        ============================================ -->
+    <section class="testimonial-parents" aria-label="Parent testimonial">
+        <div class="testimonial-parents__inner">
+            <div class="testimonial-parents__img-wrap reveal">
+                <img src="images/team.png" alt="Happy family" class="testimonial-parents__img">
+            </div>
+            <div class="testimonial-parents__right reveal d1">
+                <p class="testimonial-parents__quote">LumenQuest has transformed our bedtime routine. My kids actually ask to talk about God now. The conversation guides make it so easy for me to lead with confidence, even on hard days.</p>
+                <p class="testimonial-parents__text">As a working mom, I don't always have time to plan spiritual activities. LumenQuest gives me everything I need in one place — stories, crafts, devotions, and discussion prompts that actually work.</p>
+                <div class="testimonial-parents__author">
+                    <img src="images/char2.png" alt="Michelle R." class="testimonial-parents__avatar">
+                    <div>
+                        <div class="testimonial-parents__name">Michelle R.</div>
+                        <div class="testimonial-parents__role">Mom of two Adventurers, ages 5 and 8</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           CTA
+        ============================================ -->
+    <section class="cta-parents" id="join" aria-label="Sign up">
+        <div class="cta-parents__bg" aria-hidden="true"></div>
+        <div class="cta-parents__inner reveal">
+            <h2 class="cta-parents__title">Start Your Family's <span>Journey</span> Today</h2>
+            <p class="cta-parents__text">Join thousands of parents who are raising lights with LumenQuest. Get weekly resources, activity ideas, and encouragement delivered to your inbox.</p>
+            <form class="cta-parents__form" onsubmit="event.preventDefault(); alert('Thank you! We\'ll send resources to your inbox soon.');">
+                <input type="text" class="cta-parents__input" placeholder="Your First Name" aria-label="First name">
+                <input type="email" class="cta-parents__input" placeholder="Email Address" aria-label="Email address">
+                <select class="cta-parents__select" aria-label="Child's age">
+                    <option value="">Child's Age</option>
+                    <option value="3-5">Ages 3 &mdash; 5</option>
+                    <option value="6-8">Ages 6 &mdash; 8</option>
+                    <option value="9-12">Ages 9 &mdash; 12</option>
+                    <option value="13+">Ages 13+</option>
+                </select>
+                <button type="submit" class="cta-parents__btn">
+                    Get Parent Resources
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+            </form>
+            <p class="cta-parents__note">No spam. Unsubscribe anytime. A ministry of LightMode Ministries LLC.</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+           FOOTER CTA (matches lumenquest.html)
+        ============================================ -->
+    <section class="footer-cta" aria-label="Call to action">
+        <div class="footer-cta__inner">
+            <div class="footer-cta__content">
+                <h2 class="footer-cta__title">The Next Step Is Waiting</h2>
+                <p class="footer-cta__text">Meet the team, explore the activities, and join the Adventure Club. Follow where the light leads.</p>
+            </div>
+            <div class="footer-cta__buttons">
+                <a href="meet-the-team.html" class="footer-cta__btn footer-cta__btn--outline">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Meet the Team
+                </a>
+                <a href="explore-the-realm.html" class="footer-cta__btn footer-cta__btn--teal">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    Explore the Realm
+                </a>
+                <a href="adventure-club.html" class="footer-cta__btn footer-cta__btn--orange">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Join the Adventure Club
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+           FOOTER
+        ============================================ -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p class="footer__text">&copy; 2026 LumenQuest. Light Leads the Way. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+           JAVASCRIPT (matches lumenquest.html)
+        ============================================ -->
+    <script>
+    (function() {
+        'use strict';
+
+        // Mobile menu
+        const burger = document.querySelector('.nav__burger');
+        const links = document.querySelector('.nav__links');
+        if (burger && links) {
+            burger.addEventListener('click', function() {
+                const open = links.classList.toggle('open');
+                this.setAttribute('aria-expanded', open);
+                const spans = this.querySelectorAll('span');
+                if (open) {
+                    spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+            links.querySelectorAll('.nav__link, .nav__dropdown-item').forEach(function(l) {
+                l.addEventListener('click', function() {
+                    if (window.innerWidth <= 992) {
+                        links.classList.remove('open');
+                        burger.setAttribute('aria-expanded', 'false');
+                        const spans = burger.querySelectorAll('span');
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    }
+                });
+            });
+        }
+
+        // Handle dropdown on mobile
+        const dropdownToggles = document.querySelectorAll('.nav__link--dropdown > span');
+        dropdownToggles.forEach(function(toggle) {
+            toggle.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    const parent = this.closest('.nav__link--dropdown');
+                    parent.classList.toggle('active-dropdown');
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 40) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+        reveals.forEach(function(el) { obs.observe(el); });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+            a.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                const t = document.querySelector(href);
+                if (t) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: t.getBoundingClientRect().top + window.pageYOffset - 86,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    })();
+    </script>
+</body>
+</html>
