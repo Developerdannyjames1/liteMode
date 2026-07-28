@@ -395,10 +395,10 @@
             position: absolute;
             inset: 0;
             z-index: 0;
-            background: url('images/team.png');
+            background: url('images/adventure-hero.png');
             background-repeat: no-repeat;
-            background-position: 36% 20%;
-            background-size: 100%;
+            background-position: center;
+            background-size: cover;
         }
         .hero__bg::after {
             content: '';
@@ -1261,6 +1261,15 @@
             .footer-cta__btn { width: 100%; justify-content: center; }
             .how-works__title::before,
             .how-works__title::after { display: none; }
+             .hero__bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: url('images/adventure-hero.png');
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: cover;
+        }
         }
         @media (max-width: 576px) {
             .nav__inner { height: 64px; }
@@ -1347,7 +1356,10 @@
 
                 <a href="explore-the-realm.html" class="nav__link">Explore the Realm</a>
                 <a href="adventure-club.html" class="nav__link active">Adventure Club</a>
-                <a href="little-lights.html" class="nav__link">Little Lights</a>
+                <a href="little-lights.html" class="nav__link">
+    <span style="color: var(--purple); font-weight: 700;">Little</span>
+    <span style="color: var(--orange); font-weight: 700;">Lights</span>
+</a>
                 <a href="parents.html" class="nav__link">Parents</a>
             </nav>
             <a href="#join" class="nav__cta">Join the Adventure Club</a>

@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>🎵 Jesus Holds My Hand · Little Lights Bible Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: #f8f4ff;
+      color: #2d1b3d;
+      overflow-x: hidden;
+    }
+
+    :root {
+      --soft-lavender: #e8def8;
+      --deep-indigo: #2a1b4a;
+      --golden: #ffcd7a;
+      --coral: #ff8a80;
+      --sky: #7ec8e3;
+      --card-shadow: 0 20px 40px -12px rgba(42, 27, 74, 0.15);
+      --radius-xl: 40px;
+      --radius-lg: 28px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Fredoka One', cursive;
+      letter-spacing: 0.02em;
+    }
+
+    /* premium navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(200, 180, 220, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 52px;
+      width: auto;
+      filter: drop-shadow(0 4px 8px rgba(42, 27, 74, 0.08));
+    }
+
+    .logo-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.8rem;
+      background: linear-gradient(135deg, #6b3fa0, #b47aea);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1;
+    }
+
+    .logo-title span {
+      background: linear-gradient(135deg, #f9a825, #ffb74d);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.7rem;
+      color: #5a3f7a;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      background: transparent;
+      gap: 2px;
+    }
+
+    .nav-links li a svg {
+      width: 24px;
+      height: 24px;
+      fill: #7e5aa0;
+      transition: 0.2s;
+    }
+
+    .nav-links li a:hover {
+      background: rgba(110, 70, 160, 0.08);
+      color: #3f1f60;
+      transform: translateY(-2px);
+    }
+
+    .nav-links li a:hover svg {
+      fill: #4a2a6a;
+    }
+
+    .nav-cta {
+      background: linear-gradient(145deg, #7c4dbb, #5a2d8a);
+      color: white !important;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 18px rgba(92, 50, 150, 0.25);
+      transition: all 0.25s;
+      white-space: nowrap;
+      text-decoration: none;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .nav-cta:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 28px rgba(92, 50, 150, 0.35);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    /* HERO — premium & animated */
+    .hero {
+      position: relative;
+      min-height: 480px;
+      background: radial-gradient(circle at 20% 30%, #d4c4e8, #5a2d8a 75%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 70px 20px 100px;
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+      margin: 0 12px 0 12px;
+      box-shadow: 0 20px 40px rgba(42, 27, 74, 0.12);
+    }
+
+    .hero-deco {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero-star {
+      position: absolute;
+      fill: #fff7d6;
+      animation: twinkle 3.6s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.4); }
+    }
+
+    .hero-heart {
+      position: absolute;
+      fill: #ffb3c6;
+      animation: floatHeart 4s ease-in-out infinite;
+    }
+
+    .hero-music {
+      position: absolute;
+      fill: #90caf9;
+      opacity: 0.5;
+      animation: floatHeart 3.5s ease-in-out infinite;
+    }
+
+    @keyframes floatHeart {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-14px); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    .hero-left {
+      flex: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 8px 24px;
+      border-radius: 80px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+    }
+
+    .hero-badge svg {
+      width: 20px;
+      height: 20px;
+      fill: #ffd966;
+    }
+
+    .hero-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 3.8rem;
+      line-height: 1.1;
+      color: white;
+      text-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      margin-bottom: 6px;
+    }
+
+    .hero-title .c1 { color: #ffd966; }
+    .hero-title .c2 { color: #ffb74d; }
+    .hero-title .c3 { color: #a5d6a7; }
+    .hero-title .c4 { color: #90caf9; }
+
+    .hero-ribbon {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      display: inline-block;
+      padding: 10px 30px;
+      border-radius: 80px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1rem;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+
+    .hero-ribbon::before { content: '❤️ '; }
+    .hero-ribbon::after { content: ' ❤️'; }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.92);
+      max-width: 420px;
+      line-height: 1.7;
+      font-weight: 600;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .hero-right {
+      flex: 0 0 420px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .hero-right svg {
+      max-width: 100%;
+      max-height: 320px;
+      filter: drop-shadow(0 12px 30px rgba(0,0,0,0.08));
+    }
+
+    /* MAIN GRID */
+    .main-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 0.9fr;
+      gap: 24px;
+      margin-top: -20px;
+      position: relative;
+      z-index: 20;
+    }
+
+    /* LISTEN CARD */
+    .listen-card {
+      background: linear-gradient(145deg, #5a2d8a, #3f1f60);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      color: #fff;
+      box-shadow: 0 12px 40px rgba(92, 50, 150, 0.25);
+      transition: 0.3s;
+    }
+
+    .listen-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(92, 50, 150, 0.30);
+    }
+
+    .listen-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+
+    .listen-header svg {
+      width: 26px;
+      height: 26px;
+      fill: #ffd966;
+    }
+
+    .listen-sub {
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .listen-art {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 10px;
+      margin-bottom: 16px;
+      text-align: center;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .listen-art svg {
+      max-width: 100%;
+      max-height: 180px;
+      border-radius: 12px;
+    }
+
+    .listen-track {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .listen-play-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .listen-play-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.20);
+    }
+
+    .listen-play-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: #5a2d8a;
+      margin-left: 3px;
+    }
+
+    .listen-track-info h4 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1rem;
+    }
+
+    .listen-track-info p {
+      font-size: 0.8rem;
+      opacity: 0.75;
+    }
+
+    .listen-progress {
+      height: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+
+    .listen-progress-bar {
+      height: 100%;
+      width: 35%;
+      background: linear-gradient(90deg, #ffd966, #ffb74d);
+      border-radius: 10px;
+      transition: width 0.3s;
+    }
+
+    .listen-time {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      opacity: 0.6;
+      margin-bottom: 16px;
+    }
+
+    .listen-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+    }
+
+    .listen-ctrl-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+    }
+
+    .listen-ctrl-btn:hover {
+      transform: scale(1.15);
+      opacity: 1;
+    }
+
+    .listen-ctrl-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+    }
+
+    .listen-ctrl-btn.play {
+      width: 52px;
+      height: 52px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+      opacity: 1;
+    }
+
+    .listen-ctrl-btn.play svg {
+      width: 26px;
+      height: 26px;
+      fill: #5a2d8a;
+      margin-left: 3px;
+    }
+
+    /* LYRICS */
+    .lyrics-card {
+      background: #fff;
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      box-shadow: var(--card-shadow);
+      transition: 0.3s;
+    }
+
+    .lyrics-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px -12px rgba(42, 27, 74, 0.12);
+    }
+
+    .lyrics-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.2rem;
+      color: #c77d3e;
+      margin-bottom: 20px;
+    }
+
+    .lyrics-header svg {
+      width: 26px;
+      height: 26px;
+      fill: #c77d3e;
+    }
+
+    .lyrics-section {
+      margin-bottom: 18px;
+    }
+
+    .lyrics-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .lyrics-label.green { color: #2e7d4a; }
+    .lyrics-label.purple { color: #5a2d8a; }
+    .lyrics-label svg { width: 18px; height: 18px; fill: currentColor; }
+
+    .lyrics-text {
+      font-size: 0.9rem;
+      color: #2d1b3d;
+      line-height: 1.7;
+      font-weight: 600;
+      padding-left: 28px;
+    }
+
+    .lyrics-text p { margin-bottom: 2px; }
+
+    /* RIGHT COLUMN */
+    .right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .msg-card {
+      background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.04);
+      transition: 0.3s;
+    }
+
+    .msg-card:hover { transform: translateY(-4px); }
+
+    .msg-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.1rem;
+      color: #1a6a9e;
+      margin-bottom: 12px;
+    }
+
+    .msg-header svg { width: 24px; height: 24px; fill: #1a6a9e; }
+
+    .msg-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 12px;
+    }
+
+    .msg-text {
+      font-size: 0.9rem;
+      color: #1a3a4a;
+      line-height: 1.7;
+      font-weight: 600;
+    }
+
+    .msg-text p { margin-bottom: 2px; }
+
+    .theme-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.04);
+      transition: 0.3s;
+    }
+
+    .theme-card:hover { transform: translateY(-4px); }
+
+    .theme-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.1rem;
+      color: #5a2d8a;
+      margin-bottom: 14px;
+    }
+
+    .theme-header svg { width: 24px; height: 24px; fill: #5a2d8a; }
+
+    .theme-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .theme-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #2d1b3d;
+    }
+
+    .theme-list li svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+    .pray-card {
+      background: linear-gradient(145deg, #e8f5e9, #c8e6c9);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.04);
+      transition: 0.3s;
+    }
+
+    .pray-card:hover { transform: translateY(-4px); }
+
+    .pray-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.1rem;
+      color: #2e7d4a;
+      margin-bottom: 12px;
+    }
+
+    .pray-header svg { width: 24px; height: 24px; fill: #2e7d4a; }
+
+    .pray-text {
+      font-size: 0.9rem;
+      color: #1a3a2a;
+      line-height: 1.8;
+      font-weight: 600;
+    }
+
+    .pray-text p { margin-bottom: 2px; }
+
+    .pray-heart {
+      text-align: right;
+      margin-top: 8px;
+    }
+
+    .pray-heart svg { width: 22px; height: 22px; fill: #f9847a; }
+
+    /* ABOUT */
+    .about-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 30px;
+    }
+
+    .about-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.04);
+      max-width: 400px;
+      transition: 0.3s;
+    }
+
+    .about-card:hover { transform: translateY(-4px); }
+
+    .about-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.1rem;
+      color: #1a6a9e;
+      margin-bottom: 10px;
+    }
+
+    .about-header svg { width: 24px; height: 24px; fill: #1a6a9e; }
+
+    .about-text {
+      font-size: 0.9rem;
+      color: #5a3f7a;
+      line-height: 1.6;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .about-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .about-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 60px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .about-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .about-btn.fav {
+      background: #fce4ec;
+      color: #d94f6d;
+      border-color: #f8bbd0;
+    }
+
+    .about-btn.share {
+      background: #e3f2fd;
+      color: #1a6a9e;
+      border-color: #90caf9;
+    }
+
+    .about-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+    /* FUN SECTION */
+    .fun-section {
+      background: linear-gradient(180deg, #f8f4ff 0%, #fdf1e6 100%);
+      padding: 50px 20px 60px;
+    }
+
+    .fun-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .fun-title {
+      text-align: center;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.6rem;
+      color: #c77d3e;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .fun-title svg { width: 28px; height: 28px; fill: #ffd966; }
+
+    .fun-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+
+    .fun-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 24px 16px;
+      text-align: center;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.04);
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+      border: 2px solid transparent;
+    }
+
+    .fun-card:hover {
+      border-color: #b47aea;
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -12px rgba(42, 27, 74, 0.08);
+    }
+
+    .fun-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .fun-card:nth-child(1) .fun-icon { background: linear-gradient(145deg, #4a9ddb, #1a6a9e); }
+    .fun-card:nth-child(2) .fun-icon { background: linear-gradient(145deg, #f57a7a, #d94f6d); }
+    .fun-card:nth-child(3) .fun-icon { background: linear-gradient(145deg, #4caf50, #2e7d32); }
+    .fun-card:nth-child(4) .fun-icon { background: linear-gradient(145deg, #8b5ecf, #5a2d8a); }
+
+    .fun-icon svg { width: 32px; height: 32px; fill: #fff; }
+
+    .fun-card h4 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1rem;
+      color: #2d1b3d;
+      margin-bottom: 4px;
+    }
+
+    .fun-card p {
+      font-size: 0.85rem;
+      color: #5a3f7a;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .remember-badge {
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(145deg, #5a2d8a, #3f1f60);
+      color: #fff;
+      padding: 20px;
+      border-radius: 50%;
+      width: 140px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.85rem;
+      font-weight: 600;
+      line-height: 1.4;
+      box-shadow: 0 12px 32px rgba(92, 50, 150, 0.25);
+      z-index: 10;
+    }
+
+    .remember-badge svg {
+      width: 18px;
+      height: 18px;
+      fill: #ffd966;
+      display: block;
+      margin: 0 auto 4px;
+    }
+
+    .remember-badge span { color: #ffd966; font-size: 1rem; }
+
+    /* FOOTER */
+    .footer {
+      background: #fff;
+      padding: 40px 20px 30px;
+      text-align: center;
+      border-top: 1px solid #ede7f6;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-logo img { height: 48px; width: auto; }
+
+    .footer-btn {
+      background: linear-gradient(145deg, #7c4dbb, #5a2d8a);
+      color: white;
+      padding: 14px 36px;
+      border-radius: 60px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 12px 28px rgba(92, 50, 150, 0.25);
+      transition: 0.2s;
+    }
+
+    .footer-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 16px 36px rgba(92, 50, 150, 0.35);
+    }
+
+    .footer-btn svg { width: 24px; height: 24px; fill: #ffd966; }
+
+    .footer-copy {
+      font-size: 0.85rem;
+      color: #5a3f7a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .footer-copy svg { width: 18px; height: 18px; fill: #f9847a; }
+
+    /* responsive */
+    @media (max-width: 1100px) {
+      .main-grid { grid-template-columns: 1fr 1fr; }
+      .right-col { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; }
+      .right-col > * { flex: 1; min-width: 250px; }
+      .hero-title { font-size: 3rem; }
+      .hero-right { flex: 0 0 320px; }
+    }
+
+    @media (max-width: 992px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 24px;
+        gap: 8px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        border-radius: 0 0 40px 40px;
+      }
+      .nav-links.active { display: flex; }
+      .nav-links li a { flex-direction: row; font-size: 1rem; padding: 12px 16px; width: 100%; }
+      .mobile-menu-btn { display: block; }
+      .hero { border-radius: 32px; margin: 0 8px; }
+      .hero-content { flex-direction: column; text-align: center; }
+      .hero-right { flex: none; }
+      .main-grid { grid-template-columns: 1fr; }
+      .right-col { flex-direction: column; }
+      .fun-grid { grid-template-columns: 1fr 1fr; }
+      .remember-badge {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin: 24px auto 0;
+        width: 150px;
+        height: 150px;
+      }
+      .hero-title { font-size: 2.6rem; }
+      .nav-cta { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 2.2rem; }
+      .hero-ribbon { font-size: 0.85rem; padding: 8px 20px; }
+      .hero-badge { font-size: 0.75rem; padding: 6px 18px; }
+      .fun-grid { grid-template-columns: 1fr; }
+      .about-card { max-width: 100%; }
+      .listen-art svg { max-height: 140px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 1.8rem; }
+      .hero-desc { font-size: 0.95rem; }
+      .listen-card { padding: 20px; }
+      .lyrics-card { padding: 20px; }
+      .footer-btn { font-size: 0.9rem; padding: 12px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">
+      
+      <span class="logo-title">Little <span>Lights</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="little-lights.html"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Home</a></li>
+      <li><a href="little-rest.html"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Rest</a></li>
+      <li><a href="little-lights-grow.html"><svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zm-9-9c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9zm9-9c-4.97 0-9 4.03-9 9 4.97 0 9-4.03 9-9zm5.65-2.65L12 2 6.35 7.65l1.41 1.41L12 4.83l4.24 4.23 1.41-1.41z"/></svg> Grow</a></li>
+      <li><a href="little-lights-stories.html"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H3V5h18v11zM9 8l7 4-7 4V8z"/></svg> Stories</a></li>
+      <li><a href="little-lights-bible-study.html"><svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4zm12 16H6V4h12v16z"/><path d="M12 7h1.5v3H16v1.5h-2.5V15H12v-3.5H9.5V10H12z"/></svg> Bible</a></li>
+      <li><a href="little-lights-family.html"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> Family</a></li>
+      <li><a href="little-lights-teens.html"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg> Colors</a></li>
+      <li><a href="little-resource.html"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg> Resources</a></li>
+    </ul>
+    <a href="#" class="nav-cta">🎵 Bible Study</a>
+    <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('active')">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="#4a2a6a"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-deco">
+    <svg class="hero-star" style="top:10%;left:8%;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="hero-star" style="top:20%;right:12%;width:18px;height:18px;animation-delay:0.6s;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="hero-star" style="bottom:25%;left:6%;width:20px;height:20px;animation-delay:1.2s;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="hero-star" style="bottom:30%;right:6%;width:16px;height:16px;animation-delay:0.9s;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="hero-heart" style="top:15%;left:30%;width:18px;height:18px;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <svg class="hero-heart" style="bottom:35%;right:20%;width:16px;height:16px;animation-delay:1.5s;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <svg class="hero-music" style="top:25%;left:50%;width:20px;height:20px;animation-delay:0.3s;" viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>
+    <svg class="hero-music" style="bottom:30%;left:35%;width:16px;height:16px;animation-delay:1s;" viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>
+        ORIGINAL SONG
+      </div>
+      <h1 class="hero-title"><span class="c1">Jesus</span><br><span class="c2">Holds</span> <span class="c3">My</span> <span class="c4">Hand</span></h1>
+      <div class="hero-ribbon">I'm never alone, He's with me every step.</div>
+      <p class="hero-desc">A comforting song that reminds little hearts that Jesus is always with them.</p>
+    </div>
+    <div class="hero-right">
+      <svg viewBox="0 0 420 320" width="420">
+        <circle cx="30" cy="280" r="8" fill="none" stroke="#FF6B9D" stroke-width="2"/>
+        <circle cx="30" cy="280" r="3" fill="#FFD700"/>
+        <line x1="30" y1="288" x2="30" y2="310" stroke="#7CB342" stroke-width="2"/>
+        <circle cx="15" cy="290" r="6" fill="none" stroke="#42A5F5" stroke-width="2"/>
+        <circle cx="15" cy="290" r="2.5" fill="#FFD700"/>
+        <line x1="15" y1="296" x2="15" y2="315" stroke="#7CB342" stroke-width="2"/>
+        <circle cx="45" cy="295" r="7" fill="none" stroke="#FF8C42" stroke-width="2"/>
+        <circle cx="45" cy="295" r="3" fill="#FFD700"/>
+        <line x1="45" y1="302" x2="45" y2="318" stroke="#7CB342" stroke-width="2"/>
+        <path d="M0 300 Q100 290 210 295 Q320 300 420 290 L420 320 L0 320Z" fill="#C8E6C9"/>
+        <path d="M0 310 Q120 300 210 305 Q300 310 420 300 L420 320 L0 320Z" fill="#A5D6A7"/>
+        <ellipse cx="280" cy="295" rx="18" ry="6" fill="#E8C9A0" opacity="0.5"/>
+        <rect x="268" y="255" width="8" height="35" rx="3" fill="#FFCC80"/>
+        <rect x="284" y="255" width="8" height="35" rx="3" fill="#FFCC80"/>
+        <ellipse cx="272" cy="292" rx="8" ry="4" fill="#FF6B9D"/>
+        <ellipse cx="288" cy="292" rx="8" ry="4" fill="#FF6B9D"/>
+        <path d="M260 200 Q280 190 300 200 L310 260 Q280 270 250 260Z" fill="#FF6B9D"/>
+        <path d="M260 200 Q280 190 300 200 L305 230 Q280 240 255 230Z" fill="#FF8C42" opacity="0.3"/>
+        <path d="M260 210 Q240 170 235 150" stroke="#FFCC80" stroke-width="7" stroke-linecap="round" fill="none"/>
+        <path d="M300 210 Q320 170 325 150" stroke="#FFCC80" stroke-width="7" stroke-linecap="round" fill="none"/>
+        <circle cx="235" cy="148" r="6" fill="#FFCC80"/>
+        <circle cx="325" cy="148" r="6" fill="#FFCC80"/>
+        <ellipse cx="280" cy="175" rx="22" ry="24" fill="#FFCC80"/>
+        <ellipse cx="280" cy="170" rx="18" ry="20" fill="#FFE0B2"/>
+        <ellipse cx="280" cy="158" rx="20" ry="14" fill="#5D4037"/>
+        <ellipse cx="260" cy="165" rx="10" ry="14" fill="#5D4037"/>
+        <ellipse cx="300" cy="165" rx="10" ry="14" fill="#5D4037"/>
+        <ellipse cx="252" cy="155" rx="6" ry="4" fill="#FF6B9D" transform="rotate(-20 252 155)"/>
+        <ellipse cx="308" cy="155" rx="6" ry="4" fill="#FF6B9D" transform="rotate(20 308 155)"/>
+        <circle cx="273" cy="172" r="3" fill="#333"/>
+        <circle cx="287" cy="172" r="3" fill="#333"/>
+        <circle cx="274" cy="171" r="1" fill="#fff"/>
+        <circle cx="288" cy="171" r="1" fill="#fff"/>
+        <path d="M277 180 Q280 184 283 180" stroke="#333" stroke-width="1.5" fill="none"/>
+        <path d="M280 225 C280 221 276 219 274 221 C272 219 268 221 268 225 C268 229 274 234 274 234 C274 234 280 229 280 225Z" fill="#fff"/>
+        <ellipse cx="200" cy="295" rx="16" ry="5" fill="#E8C9A0" opacity="0.5"/>
+        <rect x="190" y="255" width="7" height="35" rx="3" fill="#FFCC80"/>
+        <rect x="203" y="255" width="7" height="35" rx="3" fill="#FFCC80"/>
+        <ellipse cx="193" cy="292" rx="7" ry="3.5" fill="#1565C0"/>
+        <ellipse cx="206" cy="292" rx="7" ry="3.5" fill="#1565C0"/>
+        <rect x="185" y="205" width="30" height="50" rx="8" fill="#7CB342"/>
+        <path d="M200 220 L202 226 L208 226 L203 230 L205 236 L200 232 L195 236 L197 230 L192 226 L198 226Z" fill="#FFD700"/>
+        <path d="M178 215 Q170 200 175 190" stroke="#FFCC80" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <path d="M222 215 Q230 200 225 190" stroke="#FFCC80" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <circle cx="175" cy="188" r="5" fill="#FFCC80"/>
+        <circle cx="225" cy="188" r="5" fill="#FFCC80"/>
+        <ellipse cx="200" cy="180" rx="20" ry="22" fill="#FFCC80"/>
+        <ellipse cx="200" cy="175" rx="16" ry="18" fill="#FFE0B2"/>
+        <ellipse cx="200" cy="165" rx="18" ry="12" fill="#5D4037"/>
+        <circle cx="194" cy="176" r="2.5" fill="#333"/>
+        <circle cx="206" cy="176" r="2.5" fill="#333"/>
+        <path d="M197 183 Q200 186 203 183" stroke="#333" stroke-width="1.2" fill="none"/>
+        <ellipse cx="340" cy="295" rx="16" ry="5" fill="#E8C9A0" opacity="0.5"/>
+        <rect x="330" y="255" width="7" height="35" rx="3" fill="#FFCC80"/>
+        <rect x="343" y="255" width="7" height="35" rx="3" fill="#FFCC80"/>
+        <ellipse cx="333" cy="292" rx="7" ry="3.5" fill="#7C3AED"/>
+        <ellipse cx="346" cy="292" rx="7" ry="3.5" fill="#7C3AED"/>
+        <rect x="325" y="205" width="30" height="50" rx="8" fill="#CE93D8"/>
+        <circle cx="333" cy="220" r="2" fill="#fff" opacity="0.6"/>
+        <circle cx="347" cy="225" r="2" fill="#fff" opacity="0.6"/>
+        <circle cx="335" cy="235" r="2" fill="#fff" opacity="0.6"/>
+        <circle cx="345" cy="240" r="2" fill="#fff" opacity="0.6"/>
+        <path d="M318 215 Q310 195 315 185" stroke="#FFCC80" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <path d="M362 215 Q375 195 370 180" stroke="#FFCC80" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <circle cx="315" cy="183" r="5" fill="#FFCC80"/>
+        <circle cx="370" cy="178" r="5" fill="#FFCC80"/>
+        <ellipse cx="340" cy="180" rx="20" ry="22" fill="#FFCC80"/>
+        <ellipse cx="340" cy="175" rx="16" ry="18" fill="#FFE0B2"/>
+        <ellipse cx="340" cy="165" rx="18" ry="12" fill="#8D6E63"/>
+        <ellipse cx="355" cy="158" rx="7" ry="5" fill="#CE93D8" transform="rotate(15 355 158)"/>
+        <circle cx="334" cy="176" r="2.5" fill="#333"/>
+        <circle cx="346" cy="176" r="2.5" fill="#333"/>
+        <path d="M337 183 Q340 186 343 183" stroke="#333" stroke-width="1.2" fill="none"/>
+        <ellipse cx="140" cy="295" rx="16" ry="5" fill="#E8C9A0" opacity="0.5"/>
+        <rect x="130" y="255" width="7" height="35" rx="3" fill="#FFCC80"/>
+        <rect x="143" y="255" width="7" height="35" rx="3" fill="#FFCC80"/>
+        <ellipse cx="133" cy="292" rx="7" ry="3.5" fill="#1565C0"/>
+        <ellipse cx="146" cy="292" rx="7" ry="3.5" fill="#1565C0"/>
+        <rect x="122" y="205" width="36" height="50" rx="8" fill="#42A5F5"/>
+        <rect x="122" y="215" width="36" height="8" rx="2" fill="#fff"/>
+        <rect x="122" y="230" width="36" height="8" rx="2" fill="#fff"/>
+        <rect x="122" y="245" width="36" height="8" rx="2" fill="#fff"/>
+        <path d="M115 215 Q108 200 112 190" stroke="#FFCC80" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <path d="M165 215 Q172 200 168 190" stroke="#FFCC80" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <circle cx="112" cy="188" r="5" fill="#FFCC80"/>
+        <circle cx="168" cy="188" r="5" fill="#FFCC80"/>
+        <ellipse cx="140" cy="180" rx="20" ry="22" fill="#FFCC80"/>
+        <ellipse cx="140" cy="175" rx="16" ry="18" fill="#FFE0B2"/>
+        <ellipse cx="140" cy="165" rx="18" ry="12" fill="#5D4037"/>
+        <circle cx="134" cy="176" r="2.5" fill="#333"/>
+        <circle cx="146" cy="176" r="2.5" fill="#333"/>
+        <path d="M137 183 Q140 186 143 183" stroke="#333" stroke-width="1.2" fill="none"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN GRID -->
+<div class="main-grid">
+  <!-- LISTEN CARD -->
+  <div class="listen-card">
+    <div class="listen-header">
+      <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>
+      LISTEN & SING ALONG!
+    </div>
+    <p class="listen-sub">Press play and enjoy<br>"Jesus Holds My Hand!"</p>
+    <div class="listen-art">
+      <svg viewBox="0 0 280 200" width="260">
+        <defs>
+          <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#90CAF9"/>
+            <stop offset="50%" style="stop-color:#FFE0B2"/>
+            <stop offset="100%" style="stop-color:#FFCC80"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="280" height="200" fill="url(#skyGrad)" rx="10"/>
+        <circle cx="220" cy="40" r="25" fill="#FFD700" opacity="0.8"/>
+        <circle cx="220" cy="40" r="18" fill="#FFEB3B"/>
+        <ellipse cx="50" cy="35" rx="25" ry="12" fill="#fff" opacity="0.7"/>
+        <ellipse cx="65" cy="30" rx="18" ry="10" fill="#fff" opacity="0.7"/>
+        <ellipse cx="35" cy="32" rx="15" ry="9" fill="#fff" opacity="0.7"/>
+        <path d="M0 140 Q70 100 140 130 Q210 100 280 120 L280 200 L0 200Z" fill="#81C784"/>
+        <path d="M0 160 Q80 130 160 150 Q240 130 280 145 L280 200 L0 200Z" fill="#66BB6A"/>
+        <rect x="130" y="75" width="8" height="50" rx="2" fill="#8D6E63"/>
+        <rect x="115" y="90" width="38" height="8" rx="2" fill="#8D6E63"/>
+        <path d="M134 125 Q120 150 100 170 Q80 185 60 200 L110 200 Q130 180 140 160 Q148 145 142 125Z" fill="#D7CCC8"/>
+        <circle cx="40" cy="170" r="5" fill="#FF6B9D"/>
+        <circle cx="40" cy="170" r="2" fill="#FFD700"/>
+        <line x1="40" y1="175" x2="40" y2="185" stroke="#7CB342" stroke-width="2"/>
+        <circle cx="70" cy="180" r="4" fill="#42A5F5"/>
+        <circle cx="70" cy="180" r="1.5" fill="#FFD700"/>
+        <line x1="70" y1="184" x2="70" y2="192" stroke="#7CB342" stroke-width="2"/>
+        <circle cx="200" cy="175" r="5" fill="#FF8C42"/>
+        <circle cx="200" cy="175" r="2" fill="#FFD700"/>
+        <line x1="200" y1="180" x2="200" y2="190" stroke="#7CB342" stroke-width="2"/>
+        <circle cx="240" cy="165" r="4" fill="#FF6B9D"/>
+        <circle cx="240" cy="165" r="1.5" fill="#FFD700"/>
+        <line x1="240" y1="169" x2="240" y2="178" stroke="#7CB342" stroke-width="2"/>
+        <path d="M30 60 C30 56 26 54 24 56 C22 54 18 56 18 60 C18 64 24 69 24 69 C24 69 30 64 30 60Z" fill="#FF6B9D" opacity="0.6"/>
+        <path d="M250 80 C250 77 247 75 245 77 C243 75 240 77 240 80 C240 83 245 87 245 87 C245 87 250 83 250 80Z" fill="#FF6B9D" opacity="0.5"/>
+        <text x="140" y="55" text-anchor="middle" font-family="Fredoka,sans-serif" font-size="22" font-weight="700" fill="#7C3AED">Jesus</text>
+        <text x="140" y="78" text-anchor="middle" font-family="Fredoka,sans-serif" font-size="18" font-weight="700" fill="#FF8C42">Holds My Hand</text>
+      </svg>
+    </div>
+    <div class="listen-track">
+      <div class="listen-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="listen-track-info">
+        <h4>Jesus Holds My Hand</h4>
+        <p>Original Song</p>
+      </div>
+    </div>
+    <div class="listen-progress"><div class="listen-progress-bar"></div></div>
+    <div class="listen-time"><span>0:00</span><span>2:58</span></div>
+    <div class="listen-controls">
+      <button class="listen-ctrl-btn"><svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg></button>
+      <button class="listen-ctrl-btn"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg></button>
+      <button class="listen-ctrl-btn play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+      <button class="listen-ctrl-btn"><svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg></button>
+      <button class="listen-ctrl-btn"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+    </div>
+  </div>
+
+  <!-- LYRICS -->
+  <div class="lyrics-card">
+    <div class="lyrics-header">
+      <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>
+      SONG LYRICS
+    </div>
+    <div class="lyrics-section">
+      <div class="lyrics-label purple"><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg> VERSE 1</div>
+      <div class="lyrics-text"><p>When I wake up in the morning</p><p>And the sun begins to shine,</p><p>Jesus is right beside me,</p><p>His love is always mine.</p></div>
+    </div>
+    <div class="lyrics-section">
+      <div class="lyrics-label green"><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg> CHORUS</div>
+      <div class="lyrics-text"><p>Jesus holds my hand,</p><p>He walks with me.</p><p>He knows my name,</p><p>He cares for me.</p><p>Through the happy days</p><p>And through the hard,</p><p>Jesus holds my hand—</p><p>I'm never alone!</p></div>
+    </div>
+    <div class="lyrics-section">
+      <div class="lyrics-label purple"><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg> VERSE 2</div>
+      <div class="lyrics-text"><p>When I'm scared or feeling worried,</p><p>He whispers, "Do not fear."</p><p>Jesus is my best friend,</p><p>He's always close and near.</p></div>
+    </div>
+    <div class="lyrics-section">
+      <div class="lyrics-label green"><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg> CHORUS (Repeat)</div>
+    </div>
+    <div class="lyrics-section">
+      <div class="lyrics-label purple"><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg> BRIDGE</div>
+      <div class="lyrics-text"><p>He leads me, He protects me,</p><p>He gives me peace inside.</p><p>With Jesus by my side,</p><p>I can do all things!</p></div>
+    </div>
+    <div class="lyrics-section">
+      <div class="lyrics-label green"><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg> CHORUS (2X)</div>
+      <div class="lyrics-text"><p>Jesus holds my hand...</p></div>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div class="right-col">
+    <div class="msg-card">
+      <div class="msg-header"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> SONG MESSAGE</div>
+      <div class="msg-icon"><svg viewBox="0 0 70 70" width="70" height="70"><circle cx="35" cy="35" r="30" fill="#FF6B9D" opacity="0.2"/><path d="M35 60 C35 50 15 40 15 28 C15 18 24 12 35 12 C46 12 55 18 55 28 C55 40 35 50 35 60Z" fill="#FF6B9D"/><path d="M35 25 L35 42 M28 32 L35 25 L42 32" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"/></svg></div>
+      <div class="msg-text"><p>Jesus is with me</p><p>wherever I go.</p><p>He holds my hand</p><p>and helps me every day.</p><p>I am loved, safe, and</p><p>never alone!</p></div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-header"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> SONG THEME</div>
+      <ul class="theme-list">
+        <li><svg viewBox="0 0 24 24" fill="#FF6B9D"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Jesus loves me</li>
+        <li><svg viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> He is always with me</li>
+        <li><svg viewBox="0 0 24 24" fill="#7C3AED"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg> He guides me each day</li>
+        <li><svg viewBox="0 0 24 24" fill="#42A5F5"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg> I am safe in His care</li>
+      </ul>
+    </div>
+
+    <div class="pray-card">
+      <div class="pray-header"><svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zm-9-9c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9zm9-9c-4.97 0-9 4.03-9 9 4.97 0 9-4.03 9-9zm5.65-2.65L12 2 6.35 7.65l1.41 1.41L12 4.83l4.24 4.23 1.41-1.41z"/></svg> LET'S PRAY</div>
+      <div class="pray-text"><p>Dear Jesus,</p><p>Thank You for holding my hand</p><p>and never leaving me.</p><p>Help me trust You every day</p><p>and follow Your light.</p><p>I love You, Jesus. Amen.</p></div>
+      <div class="pray-heart"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about-section">
+  <div class="about-card">
+    <div class="about-header"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> ABOUT THE SONG</div>
+    <p class="about-text">This sweet and joyful song reminds children that Jesus is always with them—holding their hand through every moment, guiding, loving, and protecting them each day.</p>
+    <div class="about-btns">
+      <a href="#" class="about-btn fav"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Add to Favorites</a>
+      <a href="#" class="about-btn share"><svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg> Share with Family</a>
+    </div>
+  </div>
+</div>
+
+<!-- FUN SECTION -->
+<section class="fun-section">
+  <div class="fun-container">
+    <div class="fun-title">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      FUN WAYS TO ENJOY THE SONG!
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </div>
+    <div class="fun-grid">
+      <div class="fun-card">
+        <div class="fun-icon"><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg></div>
+        <h4>Sing & Dance</h4>
+        <p>Sing it loud and move your body for Jesus!</p>
+      </div>
+      <div class="fun-card">
+        <div class="fun-icon"><svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></div>
+        <h4>Draw & Color</h4>
+        <p>Draw a picture of you holding Jesus' hand.</p>
+      </div>
+      <div class="fun-card">
+        <div class="fun-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+        <h4>Pray & Thank</h4>
+        <p>Thank Jesus for being with you always.</p>
+      </div>
+      <div class="fun-card">
+        <div class="fun-icon"><svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg></div>
+        <h4>Share the Song</h4>
+        <p>Sing this song with your family and friends!</p>
+      </div>
+      <div class="remember-badge">
+        <div>
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          Every time you sing this song, remember:<br><span>Jesus holds my hand!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      
+      <span class="logo-title" style="font-size:1.6rem;">Little <span>Lights</span></span>
+    </div>
+    <a href="#" class="footer-btn">
+      <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4zm12 16H6V4h12v16z"/><path d="M12 7h1.5v3H16v1.5h-2.5V15H12v-3.5H9.5V10H12z"/></svg>
+      Start Bible Study Today
+    </a>
+    <div class="footer-copy">
+      <span>Created with love by Kuaretta Lawrence for LightMode Ministries</span>
+      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    </div>
+    <div class="footer-copy" style="margin-top:-6px;">2026 LightMode Ministries LLC. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>

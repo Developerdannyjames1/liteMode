@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>📖 Little Lights Stories · Faith-Filled Adventures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: #fbf6f0;
+      color: #2d1b3d;
+      overflow-x: hidden;
+    }
+
+    :root {
+      --soft-peach: #fde8d0;
+      --deep-amber: #8a5a2a;
+      --golden: #f9c74f;
+      --coral: #f9847a;
+      --sky: #7ec8e3;
+      --card-shadow: 0 20px 40px -12px rgba(42, 27, 74, 0.12);
+      --radius-xl: 40px;
+      --radius-lg: 28px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Fredoka One', cursive;
+      letter-spacing: 0.02em;
+    }
+
+    /* premium navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.80);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 215, 200, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 52px;
+      width: auto;
+      filter: drop-shadow(0 4px 8px rgba(42, 27, 74, 0.08));
+    }
+
+    .logo-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.8rem;
+      background: linear-gradient(135deg, #c77d3e, #e8a55e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1;
+    }
+
+    .logo-title span {
+      background: linear-gradient(135deg, #6b3fa0, #b47aea);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.7rem;
+      color: #5a3f7a;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      background: transparent;
+      gap: 2px;
+    }
+
+    .nav-links li a svg {
+      width: 24px;
+      height: 24px;
+      fill: #7e5aa0;
+      transition: 0.2s;
+    }
+
+    .nav-links li a:hover {
+      background: rgba(110, 70, 160, 0.08);
+      color: #3f1f60;
+      transform: translateY(-2px);
+    }
+
+    .nav-links li a:hover svg {
+      fill: #4a2a6a;
+    }
+
+    .nav-cta {
+      background: linear-gradient(145deg, #c77d3e, #a8622a);
+      color: white !important;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 18px rgba(200, 125, 62, 0.25);
+      transition: all 0.25s;
+      white-space: nowrap;
+      text-decoration: none;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .nav-cta:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 28px rgba(200, 125, 62, 0.35);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    /* HERO — premium & animated */
+    .hero {
+      position: relative;
+      min-height: 480px;
+      background: radial-gradient(circle at 20% 30%, #fde8d0, #dba87a 75%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 70px 20px 100px;
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+      margin: 0 12px 0 12px;
+      box-shadow: 0 20px 40px rgba(42, 27, 74, 0.10);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero-cloud {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.10);
+      border-radius: 100px;
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-sparkle {
+      position: absolute;
+      fill: #fff7d6;
+      animation: twinkle 3.6s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.4); }
+    }
+
+    .hero-book {
+      position: absolute;
+      bottom: -10px;
+      right: 4%;
+      width: 180px;
+      height: auto;
+      animation: floatBook 5s ease-in-out infinite;
+      z-index: 5;
+    }
+
+    @keyframes floatBook {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50% { transform: translateY(-16px) rotate(-2deg); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 740px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 10px 28px;
+      border-radius: 80px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      margin-bottom: 16px;
+    }
+
+    .hero-badge svg {
+      width: 22px;
+      height: 22px;
+      fill: #ffd966;
+    }
+
+    .hero-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 3.8rem;
+      color: white;
+      text-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .hero-title span {
+      color: #ffd966;
+    }
+
+    .hero-desc {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.92);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-weight: 600;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    /* section headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .section-header h2 {
+      font-size: 2.2rem;
+      color: #3f1f60;
+      letter-spacing: 0.5px;
+    }
+
+    .section-header svg {
+      width: 32px;
+      height: 32px;
+      fill: #f9c74f;
+    }
+
+    /* FEATURED */
+    .featured-section {
+      padding: 60px 20px;
+      background: white;
+      border-radius: 60px 60px 0 0;
+      margin: 0 12px;
+      margin-top: -10px;
+      box-shadow: 0 -10px 30px rgba(42, 27, 74, 0.02);
+    }
+
+    .featured-container { max-width: 1200px; margin: 0 auto; }
+
+    .featured-card {
+      background: linear-gradient(145deg, #fdf1e6, #fae5d2);
+      border-radius: var(--radius-xl);
+      padding: 40px 44px;
+      display: flex;
+      gap: 44px;
+      align-items: center;
+      box-shadow: var(--card-shadow);
+      border: 1px solid rgba(255, 215, 200, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(249, 199, 79, 0.15), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .featured-img {
+      flex: 0 0 260px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .featured-img svg {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .featured-content {
+      flex: 1;
+      position: relative;
+      z-index: 2;
+    }
+
+    .featured-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(145deg, #f9c74f, #f6a832);
+      color: #3f1f60;
+      padding: 6px 18px;
+      border-radius: 60px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .featured-label svg {
+      width: 16px;
+      height: 16px;
+      fill: #3f1f60;
+    }
+
+    .featured-content h3 {
+      font-size: 2rem;
+      color: #3f1f60;
+      margin-bottom: 10px;
+    }
+
+    .featured-content p {
+      font-size: 1rem;
+      color: #5a3f7a;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .featured-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .featured-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 30px;
+      border-radius: 60px;
+      color: white;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .featured-btn:hover {
+      transform: scale(1.02) translateY(-3px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.10);
+    }
+
+    .featured-btn.orange { background: linear-gradient(145deg, #d98a3e, #b86e2a); }
+    .featured-btn.purple { background: linear-gradient(145deg, #8b5ecf, #5a2d8a); }
+
+    .featured-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    /* CATEGORIES */
+    .categories-section {
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #fbf6f0 0%, #fff 100%);
+    }
+
+    .categories-container { max-width: 1200px; margin: 0 auto; }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .category-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 28px 16px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+      border: 2px solid transparent;
+      cursor: default;
+    }
+
+    .category-card:hover {
+      border-color: #f9c74f;
+      transform: translateY(-8px);
+      box-shadow: 0 24px 48px -12px rgba(42, 27, 74, 0.10);
+    }
+
+    .category-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    }
+
+    .category-icon svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    .category-card h3 {
+      font-size: 1.1rem;
+      color: #3f1f60;
+      margin-bottom: 4px;
+    }
+
+    .category-card p {
+      font-size: 0.85rem;
+      color: #5a3f7a;
+      font-weight: 600;
+    }
+
+    .category-card:nth-child(1) .category-icon { background: linear-gradient(145deg, #e8f5e9, #c8e6c9); }
+    .category-card:nth-child(1) .category-icon svg { fill: #43a047; }
+    .category-card:nth-child(2) .category-icon { background: linear-gradient(145deg, #e3f2fd, #bbdefb); }
+    .category-card:nth-child(2) .category-icon svg { fill: #1976d2; }
+    .category-card:nth-child(3) .category-icon { background: linear-gradient(145deg, #fff3e0, #ffe0b2); }
+    .category-card:nth-child(3) .category-icon svg { fill: #f57c00; }
+    .category-card:nth-child(4) .category-icon { background: linear-gradient(145deg, #fce4ec, #f8bbd0); }
+    .category-card:nth-child(4) .category-icon svg { fill: #c2185b; }
+
+    /* STORIES GRID */
+    .stories-grid-section {
+      padding: 60px 20px;
+      background: white;
+    }
+
+    .stories-grid-container { max-width: 1200px; margin: 0 auto; }
+
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .story-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    .story-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 48px -12px rgba(42, 27, 74, 0.12);
+    }
+
+    .story-img {
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .story-img.purple-bg { background: linear-gradient(145deg, #e1bee7, #ce93d8); }
+    .story-img.blue-bg { background: linear-gradient(145deg, #bbdefb, #90caf9); }
+    .story-img.green-bg { background: linear-gradient(145deg, #c8e6c9, #a5d6a7); }
+    .story-img.orange-bg { background: linear-gradient(145deg, #ffe0b2, #ffcc80); }
+    .story-img.pink-bg { background: linear-gradient(145deg, #f8bbd0, #f48fb1); }
+    .story-img.yellow-bg { background: linear-gradient(145deg, #fff9c4, #fff176); }
+
+    .story-img svg {
+      max-width: 72%;
+      max-height: 72%;
+    }
+
+    .story-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.92);
+      padding: 4px 16px;
+      border-radius: 60px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #3f1f60;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .story-info {
+      padding: 22px 24px 24px;
+    }
+
+    .story-info h3 {
+      font-size: 1.15rem;
+      color: #3f1f60;
+      margin-bottom: 6px;
+    }
+
+    .story-info p {
+      font-size: 0.85rem;
+      color: #5a3f7a;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .story-meta {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+
+    .story-meta span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.75rem;
+      color: #5a3f7a;
+      font-weight: 600;
+    }
+
+    .story-meta span svg {
+      width: 16px;
+      height: 16px;
+      fill: #8a6aa0;
+    }
+
+    .story-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 60px;
+      color: white;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: none;
+    }
+
+    .story-btn:hover {
+      transform: scale(1.02) translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .story-btn.purple { background: linear-gradient(145deg, #8b5ecf, #5a2d8a); }
+    .story-btn.blue { background: linear-gradient(145deg, #4a9ddb, #1a6a9e); }
+    .story-btn.green { background: linear-gradient(145deg, #4caf50, #2e7d32); }
+
+    /* HOW SECTION */
+    .how-section {
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #fdf1e6, #fae5d2);
+      border-radius: 60px;
+      margin: 0 12px;
+    }
+
+    .how-container { max-width: 1200px; margin: 0 auto; }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .how-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .how-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      background: white;
+      padding: 24px 28px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      transition: 0.3s;
+    }
+
+    .how-step:hover {
+      transform: translateX(6px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+    }
+
+    .how-step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.2rem;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .how-step:nth-child(1) .how-step-num { background: linear-gradient(145deg, #8b5ecf, #5a2d8a); }
+    .how-step:nth-child(2) .how-step-num { background: linear-gradient(145deg, #4a9ddb, #1a6a9e); }
+    .how-step:nth-child(3) .how-step-num { background: linear-gradient(145deg, #4caf50, #2e7d32); }
+
+    .how-step-text h4 {
+      font-size: 1.1rem;
+      color: #3f1f60;
+      margin-bottom: 4px;
+    }
+
+    .how-step-text p {
+      font-size: 0.9rem;
+      color: #5a3f7a;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+    .how-img {
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .how-img svg {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    /* PARENTS BANNER */
+    .parents-banner {
+      position: relative;
+      background: linear-gradient(145deg, #2a1b4a, #1f103a);
+      padding: 80px 20px;
+      margin: 20px 12px 0;
+      border-radius: 60px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .parents-deco {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .parents-star {
+      position: absolute;
+      fill: #ffd966;
+      opacity: 0.4;
+      animation: twinkle 3.6s ease-in-out infinite;
+    }
+
+    .parents-content {
+      position: relative;
+      z-index: 10;
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .parents-content h2 {
+      font-size: 2.4rem;
+      color: #ffd966;
+      margin-bottom: 16px;
+    }
+
+    .parents-content p {
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .parents-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .parents-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border-radius: 60px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: none;
+    }
+
+    .parents-btn:hover {
+      transform: scale(1.02) translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+    }
+
+    .parents-btn.gold {
+      background: linear-gradient(145deg, #f9c74f, #f6a832);
+      color: #2a1b4a;
+    }
+
+    .parents-btn.white {
+      background: white;
+      color: #2a1b4a;
+    }
+
+    .parents-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: white;
+      padding: 40px 20px 30px;
+      text-align: center;
+      border-top: 1px solid #ede7f6;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-logo img {
+      height: 48px;
+      width: auto;
+    }
+
+    .footer-btn {
+      background: linear-gradient(145deg, #c77d3e, #a8622a);
+      color: white;
+      padding: 14px 36px;
+      border-radius: 60px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 12px 28px rgba(200, 125, 62, 0.25);
+      transition: 0.2s;
+    }
+
+    .footer-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 16px 36px rgba(200, 125, 62, 0.35);
+    }
+
+    .footer-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+
+    .footer-copy {
+      font-size: 0.85rem;
+      color: #5a3f7a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .footer-copy svg {
+      width: 18px;
+      height: 18px;
+      fill: #f9847a;
+    }
+
+    /* responsive */
+    @media (max-width: 1100px) {
+      .hero-title { font-size: 3rem; }
+      .featured-card { flex-direction: column; text-align: center; padding: 30px; }
+      .featured-img { flex: none; }
+      .how-grid { grid-template-columns: 1fr; }
+      .how-img { display: none; }
+      .hero-book { width: 130px; }
+    }
+
+    @media (max-width: 992px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 24px;
+        gap: 8px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        border-radius: 0 0 40px 40px;
+      }
+      .nav-links.active { display: flex; }
+      .nav-links li a { flex-direction: row; font-size: 1rem; padding: 12px 16px; width: 100%; }
+      .mobile-menu-btn { display: block; }
+      .hero { border-radius: 32px; margin: 0 8px; }
+      .featured-section { border-radius: 32px; margin: 0 8px; }
+      .how-section { border-radius: 32px; margin: 0 8px; }
+      .parents-banner { border-radius: 32px; margin: 12px 8px 0; }
+      .categories-grid { grid-template-columns: repeat(2, 1fr); }
+      .stories-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-title { font-size: 2.6rem; }
+      .hero-book { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .stories-grid { grid-template-columns: 1fr; }
+      .categories-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.2rem; }
+      .hero-badge { font-size: 0.8rem; padding: 8px 20px; }
+      .section-header h2 { font-size: 1.6rem; }
+      .featured-content h3 { font-size: 1.5rem; }
+      .parents-content h2 { font-size: 1.8rem; }
+      .nav-cta { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 1.8rem; }
+      .hero-desc { font-size: 1rem; }
+      .featured-card { padding: 20px; }
+      .featured-actions { flex-direction: column; align-items: center; }
+      .parents-btns { flex-direction: column; align-items: center; }
+      .footer-btn { font-size: 0.9rem; padding: 12px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">
+      <span class="logo-title">Little <span>Lights</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="little-lights.html"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Home</a></li>
+      <li><a href="little-rest.html"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Rest</a></li>
+      <li><a href="little-lights-grow.html"><svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zm-9-9c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9zm9-9c-4.97 0-9 4.03-9 9 4.97 0 9-4.03 9-9zm5.65-2.65L12 2 6.35 7.65l1.41 1.41L12 4.83l4.24 4.23 1.41-1.41z"/></svg> Grow</a></li>
+      <li><a href="little-lights-stories.html"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H3V5h18v11zM9 8l7 4-7 4V8z"/></svg> Stories</a></li>
+      <li><a href="little-lights-bible-study.html"><svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4zm12 16H6V4h12v16z"/><path d="M12 7h1.5v3H16v1.5h-2.5V15H12v-3.5H9.5V10H12z"/></svg> Bible</a></li>
+      <li><a href="little-lights-family.html"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> Family</a></li>
+      <li><a href="little-lights-teens.html"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg> Colors</a></li>
+      <li><a href="little-resource.html"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg> Resources</a></li>
+    </ul>
+    <a href="#" class="nav-cta">📖 Stories</a>
+    <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('active')">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="#4a2a6a"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-cloud" style="width:140px;height:55px;top:10%;left:6%;"></div>
+    <div class="hero-cloud" style="width:100px;height:42px;top:22%;right:14%;"></div>
+    <div class="hero-cloud" style="width:120px;height:48px;bottom:18%;left:20%;"></div>
+    <svg class="hero-sparkle" style="top:12%;left:10%;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="hero-sparkle" style="top:28%;right:18%;width:18px;height:18px;animation-delay:0.6s;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="hero-sparkle" style="top:45%;left:6%;width:20px;height:20px;animation-delay:1.2s;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="hero-sparkle" style="bottom:22%;right:8%;width:28px;height:28px;animation-delay:0.9s;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+  </div>
+
+  <div class="hero-book">
+    <svg viewBox="0 0 200 160" width="200">
+      <rect x="20" y="20" width="160" height="120" rx="10" fill="#5D4037"/>
+      <rect x="25" y="25" width="70" height="110" rx="5" fill="#FFF8E1"/>
+      <rect x="105" y="25" width="70" height="110" rx="5" fill="#FFF8E1"/>
+      <line x1="100" y1="25" x2="100" y2="135" stroke="#5D4037" stroke-width="3"/>
+      <rect x="35" y="40" width="50" height="6" rx="3" fill="#f9c74f" opacity="0.7"/>
+      <rect x="35" y="52" width="40" height="4" rx="2" fill="#90CAF9" opacity="0.5"/>
+      <rect x="35" y="60" width="45" height="4" rx="2" fill="#90CAF9" opacity="0.5"/>
+      <rect x="35" y="68" width="35" height="4" rx="2" fill="#90CAF9" opacity="0.5"/>
+      <rect x="115" y="40" width="50" height="6" rx="3" fill="#f9c74f" opacity="0.7"/>
+      <rect x="115" y="52" width="40" height="4" rx="2" fill="#90CAF9" opacity="0.5"/>
+      <rect x="115" y="60" width="45" height="4" rx="2" fill="#90CAF9" opacity="0.5"/>
+      <circle cx="90" cy="100" r="15" fill="#f9c74f" opacity="0.25"/>
+      <circle cx="130" cy="90" r="12" fill="#f9847a" opacity="0.25"/>
+      <path d="M85 30 Q100 15 115 30" stroke="#f9c74f" stroke-width="2" fill="none" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H3V5h18v11zM9 8l7 4-7 4V8z"/></svg>
+      Faith-Filled Adventures
+    </div>
+    <h1 class="hero-title">Little Lights <span>Stories</span></h1>
+    <p class="hero-desc">Step into a world of wonder where every story teaches about God's love, courage, and kindness. Read, listen, and let your imagination soar!</p>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="featured-section">
+  <div class="featured-container">
+    <div class="featured-card">
+      <div class="featured-img">
+        <svg viewBox="0 0 280 220" width="280">
+          <ellipse cx="140" cy="190" rx="120" ry="25" fill="#C5E1A5" opacity="0.4"/>
+          <ellipse cx="100" cy="150" rx="55" ry="40" fill="#fff" stroke="#E0E0E0" stroke-width="1"/>
+          <ellipse cx="100" cy="138" rx="45" ry="35" fill="#FAFAFA"/>
+          <circle cx="85" cy="128" r="6" fill="#333"/>
+          <circle cx="115" cy="128" r="6" fill="#333"/>
+          <circle cx="87" cy="126" r="2" fill="#fff"/>
+          <circle cx="117" cy="126" r="2" fill="#fff"/>
+          <ellipse cx="100" cy="135" rx="5" ry="4" fill="#f9c74f"/>
+          <path d="M94 142 Q100 148 106 142" stroke="#333" stroke-width="1.5" fill="none"/>
+          <ellipse cx="70" cy="155" rx="14" ry="10" fill="#fff" stroke="#E0E0E0" stroke-width="1"/>
+          <ellipse cx="130" cy="155" rx="14" ry="10" fill="#fff" stroke="#E0E0E0" stroke-width="1"/>
+          <path d="M55 115 Q45 105 50 95" stroke="#E0E0E0" stroke-width="2" fill="none"/>
+          <path d="M145 115 Q155 105 150 95" stroke="#E0E0E0" stroke-width="2" fill="none"/>
+          <rect x="170" y="80" width="50" height="70" rx="8" fill="#5D4037"/>
+          <rect x="175" y="85" width="40" height="55" rx="4" fill="#FFF8E1"/>
+          <line x1="178" y1="85" x2="178" y2="140" stroke="#f9c74f" stroke-width="1"/>
+          <line x1="188" y1="85" x2="188" y2="140" stroke="#f9c74f" stroke-width="1"/>
+          <line x1="198" y1="85" x2="198" y2="140" stroke="#f9c74f" stroke-width="1"/>
+          <rect x="190" y="72" width="10" height="14" rx="2" fill="#3E2723"/>
+          <circle cx="195" cy="110" r="12" fill="#FFECB3" opacity="0.5"/>
+          <path d="M40 175 Q50 165 60 175" stroke="#81C784" stroke-width="2" fill="none"/>
+          <path d="M220 170 Q230 160 240 170" stroke="#81C784" stroke-width="2" fill="none"/>
+          <circle cx="30" cy="180" r="4" fill="#CE93D8"/>
+          <circle cx="255" cy="175" r="4" fill="#90CAF9"/>
+        </svg>
+      </div>
+      <div class="featured-content">
+        <div class="featured-label">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Story of the Week
+        </div>
+        <h3>The Brave Little Shepherd</h3>
+        <p>When David was just a boy, he trusted God to help him face a giant. Discover how courage and faith can help you overcome any challenge, no matter how big it seems.</p>
+        <div class="featured-actions">
+          <a href="#" class="featured-btn orange"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Listen Now</a>
+          <a href="#" class="featured-btn purple"><svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg> Read Story</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories-section">
+  <div class="categories-container">
+    <div class="section-header">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <h2>Story Collections</h2>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </div>
+    <div class="categories-grid">
+      <div class="category-card">
+        <div class="category-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+        <h3>Bible Heroes</h3>
+        <p>Stories of courage and faith</p>
+      </div>
+      <div class="category-card">
+        <div class="category-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+        <h3>Love & Kindness</h3>
+        <p>Tales of compassion</p>
+      </div>
+      <div class="category-card">
+        <div class="category-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div>
+        <h3>Adventures</h3>
+        <p>Exciting journeys of faith</p>
+      </div>
+      <div class="category-card">
+        <div class="category-icon"><svg viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg></div>
+        <h3>Wisdom Tales</h3>
+        <p>Lessons from God's Word</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORIES GRID -->
+<section class="stories-grid-section">
+  <div class="stories-grid-container">
+    <div class="section-header">
+      <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+      <h2>Popular Stories</h2>
+      <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+    </div>
+    <div class="stories-grid">
+      <div class="story-card">
+        <div class="story-img purple-bg"><span class="story-badge">Bible Hero</span><svg viewBox="0 0 140 120" width="120"><ellipse cx="70" cy="100" rx="50" ry="15" fill="#C5E1A5" opacity="0.4"/><ellipse cx="55" cy="70" rx="30" ry="35" fill="#FFCC80"/><ellipse cx="55" cy="55" rx="25" ry="28" fill="#FFE0B2"/><circle cx="47" cy="50" r="4" fill="#333"/><circle cx="63" cy="50" r="4" fill="#333"/><path d="M51 58 Q55 62 59 58" stroke="#333" stroke-width="1.2" fill="none"/><rect x="40" y="90" width="12" height="18" rx="2" fill="#EF5350"/><rect x="58" y="90" width="12" height="18" rx="2" fill="#EF5350"/><path d="M30 75 Q22 68 24 60" stroke="#FFCC80" stroke-width="2.5" fill="none"/><path d="M80 75 Q88 68 86 60" stroke="#FFCC80" stroke-width="2.5" fill="none"/><rect x="85" y="50" width="8" height="40" rx="2" fill="#8D6E63"/><ellipse cx="89" cy="45" rx="12" ry="8" fill="#90CAF9"/><path d="M82 42 Q89 35 96 42" stroke="#64B5F6" stroke-width="2" fill="none"/></svg></div>
+        <div class="story-info"><h3>Noah and the Big Boat</h3><p>God asked Noah to build a giant boat and trust His plan. A story about obedience and God's promises.</p><div class="story-meta"><span><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>5 min</span><span><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>Audio</span></div><a href="#" class="story-btn purple">Read Story</a></div>
+      </div>
+      <div class="story-card">
+        <div class="story-img blue-bg"><span class="story-badge">Love</span><svg viewBox="0 0 140 120" width="120"><ellipse cx="70" cy="100" rx="50" ry="15" fill="#C5E1A5" opacity="0.4"/><ellipse cx="55" cy="70" rx="28" ry="32" fill="#A1887F"/><ellipse cx="55" cy="58" rx="23" ry="26" fill="#BCAAA4"/><circle cx="48" cy="54" r="4" fill="#333"/><circle cx="62" cy="54" r="4" fill="#333"/><path d="M52 62 Q55 66 58 62" stroke="#333" stroke-width="1.2" fill="none"/><rect x="42" y="88" width="10" height="16" rx="2" fill="#f9c74f"/><rect x="58" y="88" width="10" height="16" rx="2" fill="#f9c74f"/><path d="M33 78 Q26 72 28 65" stroke="#8D6E63" stroke-width="2.5" fill="none"/><path d="M77 78 Q84 72 82 65" stroke="#8D6E63" stroke-width="2.5" fill="none"/><circle cx="90" cy="60" r="18" fill="#f9847a" opacity="0.8"/><path d="M82 60 L88 66 L98 54" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="story-info"><h3>The Good Samaritan</h3><p>Learn what it means to love your neighbor through this powerful story Jesus told about kindness.</p><div class="story-meta"><span><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>4 min</span><span><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>Audio</span></div><a href="#" class="story-btn blue">Read Story</a></div>
+      </div>
+      <div class="story-card">
+        <div class="story-img green-bg"><span class="story-badge">Adventure</span><svg viewBox="0 0 140 120" width="120"><ellipse cx="70" cy="100" rx="50" ry="15" fill="#C5E1A5" opacity="0.4"/><ellipse cx="55" cy="68" rx="28" ry="32" fill="#FFCC80"/><ellipse cx="55" cy="55" rx="23" ry="25" fill="#FFE0B2"/><circle cx="48" cy="51" r="4" fill="#333"/><circle cx="62" cy="51" r="4" fill="#333"/><path d="M52 59 Q55 63 58 59" stroke="#333" stroke-width="1.2" fill="none"/><rect x="42" y="88" width="10" height="16" rx="2" fill="#42A5F5"/><rect x="58" y="88" width="10" height="16" rx="2" fill="#42A5F5"/><path d="M33 76 Q26 70 28 62" stroke="#FFCC80" stroke-width="2.5" fill="none"/><path d="M77 76 Q84 70 82 62" stroke="#FFCC80" stroke-width="2.5" fill="none"/><rect x="85" y="40" width="35" height="45" rx="5" fill="#5D4037"/><rect x="90" y="45" width="25" height="30" rx="3" fill="#FFD54F" opacity="0.7"/><line x1="93" y1="45" x2="93" y2="75" stroke="#f9c74f" stroke-width="1"/><line x1="100" y1="45" x2="100" y2="75" stroke="#f9c74f" stroke-width="1"/><line x1="107" y1="45" x2="107" y2="75" stroke="#f9c74f" stroke-width="1"/><rect x="97" y="32" width="10" height="14" rx="2" fill="#3E2723"/><circle cx="102" cy="60" r="8" fill="#FFECB3" opacity="0.5"/></svg></div>
+        <div class="story-info"><h3>Jonah and the Big Fish</h3><p>Jonah tried to run from God, but God had a big surprise waiting. A story about listening and forgiveness.</p><div class="story-meta"><span><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>6 min</span><span><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>Audio</span></div><a href="#" class="story-btn green">Read Story</a></div>
+      </div>
+      <div class="story-card">
+        <div class="story-img orange-bg"><span class="story-badge">Wisdom</span><svg viewBox="0 0 140 120" width="120"><ellipse cx="70" cy="100" rx="50" ry="15" fill="#C5E1A5" opacity="0.4"/><ellipse cx="55" cy="68" rx="28" ry="32" fill="#FFCC80"/><ellipse cx="55" cy="55" rx="23" ry="25" fill="#FFE0B2"/><circle cx="48" cy="51" r="4" fill="#333"/><circle cx="62" cy="51" r="4" fill="#333"/><path d="M52 59 Q55 63 58 59" stroke="#333" stroke-width="1.2" fill="none"/><rect x="42" y="88" width="10" height="16" rx="2" fill="#66BB6A"/><rect x="58" y="88" width="10" height="16" rx="2" fill="#66BB6A"/><path d="M33 76 Q26 70 28 62" stroke="#FFCC80" stroke-width="2.5" fill="none"/><path d="M77 76 Q84 70 82 62" stroke="#FFCC80" stroke-width="2.5" fill="none"/><circle cx="90" cy="50" r="20" fill="#f9c74f" opacity="0.6"/><circle cx="90" cy="50" r="14" fill="#FFECB3"/><path d="M82 45 L88 52 L98 42" stroke="#f9a825" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="story-info"><h3>The Wise King Solomon</h3><p>Discover how King Solomon asked God for wisdom and became the wisest king who ever lived.</p><div class="story-meta"><span><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>5 min</span><span><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>Audio</span></div><a href="#" class="story-btn purple">Read Story</a></div>
+      </div>
+      <div class="story-card">
+        <div class="story-img pink-bg"><span class="story-badge">Love</span><svg viewBox="0 0 140 120" width="120"><ellipse cx="70" cy="100" rx="50" ry="15" fill="#C5E1A5" opacity="0.4"/><ellipse cx="55" cy="68" rx="28" ry="32" fill="#FFCC80"/><ellipse cx="55" cy="55" rx="23" ry="25" fill="#FFE0B2"/><circle cx="48" cy="51" r="4" fill="#333"/><circle cx="62" cy="51" r="4" fill="#333"/><path d="M52 59 Q55 63 58 59" stroke="#333" stroke-width="1.2" fill="none"/><rect x="42" y="88" width="10" height="16" rx="2" fill="#f9847a"/><rect x="58" y="88" width="10" height="16" rx="2" fill="#f9847a"/><path d="M33 76 Q26 70 28 62" stroke="#FFCC80" stroke-width="2.5" fill="none"/><path d="M77 76 Q84 70 82 62" stroke="#FFCC80" stroke-width="2.5" fill="none"/><ellipse cx="90" cy="55" rx="15" ry="12" fill="#f9847a" opacity="0.7"/><path d="M83 55 L88 60 L97 50" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="story-info"><h3>Ruth and Naomi</h3><p>A beautiful story about loyalty, love, and how God works through kind hearts to bless families.</p><div class="story-meta"><span><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>4 min</span><span><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>Audio</span></div><a href="#" class="story-btn blue">Read Story</a></div>
+      </div>
+      <div class="story-card">
+        <div class="story-img yellow-bg"><span class="story-badge">Bible Hero</span><svg viewBox="0 0 140 120" width="120"><ellipse cx="70" cy="100" rx="50" ry="15" fill="#C5E1A5" opacity="0.4"/><ellipse cx="55" cy="68" rx="28" ry="32" fill="#FFCC80"/><ellipse cx="55" cy="55" rx="23" ry="25" fill="#FFE0B2"/><circle cx="48" cy="51" r="4" fill="#333"/><circle cx="62" cy="51" r="4" fill="#333"/><path d="M52 59 Q55 63 58 59" stroke="#333" stroke-width="1.2" fill="none"/><rect x="42" y="88" width="10" height="16" rx="2" fill="#f9c74f"/><rect x="58" y="88" width="10" height="16" rx="2" fill="#f9c74f"/><path d="M33 76 Q26 70 28 62" stroke="#FFCC80" stroke-width="2.5" fill="none"/><path d="M77 76 Q84 70 82 62" stroke="#FFCC80" stroke-width="2.5" fill="none"/><rect x="82" y="35" width="30" height="40" rx="4" fill="#5D4037"/><rect x="86" y="40" width="22" height="28" rx="2" fill="#FFF8E1"/><line x1="89" y1="40" x2="89" y2="68" stroke="#f9c74f" stroke-width="1"/><line x1="95" y1="40" x2="95" y2="68" stroke="#f9c74f" stroke-width="1"/><line x1="101" y1="40" x2="101" y2="68" stroke="#f9c74f" stroke-width="1"/><rect x="92" y="28" width="8" height="12" rx="2" fill="#3E2723"/><circle cx="97" cy="54" r="6" fill="#FFECB3" opacity="0.5"/></svg></div>
+        <div class="story-info"><h3>Daniel in the Lions Den</h3><p>When Daniel prayed to God, hungry lions became his friends. A story about faith and protection.</p><div class="story-meta"><span><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>5 min</span><span><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>Audio</span></div><a href="#" class="story-btn green">Read Story</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW SECTION -->
+<section class="how-section">
+  <div class="how-container">
+    <div class="section-header">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+      <h2>How to Enjoy Stories</h2>
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+    </div>
+    <div class="how-grid">
+      <div class="how-steps">
+        <div class="how-step"><div class="how-step-num">1</div><div class="how-step-text"><h4>Pick a Story</h4><p>Browse our collection and choose a story that catches your eye. Each one is filled with faith, fun, and adventure.</p></div></div>
+        <div class="how-step"><div class="how-step-num">2</div><div class="how-step-text"><h4>Read or Listen</h4><p>Read along with colorful illustrations or press play to hear the story come alive with music and voices.</p></div></div>
+        <div class="how-step"><div class="how-step-num">3</div><div class="how-step-text"><h4>Talk About It</h4><p>After the story, discuss the lesson with your family. What did you learn about God's love today?</p></div></div>
+      </div>
+      <div class="how-img">
+        <svg viewBox="0 0 300 280" width="280"><rect x="40" y="40" width="220" height="200" rx="20" fill="#e3f2fd" opacity="0.5"/><rect x="60" y="60" width="180" height="160" rx="15" fill="#fff" stroke="#bbdefb" stroke-width="2"/><ellipse cx="100" cy="120" rx="30" ry="35" fill="#ffcc80"/><ellipse cx="100" cy="105" rx="25" ry="28" fill="#ffe0b2"/><circle cx="92" cy="100" r="4" fill="#333"/><circle cx="108" cy="100" r="4" fill="#333"/><path d="M96 108 Q100 112 104 108" stroke="#333" stroke-width="1.2" fill="none"/><rect x="85" y="140" width="10" height="16" rx="2" fill="#ef5350"/><rect x="105" y="140" width="10" height="16" rx="2" fill="#ef5350"/><ellipse cx="200" cy="120" rx="30" ry="35" fill="#ffcc80"/><ellipse cx="200" cy="105" rx="25" ry="28" fill="#ffe0b2"/><circle cx="192" cy="100" r="4" fill="#333"/><circle cx="208" cy="100" r="4" fill="#333"/><path d="M196 108 Q200 112 204 108" stroke="#333" stroke-width="1.2" fill="none"/><rect x="185" y="140" width="10" height="16" rx="2" fill="#42a5f5"/><rect x="205" y="140" width="10" height="16" rx="2" fill="#42a5f5"/><rect x="120" y="180" width="60" height="40" rx="8" fill="#5d4037"/><rect x="125" y="185" width="50" height="30" rx="4" fill="#fff8e1"/><line x1="128" y1="185" x2="128" y2="215" stroke="#f9c74f" stroke-width="1"/><line x1="138" y1="185" x2="138" y2="215" stroke="#f9c74f" stroke-width="1"/><line x1="148" y1="185" x2="148" y2="215" stroke="#f9c74f" stroke-width="1"/><line x1="158" y1="185" x2="158" y2="215" stroke="#f9c74f" stroke-width="1"/><line x1="168" y1="185" x2="168" y2="215" stroke="#f9c74f" stroke-width="1"/><rect x="145" y="172" width="10" height="14" rx="2" fill="#3e2723"/><circle cx="150" cy="200" r="8" fill="#ffecb3" opacity="0.5"/><path d="M75 80 Q70 70 75 62" stroke="#ffcc80" stroke-width="2.5" fill="none"/><path d="M225 80 Q230 70 225 62" stroke="#ffcc80" stroke-width="2.5" fill="none"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARENTS BANNER -->
+<section class="parents-banner">
+  <div class="parents-deco">
+    <svg class="parents-star" style="top:10%;left:8%;width:22px;height:22px;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="parents-star" style="top:18%;right:10%;width:16px;height:16px;animation-delay:0.6s;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="parents-star" style="top:55%;left:4%;width:18px;height:18px;animation-delay:1.2s;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="parents-star" style="bottom:20%;right:6%;width:24px;height:24px;animation-delay:0.9s;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+  </div>
+  <div class="parents-content">
+    <h2>Stories That Build Faith</h2>
+    <p>Every story is crafted to help children understand God's love in a way they can relate to. Perfect for bedtime, Sunday school, or anytime your little one needs encouragement.</p>
+    <div class="parents-btns">
+      <a href="#" class="parents-btn gold"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Start Reading Together</a>
+      <a href="#" class="parents-btn white"><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg> Listen to Audio Stories</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+   
+      <span class="logo-title" style="font-size:1.6rem;">Little <span>Lights</span></span>
+    </div>
+    <a href="#" class="footer-btn">
+      <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H3V5h18v11zM9 8l7 4-7 4V8z"/></svg>
+      Explore All Stories
+    </a>
+    <div class="footer-copy">
+      <span>Created with love by Kuaretta Lawrence for LightMode Ministries</span>
+      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    </div>
+    <div class="footer-copy" style="margin-top:-6px;">2026 LightMode Ministries LLC. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>

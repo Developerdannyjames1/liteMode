@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>📚 Little Lights Resources · Faith Tools for Families</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: #f8f4ff;
+      color: #2d1b3d;
+      overflow-x: hidden;
+    }
+
+    :root {
+      --soft-lavender: #e8def8;
+      --deep-indigo: #2a1b4a;
+      --golden: #ffcd7a;
+      --coral: #ff8a80;
+      --sky: #7ec8e3;
+      --card-shadow: 0 20px 40px -12px rgba(42, 27, 74, 0.12);
+      --radius-xl: 40px;
+      --radius-lg: 28px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Fredoka One', cursive;
+      letter-spacing: 0.02em;
+    }
+
+    /* premium navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(200, 180, 220, 0.15);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 52px;
+      width: auto;
+      filter: drop-shadow(0 4px 8px rgba(42, 27, 74, 0.08));
+    }
+
+    .logo-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.8rem;
+      background: linear-gradient(135deg, #6b3fa0, #b47aea);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1;
+    }
+
+    .logo-title span {
+      background: linear-gradient(135deg, #f9a825, #ffb74d);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.7rem;
+      color: #5a3f7a;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      background: transparent;
+      gap: 2px;
+    }
+
+    .nav-links li a svg {
+      width: 24px;
+      height: 24px;
+      fill: #7e5aa0;
+      transition: 0.2s;
+    }
+
+    .nav-links li a:hover {
+      background: rgba(110, 70, 160, 0.08);
+      color: #3f1f60;
+      transform: translateY(-2px);
+    }
+
+    .nav-links li a:hover svg {
+      fill: #4a2a6a;
+    }
+
+    .nav-cta {
+      background: linear-gradient(145deg, #7c4dbb, #5a2d8a);
+      color: white !important;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 18px rgba(92, 50, 150, 0.25);
+      transition: all 0.25s;
+      white-space: nowrap;
+      text-decoration: none;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .nav-cta:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 28px rgba(92, 50, 150, 0.35);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    /* HERO — premium & animated */
+    .hero {
+      position: relative;
+      min-height: 400px;
+      background: radial-gradient(circle at 20% 30%, #d4c4e8, #5a2d8a 75%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 20px 70px;
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+      margin: 0 12px 0 12px;
+      box-shadow: 0 20px 40px rgba(42, 27, 74, 0.10);
+    }
+
+    .hero-deco {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero-star {
+      position: absolute;
+      fill: #fff7d6;
+      animation: twinkle 3.6s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.4); }
+    }
+
+    .hero-heart {
+      position: absolute;
+      fill: #ffb3c6;
+      animation: floatHeart 4s ease-in-out infinite;
+    }
+
+    @keyframes floatHeart {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-14px); }
+    }
+
+    .hero-book {
+      position: absolute;
+      fill: #ffd966;
+      opacity: 0.08;
+      animation: floatHeart 5s ease-in-out infinite;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 8px 24px;
+      border-radius: 80px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero-badge svg {
+      width: 20px;
+      height: 20px;
+      fill: #ffd966;
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .hero-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 3.5rem;
+      line-height: 1.1;
+      color: white;
+      text-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      margin-bottom: 12px;
+      animation: fadeInUp 0.8s ease-out 0.1s both;
+    }
+
+    .hero-title span {
+      color: #ffd966;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.92);
+      max-width: 550px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-weight: 600;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    /* SEARCH BAR */
+    .search-wrap {
+      max-width: 620px;
+      margin: -28px auto 40px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 20;
+    }
+
+    .search-box {
+      background: #fff;
+      border-radius: 60px;
+      padding: 6px 6px 6px 28px;
+      box-shadow: 0 12px 40px rgba(42, 27, 74, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 2px solid transparent;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+    }
+
+    .search-box:focus-within {
+      border-color: #b47aea;
+      box-shadow: 0 12px 48px rgba(92, 50, 150, 0.12);
+    }
+
+    .search-box svg {
+      width: 24px;
+      height: 24px;
+      fill: #8a6aa0;
+      flex-shrink: 0;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #2d1b3d;
+      padding: 14px 0;
+      background: transparent;
+    }
+
+    .search-box input::placeholder {
+      color: #b0a0c0;
+      font-weight: 400;
+    }
+
+    .search-btn {
+      background: linear-gradient(145deg, #8b5ecf, #5a2d8a);
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 60px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .search-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 24px rgba(92, 50, 150, 0.25);
+    }
+
+    /* CATEGORY TABS */
+    .tabs-wrap {
+      max-width: 1100px;
+      margin: 0 auto 30px;
+      padding: 0 20px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tab {
+      background: #fff;
+      border: 2px solid #ede7f6;
+      padding: 10px 22px;
+      border-radius: 60px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.85rem;
+      color: #5a3f7a;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tab:hover {
+      border-color: #b47aea;
+      color: #3f1f60;
+      transform: translateY(-2px);
+    }
+
+    .tab.active {
+      background: linear-gradient(145deg, #8b5ecf, #5a2d8a);
+      color: #fff;
+      border-color: #5a2d8a;
+      box-shadow: 0 6px 20px rgba(92, 50, 150, 0.15);
+    }
+
+    .tab svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* SECTION HEADER */
+    .section-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-header h2 {
+      font-size: 1.8rem;
+      color: #3f1f60;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-header h2 svg {
+      width: 30px;
+      height: 30px;
+      fill: #f9c74f;
+    }
+
+    /* RESOURCES GRID */
+    .resources-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 50px;
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .resource-card {
+      background: #fff;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--card-shadow);
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+      border: 2px solid transparent;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .resource-card:hover {
+      border-color: #b47aea;
+      transform: translateY(-8px);
+      box-shadow: 0 24px 50px -12px rgba(42, 27, 74, 0.12);
+    }
+
+    .resource-card:nth-child(2):hover { border-color: #4a9ddb; }
+    .resource-card:nth-child(3):hover { border-color: #4caf50; }
+    .resource-card:nth-child(4):hover { border-color: #f9c74f; }
+    .resource-card:nth-child(5):hover { border-color: #f9847a; }
+    .resource-card:nth-child(6):hover { border-color: #26c6da; }
+
+    .resource-img {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resource-img.purple-bg { background: linear-gradient(145deg, #f3edfc, #e8def8); }
+    .resource-img.blue-bg { background: linear-gradient(145deg, #e3f2fd, #bbdefb); }
+    .resource-img.green-bg { background: linear-gradient(145deg, #e8f5e9, #c8e6c9); }
+    .resource-img.orange-bg { background: linear-gradient(145deg, #fff3e0, #ffe0b2); }
+    .resource-img.pink-bg { background: linear-gradient(145deg, #fce4ec, #f8bbd0); }
+    .resource-img.teal-bg { background: linear-gradient(145deg, #e0f7fa, #b2ebf2); }
+
+    .resource-img svg {
+      max-width: 80%;
+      max-height: 120px;
+    }
+
+    .resource-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(255, 255, 255, 0.92);
+      padding: 4px 16px;
+      border-radius: 60px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #3f1f60;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+
+    .resource-body {
+      padding: 22px 24px 24px;
+    }
+
+    .resource-body h3 {
+      font-size: 1.1rem;
+      color: #2d1b3d;
+      margin-bottom: 6px;
+    }
+
+    .resource-body p {
+      font-size: 0.85rem;
+      color: #5a3f7a;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .resource-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .resource-type {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: #5a3f7a;
+      font-weight: 700;
+    }
+
+    .resource-type svg {
+      width: 16px;
+      height: 16px;
+      fill: #8a6aa0;
+    }
+
+    .resource-download {
+      background: linear-gradient(145deg, #8b5ecf, #5a2d8a);
+      color: #fff;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 60px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .resource-download:hover {
+      transform: scale(1.04);
+      box-shadow: 0 6px 20px rgba(92, 50, 150, 0.15);
+    }
+
+    .resource-download svg {
+      width: 16px;
+      height: 16px;
+      fill: #fff;
+    }
+
+    /* FEATURED BANNER */
+    .featured-section {
+      background: linear-gradient(145deg, #2a1b4a, #1f103a);
+      padding: 60px 20px;
+      margin: 0 12px 20px;
+      border-radius: 60px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    .featured-deco {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .featured-star {
+      position: absolute;
+      fill: #ffd966;
+      opacity: 0.25;
+      animation: twinkle 3.6s ease-in-out infinite;
+    }
+
+    .featured-heart {
+      position: absolute;
+      fill: #ffb3c6;
+      opacity: 0.10;
+      animation: floatHeart 5s ease-in-out infinite;
+    }
+
+    .featured-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .featured-img {
+      flex: 0 0 280px;
+    }
+
+    .featured-img svg {
+      max-width: 100%;
+    }
+
+    .featured-text {
+      flex: 1;
+    }
+
+    .featured-text h2 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 2.2rem;
+      color: #ffd966;
+      margin-bottom: 14px;
+    }
+
+    .featured-text p {
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .featured-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .featured-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border-radius: 60px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: none;
+    }
+
+    .featured-btn:hover {
+      transform: scale(1.02) translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+    }
+
+    .featured-btn.gold {
+      background: linear-gradient(145deg, #f9c74f, #f6a832);
+      color: #2a1b4a;
+    }
+
+    .featured-btn.white {
+      background: #fff;
+      color: #2a1b4a;
+    }
+
+    .featured-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* NEWSLETTER */
+    .newsletter-section {
+      background: linear-gradient(180deg, #f8f4ff, #fdf1e6);
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 60px;
+      margin: 0 12px 20px;
+    }
+
+    .newsletter-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .newsletter-icon {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(145deg, #f9c74f, #f6a832);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 8px 28px rgba(249, 199, 79, 0.25);
+      animation: floatIcon 3s ease-in-out infinite;
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .newsletter-icon svg {
+      width: 36px;
+      height: 36px;
+      fill: #fff;
+    }
+
+    .newsletter-container h2 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 2rem;
+      color: #3f1f60;
+      margin-bottom: 10px;
+    }
+
+    .newsletter-container p {
+      font-size: 1rem;
+      color: #5a3f7a;
+      margin-bottom: 28px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 16px 24px;
+      border: 2px solid #ede7f6;
+      border-radius: 60px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      outline: none;
+      transition: all 0.3s ease;
+      background: #fff;
+    }
+
+    .newsletter-form input:focus {
+      border-color: #f9c74f;
+      box-shadow: 0 4px 20px rgba(249, 199, 79, 0.12);
+    }
+
+    .newsletter-form button {
+      background: linear-gradient(145deg, #f9c74f, #f6a832);
+      color: #2a1b4a;
+      border: none;
+      padding: 16px 32px;
+      border-radius: 60px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .newsletter-form button:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 24px rgba(249, 199, 79, 0.25);
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #fff;
+      padding: 40px 20px 30px;
+      text-align: center;
+      border-top: 1px solid #ede7f6;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-logo img {
+      height: 48px;
+      width: auto;
+    }
+
+    .footer-cta {
+      background: linear-gradient(145deg, #7c4dbb, #5a2d8a);
+      color: white;
+      padding: 14px 36px;
+      border-radius: 60px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 12px 28px rgba(92, 50, 150, 0.25);
+      transition: 0.2s;
+    }
+
+    .footer-cta:hover {
+      transform: scale(1.02);
+      box-shadow: 0 16px 36px rgba(92, 50, 150, 0.35);
+    }
+
+    .footer-cta svg {
+      width: 24px;
+      height: 24px;
+      fill: #ffd966;
+    }
+
+    .footer-note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: #5a3f7a;
+      font-weight: 600;
+    }
+
+    .footer-note svg {
+      width: 20px;
+      height: 20px;
+      fill: #f9847a;
+    }
+
+    /* responsive */
+    @media (max-width: 1100px) {
+      .resources-grid { grid-template-columns: 1fr 1fr; }
+      .featured-container { flex-direction: column; text-align: center; }
+      .featured-img { flex: none; }
+      .hero-title { font-size: 2.8rem; }
+    }
+
+    @media (max-width: 992px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 24px;
+        gap: 8px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        border-radius: 0 0 40px 40px;
+      }
+      .nav-links.active { display: flex; }
+      .nav-links li a { flex-direction: row; font-size: 1rem; padding: 12px 16px; width: 100%; }
+      .mobile-menu-btn { display: block; }
+      .hero { border-radius: 32px; margin: 0 8px; }
+      .featured-section { border-radius: 32px; margin: 0 8px 16px; }
+      .newsletter-section { border-radius: 32px; margin: 0 8px 16px; }
+      .hero-title { font-size: 2.4rem; }
+      .nav-cta { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .resources-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2rem; }
+      .hero-badge { font-size: 0.75rem; padding: 6px 18px; }
+      .tabs { gap: 8px; }
+      .tab { padding: 8px 16px; font-size: 0.75rem; }
+      .search-box { padding: 4px 4px 4px 18px; }
+      .search-btn { padding: 15px 6px; font-size: 0.8rem; }
+      .newsletter-form { flex-direction: column; }
+      .featured-text h2 { font-size: 1.6rem; }
+      .section-header h2 { font-size: 1.4rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 1.6rem; }
+      .hero-desc { font-size: 0.95rem; }
+      .search-box input { font-size: 0.9rem; }
+      .resource-body { padding: 16px; }
+      .footer-cta { font-size: 0.9rem; padding: 12px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">
+     
+      <span class="logo-title">Little <span>Lights</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="little-lights.html"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Home</a></li>
+      <li><a href="little-rest.html"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Rest</a></li>
+      <li><a href="little-lights-grow.html"><svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zm-9-9c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9zm9-9c-4.97 0-9 4.03-9 9 4.97 0 9-4.03 9-9zm5.65-2.65L12 2 6.35 7.65l1.41 1.41L12 4.83l4.24 4.23 1.41-1.41z"/></svg> Grow</a></li>
+      <li><a href="little-lights-stories.html"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H3V5h18v11zM9 8l7 4-7 4V8z"/></svg> Stories</a></li>
+      <li><a href="little-lights-bible-study.html"><svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4zm12 16H6V4h12v16z"/><path d="M12 7h1.5v3H16v1.5h-2.5V15H12v-3.5H9.5V10H12z"/></svg> Bible</a></li>
+      <li><a href="little-lights-family.html"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> Family</a></li>
+      <li><a href="little-lights-teens.html"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg> Colors</a></li>
+      <li><a href="little-resource.html"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg> Resources</a></li>
+    </ul>
+    <a href="#" class="nav-cta">📚 Resources</a>
+    <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('active')">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="#4a2a6a"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-deco">
+    <svg class="hero-star" style="top:10%;left:8%;width:22px;height:22px;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="hero-star" style="top:18%;right:12%;width:16px;height:16px;animation-delay:0.6s;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="hero-star" style="bottom:20%;left:12%;width:18px;height:18px;animation-delay:1.2s;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="hero-star" style="bottom:30%;right:8%;width:20px;height:20px;animation-delay:0.8s;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="hero-heart" style="top:15%;left:35%;width:18px;height:18px;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <svg class="hero-heart" style="top:50%;right:25%;width:14px;height:14px;animation-delay:1.5s;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <svg class="hero-book" style="top:8%;right:5%;width:50px;height:50px;" viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+    <svg class="hero-book" style="bottom:15%;left:5%;width:40px;height:40px;animation-delay:2s;" viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
+      Free Downloads for Families
+    </div>
+    <h1 class="hero-title">Little Lights <span>Resources</span></h1>
+    <p class="hero-desc">Discover printable Bible activities, coloring pages, devotion guides, worship songs, and parent tools to help your family grow in faith together.</p>
+  </div>
+</section>
+
+<!-- SEARCH BAR -->
+<div class="search-wrap">
+  <div class="search-box">
+    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+    <input type="text" placeholder="Search coloring pages, devotions, songs...">
+    <button class="search-btn" onclick="alert('🔍 Search functionality would filter resources here!')">Search</button>
+  </div>
+</div>
+
+<!-- CATEGORY TABS -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab active" onclick="filterResources('all', this)"><svg viewBox="0 0 24 24"><path d="M4 6h4v2H4zm0 5h4v2H4zm0 5h4v2H4zm6-10h10v2H10zm0 5h10v2H10zm0 5h10v2H10z"/></svg> All</button>
+    <button class="tab" onclick="filterResources('coloring', this)"><svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg> Coloring</button>
+    <button class="tab" onclick="filterResources('bible', this)"><svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg> Bible Study</button>
+    <button class="tab" onclick="filterResources('music', this)"><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg> Music</button>
+    <button class="tab" onclick="filterResources('devotion', this)"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Devotions</button>
+    <button class="tab" onclick="filterResources('parent', this)"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> Parent Guides</button>
+  </div>
+</div>
+
+<!-- RESOURCES GRID -->
+<div class="resources-wrap">
+  <div class="section-header">
+    <h2>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Popular Resources
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </h2>
+  </div>
+  <div class="resources-grid" id="resourceGrid">
+    <!-- Card 1 -->
+    <div class="resource-card" data-category="coloring">
+      <div class="resource-img purple-bg">
+        <span class="resource-tag">Coloring</span>
+        <svg viewBox="0 0 120 100" width="100">
+          <rect x="15" y="20" width="90" height="70" rx="8" fill="#fff" stroke="#7C3AED" stroke-width="2"/>
+          <rect x="25" y="30" width="30" height="4" rx="2" fill="#E1BEE7"/>
+          <rect x="25" y="40" width="20" height="3" rx="1.5" fill="#E1BEE7"/>
+          <rect x="25" y="48" width="25" height="3" rx="1.5" fill="#E1BEE7"/>
+          <circle cx="80" cy="55" r="18" fill="none" stroke="#FF6B9D" stroke-width="2"/>
+          <circle cx="80" cy="55" r="8" fill="none" stroke="#FFD700" stroke-width="2"/>
+          <rect x="65" y="30" width="35" height="3" rx="1.5" fill="#E1BEE7"/>
+          <path d="M30 70 Q45 60 60 70" stroke="#7C3AED" stroke-width="2" fill="none"/>
+          <rect x="20" y="5" width="8" height="30" rx="2" fill="#7CB342" transform="rotate(-15 24 20)"/>
+          <rect x="90" y="5" width="8" height="30" rx="2" fill="#FF8C42" transform="rotate(15 94 20)"/>
+        </svg>
+      </div>
+      <div class="resource-body">
+        <h3>Bible Story Coloring Pack</h3>
+        <p>10 printable coloring pages featuring Noah's Ark, David & Goliath, and more beloved stories.</p>
+        <div class="resource-meta">
+          <span class="resource-type"><svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg> PDF • 12 Pages</span>
+          <button class="resource-download" onclick="alert('📥 Downloading Bible Story Coloring Pack...')"><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Download</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="resource-card" data-category="bible">
+      <div class="resource-img blue-bg">
+        <span class="resource-tag">Bible Study</span>
+        <svg viewBox="0 0 120 100" width="100">
+          <rect x="25" y="15" width="70" height="80" rx="6" fill="#fff" stroke="#42A5F5" stroke-width="2"/>
+          <rect x="30" y="20" width="60" height="70" rx="4" fill="#E3F2FD"/>
+          <line x1="60" y1="20" x2="60" y2="90" stroke="#42A5F5" stroke-width="2"/>
+          <rect x="35" y="28" width="20" height="3" rx="1.5" fill="#90CAF9"/>
+          <rect x="35" y="36" width="15" height="2.5" rx="1" fill="#BBDEFB"/>
+          <rect x="35" y="42" width="18" height="2.5" rx="1" fill="#BBDEFB"/>
+          <rect x="35" y="52" width="20" height="3" rx="1.5" fill="#90CAF9"/>
+          <rect x="35" y="60" width="15" height="2.5" rx="1" fill="#BBDEFB"/>
+          <rect x="35" y="66" width="18" height="2.5" rx="1" fill="#BBDEFB"/>
+          <rect x="65" y="28" width="20" height="3" rx="1.5" fill="#90CAF9"/>
+          <rect x="65" y="36" width="15" height="2.5" rx="1" fill="#BBDEFB"/>
+          <rect x="65" y="42" width="18" height="2.5" rx="1" fill="#BBDEFB"/>
+          <circle cx="75" cy="65" r="12" fill="none" stroke="#FFD700" stroke-width="2"/>
+          <path d="M75 58 L75 72 M68 65 L82 65" stroke="#FFD700" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="resource-body">
+        <h3>30-Day Family Bible Plan</h3>
+        <p>A month-long journey through Scripture with daily readings, discussion questions, and prayers.</p>
+        <div class="resource-meta">
+          <span class="resource-type"><svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg> PDF • 35 Pages</span>
+          <button class="resource-download" onclick="alert('📥 Downloading 30-Day Family Bible Plan...')"><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Download</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="resource-card" data-category="devotion">
+      <div class="resource-img green-bg">
+        <span class="resource-tag">Devotion</span>
+        <svg viewBox="0 0 120 100" width="100">
+          <ellipse cx="60" cy="85" rx="40" ry="10" fill="#C8E6C9"/>
+          <rect x="35" y="30" width="50" height="55" rx="8" fill="#fff" stroke="#7CB342" stroke-width="2"/>
+          <rect x="40" y="35" width="40" height="45" rx="5" fill="#E8F5E9"/>
+          <rect x="45" y="42" width="20" height="3" rx="1.5" fill="#A5D6A7"/>
+          <rect x="45" y="50" width="15" height="2.5" rx="1" fill="#C8E6C9"/>
+          <rect x="45" y="56" width="18" height="2.5" rx="1" fill="#C8E6C9"/>
+          <rect x="45" y="65" width="20" height="3" rx="1.5" fill="#A5D6A7"/>
+          <rect x="45" y="72" width="12" height="2.5" rx="1" fill="#C8E6C9"/>
+          <path d="M85 25 Q95 15 100 25 Q105 35 95 40 Q85 35 85 25Z" fill="#FFD700" opacity="0.6"/>
+          <path d="M20 35 Q30 25 35 35 Q40 45 30 50 Q20 45 20 35Z" fill="#FF6B9D" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="resource-body">
+        <h3>Bedtime Prayer Cards</h3>
+        <p>Beautiful prayer cards for children to read before bed, featuring simple, heartfelt prayers.</p>
+        <div class="resource-meta">
+          <span class="resource-type"><svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg> PDF • 8 Cards</span>
+          <button class="resource-download" onclick="alert('📥 Downloading Bedtime Prayer Cards...')"><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Download</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="resource-card" data-category="music">
+      <div class="resource-img orange-bg">
+        <span class="resource-tag">Music</span>
+        <svg viewBox="0 0 120 100" width="100">
+          <circle cx="45" cy="55" r="25" fill="#fff" stroke="#FF8C42" stroke-width="2"/>
+          <circle cx="45" cy="55" r="8" fill="#FF8C42"/>
+          <rect x="65" y="25" width="6" height="45" rx="2" fill="#FF8C42"/>
+          <ellipse cx="68" cy="22" rx="10" ry="6" fill="#FF8C42"/>
+          <path d="M20 30 Q30 20 40 30" stroke="#FFD700" stroke-width="2" fill="none"/>
+          <path d="M75 50 Q85 40 95 50" stroke="#FFD700" stroke-width="2" fill="none"/>
+          <circle cx="25" cy="28" r="3" fill="#FFD700"/>
+          <circle cx="90" cy="48" r="3" fill="#FFD700"/>
+          <path d="M45 30 L45 20 M40 25 L50 25" stroke="#FF8C42" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="resource-body">
+        <h3>Worship Song Lyrics Book</h3>
+        <p>Lyrics and chords for 15 original Little Lights worship songs kids love to sing.</p>
+        <div class="resource-meta">
+          <span class="resource-type"><svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg> PDF • 20 Pages</span>
+          <button class="resource-download" onclick="alert('📥 Downloading Worship Song Lyrics Book...')"><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Download</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="resource-card" data-category="coloring">
+      <div class="resource-img pink-bg">
+        <span class="resource-tag">Activity</span>
+        <svg viewBox="0 0 120 100" width="100">
+          <rect x="20" y="20" width="80" height="65" rx="10" fill="#fff" stroke="#FF6B9D" stroke-width="2"/>
+          <rect x="28" y="28" width="64" height="49" rx="6" fill="#FFF5F8"/>
+          <path d="M40 45 L50 55 L70 35" stroke="#7CB342" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="85" cy="35" r="8" fill="none" stroke="#FF6B9D" stroke-width="2"/>
+          <rect x="35" y="65" width="25" height="4" rx="2" fill="#F8BBD0"/>
+          <rect x="35" y="72" width="18" height="3" rx="1.5" fill="#F8BBD0"/>
+          <rect x="70" y="65" width="20" height="4" rx="2" fill="#F8BBD0"/>
+          <path d="M30 15 Q40 5 50 15" stroke="#FF6B9D" stroke-width="2" fill="none"/>
+          <path d="M70 15 Q80 5 90 15" stroke="#FF6B9D" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <div class="resource-body">
+        <h3>Faith & Fun Activity Book</h3>
+        <p>Mazes, word searches, crosswords, and crafts that teach Bible truths in a playful way.</p>
+        <div class="resource-meta">
+          <span class="resource-type"><svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg> PDF • 25 Pages</span>
+          <button class="resource-download" onclick="alert('📥 Downloading Faith & Fun Activity Book...')"><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Download</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="resource-card" data-category="parent">
+      <div class="resource-img teal-bg">
+        <span class="resource-tag">Parent Guide</span>
+        <svg viewBox="0 0 120 100" width="100">
+          <ellipse cx="60" cy="85" rx="35" ry="8" fill="#B2EBF2"/>
+          <ellipse cx="45" cy="55" rx="18" ry="22" fill="#FFCC80"/>
+          <ellipse cx="45" cy="50" rx="14" ry="18" fill="#FFE0B2"/>
+          <circle cx="40" cy="48" r="2.5" fill="#333"/>
+          <circle cx="50" cy="48" r="2.5" fill="#333"/>
+          <path d="M43 55 Q45 57 47 55" stroke="#333" stroke-width="1.2" fill="none"/>
+          <ellipse cx="75" cy="55" rx="18" ry="22" fill="#FFCC80"/>
+          <ellipse cx="75" cy="50" rx="14" ry="18" fill="#FFE0B2"/>
+          <circle cx="70" cy="48" r="2.5" fill="#333"/>
+          <circle cx="80" cy="48" r="2.5" fill="#333"/>
+          <path d="M73 55 Q75 57 77 55" stroke="#333" stroke-width="1.2" fill="none"/>
+          <ellipse cx="60" cy="70" rx="8" ry="6" fill="#FF8C42"/>
+          <path d="M30 40 Q25 30 28 22" stroke="#FFCC80" stroke-width="2.5" fill="none"/>
+          <path d="M90 40 Q95 30 92 22" stroke="#FFCC80" stroke-width="2.5" fill="none"/>
+          <rect x="35" y="72" width="8" height="15" rx="2" fill="#42A5F5"/>
+          <rect x="77" y="72" width="8" height="15" rx="2" fill="#FF6B9D"/>
+          <path d="M55 35 Q60 25 65 35" stroke="#26C6DA" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <div class="resource-body">
+        <h3>Parent's Faith Toolkit</h3>
+        <p>Practical guides for leading family worship, answering tough questions, and building faith at home.</p>
+        <div class="resource-meta">
+          <span class="resource-type"><svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg> PDF • 18 Pages</span>
+          <button class="resource-download" onclick="alert('📥 Downloading Parent\'s Faith Toolkit...')"><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Download</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED BANNER -->
+<section class="featured-section">
+  <div class="featured-deco">
+    <svg class="featured-star" style="top:10%;left:8%;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="featured-star" style="top:20%;right:12%;width:18px;height:18px;animation-delay:0.5s;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="featured-star" style="bottom:15%;left:15%;width:20px;height:20px;animation-delay:1s;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="featured-star" style="bottom:25%;right:10%;width:16px;height:16px;animation-delay:1.5s;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="featured-heart" style="top:15%;right:30%;width:20px;height:20px;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <svg class="featured-heart" style="bottom:20%;left:10%;width:16px;height:16px;animation-delay:1.2s;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+  </div>
+  <div class="featured-container">
+    <div class="featured-img">
+      <svg viewBox="0 0 280 220" width="280">
+        <ellipse cx="140" cy="200" rx="100" ry="15" fill="#C5E1A5" opacity="0.2"/>
+        <path d="M40 60 Q80 40 140 55 Q200 40 240 60 L240 170 Q200 150 140 165 Q80 150 40 170Z" fill="#5D4037"/>
+        <path d="M45 65 Q82 48 138 60 L138 158 Q82 145 45 162Z" fill="#FFF8E1"/>
+        <path d="M142 60 Q198 48 235 65 L235 162 Q198 145 142 158Z" fill="#FFF8E1"/>
+        <line x1="140" y1="55" x2="140" y2="165" stroke="#5D4037" stroke-width="3"/>
+        <rect x="55" y="75" width="35" height="4" rx="2" fill="#FF8C42" opacity="0.5"/>
+        <rect x="55" y="85" width="28" height="3" rx="1.5" fill="#90CAF9" opacity="0.4"/>
+        <rect x="55" y="92" width="32" height="3" rx="1.5" fill="#90CAF9" opacity="0.4"/>
+        <rect x="55" y="99" width="25" height="3" rx="1.5" fill="#90CAF9" opacity="0.4"/>
+        <rect x="55" y="110" width="35" height="4" rx="2" fill="#FF8C42" opacity="0.5"/>
+        <rect x="55" y="120" width="28" height="3" rx="1.5" fill="#90CAF9" opacity="0.4"/>
+        <rect x="55" y="127" width="32" height="3" rx="1.5" fill="#90CAF9" opacity="0.4"/>
+        <rect x="55" y="134" width="25" height="3" rx="1.5" fill="#90CAF9" opacity="0.4"/>
+        <rect x="148" y="75" width="35" height="4" rx="2" fill="#FF8C42" opacity="0.5"/>
+        <rect x="148" y="85" width="28" height="3" rx="1.5" fill="#90CAF9" opacity="0.4"/>
+        <rect x="148" y="92" width="32" height="3" rx="1.5" fill="#90CAF9" opacity="0.4"/>
+        <rect x="148" y="99" width="25" height="3" rx="1.5" fill="#90CAF9" opacity="0.4"/>
+        <rect x="148" y="110" width="35" height="4" rx="2" fill="#FF8C42" opacity="0.5"/>
+        <rect x="148" y="120" width="28" height="3" rx="1.5" fill="#90CAF9" opacity="0.4"/>
+        <rect x="148" y="127" width="32" height="3" rx="1.5" fill="#90CAF9" opacity="0.4"/>
+        <rect x="148" y="134" width="25" height="3" rx="1.5" fill="#90CAF9" opacity="0.4"/>
+        <rect x="135" y="25" width="10" height="35" rx="2" fill="#FFD700"/>
+        <rect x="120" y="35" width="40" height="10" rx="2" fill="#FFD700"/>
+        <circle cx="140" cy="40" r="30" fill="#FFD700" opacity="0.1"/>
+        <path d="M30 100 C30 95 25 93 22 95 C19 93 14 95 14 100 C14 105 22 112 22 112 C22 112 30 105 30 100Z" fill="#FF6B9D" opacity="0.5"/>
+        <path d="M260 110 C260 106 256 104 253 106 C250 104 246 106 246 110 C246 114 253 120 253 120 C253 120 260 114 260 110Z" fill="#FF6B9D" opacity="0.4"/>
+        <path d="M20 50 L22 55 L27 55 L23 58 L25 63 L20 60 L15 63 L17 58 L13 55 L18 55Z" fill="#FFD700" opacity="0.5"/>
+        <path d="M260 60 L262 65 L267 65 L263 68 L265 73 L260 70 L255 73 L257 68 L253 65 L258 65Z" fill="#FFD700" opacity="0.5"/>
+      </svg>
+    </div>
+    <div class="featured-text">
+      <h2>Get the Complete Faith Bundle!</h2>
+      <p>Download our exclusive collection of Bible study guides, coloring pages, worship lyrics, and parent resources—all in one free package designed to help your family shine bright for Jesus.</p>
+      <div class="featured-btns">
+        <a href="#" class="featured-btn gold" onclick="alert('📦 Downloading Complete Faith Bundle...')"><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Download Bundle</a>
+        <a href="#" class="featured-btn white" onclick="alert('🔗 Share this page with your friends!')"><svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg> Share with Friends</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="newsletter-container">
+    <div class="newsletter-icon">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    </div>
+    <h2>Get New Resources Every Week!</h2>
+    <p>Join our Little Lights family and receive fresh Bible activities, coloring pages, and devotion guides delivered straight to your inbox.</p>
+    <form class="newsletter-form" onsubmit="alert('✅ You\'re subscribed! Check your email soon.'); return false;">
+      <input type="email" placeholder="Enter your email address..." required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      
+      <span class="logo-title" style="font-size:1.6rem;">Little <span>Lights</span></span>
+    </div>
+    <a href="#" class="footer-cta" onclick="alert('🌟 Welcome to the Little Lights Club!')">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      JOIN THE LITTLE LIGHTS CLUB!
+    </a>
+    <div class="footer-note">
+      <span>Parents: The Little Lights Club is parent approved and kid loved!</span>
+      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Simple category filter
+  function filterResources(category, button) {
+    // Update active tab
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    button.classList.add('active');
+
+    // Filter cards
+    const cards = document.querySelectorAll('.resource-card');
+    cards.forEach(card => {
+      if (category === 'all' || card.dataset.category === category) {
+        card.style.display = 'block';
+        // Add a small animation
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(10px)';
+        setTimeout(() => {
+          card.style.transition = 'all 0.4s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 50);
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+</body>
+</html>

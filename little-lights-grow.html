@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>🌱 Little Lights Grow · Grow Strong in Faith</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: #f6f9f4;
+      color: #1f3a2b;
+      overflow-x: hidden;
+    }
+
+    :root {
+      --soft-mint: #e0f0e3;
+      --deep-forest: #1f3a2b;
+      --golden: #f9c74f;
+      --coral: #f9847a;
+      --sky: #7ec8e3;
+      --card-shadow: 0 20px 40px -12px rgba(31, 58, 43, 0.15);
+      --radius-xl: 40px;
+      --radius-lg: 28px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Fredoka One', cursive;
+      letter-spacing: 0.02em;
+    }
+
+    /* premium navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.80);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(124, 179, 66, 0.15);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 52px;
+      width: auto;
+      filter: drop-shadow(0 4px 8px rgba(31, 58, 43, 0.08));
+    }
+
+    .logo-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.8rem;
+      background: linear-gradient(135deg, #2e7d4a, #66bb6a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1;
+    }
+
+    .logo-title span {
+      background: linear-gradient(135deg, #f9a825, #ffb74d);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.7rem;
+      color: #2e5a3e;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      background: transparent;
+      gap: 2px;
+    }
+
+    .nav-links li a svg {
+      width: 24px;
+      height: 24px;
+      fill: #3d7a52;
+      transition: 0.2s;
+    }
+
+    .nav-links li a:hover {
+      background: rgba(46, 125, 74, 0.08);
+      color: #1a3d28;
+      transform: translateY(-2px);
+    }
+
+    .nav-links li a:hover svg {
+      fill: #1f3a2b;
+    }
+
+    .nav-cta {
+      background: linear-gradient(145deg, #2e7d4a, #1f5a36);
+      color: white !important;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 18px rgba(46, 125, 74, 0.25);
+      transition: all 0.25s;
+      white-space: nowrap;
+      text-decoration: none;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .nav-cta:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 28px rgba(46, 125, 74, 0.35);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    /* HERO — premium & animated */
+    .hero {
+      position: relative;
+      min-height: 500px;
+      background: radial-gradient(circle at 20% 30%, #c8e6c9, #388e3c 80%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 70px 20px 100px;
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+      margin: 0 12px 0 12px;
+      box-shadow: 0 20px 40px rgba(31, 58, 43, 0.15);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero-cloud {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.10);
+      border-radius: 100px;
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-sun {
+      position: absolute;
+      top: -20px;
+      right: -10px;
+      width: 160px;
+      height: 160px;
+      animation: spin 30s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .hero-flower {
+      position: absolute;
+      animation: sway 4s ease-in-out infinite;
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(-4deg); }
+      50% { transform: rotate(4deg); }
+    }
+
+    .hero-butterfly {
+      position: absolute;
+      animation: fly 7s ease-in-out infinite;
+    }
+
+    @keyframes fly {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(25px, -18px) scale(1.05); }
+      50% { transform: translate(50px, 0) scale(0.95); }
+      75% { transform: translate(25px, 18px) scale(1.05); }
+    }
+
+    .hero-ray {
+      position: absolute;
+      fill: #ffd966;
+      opacity: 0.25;
+      animation: spin 25s linear infinite;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 700px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 10px 28px;
+      border-radius: 80px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      margin-bottom: 16px;
+    }
+
+    .hero-badge svg {
+      width: 22px;
+      height: 22px;
+      fill: #ffd966;
+    }
+
+    .hero-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 3.8rem;
+      color: white;
+      text-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .hero-title span {
+      color: #ffd966;
+    }
+
+    .hero-desc {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.92);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-weight: 600;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    /* section headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .section-header h2 {
+      font-size: 2.2rem;
+      color: #1f3a2b;
+      letter-spacing: 0.5px;
+    }
+
+    .section-header svg {
+      width: 32px;
+      height: 32px;
+      fill: #f9c74f;
+    }
+
+    /* GROWTH PATH */
+    .growth-section {
+      padding: 60px 20px;
+      background: white;
+      border-radius: 60px 60px 0 0;
+      margin: 0 12px;
+      margin-top: -10px;
+      box-shadow: 0 -10px 30px rgba(31, 58, 43, 0.02);
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .growth-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .growth-card {
+      text-align: center;
+      padding: 28px 16px;
+      border-radius: var(--radius-lg);
+      background: #f8fbf8;
+      border: 2px solid #e8f0e8;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .growth-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2e7d4a, #66bb6a, #a5d6a7);
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .growth-card:hover {
+      transform: translateY(-8px);
+      border-color: #a5d6a7;
+      box-shadow: 0 16px 36px rgba(31, 58, 43, 0.08);
+    }
+
+    .growth-card:hover::before {
+      opacity: 1;
+    }
+
+    .growth-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.4rem;
+      color: white;
+      margin: 0 auto 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .growth-card:nth-child(1) .growth-number { background: linear-gradient(145deg, #2e7d4a, #1f5a36); }
+    .growth-card:nth-child(2) .growth-number { background: linear-gradient(145deg, #2b7a9e, #1a4f6e); }
+    .growth-card:nth-child(3) .growth-number { background: linear-gradient(145deg, #e67e22, #b85e1a); }
+    .growth-card:nth-child(4) .growth-number { background: linear-gradient(145deg, #d94f6d, #b03a55); }
+
+    .growth-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .growth-icon svg {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .growth-card h3 {
+      font-size: 1.2rem;
+      color: #1f3a2b;
+      margin-bottom: 8px;
+    }
+
+    .growth-card p {
+      font-size: 0.9rem;
+      color: #3d6b4a;
+      line-height: 1.5;
+    }
+
+    /* DAILY CHALLENGES */
+    .challenges-section {
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #f6f9f4 0%, #fff 100%);
+    }
+
+    .challenges-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .challenge-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    .challenge-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 48px -12px rgba(31, 58, 43, 0.12);
+    }
+
+    .challenge-img {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .challenge-img svg {
+      max-width: 90%;
+      max-height: 100%;
+    }
+
+    .challenge-card h3 {
+      font-size: 1.3rem;
+      color: #1f3a2b;
+      margin-bottom: 10px;
+    }
+
+    .challenge-card p {
+      font-size: 0.95rem;
+      color: #3d6b4a;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .challenge-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: 60px;
+      color: white;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .challenge-btn:hover {
+      transform: scale(1.02) translateY(-3px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.10);
+    }
+
+    .challenge-btn.green { background: linear-gradient(145deg, #2e7d4a, #1f5a36); }
+    .challenge-btn.blue { background: linear-gradient(145deg, #2b7a9e, #1a4f6e); }
+    .challenge-btn.orange { background: linear-gradient(145deg, #e67e22, #b85e1a); }
+
+    /* SCRIPTURE */
+    .scripture-section {
+      position: relative;
+      background: linear-gradient(145deg, #1f3a2b, #0f2a1a);
+      padding: 80px 20px;
+      margin: 20px 12px 0;
+      border-radius: 60px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .scripture-deco {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .scripture-star {
+      position: absolute;
+      fill: #ffd966;
+      opacity: 0.4;
+      animation: twinkle 3.6s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+
+    .scripture-leaf {
+      position: absolute;
+      fill: #a5d6a7;
+      opacity: 0.2;
+      animation: fall 8s linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-30px) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.25; }
+      90% { opacity: 0.25; }
+      100% { transform: translateY(450px) rotate(360deg); opacity: 0; }
+    }
+
+    .scripture-content {
+      position: relative;
+      z-index: 10;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .scripture-content h2 {
+      font-size: 2.2rem;
+      color: #ffd966;
+      margin-bottom: 24px;
+    }
+
+    .scripture-box {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 24px;
+    }
+
+    .scripture-box p {
+      font-size: 1.4rem;
+      color: #fff;
+      font-weight: 700;
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .scripture-box cite {
+      font-size: 1rem;
+      color: #ffd966;
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    .scripture-dots {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .scripture-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .scripture-dot.active {
+      background: #ffd966;
+      transform: scale(1.3);
+    }
+
+    /* TOOLS */
+    .tools-section {
+      padding: 60px 20px;
+      background: white;
+      border-radius: 0 0 60px 60px;
+      margin: 0 12px;
+      box-shadow: 0 10px 30px rgba(31, 58, 43, 0.02);
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .tool-card {
+      background: #f8fbf8;
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--card-shadow);
+      transition: 0.3s;
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    .tool-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 48px -12px rgba(31, 58, 43, 0.10);
+    }
+
+    .tool-card h3 {
+      font-size: 1.4rem;
+      color: #1f3a2b;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .tool-card h3 svg {
+      width: 28px;
+      height: 28px;
+      fill: #2e7d4a;
+    }
+
+    .tool-card > p {
+      font-size: 0.95rem;
+      color: #3d6b4a;
+      margin-bottom: 20px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .tool-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tool-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.9rem;
+      color: #1f3a2b;
+      font-weight: 700;
+      padding: 12px 16px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      transition: 0.2s;
+    }
+
+    .tool-list li:hover {
+      transform: translateX(6px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    .tool-list li .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .tool-list li .icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .tool-img {
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(145deg, #e8f5e9, #f1f8e9);
+      border-radius: 20px;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .tool-img svg {
+      max-width: 85%;
+      max-height: 85%;
+    }
+
+    /* FAMILY BANNER */
+    .family-banner {
+      position: relative;
+      background: linear-gradient(180deg, #f1f8e9, #dcedc8);
+      padding: 60px 20px;
+      margin: 0 12px 20px;
+      border-radius: 60px;
+      overflow: hidden;
+    }
+
+    .family-deco {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .family-flower {
+      position: absolute;
+      fill: #66bb6a;
+      opacity: 0.15;
+      animation: sway 5s ease-in-out infinite;
+    }
+
+    .family-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .family-text {
+      flex: 1;
+    }
+
+    .family-text h2 {
+      font-size: 2.2rem;
+      color: #1f5a36;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .family-text h2 svg {
+      width: 32px;
+      height: 32px;
+      fill: #e67e22;
+    }
+
+    .family-text p {
+      color: #2e5a3e;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .family-features {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .family-feature {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.95rem;
+      color: #1f3a2b;
+      font-weight: 700;
+    }
+
+    .family-feature .check {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #2e7d4a, #1f5a36);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .family-feature .check svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+    }
+
+    .family-img {
+      flex: 0 0 320px;
+      height: 210px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .family-img svg {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: white;
+      padding: 40px 20px 30px;
+      text-align: center;
+      border-top: 1px solid #e8f0e8;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-logo img {
+      height: 48px;
+      width: auto;
+    }
+
+    .footer-btn {
+      background: linear-gradient(145deg, #2e7d4a, #1f5a36);
+      color: white;
+      padding: 14px 36px;
+      border-radius: 60px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 12px 28px rgba(46, 125, 74, 0.25);
+      transition: 0.2s;
+    }
+
+    .footer-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 16px 36px rgba(46, 125, 74, 0.35);
+    }
+
+    .footer-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+
+    .footer-copy {
+      font-size: 0.85rem;
+      color: #3d6b4a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .footer-copy svg {
+      width: 18px;
+      height: 18px;
+      fill: #f9847a;
+    }
+
+    /* responsive */
+    @media (max-width: 1100px) {
+      .hero-title { font-size: 3rem; }
+      .growth-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 992px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 24px;
+        gap: 8px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        border-radius: 0 0 40px 40px;
+      }
+      .nav-links.active { display: flex; }
+      .nav-links li a { flex-direction: row; font-size: 1rem; padding: 12px 16px; width: 100%; }
+      .mobile-menu-btn { display: block; }
+      .hero { border-radius: 32px; margin: 0 8px; }
+      .challenges-grid { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .family-content { flex-direction: column; text-align: center; }
+      .family-img { flex: none; }
+      .hero-title { font-size: 2.6rem; }
+    }
+
+    @media (max-width: 768px) {
+      .growth-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.2rem; }
+      .hero-badge { font-size: 0.8rem; padding: 8px 20px; }
+      .section-header h2 { font-size: 1.6rem; }
+      .scripture-box p { font-size: 1.1rem; }
+      .family-text h2 { font-size: 1.6rem; }
+      .nav-cta { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 1.8rem; }
+      .hero-desc { font-size: 1rem; }
+      .challenge-card { padding: 20px; }
+      .tool-card { padding: 24px; }
+      .footer-btn { font-size: 0.9rem; padding: 12px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">
+      <span class="logo-title">Little <span>Lights</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="little-lights.html"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Home</a></li>
+      <li><a href="little-rest.html"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Rest</a></li>
+      <li><a href="little-lights-grow.html"><svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zm-9-9c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9zm9-9c-4.97 0-9 4.03-9 9 4.97 0 9-4.03 9-9zm5.65-2.65L12 2 6.35 7.65l1.41 1.41L12 4.83l4.24 4.23 1.41-1.41z"/></svg> Grow</a></li>
+      <li><a href="little-lights-stories.html"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H3V5h18v11zM9 8l7 4-7 4V8z"/></svg> Stories</a></li>
+      <li><a href="little-lights-bible-study.html"><svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4zm12 16H6V4h12v16z"/><path d="M12 7h1.5v3H16v1.5h-2.5V15H12v-3.5H9.5V10H12z"/></svg> Bible</a></li>
+      <li><a href="little-lights-family.html"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> Family</a></li>
+      <li><a href="little-lights-teens.html"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg> Colors</a></li>
+      <li><a href="little-resource.html"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg> Resources</a></li>
+    </ul>
+    <a href="#" class="nav-cta">🌱 Grow Activities</a>
+    <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('active')">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="#1f3a2b"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-cloud" style="width:140px;height:55px;top:10%;left:6%;"></div>
+    <div class="hero-cloud" style="width:100px;height:42px;top:22%;right:14%;"></div>
+    <div class="hero-cloud" style="width:120px;height:48px;bottom:18%;left:20%;"></div>
+    <!-- sun -->
+    <svg class="hero-sun" viewBox="0 0 180 180">
+      <circle cx="90" cy="90" r="50" fill="#ffd966"/>
+      <circle cx="90" cy="90" r="38" fill="#ffecb3"/>
+      <line x1="90" y1="10" x2="90" y2="30" stroke="#ffd966" stroke-width="4" stroke-linecap="round"/>
+      <line x1="90" y1="150" x2="90" y2="170" stroke="#ffd966" stroke-width="4" stroke-linecap="round"/>
+      <line x1="10" y1="90" x2="30" y2="90" stroke="#ffd966" stroke-width="4" stroke-linecap="round"/>
+      <line x1="150" y1="90" x2="170" y2="90" stroke="#ffd966" stroke-width="4" stroke-linecap="round"/>
+      <line x1="33" y1="33" x2="47" y2="47" stroke="#ffd966" stroke-width="3" stroke-linecap="round"/>
+      <line x1="133" y1="133" x2="147" y2="147" stroke="#ffd966" stroke-width="3" stroke-linecap="round"/>
+      <line x1="33" y1="147" x2="47" y2="133" stroke="#ffd966" stroke-width="3" stroke-linecap="round"/>
+      <line x1="133" y1="47" x2="147" y2="33" stroke="#ffd966" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <!-- flowers -->
+    <svg class="hero-flower" style="bottom:6%;left:4%;width:50px;height:70px" viewBox="0 0 50 70">
+      <rect x="23" y="30" width="4" height="40" fill="#66bb6a"/>
+      <ellipse cx="25" cy="18" rx="10" ry="10" fill="#f9847a"/>
+      <ellipse cx="25" cy="8" rx="6" ry="6" fill="#faa69e"/>
+      <ellipse cx="35" cy="18" rx="6" ry="6" fill="#faa69e"/>
+      <ellipse cx="25" cy="28" rx="6" ry="6" fill="#faa69e"/>
+      <ellipse cx="15" cy="18" rx="6" ry="6" fill="#faa69e"/>
+      <circle cx="25" cy="18" r="5" fill="#ffd966"/>
+    </svg>
+    <svg class="hero-flower" style="bottom:10%;right:6%;width:45px;height:65px;animation-delay:1.2s" viewBox="0 0 50 70">
+      <rect x="23" y="30" width="4" height="40" fill="#66bb6a"/>
+      <ellipse cx="25" cy="18" rx="10" ry="10" fill="#7ec8e3"/>
+      <ellipse cx="25" cy="8" rx="6" ry="6" fill="#a1d9ed"/>
+      <ellipse cx="35" cy="18" rx="6" ry="6" fill="#a1d9ed"/>
+      <ellipse cx="25" cy="28" rx="6" ry="6" fill="#a1d9ed"/>
+      <ellipse cx="15" cy="18" rx="6" ry="6" fill="#a1d9ed"/>
+      <circle cx="25" cy="18" r="5" fill="#ffd966"/>
+    </svg>
+    <!-- butterflies -->
+    <svg class="hero-butterfly" style="top:20%;left:12%;width:42px;height:38px" viewBox="0 0 42 38">
+      <ellipse cx="15" cy="16" rx="11" ry="13" fill="#f9847a" opacity="0.7" transform="rotate(-20 15 16)"/>
+      <ellipse cx="27" cy="16" rx="11" ry="13" fill="#f9847a" opacity="0.7" transform="rotate(20 27 16)"/>
+      <ellipse cx="15" cy="24" rx="8" ry="10" fill="#faa69e" opacity="0.6" transform="rotate(-15 15 24)"/>
+      <ellipse cx="27" cy="24" rx="8" ry="10" fill="#faa69e" opacity="0.6" transform="rotate(15 27 24)"/>
+      <rect x="19" y="8" width="2" height="20" rx="1" fill="#5d4037"/>
+      <path d="M19 8 Q16 4 14 6" stroke="#5d4037" stroke-width="1.5" fill="none"/>
+      <path d="M21 8 Q24 4 26 6" stroke="#5d4037" stroke-width="1.5" fill="none"/>
+    </svg>
+    <svg class="hero-butterfly" style="top:40%;right:10%;width:36px;height:32px;animation-delay:3s" viewBox="0 0 42 38">
+      <ellipse cx="15" cy="16" rx="11" ry="13" fill="#7ec8e3" opacity="0.7" transform="rotate(-20 15 16)"/>
+      <ellipse cx="27" cy="16" rx="11" ry="13" fill="#7ec8e3" opacity="0.7" transform="rotate(20 27 16)"/>
+      <ellipse cx="15" cy="24" rx="8" ry="10" fill="#a1d9ed" opacity="0.6" transform="rotate(-15 15 24)"/>
+      <ellipse cx="27" cy="24" rx="8" ry="10" fill="#a1d9ed" opacity="0.6" transform="rotate(15 27 24)"/>
+      <rect x="19" y="8" width="2" height="20" rx="1" fill="#5d4037"/>
+      <path d="M19 8 Q16 4 14 6" stroke="#5d4037" stroke-width="1.5" fill="none"/>
+      <path d="M21 8 Q24 4 26 6" stroke="#5d4037" stroke-width="1.5" fill="none"/>
+    </svg>
+    <svg class="hero-ray" style="top:5%;right:5%;width:200px;height:200px" viewBox="0 0 200 200">
+      <line x1="100" y1="100" x2="100" y2="10" stroke="#ffd966" stroke-width="3" stroke-linecap="round"/>
+      <line x1="100" y1="100" x2="160" y2="30" stroke="#ffd966" stroke-width="2" stroke-linecap="round"/>
+      <line x1="100" y1="100" x2="190" y2="80" stroke="#ffd966" stroke-width="2" stroke-linecap="round"/>
+      <line x1="100" y1="100" x2="170" y2="140" stroke="#ffd966" stroke-width="2" stroke-linecap="round"/>
+      <line x1="100" y1="100" x2="120" y2="180" stroke="#ffd966" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zm-9-9c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9zm9-9c-4.97 0-9 4.03-9 9 4.97 0 9-4.03 9-9zm5.65-2.65L12 2 6.35 7.65l1.41 1.41L12 4.83l4.24 4.23 1.41-1.41z"/></svg>
+      Grow in Faith Every Day
+    </div>
+    <h1 class="hero-title">Little Lights <span>Grow</span></h1>
+    <p class="hero-desc">Plant seeds of faith, water them with God's Word, and watch your heart bloom with love for Jesus. Every day is a chance to grow closer to God!</p>
+  </div>
+</section>
+
+<!-- GROWTH PATH -->
+<section class="growth-section">
+  <div class="container">
+    <div class="section-header">
+      <svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zm-9-9c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9zm9-9c-4.97 0-9 4.03-9 9 4.97 0 9-4.03 9-9zm5.65-2.65L12 2 6.35 7.65l1.41 1.41L12 4.83l4.24 4.23 1.41-1.41z"/></svg>
+      <h2>How We Grow</h2>
+      <svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zm-9-9c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9zm9-9c-4.97 0-9 4.03-9 9 4.97 0 9-4.03 9-9zm5.65-2.65L12 2 6.35 7.65l1.41 1.41L12 4.83l4.24 4.23 1.41-1.41z"/></svg>
+    </div>
+    <div class="growth-grid">
+      <div class="growth-card">
+        <div class="growth-number">1</div>
+        <div class="growth-icon"><svg viewBox="0 0 80 80" width="70"><rect x="35" y="40" width="10" height="35" rx="3" fill="#66bb6a"/><ellipse cx="40" cy="30" rx="18" ry="18" fill="#a5d6a7"/><ellipse cx="40" cy="20" rx="12" ry="12" fill="#c8e6c9"/><ellipse cx="52" cy="30" rx="10" ry="10" fill="#c8e6c9"/><ellipse cx="28" cy="30" rx="10" ry="10" fill="#c8e6c9"/><ellipse cx="40" cy="40" rx="10" ry="10" fill="#c8e6c9"/><circle cx="40" cy="28" r="8" fill="#ffd966"/></svg></div>
+        <h3>Read God's Word</h3>
+        <p>Open your Bible and discover amazing stories about God's love, power, and promises for you.</p>
+      </div>
+      <div class="growth-card">
+        <div class="growth-number">2</div>
+        <div class="growth-icon"><svg viewBox="0 0 80 80" width="70"><circle cx="40" cy="35" r="22" fill="#e3f2fd"/><circle cx="40" cy="35" r="16" fill="#bbdefb"/><path d="M32 28 Q40 20 48 28" stroke="#42a5f5" stroke-width="2" fill="none"/><circle cx="36" cy="32" r="2" fill="#42a5f5"/><circle cx="44" cy="32" r="2" fill="#42a5f5"/><path d="M38 38 Q40 42 42 38" stroke="#42a5f5" stroke-width="1.5" fill="none"/><rect x="36" y="55" width="8" height="15" rx="2" fill="#90caf9"/><rect x="40" y="55" width="8" height="15" rx="2" fill="#90caf9"/></svg></div>
+        <h3>Pray Every Day</h3>
+        <p>Talk to God like a friend. Share your joys, worries, and thank Him for all the good things.</p>
+      </div>
+      <div class="growth-card">
+        <div class="growth-number">3</div>
+        <div class="growth-icon"><svg viewBox="0 0 80 80" width="70"><circle cx="40" cy="40" r="25" fill="#fff3e0"/><circle cx="40" cy="40" r="20" fill="#ffe0b2"/><path d="M30 35 Q40 25 50 35" stroke="#ff8c42" stroke-width="2" fill="none"/><circle cx="34" cy="38" r="3" fill="#ff8c42"/><circle cx="46" cy="38" r="3" fill="#ff8c42"/><path d="M36 45 Q40 50 44 45" stroke="#ff8c42" stroke-width="1.5" fill="none"/><rect x="32" y="55" width="7" height="12" rx="2" fill="#ffb74d"/><rect x="41" y="55" width="7" height="12" rx="2" fill="#ffb74d"/></svg></div>
+        <h3>Be Kind & Brave</h3>
+        <p>Let God's love shine through your actions. Be kind to others and brave in doing what is right.</p>
+      </div>
+      <div class="growth-card">
+        <div class="growth-number">4</div>
+        <div class="growth-icon"><svg viewBox="0 0 80 80" width="70"><rect x="20" y="15" width="40" height="50" rx="5" fill="#fce4ec"/><rect x="24" y="19" width="32" height="42" rx="3" fill="#fff"/><line x1="28" y1="28" x2="52" y2="28" stroke="#f8bbd0" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="36" x2="48" y2="36" stroke="#f8bbd0" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="44" x2="44" y2="44" stroke="#f8bbd0" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="52" x2="40" y2="52" stroke="#f8bbd0" stroke-width="2" stroke-linecap="round"/><circle cx="55" cy="55" r="12" fill="#f9847a"/><path d="M50 55 L53 58 L60 51" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></div>
+        <h3>Remember & Share</h3>
+        <p>Write down what you learn and tell your friends and family about God's amazing love.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAILY CHALLENGES -->
+<section class="challenges-section">
+  <div class="container">
+    <div class="section-header">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <h2>Daily Growth Challenges</h2>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </div>
+    <div class="challenges-grid">
+      <div class="challenge-card">
+        <div class="challenge-img"><svg viewBox="0 0 140 130" width="140"><rect x="20" y="20" width="100" height="80" rx="10" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="2"/><rect x="28" y="28" width="84" height="64" rx="6" fill="#fff"/><rect x="38" y="40" width="50" height="6" rx="3" fill="#c8e6c9"/><rect x="38" y="52" width="40" height="6" rx="3" fill="#c8e6c9"/><rect x="38" y="64" width="55" height="6" rx="3" fill="#c8e6c9"/><rect x="38" y="76" width="35" height="6" rx="3" fill="#c8e6c9"/><circle cx="105" cy="45" r="15" fill="#66bb6a"/><path d="M98 45 L103 50 L112 40" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></div>
+        <h3>Today's Bible Verse</h3>
+        <p>Read a new verse each day, memorize it, and think about what God is telling you through His Word.</p>
+        <a href="#" class="challenge-btn green"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg> Start Reading</a>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-img"><svg viewBox="0 0 140 130" width="140"><circle cx="70" cy="55" r="35" fill="#e3f2fd" stroke="#90caf9" stroke-width="2"/><circle cx="70" cy="55" r="28" fill="#fff"/><path d="M55 45 Q70 35 85 45" stroke="#42a5f5" stroke-width="2" fill="none"/><circle cx="62" cy="52" r="3" fill="#42a5f5"/><circle cx="78" cy="52" r="3" fill="#42a5f5"/><path d="M65 62 Q70 68 75 62" stroke="#42a5f5" stroke-width="1.5" fill="none"/><rect x="62" y="82" width="7" height="12" rx="2" fill="#90caf9"/><rect x="71" y="82" width="7" height="12" rx="2" fill="#90caf9"/></svg></div>
+        <h3>Kindness Challenge</h3>
+        <p>Do one kind thing each day. Help a friend, share a smile, or say something encouraging to someone.</p>
+        <a href="#" class="challenge-btn blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Take Challenge</a>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-img"><svg viewBox="0 0 140 130" width="140"><rect x="30" y="25" width="80" height="70" rx="10" fill="#fff3e0" stroke="#ffcc80" stroke-width="2"/><rect x="38" y="33" width="64" height="54" rx="6" fill="#fff"/><rect x="48" y="45" width="20" height="20" rx="3" fill="#ffe0b2"/><path d="M52 52 L56 56 L64 48" stroke="#ff8c42" stroke-width="2" fill="none" stroke-linecap="round"/><rect x="75" y="45" width="20" height="20" rx="3" fill="#ffe0b2"/><path d="M79 55 L83 55" stroke="#ff8c42" stroke-width="2" fill="none" stroke-linecap="round"/><rect x="48" y="70" width="20" height="8" rx="2" fill="#ffe0b2"/><rect x="75" y="70" width="20" height="8" rx="2" fill="#ffe0b2"/></svg></div>
+        <h3>Gratitude Journal</h3>
+        <p>Write down three things you are thankful for each day. Watch how God fills your heart with joy!</p>
+        <a href="#" class="challenge-btn orange"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg> Start Journal</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPTURE -->
+<section class="scripture-section">
+  <div class="scripture-deco">
+    <svg class="scripture-star" style="top:10%;left:8%;width:20px;height:20px" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="scripture-star" style="top:20%;right:12%;width:16px;height:16px;animation-delay:0.6s" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="scripture-star" style="top:55%;left:4%;width:18px;height:18px;animation-delay:1.2s" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="scripture-star" style="bottom:20%;right:6%;width:22px;height:22px;animation-delay:0.9s" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg class="scripture-leaf" style="top:-20px;left:20%;width:22px;height:22px" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-5 2.05-7 3.25C13.5 7.5 15 8 17 8z"/></svg>
+    <svg class="scripture-leaf" style="top:-20px;left:60%;width:18px;height:18px;animation-delay:2s" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-5 2.05-7 3.25C13.5 7.5 15 8 17 8z"/></svg>
+    <svg class="scripture-leaf" style="top:-20px;left:80%;width:20px;height:20px;animation-delay:4s" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-5 2.05-7 3.25C13.5 7.5 15 8 17 8z"/></svg>
+  </div>
+  <div class="scripture-content">
+    <h2>God's Word for Growing Hearts</h2>
+    <div class="scripture-box">
+      <p>"I am the vine; you are the branches. If you remain in me and I in you, you will bear much fruit."</p>
+      <cite>John 15:5</cite>
+    </div>
+    <div class="scripture-dots">
+      <div class="scripture-dot active"></div>
+      <div class="scripture-dot"></div>
+      <div class="scripture-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools-section">
+  <div class="container">
+    <div class="section-header">
+      <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
+      <h2>Growth Tools</h2>
+      <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <h3><svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg> Bible Study for Kids</h3>
+        <p>Fun and simple Bible studies designed just for little lights to understand God's Word.</p>
+        <ul class="tool-list">
+          <li><div class="icon" style="background:linear-gradient(145deg,#e8f5e9,#c8e6c9)"><svg viewBox="0 0 24 24" fill="#43a047"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div> Short daily devotions</li>
+          <li><div class="icon" style="background:linear-gradient(145deg,#e3f2fd,#bbdefb)"><svg viewBox="0 0 24 24" fill="#1976d2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div> Memory verse cards</li>
+          <li><div class="icon" style="background:linear-gradient(145deg,#fff3e0,#ffe0b2)"><svg viewBox="0 0 24 24" fill="#f57c00"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div> Coloring activities</li>
+          <li><div class="icon" style="background:linear-gradient(145deg,#fce4ec,#f8bbd0)"><svg viewBox="0 0 24 24" fill="#c2185b"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div> Discussion questions</li>
+        </ul>
+      </div>
+      <div class="tool-card">
+        <h3><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg> Worship & Music</h3>
+        <p>Sing, dance, and praise God with joyful songs that help little hearts worship.</p>
+        <ul class="tool-list">
+          <li><div class="icon" style="background:linear-gradient(145deg,#e1bee7,#ce93d8)"><svg viewBox="0 0 24 24" fill="#7b1fa2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div> Sing-along videos</li>
+          <li><div class="icon" style="background:linear-gradient(145deg,#e8eaf6,#c5cae9)"><svg viewBox="0 0 24 24" fill="#5c6bc0"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div> Lyric sheets</li>
+          <li><div class="icon" style="background:linear-gradient(145deg,#fff9c4,#fff176)"><svg viewBox="0 0 24 24" fill="#f9a825"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div> Dance moves</li>
+          <li><div class="icon" style="background:linear-gradient(145deg,#e0f7fa,#b2ebf2)"><svg viewBox="0 0 24 24" fill="#0097a7"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div> Instrumental tracks</li>
+        </ul>
+        <div class="tool-img">
+          <svg viewBox="0 0 300 150" width="280"><ellipse cx="80" cy="110" rx="25" ry="30" fill="#ffcc80"/><ellipse cx="80" cy="95" rx="20" ry="22" fill="#ffe0b2"/><circle cx="73" cy="92" r="4" fill="#333"/><circle cx="87" cy="92" r="4" fill="#333"/><path d="M77 100 Q80 103 83 100" stroke="#333" stroke-width="1.5" fill="none"/><rect x="65" y="125" width="12" height="18" rx="2" fill="#ef5350"/><rect x="83" y="125" width="12" height="18" rx="2" fill="#ef5350"/><path d="M55 110 Q48 105 50 98" stroke="#ffcc80" stroke-width="3" fill="none"/><path d="M105 110 Q112 105 110 98" stroke="#ffcc80" stroke-width="3" fill="none"/><ellipse cx="150" cy="105" rx="22" ry="28" fill="#42a5f5"/><ellipse cx="150" cy="92" rx="18" ry="20" fill="#64b5f6"/><circle cx="144" cy="89" r="3.5" fill="#333"/><circle cx="156" cy="89" r="3.5" fill="#333"/><path d="M147 96 Q150 99 153 96" stroke="#333" stroke-width="1.2" fill="none"/><rect x="138" y="120" width="10" height="16" rx="2" fill="#1e88e5"/><rect x="152" y="120" width="10" height="16" rx="2" fill="#1e88e5"/><path d="M128 100 Q122 95 124 88" stroke="#42a5f5" stroke-width="2.5" fill="none"/><path d="M172 100 Q178 95 176 88" stroke="#42a5f5" stroke-width="2.5" fill="none"/><ellipse cx="220" cy="100" rx="24" ry="30" fill="#f9847a"/><ellipse cx="220" cy="85" rx="20" ry="22" fill="#faa69e"/><circle cx="213" cy="82" r="4" fill="#333"/><circle cx="227" cy="82" r="4" fill="#333"/><path d="M217 90 Q220 93 223 90" stroke="#333" stroke-width="1.5" fill="none"/><rect x="208" y="115" width="11" height="18" rx="2" fill="#d94f6d"/><rect x="221" y="115" width="11" height="18" rx="2" fill="#d94f6d"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY BANNER -->
+<section class="family-banner">
+  <div class="family-deco">
+    <svg class="family-flower" style="top:10%;left:4%;width:40px;height:50px" viewBox="0 0 40 50"><rect x="18" y="20" width="4" height="30" fill="#a5d6a7"/><ellipse cx="20" cy="12" rx="8" ry="8" fill="#f9847a" opacity="0.3"/><ellipse cx="20" cy="5" rx="5" ry="5" fill="#faa69e" opacity="0.3"/><ellipse cx="28" cy="12" rx="5" ry="5" fill="#faa69e" opacity="0.3"/><ellipse cx="20" cy="19" rx="5" ry="5" fill="#faa69e" opacity="0.3"/><ellipse cx="12" cy="12" rx="5" ry="5" fill="#faa69e" opacity="0.3"/></svg>
+    <svg class="family-flower" style="top:15%;right:6%;width:36px;height:46px;animation-delay:1.2s" viewBox="0 0 40 50"><rect x="18" y="20" width="4" height="30" fill="#a5d6a7"/><ellipse cx="20" cy="12" rx="8" ry="8" fill="#7ec8e3" opacity="0.3"/><ellipse cx="20" cy="5" rx="5" ry="5" fill="#a1d9ed" opacity="0.3"/><ellipse cx="28" cy="12" rx="5" ry="5" fill="#a1d9ed" opacity="0.3"/><ellipse cx="20" cy="19" rx="5" ry="5" fill="#a1d9ed" opacity="0.3"/><ellipse cx="12" cy="12" rx="5" ry="5" fill="#a1d9ed" opacity="0.3"/></svg>
+    <svg class="family-flower" style="bottom:10%;left:12%;width:32px;height:42px;animation-delay:2s" viewBox="0 0 40 50"><rect x="18" y="20" width="4" height="30" fill="#a5d6a7"/><ellipse cx="20" cy="12" rx="8" ry="8" fill="#ffd966" opacity="0.3"/><ellipse cx="20" cy="5" rx="5" ry="5" fill="#ffecb3" opacity="0.3"/><ellipse cx="28" cy="12" rx="5" ry="5" fill="#ffecb3" opacity="0.3"/><ellipse cx="20" cy="19" rx="5" ry="5" fill="#ffecb3" opacity="0.3"/><ellipse cx="12" cy="12" rx="5" ry="5" fill="#ffecb3" opacity="0.3"/></svg>
+  </div>
+  <div class="family-content">
+    <div class="family-text">
+      <h2><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> Grow Together as a Family</h2>
+      <p>Faith grows best when families nurture it together. Explore resources designed for parents and children to learn, pray, and worship side by side.</p>
+      <div class="family-features">
+        <div class="family-feature"><div class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div> Family devotion guides</div>
+        <div class="family-feature"><div class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div> Parent discussion tips</div>
+        <div class="family-feature"><div class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div> Group activity ideas</div>
+        <div class="family-feature"><div class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div> Sunday school resources</div>
+      </div>
+    </div>
+    <div class="family-img">
+      <svg viewBox="0 0 320 220" width="320"><rect x="30" y="50" width="260" height="140" rx="20" fill="#e8f5e9"/><ellipse cx="90" cy="130" rx="28" ry="35" fill="#ffcc80"/><ellipse cx="90" cy="112" rx="23" ry="26" fill="#ffe0b2"/><circle cx="82" cy="108" r="4" fill="#333"/><circle cx="98" cy="108" r="4" fill="#333"/><path d="M86 116 Q90 120 94 116" stroke="#333" stroke-width="1.5" fill="none"/><rect x="72" y="148" width="14" height="22" rx="3" fill="#ef5350"/><rect x="94" y="148" width="14" height="22" rx="3" fill="#ef5350"/><path d="M62 135 Q55 128 57 120" stroke="#ffcc80" stroke-width="3" fill="none"/><path d="M118 135 Q125 128 123 120" stroke="#ffcc80" stroke-width="3" fill="none"/><ellipse cx="160" cy="125" rx="25" ry="32" fill="#42a5f5"/><ellipse cx="160" cy="108" rx="21" ry="24" fill="#64b5f6"/><circle cx="153" cy="104" r="3.5" fill="#333"/><circle cx="167" cy="104" r="3.5" fill="#333"/><path d="M156 112 Q160 116 164 112" stroke="#333" stroke-width="1.2" fill="none"/><rect x="146" y="142" width="12" height="20" rx="3" fill="#1e88e5"/><rect x="162" y="142" width="12" height="20" rx="3" fill="#1e88e5"/><path d="M135 128 Q128 120 130 112" stroke="#42a5f5" stroke-width="2.5" fill="none"/><path d="M185 128 Q192 120 190 112" stroke="#42a5f5" stroke-width="2.5" fill="none"/><ellipse cx="230" cy="120" rx="30" ry="38" fill="#f9847a"/><ellipse cx="230" cy="100" rx="25" ry="28" fill="#faa69e"/><circle cx="222" cy="96" r="4.5" fill="#333"/><circle cx="238" cy="96" r="4.5" fill="#333"/><circle cx="225" cy="93" r="1.5" fill="#fff"/><circle cx="241" cy="93" r="1.5" fill="#fff"/><path d="M226 106 Q230 110 234 106" stroke="#333" stroke-width="1.5" fill="none"/><rect x="215" y="140" width="14" height="24" rx="3" fill="#d94f6d"/><rect x="231" y="140" width="14" height="24" rx="3" fill="#d94f6d"/><rect x="130" y="165" width="60" height="35" rx="6" fill="#5d4037"/><rect x="135" y="170" width="50" height="25" rx="4" fill="#8d6e63"/><path d="M142 178 L147 183 L157 173" stroke="#ffd966" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="160" cy="40" r="25" fill="#ffd966" opacity="0.3"/><circle cx="160" cy="40" r="18" fill="#ffecb3" opacity="0.4"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      
+      <span class="logo-title" style="font-size:1.6rem;">Little <span>Lights</span></span>
+    </div>
+    <a href="#" class="footer-btn">
+      <svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zm-9-9c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9zm9-9c-4.97 0-9 4.03-9 9 4.97 0 9-4.03 9-9zm5.65-2.65L12 2 6.35 7.65l1.41 1.41L12 4.83l4.24 4.23 1.41-1.41z"/></svg>
+      Keep Growing in Faith
+    </a>
+    <div class="footer-copy">
+      <span>Created with love by Kuaretta Lawrence for LightMode Ministries</span>
+      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    </div>
+    <div class="footer-copy" style="margin-top:-6px;">2026 LightMode Ministries LLC. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>

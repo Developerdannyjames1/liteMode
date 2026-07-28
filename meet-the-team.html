@@ -279,12 +279,14 @@
             background:linear-gradient(135deg,#1a2a4a 0%,#0f1a2e 50%,#1a1a2e 100%);
         }
         .hero__bg {
-            position:absolute;inset:0;z-index:0;
-            background: url('images/team.png'); 
-            background-repeat: no-repeat;
-            background-position: 36% 20%;
-            background-size: 100%;
-        }
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: url(images/team-hero.png);
+    background-repeat: no-repeat;
+    background-position: unset;
+    background-size: cover;
+}
         .hero__bg::after {
             content:'';position:absolute;inset:0;
             background:linear-gradient(90deg,rgba(15,26,46,0.92) 0%,rgba(15,26,46,0.7) 45%,rgba(15,26,46,0.2) 70%,transparent 100%);
@@ -661,6 +663,15 @@
             .spotlight-left{grid-template-columns:1fr;text-align:center}
             .spotlight-left__img{margin:0 auto;width:120px;height:150px}
             .footer-cta__inner{flex-direction:column;text-align:center}
+            .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: url(images/team-hero.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+}
         }
         @media(max-width:576px){
             .nav__inner{height:64px}
@@ -747,7 +758,10 @@
 
                 <a href="explore-the-realm.html" class="nav__link">Explore the Realm</a>
                 <a href="adventure-club.html" class="nav__link">Adventure Club</a>
-                <a href="little-lights.html" class="nav__link">Little Lights</a>
+                <a href="little-lights.html" class="nav__link">
+    <span style="color: var(--purple); font-weight: 700;">Little</span>
+    <span style="color: var(--orange); font-weight: 700;">Lights</span>
+</a>
                 <a href="parents.html" class="nav__link">Parents</a>
             </nav>
             <a href="#" class="nav__cta">Join the Adventure Club</a>

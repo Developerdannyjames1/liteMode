@@ -294,10 +294,10 @@
         }
         .hero__bg {
             position:absolute;inset:0;z-index:0;
-            background: url('images/team.png');
+            background: url('images/lumi-hero.png');
             background-repeat: no-repeat;
-            background-position: 36% 20%;
-            background-size: 100%;
+            background-position: center;
+            background-size: cover;
         }
         .hero__bg::after {
             content:'';position:absolute;inset:0;
@@ -756,6 +756,13 @@
             .parents__btn{width:100%;justify-content:center}
             .club__card{padding:24px 20px}
             .parents__card{padding:24px 20px}
+            .hero__bg {
+            position:absolute;inset:0;z-index:0;
+            background: url('images/lumi-hero.png');
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: cover;
+        }
         }
         @media(max-width:576px){
             .nav__inner{height:64px}
@@ -846,7 +853,10 @@
 
                 <a href="explore-the-realm.html" class="nav__link">Explore the Realm</a>
                 <a href="adventure-club.html" class="nav__link">Adventure Club</a>
-                <a href="little-lights.html" class="nav__link">Little Lights</a>
+               <a href="little-lights.html" class="nav__link">
+    <span style="color: var(--purple); font-weight: 700;">Little</span>
+    <span style="color: var(--orange); font-weight: 700;">Lights</span>
+</a>
                 <a href="parents.html" class="nav__link">Parents</a>
             </nav>
             <a href="#club" class="nav__cta">Join the Adventure Club</a>

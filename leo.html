@@ -87,7 +87,7 @@
 
         /* HERO */
         .hero-char{position:relative;overflow:hidden;background:linear-gradient(135deg,#fdf7f1 0%,#f5e6d3 30%,#e8d4b8 60%,#d4a574 100%);min-height:100vh;display:flex;align-items:center}
-        .hero-char__bg{position:absolute;inset:0;z-index:0;background-image:url('/images/char1.png');background-size:cover;background-position:right 80%}
+        .hero-char__bg{position:absolute;inset:0;z-index:0;background-image:url('/images/leo-hero.png');background-size:cover;background-position:right 80%}
         .hero-char__bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(253,247,241,0.95) 0%,rgba(253,247,241,0.85) 25%,rgba(253,247,241,0.4) 50%,rgba(253,247,241,0.1) 65%,transparent 100%)}
         .hero-char__bg::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(253,247,241,0.6) 0%,transparent 30%)}
         .hero-char__content{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:80px clamp(24px,4vw,48px) 40px;width:100%;display:grid;grid-template-columns:1fr 1.2fr;gap:0;align-items:center;min-height:85vh}
@@ -106,7 +106,7 @@
         .hero-char__img{max-height:580px;width:auto;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.2));position:relative;z-index:2}
         .hero-char__owl{position:absolute;top:8%;right:8%;width:90px;height:90px;z-index:4;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.2));animation:floatOwl 3s ease-in-out infinite}
         @keyframes floatOwl{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-        .hero-char__quote{position:absolute;right:5%;top:28%;background:var(--green);border-radius:var(--r-xl);padding:28px 32px;max-width:220px;box-shadow:var(--shadow-lg);z-index:5}
+        .hero-char__quote{position:absolute;right:60%;top:40%;background:var(--green);border-radius:var(--r-xl);padding:28px 32px;max-width:220px;box-shadow:var(--shadow-lg);z-index:5}
         .hero-char__quote::before{content:'"';font-family:var(--font-h);font-size:3.5rem;color:rgba(255,255,255,0.25);line-height:1;position:absolute;top:4px;left:14px}
         .hero-char__quote-text{font-family:var(--font-h);font-size:1.05rem;font-weight:600;color:var(--white);line-height:1.5;position:relative;z-index:1;margin:0;padding:4px 0}
         .hero-char__quote::after{content:'"';font-family:var(--font-h);font-size:3.5rem;color:rgba(255,255,255,0.25);line-height:1;position:absolute;bottom:-12px;right:14px}
@@ -405,7 +405,10 @@
                 <a href="meet-the-team.html" class="nav__link active" aria-current="page">Meet the Team</a>
                 <a href="explore-the-realm.html" class="nav__link">Explore the Realm</a>
                 <a href="adventure-club.html" class="nav__link">Adventure Club</a>
-                <a href="little-lights.html" class="nav__link">Little Lights</a>
+                <a href="little-lights.html" class="nav__link">
+    <span style="color: var(--purple); font-weight: 700;">Little</span>
+    <span style="color: var(--orange); font-weight: 700;">Lights</span>
+</a>
                 <a href="parents.html" class="nav__link">Parents</a>
             </nav>
             <a href="#" class="nav__cta">Join the Adventure Club</a>
