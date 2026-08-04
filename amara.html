@@ -372,10 +372,18 @@
       gap: 20px;
     }
     .hero-char__img { max-height: 480px; }
-    .hero-char__quote { right: 2%; top: 25%; max-width: 190px; padding: 22px 24px; }
+    .hero-char__quote { right: 2%; top: 25%; max-width: 190px; padding: 22px 24px;display: none; }
   }
 
   @media (max-width: 768px) {
+    .hero-char__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url('images/amara-hero.png');
+    background-size: cover;
+    background-position: 83%;
+  }
     .hero-char__content {
       grid-template-columns: 1fr;
       text-align: center;
