@@ -108,6 +108,7 @@
     background: #0A0E1A;  /* Solid dark background with contrast */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.3s ease;
+    padding: 10px 0px;
 }
 
 .navbar-container {
@@ -129,7 +130,7 @@
 }
 
 .navbar-brand img {
-    height: 80px;
+    height: 90px;
     width: auto;
     object-fit: contain;
     display: block;

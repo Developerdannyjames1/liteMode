@@ -113,6 +113,7 @@
             background: #0A0E1A;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.3s ease;
+            padding: 10px 0px;
         }
         .navbar-link.inspiration {
             background: linear-gradient(90deg, #fbbf24, #f472b6, #a78bfa);
@@ -132,27 +133,37 @@
             justify-content: space-between;
             height: 72px;
         }
-        .navbar-brand {
-            display: flex; align-items: center;
-            text-decoration: none; flex-shrink: 0;
-        }
-        .navbar-brand img {
-            height: 60px; width: auto;
-            object-fit: contain; display: block;
-        }
+        
+/* Brand Logo - Image Only */
+.navbar-brand {
+    display: flex; 
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.navbar-brand img {
+    height: 90px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
         .navbar-menu {
             display: flex; list-style: none;
-            gap: 8px; align-items: center;
+            gap: 14px; align-items: center;
             margin-right: 20px;
         }
         .navbar-link {
-            text-decoration: none;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1rem; font-weight: 500;
-            padding: 8px 12px; border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative; white-space: nowrap;
-        }
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);  /* White text with slight opacity */
+    font-size: 1rem; 
+    font-weight: 500;
+    padding: 8px 12px; 
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+}
         .navbar-link:hover { color: #ffffff; }
         .navbar-link.active {
             color: #ffffff; font-weight: 600;
@@ -1106,6 +1117,31 @@
                 </li>
                 <!-- Start Here (standalone) -->
                 <li role="none"><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
+                           
+    <!-- GROW -->
+    <li class="nav-dropdown" role="none">
+        <a href="" class="navbar-link dropdown-toggle">
+            Teaching Library <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="/devotional-gallery.html" class="dropdown-link">Devotional Gallery</a></li>
+            <li><a href="/sermons.html" class="dropdown-link">Bible Reading Experience</a></li>
+            <li><a href="/devotionals.html" class="dropdown-link">Daily Confessions </a></li>
+
+        </ul>
+    </li>
+     <!-- LumenQuest Dropdown -->
+                <li class="nav-dropdown" role="none">
+                    <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">
+                        LumenQuest <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/animations.html" class="dropdown-link">Animations</a></li>
+                        <li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li>
+                        <li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li>
+                        <li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li>
+                    </ul>
+                </li>
                 <!-- Prayer Room (current page) -->
                 <li role="none"><a href="/prayer-room.html" class="navbar-link active" aria-current="page">Prayer Room</a></li>
                 <!-- Rest Dropdown -->
@@ -1119,30 +1155,8 @@
                         <li><a href="/bedtime-fables.html" class="dropdown-link">BedTime Fables</a></li>
                     </ul>
                 </li>
-                <!-- Inspiration Dropdown -->
-                <li class="nav-dropdown" role="none">
-                    <a href="/inspiration.html" class="navbar-link inspiration dropdown-toggle">
-                        Inspiration <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/stories.html" class="dropdown-link">Stories</a></li>
-                        <li><a href="/videos.html" class="dropdown-link">Videos</a></li>
-                        <li><a href="/resources.html" class="dropdown-link">Resources</a></li>
-                    </ul>
-                </li>
                
-    <!-- GROW -->
-    <li class="nav-dropdown" role="none">
-        <a href="/grow.html" class="navbar-link dropdown-toggle">
-            Teaching Library <span class="dropdown-arrow">▼</span>
-        </a>
-        <ul class="dropdown-menu">
-            <li><a href="/devotional-gallery.html" class="dropdown-link">Devotional Gallery</a></li>
-            <li><a href="/sermons.html" class="dropdown-link">Bible Reading Experience</a></li>
-            <li><a href="/devotionals.html" class="dropdown-link">Daily Confessions </a></li>
-
-        </ul>
-    </li>
+    
                 <!-- Teens Dropdown -->
                 <li class="nav-dropdown" role="none">
                     <a href="/teens.html" class="navbar-link dropdown-toggle">
@@ -1154,18 +1168,7 @@
                         <li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li>
                     </ul>
                 </li>
-                <!-- LumenQuest Dropdown -->
-                <li class="nav-dropdown" role="none">
-                    <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">
-                        LumenQuest <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/animations.html" class="dropdown-link">Animations</a></li>
-                        <li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li>
-                        <li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li>
-                        <li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li>
-                    </ul>
-                </li>
+               
             </ul>
 
             <div class="navbar-actions">
@@ -1319,7 +1322,7 @@
                 <div class="card-body">
                     <h3>Finding Peace in the Storm</h3>
                     <p class="card-desc">A prayer for peace that surpasses understanding in the midst of life's trials and storms.</p>
-                    <a href="#" class="btn-pray">Pray Now <span class="arrow">→</span></a>
+                    <a href="/storm.html" class="btn-pray">Pray Now <span class="arrow">→</span></a>
                 </div>
             </article>
             <!-- 2 -->
@@ -1329,7 +1332,7 @@
                 <div class="card-body">
                     <h3>Healing and Restoration</h3>
                     <p class="card-desc">A prayer for physical, emotional, and spiritual healing and complete restoration.</p>
-                    <a href="#" class="btn-pray">Pray Now <span class="arrow">→</span></a>
+                    <a href="/healing.html" class="btn-pray">Pray Now <span class="arrow">→</span></a>
                 </div>
             </article>
             <!-- 3 -->
@@ -1339,7 +1342,7 @@
                 <div class="card-body">
                     <h3>Provision and Financial Breakthrough</h3>
                     <p class="card-desc">A prayer for God's provision, financial wisdom, and breakthrough in every area of need.</p>
-                    <a href="#" class="btn-pray">Pray Now <span class="arrow">→</span></a>
+                    <a href="/provision.html" class="btn-pray">Pray Now <span class="arrow">→</span></a>
                 </div>
             </article>
             <!-- 4 -->
@@ -1349,7 +1352,7 @@
                 <div class="card-body">
                     <h3>Wisdom, Guidance, and Clear Direction</h3>
                     <p class="card-desc">A prayer for divine wisdom, clear direction, and God's leading in every decision.</p>
-                    <a href="#" class="btn-pray">Pray Now <span class="arrow">→</span></a>
+                    <a href="/wisdom.html" class="btn-pray">Pray Now <span class="arrow">→</span></a>
                 </div>
             </article>
             <!-- 5 -->
@@ -1359,7 +1362,7 @@
                 <div class="card-body">
                     <h3>Hope, Patience, and Trusting God While You Wait</h3>
                     <p class="card-desc">A prayer to strengthen your hope and trust while you wait on God's timing.</p>
-                    <a href="#" class="btn-pray">Pray Now <span class="arrow">→</span></a>
+                    <a href="/hope.html" class="btn-pray">Pray Now <span class="arrow">→</span></a>
                 </div>
             </article>
             <!-- 6 -->
@@ -1369,7 +1372,7 @@
                 <div class="card-body">
                     <h3>Divine Protection and Spiritual Covering</h3>
                     <p class="card-desc">A prayer for God's protection, angels, and spiritual covering over your life.</p>
-                    <a href="#" class="btn-pray">Pray Now <span class="arrow">→</span></a>
+                    <a href="/divine.html" class="btn-pray">Pray Now <span class="arrow">→</span></a>
                 </div>
             </article>
             <!-- 7 -->
@@ -1379,7 +1382,7 @@
                 <div class="card-body">
                     <h3>Family, Children, and Loved Ones</h3>
                     <p class="card-desc">A prayer for your family, children, and loved ones to be blessed, protected, and guided by God.</p>
-                    <a href="#" class="btn-pray">Pray Now <span class="arrow">→</span></a>
+                    <a href="/family.html" class="btn-pray">Pray Now <span class="arrow">→</span></a>
                 </div>
             </article>
             <!-- 8 -->
@@ -1389,7 +1392,7 @@
                 <div class="card-body">
                     <h3>Comfort, Grief, and Restoration After Loss</h3>
                     <p class="card-desc">A prayer for comfort in grief and God's restoration of your heart.</p>
-                    <a href="#" class="btn-pray">Pray Now <span class="arrow">→</span></a>
+                    <a href="/comfort.html" class="btn-pray">Pray Now <span class="arrow">→</span></a>
                 </div>
             </article>
             <!-- 9 -->
@@ -1399,7 +1402,7 @@
                 <div class="card-body">
                     <h3>Freedom from Fear, Anxiety, and Mental Oppression</h3>
                     <p class="card-desc">A prayer for freedom from fear, anxiety, and every form of mental oppression.</p>
-                    <a href="#" class="btn-pray">Pray Now <span class="arrow">→</span></a>
+                    <a href="/freedom.html" class="btn-pray">Pray Now <span class="arrow">→</span></a>
                 </div>
             </article>
             <!-- 10 -->
@@ -1409,7 +1412,7 @@
                 <div class="card-body">
                     <h3>Forgiveness, Healing, and Freedom from Bitterness</h3>
                     <p class="card-desc">A prayer for forgiveness, healing from the past, and freedom to walk in God's righteousness.</p>
-                    <a href="#" class="btn-pray">Pray Now <span class="arrow">→</span></a>
+                    <a href="/forgiveness.html" class="btn-pray">Pray Now <span class="arrow">→</span></a>
                 </div>
             </article>
             <!-- 11 -->
@@ -1419,7 +1422,7 @@
                 <div class="card-body">
                     <h3>Thanksgiving, Praise, and Remembering God's Faithfulness</h3>
                     <p class="card-desc">A prayer of thanksgiving and praise for all that God has done and will do in your life.</p>
-                    <a href="#" class="btn-pray">Pray Now <span class="arrow">→</span></a>
+                    <a href="thanksgiving.html" class="btn-pray">Pray Now <span class="arrow">→</span></a>
                 </div>
             </article>
             <!-- 12 -->
@@ -1429,7 +1432,7 @@
                 <div class="card-body">
                     <h3>A Prayer of Dedication: Walking Daily with Jesus</h3>
                     <p class="card-desc">A prayer of dedication to walk daily with Jesus and fulfill God's purpose for your life.</p>
-                    <a href="#" class="btn-pray">Pray Now <span class="arrow">→</span></a>
+                    <a href="/walking.html" class="btn-pray">Pray Now <span class="arrow">→</span></a>
                 </div>
             </article>
         </section>

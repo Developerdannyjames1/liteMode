@@ -44,7 +44,7 @@
 
     <!-- GROW -->
     <li class="nav-dropdown" role="none">
-        <a href="/grow.html" class="navbar-link dropdown-toggle">
+        <a href="#" class="navbar-link dropdown-toggle">
             Teaching Library <span class="dropdown-arrow">▼</span>
         </a>
         <ul class="dropdown-menu">
@@ -547,6 +547,9 @@
     </a>
   </div>
 </section>
+
+
+
 
   <!-- Video Background Section -->
   <!-- <section class="video-bg-section" aria-label="Featured video background">
@@ -1469,7 +1472,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
-  <!-- JavaScript --> 
+    <!-- JavaScript --> 
  <script>
      (function() {
       const cards = document.querySelectorAll('.j-card');
@@ -1480,6 +1483,29 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
       const btnAdult = document.getElementById('ljModalAdult');
       const btnKids = document.getElementById('ljModalKids');
 
+      // The mapping for Kids and Adults journey routes
+      const adultRoutes = {
+        '0': '/WelcomeOrientation.html',
+        '1': '/journey-step-2.html',
+        '2': '/journey-step-3.html',
+        '3': '/journey-step-4.html',
+        '4': '/journey-step-5.html',
+        '5': '/journey-step-6.html',
+        '6': '/journey-step-7.html',
+        '7': '/journey-step-8.html'
+      };
+
+      const kidsRoutes = {
+        '0': '/kids-journey-1.html',
+        '1': '/kids-journey-1.html',
+        '2': '/kids-journey-2.html',
+        '3': '/kids-journey-3.html',
+        '4': '/kids-journey-4.html',
+        '5': '/kids-journey-5.html',
+        '6': '/kids-journey-6.html',
+        '7': '/kids-journey-7.html'
+      };
+
       let currentDay = null;
 
       cards.forEach(card => {
@@ -1489,6 +1515,15 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
           currentDay = day;
           modalTitle.textContent = title;
           modalDesc.textContent = 'Select the version that\'s right for you or your child for Day ' + day + '.';
+          
+          // Update modal links to route to the correct day
+          if (adultRoutes[day]) {
+            btnAdult.href = adultRoutes[day];
+          }
+          if (kidsRoutes[day]) {
+            btnKids.href = kidsRoutes[day];
+          }
+
           modal.classList.add('active');
         });
       });
@@ -1506,6 +1541,7 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
      
     })();
   </script>
+<script src="journey-config.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
