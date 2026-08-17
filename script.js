@@ -230,18 +230,18 @@ const initNavbar = () => {
    ============================================ */
 const initBridgeCarousel = () => {
   const IMAGES = [
-    "/images/lumenquest.jpg", "/images/rest.jpg", "/images/inspiration.jpg", "/images/lumenquest.jpg",
-    "/images/grow.jpg","/images/lumenquest.jpg", "/images/teens.jpg", 
+    "/images/starthere.png", "/images/rest.jpg", "/images/Teaching.jpg", "/images/prayer.jpg",
+    "/images/lumenquest.png", "/images/teens.jpg", 
   ];
 
   // Define your links corresponding to each image
   const LINKS = [
-    "/lumenquest.html","/rest.html", "/inspiration.html", "/lumenquest.html",
-    "/grow.html", "/lumenquest.html","/teens.html", 
+    "/start-here.html","/rest.html", "/grow.html", "/prayer-room.html",
+     "/lumenquest.html","/teens.html", 
   ];
 const LABELS = [
-  "LumenQuest", "Rest", "Inspiration", "Lumenquest",
-  "Grow","LumenQuest", "Teens", 
+  "Start Here", "Rest", "Teaching Library", "Prayer Room",
+  "LumenQuest", "Teens", 
 ];
   const track = document.getElementById('bridgeTrack');
   if (!track) return;

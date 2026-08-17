@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Are His Beloved — Light That Leads | LightMode Ministries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'RecklessStandard';
+            src: url('./fonts/RecklessStandardM-TRIAL-Regular.otf') format('opentype');
+            font-weight: normal; font-style: normal; font-display: swap;
+        }
+        @font-face {
+            font-family: 'RecklessWide';
+            src: url('./fonts/RecklessWideXL-TRIAL-Regular.otf') format('opentype');
+            font-weight: normal; font-style: normal; font-display: swap;
+        }
+
+        /* ════════════════════════════════════════
+           THEME VARIABLES
+        ════════════════════════════════════════ */
+        :root {
+            --bg-primary: #faf8f5;
+            --bg-secondary: #f5f0eb;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #5a5a6e;
+            --text-muted: #8a8a9e;
+            --accent-gold: #b8860b;
+            --accent-gold-light: #d4a843;
+            --accent-navy: #1a1a3e;
+            --accent-navy-light: #2a2a5e;
+            --border-color: rgba(0,0,0,0.08);
+            --border-gold: rgba(184,134,11,0.2);
+            --navbar-bg: #0A0E1A;
+            --navbar-border: rgba(255,255,255,0.08);
+            --footer-bg: #0A0E1A;
+            --footer-border: rgba(255,255,255,0.05);
+            --frame-gold: #c9a227;
+            --frame-gold-dark: #a67c00;
+            --quote-bg: #f5f0eb;
+            --section-line: rgba(184,134,11,0.15);
+            --highlight-bg: rgba(184,134,11,0.06);
+            --btn-primary-bg: linear-gradient(135deg, #1a1a3e 0%, #2a2a5e 100%);
+            --btn-primary-shadow: rgba(26,26,62,0.35);
+            --toggle-bg: #e5e0db;
+            --toggle-active: #7c3aed;
+            --starfield-opacity: 0;
+            --icon-color: #b8860b;
+            --box-border: #b8860b;
+        }
+
+        [data-theme="night"] {
+            --bg-primary: #0a0a12;
+            --bg-secondary: #12121f;
+            --bg-card: rgba(26, 26, 40, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b8a;
+            --accent-gold: #fbbf24;
+            --accent-gold-light: #fcd34d;
+            --accent-navy: #818cf8;
+            --accent-navy-light: #a78bfa;
+            --border-color: rgba(255,255,255,0.08);
+            --border-gold: rgba(251,191,36,0.2);
+            --navbar-bg: #0A0E1A;
+            --navbar-border: rgba(255,255,255,0.06);
+            --footer-bg: #0a0a12;
+            --footer-border: rgba(255,255,255,0.05);
+            --frame-gold: #fbbf24;
+            --frame-gold-dark: #d97706;
+            --quote-bg: rgba(26, 26, 40, 0.7);
+            --section-line: rgba(251,191,36,0.15);
+            --highlight-bg: rgba(251,191,36,0.06);
+            --btn-primary-bg: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+            --btn-primary-shadow: rgba(124,58,237,0.35);
+            --toggle-bg: #1a1a2e;
+            --toggle-active: #a78bfa;
+            --starfield-opacity: 1;
+            --icon-color: #fbbf24;
+            --box-border: #fbbf24;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Playfair Display', 'Inter', serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .starfield {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
+            opacity: var(--starfield-opacity);
+            transition: opacity 0.5s ease;
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 50%, rgba(45, 43, 85, 0.15) 0%, transparent 60%);
+        }
+
+        /* ════════════════════════════════════════
+           NAVBAR (EXACT)
+        ════════════════════════════════════════ */
+        .navbar {
+            position: fixed; top: 0; left: 0;
+            width: 100%; z-index: 1000;
+            background: #0A0E1A;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .navbar-link.inspiration {
+            background: linear-gradient(90deg, #fbbf24, #f472b6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700; font-size: 0.9rem;
+        }
+        .navbar-link.inspiration:hover { transform: scale(1.05); filter: brightness(1.2); }
+        .navbar-link.inspiration.active::after {
+            background: linear-gradient(90deg, #fbbf24, #f472b6);
+        }
+        .navbar-container {
+            max-width: 1440px; margin: 0 auto;
+            padding: 0 40px;
+            display: flex; align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .navbar-brand {
+            display: flex; align-items: center;
+            text-decoration: none; flex-shrink: 0;
+        }
+        .navbar-brand img {
+            height: 80px; width: auto;
+            object-fit: contain; display: block;
+        }
+        .navbar-menu {
+            display: flex; list-style: none;
+            gap: 20px; align-items: center;
+            margin-right: 20px;
+        }
+        .navbar-link {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem; font-weight: 500;
+            padding: 8px 12px; border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative; white-space: nowrap;
+        }
+        .navbar-link:hover { color: #ffffff; }
+        .navbar-link.active {
+            color: #ffffff; font-weight: 600;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .navbar-link.active::after {
+            content: ''; position: absolute;
+            bottom: -2px; left: 50%;
+            transform: translateX(-50%);
+            width: 20px; height: 2px;
+            background: var(--accent-violet, #8B5CF6);
+            border-radius: 1px;
+        }
+        .navbar-link.start-here {
+            background: linear-gradient(135deg, #8B5CF6, #6366F1);
+            color: #ffffff; font-weight: 600;
+            padding: 8px 16px;
+            box-shadow: 0 2px 12px rgba(139, 92, 246, 0.4);
+            border: none;
+        }
+        .navbar-link.start-here:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.6);
+            color: #ffffff;
+            background: linear-gradient(135deg, #9B6CF6, #7373F1);
+        }
+        .navbar-link.start-here.active::after { display: none; }
+        .navbar-link.lumenquest {
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700; font-size: 0.9rem;
+        }
+        .navbar-link.lumenquest:hover { transform: scale(1.05); filter: brightness(1.2); }
+        .navbar-link.lumenquest.active::after {
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+        }
+        .navbar-actions {
+            display: flex; align-items: center;
+            gap: 12px; flex-shrink: 0;
+        }
+        .theme-toggle {
+            display: flex; align-items: center;
+            gap: 4px; background: rgba(255, 255, 255, 0.08);
+            border-radius: 50px; padding: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .theme-btn {
+            width: 32px; height: 32px;
+            border-radius: 50%; border: none;
+            background: transparent; cursor: pointer;
+            display: flex; align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 0;
+        }
+        .theme-btn.active {
+            background: #6366F1; color: #ffffff;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+        }
+        .theme-btn:hover:not(.active) { color: rgba(255, 255, 255, 0.9); }
+        .theme-btn svg { width: 16px; height: 16px; }
+        .navbar-toggle {
+            display: none; flex-direction: column;
+            gap: 5px; background: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px; cursor: pointer;
+            padding: 8px; margin-left: 8px;
+        }
+        .navbar-toggle span {
+            display: block; width: 24px; height: 2px;
+            background: #ffffff; border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .navbar-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .navbar-toggle.active span:nth-child(2) { opacity: 0; }
+        .navbar-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Mobile nav */
+        @media (max-width: 768px) {
+            .navbar-container { height: 70px; padding: 0 18px; }
+            .navbar-brand img { height: 55px; width: auto; }
+            .navbar-toggle { display: flex; z-index: 1002; }
+            .navbar-menu {
+                display: none; flex-direction: column;
+                align-items: stretch;
+                position: fixed; top: 80px; left: 15px; right: 15px;
+                max-height: calc(100vh - 100px); overflow-y: auto;
+                padding: 20px 16px; gap: 6px;
+                background: rgba(12, 16, 28, 0.96);
+                backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 24px;
+                box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+                z-index: 1001;
+                transform: translateY(8px); opacity: 0;
+                transition: opacity 0.25s ease, transform 0.25s ease;
+            }
+            .navbar-menu.active {
+                display: flex; transform: translateY(0); opacity: 1;
+            }
+            .navbar-menu li {
+                width: 100%; list-style: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+                padding: 4px 0;
+            }
+            .navbar-menu li:last-child { border-bottom: none; }
+            .navbar-link {
+                display: flex; align-items: center;
+                justify-content: space-between; width: 100%;
+                padding: 14px 16px; font-size: 1rem; font-weight: 600;
+                border-radius: 14px;
+                color: rgba(255, 255, 255, 0.85);
+                transition: all 0.2s ease;
+                border: 1px solid transparent;
+            }
+            .navbar-link:hover {
+                background: rgba(255, 255, 255, 0.07);
+                border-color: rgba(255, 255, 255, 0.08);
+                color: #fff;
+            }
+            .navbar-link.start-here {
+                background: linear-gradient(135deg, #8B5CF6, #6366F1);
+                color: #fff; border: none;
+                box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+            }
+            .navbar-link.start-here:hover {
+                transform: none;
+                box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5);
+            }
+            .navbar-link.lumenquest {
+                background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text; font-weight: 700;
+            }
+            .navbar-link.inspiration {
+                background: linear-gradient(90deg, #fbbf24, #f472b6, #a78bfa);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text; font-weight: 700;
+            }
+            .dropdown-menu {
+                position: static; opacity: 1; visibility: visible;
+                transform: none; box-shadow: none;
+                max-height: 0; overflow: hidden;
+                padding: 0; margin: 0 0 0 16px;
+                background: transparent; border: none;
+                border-radius: 0; backdrop-filter: none;
+                transition: max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+            }
+            .nav-dropdown.active .dropdown-menu {
+                max-height: 300px; padding: 8px 0 12px 0;
+                margin: 0 0 0 16px;
+                border-top: 1px solid rgba(255, 255, 255, 0.06);
+            }
+            .nav-dropdown:not(.active) .dropdown-menu {
+                max-height: 0; padding: 0; margin: 0 0 0 16px;
+                border-top: none;
+            }
+            .dropdown-link {
+                display: block; padding: 12px 16px;
+                color: rgba(255, 255, 255, 0.75);
+                text-decoration: none; border-radius: 12px;
+                font-size: 0.95rem; font-weight: 500;
+                transition: all 0.2s ease;
+                border: 1px solid transparent;
+            }
+            .dropdown-link:hover {
+                background: rgba(255, 255, 255, 0.06);
+                border-color: rgba(255, 255, 255, 0.06);
+                color: #fff; padding-left: 22px;
+            }
+            .dropdown-arrow {
+                font-size: 10px;
+                transition: transform 0.3s ease;
+                color: rgba(255, 255, 255, 0.5);
+            }
+            .nav-dropdown.active .dropdown-arrow { transform: rotate(180deg); }
+            [data-theme="night"] .navbar-menu {
+                background: rgba(12, 16, 28, 0.96);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+            }
+            [data-theme="day"] .navbar-menu {
+                background: rgba(245, 240, 235, 0.97);
+                backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+                border: 1px solid rgba(0, 0, 0, 0.08);
+                box-shadow: 0 24px 80px rgba(0, 0, 0, 0.15);
+            }
+            [data-theme="day"] .navbar-menu li {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            }
+            [data-theme="day"] .navbar-link {
+                color: rgba(20, 20, 30, 0.85);
+            }
+            [data-theme="day"] .navbar-link:hover {
+                background: rgba(0, 0, 0, 0.05);
+                border-color: rgba(0, 0, 0, 0.06);
+                color: #1a1a2e;
+            }
+            [data-theme="day"] .navbar-link.start-here {
+                color: #fff;
+                background: linear-gradient(135deg, #7c3aed, #4f46e5);
+            }
+            [data-theme="day"] .navbar-link.start-here:hover {
+                background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            }
+            [data-theme="day"] .dropdown-link {
+                color: rgba(20, 20, 30, 0.75);
+            }
+            [data-theme="day"] .dropdown-link:hover {
+                background: rgba(0, 0, 0, 0.04);
+                border-color: rgba(0, 0, 0, 0.06);
+                color: #1a1a2e;
+            }
+            [data-theme="day"] .dropdown-arrow {
+                color: rgba(0, 0, 0, 0.4);
+            }
+            [data-theme="day"] .nav-dropdown.active .dropdown-menu {
+                border-top: 1px solid rgba(0, 0, 0, 0.06);
+            }
+            [data-theme="day"] .nav-dropdown:not(.active) .dropdown-menu {
+                border-top: none;
+            }
+        }
+
+        /* Dropdown desktop */
+        .nav-dropdown { position: relative; }
+        .dropdown-toggle {
+            display: flex; align-items: center; gap: 6px;
+        }
+        .dropdown-arrow {
+            font-size: 10px;
+            transition: transform 0.3s ease;
+        }
+        .dropdown-menu {
+            position: absolute; top: 100%; left: 0;
+            min-width: 220px;
+            background: linear-gradient(135deg, #0A1A2F 0%, #102A4A 35%, #173E6B 70%, #1E4F87 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px; padding: 10px 0;
+            margin-top: 12px; list-style: none;
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 20px 50px rgba(0,0,0,.45), 0 0 25px rgba(37,99,235,.15);
+            opacity: 0; visibility: hidden;
+            transform: translateY(10px);
+            transition: all .35s ease; z-index: 1000;
+        }
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1; visibility: visible; transform: translateY(0);
+        }
+        .nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+        .dropdown-link {
+            display: block; padding: 12px 18px;
+            color: #F8FAFC; text-decoration: none;
+            border-radius: 10px; transition: all .3s ease;
+        }
+        .dropdown-link:hover {
+            background: rgba(255,255,255,.08);
+            color: #F5C542; padding-left: 24px;
+        }
+        [data-theme="day"] .dropdown-menu {
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.08);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+        [data-theme="day"] .dropdown-link { color: #1a1a2e; }
+        [data-theme="day"] .dropdown-link:hover {
+            background: rgba(0,0,0,0.04); color: #7c3aed;
+        }
+        .nav-dropdown .dropdown-toggle { cursor: pointer; }
+
+        /* ════════════════════════════════════════
+           DEVOTIONAL ONE PAGE CONTENT
+        ════════════════════════════════════════ */
+        .devotional-page {
+            position: relative; z-index: 1;
+            padding-top: 72px;
+            background: var(--bg-primary);
+            transition: background 0.5s ease;
+        }
+
+        /* ── Top Bar ── */
+        .devotional-topbar {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .topbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .topbar-lantern {
+            width: 32px; height: 32px;
+            color: var(--accent-gold);
+        }
+        .topbar-brand-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-navy);
+            transition: color 0.5s ease;
+        }
+        [data-theme="night"] .topbar-brand-text h2 {
+            color: var(--text-primary);
+        }
+        .topbar-brand-text span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            display: block;
+            margin-top: 2px;
+            transition: color 0.5s ease;
+        }
+        .topbar-return {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s ease;
+        }
+        .topbar-return:hover { color: var(--accent-gold); }
+
+        /* ── Hero Frame ── */
+        .devotional-hero {
+            max-width: 900px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+        }
+        
+       
+        .hero-frame-inner img {
+            width: 100%;
+            
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ── Title Section ── */
+        .devotional-title {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+        }
+        .devotional-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            transition: color 0.5s ease;
+        }
+        .devotional-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--accent-navy);
+            margin-bottom: 8px;
+            transition: color 0.5s ease;
+        }
+        [data-theme="night"] .devotional-title h1 {
+            color: var(--text-primary);
+        }
+        .devotional-title .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            margin-bottom: 16px;
+            transition: color 0.5s ease;
+        }
+        .title-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .title-divider .line {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+        .title-divider .diamond {
+            width: 6px; height: 6px;
+            background: var(--accent-gold);
+            transform: rotate(45deg);
+        }
+        .devotional-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            transition: color 0.5s ease;
+        }
+        .devotional-quote .quote-mark {
+            color: var(--accent-gold);
+            font-size: 1.4rem;
+            font-style: normal;
+            font-family: Georgia, serif;
+        }
+
+        /* ── Gallery Moments ── */
+        .moments-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+        .moment {
+            border-top: 1px solid var(--section-line);
+            padding: 32px 0;
+            transition: border-color 0.5s ease;
+        }
+        .moment:first-child {
+            border-top: none;
+        }
+        .moment-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .moment-icon {
+            width: 48px; height: 48px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--icon-color);
+        }
+        .moment-icon svg {
+            width: 36px; height: 36px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.5;
+        }
+        .moment-content {
+            flex: 1;
+        }
+        .moment-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 4px;
+            transition: color 0.5s ease;
+        }
+        .moment-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--accent-navy);
+            margin-bottom: 12px;
+            transition: color 0.5s ease;
+        }
+        [data-theme="night"] .moment-title {
+            color: var(--text-primary);
+        }
+        .moment-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            transition: color 0.5s ease;
+        }
+        .moment-text p {
+            margin-bottom: 12px;
+        }
+        .moment-text p:last-child {
+            margin-bottom: 0;
+        }
+        .moment-text .scripture-ref {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--accent-navy);
+            margin-bottom: 8px;
+            display: block;
+            transition: color 0.5s ease;
+        }
+        [data-theme="night"] .moment-text .scripture-ref {
+            color: var(--text-primary);
+        }
+        .moment-text em {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+        .moment-text .highlight {
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        /* Two column moments */
+        .moment-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .moment-two-col .moment {
+            border-top: none;
+            padding: 0;
+        }
+        .moment-two-col .moment-header {
+            gap: 14px;
+        }
+        .moment-two-col .moment-icon {
+            width: 40px; height: 40px;
+        }
+        .moment-two-col .moment-icon svg {
+            width: 30px; height: 30px;
+        }
+        .moment-two-col .moment-title {
+            font-size: 0.95rem;
+        }
+
+        /* Bullet list */
+        .moment-list {
+            list-style: none;
+            padding: 0;
+        }
+        .moment-list li {
+            position: relative;
+            padding-left: 16px;
+            margin-bottom: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            transition: color 0.5s ease;
+        }
+        .moment-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 5px;
+            height: 5px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+        }
+
+        /* Identity truth box */
+        .identity-box {
+            border: 1.5px solid var(--box-border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-top: 12px;
+            background: var(--highlight-bg);
+            transition: all 0.5s ease;
+        }
+        .identity-box p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--text-primary);
+            line-height: 1.7;
+            text-align: center;
+            margin: 0;
+            transition: color 0.5s ease;
+        }
+
+        /* Prayer text */
+        .prayer-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            transition: color 0.5s ease;
+        }
+        .prayer-text .amen {
+            font-style: italic;
+            color: var(--accent-gold);
+        }
+
+        /* Carry forward */
+        .carry-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            transition: color 0.5s ease;
+        }
+        .carry-text .carry-highlight {
+            color: var(--accent-gold);
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        /* ── Gallery Navigation ── */
+        .gallery-nav {
+            max-width: 900px;
+            margin: 0 auto 0;
+            padding: 0 20px;
+        }
+        .gallery-nav-inner {
+            border-top: 1px solid var(--section-line);
+            border-bottom: 1px solid var(--section-line);
+            padding: 24px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            transition: border-color 0.5s ease;
+        }
+        .gallery-nav-prev {
+            text-align: left;
+        }
+        .gallery-nav-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            transition: color 0.5s ease;
+        }
+        .gallery-nav-prev a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s ease;
+        }
+        .gallery-nav-prev a:hover { color: var(--accent-gold); }
+        .gallery-nav-prev a .sub {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+            transition: color 0.5s ease;
+        }
+        .gallery-nav-next {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-align: right;
+        }
+        .gallery-nav-next .next-icon {
+            width: 48px; height: 48px;
+            color: var(--accent-gold);
+            flex-shrink: 0;
+        }
+        .gallery-nav-next .next-icon svg {
+            width: 100%; height: 100%;
+        }
+        .gallery-nav-next .next-content {
+            text-align: left;
+        }
+        .gallery-nav-next .next-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            transition: color 0.5s ease;
+        }
+        .gallery-nav-next .next-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-navy);
+            margin-bottom: 2px;
+            transition: color 0.5s ease;
+        }
+        [data-theme="night"] .gallery-nav-next .next-title {
+            color: var(--text-primary);
+        }
+        .gallery-nav-next .next-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            margin-bottom: 6px;
+            transition: color 0.5s ease;
+        }
+        .gallery-nav-next .next-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.3s ease;
+        }
+        .gallery-nav-next .next-link:hover { color: var(--accent-gold); }
+
+        /* ── Bottom Info Bar ── */
+        .bottom-info {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 20px 40px;
+            transition: all 0.5s ease;
+        }
+        .bottom-info-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .bottom-info-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .bottom-info-left .info-lantern {
+            width: 28px; height: 28px;
+            color: var(--accent-gold);
+        }
+        .bottom-info-left .info-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            transition: color 0.5s ease;
+        }
+        .bottom-info-left .info-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            transition: color 0.5s ease;
+        }
+        .bottom-info-right {
+            text-align: right;
+        }
+        .bottom-info-right .info-mission {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            font-weight: 600;
+            transition: color 0.5s ease;
+        }
+        .bottom-info-right .info-copyright {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+            transition: color 0.5s ease;
+        }
+
+        /* ════════════════════════════════════════
+           FOOTER (EXACT)
+        ════════════════════════════════════════ */
+        .footer {
+            position: relative; z-index: 1;
+            background: var(--footer-bg);
+            border-top: 1px solid var(--footer-border);
+            padding: 60px 40px 30px;
+            transition: all 0.5s ease;
+        }
+        .footer-content {
+            max-width: 1200px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem; line-height: 1.6;
+            margin-bottom: 20px;
+            transition: color 0.5s ease;
+        }
+        .footer-social {
+            display: flex; gap: 12px;
+        }
+        .footer-social a {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            display: flex; align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .footer-social a:hover {
+            background: var(--accent-violet, #8B5CF6);
+            color: white;
+            border-color: var(--accent-violet, #8B5CF6);
+        }
+        .footer-social svg { width: 18px; height: 18px; fill: currentColor; }
+        .footer-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem; font-weight: 600;
+            color: white;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.5s ease;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover { color: var(--accent-violet, #8B5CF6); }
+        .footer-form { margin-top: 20px; }
+        .footer-form-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem; font-weight: 600;
+            color: wheat;
+            margin-bottom: 12px;
+            transition: color 0.5s ease;
+        }
+        .footer-form-body {
+            display: flex; gap: 8px;
+        }
+        .footer-input {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 10px 14px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .footer-input::placeholder { color: var(--text-muted); }
+        .footer-input:focus { border-color: var(--accent-violet, #8B5CF6); }
+        .footer-submit {
+            background: var(--btn-primary-bg);
+            color: white; border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.85rem; font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .footer-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px var(--btn-primary-shadow);
+        }
+        .footer-bottom {
+            max-width: 1200px; margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid var(--footer-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; gap: 20px;
+            transition: border-color 0.5s ease;
+        }
+        .footer-credit {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            transition: color 0.5s ease;
+        }
+        .footer-legal {
+            display: flex; gap: 16px;
+            align-items: center;
+        }
+        .footer-legal a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+        .footer-legal a:hover { color: var(--accent-violet, #8B5CF6); }
+        .footer-legal span { color: var(--border-color); transition: color 0.5s ease; }
+
+        /* ════════════════════════════════════════
+           RESPONSIVE
+        ════════════════════════════════════════ */
+        @media (max-width: 1024px) {
+            .hero-frame-inner img { height: 320px; }
+            .devotional-title h1 { font-size: 1.9rem; }
+            .moment-two-col { grid-template-columns: 1fr; gap: 32px; }
+            .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            .devotional-topbar { flex-direction: column; text-align: center; }
+            .topbar-brand { justify-content: center; }
+            .hero-frame-inner img { height: 240px; }
+            .devotional-title h1 { font-size: 1.6rem; }
+            .devotional-quote { font-size: 0.95rem; }
+            .moment-header { gap: 14px; }
+            .moment-icon { width: 36px; height: 36px; }
+            .moment-icon svg { width: 28px; height: 28px; }
+            .moment-title { font-size: 0.95rem; }
+            .gallery-nav-inner { flex-direction: column; text-align: center; }
+            .gallery-nav-prev, .gallery-nav-next { text-align: center; }
+            .gallery-nav-next { flex-direction: column; }
+            .gallery-nav-next .next-content { text-align: center; }
+            .bottom-info-inner { flex-direction: column; text-align: center; }
+            .bottom-info-right { text-align: center; }
+            .footer-content { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="starfield"></div>
+
+    <!-- ════════════════════════════════════════
+         NAVBAR
+    ════════════════════════════════════════ -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
+                <img src="/images/logo.png" alt="LightMode Ministries">
+            </a>
+            <ul class="navbar-menu" id="navbar-menu" role="menubar">
+                <li class="nav-dropdown" role="none">
+                    <a href="/index.html" class="navbar-link dropdown-toggle">
+                        Home <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/about.html" class="dropdown-link">About Us</a></li>
+                        <li><a href="/contact.html" class="dropdown-link">Contact</a></li>
+                    </ul>
+                </li>
+                <li role="none"><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/rest.html" class="navbar-link dropdown-toggle">
+                        Rest <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/deep-sleep.html" class="dropdown-link">Deep Sleep</a></li>
+                        <li><a href="/prayer-video.html" class="dropdown-link">Prayer Video</a></li>
+                        <li><a href="/bedtime-fables.html" class="dropdown-link">BedTime Fables</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/inspiration.html" class="navbar-link inspiration dropdown-toggle">
+                        Inspiration <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/stories.html" class="dropdown-link">Stories</a></li>
+                        <li><a href="/videos.html" class="dropdown-link">Videos</a></li>
+                        <li><a href="/resources.html" class="dropdown-link">Resources</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/grow.html" class="navbar-link dropdown-toggle">
+                        Teaching Library <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/bible-study.html" class="dropdown-link">Bible Studies</a></li>
+                        <li><a href="/sermons.html" class="dropdown-link">Sermons</a></li>
+                        <li><a href="/devotionals.html" class="dropdown-link">Devotionals</a></li>
+                        <li><a href="/study-guides.html" class="dropdown-link">Study Guides</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/teens.html" class="navbar-link dropdown-toggle">
+                        Teens <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li>
+                        <li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li>
+                        <li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown" role="none">
+                    <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">
+                        LumenQuest <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/animations.html" class="dropdown-link">Animations</a></li>
+                        <li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li>
+                        <li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li>
+                        <li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="navbar-actions">
+                <div class="theme-toggle" role="group" aria-label="Theme toggle">
+                    <button class="theme-btn active" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                    <button class="theme-btn" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    
+    <!-- ════════════════════════════════════════
+         DEVOTIONAL THREE CONTENT
+    ════════════════════════════════════════ -->
+    <main class="devotional-page">
+
+        <!-- Top Bar -->
+        <div class="devotional-topbar">
+            <div class="topbar-brand">
+                <svg class="topbar-lantern" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v2"/><path d="M12 22v-2"/>
+                    <path d="M9 4h6l-1 3h-4z"/>
+                    <path d="M8 7h8v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2z"/>
+                    <path d="M9 17v3"/><path d="M15 17v3"/>
+                    <path d="M7 20h10"/>
+                    <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/>
+                </svg>
+                <div class="topbar-brand-text">
+                    <h2>Light That Leads</h2>
+                    <span>Devotional Gallery</span>
+                </div>
+            </div>
+            <a href="/devotional-gallery.html" class="topbar-return">
+                <span>←</span> Return to the Light That Leads Gallery
+            </a>
+        </div>
+
+        <!-- Hero Frame -->
+        <section class="devotional-hero">
+            <div class="hero-frame">
+                <div class="hero-frame-inner">
+                    <img src="/images/Devotional-3.png" alt="Sunrise path - A New Identity">
+                </div>
+            </div>
+        </section>
+
+        <!-- Title Section -->
+        <section class="devotional-title">
+            <p class="devotional-number">Devotional #3</p>
+            <h1>A New Identity</h1>
+            <p class="subtitle">The Light of Who You Are in Him</p>
+            <div class="title-divider">
+                <span class="line"></span>
+                <span class="diamond"></span>
+                <span class="line"></span>
+            </div>
+            <p class="devotional-quote">
+                <span class="quote-mark">"</span> Therefore, if anyone is in Christ, the new creation has come:<br>The old has gone, the new is here! <span class="quote-mark">"</span>
+            </p>
+            <p style="font-family:'Playfair Display',serif;font-size:0.9rem;color:var(--text-muted);margin-top:6px;">2 Corinthians 5:17</p>
+        </section>
+
+        <!-- Gallery Moments -->
+        <section class="moments-container">
+
+            <!-- Moment 1: THE WORD -->
+            <article class="moment">
+                <div class="moment-header">
+                    <div class="moment-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                            <line x1="8" y1="7" x2="16" y2="7"/>
+                            <line x1="8" y1="11" x2="14" y2="11"/>
+                            <path d="M12 2v-1" stroke-linecap="round"/>
+                            <path d="M10 1h4" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="moment-content">
+                        <p class="moment-label">Gallery Moment 1</p>
+                        <h3 class="moment-title">The Word</h3>
+                        <div class="moment-text">
+                            <span class="scripture-ref">2 Corinthians 5:17</span>
+                            <p><em>Therefore, if anyone is in Christ, he is a new creation; the old has passed away, behold, the new has come.</em></p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Moment 2: REFLECTION -->
+            <article class="moment">
+                <div class="moment-header">
+                    <div class="moment-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </div>
+                    <div class="moment-content">
+                        <p class="moment-label">Gallery Moment 2</p>
+                        <h3 class="moment-title">Reflection</h3>
+                        <div class="moment-text">
+                            <p>There is something sacred about sunrise — the way light gently breaks through darkness, the way the world slowly awakens, the way everything feels washed in newness. It's a quiet reminder that God loves beginnings. He loves renewal. He loves revealing who you truly are.</p>
+                            <p>It is a living reality — as real as the morning light that touches the earth. When Jesus finished His work on the cross, He didn't just forgive you; He made you new. Entirely. Completely. Eternally.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Moments 3 & 4: Two Column -->
+            <div class="moment-two-col">
+                <!-- Moment 3: THE HEART -->
+                <article class="moment">
+                    <div class="moment-header">
+                        <div class="moment-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <div class="moment-content">
+                            <p class="moment-label">Gallery Moment 3</p>
+                            <h3 class="moment-title">The Heart</h3>
+                            <div class="moment-text">
+                                <p>You are not defined by yesterday.</p>
+                                <p>You are not limited by your past.</p>
+                                <p>You are not shaped by old labels or old wounds.</p>
+                                <p class="highlight">You are who He says you are.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Moment 4: PAUSE & CONSIDER -->
+                <article class="moment">
+                    <div class="moment-header">
+                        <div class="moment-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="10" y1="15" x2="10" y2="9"/>
+                                <line x1="14" y1="15" x2="14" y2="9"/>
+                            </svg>
+                        </div>
+                        <div class="moment-content">
+                            <p class="moment-label">Gallery Moment 4</p>
+                            <h3 class="moment-title">Pause & Consider</h3>
+                            <div class="moment-text">
+                                <ul class="moment-list">
+                                    <li>What old labels have you been believing about yourself?</li>
+                                    <li>What would change if you fully embraced the identity God has given you?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Moments 5 & 6: Two Column -->
+            <div class="moment-two-col">
+                <!-- Moment 5: IDENTITY TRUTH -->
+                <article class="moment">
+                    <div class="moment-header">
+                        <div class="moment-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="2" x2="12" y2="22"/>
+                                <line x1="4" y1="6" x2="20" y2="6"/>
+                                <line x1="7" y1="2" x2="7" y2="6"/>
+                                <line x1="17" y1="2" x2="17" y2="6"/>
+                            </svg>
+                        </div>
+                        <div class="moment-content">
+                            <p class="moment-label">Gallery Moment 5</p>
+                            <h3 class="moment-title">Identity Truth</h3>
+                            <div class="identity-box">
+                                <p>I am a new creation in Christ —<br>whole, renewed, and defined<br>by His finished work.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Moment 6: PRAYER -->
+                <article class="moment">
+                    <div class="moment-header">
+                        <div class="moment-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 11v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                                <path d="M9 11l3 3L21 5"/>
+                                <path d="M21 3v4"/><path d="M21 3h-4"/>
+                            </svg>
+                        </div>
+                        <div class="moment-content">
+                            <p class="moment-label">Gallery Moment 6</p>
+                            <h3 class="moment-title">Prayer</h3>
+                            <div class="prayer-text">
+                                <p>Father, thank You for making me new in Christ. Thank You that I am not who I was, and I am not defined by my past. Thank You that Your finished work made me a new creation. Help me to walk in the identity You have given me today and every day. In Jesus' name, <span class="amen">amen.</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Moment 7: CARRY THE LIGHT FORWARD -->
+            <article class="moment">
+                <div class="moment-header">
+                    <div class="moment-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v2"/><path d="M12 22v-2"/>
+                            <path d="M9 4h6l-1 3h-4z"/>
+                            <path d="M8 7h8v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2z"/>
+                            <path d="M9 17v3"/><path d="M15 17v3"/>
+                            <path d="M7 20h10"/>
+                            <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/>
+                        </svg>
+                    </div>
+                    <div class="moment-content">
+                        <p class="moment-label">Gallery Moment 7</p>
+                        <h3 class="moment-title">Carry the Light Forward</h3>
+                        <div class="carry-text">
+                            <p>As you go today, carry this truth in your heart:</p>
+                            <p class="carry-highlight">I rise with Him.<br>I shine with Him.<br>I walk in the new identity He has given me.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Gallery Navigation -->
+        <nav class="gallery-nav">
+            <div class="gallery-nav-inner">
+                <div class="gallery-nav-prev">
+                    <p class="gallery-nav-label">Continue Through the Gallery</p>
+                    <a href="/devotional-two.html">
+                        <span>← Previous</span>
+                        <span class="sub">(Guided by Grace)</span>
+                    </a>
+                </div>
+                <div class="gallery-nav-next">
+                    <div class="next-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v2"/><path d="M12 22v-2"/>
+                            <path d="M9 4h6l-1 3h-4z"/>
+                            <path d="M8 7h8v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2z"/>
+                            <path d="M9 17v3"/><path d="M15 17v3"/>
+                            <path d="M7 20h10"/>
+                            <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/>
+                        </svg>
+                    </div>
+                    <div class="next-content">
+                        <p class="next-label">Next Portrait</p>
+                        <p class="next-title">Steadfast and Sure</p>
+                        <p class="next-subtitle">The Light That Never Shakes</p>
+                        <a href="/devotional-four.html" class="next-link">
+                            View Next Devotional →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </main>
+<!-- ════════════════════════════════════════
+         BOTTOM INFO BAR
+    ════════════════════════════════════════ -->
+    <div class="bottom-info">
+        <div class="bottom-info-inner">
+            <div class="bottom-info-left">
+                <svg class="info-lantern" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v2"/><path d="M12 22v-2"/>
+                    <path d="M9 4h6l-1 3h-4z"/>
+                    <path d="M8 7h8v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2z"/>
+                    <path d="M9 17v3"/><path d="M15 17v3"/>
+                    <path d="M7 20h10"/>
+                    <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/>
+                </svg>
+                <div>
+                    <p class="info-brand">LightMode Ministries</p>
+                    <p class="info-tagline">Connecting Hearts to the Love of God.</p>
+                </div>
+            </div>
+            <div class="bottom-info-right">
+                <p class="info-mission">Illuminating Lives • Transforming Generations.</p>
+                <p class="info-copyright">© 2026 LightMode Ministries, LLC. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         FOOTER (EXACT)
+    ════════════════════════════════════════ -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+                    <img width="20%" src="/images/logo-crop.png" alt="LightMode Ministries Logo">
+                    <div>
+                        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;color:white;transition:color 0.5s ease;">LightMode</div>
+                        <div style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:white;transition:color 0.5s ease;">Ministries LLC</div>
+                    </div>
+                </div>
+                <p>Illuminating Lives.<br>One Heart at a Time.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="#" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Teens</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Journeys</a></li>
+                    <li><a href="#">Browse Topics</a></li>
+                    <li><a href="#">Check-In</a></li>
+                    <li><a href="#">Night Mode</a></li>
+                    <li><a href="#">Prayer Library</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Prayer Requests</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Parents</h4>
+                <ul class="footer-links" style="margin-bottom:20px;">
+                    <li><a href="#">Parent Guide</a></li>
+                    <li><a href="#">Conversation Starters</a></li>
+                    <li><a href="#">Faith at Home</a></li>
+                    <li><a href="#">Resources</a></li>
+                </ul>
+                <div class="footer-form">
+                    <div class="footer-form-title">Get encouragement delivered to you.</div>
+                    <div class="footer-form-body">
+                        <input type="email" class="footer-input" placeholder="Enter your email" aria-label="Your email address">
+                        <button class="footer-submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-credit">Designed By Digital Software Labs</p>
+            <div class="footer-legal">
+                <a href="#">Terms & Conditions</a>
+                <span>|</span>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+    <!-- ════════════════════════════════════════
+         JAVASCRIPT
+    ════════════════════════════════════════ -->
+    <script>
+        function setTheme(mode) {
+            const html = document.documentElement;
+            const btnDay = document.getElementById('btn-day');
+            const btnNight = document.getElementById('btn-night');
+            if (mode === 'day') {
+                html.removeAttribute('data-theme');
+                btnDay.classList.add('active');
+                btnNight.classList.remove('active');
+                localStorage.setItem('theme', 'day');
+            } else {
+                html.setAttribute('data-theme', 'night');
+                btnDay.classList.remove('active');
+                btnNight.classList.add('active');
+                localStorage.setItem('theme', 'night');
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'night') { setTheme('night'); }
+            else { setTheme('day'); }
+        });
+        const navbarToggle = document.querySelector('.navbar-toggle');
+        const navbarMenu = document.getElementById('navbar-menu');
+        if (navbarToggle && navbarMenu) {
+            navbarToggle.addEventListener('click', function() {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+                this.classList.toggle('active');
+                navbarMenu.classList.toggle('active');
+            });
+            navbarMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const isMobile = window.innerWidth <= 768;
+                    const isDropdownToggle = this.classList.contains('dropdown-toggle');
+                    if (isMobile && isDropdownToggle) {
+                        e.preventDefault();
+                        const parent = this.parentElement;
+                        document.querySelectorAll('.nav-dropdown').forEach(item => {
+                            if (item !== parent) item.classList.remove('active');
+                        });
+                        parent.classList.toggle('active');
+                        return;
+                    }
+                    if (!isDropdownToggle || !isMobile) {
+                        navbarMenu.classList.remove('active');
+                        navbarToggle.classList.remove('active');
+                        navbarToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    navbarMenu.classList.remove('active');
+                    navbarToggle.classList.remove('active');
+                    navbarToggle.setAttribute('aria-expanded', 'false');
+                    document.querySelectorAll('.nav-dropdown').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                }
+            });
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
