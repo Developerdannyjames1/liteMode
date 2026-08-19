@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+
         /* ════════════════════════════════════════
            THEME VARIABLES (EXACT from your code)
         ════════════════════════════════════════ */
@@ -355,47 +356,17 @@
                 border: 1px solid rgba(255, 255, 255, 0.12);
                 box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
             }
-            [data-theme="day"] .navbar-menu {
-                background: rgba(245, 240, 235, 0.97);
-                backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-                border: 1px solid rgba(0, 0, 0, 0.08);
-                box-shadow: 0 24px 80px rgba(0, 0, 0, 0.15);
-            }
-            [data-theme="day"] .navbar-menu li {
-                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-            }
-            [data-theme="day"] .navbar-link {
-                color: rgba(20, 20, 30, 0.85);
-            }
-            [data-theme="day"] .navbar-link:hover {
-                background: rgba(0, 0, 0, 0.05);
-                border-color: rgba(0, 0, 0, 0.06);
-                color: #1a1a2e;
-            }
-            [data-theme="day"] .navbar-link.start-here {
-                color: #fff;
-                background: linear-gradient(135deg, #7c3aed, #4f46e5);
-            }
-            [data-theme="day"] .navbar-link.start-here:hover {
-                background: linear-gradient(135deg, #8b5cf6, #6366f1);
-            }
-            [data-theme="day"] .dropdown-link {
-                color: rgba(20, 20, 30, 0.75);
-            }
-            [data-theme="day"] .dropdown-link:hover {
-                background: rgba(0, 0, 0, 0.04);
-                border-color: rgba(0, 0, 0, 0.06);
-                color: #1a1a2e;
-            }
-            [data-theme="day"] .dropdown-arrow {
-                color: rgba(0, 0, 0, 0.4);
-            }
-            [data-theme="day"] .nav-dropdown.active .dropdown-menu {
-                border-top: 1px solid rgba(0, 0, 0, 0.06);
-            }
-            [data-theme="day"] .nav-dropdown:not(.active) .dropdown-menu {
-                border-top: none;
-            }
+            /* navbar/footer theme override removed */
+            /* navbar/footer theme override removed */
+            /* navbar/footer theme override removed */
+            /* navbar/footer theme override removed */
+            /* navbar/footer theme override removed */
+            /* navbar/footer theme override removed */
+            /* navbar/footer theme override removed */
+            /* navbar/footer theme override removed */
+            /* navbar/footer theme override removed */
+            /* navbar/footer theme override removed */
+            /* navbar/footer theme override removed */
         }
 
         /* ── Dropdown Desktop ── */
@@ -433,15 +404,9 @@
             background: rgba(255,255,255,.08);
             color: #F5C542; padding-left: 24px;
         }
-        [data-theme="day"] .dropdown-menu {
-            background: #ffffff;
-            border: 1px solid rgba(0,0,0,0.08);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-        }
-        [data-theme="day"] .dropdown-link { color: #1a1a2e; }
-        [data-theme="day"] .dropdown-link:hover {
-            background: rgba(0,0,0,0.04); color: #7c3aed;
-        }
+        /* navbar/footer theme override removed */
+        /* navbar/footer theme override removed */
+        /* navbar/footer theme override removed */
         .nav-dropdown .dropdown-toggle { cursor: pointer; }
         .nav-dropdown .dropdown-toggle[href] { cursor: pointer; }
 
@@ -977,7 +942,799 @@
             .player-card .progress-track { width: 100%; min-width: auto; order: 10; }
             .breadcrumbs { flex-wrap: wrap; font-size: 12px; }
         }
-    </style>
+    
+
+/* ============================================
+   NAVBAR CSS (Complete)
+   ============================================ */
+
+/* ===== NAVBAR BASE ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--navbar-bg, #0A0E1A);
+  border-bottom: 1px solid var(--navbar-border, rgba(255,255,255,0.08));
+  transition: all 0.3s ease;
+  padding: 6px 0;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+/* ===== LOGO (LEFT) ===== */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.navbar-brand img {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ===== MENU (CENTER) ===== */
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 6px;
+  align-items: center;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex: 1;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navbar-link:hover {
+  color: white;
+  background: var(--navbar-hover-bg, rgba(255,255,255,0.05));
+}
+
+.navbar-link.active {
+  color: var(--navbar-text-hover, #ffffff);
+  font-weight: 600;
+  background: var(--navbar-active-bg, rgba(255,255,255,0.03));
+}
+
+.navbar-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: var(--accent-violet, #7c3aed);
+  border-radius: 1px;
+}
+
+/* Special link styles */
+.navbar-link.start-here {
+  background: linear-gradient(135deg, #8B5CF6, #6366F1);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 6px 14px;
+  box-shadow: 0 2px 12px rgba(139, 92, 246, 0.4);
+  border: none;
+}
+
+.navbar-link.start-here:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.6);
+  color: #ffffff;
+}
+
+.navbar-link.inspiration {
+  background: linear-gradient(90deg, #fbbf24, #f472b6, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.navbar-link.lumenquest {
+  background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* ===== DROPDOWN ===== */
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.dropdown-arrow {
+  font-size: 9px;
+  transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: linear-gradient(135deg, #0A1A2F 0%, #102A4A 35%, #173E6B 70%, #1E4F87 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 8px 0;
+  margin-top: 8px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  list-style: none;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-link {
+  display: block;
+  padding: 10px 18px;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.dropdown-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #F5C542;
+  padding-left: 24px;
+}
+
+/* ===== RIGHT ACTIONS ===== */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+/* About & Contact Buttons */
+.navbar-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.navbar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 14px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(139, 92, 246, 0.45);
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-btn:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.22), rgba(99, 102, 241, 0.16));
+  border-color: rgba(139, 92, 246, 0.85);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(139, 92, 246, 0.30);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(128, 128, 128, 0.08);
+  border-radius: 50px;
+  padding: 2px;
+  border: 1px solid var(--border-color, rgba(255,255,255,0.08));
+  flex-shrink: 0;
+}
+
+.theme-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: white;
+  padding: 0;
+}
+
+.theme-btn.active {
+  background: #6366F1;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+}
+
+.theme-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Auth Buttons (Login/Signup) */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.auth-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.auth-login {
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.auth-login:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+.auth-signup {
+  color: #0A0E1A;
+  background: white;
+  border-color: white;
+}
+
+.auth-signup:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+/* ===== MOBILE TOGGLE ===== */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: 1px solid var(--mobile-toggle-border, rgba(255,255,255,0.2));
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 6px;
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+
+.navbar-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--mobile-toggle-span, #ffffff);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+.navbar-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS (NAVBAR)
+   ============================================ */
+
+/* Large screens */
+@media (max-width: 1200px) {
+  .navbar-container {
+    padding: 0 16px;
+  }
+  .navbar-link {
+    font-size: 0.78rem;
+    padding: 4px 8px;
+  }
+  .navbar-btn,
+  .auth-btn {
+    height: 30px;
+    padding: 0 10px;
+    font-size: 0.7rem;
+  }
+  .navbar-brand img {
+    height: 80px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .navbar-link {
+    font-size: 0.72rem;
+    padding: 4px 6px;
+  }
+  .navbar-btn,
+  .auth-btn {
+    height: 28px;
+    padding: 0 8px;
+    font-size: 0.65rem;
+  }
+  .navbar-brand img {
+    height: 70px;
+  }
+}
+
+/* Small tablets / large phones */
+@media (max-width: 900px) {
+  .navbar-link {
+    font-size: 0.7rem;
+    padding: 4px 5px;
+  }
+  .navbar-btn,
+  .auth-btn {
+    height: 26px;
+    padding: 0 6px;
+    font-size: 0.6rem;
+  }
+  .navbar-brand img {
+    height: 60px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    min-height: 64px;
+    padding: 4px 0;
+  }
+  .navbar-container {
+    padding: 0 12px;
+    flex-wrap: nowrap;
+  }
+  .navbar-brand img {
+    height: 50px;
+  }
+
+  /* Show hamburger */
+  .navbar-toggle {
+    display: flex;
+  }
+
+  /* Mobile menu - slides down from top */
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    position: fixed;
+    top: 64px;
+    left: 12px;
+    right: 12px;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    padding: 16px;
+    gap: 4px;
+    background: #0A0E1A;
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color, rgba(255,255,255,0.08));
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    z-index: 1001;
+    margin: 0;
+    width: auto;
+    flex: none;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .navbar-menu li {
+    width: 100%;
+    list-style: none;
+  }
+
+  .navbar-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    color: white;
+    white-space: normal;
+  }
+
+  .navbar-link.start-here {
+    justify-content: center;
+  }
+
+  /* Hide About/Contact on mobile */
+  .navbar-buttons .navbar-btn {
+    display: none;
+  }
+
+  /* Auth buttons smaller */
+  .auth-buttons .auth-btn {
+    font-size: 0.7rem;
+    padding: 0 10px;
+    height: 30px;
+  }
+
+  .theme-toggle {
+    margin-right: 2px;
+  }
+
+  /* Mobile dropdown */
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    transition: max-height 0.3s ease;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    backdrop-filter: none;
+  }
+
+  .nav-dropdown.active .dropdown-menu {
+    max-height: 400px;
+    padding: 6px 0 6px 12px;
+    background: transparent;
+  }
+
+  .nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .nav-dropdown:hover .dropdown-arrow {
+    transform: none;
+  }
+
+  .dropdown-link {
+    padding: 10px 14px;
+    color: #e0e0e0;
+    font-size: 0.95rem;
+  }
+
+  .dropdown-link:hover {
+    padding-left: 20px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .navbar-brand img {
+    height: 40px;
+  }
+  .navbar {
+    min-height: 56px;
+  }
+  .navbar-container {
+    padding: 0 8px;
+  }
+  .navbar-menu {
+    top: 56px;
+    left: 8px;
+    right: 8px;
+    padding: 12px;
+  }
+  .navbar-link {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+  .theme-btn {
+    width: 28px;
+    height: 28px;
+  }
+  .theme-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  .auth-btn {
+    font-size: 0.6rem;
+    padding: 0 8px;
+    height: 26px;
+  }
+}
+
+/* ============================================
+   GLOBAL FOOTER CSS (from index.html / style.css)
+   ============================================ */
+.footer {
+  position: relative;
+  background: #0A1A2F;
+  color: var(--color-white, #FFFFFF);
+  overflow: hidden;
+}
+
+.footer-deco {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-deco--1 { width: 64px; height: 64px; top: 32px; right: 0; }
+.footer-deco--2 { width: 80px; height: 80px; top: 96px; right: 48px; opacity: 0.5; }
+.footer-deco--3 { width: 48px; height: 48px; top: 192px; right: 16px; opacity: 0.3; }
+.footer-deco--4 { width: 56px; height: 56px; bottom: 128px; left: 0; opacity: 0.4; }
+.footer-deco--5 { width: 40px; height: 40px; bottom: 80px; left: 32px; opacity: 0.3; }
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-brand img {
+  height: 100px;
+  width: auto;
+  margin-bottom: 1.5rem;
+}
+
+.footer-text {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social a {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color var(--transition-base, 300ms ease);
+}
+
+.footer-social a:hover {
+  color: var(--color-white, #FFFFFF);
+}
+
+.footer-social svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.footer-title {
+  font-family: var(--font-heading, 'RecklessWide', serif);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+  color: var(--color-white, #FFFFFF);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  transition: color var(--transition-base, 300ms ease);
+}
+
+.footer-links a:hover {
+  color: var(--color-white, #FFFFFF);
+}
+
+.footer-contact {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.footer-form {
+  background: var(--color-white, #FFFFFF);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.footer-form__header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.footer-form__title {
+  color: #1F2937;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.footer-form__body {
+  padding: 1rem 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer-form__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.footer-form__input::placeholder {
+  color: #9CA3AF;
+}
+
+.footer-form__submit {
+  color: #1F2937;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: color var(--transition-base, 300ms ease);
+}
+
+.footer-form__submit:hover {
+  color: var(--color-primary, #0A1A2F);
+}
+
+.footer-bottom {
+  background: var(--color-white, #FFFFFF);
+  padding: 1rem 1.5rem;
+}
+
+.footer-bottom__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-credit {
+  color: var(--color-secondary, #122B4A);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-secondary, #122B4A);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.footer-legal a {
+  color: var(--color-secondary, #122B4A);
+  transition: color var(--transition-base, 300ms ease);
+}
+
+.footer-legal a:hover {
+  color: var(--color-primary, #0A1A2F);
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+  .footer-brand img {
+    height: 70px;
+    margin: 0 auto 1.5rem;
+  }
+  .footer-social {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  .footer-bottom__content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+</style>
+  <link rel="stylesheet" href="/navbar.css">
 </head>
 <body>
     <div class="starfield"></div>
@@ -985,98 +1742,128 @@
     <!-- ════════════════════════════════════════
          NAVBAR (EXACT from your code)
     ════════════════════════════════════════ -->
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
-        <div class="navbar-container">
-            <a href="/index.html" class="navbar-brand" aria-label="LightMode Ministries Home">
-                <!-- Use your actual logo path here -->
-                <img src="images/logo.png" alt="LightMode Ministries">
-            </a>
+    <!-- ============================================
+     NAVBAR HTML (Complete)
+     ============================================ -->
 
-            <ul class="navbar-menu" id="navbar-menu" role="menubar">
-                <li class="nav-dropdown" role="none">
-                    <a href="/index.html" class="navbar-link dropdown-toggle">
-                        Home <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/about.html" class="dropdown-link">About Us</a></li>
-                        <li><a href="/contact.html" class="dropdown-link">Contact</a></li>
-                    </ul>
-                </li>
-                <li role="none"><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
-                <li class="nav-dropdown" role="none">
-                    <a href="#" class="navbar-link dropdown-toggle">
-                        Teaching Library <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/devotional-gallery.html" class="dropdown-link">Devotional Gallery</a></li>
-                        <li><a href="/sermons.html" class="dropdown-link">Bible Reading Experience</a></li>
-                        <li><a href="/devotionals.html" class="dropdown-link">Daily Confessions </a></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown" role="none">
-                    <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">
-                        LumenQuest <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/animations.html" class="dropdown-link">Animations</a></li>
-                        <li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li>
-                        <li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li>
-                        <li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li>
-                    </ul>
-                </li>
-                <li role="none"><a href="/prayer-room.html" class="navbar-link active" aria-current="page">Prayer Room</a></li>
-                <li class="nav-dropdown" role="none">
-                    <a href="/rest.html" class="navbar-link dropdown-toggle">
-                        Rest <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/deep-sleep.html" class="dropdown-link">Deep Sleep</a></li>
-                        <li><a href="/prayer-video.html" class="dropdown-link">Prayer Video</a></li>
-                        <li><a href="/bedtime-fables.html" class="dropdown-link">BedTime Fables</a></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown" role="none">
-                    <a href="/teens.html" class="navbar-link dropdown-toggle">
-                        Teens <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li>
-                        <li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li>
-                        <li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li>
-                    </ul>
-                </li>
-            </ul>
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="navbar-container">
+    
+    <!-- LOGO - LEFT (100px height) -->
+    <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
+      <img src="/images/logo.png" alt="LightMode Ministries">
+    </a>
 
-            <div class="navbar-actions">
-                <div class="theme-toggle" role="group" aria-label="Theme toggle">
-                    <button class="theme-btn active" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </button>
-                    <button class="theme-btn" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                    </button>
-                </div>
+    <!-- MENU - CENTER -->
+    <ul class="navbar-menu" id="navbar-menu" role="menubar">
+      <li>
+        <a href="/index.html" class="navbar-link">Home</a>
+      </li>
+      
+      <li>
+        <a href="/start-here.html" class="navbar-link start-here">Start Here</a>
+      </li>
+      
+      <!-- Dropdown: Teaching Library -->
+      <li class="nav-dropdown" role="none">
+        <a href="#" class="navbar-link dropdown-toggle">
+          Teaching Library <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="/devotional-gallery.html" class="dropdown-link">Devotional Gallery</a></li>
+          <li><a href="/sermons.html" class="dropdown-link">Bible Reading</a></li>
+          <li><a href="/devotionals.html" class="dropdown-link">Daily Confessions</a></li>
+        </ul>
+      </li>
+      
+      <!-- Dropdown: LumenQuest -->
+      <li class="nav-dropdown" role="none">
+        <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">
+          LumenQuest <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="/animations.html" class="dropdown-link">Animations</a></li>
+          <li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li>
+          <li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li>
+          <li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li>
+        </ul>
+      </li>
+      
+      <li>
+        <a href="/prayer-room.html" class="navbar-link">Prayer Room</a>
+      </li>
+      
+      <!-- Dropdown: Rest -->
+      <li class="nav-dropdown" role="none">
+        <a href="#" class="navbar-link dropdown-toggle">
+          Rest <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="/deep-sleep.html" class="dropdown-link">Deep Sleep</a></li>
+          <li><a href="/prayer-video.html" class="dropdown-link">Prayer Video</a></li>
+          <li><a href="/bedtime-fables.html" class="dropdown-link">BedTime Fables</a></li>
+        </ul>
+      </li>
+      
+      <!-- Dropdown: Teens -->
+      <li class="nav-dropdown" role="none">
+        <a href="/teens.html" class="navbar-link dropdown-toggle">
+          Teens <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li>
+          <li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li>
+          <li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li>
+        </ul>
+      </li>
+    </ul>
 
-                <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </nav>
+    <!-- RIGHT ACTIONS: About, Contact, Theme Toggle, Login/Signup -->
+    <div class="navbar-actions">
+      
+      <!-- About & Contact Buttons -->
+      <div class="navbar-buttons">
+        <a href="/about.html" class="navbar-btn">About</a>
+        <a href="/contact.html" class="navbar-btn">Contact</a>
+      </div>
+
+      <!-- Theme Toggle (Day/Night) -->
+      <div class="theme-toggle" role="group" aria-label="Theme toggle">
+        <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="12" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+        <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Login / Signup Buttons -->
+      <div class="auth-buttons">
+        <a href="/login.html" class="auth-btn auth-login">Log in</a>
+        <a href="/signup.html" class="auth-btn auth-signup">Sign up</a>
+      </div>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
 
     <!-- ════════════════════════════════════════
          PRAYER ROOM CONTENT (New Design)
@@ -1296,96 +2083,96 @@
     <!-- ════════════════════════════════════════
          FOOTER (EXACT from your code)
     ════════════════════════════════════════ -->
-    <footer class="footer" role="contentinfo">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-                    <!-- Use your actual footer logo path -->
-                    <img width="20%" src="images/logo-crop.png" alt="LightMode Ministries Logo">
-                    <div>
-                        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;color:white;transition:color 0.5s ease;">LightMode</div>
-                        <div style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:white;transition:color 0.5s ease;">Ministries LLC</div>
-                    </div>
-                </div>
-                <p>Illuminating Lives.<br>One Heart at a Time.</p>
-                <div class="footer-social">
-                    <a href="#" aria-label="YouTube">
-                        <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-                    </a>
-                    <a href="#" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </a>
-                    <a href="#" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    </a>
-                    <a href="#" aria-label="TikTok">
-                        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-                    </a>
-                </div>
-            </div>
-            <div>
-                <h4 class="footer-title">Teens</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Journeys</a></li>
-                    <li><a href="#">Browse Topics</a></li>
-                    <li><a href="#">Check-In</a></li>
-                    <li><a href="#">Night Mode</a></li>
-                    <li><a href="#">Prayer Library</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="footer-title">Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Prayer Requests</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Blog</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="footer-title">Parents</h4>
-                <ul class="footer-links" style="margin-bottom:20px;">
-                    <li><a href="#">Parent Guide</a></li>
-                    <li><a href="#">Conversation Starters</a></li>
-                    <li><a href="#">Faith at Home</a></li>
-                    <li><a href="#">Resources</a></li>
-                </ul>
-                <div class="footer-form">
-                    <div class="footer-form-title">Get encouragement delivered to you.</div>
-                    <div class="footer-form-body">
-                        <input type="email" class="footer-input" placeholder="Enter your email" aria-label="Your email address">
-                        <button class="footer-submit">Subscribe</button>
-                    </div>
-                </div>
-            </div>
+          <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-deco footer-deco--1" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--2" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--3" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--4" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--5" aria-hidden="true"></div>
+
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/images/logo.png" alt="LightMode Ministries Logo">
+        <p class="footer-text">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
         </div>
-        <div class="footer-bottom">
-            <p class="footer-credit">Designed By Digital Software Labs</p>
-            <div class="footer-legal">
-                <a href="#">Terms & Conditions</a>
-                <span>|</span>
-                <a href="#">Privacy Policy</a>
-            </div>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/children">Children</a></li>
+          <li><a href="/expressions">Expressions</a></li>
+          <li><a href="/publications">Publications</a></li>
+          <li><a href="/animations">Animations</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Privacy Policy</h4>
+        <ul class="footer-links">
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms & Conditions</a></li>
+          <li><a href="/order-policy">Order Policy</a></li>
+          <li><a href="/booking-policy">Booking Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Info</h4>
+        <p class="footer-contact">Serving London: KT, SW, W, EC postcodes</p>
+        <p class="footer-contact">hello@lightmode.org</p>
+        
+        <div class="footer-form">
+          <div class="footer-form__header">
+            <h5 class="footer-form__title">Contact Us</h5>
+          </div>
+          <div class="footer-form__body">
+            <input type="email" class="footer-form__input" placeholder="Enter Email Address" aria-label="Your email address">
+            <button class="footer-form__submit" onclick="alert('Message sent!')">Submit</button>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom__content">
+        <p class="footer-credit">Designed By Digital Software Labs</p>
+        <div class="footer-legal">
+          <a href="/terms">Terms & Conditions</a>
+          <span>|</span>
+          <a href="/privacy">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
     <!-- ════════════════════════════════════════
          JAVASCRIPT (EXACT from your code)
     ════════════════════════════════════════ -->
     <script>
         // Theme Toggle
-        function setTheme(mode) {
-            const html = document.documentElement;
-            const btnDay = document.getElementById('btn-day');
-            const btnNight = document.getElementById('btn-night');
-
-            if (mode === 'day') {
-                html.removeAttribute('data-theme');
-                btnDay.classList.add('active');
-                btnNight.classList.remove('active');
-                localStorage.setItem('theme', 'day');
-            } else {
+        /* [OLD setTheme replaced by global navbar script] */ else {
                 html.setAttribute('data-theme', 'night');
                 btnDay.classList.remove('active');
                 btnNight.classList.add('active');
@@ -1394,63 +2181,11 @@
         }
 
         // Load saved theme (DEFAULT = DAY)
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'night') {
-                setTheme('night');
-            } else {
-                setTheme('day');
-            }
-        });
+        /* [OLD theme loader replaced by global navbar script] */
 
         // Mobile menu toggle
-        const navbarToggle = document.querySelector('.navbar-toggle');
-        const navbarMenu = document.getElementById('navbar-menu');
-
-        if (navbarToggle && navbarMenu) {
-            navbarToggle.addEventListener('click', function() {
-                const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                this.setAttribute('aria-expanded', !isExpanded);
-                this.classList.toggle('active');
-                navbarMenu.classList.toggle('active');
-            });
-
-            navbarMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const isMobile = window.innerWidth <= 768;
-                    const isDropdownToggle = this.classList.contains('dropdown-toggle');
-
-                    if (isMobile && isDropdownToggle) {
-                        e.preventDefault();
-                        const parent = this.parentElement;
-                        document.querySelectorAll('.nav-dropdown').forEach(item => {
-                            if (item !== parent) item.classList.remove('active');
-                        });
-                        parent.classList.toggle('active');
-                        return;
-                    }
-
-                    if (!isDropdownToggle || !isMobile) {
-                        navbarMenu.classList.remove('active');
-                        navbarToggle.classList.remove('active');
-                        navbarToggle.setAttribute('aria-expanded', 'false');
-                    }
-                });
-            });
-
-            window.addEventListener('resize', () => {
-                if (window.innerWidth > 768) {
-                    navbarMenu.classList.remove('active');
-                    navbarToggle.classList.remove('active');
-                    navbarToggle.setAttribute('aria-expanded', 'false');
-                    document.querySelectorAll('.nav-dropdown').forEach(item => {
-                        item.classList.remove('active');
-                    });
-                }
-            });
-        }
-
-        // Smooth scroll
+        /* [OLD navbar toggle replaced by global navbar script] */
+// Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const target = document.querySelector(this.getAttribute('href'));
@@ -1517,5 +2252,197 @@
             });
         });
     </script>
+
+<script>
+// ============================================
+// NAVBAR JAVASCRIPT (Theme + Mobile Toggle)
+// ============================================
+
+// ===== THEME TOGGLE =====
+function setTheme(mode) {
+  const html = document.documentElement;
+  const btnDay = document.getElementById('btn-day');
+  const btnNight = document.getElementById('btn-night');
+  
+  if (mode === 'night') {
+    html.setAttribute('data-theme', 'night');
+    if (btnNight) btnNight.classList.add('active');
+    if (btnDay) btnDay.classList.remove('active');
+    localStorage.setItem('theme', 'night');
+  } else {
+    html.removeAttribute('data-theme');
+    if (btnDay) btnDay.classList.add('active');
+    if (btnNight) btnNight.classList.remove('active');
+    localStorage.setItem('theme', 'day');
+  }
+}
+
+// Load saved theme on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'night') {
+    setTheme('night');
+  } else {
+    setTheme('day');
+  }
+});
+
+// ===== MOBILE MENU TOGGLE =====
+const toggle = document.querySelector('.navbar-toggle');
+const menu = document.getElementById('navbar-menu');
+
+if (toggle && menu) {
+  // Toggle menu on hamburger click
+  toggle.addEventListener('click', function() {
+    const expanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', !expanded);
+    this.classList.toggle('active');
+    menu.classList.toggle('active');
+  });
+
+  // Handle link clicks inside mobile menu
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      // For dropdown toggles on mobile - toggle dropdown instead of navigating
+      if (window.innerWidth <= 768 && this.classList.contains('dropdown-toggle')) {
+        e.preventDefault();
+        const parent = this.closest('.nav-dropdown');
+        if (parent) {
+          parent.classList.toggle('active');
+        }
+        return;
+      }
+      
+      // Close menu on link click (mobile only)
+      if (window.innerWidth <= 768) {
+        menu.classList.remove('active');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // Close menu on window resize to desktop
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      menu.classList.remove('active');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+      // Reset all mobile dropdowns
+      document.querySelectorAll('.nav-dropdown').forEach(item => {
+        item.classList.remove('active');
+      });
+    }
+  });
+}
+</script>
+
+<script>
+// ============================================
+// NAVBAR JAVASCRIPT (Theme + Mobile Toggle)
+// ============================================
+
+// ===== THEME TOGGLE =====
+function setTheme(mode) {
+  const html = document.documentElement;
+  const body = document.body;
+  const btnDay = document.getElementById('btn-day');
+  const btnNight = document.getElementById('btn-night');
+  
+  if (mode === 'day') {
+    html.setAttribute('data-theme', 'day');
+    html.classList.remove('night-theme', 'dark-theme');
+    html.classList.add('day-theme', 'light-theme');
+    if (body) {
+      body.classList.remove('night-theme', 'dark-theme');
+      body.classList.add('day-theme', 'light-theme');
+    }
+    if (btnDay) btnDay.classList.add('active');
+    if (btnNight) btnNight.classList.remove('active');
+    localStorage.setItem('theme', 'day');
+  } else {
+    html.setAttribute('data-theme', 'night');
+    html.classList.remove('day-theme', 'light-theme');
+    html.classList.add('night-theme', 'dark-theme');
+    if (body) {
+      body.classList.remove('day-theme', 'light-theme');
+      body.classList.add('night-theme', 'dark-theme');
+    }
+    if (btnNight) btnNight.classList.add('active');
+    if (btnDay) btnDay.classList.remove('active');
+    localStorage.setItem('theme', 'night');
+  }
+}
+
+// Load saved theme on page load
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'day') {
+    setTheme('day');
+  } else {
+    setTheme('night');
+  }
+})();
+
+document.addEventListener('DOMContentLoaded', function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'day') {
+    setTheme('day');
+  } else {
+    setTheme('night');
+  }
+
+  // ===== MOBILE MENU TOGGLE =====
+  const toggle = document.querySelector('.navbar-toggle');
+  const menu = document.getElementById('navbar-menu');
+
+  if (toggle && menu) {
+    // Toggle menu on hamburger click
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !expanded);
+      this.classList.toggle('active');
+      menu.classList.toggle('active');
+    });
+
+    // Handle link clicks inside mobile menu
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        // For dropdown toggles on mobile - toggle dropdown instead of navigating
+        if (window.innerWidth <= 768 && this.classList.contains('dropdown-toggle')) {
+          e.preventDefault();
+          const parent = this.closest('.nav-dropdown');
+          if (parent) {
+            parent.classList.toggle('active');
+          }
+          return;
+        }
+        
+        // Close menu on link click (mobile only)
+        if (window.innerWidth <= 768) {
+          menu.classList.remove('active');
+          toggle.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // Close menu on window resize to desktop
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        menu.classList.remove('active');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        // Reset all mobile dropdowns
+        document.querySelectorAll('.nav-dropdown').forEach(item => {
+          item.classList.remove('active');
+        });
+      }
+    });
+  }
+});
+</script>
+  <script src="/navbar.js"></script>
 </body>
 </html>

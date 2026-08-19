@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kids Journey — Step 4 | Jesus Is Your Friend | LightMode Kids</title>
+    <title>Day 4 — The Accomplishments of the Cross | LightMode</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
     <style>
+
         /* ----- FALLBACK FONTS ----- */
         @font-face {
             font-family: 'RecklessStandard';
@@ -16,26 +17,28 @@
             font-style: normal;
             font-display: swap;
         }
+        @font-face {
+            font-family: 'RecklessWide';
+            src: local('Georgia'), local('Times New Roman');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
 
         /* ----- THEME VARIABLES (NIGHT / DAY) ----- */
         :root {
-            --bg-primary: #0f1a2e;
-            --bg-secondary: #1a2a4a;
+            /* NIGHT MODE BASE */
+            --bg-primary: #0b111f;
+            --bg-secondary: #121b2d;
             --bg-card: rgba(26, 42, 74, 0.7);
             --bg-card-hover: rgba(26, 42, 74, 0.9);
             --text-primary: #ffffff;
             --text-secondary: #c8d0e0;
             --text-muted: #8a9ab0;
-            --accent-violet: #a78bfa;
-            --accent-blue: #60a5fa;
             --accent-gold: #c9a84c;
             --accent-gold-light: #e0c97a;
-            --accent-pink: #f472b6;
-            --accent-teal: #3a8b7d;
             --accent-green: #4ade80;
             --accent-orange: #c87a1f;
-            --accent-purple: #7b5fa8;
-            --accent-cyan: #22d3ee;
             --border-color: rgba(255,255,255,0.08);
             --border-hover: rgba(201,168,76,0.3);
             --shadow-glow: rgba(201,168,76,0.25);
@@ -45,37 +48,24 @@
             --toggle-active: #c9a84c;
             --btn-primary-bg: linear-gradient(135deg, #c87a1f 0%, #c9a84c 100%);
             --btn-primary-shadow: rgba(200,122,31,0.35);
-            --btn-secondary-bg: transparent;
-            --btn-secondary-border: rgba(255,255,255,0.15);
-            --btn-secondary-text: #e0e0f0;
-            --btn-gold-bg: linear-gradient(135deg, #c9a84c 0%, #c87a1f 100%);
-            --btn-gold-shadow: rgba(201,168,76,0.35);
             --footer-bg: #0f1a2e;
             --footer-border: rgba(255,255,255,0.05);
             --starfield-opacity: 1;
-            --progress-active: var(--accent-gold);
-            --progress-inactive: rgba(255,255,255,0.12);
-            --hero-glow: rgba(201,168,76,0.08);
+            --hero-filter: brightness(0.8) saturate(0.6);
         }
 
         [data-theme="day"] {
-            --bg-primary: #f5f0e8;
-            --bg-secondary: #faf7f2;
+            --bg-primary: #fcfaf5;
+            --bg-secondary: #f5f0e8;
             --bg-card: rgba(255, 255, 255, 0.85);
             --bg-card-hover: rgba(255, 255, 255, 0.95);
             --text-primary: #1a1a2e;
             --text-secondary: #5a5a6e;
             --text-muted: #8a8a9e;
-            --accent-violet: #7c3aed;
-            --accent-blue: #2563eb;
             --accent-gold: #c9a84c;
             --accent-gold-light: #d4b85a;
-            --accent-pink: #db2777;
-            --accent-teal: #0d9488;
             --accent-green: #16a34a;
             --accent-orange: #b06a18;
-            --accent-purple: #7b5fa8;
-            --accent-cyan: #0891b2;
             --border-color: rgba(0,0,0,0.08);
             --border-hover: rgba(201,168,76,0.3);
             --shadow-glow: rgba(201,168,76,0.15);
@@ -85,17 +75,10 @@
             --toggle-active: #c9a84c;
             --btn-primary-bg: linear-gradient(135deg, #c87a1f 0%, #c9a84c 100%);
             --btn-primary-shadow: rgba(200,122,31,0.25);
-            --btn-secondary-bg: rgba(255,255,255,0.7);
-            --btn-secondary-border: rgba(0,0,0,0.12);
-            --btn-secondary-text: #4a4a5e;
-            --btn-gold-bg: linear-gradient(135deg, #c9a84c 0%, #c87a1f 100%);
-            --btn-gold-shadow: rgba(201,168,76,0.25);
-            --footer-bg: #f5f0e8;
-            --footer-border: rgba(0,0,0,0.06);
+            --footer-bg: #0f1a2e;
+            --footer-border: rgba(255,255,255,0.05);
             --starfield-opacity: 0;
-            --progress-active: var(--accent-gold);
-            --progress-inactive: rgba(0,0,0,0.12);
-            --hero-glow: rgba(201,168,76,0.08);
+            --hero-filter: brightness(1) saturate(0.9);
         }
 
         /* ----- RESET & BASE ----- */
@@ -126,13 +109,12 @@
             z-index: 0;
             opacity: var(--starfield-opacity);
             transition: opacity 0.5s ease;
-            background:
-                radial-gradient(ellipse at 20% 30%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 70%, rgba(58, 139, 125, 0.06) 0%, transparent 40%),
-                radial-gradient(ellipse at 50% 50%, rgba(123, 95, 168, 0.08) 0%, transparent 60%);
+            background: radial-gradient(ellipse at 20% 30%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 70%, rgba(58, 139, 125, 0.06) 0%, transparent 40%),
+                        radial-gradient(ellipse at 50% 50%, rgba(123, 95, 168, 0.08) 0%, transparent 60%);
         }
 
-        /* ===== NAVBAR (Dark always - Kids Version) ===== */
+        /* ===== NAVBAR (Dark Always) ===== */
         .navbar {
             position: fixed;
             top: 0;
@@ -142,10 +124,10 @@
             background: #0f1a2e;
             border-bottom: 1px solid rgba(255, 255, 255, 0.06);
             transition: all 0.3s ease;
-        }
-        [data-theme="day"] .navbar {
-            background: #0f1a2e;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            padding: 10px 0px;
         }
         .navbar-link.inspiration {
             background: linear-gradient(90deg, #c9a84c, #c87a1f, #7b5fa8);
@@ -155,13 +137,7 @@
             font-weight: 700;
             font-size: 0.9rem;
         }
-        .navbar-link.inspiration:hover {
-            transform: scale(1.05);
-            filter: brightness(1.2);
-        }
-        .navbar-link.inspiration.active::after {
-            background: linear-gradient(90deg, #c9a84c, #c87a1f);
-        }
+        .navbar-link.inspiration:hover { transform: scale(1.05); filter: brightness(1.2); }
         .navbar-container {
             max-width: 1440px;
             margin: 0 auto;
@@ -169,27 +145,11 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 72px;
+            width: 100%;
         }
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            flex-shrink: 0;
-        }
-        .navbar-brand img {
-            height: 80px;
-            width: auto;
-            object-fit: contain;
-            display: block;
-        }
-        .navbar-menu {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-            align-items: center;
-            margin-right: 20px;
-        }
+        .navbar-brand { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+        .navbar-brand img { height: 90px; width: auto; object-fit: contain; display: block; }
+        .navbar-menu { display: flex; list-style: none; gap: 20px; align-items: center; margin-right: 20px; }
         .navbar-link {
             text-decoration: none;
             color: rgba(255, 255, 255, 0.8);
@@ -201,24 +161,8 @@
             position: relative;
             white-space: nowrap;
         }
-        [data-theme="day"] .navbar-link {
-            color: rgba(255, 255, 255, 0.8);
-        }
-        .navbar-link:hover {
-            color: #ffffff;
-        }
-        [data-theme="day"] .navbar-link:hover {
-            color: #ffffff;
-        }
-        .navbar-link.active {
-            color: #ffffff;
-            font-weight: 600;
-            background: rgba(255, 255, 255, 0.05);
-        }
-        [data-theme="day"] .navbar-link.active {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.05);
-        }
+        .navbar-link:hover { color: #ffffff; }
+        .navbar-link.active { color: #ffffff; font-weight: 600; background: rgba(255, 255, 255, 0.05); }
         .navbar-link.active::after {
             content: '';
             position: absolute;
@@ -230,44 +174,23 @@
             background: var(--accent-gold, #c9a84c);
             border-radius: 1px;
         }
-        .navbar-link.start-here {
+        .navbar-link.donate {
             background: linear-gradient(135deg, #c9a84c, #c87a1f);
             color: #ffffff;
             font-weight: 600;
             padding: 8px 16px;
             box-shadow: 0 2px 12px rgba(201, 168, 76, 0.4);
             border: none;
+            border-radius: 50px;
         }
-        .navbar-link.start-here:hover {
+        .navbar-link.donate:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 20px rgba(201, 168, 76, 0.6);
             color: #ffffff;
             background: linear-gradient(135deg, #d4b85a, #c87a1f);
         }
-        .navbar-link.start-here.active::after {
-            display: none;
-        }
-        .navbar-link.lumenquest {
-            background: linear-gradient(90deg, #c9a84c, #3a8b7d, #7b5fa8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-        .navbar-link.lumenquest:hover {
-            transform: scale(1.05);
-            filter: brightness(1.2);
-        }
-        .navbar-link.lumenquest.active::after {
-            background: linear-gradient(90deg, #c9a84c, #3a8b7d);
-        }
-        .navbar-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-shrink: 0;
-        }
+        .navbar-link.donate::after { display: none; }
+        .navbar-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
         .theme-toggle {
             display: flex;
             align-items: center;
@@ -276,10 +199,6 @@
             border-radius: 50px;
             padding: 4px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        [data-theme="day"] .theme-toggle {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.1);
         }
         .theme-btn {
             width: 32px;
@@ -295,24 +214,13 @@
             color: rgba(255, 255, 255, 0.6);
             padding: 0;
         }
-        [data-theme="day"] .theme-btn {
-            color: rgba(255, 255, 255, 0.6);
-        }
         .theme-btn.active {
             background: #c9a84c;
             color: #ffffff;
             box-shadow: 0 2px 8px rgba(201, 168, 76, 0.4);
         }
-        .theme-btn:hover:not(.active) {
-            color: rgba(255, 255, 255, 0.9);
-        }
-        [data-theme="day"] .theme-btn:hover:not(.active) {
-            color: rgba(255, 255, 255, 0.9);
-        }
-        .theme-btn svg {
-            width: 16px;
-            height: 16px;
-        }
+        .theme-btn:hover:not(.active) { color: rgba(255, 255, 255, 0.9); }
+        .theme-btn svg { width: 16px; height: 16px; }
         .navbar-toggle {
             display: none;
             flex-direction: column;
@@ -324,9 +232,6 @@
             padding: 8px;
             margin-left: 8px;
         }
-        [data-theme="day"] .navbar-toggle {
-            border-color: rgba(255, 255, 255, 0.2);
-        }
         .navbar-toggle span {
             display: block;
             width: 24px;
@@ -335,38 +240,18 @@
             border-radius: 2px;
             transition: all 0.3s ease;
         }
-        [data-theme="day"] .navbar-toggle span {
-            background: #ffffff;
-        }
-        .navbar-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .navbar-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .navbar-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        /* Dropdown desktop */
-        .nav-dropdown {
-            position: relative;
-        }
-        .dropdown-toggle {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .dropdown-arrow {
-            font-size: 10px;
-            transition: transform 0.3s ease;
-        }
+        .navbar-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .navbar-toggle.active span:nth-child(2) { opacity: 0; }
+        .navbar-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        .nav-dropdown { position: relative; }
+        .dropdown-toggle { display: flex; align-items: center; gap: 6px; }
+        .dropdown-arrow { font-size: 10px; transition: transform 0.3s ease; }
         .dropdown-menu {
             position: absolute;
             top: 100%;
             left: 0;
             min-width: 220px;
-            background: linear-gradient(135deg, #0f1a2e 0%, #1a2a4a 35%, #2a3d5e 70%, #3a4d6e 100%);
+            background: #0f1a2e;
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             padding: 10px 0;
@@ -374,26 +259,15 @@
             list-style: none;
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .45), 0 0 25px rgba(201, 168, 76, .1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
             opacity: 0;
             visibility: hidden;
             transform: translateY(10px);
             transition: all .35s ease;
             z-index: 1000;
         }
-        [data-theme="day"] .dropdown-menu {
-            background: linear-gradient(135deg, #0f1a2e 0%, #1a2a4a 35%, #2a3d5e 70%, #3a4d6e 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .45), 0 0 25px rgba(201, 168, 76, .1);
-        }
-        .nav-dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .nav-dropdown:hover .dropdown-arrow {
-            transform: rotate(180deg);
-        }
+        .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
         .dropdown-link {
             display: block;
             padding: 12px 18px;
@@ -402,695 +276,598 @@
             border-radius: 10px;
             transition: all .3s ease;
         }
-        [data-theme="day"] .dropdown-link {
-            color: #F8FAFC;
-        }
-        .dropdown-link:hover {
-            background: rgba(255, 255, 255, .08);
-            color: #c9a84c;
-            padding-left: 24px;
-        }
-        [data-theme="day"] .dropdown-link:hover {
-            background: rgba(255, 255, 255, .08);
-            color: #c9a84c;
-        }
+        .dropdown-link:hover { background: rgba(255, 255, 255, .08); color: #c9a84c; padding-left: 24px; }
 
-        /* ===== KIDS JOURNEY STYLES ===== */
-        .kids-main {
+        /* ===== DAY 4 JOURNEY STYLES ===== */
+        .journey-main {
             position: relative;
             z-index: 1;
-            padding-top: 100px;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding-left: 24px;
-            padding-right: 24px;
+            padding-top: 80px;
+            width: 100%;
+            background-color: var(--bg-primary);
+            min-height: 100vh;
+            transition: background-color 0.4s ease;
         }
 
-        /* --- HERO SECTION (Kids Version) --- */
-        .kids-hero {
+        /* --- HERO SECTION --- */
+        .hero-wrapper {
             position: relative;
-            padding: 50px 40px 45px;
-            margin-bottom: 45px;
-            border-radius: 32px;
-            background: linear-gradient(145deg, var(--bg-secondary), var(--bg-primary));
-            border: 1px solid var(--border-color);
+            display: flex;
+            max-width: 100%;
+            margin: 0 auto;
+            min-height: 600px;
+            background-color: var(--bg-primary);
             overflow: hidden;
-            text-align: center;
-            transition: all 0.5s ease;
         }
-        .kids-hero::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--hero-glow) 0%, transparent 70%);
-            pointer-events: none;
-            opacity: 0.6;
-        }
-        .kids-hero::after {
-            content: '';
-            position: absolute;
-            bottom: -20%;
-            left: -5%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .kids-hero-badge {
-            display: inline-block;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-gold);
-            background: rgba(201, 168, 76, 0.12);
-            padding: 6px 18px;
-            border-radius: 50px;
-            border: 1px solid rgba(201, 168, 76, 0.2);
-            margin-bottom: 16px;
-            position: relative;
-            z-index: 1;
-            transition: all 0.5s ease;
-        }
-        .kids-hero h1 {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            position: relative;
-            z-index: 1;
-            transition: color 0.5s ease;
-        }
-        .kids-hero h1 .highlight {
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .kids-hero p {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            max-width: 640px;
-            margin: 0 auto;
-            line-height: 1.8;
-            position: relative;
-            z-index: 1;
-            transition: color 0.5s ease;
-        }
-        .kids-hero .hero-ornament {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 24px;
-            position: relative;
-            z-index: 1;
-        }
-        .kids-hero .hero-ornament span {
-            display: block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--accent-gold);
-            opacity: 0.4;
-        }
-        .kids-hero .hero-ornament span:nth-child(2) {
-            background: var(--accent-gold);
-            opacity: 0.6;
-            width: 12px;
-            height: 12px;
-        }
-        .kids-hero .hero-ornament span:nth-child(3) {
-            background: var(--accent-gold);
-            opacity: 0.4;
-        }
-
-        /* --- Progress Tracker (Kids) --- */
-        .progress-tracker {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 24px 28px;
-            margin-bottom: 40px;
-            transition: all 0.5s ease;
-        }
-        .progress-tracker-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .progress-tracker-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: color 0.5s ease;
-        }
-        .progress-tracker-step {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.85rem;
-            color: var(--accent-gold);
-            font-weight: 700;
-            transition: color 0.5s ease;
-        }
-        .progress-bar {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            overflow-x: auto;
-            padding-bottom: 8px;
-        }
-        .progress-bar::-webkit-scrollbar {
-            height: 4px;
-        }
-        .progress-bar::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .progress-bar::-webkit-scrollbar-thumb {
-            background: var(--border-color);
-            border-radius: 4px;
-        }
-        .progress-node {
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-        }
-        .progress-dot {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            border: 2px solid var(--progress-inactive);
-            background: var(--bg-secondary);
-            color: var(--text-muted);
-            transition: all 0.4s ease;
-        }
-        .progress-node.completed .progress-dot {
-            border-color: var(--accent-green);
-            background: var(--accent-green);
-            color: #1a1a2e;
-        }
-        .progress-node.active .progress-dot {
-            border-color: var(--progress-active);
-            background: var(--progress-active);
-            color: #1a1a2e;
-            box-shadow: 0 0 24px rgba(201, 168, 76, 0.3);
-        }
-        .progress-line {
-            width: 24px;
-            height: 2px;
-            background: var(--progress-inactive);
-            border-radius: 1px;
-            flex-shrink: 0;
-            transition: background 0.4s ease;
-        }
-        .progress-node.completed+.progress-line,
-        .progress-line.completed {
-            background: var(--accent-green);
-        }
-        .progress-label {
-            font-size: 0.65rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            white-space: nowrap;
-            max-width: 80px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            transition: color 0.5s ease;
-        }
-        .progress-node.active .progress-label {
-            color: var(--accent-gold);
-            font-weight: 600;
-        }
-        .progress-node.completed .progress-label {
-            color: var(--accent-green);
-        }
-
-        /* --- Content Grid (Kids) --- */
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
-            margin-bottom: 40px;
-        }
-        .content-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 32px 30px;
-            transition: all 0.5s ease;
-        }
-        .content-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-4px);
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
-        }
-        [data-theme="day"] .content-card:hover {
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
-        }
-        .content-card h3 {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: color 0.5s ease;
-        }
-        .content-card h3 svg {
-            width: 28px;
-            height: 28px;
-            flex-shrink: 0;
-        }
-        .content-card p,
-        .content-card li {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.8;
-            transition: color 0.5s ease;
-        }
-        .content-card ul {
-            list-style: none;
-            margin-top: 14px;
-        }
-        .content-card li {
-            padding: 6px 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-        .content-card li svg {
-            width: 20px;
-            height: 20px;
-            color: var(--accent-green);
-            flex-shrink: 0;
-            margin-top: 3px;
-        }
-
-        /* --- Friend Banner --- */
-        .friend-banner {
-            background: linear-gradient(135deg, rgba(96, 165, 250, 0.12) 0%, rgba(201, 168, 76, 0.08) 100%);
-            border: 1px solid rgba(96, 165, 250, 0.2);
-            border-radius: 24px;
-            padding: 32px 32px;
-            margin-bottom: 40px;
-            text-align: center;
-            transition: all 0.5s ease;
-        }
-        .friend-banner svg {
-            width: 48px;
-            height: 48px;
-            color: var(--accent-blue);
-            display: block;
-            margin: 0 auto 10px;
-        }
-        .friend-banner h2 {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--accent-blue);
-            margin-bottom: 8px;
-            transition: color 0.5s ease;
-        }
-        .friend-banner p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
-            transition: color 0.5s ease;
-        }
-
-        /* --- Scripture Box (Kids) --- */
-        .scripture-box {
-            background: var(--bg-secondary);
-            border-left: 5px solid var(--accent-gold);
-            border-radius: 0 20px 20px 0;
-            padding: 28px 32px;
-            margin-bottom: 40px;
-            transition: all 0.5s ease;
-            position: relative;
-        }
-        .scripture-box::before {
-            content: '✧';
-            position: absolute;
-            top: 16px;
-            right: 24px;
-            font-size: 1.2rem;
-            color: var(--accent-gold);
-            opacity: 0.3;
-        }
-        .scripture-box p {
-            font-family: 'Caveat', cursive;
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            line-height: 1.5;
-            margin-bottom: 8px;
-            transition: color 0.5s ease;
-        }
-        .scripture-box cite {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            color: var(--accent-gold);
-            font-style: normal;
-            font-weight: 600;
-            transition: color 0.5s ease;
-        }
-
-        /* --- Task Section (Kids) --- */
-        .task-section {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 36px 32px;
-            margin-bottom: 40px;
-            transition: all 0.5s ease;
-        }
-        .task-section h3 {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 6px;
-            transition: color 0.5s ease;
-        }
-        .task-section>p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 24px;
-            transition: color 0.5s ease;
-        }
-        .task-list {
+        .hero-content {
+            width: 50%;
+            padding: 70px 40px 70px 8%;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: 28px;
+            justify-content: center;
+            z-index: 2;
         }
-        .task-item {
+        .hero-breadcrumb {
+            font-size: 0.8rem;
+            color: #9CA3AF;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        .hero-breadcrumb span { color: #9CA3AF; }
+        .hero-breadcrumb a { color: var(--accent-gold); text-decoration: none; font-weight: 500; }
+        [data-theme="night"] .hero-breadcrumb { color: #6b6b8a; }
+        [data-theme="night"] .hero-breadcrumb span { color: #6b6b8a; }
+        [data-theme="night"] .hero-breadcrumb a { color: var(--accent-gold); }
+
+        .hero-day {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--accent-gold);
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        [data-theme="night"] .hero-day { color: var(--accent-gold); }
+
+        .hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #111827;
+            font-size: 3.8rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+        [data-theme="night"] .hero-title { color: #ffffff; }
+
+        .hero-divider {
             display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 16px 20px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            user-select: none;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
         }
-        .task-item:hover {
-            border-color: var(--border-hover);
-            transform: translateX(4px);
+        .hero-divider-line { width: 40px; height: 1px; background: var(--accent-gold); }
+        .hero-divider-star { color: var(--accent-gold); font-size: 1.2rem; }
+        .hero-divider-text {
+            font-family: 'Inter', sans-serif;
+            color: #111827;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
         }
-        .task-item.completed {
-            border-color: var(--accent-green);
-            background: rgba(74, 222, 128, 0.08);
+        [data-theme="night"] .hero-divider-text { color: #ffffff; }
+
+        .hero-paragraph {
+            font-family: 'Inter', sans-serif;
+            color: #4B5563;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            max-width: 480px;
         }
-        [data-theme="day"] .task-item.completed {
-            background: rgba(22, 163, 74, 0.06);
+        [data-theme="night"] .hero-paragraph { color: #d1d5db; }
+
+        .hero-image-wrapper {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop') center/cover no-repeat;
+            filter: var(--hero-filter);
+            transition: filter 0.5s ease;
+            z-index: 1;
         }
-        .task-checkbox {
-            width: 24px;
-            height: 24px;
+        .hero-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--bg-primary) 0%, transparent 30%);
+        }
+        [data-theme="night"] .hero-image-overlay { background: linear-gradient(to right, #0b111f 0%, transparent 30%); }
+
+        /* --- VIDEO SECTION --- */
+        .video-section {
+            max-width: 1440px;
+            margin: -30px auto 40px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+        .video-container {
+            background: #0f1a2e;
+            border-radius: 20px;
+            padding: 50px 30px 20px;
+            text-align: center;
+            position: relative;
+            color: #ffffff;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        [data-theme="day"] .video-container { background: #0f1a2e; }
+
+        .video-play-btn {
+            width: 80px;
+            height: 80px;
+            border: 2px solid rgba(255,255,255,0.8);
             border-radius: 50%;
-            border: 2px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
-            margin-top: 2px;
-            transition: all 0.3s ease;
-            background: transparent;
-        }
-        .task-item.completed .task-checkbox {
-            background: var(--accent-green);
-            border-color: var(--accent-green);
-        }
-        .task-checkbox svg {
-            width: 12px;
-            height: 12px;
-            color: #1a1a2e;
-            opacity: 0;
-            transform: scale(0);
+            margin: 0 auto 20px;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
-        .task-item.completed .task-checkbox svg {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .task-text h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 2px;
-            transition: color 0.5s ease;
-        }
-        .task-text p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            line-height: 1.5;
-            transition: color 0.5s ease;
-        }
-        .task-item.completed .task-text h4 {
-            color: var(--accent-green);
-            text-decoration: line-through;
-            text-decoration-color: var(--accent-green);
-            text-decoration-thickness: 2px;
+        .video-play-btn:hover { transform: scale(1.05); border-color: var(--accent-gold); }
+        .video-play-btn svg {
+            width: 32px;
+            height: 32px;
+            fill: #ffffff;
+            margin-left: 4px;
         }
 
-        /* --- Action Bar (Kids) --- */
-        .action-bar {
+        .video-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .video-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #9CA3AF;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+        }
+        
+        .video-controls {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            transition: border-color 0.5s ease;
+            gap: 15px;
         }
-        .action-bar-left {
+        .controls-left {
             display: flex;
             align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
+            gap: 15px;
+            width: 100%;
         }
-        .completion-status {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            transition: color 0.5s ease;
-        }
-        .completion-status.completed {
-            color: var(--accent-green);
-            font-weight: 600;
-        }
-        .completion-status svg {
-            width: 20px;
-            height: 20px;
-        }
-        .btn-next {
-            background: var(--btn-gold-bg);
-            color: #1a1a2e;
-            padding: 16px 36px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 30px var(--btn-gold-shadow);
-            opacity: 0.4;
-            pointer-events: none;
-        }
-        .btn-next.enabled {
-            opacity: 1;
-            pointer-events: all;
-        }
-        .btn-next.enabled:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px var(--btn-gold-shadow);
-        }
-        .btn-next svg {
-            width: 20px;
-            height: 20px;
-        }
-        .btn-home {
+        .play-pause-btn {
             background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            padding: 14px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-flex;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            display: flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
         }
-        .btn-home:hover {
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
+        .play-pause-btn svg { width: 18px; height: 18px; fill: #ffffff; }
+        
+        .controls-timeline {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-width: 150px;
         }
-        .btn-home svg {
-            width: 18px;
-            height: 18px;
+        .timeline-bar {
+            flex: 1;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            position: relative;
+            cursor: pointer;
+        }
+        .timeline-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0%;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+        .timeline-thumb {
+            position: absolute;
+            left: 0%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+        }
+        .time-display {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            font-family: monospace;
         }
 
-        /* --- Handwritten Note (Kids) --- */
-        .handwritten-note {
-            font-family: 'Caveat', cursive;
-            font-size: 1.8rem;
-            color: var(--accent-gold);
+        .controls-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .controls-right button {
+            background: transparent;
+            border: none;
+            color: rgba(255,255,255,0.7);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .controls-right button:hover { color: #ffffff; }
+        .controls-right svg { width: 18px; height: 18px; fill: currentColor; }
+
+        /* --- WHAT TO EXPECT --- */
+        .expect-section {
+            max-width: 1120px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+        .expect-header {
             text-align: center;
-            margin-top: 20px;
-            padding: 20px;
-            transition: color 0.5s ease;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
         }
-        .handwritten-note .highlight {
-            color: var(--accent-blue);
+        .expect-title {
+            font-family: 'RecklessWide', serif;
+            color: #111827;
+            font-size: 1.8rem;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            letter-spacing: 2px;
         }
+        [data-theme="night"] .expect-title { color: #ffffff; }
+        .expect-title-star { color: var(--accent-gold); font-size: 1.5rem; }
+        .expect-title-line { width: 50px; height: 1px; background: var(--accent-gold); }
+
+        .expect-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        .expect-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 40px 20px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #f3f4f6;
+        }
+        [data-theme="night"] .expect-card { background: #16203A; border: 1px solid rgba(255,255,255,0.05); box-shadow: none; }
+        .expect-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        [data-theme="night"] .expect-card:hover { box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        
+        .expect-icon {
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-gold);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--accent-gold);
+        }
+        .expect-icon svg { width: 26px; height: 26px; }
+        .expect-card h4 {
+            font-family: 'Playfair Display', serif;
+            color: #111827;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        [data-theme="night"] .expect-card h4 { color: #ffffff; }
+        .expect-card p {
+            font-size: 0.85rem;
+            color: #6b7280;
+            line-height: 1.5;
+            padding: 0 10px;
+        }
+        [data-theme="night"] .expect-card p { color: #9ca3af; }
+
+        /* --- 7-DAY JOURNEY CARDS --- */
+        .journey-days-section {
+            max-width: 1120px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+        .journey-days-header {
+            text-align: center;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .journey-days-title {
+            font-family: 'RecklessWide', serif;
+            color: #111827;
+            font-size: 1.8rem;
+            font-weight: 400;
+            display: flex; align-items: center; gap: 20px;
+            letter-spacing: 2px;
+        }
+        [data-theme="night"] .journey-days-title { color: #ffffff; }
+        
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
+        }
+        .day-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            padding: 10px 5px;
+            border: 1px solid transparent;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+        .day-card.active-day {
+            border-color: var(--accent-gold);
+            background: rgba(201, 168, 76, 0.05);
+        }
+        .day-card.prev-day {
+            border-color: #e5e7eb;
+        }
+        [data-theme="night"] .day-card.prev-day { border-color: rgba(255,255,255,0.1); }
+        [data-theme="night"] .day-card.active-day { background: rgba(201, 168, 76, 0.08); }
+
+        .day-image-wrapper {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            position: relative;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        [data-theme="night"] .day-image-wrapper { border-color: rgba(255,255,255,0.1); }
+        .day-image-wrapper img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: brightness(0.9) saturate(1.1);
+            transition: all 0.5s ease;
+        }
+        .day-card:hover .day-image-wrapper img { transform: scale(1.05); }
+        
+        .day-label {
+            position: absolute;
+            top: 10px; left: 50%; transform: translateX(-50%);
+            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.1);
+            padding: 0 8px;
+            border-radius: 20px;
+        }
+        
+        .day-card h4 {
+            font-family: 'Playfair Display', serif;
+            color: #111827;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+        }
+        [data-theme="night"] .day-card h4 { color: #ffffff; }
+        .day-card h5 {
+            font-family: 'Playfair Display', serif;
+            color: #111827;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        [data-theme="night"] .day-card h5 { color: #ffffff; }
+        .day-card .day-question {
+            font-size: 0.65rem;
+            color: #9CA3AF;
+            line-height: 1.4;
+            padding: 0 5px;
+        }
+        [data-theme="night"] .day-card .day-question { color: #9ca3af; }
+
+        /* --- BOTTOM NAVIGATION --- */
+        .bottom-nav {
+            max-width: 1120px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+            border-radius: 20px;
+            background: #f3f4f6;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        [data-theme="night"] .bottom-nav { background: #16203A; border: 1px solid rgba(255,255,255,0.05); }
+
+        .nav-block {
+            display: flex;
+            align-items: center;
+            padding: 20px 25px;
+            gap: 20px;
+            flex: 1;
+            text-decoration: none;
+            color: #111827;
+            transition: background 0.3s ease;
+        }
+        .nav-block:hover { background: rgba(0,0,0,0.03); }
+        [data-theme="night"] .nav-block { color: #ffffff; }
+        [data-theme="night"] .nav-block:hover { background: rgba(255,255,255,0.03); }
+
+        .nav-block-left { justify-content: flex-start; border-right: 1px solid rgba(0,0,0,0.05); }
+        [data-theme="night"] .nav-block-left { border-right-color: rgba(255,255,255,0.05); }
+
+        .nav-block-right { justify-content: flex-end; }
+
+        .nav-thumb {
+            width: 60px; height: 60px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .nav-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+        .nav-text-wrap {
+            display: flex;
+            flex-direction: column;
+        }
+        .nav-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .nav-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+        [data-theme="night"] .nav-sub { color: #9ca3af; }
+
+        .nav-icon {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+        }
+        .nav-icon svg { width: 20px; height: 20px; }
+
+        .nav-center {
+            flex: 0 0 auto;
+            padding: 20px 40px;
+            text-align: center;
+            border-left: 1px solid rgba(0,0,0,0.05);
+            border-right: 1px solid rgba(0,0,0,0.05);
+        }
+        [data-theme="night"] .nav-center { border-left-color: rgba(255,255,255,0.05); border-right-color: rgba(255,255,255,0.05); }
+        
+        .nav-center-icon {
+            margin: 0 auto 5px;
+            color: var(--accent-gold);
+        }
+        .nav-center-icon svg { width: 28px; height: 28px; }
+        .nav-center-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .nav-center-sub {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+        [data-theme="night"] .nav-center-sub { color: #9ca3af; }
 
         /* ===== FOOTER ===== */
         .footer {
             position: relative;
             z-index: 1;
-            background: var(--footer-bg);
-            border-top: 1px solid var(--footer-border);
-            padding: 60px 40px 30px;
+            background: #0f1a2e;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 50px 40px 20px;
             transition: all 0.5s ease;
-            margin-top: 60px;
+            margin-top: 0;
         }
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 60px;
-            margin-bottom: 40px;
+            gap: 40px;
+            margin-bottom: 30px;
         }
         .footer-brand p {
-            color: var(--text-muted);
+            color: #9CA3AF;
             font-size: 0.9rem;
             line-height: 1.6;
             margin-bottom: 20px;
-            transition: color 0.5s ease;
         }
-        .footer-social {
-            display: flex;
-            gap: 12px;
-        }
+        .footer-social { display: flex; gap: 12px; }
         .footer-social a {
             width: 36px;
             height: 36px;
             border-radius: 10px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: #1F2937;
+            border: 1px solid rgba(255,255,255,0.08);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-muted);
+            color: #9CA3AF;
             text-decoration: none;
             transition: all 0.3s ease;
         }
-        .footer-social a:hover {
-            background: var(--accent-gold);
-            color: #1a1a2e;
-            border-color: var(--accent-gold);
-        }
-        .footer-social svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-        }
+        .footer-social a:hover { background: #c9a84c; color: #111827; border-color: #c9a84c; }
+        .footer-social svg { width: 18px; height: 18px; fill: currentColor; }
         .footer-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            color: var(--text-primary);
+            color: #ffffff;
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color 0.5s ease;
         }
-        .footer-links {
-            list-style: none;
-        }
-        .footer-links li {
-            margin-bottom: 10px;
-        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
         .footer-links a {
-            color: var(--text-muted);
+            color: #9CA3AF;
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.3s ease;
         }
-        .footer-links a:hover {
-            color: var(--accent-gold);
-        }
-        .footer-form {
-            margin-top: 20px;
-        }
-        .footer-form-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 12px;
-            transition: color 0.5s ease;
-        }
-        .footer-form-body {
-            display: flex;
-            gap: 8px;
-        }
+        .footer-links a:hover { color: #c9a84c; }
+        .footer-form { margin-top: 20px; }
+        .footer-form-body { display: flex; gap: 8px; }
         .footer-input {
             flex: 1;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: #1F2937;
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: 10px;
             padding: 10px 14px;
-            color: var(--text-primary);
+            color: #ffffff;
             font-size: 0.9rem;
             outline: none;
             transition: all 0.3s ease;
         }
-        .footer-input::placeholder {
-            color: var(--text-muted);
-        }
-        .footer-input:focus {
-            border-color: var(--accent-gold);
-        }
+        .footer-input::placeholder { color: #6B7280; }
+        .footer-input:focus { border-color: #c9a84c; }
         .footer-submit {
-            background: var(--btn-primary-bg);
-            color: white;
+            background: linear-gradient(135deg, #c9a84c, #c87a1f);
+            color: #111827;
             border: none;
             padding: 10px 20px;
             border-radius: 10px;
@@ -1099,686 +876,1307 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        .footer-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px var(--btn-primary-shadow);
-        }
+        .footer-submit:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(201,168,76,0.35); }
         .footer-bottom {
             max-width: 1200px;
             margin: 0 auto;
-            padding-top: 30px;
-            border-top: 1px solid var(--footer-border);
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 20px;
-            transition: border-color 0.5s ease;
         }
-        .footer-credit {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            transition: color 0.5s ease;
-        }
-        .footer-legal {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-        }
-        .footer-legal a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.3s ease;
-        }
-        .footer-legal a:hover {
-            color: var(--accent-gold);
-        }
-        .footer-legal span {
-            color: var(--border-color);
-            transition: color 0.5s ease;
-        }
+        .footer-credit { color: #6B7280; font-size: 0.85rem; }
+        .footer-legal { display: flex; gap: 16px; align-items: center; }
+        .footer-legal a { color: #6B7280; text-decoration: none; font-size: 0.85rem; transition: color 0.3s ease; }
+        .footer-legal a:hover { color: #c9a84c; }
+        .footer-legal span { color: rgba(255,255,255,0.08); }
 
         /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-wrapper { flex-direction: column; min-height: auto; }
+            .hero-content { width: 100%; padding: 40px 20px; }
+            .hero-image-wrapper { position: relative; width: 100%; height: 400px; }
+            .hero-image-overlay { background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 20%); }
+            [data-theme="night"] .hero-image-overlay { background: linear-gradient(to bottom, #0b111f 0%, transparent 20%); }
+            .expect-grid { grid-template-columns: repeat(2, 1fr); }
+            .days-grid { grid-template-columns: repeat(4, 1fr); }
+            .bottom-nav { flex-direction: column; padding: 20px; gap: 15px; }
+            .nav-block { width: 100%; border: none !important; padding: 10px 0; }
+            .nav-center { border: none !important; padding: 10px 0; width: 100%; }
+            .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
+        }
+
         @media (max-width: 768px) {
-            .navbar-container {
-                height: 70px;
-                padding: 0 18px;
-            }
-            .navbar-brand img {
-                height: 55px;
-            }
-            .navbar-toggle {
-                display: flex;
-                z-index: 1002;
-            }
+            .navbar-container { height: 70px; padding: 0 18px; }
+            .navbar-brand img { height: 45px; }
+            .navbar-toggle { display: flex; z-index: 1002; }
             .navbar-menu {
-                display: none;
-                flex-direction: column;
-                align-items: stretch;
-                position: fixed;
-                top: 80px;
-                left: 15px;
-                right: 15px;
-                max-height: calc(100vh - 100px);
-                overflow-y: auto;
-                padding: 20px 16px;
-                gap: 6px;
-                background: rgba(15, 26, 46, 0.96);
-                backdrop-filter: blur(24px);
-                -webkit-backdrop-filter: blur(24px);
-                border: 1px solid rgba(255, 255, 255, 0.12);
-                border-radius: 24px;
-                box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
-                z-index: 1001;
-                transform: translateY(8px);
-                opacity: 0;
+                display: none; flex-direction: column; align-items: stretch;
+                position: fixed; top: 80px; left: 15px; right: 15px;
+                max-height: calc(100vh - 100px); overflow-y: auto;
+                padding: 20px 16px; gap: 6px;
+                background: #0f1a2e; backdrop-filter: blur(24px);
+                -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 24px; box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+                z-index: 1001; transform: translateY(8px); opacity: 0;
                 transition: opacity 0.25s ease, transform 0.25s ease;
             }
-            [data-theme="day"] .navbar-menu {
-                background: rgba(15, 26, 46, 0.96);
-                border: 1px solid rgba(255, 255, 255, 0.12);
-                box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
-            }
-            .navbar-menu.active {
-                display: flex;
-                transform: translateY(0);
-                opacity: 1;
-            }
-            .navbar-menu li {
-                width: 100%;
-                list-style: none;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-                padding: 4px 0;
-            }
-            [data-theme="day"] .navbar-menu li {
-                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            }
-            .navbar-menu li:last-child {
-                border-bottom: none;
-            }
-            .navbar-link {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                width: 100%;
-                padding: 14px 16px;
-                font-size: 1rem;
-                font-weight: 600;
-                border-radius: 14px;
-                color: rgba(255, 255, 255, 0.85);
-                transition: all 0.2s ease;
-                border: 1px solid transparent;
-            }
-            [data-theme="day"] .navbar-link {
-                color: rgba(255, 255, 255, 0.85);
-            }
-            .navbar-link:hover {
-                background: rgba(255, 255, 255, 0.07);
-                border-color: rgba(255, 255, 255, 0.08);
-                color: #fff;
-            }
-            [data-theme="day"] .navbar-link:hover {
-                background: rgba(255, 255, 255, 0.07);
-                border-color: rgba(255, 255, 255, 0.08);
-                color: #fff;
-            }
-            .navbar-link.start-here {
-                background: linear-gradient(135deg, #c9a84c, #c87a1f);
-                color: #fff;
-                border: none;
-                box-shadow: 0 4px 16px rgba(201, 168, 76, 0.3);
-            }
-            .navbar-link.start-here:hover {
-                transform: none;
-                box-shadow: 0 6px 24px rgba(201, 168, 76, 0.5);
-            }
-            .navbar-link.lumenquest {
-                background: linear-gradient(90deg, #c9a84c, #3a8b7d, #7b5fa8);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                font-weight: 700;
-            }
-            .navbar-link.inspiration {
-                background: linear-gradient(90deg, #c9a84c, #c87a1f, #7b5fa8);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                font-weight: 700;
-            }
-            .dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                max-height: 0;
-                overflow: hidden;
-                padding: 0;
-                margin: 0 0 0 16px;
-                background: transparent;
-                border: none;
-                border-radius: 0;
-                backdrop-filter: none;
-                transition: max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease;
-            }
-            .nav-dropdown.active .dropdown-menu {
-                max-height: 300px;
-                padding: 8px 0 12px 0;
-                margin: 0 0 0 16px;
-                border-top: 1px solid rgba(255, 255, 255, 0.06);
-            }
-            [data-theme="day"] .nav-dropdown.active .dropdown-menu {
-                border-top: 1px solid rgba(255, 255, 255, 0.06);
-            }
-            .nav-dropdown:not(.active) .dropdown-menu {
-                max-height: 0;
-                padding: 0;
-                margin: 0 0 0 16px;
-                border-top: none;
-            }
-            .dropdown-link {
-                display: block;
-                padding: 12px 16px;
-                color: rgba(255, 255, 255, 0.75);
-                text-decoration: none;
-                border-radius: 12px;
-                font-size: 0.95rem;
-                font-weight: 500;
-                transition: all 0.2s ease;
-                border: 1px solid transparent;
-            }
-            [data-theme="day"] .dropdown-link {
-                color: rgba(255, 255, 255, 0.75);
-            }
-            .dropdown-link:hover {
-                background: rgba(255, 255, 255, 0.06);
-                border-color: rgba(255, 255, 255, 0.06);
-                color: #fff;
-                padding-left: 22px;
-            }
-            [data-theme="day"] .dropdown-link:hover {
-                background: rgba(255, 255, 255, 0.06);
-                border-color: rgba(255, 255, 255, 0.06);
-                color: #fff;
-            }
-            .dropdown-arrow {
-                font-size: 10px;
-                transition: transform 0.3s ease;
-                color: rgba(255, 255, 255, 0.5);
-            }
-            [data-theme="day"] .dropdown-arrow {
-                color: rgba(255, 255, 255, 0.5);
-            }
-            .nav-dropdown.active .dropdown-arrow {
-                transform: rotate(180deg);
-            }
+            .navbar-menu.active { display: flex; transform: translateY(0); opacity: 1; }
+            .navbar-menu li { width: 100%; list-style: none; border-bottom: 1px solid rgba(255, 255, 255, 0.06); padding: 4px 0; }
+            .navbar-menu li:last-child { border-bottom: none; }
+            .navbar-link { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 14px 16px; font-size: 1rem; font-weight: 600; border-radius: 14px; color: rgba(255, 255, 255, 0.85); transition: all 0.2s ease; border: 1px solid transparent; }
+            .navbar-link:hover { background: rgba(255, 255, 255, 0.07); border-color: rgba(255, 255, 255, 0.08); color: #fff; }
+            .dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; max-height: 0; overflow: hidden; padding: 0; margin: 0 0 0 16px; background: transparent; border: none; border-radius: 0; backdrop-filter: none; transition: max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease; }
+            .nav-dropdown.active .dropdown-menu { max-height: 300px; padding: 8px 0 12px 0; margin: 0 0 0 16px; border-top: 1px solid rgba(255, 255, 255, 0.06); }
+            .nav-dropdown:not(.active) .dropdown-menu { max-height: 0; padding: 0; margin: 0 0 0 16px; border-top: none; }
+            .dropdown-link { display: block; padding: 12px 16px; color: rgba(255, 255, 255, 0.75); text-decoration: none; border-radius: 12px; font-size: 0.95rem; font-weight: 500; transition: all 0.2s ease; border: 1px solid transparent; }
+            .dropdown-link:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.06); color: #fff; padding-left: 22px; }
+            .dropdown-arrow { font-size: 10px; transition: transform 0.3s ease; color: rgba(255, 255, 255, 0.5); }
+            .nav-dropdown.active .dropdown-arrow { transform: rotate(180deg); }
 
-            .kids-main {
-                padding-top: 90px;
-                padding-left: 16px;
-                padding-right: 16px;
-            }
-            .kids-hero {
-                padding: 36px 20px 32px;
-                border-radius: 24px;
-            }
-            .kids-hero h1 {
-                font-size: 2.4rem;
-            }
-            .kids-hero p {
-                font-size: 1rem;
-            }
-            .content-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .content-card {
-                padding: 24px;
-            }
-            .progress-tracker {
-                padding: 18px;
-            }
-            .progress-label {
-                display: none;
-            }
-            .task-section {
-                padding: 24px;
-            }
-            .friend-banner {
-                padding: 24px 20px;
-            }
-            .friend-banner h2 {
-                font-size: 1.1rem;
-            }
-            .action-bar {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .btn-next,
-            .btn-home {
-                justify-content: center;
-                width: 100%;
-            }
-            .scripture-box {
-                padding: 24px 20px;
-            }
-            .scripture-box p {
-                font-size: 1.3rem;
-            }
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-            .handwritten-note {
-                font-size: 1.4rem;
-            }
+            .hero-title { font-size: 2.5rem; }
+            .hero-day { font-size: 1.8rem; }
+            .expect-grid { grid-template-columns: 1fr; }
+            .days-grid { grid-template-columns: repeat(2, 1fr); }
+            .video-container { padding: 30px 20px 15px; }
+            .video-title { font-size: 1.5rem; }
+            .controls-left { flex-wrap: wrap; }
+            .controls-timeline { width: 100%; order: 3; margin-top: 10px; }
+            .footer-content { grid-template-columns: 1fr; gap: 40px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
         }
+    
 
-        @media (max-width: 480px) {
-            .kids-hero h1 {
-                font-size: 1.9rem;
-            }
-            .kids-hero-badge {
-                font-size: 0.65rem;
-                padding: 4px 14px;
-            }
-            .content-card h3 {
-                font-size: 1.1rem;
-            }
-            .task-text h4 {
-                font-size: 0.9rem;
-            }
-            .btn-next {
-                padding: 14px 24px;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+/* ============================================
+   NAVBAR CSS (Complete)
+   ============================================ */
+
+/* ===== NAVBAR BASE ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--navbar-bg, #0A0E1A);
+  border-bottom: 1px solid var(--navbar-border, rgba(255,255,255,0.08));
+  transition: all 0.3s ease;
+  padding: 6px 0;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+/* ===== LOGO (LEFT) ===== */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.navbar-brand img {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ===== MENU (CENTER) ===== */
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 6px;
+  align-items: center;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex: 1;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navbar-link:hover {
+  color: white;
+  background: var(--navbar-hover-bg, rgba(255,255,255,0.05));
+}
+
+.navbar-link.active {
+  color: var(--navbar-text-hover, #ffffff);
+  font-weight: 600;
+  background: var(--navbar-active-bg, rgba(255,255,255,0.03));
+}
+
+.navbar-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: var(--accent-violet, #7c3aed);
+  border-radius: 1px;
+}
+
+/* Special link styles */
+.navbar-link.start-here {
+  background: linear-gradient(135deg, #8B5CF6, #6366F1);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 6px 14px;
+  box-shadow: 0 2px 12px rgba(139, 92, 246, 0.4);
+  border: none;
+}
+
+.navbar-link.start-here:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.6);
+  color: #ffffff;
+}
+
+.navbar-link.inspiration {
+  background: linear-gradient(90deg, #fbbf24, #f472b6, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.navbar-link.lumenquest {
+  background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* ===== DROPDOWN ===== */
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.dropdown-arrow {
+  font-size: 9px;
+  transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: linear-gradient(135deg, #0A1A2F 0%, #102A4A 35%, #173E6B 70%, #1E4F87 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 8px 0;
+  margin-top: 8px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  list-style: none;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-link {
+  display: block;
+  padding: 10px 18px;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.dropdown-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #F5C542;
+  padding-left: 24px;
+}
+
+/* ===== RIGHT ACTIONS ===== */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+/* About & Contact Buttons */
+.navbar-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.navbar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 14px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(139, 92, 246, 0.45);
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-btn:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.22), rgba(99, 102, 241, 0.16));
+  border-color: rgba(139, 92, 246, 0.85);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(139, 92, 246, 0.30);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(128, 128, 128, 0.08);
+  border-radius: 50px;
+  padding: 2px;
+  border: 1px solid var(--border-color, rgba(255,255,255,0.08));
+  flex-shrink: 0;
+}
+
+.theme-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: white;
+  padding: 0;
+}
+
+.theme-btn.active {
+  background: #6366F1;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+}
+
+.theme-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Auth Buttons (Login/Signup) */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.auth-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.auth-login {
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.auth-login:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+.auth-signup {
+  color: #0A0E1A;
+  background: white;
+  border-color: white;
+}
+
+.auth-signup:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+/* ===== MOBILE TOGGLE ===== */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: 1px solid var(--mobile-toggle-border, rgba(255,255,255,0.2));
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 6px;
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+
+.navbar-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--mobile-toggle-span, #ffffff);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+.navbar-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS (NAVBAR)
+   ============================================ */
+
+/* Large screens */
+@media (max-width: 1200px) {
+  .navbar-container {
+    padding: 0 16px;
+  }
+  .navbar-link {
+    font-size: 0.78rem;
+    padding: 4px 8px;
+  }
+  .navbar-btn,
+  .auth-btn {
+    height: 30px;
+    padding: 0 10px;
+    font-size: 0.7rem;
+  }
+  .navbar-brand img {
+    height: 80px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .navbar-link {
+    font-size: 0.72rem;
+    padding: 4px 6px;
+  }
+  .navbar-btn,
+  .auth-btn {
+    height: 28px;
+    padding: 0 8px;
+    font-size: 0.65rem;
+  }
+  .navbar-brand img {
+    height: 70px;
+  }
+}
+
+/* Small tablets / large phones */
+@media (max-width: 900px) {
+  .navbar-link {
+    font-size: 0.7rem;
+    padding: 4px 5px;
+  }
+  .navbar-btn,
+  .auth-btn {
+    height: 26px;
+    padding: 0 6px;
+    font-size: 0.6rem;
+  }
+  .navbar-brand img {
+    height: 60px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    min-height: 64px;
+    padding: 4px 0;
+  }
+  .navbar-container {
+    padding: 0 12px;
+    flex-wrap: nowrap;
+  }
+  .navbar-brand img {
+    height: 50px;
+  }
+
+  /* Show hamburger */
+  .navbar-toggle {
+    display: flex;
+  }
+
+  /* Mobile menu - slides down from top */
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    position: fixed;
+    top: 64px;
+    left: 12px;
+    right: 12px;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    padding: 16px;
+    gap: 4px;
+    background: #0A0E1A;
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color, rgba(255,255,255,0.08));
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    z-index: 1001;
+    margin: 0;
+    width: auto;
+    flex: none;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .navbar-menu li {
+    width: 100%;
+    list-style: none;
+  }
+
+  .navbar-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    color: white;
+    white-space: normal;
+  }
+
+  .navbar-link.start-here {
+    justify-content: center;
+  }
+
+  /* Hide About/Contact on mobile */
+  .navbar-buttons .navbar-btn {
+    display: none;
+  }
+
+  /* Auth buttons smaller */
+  .auth-buttons .auth-btn {
+    font-size: 0.7rem;
+    padding: 0 10px;
+    height: 30px;
+  }
+
+  .theme-toggle {
+    margin-right: 2px;
+  }
+
+  /* Mobile dropdown */
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    transition: max-height 0.3s ease;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    backdrop-filter: none;
+  }
+
+  .nav-dropdown.active .dropdown-menu {
+    max-height: 400px;
+    padding: 6px 0 6px 12px;
+    background: transparent;
+  }
+
+  .nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .nav-dropdown:hover .dropdown-arrow {
+    transform: none;
+  }
+
+  .dropdown-link {
+    padding: 10px 14px;
+    color: #e0e0e0;
+    font-size: 0.95rem;
+  }
+
+  .dropdown-link:hover {
+    padding-left: 20px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .navbar-brand img {
+    height: 40px;
+  }
+  .navbar {
+    min-height: 56px;
+  }
+  .navbar-container {
+    padding: 0 8px;
+  }
+  .navbar-menu {
+    top: 56px;
+    left: 8px;
+    right: 8px;
+    padding: 12px;
+  }
+  .navbar-link {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+  .theme-btn {
+    width: 28px;
+    height: 28px;
+  }
+  .theme-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  .auth-btn {
+    font-size: 0.6rem;
+    padding: 0 8px;
+    height: 26px;
+  }
+}
+
+/* ============================================
+   GLOBAL FOOTER CSS (from index.html / style.css)
+   ============================================ */
+.footer {
+  position: relative;
+  background: #0A1A2F;
+  color: var(--color-white, #FFFFFF);
+  overflow: hidden;
+}
+
+.footer-deco {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-deco--1 { width: 64px; height: 64px; top: 32px; right: 0; }
+.footer-deco--2 { width: 80px; height: 80px; top: 96px; right: 48px; opacity: 0.5; }
+.footer-deco--3 { width: 48px; height: 48px; top: 192px; right: 16px; opacity: 0.3; }
+.footer-deco--4 { width: 56px; height: 56px; bottom: 128px; left: 0; opacity: 0.4; }
+.footer-deco--5 { width: 40px; height: 40px; bottom: 80px; left: 32px; opacity: 0.3; }
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-brand img {
+  height: 100px;
+  width: auto;
+  margin-bottom: 1.5rem;
+}
+
+.footer-text {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social a {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color var(--transition-base, 300ms ease);
+}
+
+.footer-social a:hover {
+  color: var(--color-white, #FFFFFF);
+}
+
+.footer-social svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.footer-title {
+  font-family: var(--font-heading, 'RecklessWide', serif);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+  color: var(--color-white, #FFFFFF);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  transition: color var(--transition-base, 300ms ease);
+}
+
+.footer-links a:hover {
+  color: var(--color-white, #FFFFFF);
+}
+
+.footer-contact {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.footer-form {
+  background: var(--color-white, #FFFFFF);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.footer-form__header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.footer-form__title {
+  color: #1F2937;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.footer-form__body {
+  padding: 1rem 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer-form__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.footer-form__input::placeholder {
+  color: #9CA3AF;
+}
+
+.footer-form__submit {
+  color: #1F2937;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: color var(--transition-base, 300ms ease);
+}
+
+.footer-form__submit:hover {
+  color: var(--color-primary, #0A1A2F);
+}
+
+.footer-bottom {
+  background: var(--color-white, #FFFFFF);
+  padding: 1rem 1.5rem;
+}
+
+.footer-bottom__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-credit {
+  color: var(--color-secondary, #122B4A);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-secondary, #122B4A);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.footer-legal a {
+  color: var(--color-secondary, #122B4A);
+  transition: color var(--transition-base, 300ms ease);
+}
+
+.footer-legal a:hover {
+  color: var(--color-primary, #0A1A2F);
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+  .footer-brand img {
+    height: 70px;
+    margin: 0 auto 1.5rem;
+  }
+  .footer-social {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  .footer-bottom__content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+</style>
+  <link rel="stylesheet" href="/navbar.css">
 </head>
 <body>
     <div class="starfield"></div>
 
-    <!-- ===== NAVBAR ===== -->
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
-        <div class="navbar-container">
-            <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
-                <img src="/images/logo.png" alt="LightMode Ministries">
-            </a>
+   <!-- ============================================
+     NAVBAR HTML (Complete)
+     ============================================ -->
 
-            <ul class="navbar-menu" id="navbar-menu" role="menubar">
-                <li class="nav-dropdown" role="none">
-                    <a href="/index.html" class="navbar-link dropdown-toggle">
-                        Home <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/about.html" class="dropdown-link">About Us</a></li>
-                        <li><a href="/contact.html" class="dropdown-link">Contact</a></li>
-                    </ul>
-                </li>
-                <li role="none"><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
-                <li class="nav-dropdown" role="none">
-                    <a href="/rest.html" class="navbar-link dropdown-toggle">
-                        Rest <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/deep-sleep.html" class="dropdown-link">Deep Sleep</a></li>
-                        <li><a href="/prayer-video.html" class="dropdown-link">Prayer Video</a></li>
-                        <li><a href="/bedtime-fables.html" class="dropdown-link">BedTime Fables</a></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown" role="none">
-                    <a href="/inspiration.html" class="navbar-link inspiration dropdown-toggle">
-                        Inspiration <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/stories.html" class="dropdown-link">Stories</a></li>
-                        <li><a href="/videos.html" class="dropdown-link">Videos</a></li>
-                        <li><a href="/resources.html" class="dropdown-link">Resources</a></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown" role="none">
-                    <a href="/grow.html" class="navbar-link dropdown-toggle">
-                        Teaching Library <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/bible-study.html" class="dropdown-link">Bible Studies</a></li>
-                        <li><a href="/sermons.html" class="dropdown-link">Sermons</a></li>
-                        <li><a href="/devotionals.html" class="dropdown-link">Devotionals</a></li>
-                        <li><a href="/study-guides.html" class="dropdown-link">Study Guides</a></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown" role="none">
-                    <a href="/teens.html" class="navbar-link dropdown-toggle">
-                        Teens <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li>
-                        <li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li>
-                        <li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown" role="none">
-                    <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">
-                        LumenQuest <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/animations.html" class="dropdown-link">Animations</a></li>
-                        <li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li>
-                        <li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li>
-                        <li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li>
-                    </ul>
-                </li>
-            </ul>
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="navbar-container">
+    
+    <!-- LOGO - LEFT (100px height) -->
+    <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
+      <img src="/images/logo.png" alt="LightMode Ministries">
+    </a>
 
-            <div class="navbar-actions">
-                <div class="theme-toggle" role="group" aria-label="Theme toggle">
-                    <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </button>
-                    <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                    </button>
-                </div>
-                <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </div>
-    </nav>
+    <!-- MENU - CENTER -->
+    <ul class="navbar-menu" id="navbar-menu" role="menubar">
+      <li>
+        <a href="/index.html" class="navbar-link">Home</a>
+      </li>
+      
+      <li>
+        <a href="/start-here.html" class="navbar-link start-here">Start Here</a>
+      </li>
+      
+      <!-- Dropdown: Teaching Library -->
+      <li class="nav-dropdown" role="none">
+        <a href="#" class="navbar-link dropdown-toggle">
+          Teaching Library <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="/devotional-gallery.html" class="dropdown-link">Devotional Gallery</a></li>
+          <li><a href="/sermons.html" class="dropdown-link">Bible Reading</a></li>
+          <li><a href="/devotionals.html" class="dropdown-link">Daily Confessions</a></li>
+        </ul>
+      </li>
+      
+      <!-- Dropdown: LumenQuest -->
+      <li class="nav-dropdown" role="none">
+        <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">
+          LumenQuest <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="/animations.html" class="dropdown-link">Animations</a></li>
+          <li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li>
+          <li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li>
+          <li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li>
+        </ul>
+      </li>
+      
+      <li>
+        <a href="/prayer-room.html" class="navbar-link">Prayer Room</a>
+      </li>
+      
+      <!-- Dropdown: Rest -->
+      <li class="nav-dropdown" role="none">
+        <a href="#" class="navbar-link dropdown-toggle">
+          Rest <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="/deep-sleep.html" class="dropdown-link">Deep Sleep</a></li>
+          <li><a href="/prayer-video.html" class="dropdown-link">Prayer Video</a></li>
+          <li><a href="/bedtime-fables.html" class="dropdown-link">BedTime Fables</a></li>
+        </ul>
+      </li>
+      
+      <!-- Dropdown: Teens -->
+      <li class="nav-dropdown" role="none">
+        <a href="/teens.html" class="navbar-link dropdown-toggle">
+          Teens <span class="dropdown-arrow">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li>
+          <li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li>
+          <li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- RIGHT ACTIONS: About, Contact, Theme Toggle, Login/Signup -->
+    <div class="navbar-actions">
+      
+      <!-- About & Contact Buttons -->
+      <div class="navbar-buttons">
+        <a href="/about.html" class="navbar-btn">About</a>
+        <a href="/contact.html" class="navbar-btn">Contact</a>
+      </div>
+
+      <!-- Theme Toggle (Day/Night) -->
+      <div class="theme-toggle" role="group" aria-label="Theme toggle">
+        <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="12" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+        <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Login / Signup Buttons -->
+      <div class="auth-buttons">
+        <a href="/login.html" class="auth-btn auth-login">Log in</a>
+        <a href="/signup.html" class="auth-btn auth-signup">Sign up</a>
+      </div>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
 
     <!-- ===== MAIN CONTENT ===== -->
-    <main class="kids-main">
+    <main class="journey-main">
 
-        <!-- ===== HERO SECTION ===== -->
-        <section class="kids-hero">
-            <span class="kids-hero-badge">🤝 Kids Journey — Step 4 of 6</span>
-            <h1><span class="highlight">Jesus Is Your Friend</span></h1>
-            <p>Jesus wants to be your best friend! He is always with you, always listening, and always ready to help. You can talk to Him anytime, anywhere!</p>
-            <div class="hero-ornament">
-                <span></span><span></span><span></span>
+        <!-- HERO SECTION -->
+        <section class="hero-wrapper">
+            <div class="hero-content">
+                <div class="hero-breadcrumb">
+                    Home <span>/</span> <a href="#">LightMode Foundations</a> <span>/</span> Day 4
+                </div>
+                <div class="hero-day">DAY 4</div>
+                <h1 class="hero-title">THE<br>ACCOMPLISHMENTS<br>OF THE CROSS</h1>
+                <div class="hero-divider">
+                    <span class="hero-divider-line"></span>
+                    <span class="hero-divider-star">✦</span>
+                    <span class="hero-divider-text">A 7-DAY JOURNEY OF DISCOVERY</span>
+                    <span class="hero-divider-star">✦</span>
+                    <span class="hero-divider-line"></span>
+                </div>
+                <p class="hero-paragraph">
+                    What did Jesus actually finish on the Cross? The Cross wasn't just about forgiveness—it accomplished far more than many believers have realized.
+                </p>
+            </div>
+            <div class="hero-image-wrapper">
+                <div class="hero-image-overlay"></div>
             </div>
         </section>
 
-        <!-- ===== PROGRESS TRACKER ===== -->
-        <div class="progress-tracker">
-            <div class="progress-tracker-header">
-                <span class="progress-tracker-title">🤝 Kids Light Journey</span>
-                <span class="progress-tracker-step">Step 4 of 6</span>
-            </div>
-            <div class="progress-bar">
-                <a href="kids-journey-1.html" class="progress-node completed" title="Welcome">
-                    <div class="progress-dot">✓</div>
-                    <span class="progress-label">Welcome</span>
-                </a>
-                <div class="progress-line completed"></div>
-                <a href="kids-journey-2.html" class="progress-node completed" title="God Made You">
-                    <div class="progress-dot">✓</div>
-                    <span class="progress-label">God Made You</span>
-                </a>
-                <div class="progress-line completed"></div>
-                <a href="kids-journey-3.html" class="progress-node completed" title="God Loves You">
-                    <div class="progress-dot">✓</div>
-                    <span class="progress-label">God Loves You</span>
-                </a>
-                <div class="progress-line completed"></div>
-                <a href="kids-journey-4.html" class="progress-node active" title="Jesus Is Your Friend">
-                    <div class="progress-dot">4</div>
-                    <span class="progress-label">Jesus Is Friend</span>
-                </a>
-                <div class="progress-line"></div>
-                <a href="kids-journey-5.html" class="progress-node" title="You Are Special">
-                    <div class="progress-dot">5</div>
-                    <span class="progress-label">You Are Special</span>
-                </a>
-                <div class="progress-line"></div>
-                <a href="kids-journey-6.html" class="progress-node" title="Let Your Light Shine">
-                    <div class="progress-dot">6</div>
-                    <span class="progress-label">Shine Your Light</span>
-                </a>
-            </div>
-        </div>
-
-        <!-- ===== CONTENT GRID ===== -->
-        <div class="content-grid">
-            <div class="content-card">
-                <h3>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                    </svg>
-                    Jesus Loves to Be With You
-                </h3>
-                <p>Jesus said, "Let the little children come to me." He loves spending time with you! Whether you're happy, sad, scared, or excited, Jesus is right there with you.</p>
-                <ul>
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        <span>Jesus calls you His friend (John 15:15)</span>
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        <span>Jesus is always with you (Matthew 28:20)</span>
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        <span>He will never leave you (Hebrews 13:5)</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="content-card">
-                <h3>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-teal);">
-                        <circle cx="12" cy="12" r="10"/>
-                        <line x1="12" y1="16" x2="12" y2="12"/>
-                        <line x1="12" y1="8" x2="12.01" y2="8"/>
-                    </svg>
-                    Talk to Jesus Anytime
-                </h3>
-                <p>You don't need special words to talk to Jesus. Just talk to Him like you would talk to your best friend. He hears you and He cares about everything you say!</p>
-                <ul>
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        <span>Pray about everything (Philippians 4:6)</span>
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        <span>Jesus is always listening (Psalm 116:2)</span>
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        <span>He cares about what's on your heart (1 Peter 5:7)</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- ===== FRIEND BANNER ===== -->
-        <section class="friend-banner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-            <h2>🤝 Jesus Wants to Be Your Best Friend!</h2>
-            <p>He's not just a teacher or a leader — He's a friend who will never leave you, never forget you, and always love you. You can trust Him with everything!</p>
-        </section>
-
-        <!-- ===== SCRIPTURE BOX ===== -->
-        <div class="scripture-box">
-            <p>"I have called you friends, for everything that I learned from my Father I have made known to you."</p>
-            <cite>John 15:15</cite>
-        </div>
-
-        <!-- ===== TASK SECTION ===== -->
-        <section class="task-section">
-            <h3>Your Turn!</h3>
-            <p>Complete these tasks to continue your journey!</p>
-
-            <div class="task-list" id="task-list">
-                <div class="task-item" data-task="1">
-                    <div class="task-checkbox">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
+        <!-- VIDEO SECTION -->
+        <section class="video-section">
+            <div class="video-container">
+                <div class="video-play-btn">
+                    <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+                
+                <h2 class="video-title">DAY 4 TEACHING VIDEO</h2>
+                <p class="video-subtitle">Press play to begin.</p>
+                
+                <div class="video-controls">
+                    <div class="controls-left">
+                        <button class="play-pause-btn">
+                            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        </button>
+                        <div class="controls-timeline">
+                            <div class="timeline-bar">
+                                <div class="timeline-fill"></div>
+                                <div class="timeline-thumb"></div>
+                            </div>
+                            <span class="time-display">00:00 / 00:00</span>
+                        </div>
                     </div>
-                    <div class="task-text">
-                        <h4>I know Jesus is my friend!</h4>
-                        <p>I understand that Jesus wants to be my friend and is always with me.</p>
+                    <div class="controls-right">
+                        <button><svg viewBox="0 0 24 24"><path d="M3 12h18M12 3l-9 9 9 9"/></svg></button>
+                        <button><svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 0 0 9-9 9 9 0 0 0-9-9 9 9 0 0 0-9 9 9 9 0 0 0 9 9z"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h4"/></svg></button>
+                        <button><svg viewBox="0 0 24 24"><path d="M12 9v6"/><path d="M9 12h6"/></svg></button>
+                        <button><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10 10 10 0 0 0-10-10z"/><path d="M12 6v6l4 2"/></svg></button>
                     </div>
                 </div>
-
-                <div class="task-item" data-task="2">
-                    <div class="task-checkbox">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                    </div>
-                    <div class="task-text">
-                        <h4>I will talk to Jesus every day!</h4>
-                        <p>I will pray and talk to Jesus about my day, my worries, and my joys.</p>
-                    </div>
-                </div>
-
-                <div class="task-item" data-task="3">
-                    <div class="task-checkbox">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                    </div>
-                    <div class="task-text">
-                        <h4>I will be a friend like Jesus!</h4>
-                        <p>I will show kindness and love to others, just like Jesus shows to me.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="action-bar">
-                <div class="action-bar-left">
-                    <a href="kids-journey-3.html" class="btn-home">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                            <polyline points="9 22 9 12 15 12 15 22"/>
-                        </svg>
-                        Back to Step 3
-                    </a>
-                    <div class="completion-status" id="completion-status">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 16v-4"/>
-                            <path d="M12 8h.01"/>
-                        </svg>
-                        <span id="status-text">0 of 3 completed</span>
-                    </div>
-                </div>
-                <a href="kids-journey-5.html" class="btn-next" id="btn-next">
-                    Proceed to Step 5
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"/>
-                        <polyline points="12 5 19 12 12 19"/>
-                    </svg>
-                </a>
             </div>
         </section>
 
-        <div class="handwritten-note">
-            Jesus is your <span class="highlight">forever friend</span> — always!
-        </div>
+        <!-- WHAT TO EXPECT -->
+        <section class="expect-section">
+            <div class="expect-header">
+                <div class="expect-title">
+                    <span class="expect-title-line"></span>
+                    <span class="expect-title-star">✦</span>
+                    WHAT TO EXPECT
+                    <span class="expect-title-star">✦</span>
+                    <span class="expect-title-line"></span>
+                </div>
+            </div>
+            <div class="expect-grid">
+                <div class="expect-card">
+                    <div class="expect-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+                    <h4>BIBLICAL TRUTH</h4>
+                    <p>Discover foundational truths from God's Word that reveal who He is and who you are because of Him.</p>
+                </div>
+                <div class="expect-card">
+                    <div class="expect-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
+                    <h4>NEW PERSPECTIVE</h4>
+                    <p>See familiar Scriptures in a fresh light and gain a deeper understanding that transforms.</p>
+                </div>
+                <div class="expect-card">
+                    <div class="expect-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <h4>REAL LIFE IMPACT</h4>
+                    <p>Learn how to live from the finished work of Jesus and walk in the freedom He has provided.</p>
+                </div>
+                <div class="expect-card">
+                    <div class="expect-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                    <h4>A PATH FORWARD</h4>
+                    <p>Each day builds on the last, leading you into a life of faith, victory, and purpose in Christ.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7-DAY JOURNEY -->
+        <section class="journey-days-section">
+            <div class="journey-days-header">
+                <div class="journey-days-title">
+                    <span class="expect-title-line"></span>
+                    <span class="expect-title-star">✦</span>
+                    YOUR 7-DAY JOURNEY
+                    <span class="expect-title-star">✦</span>
+                    <span class="expect-title-line"></span>
+                </div>
+            </div>
+            <div class="days-grid">
+                <div class="day-card prev-day">
+                    <div class="day-image-wrapper">
+                        <div class="day-label">DAY 1</div>
+                        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1948&auto=format&fit=crop" alt="Sunrise">
+                    </div>
+                    <h4>IDENTITY</h4>
+                    <h5>BEGINS WITH GOD</h5>
+                    <div class="day-question">Where does identity really begin?</div>
+                </div>
+                
+                <div class="day-card prev-day">
+                    <div class="day-image-wrapper">
+                        <div class="day-label">DAY 2</div>
+                        <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=2070&auto=format&fit=crop" alt="Sunset">
+                    </div>
+                    <h4>WHY</h4>
+                    <h5>IDENTITY MATTERS</h5>
+                    <div class="day-question">Why does what I believe about myself matter so much?</div>
+                </div>
+                
+                <div class="day-card prev-day">
+                    <div class="day-image-wrapper">
+                        <div class="day-label">DAY 3</div>
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071&auto=format&fit=crop" alt="Lone tree">
+                    </div>
+                    <h4>THE</h4>
+                    <h5>PROBLEM CHRIST SOLVED</h5>
+                    <div class="day-question">Why did humanity need a Savior?</div>
+                </div>
+                
+                <div class="day-card active-day">
+                    <div class="day-image-wrapper">
+                        <div class="day-label">DAY 4</div>
+                        <img src="https://images.unsplash.com/photo-1545438102-799c3e1de11a?q=80&w=2070&auto=format&fit=crop" alt="Cross">
+                    </div>
+                    <h4>THE</h4>
+                    <h5>ACCOMPLISHMENTS OF THE CROSS</h5>
+                    <div class="day-question">What did Jesus actually finish?</div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-image-wrapper">
+                        <div class="day-label">DAY 5</div>
+                        <img src="https://images.unsplash.com/photo-1504384308090-c54be3855497?q=80&w=2070&auto=format&fit=crop" alt="Sky">
+                    </div>
+                    <h4>WHO</h4>
+                    <h5>AM I NOW?</h5>
+                    <div class="day-question">Who am I because of Him?</div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-image-wrapper">
+                        <div class="day-label">DAY 6</div>
+                        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2070&auto=format&fit=crop" alt="Road">
+                    </div>
+                    <h4>LIVING FROM</h4>
+                    <h5>THE FINISHED WORK</h5>
+                    <div class="day-question">How do I live differently because Jesus finished the work?</div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-image-wrapper">
+                        <div class="day-label">DAY 7</div>
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop" alt="Mountain">
+                    </div>
+                    <h4>LIVING AS</h4>
+                    <h5>MORE THAN A CONQUEROR</h5>
+                    <div class="day-question">What does this mean for the life ahead of me?</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOTTOM NAVIGATION -->
+        <section class="bottom-nav">
+            <a href="kids-journey-3.html" class="nav-block nav-block-left">
+                <div class="nav-thumb">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=200&auto=format&fit=crop" alt="Prev">
+                </div>
+                <div class="nav-text-wrap">
+                    <span class="nav-label">PREVIOUS</span>
+                    <span class="nav-sub">Day 3</span>
+                    <span class="nav-sub">The Problem Christ Solved</span>
+                </div>
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                </div>
+            </a>
+
+            <div class="nav-center">
+                <div class="nav-center-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+                </div>
+                <div class="nav-center-title">7-DAY JOURNEY</div>
+                <div class="nav-center-sub">You're on Day 4</div>
+            </div>
+
+            <a href="kids-journey-5.html" class="nav-block nav-block-right" id="btn-next">
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+                <div class="nav-text-wrap" style="text-align:right;">
+                    <span class="nav-label">NEXT</span>
+                    <span class="nav-sub">Day 5</span>
+                    <span class="nav-sub">Who Am I Now?</span>
+                </div>
+                <div class="nav-thumb">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c54be3855497?q=80&w=200&auto=format&fit=crop" alt="Next">
+                </div>
+            </a>
+        </section>
 
     </main>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer" role="contentinfo">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-                    <img width="20%" src="/images/logo-crop.png" alt="LightMode Ministries Logo">
-                    <div>
-                        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;color:var(--text-primary);transition:color 0.5s ease;">LightMode</div>
-                        <div style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);transition:color 0.5s ease;">Ministries LLC</div>
-                    </div>
-                </div>
-                <p>Illuminating Lives.<br>One Heart at a Time.</p>
-                <div class="footer-social">
-                    <a href="#" aria-label="YouTube">
-                        <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-                    </a>
-                    <a href="#" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.441-.645 1.441-1.44s-.645-1.44-1.441-1.44z"/></svg>
-                    </a>
-                    <a href="#" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    </a>
-                    <a href="#" aria-label="TikTok">
-                        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-                    </a>
-                </div>
-            </div>
-            <div>
-                <div class="footer-title">Quick Links</div>
-                <ul class="footer-links">
-                    <li><a href="/start-here.html">Start Here</a></li>
-                    <li><a href="/inspiration.html">Inspiration</a></li>
-                    <li><a href="/grow.html">Grow</a></li>
-                    <li><a href="/teens.html">Teens</a></li>
-                    <li><a href="/lumenquest.html">LumenQuest</a></li>
-                </ul>
-            </div>
-            <div>
-                <div class="footer-title">Resources</div>
-                <ul class="footer-links">
-                    <li><a href="/bible-study.html">Bible Studies</a></li>
-                    <li><a href="/sermons.html">Sermons</a></li>
-                    <li><a href="/devotionals.html">Devotionals</a></li>
-                    <li><a href="/study-guides.html">Study Guides</a></li>
-                </ul>
-            </div>
-            <div>
-                <div class="footer-title">Stay Connected</div>
-                <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:12px;">Join our newsletter for daily encouragement.</p>
-                <div class="footer-form">
-                    <div class="footer-form-title">Subscribe</div>
-                    <div class="footer-form-body">
-                        <input type="email" class="footer-input" placeholder="Your email" aria-label="Email address" />
-                        <button class="footer-submit">Sign Up</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-credit">&copy; 2026 LightMode Ministries LLC. All rights reserved.</div>
-            <div class="footer-legal">
-                <a href="/privacy.html">Privacy</a>
-                <span>|</span>
-                <a href="/terms.html">Terms</a>
-                <span>|</span>
-                <a href="/contact.html">Contact</a>
-            </div>
-        </div>
-    </footer>
+     <!-- ===== FOOTER ===== -->
+            <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-deco footer-deco--1" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--2" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--3" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--4" aria-hidden="true"></div>
+    <div class="footer-deco footer-deco--5" aria-hidden="true"></div>
 
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/images/logo.png" alt="LightMode Ministries Logo">
+        <p class="footer-text">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/children">Children</a></li>
+          <li><a href="/expressions">Expressions</a></li>
+          <li><a href="/publications">Publications</a></li>
+          <li><a href="/animations">Animations</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Privacy Policy</h4>
+        <ul class="footer-links">
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms & Conditions</a></li>
+          <li><a href="/order-policy">Order Policy</a></li>
+          <li><a href="/booking-policy">Booking Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Info</h4>
+        <p class="footer-contact">Serving London: KT, SW, W, EC postcodes</p>
+        <p class="footer-contact">hello@lightmode.org</p>
+        
+        <div class="footer-form">
+          <div class="footer-form__header">
+            <h5 class="footer-form__title">Contact Us</h5>
+          </div>
+          <div class="footer-form__body">
+            <input type="email" class="footer-form__input" placeholder="Enter Email Address" aria-label="Your email address">
+            <button class="footer-form__submit" onclick="alert('Message sent!')">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom__content">
+        <p class="footer-credit">Designed By Digital Software Labs</p>
+        <div class="footer-legal">
+          <a href="/terms">Terms & Conditions</a>
+          <span>|</span>
+          <a href="/privacy">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
         // ===== THEME TOGGLE =====
-        function setTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            document.getElementById('btn-day').classList.toggle('active', theme === 'day');
-            document.getElementById('btn-night').classList.toggle('active', theme === 'night');
-        }
+        /* [OLD setTheme replaced by global navbar script] */
 
         (function() {
             const saved = localStorage.getItem('theme') || 'night';
@@ -1786,66 +2184,8 @@
         })();
 
         // ===== MOBILE NAV =====
-        const navbarToggle = document.querySelector('.navbar-toggle');
-        const navbarMenu = document.getElementById('navbar-menu');
-
-        navbarToggle.addEventListener('click', function() {
-            const isOpen = navbarMenu.classList.toggle('active');
-            this.classList.toggle('active');
-            this.setAttribute('aria-expanded', isOpen);
-        });
-
-        document.querySelectorAll('.navbar-link:not(.dropdown-toggle)').forEach(link => {
-            link.addEventListener('click', () => {
-                navbarMenu.classList.remove('active');
-                navbarToggle.classList.remove('active');
-                navbarToggle.setAttribute('aria-expanded', 'false');
-            });
-        });
-
-        document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
-            const toggle = dropdown.querySelector('.dropdown-toggle');
-            if (toggle) {
-                toggle.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        dropdown.classList.toggle('active');
-                    }
-                });
-            }
-        });
-
-        // ===== TASK CHECKBOXES =====
-        const taskItems = document.querySelectorAll('.task-item');
-        const btnNext = document.getElementById('btn-next');
-        const statusText = document.getElementById('status-text');
-        const completionStatus = document.getElementById('completion-status');
-        const totalTasks = taskItems.length;
-
-        function updateProgress() {
-            const completed = document.querySelectorAll('.task-item.completed').length;
-            statusText.textContent = completed + ' of ' + totalTasks + ' completed';
-
-            if (completed === totalTasks) {
-                btnNext.classList.add('enabled');
-                completionStatus.classList.add('completed');
-                statusText.textContent = '🤝 All tasks complete! Proceed to Step 5!';
-            } else {
-                btnNext.classList.remove('enabled');
-                completionStatus.classList.remove('completed');
-            }
-        }
-
-        taskItems.forEach(item => {
-            item.addEventListener('click', function() {
-                this.classList.toggle('completed');
-                updateProgress();
-            });
-        });
-
-        updateProgress();
-
-        // ===== NAVBAR SCROLL EFFECT =====
+        /* [OLD navbar toggle replaced by global navbar script] */
+// ===== NAVBAR SCROLL EFFECT =====
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.pageYOffset > 50) {
@@ -1859,9 +2199,202 @@
             }
         });
     </script>
-<script src="journey-config.js"></script>
+    <script src="journey-config.js"></script>
     <script>
-        initComingSoonPage('kids', 'day4'); initJourneyNavigation('kids', 'day5', 'btn-next');
+        initComingSoonPage('kids', 'day4');
+        initJourneyNavigation('kids', 'day5', 'btn-next');
     </script>
+
+<script>
+// ============================================
+// NAVBAR JAVASCRIPT (Theme + Mobile Toggle)
+// ============================================
+
+// ===== THEME TOGGLE =====
+function setTheme(mode) {
+  const html = document.documentElement;
+  const btnDay = document.getElementById('btn-day');
+  const btnNight = document.getElementById('btn-night');
+  
+  if (mode === 'night') {
+    html.setAttribute('data-theme', 'night');
+    if (btnNight) btnNight.classList.add('active');
+    if (btnDay) btnDay.classList.remove('active');
+    localStorage.setItem('theme', 'night');
+  } else {
+    html.removeAttribute('data-theme');
+    if (btnDay) btnDay.classList.add('active');
+    if (btnNight) btnNight.classList.remove('active');
+    localStorage.setItem('theme', 'day');
+  }
+}
+
+// Load saved theme on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'night') {
+    setTheme('night');
+  } else {
+    setTheme('day');
+  }
+});
+
+// ===== MOBILE MENU TOGGLE =====
+const toggle = document.querySelector('.navbar-toggle');
+const menu = document.getElementById('navbar-menu');
+
+if (toggle && menu) {
+  // Toggle menu on hamburger click
+  toggle.addEventListener('click', function() {
+    const expanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', !expanded);
+    this.classList.toggle('active');
+    menu.classList.toggle('active');
+  });
+
+  // Handle link clicks inside mobile menu
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      // For dropdown toggles on mobile - toggle dropdown instead of navigating
+      if (window.innerWidth <= 768 && this.classList.contains('dropdown-toggle')) {
+        e.preventDefault();
+        const parent = this.closest('.nav-dropdown');
+        if (parent) {
+          parent.classList.toggle('active');
+        }
+        return;
+      }
+      
+      // Close menu on link click (mobile only)
+      if (window.innerWidth <= 768) {
+        menu.classList.remove('active');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // Close menu on window resize to desktop
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      menu.classList.remove('active');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+      // Reset all mobile dropdowns
+      document.querySelectorAll('.nav-dropdown').forEach(item => {
+        item.classList.remove('active');
+      });
+    }
+  });
+}
+</script>
+
+<script>
+// ============================================
+// NAVBAR JAVASCRIPT (Theme + Mobile Toggle)
+// ============================================
+
+// ===== THEME TOGGLE =====
+function setTheme(mode) {
+  const html = document.documentElement;
+  const body = document.body;
+  const btnDay = document.getElementById('btn-day');
+  const btnNight = document.getElementById('btn-night');
+  
+  if (mode === 'day') {
+    html.setAttribute('data-theme', 'day');
+    html.classList.remove('night-theme', 'dark-theme');
+    html.classList.add('day-theme', 'light-theme');
+    if (body) {
+      body.classList.remove('night-theme', 'dark-theme');
+      body.classList.add('day-theme', 'light-theme');
+    }
+    if (btnDay) btnDay.classList.add('active');
+    if (btnNight) btnNight.classList.remove('active');
+    localStorage.setItem('theme', 'day');
+  } else {
+    html.setAttribute('data-theme', 'night');
+    html.classList.remove('day-theme', 'light-theme');
+    html.classList.add('night-theme', 'dark-theme');
+    if (body) {
+      body.classList.remove('day-theme', 'light-theme');
+      body.classList.add('night-theme', 'dark-theme');
+    }
+    if (btnNight) btnNight.classList.add('active');
+    if (btnDay) btnDay.classList.remove('active');
+    localStorage.setItem('theme', 'night');
+  }
+}
+
+// Load saved theme on page load
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'day') {
+    setTheme('day');
+  } else {
+    setTheme('night');
+  }
+})();
+
+document.addEventListener('DOMContentLoaded', function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'day') {
+    setTheme('day');
+  } else {
+    setTheme('night');
+  }
+
+  // ===== MOBILE MENU TOGGLE =====
+  const toggle = document.querySelector('.navbar-toggle');
+  const menu = document.getElementById('navbar-menu');
+
+  if (toggle && menu) {
+    // Toggle menu on hamburger click
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !expanded);
+      this.classList.toggle('active');
+      menu.classList.toggle('active');
+    });
+
+    // Handle link clicks inside mobile menu
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        // For dropdown toggles on mobile - toggle dropdown instead of navigating
+        if (window.innerWidth <= 768 && this.classList.contains('dropdown-toggle')) {
+          e.preventDefault();
+          const parent = this.closest('.nav-dropdown');
+          if (parent) {
+            parent.classList.toggle('active');
+          }
+          return;
+        }
+        
+        // Close menu on link click (mobile only)
+        if (window.innerWidth <= 768) {
+          menu.classList.remove('active');
+          toggle.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // Close menu on window resize to desktop
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        menu.classList.remove('active');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        // Reset all mobile dropdowns
+        document.querySelectorAll('.nav-dropdown').forEach(item => {
+          item.classList.remove('active');
+        });
+      }
+    });
+  }
+});
+</script>
+  <script src="/navbar.js"></script>
 </body>
 </html>

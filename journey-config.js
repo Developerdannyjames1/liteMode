@@ -70,24 +70,26 @@ function initComingSoonPage(audience, currentDayKey) {
                 '</div>';
         }
 
-        // ---- KIDS PAGES (.kids-hero) ----
-        var kidsHero = document.querySelector('.kids-hero');
+        // ---- KIDS PAGES (.kids-hero or .hero-wrapper) ----
+        var kidsHero = document.querySelector('.kids-hero') || document.querySelector('.hero-wrapper');
         if (kidsHero && !heroSection) {
-            var kidsBadge = kidsHero.querySelector('.kids-hero-badge');
+            var kidsBadge = kidsHero.querySelector('.kids-hero-badge') || kidsHero.querySelector('.hero-day');
             var kidsTitle = kidsHero.querySelector('h1');
             var badgeHTML = kidsBadge ? kidsBadge.outerHTML : '';
             var kidsTitleHTML = kidsTitle ? kidsTitle.outerHTML : '';
             kidsHero.innerHTML =
+                '<div style="text-align:center; padding:40px;">' +
                 badgeHTML + kidsTitleHTML +
                 '<div class="journey-coming-soon-msg" style="margin-top:24px;">' +
-                    '<p style="font-size:2rem;font-weight:800;letter-spacing:0.1em;color:rgba(255,255,255,0.95);text-transform:uppercase;margin-bottom:10px;">COMING SOON</p>' +
-                    '<p style="font-size:1.15rem;color:rgba(255,255,255,0.65);">The journey continues here.</p>' +
-                '</div>';
+                    '<p style="font-size:2rem;font-weight:800;letter-spacing:0.1em;color:var(--text-primary, rgba(255,255,255,0.95));text-transform:uppercase;margin-bottom:10px;">COMING SOON</p>' +
+                    '<p style="font-size:1.15rem;color:var(--text-secondary, rgba(255,255,255,0.65));">The journey continues here.</p>' +
+                '</div></div>';
         }
 
         // ---- Content sections chupaein ----
         ['.content-grid', '.why-section', '.reflection-section', '.task-section',
-         '.fun-fact', '.activity-section', '.scripture-box'].forEach(function(sel) {
+         '.fun-fact', '.activity-section', '.scripture-box', 
+         '.video-section', '.expect-section', '.journey-days-section'].forEach(function(sel) {
             document.querySelectorAll(sel).forEach(function(el) {
                 el.style.display = 'none';
             });

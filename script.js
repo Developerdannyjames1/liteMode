@@ -13,7 +13,7 @@ const debounce = (func, wait) => {
 /* ============================================
    LIGHT JOURNEY STEPS
    ============================================ */
-(function() {
+(function () {
   const stepCards = document.querySelectorAll('.lj-step');
   const progressFill = document.getElementById('progressFill');
   const progressMsgSpan = document.getElementById('progressMsg');
@@ -95,7 +95,7 @@ const debounce = (func, wait) => {
 
   stepCards.forEach(card => observer.observe(card));
 
-  window.addEventListener('load', function() {
+  window.addEventListener('load', function () {
     stepCards.forEach((card, idx) => {
       const rect = card.getBoundingClientRect();
       const windowHeight = window.innerHeight;
@@ -107,7 +107,7 @@ const debounce = (func, wait) => {
   });
 
   stepCards.forEach(card => {
-    card.addEventListener('click', function(e) {
+    card.addEventListener('click', function (e) {
       stepCards.forEach(c => c.classList.remove('is-active'));
       this.classList.add('is-active');
 
@@ -136,7 +136,7 @@ const debounce = (func, wait) => {
   }
 
   let resizeTimer;
-  window.addEventListener('resize', function() {
+  window.addEventListener('resize', function () {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       stepCards.forEach((card, idx) => {
@@ -153,77 +153,46 @@ const debounce = (func, wait) => {
   });
 })();
 
-  
- const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -50px 0px',
-    threshold: 0.1
-  };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('[data-animate]').forEach(el => {
-    observer.observe(el);
-  });
-
-  const section = document.querySelector('.bible-study-section');
-  const orbs = document.querySelectorAll('.orb');
-
-  section.addEventListener('mousemove', (e) => {
-    const rect = section.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-    orbs.forEach((orb, index) => {
-      const speed = (index + 1) * 15;
-      orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-    });
-  });
-
-  section.addEventListener('mouseleave', () => {
-    orbs.forEach(orb => {
-      orb.style.transform = '';
-    });
-  });
-/* ============================================
-   NAVBAR
-   ============================================ */
-const initNavbar = () => {
-  const toggle = document.querySelector('.navbar-toggle');
-  const menu = document.querySelector('.navbar-menu');
-
-  if (!toggle || !menu) return;
-
-  toggle.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-
-  document.querySelectorAll('.navbar-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-
-        // Mobile par dropdown toggle click ho to menu close na karo
-        if (window.innerWidth <= 768 && link.classList.contains('dropdown-toggle')) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            link.parentElement.classList.toggle('active');
-            return;
-        }
-
-        // Baaki links par menu close ho
-        menu.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-    });
-});
+const observerOptions = {
+  root: null,
+  rootMargin: '0px 0px -50px 0px',
+  threshold: 0.1
 };
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('[data-animate]').forEach(el => {
+  observer.observe(el);
+});
+
+const section = document.querySelector('.bible-study-section');
+const orbs = document.querySelectorAll('.orb');
+
+section.addEventListener('mousemove', (e) => {
+  const rect = section.getBoundingClientRect();
+  const x = (e.clientX - rect.left) / rect.width - 0.5;
+  const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+  orbs.forEach((orb, index) => {
+    const speed = (index + 1) * 15;
+    orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+  });
+});
+
+section.addEventListener('mouseleave', () => {
+  orbs.forEach(orb => {
+    orb.style.transform = '';
+  });
+});
+
 
 /* ============================================
    BRIDGE CAROUSEL
@@ -231,53 +200,53 @@ const initNavbar = () => {
 const initBridgeCarousel = () => {
   const IMAGES = [
     "/images/starthere.png", "/images/rest.jpg", "/images/Teaching.jpg", "/images/prayer.jpg",
-    "/images/lumenquest.png", "/images/teens.jpg", 
+    "/images/lumenquest.png", "/images/teens.jpg",
   ];
 
   // Define your links corresponding to each image
   const LINKS = [
-    "/start-here.html","/rest.html", "/grow.html", "/prayer-room.html",
-     "/lumenquest.html","/teens.html", 
+    "/start-here.html", "/rest.html", "/grow.html", "/prayer-room.html",
+    "/lumenquest.html", "/teens.html",
   ];
-const LABELS = [
-  "Start Here", "Rest", "Teaching Library", "Prayer Room",
-  "LumenQuest", "Teens", 
-];
+  const LABELS = [
+    "Start Here", "Rest", "Teaching Library", "Prayer Room",
+    "LumenQuest", "Teens",
+  ];
   const track = document.getElementById('bridgeTrack');
   if (!track) return;
 
- const buildTrack = () => {
-  track.innerHTML = '';
+  const buildTrack = () => {
+    track.innerHTML = '';
 
-  for (let i = 0; i < 3; i++) {
-    IMAGES.forEach((src, idx) => {
+    for (let i = 0; i < 3; i++) {
+      IMAGES.forEach((src, idx) => {
 
-      const card = document.createElement('div');
-      card.className = 'bridge-card';
+        const card = document.createElement('div');
+        card.className = 'bridge-card';
 
-      // ✅ FIX: create link first
-      const link = document.createElement('a');
-      link.href = LINKS[idx];
+        // ✅ FIX: create link first
+        const link = document.createElement('a');
+        link.href = LINKS[idx];
 
-      // image
-      const img = document.createElement('img');
-      img.src = src;
-      img.alt = LABELS[idx];
+        // image
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = LABELS[idx];
 
-      // label
-      const label = document.createElement('div');
-      label.className = 'bridge-label';
-      label.innerText = LABELS[idx];
+        // label
+        const label = document.createElement('div');
+        label.className = 'bridge-label';
+        label.innerText = LABELS[idx];
 
-      // append correctly
-      link.appendChild(img);
-      link.appendChild(label);
+        // append correctly
+        link.appendChild(img);
+        link.appendChild(label);
 
-      card.appendChild(link);
-      track.appendChild(card);
-    });
-  }
-};
+        card.appendChild(link);
+        track.appendChild(card);
+      });
+    }
+  };
   buildTrack();
 
   const cards = Array.from(track.querySelectorAll('.bridge-card'));
@@ -328,11 +297,11 @@ const LABELS = [
 
   const animate = (timestamp) => {
     if (!lastTimestamp) lastTimestamp = timestamp;
-    
+
     // Only update position if not hovering
     if (!isHovering) {
       const delta = Math.min(0.033, (timestamp - lastTimestamp) / 1000);
-      
+
       const { setWidth } = getDimensions();
       currentX -= speed * delta;
 
@@ -343,7 +312,7 @@ const LABELS = [
 
       track.style.transform = `translate3d(${currentX}px, 0, 0)`;
     }
-    
+
     lastTimestamp = timestamp;
     updateCardTransforms();
     animationId = requestAnimationFrame(animate);
@@ -357,7 +326,7 @@ const LABELS = [
         // Optional: Add a class for styling during hover
         card.classList.add('hovered');
       });
-      
+
       card.addEventListener('mouseleave', () => {
         isHovering = false;
         // Optional: Remove hover class
@@ -480,7 +449,7 @@ const initVideoScroller = () => {
 
     video.addEventListener('loadeddata', () => {
       video.currentTime = 0.01;
-      video.play().catch(() => {});
+      video.play().catch(() => { });
     });
 
     card.addEventListener('mouseenter', () => {
@@ -488,7 +457,7 @@ const initVideoScroller = () => {
     });
 
     card.addEventListener('mouseleave', () => {
-      video.play().catch(() => {});
+      video.play().catch(() => { });
     });
   });
 
@@ -626,7 +595,7 @@ const initHeroesSlider = () => {
       if (!video) return;
 
       if (idx === currentIndex) {
-        video.play().catch(() => {});
+        video.play().catch(() => { });
       } else {
         video.pause();
       }
@@ -748,7 +717,7 @@ const initTestimonials = () => {
    ============================================ */
 const initSmoothScroll = () => {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
       if (targetId === '#') return;
 
@@ -765,7 +734,6 @@ const initSmoothScroll = () => {
    INITIALIZATION
    ============================================ */
 document.addEventListener('DOMContentLoaded', () => {
-  initNavbar();
   initBridgeCarousel();
   initWelcomeAnimation();
   initMinistryCards();

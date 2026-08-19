@@ -17,123 +17,167 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/navbar.css">
 
-
+  <!-- Fix: Force hamburger visible at mobile - overrides Tailwind CDN reset -->
+  <style>
+    @media (max-width: 1024px) {
+      .navbar-toggle {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        gap: 5px !important;
+        background: rgba(255, 255, 255, 0.06) !important;
+        border: 1px solid rgba(139, 92, 246, 0.4) !important;
+        border-radius: 8px !important;
+        cursor: pointer !important;
+        padding: 8px !important;
+        margin-left: 6px !important;
+        flex-shrink: 0 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 1002 !important;
+      }
+      .navbar-toggle span {
+        display: block !important;
+        width: 22px !important;
+        height: 2px !important;
+        background: #ffffff !important;
+        border-radius: 2px !important;
+      }
+      .navbar-menu {
+        display: none !important;
+      }
+      .navbar-menu.active {
+        display: flex !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ===== MERGED NAVBAR ===== -->
+<!-- ============================================
+     NAVBAR HTML (Complete)
+     ============================================ -->
+
 <nav class="navbar" role="navigation" aria-label="Main navigation">
-    <div class="navbar-container">
-        <!-- Brand Logo (Only Image) -->
-        <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
-            <img src="/images/logo.png" alt="LightMode Ministries">
-        </a>
+  <div class="navbar-container">
+    
+    <!-- LOGO - LEFT (100px height) -->
+    <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
+      <img src="/images/logo.png" alt="LightMode Ministries">
+    </a>
 
-  <ul class="navbar-menu" id="navbar-menu" role="menubar">
-
-    <!-- HOME -->
-    <li>
-        <a href="/index.html" class="navbar-link dropdown-toggle">
-            Home
-        </a>
-        
-    </li>
-<li role="none"><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
-
-
-    <!-- GROW -->
-    <li class="nav-dropdown" role="none">
+    <!-- MENU - CENTER -->
+    <ul class="navbar-menu" id="navbar-menu" role="menubar">
+      <li>
+        <a href="/index.html" class="navbar-link">Home</a>
+      </li>
+      
+      <li>
+        <a href="/start-here.html" class="navbar-link start-here">Start Here</a>
+      </li>
+      
+      <!-- Dropdown: Teaching Library -->
+      <li class="nav-dropdown" role="none">
         <a href="#" class="navbar-link dropdown-toggle">
-            Teaching Library <span class="dropdown-arrow">▼</span>
+          Teaching Library <span class="dropdown-arrow">▼</span>
         </a>
         <ul class="dropdown-menu">
-            <li><a href="/devotional-gallery.html" class="dropdown-link">Devotional Gallery</a></li>
-            <li><a href="/sermons.html" class="dropdown-link">Bible Reading Experience</a></li>
-            <li><a href="/devotionals.html" class="dropdown-link">Daily Confessions </a></li>
-
+          <li><a href="/devotional-gallery.html" class="dropdown-link">Devotional Gallery</a></li>
+          <li><a href="/sermons.html" class="dropdown-link">Bible Reading</a></li>
+          <li><a href="/devotionals.html" class="dropdown-link">Daily Confessions</a></li>
         </ul>
-    </li>
-     <!-- LUMENQUEST -->
-    <li class="nav-dropdown" role="none">
+      </li>
+      
+      <!-- Dropdown: LumenQuest -->
+      <li class="nav-dropdown" role="none">
         <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">
-            LumenQuest <span class="dropdown-arrow">▼</span>
+          LumenQuest <span class="dropdown-arrow">▼</span>
         </a>
         <ul class="dropdown-menu">
-            <li><a href="/animations.html" class="dropdown-link">Animations</a></li>
-            <li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li>
-            <li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li>
-            <li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li>
+          <li><a href="/animations.html" class="dropdown-link">Animations</a></li>
+          <li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li>
+          <li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li>
+          <li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li>
         </ul>
-    </li>
-<li>
-        <a href="/prayer-room.html" class="navbar-link dropdown-toggle">
-            Prayer Room
-        </a>
-        
-    </li>
-    <!-- REST -->
-    <li class="nav-dropdown" role="none">
-        <a href="/rest.html" class="navbar-link dropdown-toggle">
-            Rest <span class="dropdown-arrow">▼</span>
-        </a>
-        <ul class="dropdown-menu">
-            <li><a href="/deep-sleep.html" class="dropdown-link">Deep Sleep</a></li>
-            <li><a href="/prayer-video.html" class="dropdown-link">Prayer Video</a></li>
-            <li><a href="/bedtime-fables.html" class="dropdown-link">BedTime Fables</a></li>
-        </ul>
-    </li>
-
-    <!-- INSPIRATION -->
-    <!-- <li class="nav-dropdown" role="none">
-        <a href="/inspiration.html" class="navbar-link inspiration dropdown-toggle">
-            Inspiration <span class="dropdown-arrow">▼</span>
+      </li>
+      
+      <li>
+        <a href="/prayer-room.html" class="navbar-link">Prayer Room</a>
+      </li>
+      
+      <!-- Dropdown: Rest -->
+      <li class="nav-dropdown" role="none">
+        <a href="#" class="navbar-link dropdown-toggle">
+          Rest <span class="dropdown-arrow">▼</span>
         </a>
         <ul class="dropdown-menu">
-            <li><a href="/stories.html" class="dropdown-link">Stories</a></li>
-            <li><a href="/videos.html" class="dropdown-link">Videos</a></li>
-            <li><a href="/resources.html" class="dropdown-link">Resources</a></li>
+          <li><a href="/deep-sleep.html" class="dropdown-link">Deep Sleep</a></li>
+          <li><a href="/prayer-video.html" class="dropdown-link">Prayer Video</a></li>
+          <li><a href="/bedtime-fables.html" class="dropdown-link">BedTime Fables</a></li>
         </ul>
-    </li> -->
-
-
-    <!-- TEENS -->
-    <li class="nav-dropdown" role="none">
+      </li>
+      
+      <!-- Dropdown: Teens -->
+      <li class="nav-dropdown" role="none">
         <a href="/teens.html" class="navbar-link dropdown-toggle">
-            Teens <span class="dropdown-arrow">▼</span>
+          Teens <span class="dropdown-arrow">▼</span>
         </a>
         <ul class="dropdown-menu">
-            <li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li>
-            <li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li>
-            <li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li>
+          <li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li>
+          <li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li>
+          <li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li>
         </ul>
-    </li>
+      </li>
+    </ul>
 
-   
-</ul>
+    <!-- RIGHT ACTIONS: About, Contact, Theme Toggle, Login/Signup -->
+    <div class="navbar-actions">
+      
+      <!-- About & Contact Buttons -->
+      <div class="navbar-buttons">
+        <a href="/about.html" class="navbar-btn">About</a>
+        <a href="/contact.html" class="navbar-btn">Contact</a>
+      </div>
 
-        <!-- Actions Section -->
-        <div class="navbar-actions">
-          
+      <!-- Theme Toggle (Day/Night) -->
+      <div class="theme-toggle" role="group" aria-label="Theme toggle">
+        <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="12" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+        <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
 
-            <!-- Navigation Icons -->
-           <!-- About & Contact Buttons -->
-   <!-- About & Contact Buttons -->
-<div class="navbar-buttons">
-    <a href="/about.html" class="navbar-btn navbar-btn-about">About</a>
-    <a href="/contact.html" class="navbar-btn navbar-btn-contact">Contact</a>
-</div>
+      <!-- Login / Signup Buttons -->
+      <div class="auth-buttons">
+        <a href="/login.html" class="auth-btn auth-login">Log in</a>
+        <a href="/signup.html" class="auth-btn auth-signup">Sign up</a>
+      </div>
 
-           
-
-            <!-- Mobile Toggle -->
-            <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
+      <!-- Mobile Hamburger Toggle -->
+      <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+  </div>
 </nav>
 
   <!-- Hero Section -->
@@ -1335,7 +1379,7 @@ ges through subtle guidance and encouragement. Calm, loyal, and quietly wise, he
     </div>
   </section>
 
-  <!-- Footer -->
+    <!-- Footer -->
   <footer class="footer" role="contentinfo">
     <div class="footer-deco footer-deco--1" aria-hidden="true"></div>
     <div class="footer-deco footer-deco--2" aria-hidden="true"></div>
@@ -1543,6 +1587,7 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   </script>
 <script src="journey-config.js"></script>
 <script src="script.js"></script>
+  <script src="/navbar.js"></script>
 </body>
 </html>
 
