@@ -3,1827 +3,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sermons — Let God Grow What Matters | LightMode Ministries</title>
+    <title>Sermons | LightMode Ministries</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    
     <style>
-
-        @font-face {
-            font-family: 'RecklessStandard';
-            src: url('./fonts/RecklessStandardM-TRIAL-Regular.otf') format('opentype');
-            font-weight: normal; font-style: normal; font-display: swap;
-        }
-        @font-face {
-            font-family: 'RecklessWide';
-            src: url('./fonts/RecklessWideXL-TRIAL-Regular.otf') format('opentype');
-            font-weight: normal; font-style: normal; font-display: swap;
-        }
-
-        /* ===== ROOT = NIGHT MODE (Default) ===== */
+        /* ============================================
+           THEME VARIABLES (From your provided code)
+           ============================================ */
         :root {
+            /* Dark/Night Theme Defaults */
             --bg-primary: #0a0a12;
             --bg-secondary: #12121f;
             --bg-card: rgba(26, 26, 40, 0.7);
-            --bg-card-hover: rgba(30, 30, 50, 0.9);
             --text-primary: #ffffff;
             --text-secondary: #a0a0b8;
             --text-muted: #6b6b8a;
             --accent-violet: #a78bfa;
-            --accent-blue: #60a5fa;
             --accent-gold: #fbbf24;
-            --accent-pink: #f472b6;
-            --accent-teal: #2dd4bf;
             --accent-green: #4ade80;
-            --accent-red: #f87171;
-            --accent-orange: #fb923c;
-            --accent-cyan: #22d3ee;
-            --accent-lavender: #c4b5fd;
-            --accent-indigo: #818cf8;
-            --accent-cream: #fef3c7;
             --border-color: rgba(255,255,255,0.08);
             --border-hover: rgba(167,139,250,0.3);
-            --shadow-glow: rgba(139,92,246,0.25);
             --navbar-bg: #0A0E1A;
             --navbar-border: rgba(255,255,255,0.06);
-            --toggle-bg: #1a1a2e;
-            --toggle-active: #a78bfa;
             --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
-            --btn-primary-border: rgba(255,255,255,0.15);
-            --btn-primary-shadow: rgba(0,0,0,0.3);
+            --btn-primary-shadow: rgba(26,26,62,0.35);
             --btn-gold-bg: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-            --btn-gold-shadow: rgba(251,191,36,0.35);
             --btn-light-bg: rgba(255,255,255,0.08);
             --btn-light-border: rgba(255,255,255,0.15);
-            --footer-bg: #0a0a12;
+            --footer-bg: #0A0E1A;
             --footer-border: rgba(255,255,255,0.05);
-            --starfield-opacity: 1;
-            --grow-deep-forest: #0f172a;
-            --grow-forest-night: #1e293b;
-            --grow-sage: #2d4a3e;
-            --grow-moss: #3d6b54;
-            --grow-warm-green: #4ade80;
-            --grow-soft-gold: #d4a574;
-            --grow-pale-gold: #f4e4bc;
-            --grow-cream: #fefce8;
-            --grow-slate: #94a3b8;
-            --grow-gray: #64748b;
-            --grow-light-glow: rgba(74, 222, 128, 0.08);
-            --grow-gold-glow: rgba(212, 165, 116, 0.12);
+            
+            /* Study Specific Colors - Dark */
+            --study-warm-amber: #d4a574;
+            --hero-fade-dark: #0a0a12;
+            --hero-fade-light: #faf8f5;
         }
 
-        /* ===== DAY MODE OVERRIDE ===== */
+        /* ===== LIGHT THEME OVERRIDES ===== */
         [data-theme="day"] {
             --bg-primary: #faf8f5;
             --bg-secondary: #f5f0eb;
             --bg-card: rgba(255, 255, 255, 0.85);
-            --bg-card-hover: rgba(255, 255, 255, 0.95);
             --text-primary: #1a1a2e;
             --text-secondary: #5a5a6e;
             --text-muted: #8a8a9e;
             --accent-violet: #7c3aed;
-            --accent-blue: #2563eb;
             --accent-gold: #d97706;
-            --accent-pink: #db2777;
-            --accent-teal: #0d9488;
             --accent-green: #16a34a;
-            --accent-red: #dc2626;
-            --accent-orange: #ea580c;
-            --accent-cyan: #0891b2;
-            --accent-lavender: #8b5cf6;
-            --accent-indigo: #6366f1;
-            --accent-cream: #fef3c7;
             --border-color: rgba(0,0,0,0.08);
             --border-hover: rgba(124,58,237,0.3);
-            --shadow-glow: rgba(124,58,237,0.15);
             --navbar-bg: #0A0E1A;
-            --navbar-border: rgba(255,255,255,0.08);
-            --toggle-bg: rgba(255,255,255,0.08);
-            --toggle-active: #6366F1;
+            --navbar-border: rgba(255,255,255,0.06);
             --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
-            --btn-primary-border: rgba(0,0,0,0.12);
-            --btn-primary-shadow: rgba(0,0,0,0.15);
+            --btn-primary-shadow: rgba(26,26,62,0.25);
             --btn-gold-bg: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            --btn-gold-shadow: rgba(245,158,11,0.25);
             --btn-light-bg: rgba(255,255,255,0.9);
             --btn-light-border: rgba(0,0,0,0.1);
-            --footer-bg: #f5f0eb;
-            --footer-border: rgba(0,0,0,0.06);
-            --starfield-opacity: 0;
-            --grow-deep-forest: #f8fafc;
-            --grow-forest-night: #f1f5f9;
-            --grow-sage: #dcfce7;
-            --grow-moss: #bbf7d0;
-            --grow-warm-green: #16a34a;
-            --grow-soft-gold: #b45309;
-            --grow-pale-gold: #fef3c7;
-            --grow-cream: #fffbeb;
-            --grow-slate: #475569;
-            --grow-gray: #64748b;
-            --grow-light-glow: rgba(22, 163, 74, 0.06);
-            --grow-gold-glow: rgba(180, 83, 9, 0.08);
+            --footer-bg: #0A0E1A;
+            --footer-border: rgba(255,255,255,0.05);
+            --study-warm-amber: #b45309;
+            --hero-fade-dark: #0a0a12;
+            --hero-fade-light: #faf8f5;
         }
 
+        /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
         body {
-            font-family: 'RecklessStandard', 'Inter', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
             overflow-x: hidden;
-            transition: background-color 0.5s ease, color 0.5s ease;
         }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+ 
 
-        .starfield {
-            position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none; z-index: 0;
-            opacity: var(--starfield-opacity);
-            transition: opacity 0.5s ease;
-            background:
-                radial-gradient(ellipse at 20% 30%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
-                radial-gradient(ellipse at 50% 50%, rgba(45, 43, 85, 0.15) 0%, transparent 60%);
-        }
+        /* ============================================
+           PAGE SPECIFIC STYLES
+           ============================================ */
         
-
-               /* ===== SERMONS HERO ===== */
-        .sermons-hero {
-            position: relative; z-index: 1;
-            min-height: 60vh;
-            display: flex; align-items: center;
+        /* --- Hero Section --- */
+        .hero-section {
+            padding-top: 80px; /* Navbar height */
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: var(--bg-primary);
+            position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--grow-deep-forest) 0%, var(--grow-forest-night) 40%, #1E293B 100%);
-            transition: background 0.5s ease;
-            padding-top: 72px;
+            padding-bottom: 40px;
         }
-        .sermons-hero-bg {
-            position: absolute; top: 0; right: 0;
-            width: 55%; height: 100%;
-            background: url('https://images.stockcake.com/public/0/9/8/0987c622-a33e-41d5-8f55-06f7c6e9abd0_large/summit-at-sunset-stockcake.jpg') no-repeat center center;
-            background-size: cover;
-            mask-image: linear-gradient(to left, black 50%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to left, black 50%, transparent 100%);
-            opacity: 0.3;
-            transition: opacity 0.5s ease;
-        }
-        [data-theme="day"] .sermons-hero-bg { opacity: 0.2; filter: saturate(0.8) contrast(1.1); }
-        .sermons-hero-overlay {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, var(--grow-deep-forest) 0%, var(--grow-deep-forest) 35%, transparent 70%);
-            z-index: 1;
-            transition: background 0.5s ease;
-        }
-        .sermons-hero-content {
-            position: relative; z-index: 2;
-            max-width: 1400px; margin: 0 auto;
-            padding: 80px 60px;
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 40px;
             width: 100%;
-            text-align: center;
-            animation: fadeInUp 1s ease-out;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            align-items: center;
         }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding-right: 40px;
+            z-index: 2;
+            position: relative;
         }
-        .sermons-hero-label {
-            font-family: 'Caveat', cursive;
-            color: var(--grow-warm-green);
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            display: block;
-            opacity: 0.9;
-            transition: color 0.5s ease;
-        }
-        .sermons-hero h1 {
+
+        .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 25px;
+            font-size: 4.5rem;
+            line-height: 1.05;
             color: var(--text-primary);
             letter-spacing: -0.02em;
-            transition: color 0.5s ease;
         }
-        .sermons-hero h1 em {
-            font-style: italic;
-            color: var(--grow-soft-gold);
-            font-weight: 500;
-            transition: color 0.5s ease;
-        }
-        .sermons-hero-subtext {
-            font-size: 1.25rem;
-            color: var(--grow-slate);
-            margin-bottom: 40px;
-            font-weight: 300;
-            line-height: 1.7;
-            max-width: 600px;
-            margin-left: auto; margin-right: auto;
-            transition: color 0.5s ease;
-        }
-        .sermons-search-bar {
-            max-width: 600px;
-            margin: 0 auto 30px;
-            position: relative;
-        }
-        .sermons-search-bar input {
-            width: 100%;
-            padding: 18px 24px 18px 56px;
-            border-radius: 50px;
-            border: 1px solid var(--border-color);
-            background: var(--bg-card);
-            color: var(--text-primary);
-            font-size: 1rem;
-            font-family: inherit;
-            outline: none;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-        }
-        .sermons-search-bar input::placeholder { color: var(--text-muted); }
-        .sermons-search-bar input:focus {
-            border-color: rgba(74, 222, 128, 0.4);
-            box-shadow: 0 0 30px rgba(74, 222, 128, 0.1);
-        }
-        .sermons-search-icon {
-            position: absolute;
-            left: 24px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            pointer-events: none;
-        }
-        .sermons-filter-tags {
+
+        .hero-divider {
             display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            color: var(--study-warm-amber);
+            margin: 5px 0 15px 0;
         }
-        .filter-tag {
-            padding: 10px 22px;
-            border-radius: 50px;
-            border: 1px solid var(--border-color);
-            background: var(--bg-card);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-family: inherit;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+        .hero-divider span {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            color: var(--study-warm-amber);
         }
-        .filter-tag:hover {
-            border-color: rgba(74, 222, 128, 0.3);
-            color: var(--grow-warm-green);
-        }
-        .filter-tag.active {
-            background: rgba(74, 222, 128, 0.15);
-            border-color: rgba(74, 222, 128, 0.4);
-            color: var(--grow-warm-green);
-            font-weight: 500;
-        }
-        [data-theme="day"] .filter-tag.active {
-            background: rgba(22, 163, 74, 0.1);
-            border-color: rgba(22, 163, 74, 0.3);
+        .hero-divider-line {
+            flex: 0 0 50px;
+            height: 1px;
+            background: var(--study-warm-amber);
         }
 
-        /* ===== FEATURED SERMON ===== */
-        .featured-section {
-            position: relative; z-index: 1;
-            padding: 100px 40px;
-            max-width: 1200px; margin: 0 auto;
-        }
-        .section-header { margin-bottom: 50px; }
-        .section-label {
-            font-family: 'Caveat', cursive;
-            color: var(--grow-warm-green);
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            display: block;
-            transition: color 0.5s ease;
-        }
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.6rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 15px;
-            transition: color 0.5s ease;
-        }
-        .section-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            font-weight: 300;
-            transition: color 0.5s ease;
-        }
-        .featured-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            transition: all 0.5s ease;
-        }
-        .featured-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
-        }
-        .featured-video {
-            background: linear-gradient(135deg, var(--grow-forest-night) 0%, var(--grow-sage) 100%);
-            aspect-ratio: 16/10;
-            display: flex; align-items: center; justify-content: center;
-            position: relative;
-            overflow: hidden;
-            transition: background 0.5s ease;
-        }
-        [data-theme="day"] .featured-video {
-            background: linear-gradient(135deg, #e2e8f0 0%, #dcfce7 100%);
-        }
-        .featured-video img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            position: absolute; top: 0; left: 0;
-            opacity: 0.6;
-        }
-        .play-btn {
-            width: 90px; height: 90px;
-            background: rgba(74, 222, 128, 0.15);
-            border: 2px solid rgba(74, 222, 128, 0.4);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            position: relative; z-index: 2;
-            backdrop-filter: blur(10px);
-        }
-        .play-btn:hover {
-            background: rgba(74, 222, 128, 0.25);
-            transform: scale(1.08);
-            box-shadow: 0 0 50px rgba(74, 222, 128, 0.2);
-        }
-        .play-btn span {
-            font-size: 1.8rem;
-            color: var(--grow-warm-green);
-            margin-left: 4px;
-        }
-        .featured-info {
-            padding: 50px;
-            display: flex; flex-direction: column;
-            justify-content: center;
-        }
-        .featured-tag {
-            display: inline-flex; align-items: center; gap: 6px;
-            background: rgba(74, 222, 128, 0.1);
-            color: var(--grow-warm-green);
-            padding: 6px 16px; border-radius: 50px;
-            font-size: 0.8rem; font-weight: 500;
-            margin-bottom: 20px;
-            width: fit-content;
-            border: 1px solid rgba(74, 222, 128, 0.2);
-            transition: all 0.5s ease;
-        }
-        .featured-info h3 {
+        .hero-subtitle {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
-            color: var(--text-primary);
-            margin-bottom: 15px;
-            font-weight: 600;
-            line-height: 1.3;
-            transition: color 0.5s ease;
-        }
-        .featured-info p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 25px;
-            transition: color 0.5s ease;
-        }
-        .featured-meta {
-            display: flex; gap: 20px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            transition: color 0.5s ease;
-            margin-bottom: 25px;
-        }
-        .featured-actions {
-            display: flex; gap: 12px;
-            flex-wrap: wrap;
-        }
-        .btn-sm {
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            font-family: inherit;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center; gap: 8px;
-            text-decoration: none;
-            border: none;
-        }
-        .btn-sm-primary {
-            background: rgba(74, 222, 128, 0.15);
-            border: 1px solid rgba(74, 222, 128, 0.3);
-            color: var(--grow-warm-green);
-        }
-        .btn-sm-primary:hover {
-            background: rgba(74, 222, 128, 0.25);
-            transform: translateY(-2px);
-        }
-        [data-theme="day"] .btn-sm-primary {
-            background: rgba(22, 163, 74, 0.1);
-            border-color: rgba(22, 163, 74, 0.25);
-        }
-        .btn-sm-outline {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-        }
-        .btn-sm-outline:hover {
-            border-color: var(--accent-violet);
-            color: var(--accent-violet);
-        }
-               /* ===== SERMONS GRID ===== */
-        .sermons-section {
-            position: relative; z-index: 1;
-            padding: 0 40px 100px;
-            max-width: 1200px; margin: 0 auto;
-        }
-        .sermons-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
-        .sermon-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-        .sermon-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(74, 222, 128, 0.15);
-            box-shadow: 0 20px 50px var(--shadow-glow);
-        }
-        .sermon-thumb {
-            position: relative;
-            aspect-ratio: 16/9;
-            background: linear-gradient(135deg, var(--grow-forest-night) 0%, var(--grow-sage) 100%);
-            overflow: hidden;
-            transition: background 0.5s ease;
-        }
-        [data-theme="day"] .sermon-thumb {
-            background: linear-gradient(135deg, #e2e8f0 0%, #dcfce7 100%);
-        }
-        .sermon-thumb img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            opacity: 0.7;
-            transition: transform 0.5s ease, opacity 0.5s ease;
-        }
-        .sermon-card:hover .sermon-thumb img {
-            transform: scale(1.05);
-            opacity: 0.85;
-        }
-        .sermon-play-overlay {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 56px; height: 56px;
-            background: rgba(74, 222, 128, 0.15);
-            border: 2px solid rgba(74, 222, 128, 0.4);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            opacity: 0;
-        }
-        .sermon-card:hover .sermon-play-overlay { opacity: 1; }
-        .sermon-play-overlay span {
-            font-size: 1.2rem;
-            color: var(--grow-warm-green);
-            margin-left: 3px;
-        }
-        .sermon-duration {
-            position: absolute;
-            bottom: 12px; right: 12px;
-            background: rgba(0,0,0,0.6);
-            color: #fff;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            backdrop-filter: blur(4px);
-        }
-        .sermon-body {
-            padding: 24px;
-        }
-        .sermon-tag {
-            display: inline-flex; align-items: center; gap: 4px;
-            background: rgba(74, 222, 128, 0.08);
-            color: var(--grow-warm-green);
-            padding: 4px 12px; border-radius: 50px;
-            font-size: 0.75rem; font-weight: 500;
-            margin-bottom: 12px;
-            border: 1px solid rgba(74, 222, 128, 0.15);
-            transition: all 0.5s ease;
-        }
-        .sermon-body h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
-            color: var(--text-primary);
-            margin-bottom: 10px;
-            font-weight: 600;
-            line-height: 1.3;
-            transition: color 0.5s ease;
-        }
-        .sermon-body p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin-bottom: 16px;
-            transition: color 0.5s ease;
-        }
-        .sermon-meta {
-            display: flex; gap: 16px;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            transition: color 0.5s ease;
-        }
-        .sermon-meta span {
-            display: flex; align-items: center; gap: 4px;
-        }
-
-        /* ===== SERIES SECTION ===== */
-        .series-section {
-            position: relative; z-index: 1;
-            padding: 100px 40px;
-            background: var(--bg-secondary);
-            transition: background 0.5s ease;
-        }
-        .series-container {
-            max-width: 1200px; margin: 0 auto;
-        }
-        .series-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-top: 50px;
-        }
-        .series-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-        .series-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(74, 222, 128, 0.15);
-            box-shadow: 0 15px 40px var(--shadow-glow);
-        }
-        .series-cover {
-            aspect-ratio: 4/3;
-            background: linear-gradient(135deg, var(--grow-forest-night) 0%, var(--grow-sage) 100%);
-            display: flex; align-items: center; justify-content: center;
-            position: relative;
-            overflow: hidden;
-            transition: background 0.5s ease;
-        }
-        [data-theme="day"] .series-cover {
-            background: linear-gradient(135deg, #e2e8f0 0%, #dcfce7 100%);
-        }
-        .series-cover .series-icon {
-            font-size: 3rem;
-            opacity: 0.7;
-        }
-        .series-count {
-            position: absolute;
-            bottom: 12px; left: 12px;
-            background: rgba(0,0,0,0.6);
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            backdrop-filter: blur(4px);
-        }
-        .series-info {
-            padding: 24px;
-        }
-        .series-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            font-weight: 600;
-            transition: color 0.5s ease;
-        }
-        .series-info p {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            line-height: 1.5;
-            transition: color 0.5s ease;
-        }
-               /* ===== TRUTH CALLOUT ===== */
-        .truth-section {
-            position: relative; z-index: 1;
-            padding: 120px 40px;
-            max-width: 1000px; margin: 0 auto;
-            text-align: center;
-        }
-        .truth-container {
-            background: var(--bg-card);
-            border: 1px solid rgba(74, 222, 128, 0.1);
-            border-radius: 30px;
-            padding: 70px 60px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s ease;
-        }
-        .truth-container::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(74, 222, 128, 0.03) 0%, transparent 60%);
-            animation: slowRotate 20s linear infinite;
-        }
-        @keyframes slowRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        .truth-label {
-            font-family: 'Caveat', cursive;
-            color: var(--grow-warm-green);
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            display: block;
-            position: relative; z-index: 1;
-            transition: color 0.5s ease;
-        }
-        .truth-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--text-primary);
-            line-height: 1.5;
-            margin-bottom: 30px;
-            position: relative; z-index: 1;
-            font-weight: 500;
-            transition: color 0.5s ease;
-        }
-        .truth-ref {
-            color: var(--grow-soft-gold);
-            font-size: 0.95rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            position: relative; z-index: 1;
-            transition: color 0.5s ease;
-        }
-
-        /* ===== NEXT STEP ===== */
-        .next-step-section {
-            position: relative; z-index: 1;
-            padding: 100px 40px;
-            text-align: center;
-            background: linear-gradient(180deg, transparent 0%, var(--bg-secondary) 100%);
-            transition: background 0.5s ease;
-        }
-        .next-step-container {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .next-step-label {
-            font-family: 'Caveat', cursive;
-            color: var(--grow-warm-green);
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            display: block;
-            transition: color 0.5s ease;
-        }
-        .next-step-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            font-weight: 600;
-            transition: color 0.5s ease;
-        }
-        .next-step-text {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            line-height: 1.7;
-            transition: color 0.5s ease;
-        }
-        .next-buttons {
-            display: flex; gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .btn-primary {
-            background: rgba(74, 222, 128, 0.15);
-            border: 1px solid rgba(74, 222, 128, 0.3);
-            color: var(--grow-warm-green);
-            padding: 18px 36px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.4s ease;
-            display: inline-flex;
-            align-items: center; gap: 10px;
-        }
-        .btn-primary:hover {
-            background: rgba(74, 222, 128, 0.25);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.1);
-        }
-        [data-theme="day"] .btn-primary {
-            background: rgba(22, 163, 74, 0.1);
-            border-color: rgba(22, 163, 74, 0.25);
-            color: var(--grow-warm-green);
-        }
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            padding: 18px 36px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1rem;
+            color: var(--study-warm-amber);
             font-weight: 400;
-            transition: all 0.4s ease;
-        }
-        .btn-outline:hover {
-            border-color: var(--accent-violet);
-            color: var(--accent-violet);
+            line-height: 1.3;
         }
 
-        /* ===== FOOTER ===== */
-        .footer {
-            position: relative; z-index: 1;
-            background: var(--footer-bg);
-            border-top: 1px solid var(--footer-border);
-            padding: 60px 40px 30px;
-            transition: all 0.5s ease;
+        .hero-description {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            line-height: 1.7;
+            margin-top: 5px;
         }
-        .footer-content {
-            max-width: 1200px; margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 60px;
-            margin-bottom: 40px;
+
+        /* Hero Image Wrapper with Fade */
+        .hero-image-wrapper {
+            position: relative;
+            height: 600px;
+            width: 100%;
+            overflow: hidden;
         }
-        .footer-brand p {
-            color: var(--text-muted);
-            font-size: 0.9rem; line-height: 1.6;
-            margin-bottom: 20px;
-            transition: color 0.5s ease;
+
+        .hero-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/images/prayer-5.png') no-repeat center center;
+            background-size: cover;
         }
-        .footer-social {
-            display: flex; gap: 12px;
+
+        .hero-image-fade {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background: linear-gradient(to right, var(--bg-primary) 0%, var(--bg-primary) 25%, transparent 65%);
+            transition: background 0.5s ease;
         }
-        .footer-social a {
-            width: 36px; height: 36px;
-            border-radius: 10px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            display: flex; align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: all 0.3s ease;
+
+        /* --- Content Sections --- */
+        .content-section {
+            padding: 60px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border-color);
         }
-        .footer-social a:hover {
-            background: var(--accent-violet);
-            color: white;
-            border-color: var(--accent-violet);
-        }
-        .footer-social svg {
-            width: 18px; height: 18px;
-            fill: currentColor;
-        }
-        .footer-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.5s ease;
-        }
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-        .footer-links a:hover { color: var(--accent-violet); }
-        .footer-form { margin-top: 20px; }
-        .footer-form-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 12px;
-            transition: color 0.5s ease;
-        }
-        .footer-form-body {
-            display: flex; gap: 8px;
-        }
-        .footer-input {
-            flex: 1;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 10px 14px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        .footer-input::placeholder { color: var(--text-muted); }
-        .footer-input:focus { border-color: var(--accent-violet); }
-        .footer-submit {
-            background: var(--btn-primary-bg);
-            color: white; border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 0.85rem; font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .footer-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px var(--btn-primary-shadow);
-        }
-        .footer-bottom {
-            max-width: 1200px; margin: 0 auto;
-            padding-top: 30px;
-            border-top: 1px solid var(--footer-border);
+        
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
+            align-items: flex-start;
+            gap: 60px;
+        }
+
+        .content-icon {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            color: var(--study-warm-amber);
+        }
+        .content-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.5; }
+
+        .content-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-top: 5px;
+        }
+
+        .content-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .content-text p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 650px;
+        }
+        
+        /* Side element (Special for Row 1, Row 2) */
+        .content-side {
+            flex-shrink: 0;
+            width: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+            padding-top: 10px;
+        }
+        
+        .content-side-decor {
+            align-self: flex-end;
+            color: var(--study-warm-amber);
+            opacity: 0.5;
+            margin-top: 10px;
+        }
+        .content-side-decor svg { width: 60px; height: 60px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+
+        /* Buttons */
+        .btn-row {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+        
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border: 1px solid var(--study-warm-amber);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            background: transparent;
+        }
+        .btn-outline svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+        .btn-outline:hover { background: var(--study-warm-amber); color: #fff; border-color: var(--study-warm-amber); }
+        
+        .btn-filled {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            background: #0f1a2e;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            cursor: pointer;
+        }
+        .btn-filled svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
+        .btn-filled:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(15, 26, 46, 0.4); }
+        [data-theme="day"] .btn-filled { background: #0f1a2e; }
+
+        /* Special Row 3: Beige/Glass Box */
+        .row-boxed {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 30px 40px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.5s ease, border-color 0.5s ease;
+        }
+        [data-theme="day"] .row-boxed { background: #faf8f5; border-color: #e5e7eb; }
+        
+        .row-boxed .content-text { max-width: 600px; }
+        
+        .row-boxed .content-side {
+            width: auto;
+            align-items: flex-end;
+            text-align: right;
+        }
+        
+        .row-boxed .content-side p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--study-warm-amber);
+            line-height: 1.5;
+            max-width: 250px;
+        }
+
+        /* Special Row 4: CTA Buttons */
+        .row-cta {
+            flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap; gap: 20px;
-            transition: border-color 0.5s ease;
+            gap: 30px;
         }
-        .footer-credit {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            transition: color 0.5s ease;
+        .row-cta .content-text { max-width: 600px; }
+        
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-width: 280px;
         }
-        .footer-legal {
-            display: flex; gap: 16px;
-            align-items: center;
+        
+        /* Decoration for Row 4 */
+        .deco-sun {
+            color: var(--study-warm-amber);
+            flex-shrink: 0;
         }
-        .footer-legal a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.3s ease;
-        }
-        .footer-legal a:hover { color: var(--accent-violet); }
-        .footer-legal span {
-            color: var(--border-color);
-            transition: color 0.5s ease;
-        }
-               /* ===== RESPONSIVE ===== */
-        @media (max-width: 1200px) {
-            .navbar-container { padding: 0 20px; }
-            .navbar-menu { gap: 2px; }
-            .navbar-link { padding: 6px 10px; font-size: 0.8rem; }
-            .navbar-prayer { padding: 8px 14px; font-size: 0.8rem; }
-            .navbar-brand img { height: 60px; }
-        }
+        .deco-sun svg { width: 60px; height: 60px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+
+
+      
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
         @media (max-width: 1024px) {
-            .navbar-icons { gap: 4px; }
-            .navbar-icon { padding: 4px; }
-            .theme-toggle { gap: 2px; }
-            .theme-btn { width: 28px; height: 28px; }
-            .sermons-hero h1 { font-size: 3rem; }
-            .sermons-grid { grid-template-columns: repeat(2, 1fr); }
-            .series-grid { grid-template-columns: repeat(2, 1fr); }
-            .featured-card { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .hero-container { grid-template-columns: 1fr; text-align: center; padding: 40px 20px; }
+            .hero-text { padding-right: 0; align-items: center; }
+            .hero-description { margin: 0 auto; }
+            .hero-divider { justify-content: center; }
+            .hero-image-wrapper { height: 400px; border-radius: 20px; margin-top: 20px; }
+            .hero-image-fade { background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 40%); }
+            
+            .content-container { flex-direction: column; align-items: center; text-align: center; gap: 30px; }
+            .content-text p { margin: 0 auto; }
+            .content-side { width: 100%; align-items: center; }
+            .content-side-decor { align-self: center; }
+            
+            .row-boxed { flex-direction: column; text-align: center; padding: 30px 20px; gap: 20px; }
+            .row-boxed .content-side { align-items: center; text-align: center; }
+            .row-boxed .content-side p { max-width: 100%; }
+            
+            .row-cta { flex-direction: column; text-align: center; }
+            .btn-group { width: 100%; max-width: 320px; }
         }
+
         @media (max-width: 768px) {
-            .navbar-container { height: 70px; padding: 0 16px; }
-            .navbar-brand img { height: 60px; }
-            .navbar-toggle { display: flex; }
+            .navbar-container { padding: 0 20px; }
             .navbar-menu {
-                display: none;
-                flex-direction: column;
-                align-items: stretch;
-                position: fixed;
-                top: 80px; left: 15px; right: 15px;
-                max-height: calc(100vh - 100px);
-                overflow-y: auto;
-                padding: 20px; gap: 8px;
-                background: rgba(10, 14, 26, 0.96);
-                backdrop-filter: blur(20px);
-                border: 1px solid rgba(255,255,255,.08);
-                border-radius: 18px;
-                box-shadow: 0 20px 60px rgba(0,0,0,.35);
+                display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%;
+                background: var(--navbar-bg); padding: 20px; border-bottom: 1px solid var(--navbar-border);
                 z-index: 1001;
             }
             .navbar-menu.active { display: flex; }
-            .navbar-menu li { width: 100%; list-style: none; }
-            .navbar-link {
-                display: flex; align-items: center;
-                justify-content: space-between;
-                width: 100%; padding: 14px 16px;
-                font-size: 1rem; font-weight: 600;
-                border-radius: 12px;
-            }
-            .navbar-link:hover { background: rgba(255,255,255,.08); }
-            .navbar-prayer { display: none; }
-            .theme-toggle { order: -1; }
-            .dropdown-menu {
-                position: static;
-                opacity: 1; visibility: visible;
-                transform: none;
-                box-shadow: none;
-                max-height: 0;
-                overflow: hidden;
-                padding: 0; margin: 0;
-                transition: max-height 0.3s ease;
-                background: rgba(255,255,255,0.03);
-                border: none;
-            }
-            .nav-dropdown.active .dropdown-menu {
-                max-height: 300px;
-                padding: 8px 0;
-            }
-            .sermons-hero { min-height: auto; padding-top: 70px; }
-            .sermons-hero-bg {
-                width: 100%; opacity: 0.15;
-                mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
-            }
-            .sermons-hero-overlay {
-                background: linear-gradient(180deg, var(--grow-deep-forest) 0%, var(--grow-deep-forest) 50%, transparent 100%);
-            }
-            .sermons-hero-content {
-                padding: 60px 24px;
-                text-align: center;
-            }
-            .sermons-hero h1 { font-size: 2.4rem; }
-            .sermons-hero-subtext { font-size: 1.05rem; }
-            .sermons-grid { grid-template-columns: 1fr; }
-            .series-grid { grid-template-columns: 1fr; }
-            .featured-info { padding: 30px; }
-            .truth-container { padding: 40px 24px; }
-            .truth-text { font-size: 1.5rem; }
-            .next-buttons { flex-direction: column; align-items: center; }
-            .btn-primary, .btn-outline {
-                width: 100%; max-width: 300px;
-                justify-content: center;
-            }
-            .footer-content { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; text-align: center; }
+            .navbar-toggle { display: flex; }
+            .navbar-actions { gap: 10px; }
+            .navbar-buttons, .auth-buttons { display: none; }
+            
+            .hero-title { font-size: 3rem; }
+            .hero-subtitle { font-size: 1.4rem; }
+            .content-text h2 { font-size: 1.6rem; }
+            
+            .hero-section { padding-top: 70px; padding-bottom: 40px; }
+            .content-section { padding: 40px 20px; }
         }
-    
-    
-
-/* ============================================
-   NAVBAR CSS (Complete)
-   ============================================ */
-
-/* ===== NAVBAR BASE ===== */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background: var(--navbar-bg, #0A0E1A);
-  border-bottom: 1px solid var(--navbar-border, rgba(255,255,255,0.08));
-  transition: all 0.3s ease;
-  padding: 6px 0;
-  min-height: 72px;
-  display: flex;
-  align-items: center;
-}
-
-.navbar-container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  flex-wrap: nowrap;
-}
-
-/* ===== LOGO (LEFT) ===== */
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  text-decoration: none;
-}
-
-.navbar-brand img {
-  height: 100px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
-
-/* ===== MENU (CENTER) ===== */
-.navbar-menu {
-  display: flex;
-  list-style: none;
-  gap: 6px;
-  align-items: center;
-  margin: 0 auto;
-  flex-wrap: nowrap;
-  justify-content: center;
-  flex: 1;
-}
-
-.navbar-link {
-  text-decoration: none;
-  color: white;
-  font-size: 0.85rem;
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.navbar-link:hover {
-  color: white;
-  background: var(--navbar-hover-bg, rgba(255,255,255,0.05));
-}
-
-.navbar-link.active {
-  color: var(--navbar-text-hover, #ffffff);
-  font-weight: 600;
-  background: var(--navbar-active-bg, rgba(255,255,255,0.03));
-}
-
-.navbar-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 2px;
-  background: var(--accent-violet, #7c3aed);
-  border-radius: 1px;
-}
-
-/* Special link styles */
-.navbar-link.start-here {
-  background: linear-gradient(135deg, #8B5CF6, #6366F1);
-  color: #ffffff;
-  font-weight: 600;
-  padding: 6px 14px;
-  box-shadow: 0 2px 12px rgba(139, 92, 246, 0.4);
-  border: none;
-}
-
-.navbar-link.start-here:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.6);
-  color: #ffffff;
-}
-
-.navbar-link.inspiration {
-  background: linear-gradient(90deg, #fbbf24, #f472b6, #a78bfa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 700;
-  font-size: 0.85rem;
-}
-
-.navbar-link.lumenquest {
-  background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 700;
-  font-size: 0.85rem;
-}
-
-/* ===== DROPDOWN ===== */
-.nav-dropdown {
-  position: relative;
-}
-
-.dropdown-toggle {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  cursor: pointer;
-}
-
-.dropdown-arrow {
-  font-size: 9px;
-  transition: transform 0.3s ease;
-}
-
-.nav-dropdown:hover .dropdown-arrow {
-  transform: rotate(180deg);
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 200px;
-  background: linear-gradient(135deg, #0A1A2F 0%, #102A4A 35%, #173E6B 70%, #1E4F87 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 8px 0;
-  margin-top: 8px;
-  backdrop-filter: blur(20px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px);
-  transition: all 0.3s ease;
-  z-index: 1000;
-  list-style: none;
-}
-
-.nav-dropdown:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.dropdown-link {
-  display: block;
-  padding: 10px 18px;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  font-size: 0.9rem;
-}
-
-.dropdown-link:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: #F5C542;
-  padding-left: 24px;
-}
-
-/* ===== RIGHT ACTIONS ===== */
-.navbar-actions {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
-  margin-left: 10px;
-}
-
-/* About & Contact Buttons */
-.navbar-buttons {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  flex-shrink: 0;
-}
-
-.navbar-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 34px;
-  padding: 0 14px;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.055);
-  border: 1px solid rgba(139, 92, 246, 0.45);
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 0.75rem;
-  font-weight: 600;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 3px 12px rgba(0, 0, 0, 0.15);
-}
-
-.navbar-btn:hover {
-  color: #ffffff;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.22), rgba(99, 102, 241, 0.16));
-  border-color: rgba(139, 92, 246, 0.85);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 18px rgba(139, 92, 246, 0.30);
-}
-
-/* Theme Toggle */
-.theme-toggle {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  background: rgba(128, 128, 128, 0.08);
-  border-radius: 50px;
-  padding: 2px;
-  border: 1px solid var(--border-color, rgba(255,255,255,0.08));
-  flex-shrink: 0;
-}
-
-.theme-btn {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  color: white;
-  padding: 0;
-}
-
-.theme-btn.active {
-  background: #6366F1;
-  color: #ffffff;
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
-}
-
-.theme-btn svg {
-  width: 14px;
-  height: 14px;
-}
-
-/* Auth Buttons (Login/Signup) */
-.auth-buttons {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  flex-shrink: 0;
-}
-
-.auth-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 34px;
-  padding: 0 14px;
-  border-radius: 50px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
-}
-
-.auth-login {
-  color: white;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
-}
-
-.auth-login:hover {
-  background: rgba(255, 255, 255, 0.18);
-  transform: translateY(-2px);
-}
-
-.auth-signup {
-  color: #0A0E1A;
-  background: white;
-  border-color: white;
-}
-
-.auth-signup:hover {
-  background: #e0e0e0;
-  transform: translateY(-2px);
-}
-
-/* ===== MOBILE TOGGLE ===== */
-.navbar-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  background: none;
-  border: 1px solid var(--mobile-toggle-border, rgba(255,255,255,0.2));
-  border-radius: 6px;
-  cursor: pointer;
-  padding: 6px;
-  margin-left: 4px;
-  flex-shrink: 0;
-}
-
-.navbar-toggle span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--mobile-toggle-span, #ffffff);
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-.navbar-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(4px, 4px);
-}
-
-.navbar-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.navbar-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(4px, -4px);
-}
-
-/* ============================================
-   RESPONSIVE BREAKPOINTS (NAVBAR)
-   ============================================ */
-
-/* Large screens */
-@media (max-width: 1200px) {
-  .navbar-container {
-    padding: 0 16px;
-  }
-  .navbar-link {
-    font-size: 0.78rem;
-    padding: 4px 8px;
-  }
-  .navbar-btn,
-  .auth-btn {
-    height: 30px;
-    padding: 0 10px;
-    font-size: 0.7rem;
-  }
-  .navbar-brand img {
-    height: 80px;
-  }
-}
-
-/* Tablets */
-@media (max-width: 1024px) {
-  .navbar-link {
-    font-size: 0.72rem;
-    padding: 4px 6px;
-  }
-  .navbar-btn,
-  .auth-btn {
-    height: 28px;
-    padding: 0 8px;
-    font-size: 0.65rem;
-  }
-  .navbar-brand img {
-    height: 70px;
-  }
-}
-
-/* Small tablets / large phones */
-@media (max-width: 900px) {
-  .navbar-link {
-    font-size: 0.7rem;
-    padding: 4px 5px;
-  }
-  .navbar-btn,
-  .auth-btn {
-    height: 26px;
-    padding: 0 6px;
-    font-size: 0.6rem;
-  }
-  .navbar-brand img {
-    height: 60px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .navbar {
-    min-height: 64px;
-    padding: 4px 0;
-  }
-  .navbar-container {
-    padding: 0 12px;
-    flex-wrap: nowrap;
-  }
-  .navbar-brand img {
-    height: 50px;
-  }
-
-  /* Show hamburger */
-  .navbar-toggle {
-    display: flex;
-  }
-
-  /* Mobile menu - slides down from top */
-  .navbar-menu {
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    position: fixed;
-    top: 64px;
-    left: 12px;
-    right: 12px;
-    max-height: calc(100vh - 80px);
-    overflow-y: auto;
-    padding: 16px;
-    gap: 4px;
-    background: #0A0E1A;
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--border-color, rgba(255,255,255,0.08));
-    border-radius: 18px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-    z-index: 1001;
-    margin: 0;
-    width: auto;
-    flex: none;
-  }
-
-  .navbar-menu.active {
-    display: flex;
-  }
-
-  .navbar-menu li {
-    width: 100%;
-    list-style: none;
-  }
-
-  .navbar-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 12px 14px;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 12px;
-    color: white;
-    white-space: normal;
-  }
-
-  .navbar-link.start-here {
-    justify-content: center;
-  }
-
-  /* Hide About/Contact on mobile */
-  .navbar-buttons .navbar-btn {
-    display: none;
-  }
-
-  /* Auth buttons smaller */
-  .auth-buttons .auth-btn {
-    font-size: 0.7rem;
-    padding: 0 10px;
-    height: 30px;
-  }
-
-  .theme-toggle {
-    margin-right: 2px;
-  }
-
-  /* Mobile dropdown */
-  .dropdown-menu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    box-shadow: none;
-    max-height: 0;
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-    transition: max-height 0.3s ease;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    backdrop-filter: none;
-  }
-
-  .nav-dropdown.active .dropdown-menu {
-    max-height: 400px;
-    padding: 6px 0 6px 12px;
-    background: transparent;
-  }
-
-  .nav-dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-  }
-
-  .nav-dropdown:hover .dropdown-arrow {
-    transform: none;
-  }
-
-  .dropdown-link {
-    padding: 10px 14px;
-    color: #e0e0e0;
-    font-size: 0.95rem;
-  }
-
-  .dropdown-link:hover {
-    padding-left: 20px;
-    background: rgba(255, 255, 255, 0.05);
-  }
-}
-
-/* Small phones */
-@media (max-width: 480px) {
-  .navbar-brand img {
-    height: 40px;
-  }
-  .navbar {
-    min-height: 56px;
-  }
-  .navbar-container {
-    padding: 0 8px;
-  }
-  .navbar-menu {
-    top: 56px;
-    left: 8px;
-    right: 8px;
-    padding: 12px;
-  }
-  .navbar-link {
-    font-size: 0.9rem;
-    padding: 10px 12px;
-  }
-  .theme-btn {
-    width: 28px;
-    height: 28px;
-  }
-  .theme-btn svg {
-    width: 14px;
-    height: 14px;
-  }
-  .auth-btn {
-    font-size: 0.6rem;
-    padding: 0 8px;
-    height: 26px;
-  }
-}
-
-/* ============================================
-   GLOBAL FOOTER CSS (from index.html / style.css)
-   ============================================ */
-.footer {
-  position: relative;
-  background: #0A1A2F;
-  color: var(--color-white, #FFFFFF);
-  overflow: hidden;
-}
-
-.footer-deco {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.footer-deco--1 { width: 64px; height: 64px; top: 32px; right: 0; }
-.footer-deco--2 { width: 80px; height: 80px; top: 96px; right: 48px; opacity: 0.5; }
-.footer-deco--3 { width: 48px; height: 48px; top: 192px; right: 16px; opacity: 0.3; }
-.footer-deco--4 { width: 56px; height: 56px; bottom: 128px; left: 0; opacity: 0.4; }
-.footer-deco--5 { width: 40px; height: 40px; bottom: 80px; left: 32px; opacity: 0.3; }
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 3rem;
-  position: relative;
-  z-index: 10;
-}
-
-.footer-brand img {
-  height: 100px;
-  width: auto;
-  margin-bottom: 1.5rem;
-}
-
-.footer-text {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.875rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.footer-social {
-  display: flex;
-  gap: 1rem;
-}
-
-.footer-social a {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.6);
-  transition: color var(--transition-base, 300ms ease);
-}
-
-.footer-social a:hover {
-  color: var(--color-white, #FFFFFF);
-}
-
-.footer-social svg {
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
-}
-
-.footer-title {
-  font-family: var(--font-heading, 'RecklessWide', serif);
-  font-size: 0.8125rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 1.5rem;
-  color: var(--color-white, #FFFFFF);
-}
-
-.footer-links {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.footer-links a {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.875rem;
-  transition: color var(--transition-base, 300ms ease);
-}
-
-.footer-links a:hover {
-  color: var(--color-white, #FFFFFF);
-}
-
-.footer-contact {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.875rem;
-  margin-bottom: 0.25rem;
-}
-
-.footer-form {
-  background: var(--color-white, #FFFFFF);
-  border-radius: 8px;
-  overflow: hidden;
-  margin-top: 1.5rem;
-}
-
-.footer-form__header {
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid #E5E7EB;
-}
-
-.footer-form__title {
-  color: #1F2937;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-.footer-form__body {
-  padding: 1rem 1.5rem;
-  display: flex;
-  gap: 0.5rem;
-}
-
-.footer-form__input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 0.875rem;
-  color: #374151;
-}
-
-.footer-form__input::placeholder {
-  color: #9CA3AF;
-}
-
-.footer-form__submit {
-  color: #1F2937;
-  font-size: 0.875rem;
-  font-weight: 600;
-  transition: color var(--transition-base, 300ms ease);
-}
-
-.footer-form__submit:hover {
-  color: var(--color-primary, #0A1A2F);
-}
-
-.footer-bottom {
-  background: var(--color-white, #FFFFFF);
-  padding: 1rem 1.5rem;
-}
-
-.footer-bottom__content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.footer-credit {
-  color: var(--color-secondary, #122B4A);
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-.footer-legal {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--color-secondary, #122B4A);
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-.footer-legal a {
-  color: var(--color-secondary, #122B4A);
-  transition: color var(--transition-base, 300ms ease);
-}
-
-.footer-legal a:hover {
-  color: var(--color-primary, #0A1A2F);
-}
-
-@media (max-width: 768px) {
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 3rem 1.5rem;
-    text-align: center;
-  }
-  .footer-brand img {
-    height: 70px;
-    margin: 0 auto 1.5rem;
-  }
-  .footer-social {
-    justify-content: center;
-    margin-top: 1rem;
-  }
-  .footer-bottom__content {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-</style>
-  <link rel="stylesheet" href="/navbar.css">
+    </style>
+    <link rel="stylesheet" href="/navbar.css">
 </head>
 <body>
-    <div class="starfield"></div>
 
-       <!-- ============================================
-     NAVBAR HTML (Complete)
-     ============================================ -->
-
-<nav class="navbar" role="navigation" aria-label="Main navigation">
+    <!-- ============================================
+    NAVBAR (From your code)
+    ============================================ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
   <div class="navbar-container">
     
-    <!-- LOGO - LEFT (100px height) -->
+    <!-- LOGO - LEFT -->
     <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
       <img src="/images/logo.png" alt="LightMode Ministries">
     </a>
 
     <!-- MENU - CENTER -->
     <ul class="navbar-menu" id="navbar-menu" role="menubar">
-      <li>
-        <a href="/index.html" class="navbar-link">Home</a>
-      </li>
+      <li><a href="/index.html" class="navbar-link">Home</a></li>
+      <li><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
       
-      <li>
-        <a href="/start-here.html" class="navbar-link start-here">Start Here</a>
-      </li>
-      
-      <!-- Dropdown: Teaching Library -->
-      <li class="nav-dropdown" role="none">
+       <li class="nav-dropdown" role="none">
         <a href="#" class="navbar-link dropdown-toggle">
           Teaching Library <span class="dropdown-arrow">▼</span>
         </a>
         <ul class="dropdown-menu">
           <li><a href="/devotional-gallery.html" class="dropdown-link">Devotional Gallery</a></li>
-          <li><a href="/sermons.html" class="dropdown-link">Bible Reading</a></li>
-          <li><a href="/devotionals.html" class="dropdown-link">Daily Confessions</a></li>
+          <li><a href="/bible-study.html" class="dropdown-link">Bible Reading</a></li>
+          <li><a href="/daily-confessions.html" class="dropdown-link">Daily Confessions</a></li>
+          <li><a href="/sermons.html" class="dropdown-link">Sermons</a></li>
         </ul>
       </li>
       
-      <!-- Dropdown: LumenQuest -->
       <li class="nav-dropdown" role="none">
         <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">
           LumenQuest <span class="dropdown-arrow">▼</span>
@@ -1836,11 +445,8 @@
         </ul>
       </li>
       
-      <li>
-        <a href="/prayer-room.html" class="navbar-link">Prayer Room</a>
-      </li>
+      <li><a href="/prayer-room.html" class="navbar-link">Prayer Room</a></li>
       
-      <!-- Dropdown: Rest -->
       <li class="nav-dropdown" role="none">
         <a href="#" class="navbar-link dropdown-toggle">
           Rest <span class="dropdown-arrow">▼</span>
@@ -1852,7 +458,6 @@
         </ul>
       </li>
       
-      <!-- Dropdown: Teens -->
       <li class="nav-dropdown" role="none">
         <a href="/teens.html" class="navbar-link dropdown-toggle">
           Teens <span class="dropdown-arrow">▼</span>
@@ -1865,28 +470,17 @@
       </li>
     </ul>
 
-    <!-- RIGHT ACTIONS: About, Contact, Theme Toggle, Login/Signup -->
+    <!-- RIGHT ACTIONS -->
     <div class="navbar-actions">
-      
-      <!-- About & Contact Buttons -->
       <div class="navbar-buttons">
         <a href="/about.html" class="navbar-btn">About</a>
         <a href="/contact.html" class="navbar-btn">Contact</a>
       </div>
 
-      <!-- Theme Toggle (Day/Night) -->
       <div class="theme-toggle" role="group" aria-label="Theme toggle">
         <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"/>
-            <line x1="12" y1="12" x2="12" y2="3"/>
-            <line x1="12" y1="21" x2="12" y2="23"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="1" y1="12" x2="3" y2="12"/>
-            <line x1="21" y1="12" x2="23" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="12" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
           </svg>
         </button>
         <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
@@ -1896,298 +490,142 @@
         </button>
       </div>
 
-      <!-- Login / Signup Buttons -->
       <div class="auth-buttons">
         <a href="/login.html" class="auth-btn auth-login">Log in</a>
         <a href="/signup.html" class="auth-btn auth-signup">Sign up</a>
       </div>
 
-      <!-- Mobile Hamburger Toggle -->
       <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
   </div>
 </nav>
 
-       <!-- ===== SERMONS HERO ===== -->
-    <section class="sermons-hero">
-        <div class="sermons-hero-bg"></div>
-        <div class="sermons-hero-overlay"></div>
-        <div class="sermons-hero-content">
-            <span class="sermons-hero-label">Grow Deeper in Faith</span>
-            <h1>
-                Sermons That<br>
-                <em>Transform</em>
-            </h1>
-            <p class="sermons-hero-subtext">
-                Powerful, biblical messages designed to help you grow in grace and knowledge of our Lord Jesus Christ.
-            </p>
-            <div class="sermons-search-bar">
-                <span class="sermons-search-icon">🔍</span>
-                <input type="text" placeholder="Search sermons by title, topic, or scripture..." aria-label="Search sermons">
+    <!-- ============================================
+    HERO SECTION
+    ============================================ -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1 class="hero-title">Sermons</h1>
+                
+                <div class="hero-divider">
+                    <span>♡</span>
+                    <div class="hero-divider-line"></div>
+                </div>
+                
+                <h2 class="hero-subtitle">
+                    Hear the Word. Behold Jesus.<br>
+                    Live from What He Has Finished.
+                </h2>
+                
+                <p class="hero-description">
+                    LightMode Ministries sermons are being prayerfully prepared to proclaim the truth of God's Word, reveal the heart of the Father, and help believers live confidently from the finished work of Jesus Christ.<br><br>
+                    Each message will be Scripture-rich, faith-filled, Christ-centered, and created to strengthen understanding, awaken hope, and encourage you in your daily walk with God.
+                </p>
             </div>
-            <div class="sermons-filter-tags">
-                <button class="filter-tag active">All</button>
-                <button class="filter-tag">Identity</button>
-                <button class="filter-tag">Faith</button>
-                <button class="filter-tag">Healing</button>
-                <button class="filter-tag">Purpose</button>
-                <button class="filter-tag">Obedience</button>
-                <button class="filter-tag">Disciplines</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FEATURED SERMON ===== -->
-    <section class="featured-section" id="featured">
-        <div class="section-header">
-            <span class="section-label">Featured This Week</span>
-            <h2 class="section-title">Sermon of the Week</h2>
-            <p class="section-subtitle">A message chosen to speak directly to where you are right now.</p>
-        </div>
-
-        <div class="featured-card">
-            <div class="featured-video">
-                <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?w=800&q=80" alt="Mountain sunrise">
-                <div class="play-btn">
-                    <span>▶</span>
-                </div>
-            </div>
-            <div class="featured-info">
-                <div class="featured-tag">
-                    <span>🌿</span>
-                    Identity in Christ
-                </div>
-                <h3>You Are Not What They Say You Are</h3>
-                <p>Discover who God says you are — not who your past, your fears, or other people have labeled you to be. Your true identity is found in Him.</p>
-                <div class="featured-meta">
-                    <span>📖 18 min</span>
-                    <span>📝 Study Guide</span>
-                    <span>🎵 Audio</span>
-                </div>
-                <div class="featured-actions">
-                    <button class="btn-sm btn-sm-primary">▶ Watch Now</button>
-                    <button class="btn-sm btn-sm-outline">📝 Notes</button>
-                    <button class="btn-sm btn-sm-outline">🎧 Audio</button>
-                </div>
+            
+            <div class="hero-image-wrapper">
+                <div class="hero-image"></div>
+                <div class="hero-image-fade"></div>
             </div>
         </div>
     </section>
-    <!-- ===== SERMONS GRID ===== -->
-    <section class="sermons-section">
-        <div class="section-header">
-            <span class="section-label">Latest Messages</span>
-            <h2 class="section-title">Recent Sermons</h2>
-            <p class="section-subtitle">Browse our collection of life-changing messages.</p>
-        </div>
 
-        <div class="sermons-grid">
-            <div class="sermon-card">
-                <div class="sermon-thumb">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Mountain landscape">
-                    <div class="sermon-play-overlay"><span>▶</span></div>
-                    <div class="sermon-duration">24 min</div>
-                </div>
-                <div class="sermon-body">
-                    <div class="sermon-tag">🤝 Faith</div>
-                    <h3>When Doubt Creeps In</h3>
-                    <p>How to hold onto faith when everything around you feels uncertain.</p>
-                    <div class="sermon-meta">
-                        <span>📖 24 min</span>
-                        <span>📝 Guide</span>
-                    </div>
-                </div>
+    <!-- ============================================
+    CONTENT SECTION 1
+    ============================================ -->
+    <section class="content-section">
+        <div class="content-container">
+            <div class="content-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 8h4"/><path d="M12 8v10"/></svg>
             </div>
-
-            <div class="sermon-card">
-                <div class="sermon-thumb">
-                    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&q=80" alt="Forest fog">
-                    <div class="sermon-play-overlay"><span>▶</span></div>
-                    <div class="sermon-duration">32 min</div>
-                </div>
-                <div class="sermon-body">
-                    <div class="sermon-tag">💚 Healing</div>
-                    <h3>The Balm of Gilead</h3>
-                    <p>God's promise to mend what feels broken inside and out.</p>
-                    <div class="sermon-meta">
-                        <span>📖 32 min</span>
-                        <span>📝 Guide</span>
-                    </div>
-                </div>
+            <div class="content-text">
+                <h2>Welcome to the Sermons Library</h2>
+                <p>This space is being prepared to hold messages that proclaim Jesus, strengthen faith, and help God's children see His Word more clearly.</p>
+                <p>As sermons are completed, they will be added here in video and audio formats so you can receive them at your own pace and return whenever encouragement is needed.</p>
             </div>
-
-            <div class="sermon-card">
-                <div class="sermon-thumb">
-                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80" alt="Sunrise valley">
-                    <div class="sermon-play-overlay"><span>▶</span></div>
-                    <div class="sermon-duration">28 min</div>
+            <div class="content-side">
+                <div class="btn-row">
+                    <button class="btn-outline"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg> READ WELCOME</button>
+                    <button class="btn-filled"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg> WATCH WELCOME</button>
                 </div>
-                <div class="sermon-body">
-                    <div class="sermon-tag">🎯 Purpose</div>
-                    <h3>Your Unique Design</h3>
-                    <p>Discovering why you were created and how God wants to use you.</p>
-                    <div class="sermon-meta">
-                        <span>📖 28 min</span>
-                        <span>📝 Guide</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sermon-card">
-                <div class="sermon-thumb">
-                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80" alt="Lake reflection">
-                    <div class="sermon-play-overlay"><span>▶</span></div>
-                    <div class="sermon-duration">21 min</div>
-                </div>
-                <div class="sermon-body">
-                    <div class="sermon-tag">📜 Obedience</div>
-                    <h3>The Fear of the Lord</h3>
-                    <p>Understanding what it truly means to walk in reverence and wisdom.</p>
-                    <div class="sermon-meta">
-                        <span>📖 21 min</span>
-                        <span>📝 Guide</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sermon-card">
-                <div class="sermon-thumb">
-                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80" alt="Forest path">
-                    <div class="sermon-play-overlay"><span>▶</span></div>
-                    <div class="sermon-duration">35 min</div>
-                </div>
-                <div class="sermon-body">
-                    <div class="sermon-tag">🌿 Disciplines</div>
-                    <h3>The Power of Prayer</h3>
-                    <p>Practical rhythms that keep you connected to God every day.</p>
-                    <div class="sermon-meta">
-                        <span>📖 35 min</span>
-                        <span>📝 Guide</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sermon-card">
-                <div class="sermon-thumb">
-                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80" alt="Aerial landscape">
-                    <div class="sermon-play-overlay"><span>▶</span></div>
-                    <div class="sermon-duration">26 min</div>
-                </div>
-                <div class="sermon-body">
-                    <div class="sermon-tag">🪞 Identity</div>
-                    <h3>Chosen, Not Forgotten</h3>
-                    <p>You were handpicked by God before the world began.</p>
-                    <div class="sermon-meta">
-                        <span>📖 26 min</span>
-                        <span>📝 Guide</span>
-                    </div>
+                <div class="content-side-decor">
+                    <svg viewBox="0 0 24 24"><path d="M12 21v-6"/><path d="M8 15l-2 3"/><path d="M16 15l2 3"/><path d="M3 12l2-1"/><path d="M21 12l-2-1"/><path d="M12 3v2"/></svg>
                 </div>
             </div>
         </div>
     </section>
 
-
-
-    <!-- ===== SERIES SECTION ===== -->
-    <section class="series-section">
-        <div class="series-container">
-            <div class="section-header">
-                <span class="section-label">Go Deeper</span>
-                <h2 class="section-title">Sermon Series</h2>
-                <p class="section-subtitle">Multi-week journeys through themes that transform.</p>
+    <!-- ============================================
+    CONTENT SECTION 2
+    ============================================ -->
+    <section class="content-section">
+        <div class="content-container">
+            <div class="content-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 12h6"/><path d="M8 16h8"/><path d="M8 8h2"/></svg>
             </div>
-
-            <div class="series-grid">
-                <div class="series-card">
-                    <div class="series-cover">
-                        <div class="series-icon">🪞</div>
-                        <div class="series-count">6 sermons</div>
-                    </div>
-                    <div class="series-info">
-                        <h3>Identity in Christ</h3>
-                        <p>Who God says you are — not who your past defined you to be.</p>
-                    </div>
-                </div>
-
-                <div class="series-card">
-                    <div class="series-cover">
-                        <div class="series-icon">🤝</div>
-                        <div class="series-count">5 sermons</div>
-                    </div>
-                    <div class="series-info">
-                        <h3>Faith and Trust</h3>
-                        <p>Learning to lean on God when you cannot see the way forward.</p>
-                    </div>
-                </div>
-
-                <div class="series-card">
-                    <div class="series-cover">
-                        <div class="series-icon">💚</div>
-                        <div class="series-count">4 sermons</div>
-                    </div>
-                    <div class="series-info">
-                        <h3>Healing and Restoration</h3>
-                        <p>God's promise to mend what feels broken inside and out.</p>
-                    </div>
-                </div>
-
-                <div class="series-card">
-                    <div class="series-cover">
-                        <div class="series-icon">🎯</div>
-                        <div class="series-count">7 sermons</div>
-                    </div>
-                    <div class="series-info">
-                        <h3>Purpose and Calling</h3>
-                        <p>Discovering why you were created and how God wants to use you.</p>
-                    </div>
+            <div class="content-text">
+                <h2>The Heart Behind Every Sermon</h2>
+                <p>Every LightMode sermon will be rooted in Scripture and centered on Jesus Christ.</p>
+                <p>These messages will not be created merely to inspire for a moment. They will be prayerfully prepared to illuminate truth, reveal the Father's heart, strengthen faith, and help believers live from what Jesus has already accomplished.</p>
+                <p>The Word of God will remain central. The finished work of Jesus will remain the foundation. And every message will leave the listener looking toward Christ with hope.</p>
+            </div>
+            <div class="content-side">
+                <div class="content-side-decor">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l2 2"/></svg>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== TRUTH CALLOUT ===== -->
-    <section class="truth-section">
-        <div class="truth-container">
-            <span class="truth-label">Anchor Truth</span>
-            <p class="truth-text">
-                "So faith comes from hearing, and hearing through the word of Christ."
-            </p>
-            <p class="truth-ref">ROMANS 10:17</p>
-        </div>
-    </section>
-
-    <!-- ===== NEXT STEP ===== -->
-    <section class="next-step-section">
-        <div class="next-step-container">
-            <span class="next-step-label">Keep Growing</span>
-            <h2 class="next-step-title">Go Deeper in Study</h2>
-            <p class="next-step-text">
-                These sermons are just the beginning. Dive into structured Bible study to build a foundation that lasts.
-            </p>
-            <div class="next-buttons">
-                <a href="/bible-study.html" class="btn-primary">
-                    <span>📖</span>
-                    Start Bible Study
-                </a>
-                <a href="/devotionals.html" class="btn-outline">
-                    Read Devotionals
-                </a>
+    <!-- ============================================
+    CONTENT SECTION 3 (Boxed)
+    ============================================ -->
+    <section class="content-section">
+        <div class="content-container row-boxed">
+            <div class="content-icon" style="width: 60px; height: 60px;">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+            </div>
+            <div class="content-text">
+                <h2>Messages Are Being Prepared</h2>
+                <p>New sermons will be added to this space as they are prayerfully developed and recorded.</p>
+                <p>We are taking the time to prepare each message with care so that every sermon is worthy of remaining in the LightMode Teaching Library for years to come.</p>
+                <p>Thank you for allowing us to prepare slowly, teach faithfully, and trust the Holy Spirit with the timing of every message.</p>
+            </div>
+            <div class="content-side" style="padding-top: 0;">
+                <p>We prepare with care.<br>We teach with faith.<br>We trust the Holy Spirit<br>with the timing.</p>
+                <div class="content-side-decor" style="margin-top: 15px;">
+                    <svg viewBox="0 0 24 24"><path d="M12 21v-6"/><path d="M8 15l-2 3"/><path d="M16 15l2 3"/><path d="M3 12l2-1"/><path d="M21 12l-2-1"/><path d="M12 3v2"/></svg>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
-          <!-- Footer -->
+    <!-- ============================================
+    CONTENT SECTION 4
+    ============================================ -->
+    <section class="content-section" style="border-bottom: 1px solid var(--border-color);">
+        <div class="content-container row-cta">
+            <div class="deco-sun">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+            </div>
+            <div class="content-text">
+                <h2>Continue Growing in the Word</h2>
+                <p>While sermons are being prepared, you are warmly invited to explore the Bible Studies and Bible Reading Experience within the Teaching Library.</p>
+            </div>
+            <div class="btn-group">
+                <a href="/bible-study.html" class="btn-outline"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> EXPLORE BIBLE STUDIES</a>
+                <a href="/bible-reading.html" class="btn-filled"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> ENTER THE BIBLE READING EXPERIENCE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    FOOTER (From your code)
+    ============================================ -->
   <footer class="footer" role="contentinfo">
-    <div class="footer-deco footer-deco--1" aria-hidden="true"></div>
-    <div class="footer-deco footer-deco--2" aria-hidden="true"></div>
-    <div class="footer-deco footer-deco--3" aria-hidden="true"></div>
-    <div class="footer-deco footer-deco--4" aria-hidden="true"></div>
-    <div class="footer-deco footer-deco--5" aria-hidden="true"></div>
-
     <div class="footer-content">
       <div class="footer-brand">
         <img src="/images/logo.png" alt="LightMode Ministries Logo">
@@ -2195,21 +633,11 @@
           Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         </p>
         <div class="footer-social">
-          <a href="#" aria-label="YouTube">
-            <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-          </a>
-          <a href="#" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </a>
-          <a href="#" aria-label="Facebook">
-            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-          <a href="#" aria-label="TikTok">
-            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-          </a>
-          <a href="#" aria-label="GitHub">
-            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-          </a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
         </div>
       </div>
 
@@ -2264,12 +692,14 @@
     </div>
   </footer>
 
-   
-
-<script>
+    <!-- ============================================
+    JAVASCRIPT
+    ============================================ -->
+   <script>
 // ============================================
 // NAVBAR JAVASCRIPT (Theme + Mobile Toggle)
 // ============================================
+
 
 // ===== THEME TOGGLE =====
 function setTheme(mode) {
@@ -2283,7 +713,8 @@ function setTheme(mode) {
     if (btnDay) btnDay.classList.remove('active');
     localStorage.setItem('theme', 'night');
   } else {
-    html.removeAttribute('data-theme');
+    // FIX: Set data-theme="day" instead of removing it
+    html.setAttribute('data-theme', 'day');
     if (btnDay) btnDay.classList.add('active');
     if (btnNight) btnNight.classList.remove('active');
     localStorage.setItem('theme', 'day');
@@ -2305,7 +736,6 @@ const toggle = document.querySelector('.navbar-toggle');
 const menu = document.getElementById('navbar-menu');
 
 if (toggle && menu) {
-  // Toggle menu on hamburger click
   toggle.addEventListener('click', function() {
     const expanded = this.getAttribute('aria-expanded') === 'true';
     this.setAttribute('aria-expanded', !expanded);
@@ -2313,20 +743,14 @@ if (toggle && menu) {
     menu.classList.toggle('active');
   });
 
-  // Handle link clicks inside mobile menu
   menu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', function(e) {
-      // For dropdown toggles on mobile - toggle dropdown instead of navigating
       if (window.innerWidth <= 768 && this.classList.contains('dropdown-toggle')) {
         e.preventDefault();
         const parent = this.closest('.nav-dropdown');
-        if (parent) {
-          parent.classList.toggle('active');
-        }
+        if (parent) { parent.classList.toggle('active'); }
         return;
       }
-      
-      // Close menu on link click (mobile only)
       if (window.innerWidth <= 768) {
         menu.classList.remove('active');
         toggle.classList.remove('active');
@@ -2335,128 +759,15 @@ if (toggle && menu) {
     });
   });
 
-  // Close menu on window resize to desktop
   window.addEventListener('resize', function() {
     if (window.innerWidth > 768) {
       menu.classList.remove('active');
       toggle.classList.remove('active');
       toggle.setAttribute('aria-expanded', 'false');
-      // Reset all mobile dropdowns
-      document.querySelectorAll('.nav-dropdown').forEach(item => {
-        item.classList.remove('active');
-      });
+      document.querySelectorAll('.nav-dropdown').forEach(item => { item.classList.remove('active'); });
     }
   });
 }
 </script>
-
-<script>
-// ============================================
-// NAVBAR JAVASCRIPT (Theme + Mobile Toggle)
-// ============================================
-
-// ===== THEME TOGGLE =====
-function setTheme(mode) {
-  const html = document.documentElement;
-  const body = document.body;
-  const btnDay = document.getElementById('btn-day');
-  const btnNight = document.getElementById('btn-night');
-  
-  if (mode === 'day') {
-    html.setAttribute('data-theme', 'day');
-    html.classList.remove('night-theme', 'dark-theme');
-    html.classList.add('day-theme', 'light-theme');
-    if (body) {
-      body.classList.remove('night-theme', 'dark-theme');
-      body.classList.add('day-theme', 'light-theme');
-    }
-    if (btnDay) btnDay.classList.add('active');
-    if (btnNight) btnNight.classList.remove('active');
-    localStorage.setItem('theme', 'day');
-  } else {
-    html.setAttribute('data-theme', 'night');
-    html.classList.remove('day-theme', 'light-theme');
-    html.classList.add('night-theme', 'dark-theme');
-    if (body) {
-      body.classList.remove('day-theme', 'light-theme');
-      body.classList.add('night-theme', 'dark-theme');
-    }
-    if (btnNight) btnNight.classList.add('active');
-    if (btnDay) btnDay.classList.remove('active');
-    localStorage.setItem('theme', 'night');
-  }
-}
-
-// Load saved theme on page load
-(function() {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'day') {
-    setTheme('day');
-  } else {
-    setTheme('night');
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function() {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'day') {
-    setTheme('day');
-  } else {
-    setTheme('night');
-  }
-
-  // ===== MOBILE MENU TOGGLE =====
-  const toggle = document.querySelector('.navbar-toggle');
-  const menu = document.getElementById('navbar-menu');
-
-  if (toggle && menu) {
-    // Toggle menu on hamburger click
-    toggle.addEventListener('click', function(e) {
-      e.stopPropagation();
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', !expanded);
-      this.classList.toggle('active');
-      menu.classList.toggle('active');
-    });
-
-    // Handle link clicks inside mobile menu
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        // For dropdown toggles on mobile - toggle dropdown instead of navigating
-        if (window.innerWidth <= 768 && this.classList.contains('dropdown-toggle')) {
-          e.preventDefault();
-          const parent = this.closest('.nav-dropdown');
-          if (parent) {
-            parent.classList.toggle('active');
-          }
-          return;
-        }
-        
-        // Close menu on link click (mobile only)
-        if (window.innerWidth <= 768) {
-          menu.classList.remove('active');
-          toggle.classList.remove('active');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-    });
-
-    // Close menu on window resize to desktop
-    window.addEventListener('resize', function() {
-      if (window.innerWidth > 768) {
-        menu.classList.remove('active');
-        toggle.classList.remove('active');
-        toggle.setAttribute('aria-expanded', 'false');
-        // Reset all mobile dropdowns
-        document.querySelectorAll('.nav-dropdown').forEach(item => {
-          item.classList.remove('active');
-        });
-      }
-    });
-  }
-});
-</script>
-  <script src="/navbar.js"></script>
 </body>
 </html>
-
