@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Little Lights at Rest | LightMode Ministries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+    <style>
+      @font-face {
+            font-family: 'RecklessStandard';
+            src: url('./fonts/RecklessStandardM-TRIAL-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'RecklessWide';
+            src: url('./fonts/RecklessWideXL-TRIAL-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        /* ===== THEME VARIABLES ===== */
+        :root {
+            --bg-primary: #faf8f5;
+            --bg-secondary: #f5f0eb;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --bg-box-light: #f0ebe5;
+            --bg-box-purple: #5b4a8a;
+            --text-primary: #1a1a2e;
+            --text-secondary: #5a5a6e;
+            --text-muted: #8a8a9e;
+            --accent-violet: #7c3aed;
+            --accent-gold: #d97706;
+            --accent-green: #16a34a;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(124, 58, 237, 0.3);
+            --navbar-bg: #0A0E1A;
+            --navbar-border: rgba(255, 255, 255, 0.06);
+            --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+            --btn-primary-shadow: rgba(26, 26, 62, 0.25);
+            --btn-purple-bg: #6b5b9e;
+            --btn-light-bg: rgba(255, 255, 255, 0.9);
+            --btn-light-border: rgba(0, 0, 0, 0.1);
+            --footer-bg: #0A0E1A;
+            --footer-border: rgba(255, 255, 255, 0.05);
+            --study-warm-amber: #d4a574;
+            --hero-fade-dark: #0a0a12;
+            --hero-fade-light: #faf8f5;
+            --icon-box-bg: rgba(0, 0, 0, 0.05);
+            --soft-purple-text: #b8a9d4;
+            --soft-purple-bg: rgba(107, 91, 158, 0.1);
+        }
+
+        [data-theme="night"] {
+            --bg-primary: #0a0a12;
+            --bg-secondary: #12121f;
+            --bg-card: rgba(26, 26, 40, 0.7);
+            --bg-box-light: #1a1a2a;
+            --bg-box-purple: #3d3266;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b8a;
+            --accent-violet: #a78bfa;
+            --accent-gold: #fbbf24;
+            --accent-green: #4ade80;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(167, 139, 250, 0.3);
+            --navbar-bg: #0A0E1A;
+            --navbar-border: rgba(255, 255, 255, 0.06);
+            --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+            --btn-primary-shadow: rgba(26, 26, 62, 0.35);
+            --btn-purple-bg: #6b5b9e;
+            --btn-light-bg: rgba(255, 255, 255, 0.08);
+            --btn-light-border: rgba(255, 255, 255, 0.15);
+            --footer-bg: #0A0E1A;
+            --footer-border: rgba(255, 255, 255, 0.05);
+            --study-warm-amber: #d4a574;
+            --hero-fade-dark: #0a0a12;
+            --hero-fade-light: #faf8f5;
+            --icon-box-bg: rgba(255, 255, 255, 0.08);
+            --soft-purple-text: #b8a9d4;
+            --soft-purple-bg: rgba(107, 91, 158, 0.2);
+        }
+
+        /* ===== RESET & BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+             font-family: 'RecklessStandard', 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: var(--navbar-bg); border-bottom: 1px solid var(--navbar-border);
+            padding: 0 40px; height: 80px; display: flex; align-items: center; transition: background 0.3s;
+        }
+        .navbar-container {
+            width: 100%; max-width: 1400px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .navbar-brand img { height: 40px; }
+        .navbar-menu { display: flex; gap: 28px; font-weight: 500; font-size: 0.95rem; }
+        .navbar-menu a { color: rgba(255, 255, 255, 0.8); transition: color 0.2s; }
+        .navbar-menu a:hover { color: #fff; }
+        .navbar-actions { display: flex; align-items: center; gap: 20px; }
+        .theme-toggle {
+            display: flex; gap: 6px; background: rgba(255, 255, 255, 0.06);
+            padding: 4px; border-radius: 40px;
+        }
+        .theme-btn {
+            background: transparent; border: none; color: #aaa; width: 34px; height: 34px;
+            border-radius: 40px; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: 0.2s;
+        }
+        .theme-btn.active { background: #2a2a3e; color: #fff; }
+        .theme-btn svg { width: 20px; height: 20px; }
+        .navbar-toggle {
+            display: none; flex-direction: column; gap: 5px; background: transparent;
+            border: none; cursor: pointer;
+        }
+        .navbar-toggle span { width: 26px; height: 2px; background: #fff; border-radius: 4px; transition: 0.3s; }
+
+        @media (max-width: 900px) {
+            .navbar { padding: 0 20px; }
+            .navbar-menu { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%; background: var(--navbar-bg); padding: 20px; border-bottom: 1px solid var(--navbar-border); }
+            .navbar-menu.active { display: flex; }
+            .navbar-toggle { display: flex; }
+            .navbar-actions .navbar-buttons { display: none; }
+        }
+
+        /* ===== HERO ===== */
+        .hero-wrapper {
+            position: relative; width: 100%; min-height: 80vh;
+            background: url('/images/children.png') center/cover no-repeat;
+            background-color: #0a0a12;
+            display: flex; align-items: center;
+            padding: 120px 0 80px 0; margin-top: 0;
+            overflow: hidden;
+            height: 100vh;
+        }
+        [data-theme="day"] .hero-wrapper {
+            background-color: #1a1a2e;
+            background: url('/images/children.png') center/cover no-repeat;
+        }
+        
+        .hero-container {
+            max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 24px;
+            display: grid; grid-template-columns: 1fr; gap: 20px; align-items: start;
+        }
+        .hero-left {
+            display: flex; flex-direction: column; gap: 16px; z-index: 2; color: #fff;
+        }
+        .hero-back-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            border: 1px solid rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 40px;
+            color: #fff; font-size: 0.9rem; width: fit-content; transition: 0.2s;
+        }
+        .hero-back-btn:hover { background: rgba(255,255,255,0.1); }
+        .hero-title {
+            font-family: 'Playfair Display', serif; font-size: 3.8rem; line-height: 1.1;
+            font-weight: 700; letter-spacing: -0.02em;
+        }
+        .hero-title em {
+            font-family: 'Caveat', cursive; font-size: 3.2rem; color: var(--study-warm-amber); font-style: italic; display: block; margin-top: -10px;
+        }
+        .hero-divider {
+            display: flex; align-items: center; gap: 16px; color: var(--study-warm-amber);
+            margin: 4px 0 12px;
+        }
+        .hero-divider-line { width: 60px; height: 2px; background: var(--study-warm-amber); }
+        .hero-description {
+            font-size: 1.05rem; color: rgba(255, 255, 255, 0.85); max-width: 480px;
+            line-height: 1.7; font-weight: 300;
+        }
+        .hero-cta-btn {
+            display: inline-flex; align-items: center; gap: 12px;
+            background: var(--btn-purple-bg); color: #fff; border: none; padding: 14px 32px;
+            border-radius: 60px; font-weight: 600; font-size: 1rem; transition: 0.3s; width: fit-content;
+            cursor: pointer;
+        }
+        .hero-cta-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        .hero-cta-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+        /* ===== NOTE SECTION ===== */
+        .note-section {
+            background: var(--bg-primary); padding: 60px 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .note-container {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+        }
+        .note-left {
+            display: flex; flex-direction: column; gap: 12px;
+        }
+        .note-left .heading-icon { color: var(--study-warm-amber); font-size: 1.8rem; }
+        .note-left h2 {
+            font-family: 'Caveat', cursive; font-size: 2.8rem; color: var(--text-primary);
+            font-weight: 600;
+        }
+        .note-left h2 span { color: var(--study-warm-amber); }
+        .note-left p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+        .note-left p em { font-style: italic; color: var(--text-primary); font-weight: 500; }
+
+        .note-right {
+            display: flex; flex-direction: column; align-items: center; gap: 20px;
+            position: relative;
+        }
+        .note-right .deco-circle {
+            width: 140px; height: 140px; border-radius: 50%;
+            background: url('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80') center/cover no-repeat;
+            border: 2px solid var(--study-warm-amber); box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .note-right p {
+            font-size: 0.95rem; color: var(--text-secondary); max-width: 300px; text-align: center;
+        }
+
+        /* ===== STORY CARDS ===== */
+        .story-section-title {
+            text-align: center; padding: 50px 24px 0 24px;
+        }
+        .story-section-title h2 {
+            font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--text-primary);
+            border-bottom: 2px solid var(--study-warm-amber); display: inline-block; padding-bottom: 10px;
+        }
+        .story-section-title .heart-icon { color: var(--study-warm-amber); display: block; margin: 0 auto 10px; font-size: 1.2rem; }
+
+        .story-grid {
+            max-width: 1200px; margin: 0 auto 60px auto; padding: 40px 24px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+        }
+        .story-card {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 20px; overflow: hidden;
+            display: flex; flex-direction: row; align-items: stretch;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-height: 280px;
+        }
+        .story-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        
+        .story-card-img {
+            flex: 0 0 40%; position: relative;
+            background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80') center/cover no-repeat;
+            border-right: 1px solid var(--border-color);
+        }
+        .story-card:nth-child(2) .story-card-img {
+            background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80') center/cover no-repeat;
+        }
+        .story-badge {
+            position: absolute; top: 16px; left: 16px;
+            background: #3b4a8a; color: #fff; padding: 4px 14px; border-radius: 20px;
+            font-size: 0.8rem; font-weight: 600;
+        }
+
+        .story-card-content {
+            flex: 1; padding: 30px;
+            display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center;
+        }
+        .story-card-content h3 {
+            font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .story-card-content p {
+            color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; margin-bottom: 16px; flex-grow: 1;
+        }
+        .story-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--btn-purple-bg); color: #fff; padding: 10px 24px;
+            border-radius: 40px; font-weight: 500; font-size: 0.9rem; transition: 0.3s;
+        }
+        .story-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        .story-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+        .story-bottom-msg {
+            text-align: center; margin-top: -40px; margin-bottom: 60px; color: var(--text-secondary); font-size: 0.95rem;
+        }
+        .story-bottom-msg .heart-icon { color: var(--study-warm-amber); }
+
+        /* ===== BOTTOM GRID ===== */
+        .bottom-info-grid {
+            max-width: 1200px; margin: 0 auto 80px auto; padding: 0 24px;
+            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px;
+        }
+        .bottom-info-box {
+            background: var(--bg-box-light); border-radius: 20px; padding: 30px;
+            border: 1px solid var(--border-color); display: flex; flex-direction: column;
+        }
+        .bottom-info-box h3 {
+            font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text-primary); text-align: center; margin-bottom: 16px;
+        }
+        .bottom-info-box h3 .heart-icon { color: var(--study-warm-amber); display: block; margin-bottom: 4px; font-size: 1.2rem; }
+        
+        .bottom-info-box .icon-list { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
+        .bottom-info-box .icon-item { display: flex; gap: 12px; align-items: flex-start; }
+        .bottom-info-box .icon-item .icon {
+            flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+            background: var(--soft-purple-bg); color: var(--soft-purple-text);
+            display: flex; align-items: center; justify-content: center; font-size: 0.8rem;
+        }
+        .bottom-info-box .icon-item .icon svg { width: 14px; height: 14px; fill: currentColor; stroke: none; }
+        .bottom-info-box .icon-item p { font-size: 0.9rem; margin: 0; color: var(--text-secondary); }
+
+        /* Purple Box (Middle) */
+        .bottom-info-box.mid-box {
+            background: var(--bg-box-purple); color: #fff; border: none;
+            text-align: center; padding: 40px 30px;
+        }
+        .bottom-info-box.mid-box h3 { color: #fff; }
+        .bottom-info-box.mid-box .prayer-text {
+            font-family: 'Playfair Display', serif; font-size: 1.1rem; line-height: 1.7; color: rgba(255,255,255,0.85); margin-top: 10px;
+        }
+        .bottom-info-box.mid-box .prayer-text small {
+            font-family: 'Inter', sans-serif; font-size: 0.9rem; color: rgba(255,255,255,0.6); display: block; margin-top: 12px;
+        }
+
+        /* Verse Box */
+        .bottom-info-box.verse-box {
+            background: var(--bg-box-light); border: none; text-align: center;
+            position: relative; background-image: radial-gradient(circle at center, var(--border-color) 1px, transparent 1px); background-size: 20px 20px;
+        }
+        .bottom-info-box.verse-box .verse {
+            font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.6; font-style: italic; margin-bottom: 8px;
+        }
+        .bottom-info-box.verse-box .verse small {
+            font-family: 'Inter', sans-serif; font-size: 0.8rem; color: var(--text-muted); font-style: normal; display: block; margin-top: 4px; font-weight: 600;
+        }
+        
+        /* ===== NAVBAR DROPDOWN / SUBMENU CSS (FIXED) ===== */
+        .dropdown-submenu { position: relative; }
+        .submenu-toggle { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+        .submenu-arrow { font-size: 18px; line-height: 1; transition: transform 0.25s ease; }
+        .dropdown-submenu:hover .submenu-arrow { transform: translateX(3px); }
+
+        /* Submenu (Desktop) */
+        .submenu-menu {
+            position: absolute;
+            top: -8px;
+            left: calc(100% + 8px);
+            min-width: 190px;
+            padding: 8px;
+            margin: 0;
+            list-style: none;
+            background: rgba(7, 18, 38, 0.98);
+            border: 1px solid rgba(212, 160, 61, 0.35);
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-8px);
+            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+            z-index: 100;
+        }
+        .dropdown-submenu:hover > .submenu-menu {
+            opacity: 1; visibility: visible; transform: translateX(0);
+        }
+        
+        .submenu-menu .dropdown-link {
+            display: flex; align-items: center;
+            width: 100%; padding: 10px 12px;
+            border-radius: 7px; text-decoration: none; white-space: nowrap;
+        }
+        .submenu-menu .dropdown-link:hover {
+            background: rgba(212, 160, 61, 0.12); color: #d4a03d;
+        }
+
+        /* ===== TABLET ===== */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .submenu-menu { min-width: 175px; left: calc(100% + 5px); }
+            .submenu-menu .dropdown-link { padding: 9px 11px; font-size: 0.9rem; }
+        }
+
+        /* ===== MOBILE (FIXED TO USE CLASS .ACTIVE) ===== */
+        @media (max-width: 768px) {
+            .dropdown-submenu { width: 100%; position: relative; }
+            
+            /* Parent toggle on mobile */
+            .dropdown-submenu > .submenu-toggle {
+                width: 100%;
+                display: flex; align-items: center; justify-content: space-between;
+                padding: 12px 14px;
+            }
+            
+            .dropdown-submenu .submenu-arrow {
+                font-size: 18px;
+                transform: rotate(90deg);
+                transition: transform 0.25s ease;
+            }
+            .dropdown-submenu:hover .submenu-arrow { transform: rotate(90deg); }
+
+            /* Submenu becomes normal block (Hidden by default) */
+            .submenu-menu {
+                position: static;
+                width: 100%; min-width: 0;
+                display: none; /* Hidden until active */
+                margin: 2px 0 5px;
+                padding: 4px 0 4px 14px;
+                list-style: none;
+                background: rgba(139, 92, 246, 0.06);
+                border: 0;
+                border-left: 1px solid rgba(212, 160, 61, 0.35);
+                border-radius: 0;
+                box-shadow: none;
+                opacity: 1; visibility: visible; transform: none;
+            }
+
+            /* Show submenu when parent is active (FIX: Uses .active class instead of hover) */
+            .dropdown-submenu.active > .submenu-menu {
+                display: block;
+                opacity: 1; visibility: visible; transform: none;
+            }
+
+            /* Submenu links */
+            .submenu-menu .dropdown-link {
+                width: 100%; padding: 10px 14px;
+                color: rgba(255, 255, 255, 0.78);
+                font-size: 0.88rem; border-radius: 6px;
+            }
+            .submenu-menu .dropdown-link:hover {
+                color: #d4a03d; background: rgba(212, 160, 61, 0.08);
+            }
+        }
+
+        /* ===== SMALL MOBILE ===== */
+        @media (max-width: 480px) {
+            .dropdown-submenu > .submenu-toggle { padding: 11px 12px; font-size: 0.9rem; }
+            .submenu-menu { padding-left: 12px; }
+            .submenu-menu .dropdown-link { padding: 9px 12px; font-size: 0.84rem; }
+            .submenu-arrow { font-size: 16px; }
+        }
+
+        /* ===== FINAL DARK CTA ===== */
+        .bottom-cta-section {
+            background: var(--bg-secondary); padding: 60px 24px;
+            border-top: 1px solid var(--border-color);
+        }
+        [data-theme="night"] .bottom-cta-section { background: #0a0a12; border-top: 1px solid rgba(255,255,255,0.05); }
+        
+        .bottom-cta-container {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap;
+        }
+        .bottom-cta-left {
+            display: flex; align-items: center; gap: 20px;
+        }
+        .bottom-cta-left .heart-icon {
+            font-size: 4rem; color: var(--study-warm-amber);
+        }
+        .bottom-cta-left h2 {
+            font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--text-primary);
+        }
+        .bottom-cta-left h2 em {
+            font-family: 'Caveat', cursive; font-size: 2.2rem; color: var(--study-warm-amber); font-style: italic; display: block; margin-top: -6px;
+        }
+        .bottom-cta-right {
+            display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 300px;
+        }
+        .btn-cta-secondary {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: var(--btn-purple-bg); color: #fff;
+            padding: 14px 24px; border-radius: 60px; font-weight: 500; font-size: 0.95rem; transition: 0.3s; width: 100%; border: none;
+        }
+        .btn-cta-secondary:hover { opacity: 0.9; }
+        .btn-cta-secondary svg { width: 16px; height: 16px; fill: currentColor; stroke: none; }
+        .bottom-cta-right p { text-align:center; font-size:0.85rem; color:var(--text-muted); margin:0; line-height: 1.4; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .story-grid { grid-template-columns: 1fr; }
+            .bottom-info-grid { grid-template-columns: 1fr; max-width: 600px; }
+            .note-container { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            .note-left { align-items: center; }
+            .note-left p { max-width: 100%; }
+        }
+        @media (max-width: 900px) {
+            .hero-wrapper { min-height: 60vh; padding: 100px 0 60px 0; }
+            .hero-title { font-size: 2.8rem; }
+            .hero-title em { font-size: 2.4rem; }
+            .hero-left { align-items: center; text-align: center; }
+            .hero-description { max-width: 100%; }
+            .hero-divider { justify-content: center; }
+            .story-card { flex-direction: column; }
+            .story-card-img { flex: 0 0 180px; border-right: none; border-bottom: 1px solid var(--border-color); }
+            .bottom-cta-container { flex-direction: column; text-align: center; }
+            .bottom-cta-left { flex-direction: column; text-align: center; }
+            .bottom-cta-right { max-width: 100%; }
+        }
+        @media (max-width: 768px) {
+            .footer { padding: 30px 20px; }
+            .hero-title { font-size: 2.4rem; }
+        }
+    </style>
+    <link rel="stylesheet" href="/navbar.css">
+</head>
+<body>
+
+   <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-container">
+      <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home"><img src="/images/logo.png" alt="LightMode Ministries"></a>
+      <ul class="navbar-menu" id="navbar-menu" role="menubar">
+        <li><a href="/index.html" class="navbar-link">Home</a></li>
+        <li><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
+        <li class="nav-dropdown" role="none">
+            <a href="#" class="navbar-link dropdown-toggle">Teaching Library <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown-menu"><li><a href="/devotional-gallery.html" class="dropdown-link">Devotional Gallery</a></li><li><a href="/bible-study.html" class="dropdown-link">Bible Reading</a></li><li><a href="/daily-confessions.html" class="dropdown-link">Daily Confessions</a></li><li><a href="/sermons.html" class="dropdown-link">Sermons</a></li></ul>
+        </li>
+        <li class="nav-dropdown" role="none">
+            <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">LumenQuest <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown-menu"><li><a href="/animations.html" class="dropdown-link">Animations</a></li><li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li><li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li><li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li></ul>
+        </li>
+        <li><a href="/prayer-room.html" class="navbar-link">Prayer Room</a></li>
+        <li class="nav-dropdown" role="none">
+    <a href="/rest.html" class="navbar-link dropdown-toggle">
+        Rest <span class="dropdown-arrow">▼</span>
+    </a>
+
+    <ul class="dropdown-menu">
+
+        <li>
+            <a href="/deep-sleep.html" class="dropdown-link">
+                Deep Sleep
+            </a>
+        </li>
+
+       
+
+        <!-- BedTime Fables Submenu -->
+        <li class="dropdown-submenu">
+            <a href="#" class="dropdown-link submenu-toggle">
+                BedTime Fables
+                <span class="submenu-arrow">›</span>
+            </a>
+
+            <ul class="submenu-menu">
+                <li>
+                    <a href="/little-childrens.html" class="dropdown-link">
+                        Children Fables
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/little-adults.html" class="dropdown-link">
+                        Adult Fables
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+</li>
+        <li class="nav-dropdown" role="none">
+            <a href="/teens.html" class="navbar-link dropdown-toggle">Teens <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown-menu"><li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li><li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li><li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li></ul>
+        </li>
+      </ul>
+      <div class="navbar-actions">
+        <div class="navbar-buttons"><a href="/about.html" class="navbar-btn">About</a><a href="/contact.html" class="navbar-btn">Contact</a></div>
+        <div class="theme-toggle" role="group" aria-label="Theme toggle">
+            <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="12" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+            <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+        </div>
+        <div class="auth-buttons"><a href="/login.html" class="auth-btn auth-login">Log in</a><a href="/signup.html" class="auth-btn auth-signup">Sign up</a></div>
+        <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero-wrapper">
+    <div class="hero-container">
+      <div class="hero-left">
+        <a href="/rest.html" class="hero-back-btn">← Back to Rest</a>
+        <h1 class="hero-title">Little Lights at Rest:<br><em>Bedtime Fables for Children</em></h1>
+        <div class="hero-divider"><span>♡</span><div class="hero-divider-line"></div></div>
+        <p class="hero-description">
+          Gentle stories that spark imagination, bring peace, and surround little ones with God's love at the end of the day.
+        </p>
+        <button class="hero-cta-btn" onclick="document.querySelector('.story-grid').scrollIntoView({behavior:'smooth'});">
+            Choose a Story and Settle In <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NOTE SECTION ===== -->
+  <section class="note-section">
+    <div class="note-container">
+      <div class="note-left">
+        <div class="heading-icon">♡</div>
+        <h2><span>A Note for Parents</span></h2>
+        <p>Bedtime is more than the end of a busy day. It's a beautiful opportunity to help your child's heart slow down, their mind settle, and their spirit rest in the truth that God is with them.</p>
+        <p><em>Our bedtime fables are created to be more than just stories. They are gentle reminders of God's love, goodness, and faithfulness.</em></p>
+        <p>Snuggle close. Take a deep breath. Let's end the day together.</p>
+      </div>
+      <div class="note-right">
+        <div class="deco-circle"></div>
+        <p>May these stories bring sweet dreams, peaceful hearts, and a night filled with His presence.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STORY CARDS ===== -->
+  <div class="story-section-title">
+    <span class="heart-icon">♡</span>
+    <h2>Choose Tonight's Fable</h2>
+  </div>
+
+  <div class="story-grid">
+    <!-- Card 1 -->
+    <div class="story-card">
+      <div class="story-card-img">
+        <div class="story-badge">Story 1</div>
+      </div>
+      <div class="story-card-content">
+        <div>
+            <h3>Ollie's<br>Quiet Light</h3>
+            <p>Ollie learns that even the smallest light can shine bright when God is with you.</p>
+        </div>
+        <a href="#" class="story-btn">Read or Listen <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="story-card">
+      <div class="story-card-img">
+        <div class="story-badge">Story 2</div>
+      </div>
+      <div class="story-card-content">
+        <div>
+            <h3>Benny and the<br>Big Worry</h3>
+            <p>Benny discovers he doesn't have to carry his worries when he talks to God.</p>
+        </div>
+        <a href="#" class="story-btn">Read or Listen <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-bottom-msg">
+    <span class="heart-icon">♡</span> More bedtime fables are on the way! <br>Come back often for new stories.
+  </div>
+
+  <!-- ===== BOTTOM INFO GRID ===== -->
+  <div class="bottom-info-grid">
+    <!-- Box 1 -->
+    <div class="bottom-info-box">
+      <h3><span class="heart-icon">♡</span>Tips for a Peaceful Bedtime</h3>
+      <div class="icon-list">
+        <div class="icon-item">
+          <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="12"/><line x1="12" y1="12" x2="8" y2="16"/></svg></div>
+          <p><strong>Create a Calm Space.</strong><br>Dim the lights, lower the noise, and make the room cozy.</p>
+        </div>
+        <div class="icon-item">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+          <p><strong>Keep a Gentle Routine.</strong><br>A simple rhythm helps little hearts and bodies know it's time to rest.</p>
+        </div>
+        <div class="icon-item">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <p><strong>Share a Story or Scripture.</strong><br>God's Word and a good story plant seeds of truth.</p>
+        </div>
+        <div class="icon-item">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10"/><path d="M12 2v4"/><path d="M12 18v4"/><circle cx="12" cy="12" r="4"/></svg></div>
+          <p><strong>Pray and Let Go.</strong><br>Talk to God together and give the day into His hands.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 2 (Purple) -->
+    <div class="bottom-info-box mid-box">
+      <h3><span class="heart-icon">♡</span>A Bedtime Prayer</h3>
+      <div class="prayer-text">
+        Dear God,<br>
+        Thank You for this day.<br>
+        Thank You for being with me<br>
+        and for loving me so much.<br>
+        Please watch over me as I sleep<br>
+        and help me have sweet dreams.<br>
+        In Jesus' name,<br>
+        Amen.
+        <small>— A prayer for little hearts</small>
+      </div>
+    </div>
+
+    <!-- Box 3 (Verse) -->
+    <div class="bottom-info-box verse-box">
+      <div class="verse">
+        “ I will both lay me down <br>in peace, and sleep: <br>for thou, LORD, <br>only makest me <br>dwell in safety. ”
+        <small>PSALM 4:8</small>
+      </div>
+      <div style="margin-top:20px; opacity:0.5; font-size:2rem; color:var(--study-warm-amber);">❝</div>
+    </div>
+  </div>
+
+  <!-- ===== BOTTOM CTA ===== -->
+  <section class="bottom-cta-section">
+      <div class="bottom-cta-container">
+          <div class="bottom-cta-left">
+              <span class="heart-icon">♡</span>
+              <div>
+                  <h2>You are loved. You are safe.<br><em>You can rest in His love.</em></h2>
+              </div>
+          </div>
+          <div class="bottom-cta-right">
+              <a href="/rest.html" class="btn-cta-secondary">← Back to Rest</a>
+              <p>Explore more ways to rest and experience His peace.</p>
+          </div>
+      </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/images/logo.png" alt="LightMode Ministries Logo">
+        <p class="footer-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links"><li><a href="/">Home</a></li><li><a href="/about">About</a></li><li><a href="/children">Children</a></li><li><a href="/expressions">Expressions</a></li><li><a href="/publications">Publications</a></li><li><a href="/animations">Animations</a></li></ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Privacy Policy</h4>
+        <ul class="footer-links"><li><a href="/privacy">Privacy Policy</a></li><li><a href="/terms">Terms & Conditions</a></li><li><a href="/order-policy">Order Policy</a></li><li><a href="/booking-policy">Booking Policy</a></li></ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Info</h4>
+        <p class="footer-contact">Serving London: KT, SW, W, EC postcodes</p>
+        <p class="footer-contact">hello@lightmode.org</p>
+        <div class="footer-form">
+          <div class="footer-form__header"><h5 class="footer-form__title">Contact Us</h5></div>
+          <div class="footer-form__body">
+            <input type="email" class="footer-form__input" placeholder="Enter Email Address" aria-label="Your email address" style="padding: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); border-radius: 4px; color: #fff; width: 100%; margin-bottom: 10px;">
+            <button class="footer-form__submit" onclick="alert('Message sent!')" style="padding: 8px 16px; background: #fbbf24; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom__content">
+        <p class="footer-credit">Designed By Digital Software Labs</p>
+        <div class="footer-legal"><a href="/terms">Terms & Conditions</a><span>|</span><a href="/privacy">Privacy Policy</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // ===== THEME TOGGLE =====
+    function setTheme(mode) {
+      const html = document.documentElement;
+      const btnDay = document.getElementById('btn-day');
+      const btnNight = document.getElementById('btn-night');
+      if (mode === 'night') {
+        html.setAttribute('data-theme', 'night');
+        btnNight.classList.add('active');
+        btnDay.classList.remove('active');
+        localStorage.setItem('theme', 'night');
+      } else {
+        html.removeAttribute('data-theme');
+        btnDay.classList.add('active');
+        btnNight.classList.remove('active');
+        localStorage.setItem('theme', 'day');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'night') setTheme('night');
+      else setTheme('day');
+
+      // ===== MOBILE MENU TOGGLE =====
+      const toggle = document.querySelector('.navbar-toggle');
+      const menu = document.getElementById('navbar-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !expanded);
+          this.classList.toggle('active');
+          menu.classList.toggle('active');
+        });
+        
+        menu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function(e) {
+            // Handle dropdown toggles on mobile
+            if (window.innerWidth <= 768 && (this.classList.contains('dropdown-toggle') || this.classList.contains('submenu-toggle'))) {
+              e.preventDefault();
+              const parent = this.closest('.nav-dropdown, .dropdown-submenu');
+              if (parent) {
+                  // If it's a submenu toggle, toggle the submenu active state
+                  if(this.classList.contains('submenu-toggle')) {
+                      this.closest('.dropdown-submenu').classList.toggle('active');
+                  } else {
+                      parent.classList.toggle('active');
+                  }
+              }
+              return;
+            }
+            
+            // Close menu on link click (mobile only)
+            if (window.innerWidth <= 768) {
+              menu.classList.remove('active');
+              toggle.classList.remove('active');
+              toggle.setAttribute('aria-expanded', 'false');
+              // Reset dropdowns
+              document.querySelectorAll('.nav-dropdown, .dropdown-submenu').forEach(item => item.classList.remove('active'));
+            }
+          });
+        });
+
+        window.addEventListener('resize', function() {
+          if (window.innerWidth > 768) {
+            menu.classList.remove('active');
+            toggle.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            document.querySelectorAll('.nav-dropdown, .dropdown-submenu').forEach(item => item.classList.remove('active'));
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

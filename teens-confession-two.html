@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('theme') === 'night') {
+          document.documentElement.setAttribute('data-theme', 'night');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confession Two — My Mind Belongs to God | LightMode Teens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Great+Vibes&family=Lato:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+ @font-face {
+            font-family: 'RecklessStandard';
+            src: url('./fonts/RecklessStandardM-TRIAL-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'RecklessWide';
+            src: url('./fonts/RecklessWideXL-TRIAL-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    /* ===== SHARED THEME ===== */
+    :root {
+      --bg-primary: #faf8f5;
+      --bg-secondary: #f5f0eb;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-box-light: #f0ebe5;
+      --bg-box-purple: #5b4a8a;
+      --text-primary: #1a1a2e;
+      --text-secondary: #5a5a6e;
+      --text-muted: #8a8a9e;
+      --accent-violet: #7c3aed;
+      --accent-gold: #d97706;
+      --accent-green: #16a34a;
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-hover: rgba(124, 58, 237, 0.3);
+      --navbar-bg: #0A0E1A;
+      --navbar-border: rgba(255, 255, 255, 0.06);
+      --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+      --btn-primary-shadow: rgba(26, 26, 62, 0.25);
+      --btn-purple-bg: #6b5b9e;
+      --btn-light-bg: rgba(255, 255, 255, 0.9);
+      --btn-light-border: rgba(0, 0, 0, 0.1);
+      --footer-bg: #0A0E1A;
+      --footer-border: rgba(255, 255, 255, 0.05);
+      --study-warm-amber: #d4a574;
+      --hero-fade-dark: #0a0a12;
+      --hero-fade-light: #faf8f5;
+      --icon-box-bg: rgba(0, 0, 0, 0.05);
+      --soft-purple-text: #b8a9d4;
+      --soft-purple-bg: rgba(107, 91, 158, 0.1);
+      
+      /* Page Tokens mapped to variables */
+      --navy: #1c2e4a;
+      --navy-dark: #0f1c33;
+      --purple: #7a3f9e;
+      --purple-deep: #5c2d7a;
+      --teal: #2f9e96;
+      --teal-dark: #217a74;
+      --teal-light: #d8f0ed;
+      --lavender: #efe6f6;
+      --lavender-deep: #e4d6f0;
+      --cream: #fdfbf7;
+      --white: #ffffff;
+      --card-bg: #ffffff;
+      --border-soft: rgba(47, 158, 150, 0.28);
+      --page-padding: 50px;
+
+      --fs-hero: 72px;
+      --fs-subtitle: 15px;
+      --fs-body: 18px;
+      --fs-h2: 42px;
+      --fs-h3: 22px;
+      --fs-small: 14px;
+      --fs-label: 11px;
+    }
+
+    /* ===== NIGHT THEME OVERRIDES ===== */
+    [data-theme="night"] {
+      --bg-primary: #0a0a12;
+      --bg-secondary: #12121f;
+      --bg-card: rgba(26, 26, 40, 0.7);
+      --bg-box-light: #1a1a2a;
+      --bg-box-purple: #3d3266;
+      --text-primary: #ffffff;
+      --text-secondary: #a0a0b8;
+      --text-muted: #6b6b8a;
+      --accent-violet: #a78bfa;
+      --accent-gold: #fbbf24;
+      --accent-green: #4ade80;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(167, 139, 250, 0.3);
+      --btn-light-bg: rgba(255, 255, 255, 0.08);
+      --btn-light-border: rgba(255, 255, 255, 0.15);
+      --icon-box-bg: rgba(255, 255, 255, 0.08);
+      --soft-purple-bg: rgba(107, 91, 158, 0.2);
+
+      /* Page Tokens Dark */
+      --cream: #0a0a12;
+      --cream-dark: #12121f;
+      --card-bg: #12121f;
+      --beige: #1a1a2a;
+      --beige-bar: #1a1a2a;
+      --light-blue: #1a1a2a;
+      --light-blue-bg: #1a1a2a;
+      --light-blue-box: #1a1a2a;
+      --truth-card-bg: #1a1a2a;
+      --lavender: rgba(107, 91, 158, 0.2);
+      --lavender-deep: #1a1a2a;
+      --teal-light: #1a1a2a;
+      --navy: #ffffff;
+      --navy-dark: #ffffff;
+      --text: #ffffff;
+      --white: #12121f;
+      --yellow: #fbbf24;
+      --yellow-light: #fbbf24;
+      --yellow-dark: #fbbf24;
+      --border-yellow: #fbbf24;
+      --orange-gold: #fbbf24;
+      --purple: #a78bfa;
+      --purple-deep: #a78bfa;
+      --teal: #2f9e96;
+      --teal-dark: #6b5b9e;
+      --border-soft: rgba(255, 255, 255, 0.08);
+    }
+
+    body {
+      background-color: var(--bg-primary) !important;
+      color: var(--text-primary);
+      transition: background-color 0.5s ease, color 0.5s ease;
+       font-family: 'RecklessStandard', 'Inter', sans-serif;
+      font-size: var(--fs-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    
+    a { text-decoration: none; color: inherit; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ===== NAVBAR HELPER ===== */
+    .dropdown-submenu { position: relative; }
+    .submenu-toggle { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .submenu-arrow { font-size: 18px; line-height: 1; transition: transform 0.25s ease; }
+    .dropdown-submenu:hover .submenu-arrow { transform: translateX(3px); }
+    .submenu-menu {
+      position: absolute; top: -8px; left: calc(100% + 8px); min-width: 190px; padding: 8px; margin: 0; list-style: none;
+      background: rgba(7, 18, 38, 0.98); border: 1px solid rgba(212, 160, 61, 0.35); border-radius: 10px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35); opacity: 0; visibility: hidden; transform: translateX(-8px);
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease; z-index: 100;
+    }
+    .dropdown-submenu:hover > .submenu-menu { opacity: 1; visibility: visible; transform: translateX(0); }
+    .submenu-menu .dropdown-link { display: flex; align-items: center; width: 100%; padding: 10px 12px; border-radius: 7px; text-decoration: none; white-space: nowrap; }
+    .submenu-menu .dropdown-link:hover { background: rgba(212, 160, 61, 0.12); color: #d4a03d; }
+    @media (max-width: 768px) {
+      .dropdown-submenu { width: 100%; }
+      .dropdown-submenu > .submenu-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; }
+      .dropdown-submenu .submenu-arrow { font-size: 18px; transform: rotate(90deg); }
+      .submenu-menu {
+        position: static; width: 100%; min-width: 0; display: none; margin: 2px 0 5px; padding: 4px 0 4px 14px;
+        background: rgba(139, 92, 246, 0.06); border: 0; border-left: 1px solid rgba(212, 160, 61, 0.35);
+        border-radius: 0; box-shadow: none; opacity: 1; visibility: visible; transform: none;
+      }
+      .dropdown-submenu.active > .submenu-menu { display: block; }
+      .submenu-menu .dropdown-link { width: 100%; padding: 10px 14px; color: rgba(255,255,255,0.78); font-size: 0.88rem; border-radius: 6px; }
+      .submenu-menu .dropdown-link:hover { color: #d4a03d; background: rgba(212, 160, 61, 0.08); }
+    }
+
+    .page-container {
+      width: 100%;
+      max-width: 100%;
+      padding-left: var(--page-padding);
+      padding-right: var(--page-padding);
+      box-sizing: border-box;
+    }
+
+    /* =========================================
+       HERO SECTION (FIXED THEMING)
+    ========================================= */
+    .hero-section {
+      width: 100%;
+      background: var(--bg-primary);
+      position: relative;
+      padding-bottom: 88px;
+      overflow: visible;
+      min-height: 640px;
+      transition: background-color 0.5s ease;
+      margin-top: 70px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 14%;
+      
+      z-index: 4;
+    }
+
+    .hero-bg-solid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 48%;
+      height: 100%;
+      background: var(--bg-primary);
+      z-index: 1;
+    }
+
+    .hero-bg-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 52%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-bg-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, rgba(0,0,0,0.5) 80%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 0%, #000 55%, rgba(0,0,0,0.5) 80%, transparent 100%);
+    }
+
+    .hero-bg-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 42%;
+      height: 100%;
+      background: linear-gradient(to right, var(--bg-primary) 0%, var(--bg-primary) 25%, rgba(0,0,0,0.1) 65%, transparent 100%);
+      z-index: 2;
+      transition: background-color 0.5s ease;
+    }
+
+    .hero-verse-badge {
+      position: absolute;
+      top: 28px;
+      right: 36px;
+      z-index: 5;
+      width: 148px;
+      height: 148px;
+      border-radius: 50%;
+      background: var(--purple);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(92, 45, 122, 0.35);
+    }
+
+    .hero-verse-badge span {
+      font-family: 'Lato', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
+    .hero-foreground {
+      position: relative;
+      z-index: 3;
+      min-height: calc(640px - 88px);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-body {
+      width: 48%;
+      min-height: calc(640px - 88px);
+      padding: 0 var(--page-padding);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .hero-body .page-container {
+      padding-left: 0;
+      padding-right: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-content {
+      max-width: 420px;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: var(--fs-hero);
+      font-weight: 400;
+      color: var(--purple);
+      line-height: 1.05;
+      margin-bottom: 8px;
+    }
+
+    .hero-kicker {
+      font-family: 'Lato', sans-serif;
+      font-size: var(--fs-subtitle);
+      font-weight: 700;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .hero-divider .line {
+      width: 64px;
+      height: 2px;
+      background: var(--teal);
+      border-radius: 2px;
+    }
+
+    .hero-divider .heart {
+      width: 12px;
+      height: 12px;
+      color: var(--teal);
+    }
+
+    .hero-content > p {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: var(--fs-body);
+      color: var(--navy);
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+
+    .hero-cta {
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    /* =========================================
+       MAIN CARD 
+    ========================================= */
+    .main-wrapper {
+      padding-bottom: 60px;
+      margin-top: -105px;
+      position: relative;
+      z-index: 20;
+    }
+
+    .confession-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      width: 100%;
+      overflow: visible;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    .card-badge {
+      text-align: center;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      z-index: 5;
+      width: 100%;
+      pointer-events: none;
+    }
+
+    .card-badge span {
+      display: inline-block;
+      background: var(--teal-dark);
+      color: var(--white);
+      font-family: 'Lato', sans-serif;
+      font-size: var(--fs-label);
+      font-weight: 700;
+      letter-spacing: 2.4px;
+      padding: 9px 26px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      pointer-events: auto;
+    }
+
+    .card-top-section {
+      padding-top: 28px;
+      background: var(--card-bg);
+      border-radius: 14px 14px 0 0;
+    }
+
+    .card-header {
+      position: relative;
+      padding: 20px 50px 18px 130px;
+      text-align: center;
+    }
+
+    .bulb-wrap {
+      position: absolute;
+      left: 40px;
+      top: 50%;
+      transform: translateY(-52%);
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(47, 158, 150, 0.35);
+    }
+
+    .bulb-wrap svg {
+      width: 42px;
+      height: 42px;
+      color: var(--white);
+    }
+
+    .card-header-text {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .card-header-text h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: var(--fs-h2);
+      font-weight: 400;
+      color: var(--purple);
+      margin-bottom: 10px;
+      line-height: 1.15;
+    }
+
+    .card-header-text .card-subtitle {
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      font-style: normal;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.55;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .card-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 0 auto 14px;
+      max-width: 220px;
+    }
+
+    .card-divider .line {
+      flex: 1;
+      height: 2px;
+      background: var(--teal);
+      opacity: 0.85;
+    }
+
+    .card-divider .heart {
+      width: 10px;
+      height: 10px;
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+
+    .scripture-foundation {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .scripture-foundation .sf-label {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--purple);
+    }
+
+    .scripture-foundation .sf-verse {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: var(--fs-body);
+      font-style: italic;
+      color: var(--navy);
+      max-width: 500px;
+      line-height: 1.55;
+    }
+
+    .scripture-foundation .sf-ref {
+      font-family: 'Lato', sans-serif;
+      font-size: var(--fs-label);
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--teal);
+      text-transform: uppercase;
+    }
+
+    /* =========================================
+       AUDIO BAR & PLAYER (FIXED WITH JS)
+    ========================================= */
+    .audio-bar {
+      background: var(--teal-light);
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: 10px 18px;
+      margin: 0 40px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .audio-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .speaker-wrap {
+      width: 30px;
+      height: 30px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .speaker-icon {
+      width: 17px;
+      height: 17px;
+      color: var(--teal);
+    }
+
+    .audio-left p {
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.42;
+    }
+
+    /* Audio Controls Layout */
+    .audio-controls-wrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex: 1;
+        max-width: 320px;
+    }
+    
+    .audio-timeline {
+        flex: 1;
+        height: 4px;
+        background: rgba(0,0,0,0.15);
+        border-radius: 2px;
+        position: relative;
+        cursor: pointer;
+    }
+    
+    .audio-fill {
+        position: absolute;
+        left: 0; top: 0; height: 100%;
+        width: 0%;
+        background: var(--teal-dark);
+        border-radius: 2px;
+    }
+    
+    .audio-thumb {
+        position: absolute;
+        left: 0%; top: 50%;
+        transform: translate(-50%, -50%);
+        width: 12px; height: 12px;
+        background: var(--teal-dark);
+        border-radius: 50%;
+        transition: left 0.1s linear;
+        display: none; /* Show on hover/active */
+    }
+    .audio-controls-wrap:hover .audio-thumb { display: block; }
+
+    .time-stamp {
+        font-family: 'Lato', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        min-width: 45px;
+        text-align: center;
+    }
+
+    .audio-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      border: 1.5px solid var(--teal);
+      border-radius: 6px;
+      padding: 9px 14px;
+      font-family: 'Lato', sans-serif;
+      font-size: var(--fs-label);
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      color: var(--teal-dark);
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+
+    .audio-btn:hover { background: rgba(255, 255, 255, 0.7); }
+    .audio-btn svg { width: 15px; height: 15px; color: var(--teal); fill: var(--teal); }
+
+    /* =========================================
+       TWO COLUMN LAYOUT
+    ========================================= */
+    .content-grid {
+      display: flex;
+      align-items: stretch;
+      gap: 18px;
+      padding: 0 28px 28px;
+      background: transparent;
+      overflow: visible;
+    }
+
+    .col-left {
+      flex: 0 0 57%;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    .col-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .confess-header {
+      background: var(--navy);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .confess-header h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .confess-header .flourish {
+      width: 48px;
+      height: 16px;
+      color: var(--teal);
+    }
+
+    .confession-list {
+      list-style: none;
+      padding: 20px 22px 8px;
+    }
+
+    .confession-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .check-icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .confession-text .statement {
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.4;
+    }
+
+    .confession-text .ref {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--purple);
+      margin-top: 2px;
+    }
+
+    .conqueror-footer {
+      padding: 12px 22px 28px;
+      text-align: center;
+    }
+
+    .conqueror-quote {
+      color: var(--purple);
+    }
+
+    .conqueror-line1,
+    .conqueror-line2-wrap {
+      font-family: 'Great Vibes', cursive;
+      font-size: 26px;
+      line-height: 1.25;
+    }
+
+    .conqueror-line2-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .conqueror-swoosh {
+      display: block;
+      width: 180px;
+      height: 12px;
+      margin: 4px auto 0;
+      color: var(--purple);
+    }
+
+    /* =========================================
+       SIDE CARDS
+    ========================================= */
+    .truth-section {
+      background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-box-light) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 28px 24px 22px;
+      text-align: center;
+    }
+
+    .truth-section h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--purple);
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    .truth-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .truth-divider .line {
+      width: 48px;
+      height: 1px;
+      background: var(--teal);
+    }
+
+    .truth-divider .heart {
+      width: 10px;
+      height: 10px;
+      color: var(--teal);
+    }
+
+    .truth-body {
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+
+    .truth-emphasis {
+      font-family: 'Great Vibes', cursive;
+      font-size: 22px;
+      color: var(--teal);
+      line-height: 1.35;
+    }
+
+    .scripture-block {
+      background: var(--bg-box-light);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .crown-icon {
+      width: 28px;
+      height: 36px;
+      flex-shrink: 0;
+      color: var(--purple);
+    }
+
+    .scripture-block-text .sb-verse {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    .scripture-block-text .sb-ref {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .action-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-primary);
+      border: 1.5px solid var(--border-color);
+      border-radius: 8px;
+      padding: 14px 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+      color: var(--navy);
+    }
+
+    .action-btn:hover { background: var(--teal-light); border-color: var(--teal); }
+
+    .action-btn svg {
+      width: 22px;
+      height: 22px;
+      color: var(--teal);
+    }
+
+    .action-btn span {
+      font-family: 'Lato', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-align: center;
+    }
+
+    .explore-btn-wrapper { margin-top: 2px; }
+
+    .explore-btn {
+      width: 100%;
+      background: var(--teal-dark);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .explore-btn:hover { background: var(--teal); }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+    @media (max-width: 1100px) {
+      :root {
+        --page-padding: 32px;
+        --fs-hero: 58px;
+        --fs-h2: 36px;
+      }
+      .hero-section { min-height: 560px; }
+      .hero-foreground, .hero-body { min-height: calc(560px - 88px); }
+      .hero-body { width: 50%; }
+      .hero-bg-solid { width: 50%; }
+      .hero-bg-image { width: 50%; }
+      .card-header { padding: 18px 36px 16px 112px; }
+      .bulb-wrap { left: 28px; width: 76px; height: 76px; }
+      .audio-bar { margin: 0 28px 20px; flex-wrap: wrap; }
+      .audio-controls-wrap { max-width: 100%; width: 100%; }
+      .content-grid { padding: 0 22px 24px; gap: 14px; }
+      .col-left { flex: 0 0 54%; }
+      .hero-verse-badge { width: 120px; height: 120px; right: 20px; top: 20px; }
+      .hero-verse-badge span { font-size: 9px; }
+    }
+
+    @media (max-width: 900px) {
+      :root {
+        --page-padding: 24px;
+        --fs-hero: 52px;
+        --fs-h2: 34px;
+        --fs-body: 16px;
+      }
+      .hero-section {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 60px;
+      }
+      .hero-bg { position: relative; order: 2; }
+      .hero-foreground { order: 1; min-height: auto; display: block; }
+      .hero-bg-image { position: relative; width: 100%; height: 320px; }
+      .hero-bg-solid { display: none; }
+      .hero-bg-image::after { display: none; }
+      .hero-bg::before { height: 18%; }
+      .hero-body {
+        width: 100%;
+        min-height: auto;
+        padding: 36px 0 32px;
+        justify-content: center;
+      }
+      .hero-body .page-container { padding-left: var(--page-padding); padding-right: var(--page-padding); }
+      .main-wrapper { margin-top: -75px; padding-bottom: 40px; }
+      .card-header { padding: 22px 28px 18px; }
+      .bulb-wrap {
+        position: static;
+        display: flex;
+        margin: 0 auto 18px;
+        transform: none;
+      }
+      .audio-bar {
+        flex-direction: column;
+        margin: 0 24px 20px;
+        padding: 16px;
+      }
+      .audio-left { width: 100%; justify-content: center; }
+      .audio-controls-wrap { width: 100%; }
+      .audio-btn { width: 100%; justify-content: center; margin-left: 0; }
+      .content-grid {
+        flex-direction: column;
+        padding: 0 20px 24px;
+        gap: 16px;
+      }
+      .col-left { flex: none; }
+      .hero-verse-badge { top: 16px; right: 16px; }
+    }
+
+    @media (max-width: 600px) {
+      :root {
+        --page-padding: 16px;
+        --fs-hero: 44px;
+        --fs-h2: 30px;
+        --fs-body: 15px;
+      }
+      .hero-section { padding-bottom: 48px; }
+      .hero-body { padding: 28px 0 24px; }
+      .hero-bg-image { height: 240px; }
+      .main-wrapper { margin-top: -52px; padding-bottom: 32px; }
+      .card-badge span { padding: 7px 16px; }
+      .card-header { padding: 18px 16px 16px; }
+      .bulb-wrap { width: 68px; height: 68px; }
+      .audio-bar { margin: 0 16px 18px; }
+      .content-grid { padding: 0 12px 16px; gap: 12px; }
+      .confession-list { padding: 18px 16px 10px; }
+      .action-buttons { flex-direction: column; }
+      .hero-verse-badge { width: 100px; height: 100px; }
+      .hero-verse-badge span { font-size: 8px; }
+      .conqueror-line1, .conqueror-line2-wrap { font-size: 22px; }
+    }
+  </style>
+  <link rel="stylesheet" href="/navbar.css">
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-container">
+      <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home"><img src="/images/logo.png" alt="LightMode Ministries"></a>
+      <ul class="navbar-menu" id="navbar-menu" role="menubar">
+        <li><a href="/index.html" class="navbar-link">Home</a></li>
+        <li><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
+        <li class="nav-dropdown" role="none">
+            <a href="#" class="navbar-link dropdown-toggle">Teaching Library <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown-menu"><li><a href="/devotional-gallery.html" class="dropdown-link">Devotional Gallery</a></li><li><a href="/bible-study.html" class="dropdown-link">Bible Reading</a></li><li><a href="/daily-confessions.html" class="dropdown-link">Daily Confessions</a></li><li><a href="/sermons.html" class="dropdown-link">Sermons</a></li></ul>
+        </li>
+        <li class="nav-dropdown" role="none">
+            <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">LumenQuest <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown-menu"><li><a href="/animations.html" class="dropdown-link">Animations</a></li><li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li><li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li><li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li></ul>
+        </li>
+        <li><a href="/prayer-room.html" class="navbar-link">Prayer Room</a></li>
+        <li class="nav-dropdown" role="none">
+    <a href="#" class="navbar-link dropdown-toggle">
+        Rest <span class="dropdown-arrow">▼</span>
+    </a>
+    <ul class="dropdown-menu">
+        <li><a href="/deep-sleep.html" class="dropdown-link">Deep Sleep</a></li>
+        <li><a href="/prayer-video.html" class="dropdown-link">Prayer Video</a></li>
+        <li class="dropdown-submenu">
+            <a href="#" class="dropdown-link submenu-toggle">BedTime Fables <span class="submenu-arrow">›</span></a>
+            <ul class="submenu-menu">
+                <li><a href="/children-fables.html" class="dropdown-link">Children Fables</a></li>
+                <li><a href="/adult-fables.html" class="dropdown-link">Adult Fables</a></li>
+            </ul>
+        </li>
+    </ul>
+</li>
+        <li class="nav-dropdown" role="none">
+            <a href="/teens.html" class="navbar-link dropdown-toggle">Teens <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown-menu"><li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li><li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li><li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li></ul>
+        </li>
+      </ul>
+      <div class="navbar-actions">
+        <div class="navbar-buttons"><a href="/about.html" class="navbar-btn">About</a><a href="/contact.html" class="navbar-btn">Contact</a></div>
+        <div class="theme-toggle" role="group" aria-label="Theme toggle">
+            <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="12" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+            <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+        </div>
+        <div class="auth-buttons"><a href="/login.html" class="auth-btn auth-login">Log in</a><a href="/signup.html" class="auth-btn auth-signup">Sign up</a></div>
+        <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero-section">
+    <div class="hero-bg">
+      <div class="hero-bg-solid"></div>
+      <div class="hero-bg-image">
+        <!-- Placeholder image - replace with your actual path -->
+        <img src="/images/mind.png" alt="Speak Light — My Mind Belongs to God">
+        <div class="hero-verse-badge">
+          <span>Let your words agree with God's Word.<br>Proverbs 18:21</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-foreground">
+      <div class="hero-body">
+        <div class="page-container">
+          <div class="hero-content">
+            <h1>Speak Light</h1>
+            <div class="hero-kicker">Daily Confessions for Teens</div>
+            <div class="hero-divider">
+              <span class="line"></span>
+              <svg class="heart" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span class="line"></span>
+            </div>
+            <p>Your words shape your world. When you speak God's truth, you build faith, clear thinking, and a future filled with hope.</p>
+            <div class="hero-cta">Speak it. Believe it. Live it.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <div class="page-container">
+  <div class="main-wrapper">
+    <div class="confession-card">
+      <div class="card-badge">
+        <span>Confession Two</span>
+      </div>
+
+      <div class="card-top-section">
+      <div class="card-header">
+        <div class="bulb-wrap" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none">
+            <g stroke="currentColor" stroke-width="1.4" opacity="0.85">
+              <line x1="24" y1="2" x2="24" y2="8"/><line x1="8" y1="10" x2="12" y2="14"/>
+              <line x1="40" y1="10" x2="36" y2="14"/><line x1="4" y1="24" x2="10" y2="24"/>
+              <line x1="44" y1="24" x2="38" y2="24"/>
+            </g>
+            <path d="M14 16 C14 10 18 8 24 8 C30 8 34 10 34 16 C34 22 30 26 24 28 C18 26 14 22 14 16Z" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M24 22 C21 22 19 24 19 26.5 C19 29 24 32 24 32 C24 32 29 29 29 26.5 C29 24 27 22 24 22Z" fill="currentColor"/>
+            <path d="M20 34 L24 30 L28 34" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+
+        <div class="card-header-text">
+          <h2>My Mind Belongs to God</h2>
+          <p class="card-subtitle">I think on what is true. I choose what I focus on. I let God renew my mind every day.</p>
+          <div class="card-divider">
+            <span class="line"></span>
+            <svg class="heart" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <span class="line"></span>
+          </div>
+          <div class="scripture-foundation">
+            <span class="sf-label">Scripture Foundation</span>
+            <p class="sf-verse">"And do not be conformed to this world, but be transformed by the renewing of your mind, that you may prove what is that good and acceptable and perfect will of God."</p>
+            <span class="sf-ref">Romans 12:2 (NKJV)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUDIO BAR WITH IMPROVED CONTROLS -->
+      <div class="audio-bar">
+        <audio id="confessionAudio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="metadata"></audio>
+        
+        <div class="audio-left">
+          <div class="speaker-wrap">
+            <svg class="speaker-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </div>
+          <p>Speak this confession out loud, slowly and with faith.<br>Let these truths sink deep into your heart today.</p>
+        </div>
+
+        <div class="audio-controls-wrap">
+            <span class="time-stamp" id="audioTime">0:00</span>
+            <div class="audio-timeline" id="audioTimeline">
+                <div class="audio-fill" id="audioFill"></div>
+                <div class="audio-thumb" id="audioThumb"></div>
+            </div>
+            <button class="audio-btn" id="playAudioBtn" type="button">
+              <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
+              Listen to Audio
+            </button>
+        </div>
+      </div>
+      </div>
+
+      <div class="content-grid">
+        <div class="col-left">
+          <div class="confess-header">
+            <h3>Today, I Confess ...</h3>
+            <svg class="flourish" viewBox="0 0 60 20" fill="none"><path d="M0 10 Q15 0 30 10 Q45 20 60 10" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M5 10 Q20 5 30 10 Q40 15 55 10" stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/></svg>
+          </div>
+          <ul class="confession-list">
+            <li>
+              <svg class="check-icon" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" stroke="#2f9e96" stroke-width="1.5" fill="none"/><path d="M6 11l3.5 3.5L16 8" stroke="#2f9e96" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="confession-text">
+                <div class="statement">I take every thought captive and make it obedient to Christ.</div>
+                <div class="ref">2 Corinthians 10:5</div>
+              </div>
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" stroke="#2f9e96" stroke-width="1.5" fill="none"/><path d="M6 11l3.5 3.5L16 8" stroke="#2f9e96" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="confession-text">
+                <div class="statement">I think about what is true, honorable, right, pure, lovely, and admirable.</div>
+                <div class="ref">Philippians 4:8</div>
+              </div>
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" stroke="#2f9e96" stroke-width="1.5" fill="none"/><path d="M6 11l3.5 3.5L16 8" stroke="#2f9e96" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="confession-text">
+                <div class="statement">I renew my mind with God's Word.</div>
+                <div class="ref">Psalm 119:11</div>
+              </div>
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" stroke="#2f9e96" stroke-width="1.5" fill="none"/><path d="M6 11l3.5 3.5L16 8" stroke="#2f9e96" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="confession-text">
+                <div class="statement">I reject lies and replace them with God's truth.</div>
+                <div class="ref">John 8:32</div>
+              </div>
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" stroke="#2f9e96" stroke-width="1.5" fill="none"/><path d="M6 11l3.5 3.5L16 8" stroke="#2f9e96" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="confession-text">
+                <div class="statement">I have the mind of Christ and I think like Him.</div>
+                <div class="ref">1 Corinthians 2:16</div>
+              </div>
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" stroke="#2f9e96" stroke-width="1.5" fill="none"/><path d="M6 11l3.5 3.5L16 8" stroke="#2f9e96" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="confession-text">
+                <div class="statement">I choose to focus on God, not my fears.</div>
+                <div class="ref">Isaiah 26:3</div>
+              </div>
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" stroke="#2f9e96" stroke-width="1.5" fill="none"/><path d="M6 11l3.5 3.5L16 8" stroke="#2f9e96" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="confession-text">
+                <div class="statement">I am strong in thought because God is with me.</div>
+                <div class="ref">Isaiah 41:10</div>
+              </div>
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" stroke="#2f9e96" stroke-width="1.5" fill="none"/><path d="M6 11l3.5 3.5L16 8" stroke="#2f9e96" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="confession-text">
+                <div class="statement">I fill my mind with what builds me up and draws me closer to God.</div>
+                <div class="ref">Ephesians 4:29</div>
+              </div>
+            </li>
+          </ul>
+          <div class="conqueror-footer">
+            <blockquote class="conqueror-quote">
+              <p class="conqueror-line1">My mind belongs to God,</p>
+              <p class="conqueror-line2-wrap">
+                and I choose what I think today!
+                <svg class="conqueror-swoosh" viewBox="0 0 186 12" fill="none" aria-hidden="true">
+                  <path d="M2 6.2 C22 3.8, 48 8.8, 74 5.6 C100 2.4, 132 8.2, 184 5.4" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" fill="none"/>
+                </svg>
+              </p>
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="col-right">
+          <div class="truth-section">
+            <h3>Let This Truth Shape Your Day</h3>
+            <div class="truth-divider">
+              <span class="line"></span>
+              <svg class="heart" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span class="line"></span>
+            </div>
+            <p class="truth-body">What you think matters.<br>Your thoughts shape your choices,<br>your attitude, and your life.<br>Guard your mind.<br>Fill it with truth.</p>
+            <p class="truth-emphasis">Speak the truth.<br>Believe the truth.<br>Walk in the truth.</p>
+          </div>
+
+          <div class="scripture-block">
+            <svg class="crown-icon" viewBox="0 0 28 40" fill="none">
+              <path d="M4 28 L6 12 L12 20 L14 8 L16 20 L22 12 L24 28 Z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+              <rect x="4" y="28" width="20" height="4" rx="1" fill="currentColor"/>
+              <circle cx="6" cy="12" r="1.5" fill="currentColor"/>
+              <circle cx="14" cy="8" r="1.8" fill="currentColor"/>
+              <circle cx="22" cy="12" r="1.5" fill="currentColor"/>
+            </svg>
+            <div class="scripture-block-text">
+              <p class="sb-verse">"And do not be conformed to this world, but be transformed by the renewing of your mind."</p>
+              <div class="sb-ref">Romans 12:2 (NKJV)</div>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="action-btn" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span>Download PDF</span>
+            </button>
+            <button class="action-btn" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              <span>Print Your Copy</span>
+            </button>
+            <button class="action-btn" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>Save to My Journey</span>
+            </button>
+          </div>
+
+          <div class="explore-btn-wrapper">
+            <button class="explore-btn" type="button">Explore More Teen Confessions →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/images/logo.png" alt="LightMode Ministries Logo">
+        <p class="footer-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links"><li><a href="/">Home</a></li><li><a href="/about">About</a></li><li><a href="/children">Children</a></li><li><a href="/expressions">Expressions</a></li><li><a href="/publications">Publications</a></li><li><a href="/animations">Animations</a></li></ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Privacy Policy</h4>
+        <ul class="footer-links"><li><a href="/privacy">Privacy Policy</a></li><li><a href="/terms">Terms & Conditions</a></li><li><a href="/order-policy">Order Policy</a></li><li><a href="/booking-policy">Booking Policy</a></li></ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Info</h4>
+        <p class="footer-contact">Serving London: KT, SW, W, EC postcodes</p>
+        <p class="footer-contact">hello@lightmode.org</p>
+        <div class="footer-form">
+          <div class="footer-form__header"><h5 class="footer-form__title">Contact Us</h5></div>
+          <div class="footer-form__body">
+            <input type="email" class="footer-form__input" placeholder="Enter Email Address" aria-label="Your email address" style="padding: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); border-radius: 4px; color: #fff; width: 100%; margin-bottom: 10px;">
+            <button class="footer-form__submit" onclick="alert('Message sent!')" style="padding: 8px 16px; background: #fbbf24; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom__content">
+        <p class="footer-credit">Designed By Digital Software Labs</p>
+        <div class="footer-legal"><a href="/terms">Terms & Conditions</a><span>|</span><a href="/privacy">Privacy Policy</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT (Theme + Mobile Toggle + Audio)
+  ============================================ -->
+  <script>
+    // ============================================
+    // THEME TOGGLE
+    // ============================================
+    function setTheme(mode) {
+      const html = document.documentElement;
+      const btnDay = document.getElementById('btn-day');
+      const btnNight = document.getElementById('btn-night');
+      if (mode === 'night') {
+        html.setAttribute('data-theme', 'night');
+        if (btnNight) btnNight.classList.add('active');
+        if (btnDay) btnDay.classList.remove('active');
+        localStorage.setItem('theme', 'night');
+      } else {
+        html.removeAttribute('data-theme');
+        if (btnDay) btnDay.classList.add('active');
+        if (btnNight) btnNight.classList.remove('active');
+        localStorage.setItem('theme', 'day');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'night') setTheme('night');
+      else setTheme('day');
+
+      // ==========================================
+      // MOBILE MENU
+      // ==========================================
+      const toggle = document.querySelector('.navbar-toggle');
+      const menu = document.getElementById('navbar-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !expanded);
+          this.classList.toggle('active');
+          menu.classList.toggle('active');
+        });
+
+        menu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768 && (this.classList.contains('dropdown-toggle') || this.classList.contains('submenu-toggle'))) {
+              e.preventDefault();
+              const parent = this.closest('.nav-dropdown, .dropdown-submenu');
+              if (parent) {
+                if (this.classList.contains('submenu-toggle')) {
+                  this.closest('.dropdown-submenu').classList.toggle('active');
+                } else {
+                  parent.classList.toggle('active');
+                }
+              }
+              return;
+            }
+            if (window.innerWidth <= 768) {
+              menu.classList.remove('active');
+              toggle.classList.remove('active');
+              toggle.setAttribute('aria-expanded', 'false');
+              document.querySelectorAll('.nav-dropdown, .dropdown-submenu').forEach(item => item.classList.remove('active'));
+            }
+          });
+        });
+
+        window.addEventListener('resize', function() {
+          if (window.innerWidth > 768) {
+            menu.classList.remove('active');
+            toggle.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            document.querySelectorAll('.nav-dropdown, .dropdown-submenu').forEach(item => item.classList.remove('active'));
+          }
+        });
+      }
+
+      // ==========================================
+      // AUDIO PLAYER LOGIC
+      // ==========================================
+      const audio = document.getElementById('confessionAudio');
+      const playBtn = document.getElementById('playAudioBtn');
+      const playIcon = document.getElementById('playIcon');
+      const timeline = document.getElementById('audioTimeline');
+      const fill = document.getElementById('audioFill');
+      const thumb = document.getElementById('audioThumb');
+      const timestamp = document.getElementById('audioTime');
+
+      // 1. Load Metadata (Set Duration)
+      audio.addEventListener('loadedmetadata', function() {
+          timestamp.textContent = formatTime(0);
+      });
+
+      // 2. Play / Pause Logic
+      playBtn.addEventListener('click', function() {
+          if (audio.paused) {
+              audio.play();
+              playIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'; // Pause Icon
+          } else {
+              audio.pause();
+              playIcon.innerHTML = '<path d="M5 3l14 9-14 9V3z"/>'; // Play Icon
+          }
+      });
+
+      // 3. Update Progress Bar & Time
+      audio.addEventListener('timeupdate', function() {
+          const percent = (audio.currentTime / audio.duration) * 100;
+          fill.style.width = percent + '%';
+          thumb.style.left = percent + '%';
+          timestamp.textContent = formatTime(audio.currentTime);
+      });
+
+      // 4. Click timeline to Seek
+      timeline.addEventListener('click', function(e) {
+          const rect = this.getBoundingClientRect();
+          const percent = (e.clientX - rect.left) / rect.width;
+          audio.currentTime = percent * audio.duration;
+      });
+
+      // 5. Reset when ended
+      audio.addEventListener('ended', function() {
+          playIcon.innerHTML = '<path d="M5 3l14 9-14 9V3z"/>'; // Play Icon
+          fill.style.width = '0%';
+          thumb.style.left = '0%';
+          timestamp.textContent = formatTime(0);
+      });
+
+      function formatTime(seconds) {
+          if (isNaN(seconds)) return "0:00";
+          const m = Math.floor(seconds / 60);
+          const s = Math.floor(seconds % 60);
+          return `${m}:${s.toString().padStart(2, '0')}`;
+      }
+    });
+  </script>
+
+</body>
+</html>

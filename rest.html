@@ -1,95 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rest - Find Peace for Your Mind</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rest | LightMode Ministries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
     <style>
-
-        @font-face {
+       @font-face {
             font-family: 'RecklessStandard';
             src: url('./fonts/RecklessStandardM-TRIAL-Regular.otf') format('opentype');
-            font-weight: normal; font-style: normal; font-display: swap;
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
         }
         @font-face {
             font-family: 'RecklessWide';
             src: url('./fonts/RecklessWideXL-TRIAL-Regular.otf') format('opentype');
-            font-weight: normal; font-style: normal; font-display: swap;
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
         }
-
+        /* ===== THEME VARIABLES ===== */
         :root {
-            --bg-primary: #0a0a12;
-            --bg-secondary: #12121f;
-            --bg-card: rgba(26, 26, 40, 0.7);
-            --bg-card-hover: rgba(30, 30, 50, 0.9);
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0b8;
-            --text-muted: #6b6b8a;
-            --accent-violet: #a78bfa;
-            --accent-blue: #60a5fa;
-            --accent-gold: #fbbf24;
-            --accent-pink: #f472b6;
-            --accent-teal: #2dd4bf;
-            --accent-green: #4ade80;
-            --accent-red: #f87171;
-            --accent-orange: #fb923c;
-            --accent-cyan: #22d3ee;
-            --accent-lavender: #c4b5fd;
-            --accent-indigo: #818cf8;
-            --accent-cream: #fef3c7;
-            --border-color: rgba(255,255,255,0.08);
-            --border-hover: rgba(167,139,250,0.3);
-            --shadow-glow: rgba(139,92,246,0.25);
-            --navbar-bg: rgba(10, 10, 18, 0.85);
-            --navbar-border: rgba(255,255,255,0.06);
-            --toggle-bg: #1a1a2e;
-            --toggle-active: #a78bfa;
-            --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
-            --btn-primary-border: rgba(255,255,255,0.15);
-            --btn-primary-shadow: rgba(0,0,0,0.3);
-            --footer-bg: #0a0a12;
-            --footer-border: rgba(255,255,255,0.05);
-            --starfield-opacity: 1;
-        }
-
-        [data-theme="day"] {
             --bg-primary: #faf8f5;
             --bg-secondary: #f5f0eb;
             --bg-card: rgba(255, 255, 255, 0.85);
-            --bg-card-hover: rgba(255, 255, 255, 0.95);
             --text-primary: #1a1a2e;
             --text-secondary: #5a5a6e;
             --text-muted: #8a8a9e;
             --accent-violet: #7c3aed;
-            --accent-blue: #2563eb;
             --accent-gold: #d97706;
-            --accent-pink: #db2777;
-            --accent-teal: #0d9488;
             --accent-green: #16a34a;
-            --accent-red: #dc2626;
-            --accent-orange: #ea580c;
-            --accent-cyan: #0891b2;
-            --accent-lavender: #8b5cf6;
-            --accent-indigo: #6366f1;
-            --accent-cream: #fef3c7;
-            --border-color: rgba(0,0,0,0.08);
-            --border-hover: rgba(124,58,237,0.3);
-            --shadow-glow: rgba(124,58,237,0.15);
-            --navbar-bg: rgba(250, 248, 245, 0.9);
-            --navbar-border: rgba(0,0,0,0.06);
-            --toggle-bg: #e5e0db;
-            --toggle-active: #7c3aed;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(124, 58, 237, 0.3);
+            --navbar-bg: #0A0E1A;
+            --navbar-border: rgba(255, 255, 255, 0.06);
             --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
-            --btn-primary-border: rgba(0,0,0,0.12);
-            --btn-primary-shadow: rgba(0,0,0,0.15);
-            --footer-bg: #f5f0eb;
-            --footer-border: rgba(0,0,0,0.06);
-            --starfield-opacity: 0;
+            --btn-primary-shadow: rgba(26, 26, 62, 0.25);
+            --btn-gold-bg: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --btn-light-bg: rgba(255, 255, 255, 0.9);
+            --btn-light-border: rgba(0, 0, 0, 0.1);
+            --footer-bg: #f5f0eb; /* FIXED: Default (Light) */
+            --footer-border: rgba(0, 0, 0, 0.05); /* FIXED */
+            --study-warm-amber: #d4a574;
+            --hero-fade-dark: #0a0a12;
+            --hero-fade-light: #faf8f5;
         }
 
+        [data-theme="night"] {
+            --bg-primary: #0a0a12;
+            --bg-secondary: #12121f;
+            --bg-card: rgba(26, 26, 40, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b8a;
+            --accent-violet: #a78bfa;
+            --accent-gold: #fbbf24;
+            --accent-green: #4ade80;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(167, 139, 250, 0.3);
+            --navbar-bg: #0A0E1A;
+            --navbar-border: rgba(255, 255, 255, 0.06);
+            --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+            --btn-primary-shadow: rgba(26, 26, 62, 0.35);
+            --btn-gold-bg: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            --btn-light-bg: rgba(255, 255, 255, 0.08);
+            --btn-light-border: rgba(255, 255, 255, 0.15);
+            --footer-bg: #0A0E1A; /* FIXED: Night */
+            --footer-border: rgba(255, 255, 255, 0.05); /* FIXED */
+            --study-warm-amber: #d4a574;
+            --hero-fade-dark: #0a0a12;
+            --hero-fade-light: #faf8f5;
+        }
+
+        /* ===== RESET & BASE ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
@@ -98,933 +84,735 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
-            transition: background-color 0.5s ease, color 0.5s ease;
+            transition: background-color 0.4s ease, color 0.4s ease; /* FIXED: Added transition */
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: var(--navbar-bg); border-bottom: 1px solid var(--navbar-border);
+            padding: 0 40px; height: 80px; display: flex; align-items: center; transition: background 0.3s;
+        }
+        .navbar-container {
+            width: 100%; max-width: 1400px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .navbar-brand img { height: 40px; }
+        .navbar-menu { display: flex; gap: 28px; font-weight: 500; font-size: 0.95rem; }
+        .navbar-menu a { color: rgba(255, 255, 255, 0.8); transition: color 0.2s; }
+        .navbar-menu a:hover { color: #fff; }
+        .navbar-actions { display: flex; align-items: center; gap: 20px; }
+        .theme-toggle {
+            display: flex; gap: 6px; background: rgba(255, 255, 255, 0.06);
+            padding: 4px; border-radius: 40px;
+        }
+        .theme-btn {
+            background: transparent; border: none; color: #aaa; width: 34px; height: 34px;
+            border-radius: 40px; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: 0.2s;
+        }
+        .theme-btn.active { background: #2a2a3e; color: #fff; }
+        .theme-btn svg { width: 20px; height: 20px; }
+        .navbar-toggle {
+            display: none; flex-direction: column; gap: 5px; background: transparent;
+            border: none; cursor: pointer;
+        }
+        .navbar-toggle span { width: 26px; height: 2px; background: #fff; border-radius: 4px; transition: 0.3s; }
+        
+        /* Mobile Specific */
+        @media (max-width: 900px) {
+            .navbar { padding: 0 20px; }
+            .navbar-menu {
+                display: none; flex-direction: column; position: absolute; top: 80px; left: 0;
+                width: 100%; background: var(--navbar-bg); padding: 20px; border-bottom: 1px solid var(--navbar-border);
+            }
+            .navbar-menu.active { display: flex; }
+            .navbar-toggle { display: flex; }
+            .navbar-actions .navbar-buttons { display: none; }
         }
 
-        .starfield {
-            position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none; z-index: 0;
-            opacity: var(--starfield-opacity);
-            transition: opacity 0.5s ease;
-            background:
-                radial-gradient(ellipse at 20% 30%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
-                radial-gradient(ellipse at 50% 50%, rgba(45, 43, 85, 0.15) 0%, transparent 60%);
-        }
-
-   
-                /* ===== REST PAGE ===== */
-        .ambient-glow {
-            position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none; z-index: 0;
-            opacity: var(--starfield-opacity);
-            transition: opacity 0.5s ease;
-            background:
-                radial-gradient(ellipse at 20% 50%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(244, 228, 188, 0.05) 0%, transparent 40%),
-                radial-gradient(ellipse at 50% 0%, rgba(61, 90, 128, 0.1) 0%, transparent 60%);
-        }
-
-        .hero {
-            position: relative; z-index: 1;
-            min-height: 100vh;
-            display: flex; align-items: center; justify-content: center;
-            text-align: center; padding: 60px 40px;
-        }
-        .hero-content {
-            max-width: 800px;
-            animation: gentleFade 1.5s ease-out;
+        /* ===== HERO ===== */
+        .hero-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 80vh;
+            background: url('/images/rest-bg.png') center/cover no-repeat;
+            background-color: #0a0a12;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 24px;
+            overflow: hidden;
             margin-top: 40px;
         }
-        @keyframes gentleFade {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .hero-label {
-            font-family: 'Caveat', cursive;
-            color: var(--accent-gold);
-            font-size: 1.6rem; margin-bottom: 20px;
-            display: block; opacity: 0.9;
-            transition: color 0.5s ease;
-        }
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem; font-weight: 400;
-            line-height: 1.15; margin-bottom: 30px;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
-            transition: color 0.5s ease;
-        }
-        .hero h1 em {
-            font-style: italic;
-            color: var(--accent-gold);
-            transition: color 0.5s ease;
-        }
-        .hero-subtext {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px; margin: 0 auto 50px;
-            font-weight: 300; line-height: 1.7;
-            transition: color 0.5s ease;
-        }
-        .hero-cta {
-            display: inline-flex; align-items: center; gap: 12px;
-            background: rgba(251, 191, 36, 0.1);
-            border: 1px solid rgba(251, 191, 36, 0.3);
-            color: var(--accent-gold);
-            padding: 18px 36px; border-radius: 50px;
-            text-decoration: none; font-size: 1rem; font-weight: 500;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-        }
-        .hero-cta:hover {
-            background: rgba(251, 191, 36, 0.2);
-            border-color: rgba(251, 191, 36, 0.5);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(251, 191, 36, 0.1);
-        }
-        .scroll-hint {
-            position: absolute; bottom: 40px; left: 50%;
-            transform: translateX(-50%);
-            color: var(--text-muted);
-            font-size: 0.85rem; opacity: 0.6;
-            animation: gentleBounce 3s infinite;
-            transition: color 0.5s ease;
-        }
-        @keyframes gentleBounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(8px); }
+        /* Light mode hero background adjustment */
+        [data-theme="day"] .hero-wrapper {
+            background-color: #1a1a2e;
+            background: url('/images/prayer-1.png') center/cover no-repeat;
         }
 
-        .featured-section {
-            position: relative; z-index: 1;
-            padding: 100px 40px;
-            max-width: 1200px; margin: 0 auto;
-        }
-        .section-header {
-            text-align: center; margin-bottom: 60px;
-        }
-        .section-label {
-            font-family: 'Caveat', cursive;
-            color: var(--accent-gold);
-            font-size: 1.4rem; margin-bottom: 12px;
-            display: block;
-            transition: color 0.5s ease;
-        }
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem; font-weight: 400;
-            color: var(--text-primary);
-            margin-bottom: 15px;
-            transition: color 0.5s ease;
-        }
-        .section-subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem; font-weight: 300;
-            transition: color 0.5s ease;
-        }
-        .video-container {
-            position: relative;
-            background: var(--bg-card);
-            border-radius: 24px; overflow: hidden;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
-            transition: all 0.5s ease;
-        }
-        .video-placeholder {
-            aspect-ratio: 16/9;
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card-hover) 100%);
-            display: flex; align-items: center; justify-content: center;
-            position: relative; overflow: hidden;
-        }
-        .play-button {
-            width: 100px; height: 100px;
-            background: rgba(251, 191, 36, 0.15);
-            border: 2px solid rgba(251, 191, 36, 0.4);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-            position: relative; z-index: 2;
-        }
-        .play-button:hover {
-            background: rgba(251, 191, 36, 0.25);
-            transform: scale(1.05);
-            box-shadow: 0 0 60px rgba(251, 191, 36, 0.2);
-        }
-        .play-button span {
-            font-size: 2rem;
-            color: var(--accent-gold);
-            margin-left: 5px;
-        }
-        .video-info {
-            padding: 35px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap; gap: 20px;
-        }
-        .video-meta h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            margin-bottom: 8px; font-weight: 500;
-            transition: color 0.5s ease;
-        }
-        .video-meta p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            transition: color 0.5s ease;
-        }
-        .video-duration {
-            display: flex; align-items: center; gap: 8px;
-            background: rgba(251, 191, 36, 0.1);
-            padding: 10px 20px; border-radius: 50px;
-            color: var(--accent-gold);
-            font-size: 0.9rem;
-            border: 1px solid rgba(251, 191, 36, 0.2);
-        }
-
-        .needs-section {
-            position: relative; z-index: 1;
-            padding: 100px 40px;
-            max-width: 1200px; margin: 0 auto;
-        }
-        .needs-grid {
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px; margin-top: 60px;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 100px 0 80px 0;
         }
-        .need-card {
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 2;
+            color: #fff;
+        }
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 5.5rem;
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .hero-sub {
+            font-family: 'Caveat', cursive;
+            font-size: 2.4rem;
+            color: var(--study-warm-amber);
+            margin-bottom: 4px;
+        }
+        .hero-divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: var(--study-warm-amber);
+        }
+        .hero-divider-line { width: 60px; height: 2px; background: var(--study-warm-amber); }
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 480px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        .hero-signature {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            color: var(--study-warm-amber);
+        }
+
+        .hero-right {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .verse-circle {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            color: #fff;
+            box-shadow: 0 0 40px rgba(167, 139, 250, 0.1);
+        }
+        .verse-circle svg {
+            margin-bottom: 12px;
+            color: var(--study-warm-amber);
+            width: 24px; height: 24px;
+        }
+        .verse-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .verse-ref {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 1px;
+        }
+
+        /* ===== QUOTE BANNER ===== */
+        .quote-banner {
+            background: var(--bg-secondary); /* Uses fixed night variable */
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            transition: background-color 0.4s ease, border-color 0.4s ease;
+        }
+        .quote-banner-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        .quote-banner-inner small {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        .quote-icon {
+            color: var(--study-warm-amber);
+            font-size: 2rem;
+            opacity: 0.5;
+        }
+
+        /* ===== SECTION ===== */
+        .section-header-text {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-header-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+        .section-header-text p {
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+
+        /* ===== CARDS ===== */
+        .experience-grid {
+            max-width: 1200px;
+            margin: 0 auto 80px auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .experience-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 20px; padding: 40px 30px;
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+        .experience-card:hover { transform: translateY(-6px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        
+        .exp-card-header {
+            padding: 80px 30px 30px 30px;
+            position: relative;
             text-align: center;
-            transition: all 0.5s ease;
-            cursor: pointer;
-            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            background: linear-gradient(to bottom, var(--bg-secondary), transparent);
         }
-        .need-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(251, 191, 36, 0.2);
-            box-shadow: 0 20px 50px var(--shadow-glow);
-            background: var(--bg-card-hover);
-        }
-        .need-icon {
-            width: 70px; height: 70px;
-            background: rgba(251, 191, 36, 0.1);
-            border-radius: 50%;
+        .exp-icon {
+            width: 60px; height: 60px; border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
             display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 25px;
+            margin: -70px auto 15px auto;
             font-size: 1.8rem;
-            border: 1px solid rgba(251, 191, 36, 0.15);
-            transition: all 0.4s ease;
+            color: var(--study-warm-amber);
+            position: relative;
+            z-index: 2;
         }
-        .need-card:hover .need-icon {
-            background: rgba(251, 191, 36, 0.2);
-            transform: scale(1.1);
+        .exp-card-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            line-height: 1.2;
         }
-        .need-card h3 {
+        .exp-card-header em {
+            display: block;
+            font-family: 'Caveat', cursive;
+            font-size: 1.4rem;
+            color: var(--study-warm-amber);
+            margin-top: 4px;
+        }
+        
+        .exp-card-body {
+            padding: 25px 30px;
+            color: var(--text-secondary);
+            flex-grow: 1;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .exp-card-footer {
+            padding: 20px 30px 30px 30px;
+        }
+        .exp-btn {
+            display: flex; align-items: center; justify-content: center;
+            width: 100%; padding: 14px 20px; border-radius: 60px;
+            font-weight: 600; font-size: 1rem; gap: 10px; transition: 0.3s;
+        }
+        .exp-btn-gold { background: var(--btn-gold-bg); color: #fff; border: none; }
+        .exp-btn-gold:hover { opacity: 0.85; transform: translateY(-2px); }
+        
+        .exp-btn-purple { background: var(--btn-primary-bg); color: #fff; border: none; }
+        .exp-btn-purple:hover { opacity: 0.9; transform: translateY(-2px); }
+        
+        .exp-btn-outline {
+            background: transparent; border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+        .exp-btn-outline:hover { border-color: var(--text-primary); }
+
+        .exp-status {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            margin-top: 15px; font-size: 0.85rem; color: var(--text-muted);
+            font-weight: 500;
+        }
+        .exp-status svg { width: 16px; height: 16px; }
+        .exp-status.available { color: var(--accent-green); }
+        .exp-status.coming-soon { color: var(--text-muted); }
+
+        /* ===== FEATURE BLOCK ===== */
+        .features-wrapper {
+            max-width: 1200px;
+            margin: 0 auto 80px auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .feature-icon {
+            flex-shrink: 0;
+            width: 50px; height: 50px; border-radius: 50%;
+            background: var(--study-warm-amber);
+            color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+        }
+        .feature-content h4 {
             font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
             color: var(--text-primary);
-            margin-bottom: 12px; font-weight: 500;
-            transition: color 0.5s ease;
+            margin-bottom: 8px;
         }
-        .need-card p {
-            color: var(--text-muted);
-            font-size: 0.9rem; line-height: 1.6;
-            margin-bottom: 20px;
-            transition: color 0.5s ease;
-        }
-        .need-link {
-            color: var(--accent-gold);
-            text-decoration: none;
-            font-size: 0.85rem; font-weight: 500;
-            display: inline-flex; align-items: center; gap: 6px;
-            transition: gap 0.3s ease;
-        }
-        .need-link:hover { gap: 10px; }
-
-        .clusters-section {
-            position: relative; z-index: 1;
-            padding: 100px 40px;
-            background: var(--bg-secondary);
-            transition: background 0.5s ease;
-        }
-        .clusters-container {
-            max-width: 1200px; margin: 0 auto;
-        }
-        .clusters-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px; margin-top: 60px;
-        }
-        .cluster-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px; padding: 40px;
-            transition: all 0.4s ease;
-        }
-        .cluster-card:hover {
-            background: var(--bg-card-hover);
-            border-color: rgba(251, 191, 36, 0.15);
-        }
-        .cluster-header {
-            display: flex; align-items: center; gap: 18px;
-            margin-bottom: 25px;
-        }
-        .cluster-icon {
-            width: 50px; height: 50px;
-            background: rgba(251, 191, 36, 0.1);
-            border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.4rem;
-            border: 1px solid rgba(251, 191, 36, 0.15);
-        }
-        .cluster-header h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: var(--text-primary);
-            font-weight: 500;
-            transition: color 0.5s ease;
-        }
-        .cluster-list { list-style: none; }
-        .cluster-list li {
-            padding: 14px 0;
-            border-bottom: 1px solid var(--border-color);
-            display: flex; align-items: center; gap: 12px;
-            color: var(--text-muted);
+        .feature-content p {
+            color: var(--text-secondary);
             font-size: 0.95rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            line-height: 1.6;
         }
-        .cluster-list li:hover {
-            color: var(--accent-gold);
-            padding-left: 8px;
-        }
-        .cluster-list li:last-child { border-bottom: none; }
-        .cluster-list li::before {
-            content: '◦';
-            color: var(--accent-gold);
-            font-size: 1.2rem;
-        }
-        .cluster-tag {
-            margin-left: auto;
-            background: rgba(251, 191, 36, 0.1);
-            color: var(--accent-gold);
-            padding: 4px 12px; border-radius: 50px;
-            font-size: 0.75rem; font-weight: 500;
-        }
-
-        .scripture-section {
-            position: relative; z-index: 1;
-            padding: 120px 40px;
-            text-align: center;
-            max-width: 900px; margin: 0 auto;
-        }
-        .scripture-container {
-            position: relative;
-            padding: 60px 50px;
-            background: var(--bg-card);
-            border-radius: 30px;
-            border: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
-            transition: all 0.5s ease;
-        }
-        .scripture-container::before {
-            content: '"';
-            position: absolute; top: 20px; left: 30px;
+        .feature-content .feature-verse {
             font-family: 'Playfair Display', serif;
-            font-size: 8rem;
-            color: rgba(251, 191, 36, 0.1);
-            line-height: 1; pointer-events: none;
+            font-size: 0.95rem;
+            color: var(--study-warm-amber);
+            margin-top: 8px;
+            font-style: italic;
         }
-        .scripture-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem; font-style: italic;
-            color: var(--text-primary);
-            line-height: 1.6; margin-bottom: 30px;
-            position: relative; z-index: 1;
-            transition: color 0.5s ease;
-        }
-        .scripture-ref {
-            color: var(--accent-gold);
-            font-size: 1rem; font-weight: 500;
-            letter-spacing: 1px;
-            transition: color 0.5s ease;
-        }
-        .scripture-divider {
-            width: 60px; height: 1px;
-            background: rgba(251, 191, 36, 0.3);
-            margin: 30px auto;
-        }
-
-        .next-step-section {
-            position: relative; z-index: 1;
-            padding: 100px 40px;
-            text-align: center;
-            background: linear-gradient(180deg, transparent 0%, var(--bg-secondary) 100%);
-            transition: background 0.5s ease;
-        }
-        .next-step-container {
-            max-width: 700px; margin: 0 auto;
-        }
-        .next-step-label {
-            font-family: 'Caveat', cursive;
-            color: var(--accent-gold);
-            font-size: 1.5rem; margin-bottom: 20px;
+        .feature-content .feature-verse small {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-muted);
+            font-style: normal;
             display: block;
-            transition: color 0.5s ease;
+            margin-top: 4px;
         }
-        .next-step-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--text-primary);
-            margin-bottom: 20px; font-weight: 400;
-            transition: color 0.5s ease;
+        .feature-list {
+            margin-top: 12px;
+            list-style: none;
+            display: flex; flex-direction: column; gap: 6px;
         }
-        .next-step-text {
-            color: var(--text-muted);
-            font-size: 1.1rem; margin-bottom: 40px;
-            line-height: 1.7;
-            transition: color 0.5s ease;
+        .feature-list li {
+            display: flex; align-items: center; gap: 10px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
         }
-        .next-buttons {
-            display: flex; gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
+        .feature-list li svg { width: 14px; height: 14px; color: var(--study-warm-amber); }
+
+        /* ===== BOTTOM SECTION (DARK) ===== */
+        .bottom-section {
+            background: var(--bg-secondary);
+            padding: 80px 24px;
+            border-top: 1px solid var(--border-color);
         }
-        .btn-gold {
-            background: rgba(251, 191, 36, 0.15);
-            border: 1px solid rgba(251, 191, 36, 0.3);
-            color: var(--accent-gold);
-            padding: 16px 32px; border-radius: 50px;
-            text-decoration: none; font-size: 0.95rem;
-            font-weight: 500; transition: all 0.4s ease;
-            display: inline-flex; align-items: center; gap: 8px;
-        }
-        .btn-gold:hover {
-            background: rgba(251, 191, 36, 0.25);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.1);
-        }
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-muted);
-            padding: 16px 32px; border-radius: 50px;
-            text-decoration: none; font-size: 0.95rem;
-            font-weight: 400; transition: all 0.4s ease;
-        }
-        .btn-outline:hover {
-            border-color: var(--accent-violet);
-            color: var(--accent-violet);
-        }
-           /* LumenQuest special styling */
-    .navbar-link.lumenquest {
-      background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 700;
-    }
-         /* ===== FOOTER STYLES ===== */
-        .footer {
-            position: relative; z-index: 1;
-            background: var(--footer-bg);
-            border-top: 1px solid var(--footer-border);
-            padding: 60px 40px 30px;
-            transition: all 0.5s ease;
-        }
-        .footer-content {
-            max-width: 1200px; margin: 0 auto;
+        .bottom-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            grid-template-columns: 1fr 1fr;
             gap: 60px;
-            margin-bottom: 40px;
+            align-items: center;
         }
-        .footer-brand p {
-            color: var(--text-muted);
-            font-size: 0.9rem; line-height: 1.6;
-            margin-bottom: 20px;
-            transition: color 0.5s ease;
+        .bottom-left h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 3.5rem;
+            color: var(--study-warm-amber);
+            margin-bottom: 16px;
         }
-        .footer-social {
-            display: flex; gap: 12px;
-        }
-        .footer-social a {
-            width: 36px; height: 36px;
-            border-radius: 10px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            display: flex; align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .footer-social a:hover {
-            background: var(--accent-violet);
-            color: white;
-            border-color: var(--accent-violet);
-        }
-        .footer-social svg { width: 18px; height: 18px; fill: currentColor; }
-        .footer-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.5s ease;
-        }
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-        .footer-links a:hover { color: var(--accent-violet); }
-        .footer-form { margin-top: 20px; }
-        .footer-form-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem; font-weight: 600;
+        .bottom-left h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
             color: var(--text-primary);
             margin-bottom: 12px;
-            transition: color 0.5s ease;
         }
-        .footer-form-body {
-            display: flex; gap: 8px;
+        .bottom-left p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 400px;
+            line-height: 1.7;
         }
-        .footer-input {
-            flex: 1;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 10px 14px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
+        .bottom-left .heart-icon {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            color: var(--study-warm-amber);
+            display: block;
         }
-        .footer-input::placeholder { color: var(--text-muted); }
-        .footer-input:focus { border-color: var(--accent-violet); }
-        .footer-submit {
-            background: var(--btn-primary-bg);
-            color: white; border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 0.85rem; font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .footer-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px var(--btn-primary-shadow);
-        }
-        .footer-bottom {
-            max-width: 1200px; margin: 0 auto;
-            padding-top: 30px;
-            border-top: 1px solid var(--footer-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap; gap: 20px;
-            transition: border-color 0.5s ease;
-        }
-        .footer-credit {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            transition: color 0.5s ease;
-        }
-        .footer-legal {
-            display: flex; gap: 16px;
-            align-items: center;
-        }
-        .footer-legal a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.3s ease;
-        }
-        .footer-legal a:hover { color: var(--accent-violet); }
-        .footer-legal span { color: var(--border-color); transition: color 0.5s ease; }
 
+        .bottom-right h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+        .bottom-right p {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+        .bottom-menu {
+            display: flex; flex-direction: column; gap: 12px;
+        }
+        .bottom-menu-item {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 20px; background: var(--bg-card);
+            border: 1px solid var(--border-color); border-radius: 16px;
+            color: var(--text-primary); font-weight: 500; transition: 0.3s;
+            text-decoration: none;
+        }
+        .bottom-menu-item:hover {
+            border-color: var(--study-warm-amber);
+            transform: translateX(4px);
+        }
+        .bottom-menu-item span {
+            display: flex; align-items: center; gap: 12px;
+        }
+        .bottom-menu-item svg { width: 20px; height: 20px; color: var(--text-secondary); }
+        .bottom-menu-item .arrow { color: var(--text-muted); }
+
+      
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .navbar-menu { display: none; }
-            .navbar-toggle { display: flex; }
-            .hero h1 { font-size: 3.5rem; }
-            .needs-grid { grid-template-columns: repeat(2, 1fr); }
-            .clusters-grid { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .hero-title { font-size: 4.2rem; }
+            .experience-grid, .features-wrapper { grid-template-columns: 1fr 1fr; }
+            .features-wrapper .feature-item:last-child { grid-column: span 2; max-width: 50%; margin: 0 auto; }
+        }
+        @media (max-width: 900px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; gap: 40px; padding: 120px 0 60px 0; }
+            .hero-left { align-items: center; }
+            .hero-description { max-width: 100%; }
+            .hero-divider { justify-content: center; }
+            .verse-circle { width: 260px; height: 260px; }
+            .bottom-container { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .bottom-left p { max-width: 100%; margin: 0 auto; }
+            .bottom-menu-item { text-align: left; }
         }
         @media (max-width: 768px) {
-            .navbar-container { padding: 0 20px; }
-            .hero { min-height: 70vh; padding: 40px 24px; }
-            .hero h1 { font-size: 2.8rem; }
-            .hero-subtext { font-size: 1.1rem; }
-            .needs-grid { grid-template-columns: 1fr; }
-            .section-title { font-size: 2.2rem; }
-            .scripture-text { font-size: 1.5rem; }
-            .scripture-container { padding: 40px 30px; }
-            .video-info { padding: 25px; }
-            .next-buttons { flex-direction: column; align-items: center; }
-            .btn-gold, .btn-outline { width: 100%; max-width: 300px; justify-content: center; }
-            .footer-content { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; text-align: center; }
-            .navbar-prayer { display: none;}
+            .experience-grid, .features-wrapper { grid-template-columns: 1fr; }
+            .features-wrapper .feature-item:last-child { grid-column: span 1; max-width: 100%; }
+            .hero-title { font-size: 3.2rem; }
+            .hero-sub { font-size: 2rem; }
+            .footer { padding: 30px 20px; }
         }
-    
-
-</style>
-
-  <link rel="stylesheet" href="/navbar.css">
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2.8rem; }
+            .section-header-text h2 { font-size: 1.8rem; }
+            .bottom-left h3 { font-size: 1.8rem; }
+            .exp-card-header h3 { font-size: 1.5rem; }
+        }
+    </style>
+    <link rel="stylesheet" href="/navbar.css">
 </head>
 <body>
-    <div class="starfield"></div>
-    <div class="ambient-glow"></div>
 
-    <!-- ============================================
-     NAVBAR HTML (Complete)
-     ============================================ -->
-
-<nav class="navbar" role="navigation" aria-label="Main navigation">
-  <div class="navbar-container">
-    
-    <!-- LOGO - LEFT (100px height) -->
-    <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home">
-      <img src="/images/logo.png" alt="LightMode Ministries">
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-container">
+      <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home"><img src="/images/logo.png" alt="LightMode Ministries"></a>
+      <ul class="navbar-menu" id="navbar-menu" role="menubar">
+        <li><a href="/index.html" class="navbar-link">Home</a></li>
+        <li><a href="/start-here.html" class="navbar-link start-here">Start Here</a></li>
+        <li class="nav-dropdown" role="none">
+            <a href="#" class="navbar-link dropdown-toggle">Teaching Library <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown-menu"><li><a href="/devotional-gallery.html" class="dropdown-link">Devotional Gallery</a></li><li><a href="/bible-study.html" class="dropdown-link">Bible Reading</a></li><li><a href="/daily-confessions.html" class="dropdown-link">Daily Confessions</a></li><li><a href="/sermons.html" class="dropdown-link">Sermons</a></li></ul>
+        </li>
+        <li class="nav-dropdown" role="none">
+            <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">LumenQuest <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown-menu"><li><a href="/animations.html" class="dropdown-link">Animations</a></li><li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li><li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li><li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li></ul>
+        </li>
+        <li><a href="/prayer-room.html" class="navbar-link">Prayer Room</a></li>
+        <li class="nav-dropdown" role="none">
+    <a href="#" class="navbar-link dropdown-toggle">
+        Rest <span class="dropdown-arrow">▼</span>
     </a>
 
-    <!-- MENU - CENTER -->
-    <ul class="navbar-menu" id="navbar-menu" role="menubar">
-      <li>
-        <a href="/index.html" class="navbar-link">Home</a>
-      </li>
-      
-      <li>
-        <a href="/start-here.html" class="navbar-link start-here">Start Here</a>
-      </li>
-      
-      <!-- Dropdown: Teaching Library -->
-       <li class="nav-dropdown" role="none">
-        <a href="#" class="navbar-link dropdown-toggle">
-          Teaching Library <span class="dropdown-arrow">▼</span>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="/devotional-gallery.html" class="dropdown-link">Devotional Gallery</a></li>
-          <li><a href="/bible-study.html" class="dropdown-link">Bible Reading</a></li>
-          <li><a href="/daily-confessions.html" class="dropdown-link">Daily Confessions</a></li>
-          <li><a href="/sermons.html" class="dropdown-link">Sermons</a></li>
-        </ul>
-      </li>
-      
-      <!-- Dropdown: LumenQuest -->
-      <li class="nav-dropdown" role="none">
-        <a href="/lumenquest.html" class="navbar-link lumenquest dropdown-toggle">
-          LumenQuest <span class="dropdown-arrow">▼</span>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="/animations.html" class="dropdown-link">Animations</a></li>
-          <li><a href="/lumenquest-devotionals.html" class="dropdown-link">Devotionals</a></li>
-          <li><a href="/coloring-books.html" class="dropdown-link">Coloring Books</a></li>
-          <li><a href="/parental-guides.html" class="dropdown-link">Parental Guides</a></li>
-        </ul>
-      </li>
-      
-      <li>
-        <a href="/prayer-room.html" class="navbar-link">Prayer Room</a>
-      </li>
-      
-      <!-- Dropdown: Rest -->
-      <li class="nav-dropdown" role="none">
-        <a href="#" class="navbar-link dropdown-toggle">
-          Rest <span class="dropdown-arrow">▼</span>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="/deep-sleep.html" class="dropdown-link">Deep Sleep</a></li>
-          <li><a href="/prayer-video.html" class="dropdown-link">Prayer Video</a></li>
-          <li><a href="/bedtime-fables.html" class="dropdown-link">BedTime Fables</a></li>
-        </ul>
-      </li>
-      
-      <!-- Dropdown: Teens -->
-      <li class="nav-dropdown" role="none">
-        <a href="/teens.html" class="navbar-link dropdown-toggle">
-          Teens <span class="dropdown-arrow">▼</span>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li>
-          <li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li>
-          <li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li>
-        </ul>
-      </li>
+    <ul class="dropdown-menu">
+
+        <li>
+            <a href="/deep-sleep.html" class="dropdown-link">
+                Deep Sleep
+            </a>
+        </li>
+
+       
+
+        <!-- BedTime Fables Submenu -->
+        <li class="dropdown-submenu">
+            <a href="#" class="dropdown-link submenu-toggle">
+                BedTime Fables
+                <span class="submenu-arrow">›</span>
+            </a>
+
+            <ul class="submenu-menu">
+                <li>
+                    <a href="/little-childrens.html" class="dropdown-link">
+                        Children Fables
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/little-adults.html" class="dropdown-link">
+                        Adult Fables
+                    </a>
+                </li>
+            </ul>
+        </li>
+
     </ul>
+</li>
+        <li class="nav-dropdown" role="none">
+            <a href="/teens.html" class="navbar-link dropdown-toggle">Teens <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown-menu"><li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li><li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li><li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li></ul>
+        </li>
+      </ul>
+      <div class="navbar-actions">
+        <div class="navbar-buttons"><a href="/about.html" class="navbar-btn">About</a><a href="/contact.html" class="navbar-btn">Contact</a></div>
+        <div class="theme-toggle" role="group" aria-label="Theme toggle">
+            <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="12" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+            <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+        </div>
+        <div class="auth-buttons"><a href="/login.html" class="auth-btn auth-login">Log in</a><a href="/signup.html" class="auth-btn auth-signup">Sign up</a></div>
+        <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
 
-    <!-- RIGHT ACTIONS: About, Contact, Theme Toggle, Login/Signup -->
-    <div class="navbar-actions">
-      
-      <!-- About & Contact Buttons -->
-      <div class="navbar-buttons">
-        <a href="/about.html" class="navbar-btn">About</a>
-        <a href="/contact.html" class="navbar-btn">Contact</a>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero-wrapper">
+    <div class="hero-container">
+      <div class="hero-left">
+        <h1 class="hero-title">REST</h1>
+        <p class="hero-sub">Come unto Me. I will give you rest.</p>
+        <div class="hero-divider"><span>✿</span><div class="hero-divider-line"></div></div>
+        <p class="hero-description">
+          Life can be loud and heavy.<br />
+          You were never meant to carry it all.<br />
+          Jesus invites you into a place where your heart can be quiet,<br />
+          your mind can let go,<br />
+          and your soul can breathe.
+        </p>
+        <p class="hero-signature">Come. Breathe. Rest.</p>
       </div>
 
-      <!-- Theme Toggle (Day/Night) -->
-      <div class="theme-toggle" role="group" aria-label="Theme toggle">
-        <button class="theme-btn" id="btn-day" aria-label="Day mode" onclick="setTheme('day')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"/>
-            <line x1="12" y1="12" x2="12" y2="3"/>
-            <line x1="12" y1="21" x2="12" y2="23"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="1" y1="12" x2="3" y2="12"/>
-            <line x1="21" y1="12" x2="23" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-          </svg>
-        </button>
-        <button class="theme-btn active" id="btn-night" aria-label="Night mode" onclick="setTheme('night')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
-        </button>
+      <div class="hero-right">
+        <div class="verse-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <div class="verse-text">
+                “Come unto me,<br />all ye that labour<br />and are heavy laden,<br />and I will give you rest.”
+            </div>
+            <div class="verse-ref">MATTHEW 11:28</div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Login / Signup Buttons -->
-      <div class="auth-buttons">
-        <a href="/login.html" class="auth-btn auth-login">Log in</a>
-        <a href="/signup.html" class="auth-btn auth-signup">Sign up</a>
+  <!-- ===== QUOTE BANNER ===== -->
+  <section class="quote-banner">
+    <div class="quote-banner-inner">
+        <span class="quote-icon">❝</span>
+        <br>
+        In peace I will both lay me down, and sleep:<br />for thou, LORD, only makest me dwell in safety.
+        <small>PSALM 4:8</small>
+    </div>
+  </section>
+
+  <!-- ===== A PLACE TO REST ===== -->
+  <section class="section-header-text">
+    <h2>A Place to Rest</h2>
+    <p>Whether you're preparing for sleep, helping a little one settle down, or simply looking for a peaceful story, choose the experience that meets you where you are.</p>
+  </section>
+
+  <div class="experience-grid">
+    <!-- Card 1 -->
+    <div class="experience-card">
+      <div class="exp-card-header">
+        <div class="exp-icon">🌙</div>
+        <h3>Deep Sleep</h3>
+        <em>Let the Day Go</em>
       </div>
+      <div class="exp-card-body">
+        A peaceful collection of soothing Scriptures gently recited over soft music and the calming sound of flowing water—created to help you quiet your heart and prepare for sleep.
+      </div>
+      <div class="exp-card-footer">
+        <a href="/deep-sleep.html" class="exp-btn exp-btn-gold">Enter Deep Sleep →</a>
+        <div class="exp-status available">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            AVAILABLE NOW
+        </div>
+      </div>
+    </div>
 
-      <!-- Mobile Hamburger Toggle -->
-      <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+    <!-- Card 2 -->
+    <div class="experience-card">
+      <div class="exp-card-header">
+        <div class="exp-icon">🧸</div>
+        <h3>Little Lights at Rest</h3>
+        <em>Bedtime Fables for Children</em>
+      </div>
+      <div class="exp-card-body">
+        Gentle, faith-filled stories that spark imagination, bring peace, and surround little ones with God's love at the end of the day.
+      </div>
+      <div class="exp-card-footer">
+        <a href="/little-childrens.html" class="exp-btn exp-btn-purple">Explore Fables →</a>
+        <div class="exp-status available">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            2 STORIES AVAILABLE NOW
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="experience-card">
+      <div class="exp-card-header">
+        <div class="exp-icon">🕯️</div>
+        <h3>Lights in the Night</h3>
+        <em>Bedtime Stories for Adults</em>
+      </div>
+      <div class="exp-card-body">
+        Peaceful, thoughtfully written stories that help you step away from the noise, refresh your soul, and end your day in God's presence.
+      </div>
+      <div class="exp-card-footer">
+        <a href="/little-adults.html" class="exp-btn exp-btn-outline">Settle In and Listen →</a>
+        <div class="exp-status coming-soon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            COMING SOON
+        </div>
+      </div>
     </div>
   </div>
-</nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <span class="hero-label">Day 1 of Your Journey</span>
-            <h1>
-                Come to Me,<br>
-                All Who Are <em>Weary</em>
-            </h1>
-            <p class="hero-subtext">
-                You don't have to carry it all tonight. Take a breath. 
-                Let these next few minutes be a soft place to land.
-            </p>
-            <a href="#video" class="hero-cta">
-                <span>🌙</span>
-                Begin with Peace
+  <!-- ===== FEATURES ===== -->
+  <div class="features-wrapper">
+    <div class="feature-item">
+      <div class="feature-icon">♡</div>
+      <div class="feature-content">
+        <h4>Rest Is Not<br>Wasted Time</h4>
+        <p>Rest restores your body, quiets your mind, and strengthens your spirit. It reminds us that God is God even when we stop working.</p>
+        <div class="feature-verse">
+            “Be still, and know that I am God.”<br>
+            <small>PSALM 46:10</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">✿</div>
+      <div class="feature-content">
+        <h4>Position Yourself<br>for Rest</h4>
+        <ul class="feature-list">
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Release the day and let go of worry.</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Quiet the noise and lower the lights.</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Breathe slowly and relax your body.</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Give tomorrow to God.</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Receive rest—He will give it.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">🙏</div>
+      <div class="feature-content">
+        <h4>He Holds<br>Tomorrow</h4>
+        <p>You don't have to solve everything before you sleep. Place your cares into His hands and rest in His faithfulness.</p>
+        <div class="feature-verse">
+            “I will both lay me down in peace,<br>and sleep: for thou, LORD, only<br>makest me dwell in safety.”<br>
+            <small>PSALM 4:8</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== BOTTOM SECTION ===== -->
+  <section class="bottom-section">
+    <div class="bottom-container">
+      <div class="bottom-left">
+        <h2>Before You Go...</h2>
+        <h3>He is with you.</h3>
+        <p>There is no need to carry tomorrow tonight. You are loved. You are held. Let the day end. Let your heart be quiet. Come unto Him. And receive His rest.</p>
+        <span class="heart-icon">♡</span>
+      </div>
+      
+      <div class="bottom-right">
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+            <span style="font-size: 2.5rem; color: var(--study-warm-amber);">♡</span>
+            <div>
+                <h3 style="font-size: 1.5rem; font-weight: 600;">Ready to Rest?</h3>
+                <p style="margin-bottom:0;">Choose the experience that speaks to your heart.</p>
+            </div>
+        </div>
+        
+        <div class="bottom-menu">
+            <a href="#" class="bottom-menu-item">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="12"/><line x1="12" y1="12" x2="8" y2="16"/></svg> Deep Sleep</span>
+                <span class="arrow">›</span>
+            </a>
+            <a href="#" class="bottom-menu-item">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Little Lights at Rest</span>
+                <span class="arrow">›</span>
+            </a>
+            <a href="#" class="bottom-menu-item">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Lights in the Night</span>
+                <span class="arrow">›</span>
             </a>
         </div>
-        <div class="scroll-hint">Scroll gently ↓</div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Featured Video Section -->
-    <section class="featured-section" id="video">
-        <div class="section-header">
-            <span class="section-label">Tonight's Peace</span>
-            <h2 class="section-title">A Prayer for Deep Rest</h2>
-            <p class="section-subtitle">Let go of the day. Let God hold what you cannot.</p>
-        </div>
-
-        <div class="video-container">
-            <div class="video-placeholder">
-                <div class="play-button">
-                    <span>▶</span>
-                </div>
-            </div>
-            <div class="video-info">
-                <div class="video-meta">
-                    <h3>Surrender Your Burdens</h3>
-                    <p>A guided prayer for when everything feels too heavy</p>
-                </div>
-                <div class="video-duration">
-                    <span>🎵</span>
-                    <span>12 min</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Need-Based Cards -->
-    <section class="needs-section">
-        <div class="section-header">
-            <span class="section-label">What Do You Need Right Now?</span>
-            <h2 class="section-title">Gentle Paths to Peace</h2>
-            <p class="section-subtitle">No pressure. Just choose what your soul is asking for.</p>
-        </div>
-
-        <div class="needs-grid">
-            <div class="need-card">
-                <div class="need-icon">🌊</div>
-                <h3>Calm My Anxiety</h3>
-                <p>When your mind won't slow down and your chest feels tight.</p>
-                <a href="#" class="need-link">Find Relief →</a>
-            </div>
-            <div class="need-card">
-                <div class="need-icon">🌙</div>
-                <h3>Help Me Sleep</h3>
-                <p>Deep sleep prayers and meditations for restless nights.</p>
-                <a href="#" class="need-link">Rest Now →</a>
-            </div>
-            <div class="need-card">
-                <div class="need-icon">🕊️</div>
-                <h3>I Need Peace</h3>
-                <p>Scripture meditations to quiet the noise inside.</p>
-                <a href="#" class="need-link">Breathe In →</a>
-            </div>
-            <div class="need-card">
-                <div class="need-icon">☀️</div>
-                <h3>Morning Calm</h3>
-                <p>Start tomorrow with gentle intention and grace.</p>
-                <a href="#" class="need-link">Wake Gently →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Content Clusters -->
-    <section class="clusters-section">
-        <div class="clusters-container">
-            <div class="section-header">
-                <span class="section-label">Curated for You</span>
-                <h2 class="section-title">Collections of Calm</h2>
-                <p class="section-subtitle">Handpicked prayers and meditations for different moments.</p>
-            </div>
-
-            <div class="clusters-grid">
-                <div class="cluster-card">
-                    <div class="cluster-header">
-                        <div class="cluster-icon">🍃</div>
-                        <h3>Anxiety Relief</h3>
-                    </div>
-                    <ul class="cluster-list">
-                        <li>Breath Prayer for Panic <span class="cluster-tag">5 min</span></li>
-                        <li>Casting Cares on Him <span class="cluster-tag">8 min</span></li>
-                        <li>Peace That Guards Your Mind <span class="cluster-tag">10 min</span></li>
-                        <li>When Fear Feels Loud <span class="cluster-tag">6 min</span></li>
-                    </ul>
-                </div>
-
-                <div class="cluster-card">
-                    <div class="cluster-header">
-                        <div class="cluster-icon">💤</div>
-                        <h3>Deep Sleep Prayers</h3>
-                    </div>
-                    <ul class="cluster-list">
-                        <li>Under His Wings <span class="cluster-tag">15 min</span></li>
-                        <li>Letting Go of the Day <span class="cluster-tag">12 min</span></li>
-                        <li>Sleep in Heavenly Peace <span class="cluster-tag">20 min</span></li>
-                        <li>Psalm 23 Bedtime Meditation <span class="cluster-tag">10 min</span></li>
-                    </ul>
-                </div>
-
-                <div class="cluster-card">
-                    <div class="cluster-header">
-                        <div class="cluster-icon">📖</div>
-                        <h3>Peaceful Scripture</h3>
-                    </div>
-                    <ul class="cluster-list">
-                        <li>Be Still and Know <span class="cluster-tag">7 min</span></li>
-                        <li>The Lord is My Shepherd <span class="cluster-tag">9 min</span></li>
-                        <li>Peace I Leave With You <span class="cluster-tag">6 min</span></li>
-                        <li>He Gives Rest to the Weary <span class="cluster-tag">8 min</span></li>
-                    </ul>
-                </div>
-
-                <div class="cluster-card">
-                    <div class="cluster-header">
-                        <div class="cluster-icon">🌅</div>
-                        <h3>Morning Calm</h3>
-                    </div>
-                    <ul class="cluster-list">
-                        <li>New Mercies Every Morning <span class="cluster-tag">5 min</span></li>
-                        <li>Setting the Day Before Him <span class="cluster-tag">8 min</span></li>
-                        <li>Gratitude Upon Waking <span class="cluster-tag">6 min</span></li>
-                        <li>Strength for Today <span class="cluster-tag">7 min</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Scripture Anchor -->
-    <section class="scripture-section">
-        <div class="scripture-container">
-            <p class="scripture-text">
-                Come to me, all you who are weary and burdened, and I will give you rest. Take my yoke upon you and learn from me, for I am gentle and humble in heart, and you will find rest for your souls.
-            </p>
-            <div class="scripture-divider"></div>
-            <p class="scripture-ref">MATTHEW 11:28-29</p>
-        </div>
-    </section>
-
-    <!-- Next Step -->
-    <section class="next-step-section">
-        <div class="next-step-container">
-            <span class="next-step-label">When You're Ready</span>
-            <h2 class="next-step-title">There's More Light Ahead</h2>
-            <p class="next-step-text">
-                Rest is only the beginning. When you feel ready, the next step is waiting — 
-                gentle growth, not pressure. Just one breath at a time.
-            </p>
-            <div class="next-buttons">
-                <a href="/grow.html" class="btn-gold">
-                    <span>🌱</span>
-                    Continue to Grow
-                </a>
-                <a href="#" class="btn-outline">
-                    See Full 7-Day Journey
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-          <!-- Footer -->
+  <!-- ===== FOOTER ===== -->
   <footer class="footer" role="contentinfo">
-    <div class="footer-deco footer-deco--1" aria-hidden="true"></div>
-    <div class="footer-deco footer-deco--2" aria-hidden="true"></div>
-    <div class="footer-deco footer-deco--3" aria-hidden="true"></div>
-    <div class="footer-deco footer-deco--4" aria-hidden="true"></div>
-    <div class="footer-deco footer-deco--5" aria-hidden="true"></div>
-
     <div class="footer-content">
       <div class="footer-brand">
         <img src="/images/logo.png" alt="LightMode Ministries Logo">
-        <p class="footer-text">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        </p>
+        <p class="footer-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
         <div class="footer-social">
-          <a href="#" aria-label="YouTube">
-            <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-          </a>
-          <a href="#" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </a>
-          <a href="#" aria-label="Facebook">
-            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-          <a href="#" aria-label="TikTok">
-            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-          </a>
-          <a href="#" aria-label="GitHub">
-            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-          </a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
         </div>
       </div>
 
@@ -1060,8 +848,8 @@
             <h5 class="footer-form__title">Contact Us</h5>
           </div>
           <div class="footer-form__body">
-            <input type="email" class="footer-form__input" placeholder="Enter Email Address" aria-label="Your email address">
-            <button class="footer-form__submit" onclick="alert('Message sent!')">Submit</button>
+            <input type="email" class="footer-form__input" placeholder="Enter Email Address" aria-label="Your email address" style="padding: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); border-radius: 4px; color: #fff; width: 100%; margin-bottom: 10px;">
+            <button class="footer-form__submit" onclick="alert('Message sent!')" style="padding: 8px 16px; background: #fbbf24; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Submit</button>
           </div>
         </div>
       </div>
@@ -1078,199 +866,70 @@
       </div>
     </div>
   </footer>
-
-   
-
-<script>
-// ============================================
-// NAVBAR JAVASCRIPT (Theme + Mobile Toggle)
-// ============================================
-
-// ===== THEME TOGGLE =====
-function setTheme(mode) {
-  const html = document.documentElement;
-  const btnDay = document.getElementById('btn-day');
-  const btnNight = document.getElementById('btn-night');
-  
-  if (mode === 'night') {
-    html.setAttribute('data-theme', 'night');
-    if (btnNight) btnNight.classList.add('active');
-    if (btnDay) btnDay.classList.remove('active');
-    localStorage.setItem('theme', 'night');
-  } else {
-    html.removeAttribute('data-theme');
-    if (btnDay) btnDay.classList.add('active');
-    if (btnNight) btnNight.classList.remove('active');
-    localStorage.setItem('theme', 'day');
-  }
-}
-
-// Load saved theme on page load
-document.addEventListener('DOMContentLoaded', function() {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'night') {
-    setTheme('night');
-  } else {
-    setTheme('day');
-  }
-});
-
-// ===== MOBILE MENU TOGGLE =====
-const toggle = document.querySelector('.navbar-toggle');
-const menu = document.getElementById('navbar-menu');
-
-if (toggle && menu) {
-  // Toggle menu on hamburger click
-  toggle.addEventListener('click', function() {
-    const expanded = this.getAttribute('aria-expanded') === 'true';
-    this.setAttribute('aria-expanded', !expanded);
-    this.classList.toggle('active');
-    menu.classList.toggle('active');
-  });
-
-  // Handle link clicks inside mobile menu
-  menu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', function(e) {
-      // For dropdown toggles on mobile - toggle dropdown instead of navigating
-      if (window.innerWidth <= 768 && this.classList.contains('dropdown-toggle')) {
-        e.preventDefault();
-        const parent = this.closest('.nav-dropdown');
-        if (parent) {
-          parent.classList.toggle('active');
-        }
-        return;
+<script src="/navbar.js"></script>
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // ===== THEME TOGGLE =====
+    function setTheme(mode) {
+      const html = document.documentElement;
+      const btnDay = document.getElementById('btn-day');
+      const btnNight = document.getElementById('btn-night');
+      if (mode === 'night') {
+        html.setAttribute('data-theme', 'night');
+        btnNight.classList.add('active');
+        btnDay.classList.remove('active');
+        localStorage.setItem('theme', 'night');
+      } else {
+        html.removeAttribute('data-theme');
+        btnDay.classList.add('active');
+        btnNight.classList.remove('active');
+        localStorage.setItem('theme', 'day');
       }
-      
-      // Close menu on link click (mobile only)
-      if (window.innerWidth <= 768) {
-        menu.classList.remove('active');
-        toggle.classList.remove('active');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-
-  // Close menu on window resize to desktop
-  window.addEventListener('resize', function() {
-    if (window.innerWidth > 768) {
-      menu.classList.remove('active');
-      toggle.classList.remove('active');
-      toggle.setAttribute('aria-expanded', 'false');
-      // Reset all mobile dropdowns
-      document.querySelectorAll('.nav-dropdown').forEach(item => {
-        item.classList.remove('active');
-      });
     }
-  });
-}
-</script>
 
-<script>
-// ============================================
-// NAVBAR JAVASCRIPT (Theme + Mobile Toggle)
-// ============================================
+    document.addEventListener('DOMContentLoaded', function() {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'night') setTheme('night');
+      else setTheme('day');
 
-// ===== THEME TOGGLE =====
-function setTheme(mode) {
-  const html = document.documentElement;
-  const body = document.body;
-  const btnDay = document.getElementById('btn-day');
-  const btnNight = document.getElementById('btn-night');
-  
-  if (mode === 'day') {
-    html.setAttribute('data-theme', 'day');
-    html.classList.remove('night-theme', 'dark-theme');
-    html.classList.add('day-theme', 'light-theme');
-    if (body) {
-      body.classList.remove('night-theme', 'dark-theme');
-      body.classList.add('day-theme', 'light-theme');
-    }
-    if (btnDay) btnDay.classList.add('active');
-    if (btnNight) btnNight.classList.remove('active');
-    localStorage.setItem('theme', 'day');
-  } else {
-    html.setAttribute('data-theme', 'night');
-    html.classList.remove('day-theme', 'light-theme');
-    html.classList.add('night-theme', 'dark-theme');
-    if (body) {
-      body.classList.remove('day-theme', 'light-theme');
-      body.classList.add('night-theme', 'dark-theme');
-    }
-    if (btnNight) btnNight.classList.add('active');
-    if (btnDay) btnDay.classList.remove('active');
-    localStorage.setItem('theme', 'night');
-  }
-}
+      // ===== MOBILE MENU TOGGLE =====
+      const toggle = document.querySelector('.navbar-toggle');
+      const menu = document.getElementById('navbar-menu');
 
-// Load saved theme on page load
-(function() {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'day') {
-    setTheme('day');
-  } else {
-    setTheme('night');
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function() {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'day') {
-    setTheme('day');
-  } else {
-    setTheme('night');
-  }
-
-  // ===== MOBILE MENU TOGGLE =====
-  const toggle = document.querySelector('.navbar-toggle');
-  const menu = document.getElementById('navbar-menu');
-
-  if (toggle && menu) {
-    // Toggle menu on hamburger click
-    toggle.addEventListener('click', function(e) {
-      e.stopPropagation();
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', !expanded);
-      this.classList.toggle('active');
-      menu.classList.toggle('active');
-    });
-
-    // Handle link clicks inside mobile menu
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        // For dropdown toggles on mobile - toggle dropdown instead of navigating
-        if (window.innerWidth <= 768 && this.classList.contains('dropdown-toggle')) {
-          e.preventDefault();
-          const parent = this.closest('.nav-dropdown');
-          if (parent) {
-            parent.classList.toggle('active');
-          }
-          return;
-        }
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !expanded);
+          this.classList.toggle('active');
+          menu.classList.toggle('active');
+        });
         
-        // Close menu on link click (mobile only)
-        if (window.innerWidth <= 768) {
-          menu.classList.remove('active');
-          toggle.classList.remove('active');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-    });
+        menu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768 && this.classList.contains('dropdown-toggle')) {
+              e.preventDefault();
+              const parent = this.closest('.nav-dropdown');
+              if (parent) parent.classList.toggle('active');
+              return;
+            }
+            if (window.innerWidth <= 768) {
+              menu.classList.remove('active');
+              toggle.classList.remove('active');
+              toggle.setAttribute('aria-expanded', 'false');
+            }
+          });
+        });
 
-    // Close menu on window resize to desktop
-    window.addEventListener('resize', function() {
-      if (window.innerWidth > 768) {
-        menu.classList.remove('active');
-        toggle.classList.remove('active');
-        toggle.setAttribute('aria-expanded', 'false');
-        // Reset all mobile dropdowns
-        document.querySelectorAll('.nav-dropdown').forEach(item => {
-          item.classList.remove('active');
+        window.addEventListener('resize', function() {
+          if (window.innerWidth > 768) {
+            menu.classList.remove('active');
+            toggle.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            document.querySelectorAll('.nav-dropdown').forEach(item => item.classList.remove('active'));
+          }
         });
       }
     });
-  }
-});
-</script>
-  <script src="/navbar.js"></script>
+  </script>
 </body>
 </html>

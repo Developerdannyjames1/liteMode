@@ -137,7 +137,109 @@
                 radial-gradient(ellipse at 50% 50%, rgba(45, 43, 85, 0.15) 0%, transparent 60%);
         }
 
-      
+        /* ===== NAVBAR DROPDOWN / SUBMENU CSS (FIXED) ===== */
+        .dropdown-submenu { position: relative; }
+        .submenu-toggle { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+        .submenu-arrow { font-size: 18px; line-height: 1; transition: transform 0.25s ease; }
+        .dropdown-submenu:hover .submenu-arrow { transform: translateX(3px); }
+
+        /* Submenu (Desktop) */
+        .submenu-menu {
+            position: absolute;
+            top: -8px;
+            left: calc(100% + 8px);
+            min-width: 190px;
+            padding: 8px;
+            margin: 0;
+            list-style: none;
+            background: rgba(7, 18, 38, 0.98);
+            border: 1px solid rgba(212, 160, 61, 0.35);
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-8px);
+            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+            z-index: 100;
+        }
+        .dropdown-submenu:hover > .submenu-menu {
+            opacity: 1; visibility: visible; transform: translateX(0);
+        }
+        
+        .submenu-menu .dropdown-link {
+            display: flex; align-items: center;
+            width: 100%; padding: 10px 12px;
+            border-radius: 7px; text-decoration: none; white-space: nowrap;
+        }
+        .submenu-menu .dropdown-link:hover {
+            background: rgba(212, 160, 61, 0.12); color: #d4a03d;
+        }
+
+        /* ===== TABLET ===== */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .submenu-menu { min-width: 175px; left: calc(100% + 5px); }
+            .submenu-menu .dropdown-link { padding: 9px 11px; font-size: 0.9rem; }
+        }
+
+        /* ===== MOBILE (FIXED TO USE CLASS .ACTIVE) ===== */
+        @media (max-width: 768px) {
+            .dropdown-submenu { width: 100%; position: relative; }
+            
+            /* Parent toggle on mobile */
+            .dropdown-submenu > .submenu-toggle {
+                width: 100%;
+                display: flex; align-items: center; justify-content: space-between;
+                padding: 12px 14px;
+            }
+            
+            .dropdown-submenu .submenu-arrow {
+                font-size: 18px;
+                transform: rotate(90deg);
+                transition: transform 0.25s ease;
+            }
+            .dropdown-submenu:hover .submenu-arrow { transform: rotate(90deg); }
+
+            /* Submenu becomes normal block (Hidden by default) */
+            .submenu-menu {
+                position: static;
+                width: 100%; min-width: 0;
+                display: none; /* Hidden until active */
+                margin: 2px 0 5px;
+                padding: 4px 0 4px 14px;
+                list-style: none;
+                background: rgba(139, 92, 246, 0.06);
+                border: 0;
+                border-left: 1px solid rgba(212, 160, 61, 0.35);
+                border-radius: 0;
+                box-shadow: none;
+                opacity: 1; visibility: visible; transform: none;
+            }
+
+            /* Show submenu when parent is active (FIX: Uses .active class instead of hover) */
+            .dropdown-submenu.active > .submenu-menu {
+                display: block;
+                opacity: 1; visibility: visible; transform: none;
+            }
+
+            /* Submenu links */
+            .submenu-menu .dropdown-link {
+                width: 100%; padding: 10px 14px;
+                color: rgba(255, 255, 255, 0.78);
+                font-size: 0.88rem; border-radius: 6px;
+            }
+            .submenu-menu .dropdown-link:hover {
+                color: #d4a03d; background: rgba(212, 160, 61, 0.08);
+            }
+        }
+
+        /* ===== SMALL MOBILE ===== */
+        @media (max-width: 480px) {
+            .dropdown-submenu > .submenu-toggle { padding: 11px 12px; font-size: 0.9rem; }
+            .submenu-menu { padding-left: 12px; }
+            .submenu-menu .dropdown-link { padding: 9px 12px; font-size: 0.84rem; }
+            .submenu-arrow { font-size: 16px; }
+        }
+
 
         /* ===== PAGE HERO ===== */
         .page-hero {
