@@ -1,999 +1,810 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teens: Illuminated — LightMode Ministries</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('theme') === 'night') {
+          document.documentElement.setAttribute('data-theme', 'night');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teens · Speak Light Confessions | LightMode</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Great+Vibes&family=Lato:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'RecklessStandard';
+      src: url('./fonts/RecklessStandardM-TRIAL-Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'RecklessWide';
+      src: url('./fonts/RecklessWideXL-TRIAL-Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
 
-        @font-face {
-            font-family: 'RecklessStandard';
-            src: url('./fonts/RecklessStandardM-TRIAL-Regular.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-        @font-face {
-            font-family: 'RecklessWide';
-            src: url('./fonts/RecklessWideXL-TRIAL-Regular.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
+    /* ===== SHARED THEME ===== */
+    :root {
+      --bg-primary: #faf8f5;
+      --bg-secondary: #f5f0eb;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-box-light: #f0ebe5;
+      --bg-box-purple: #5b4a8a;
+      --text-primary: #1a1a2e;
+      --text-secondary: #5a5a6e;
+      --text-muted: #8a8a9e;
+      --accent-violet: #7c3aed;
+      --accent-gold: #d97706;
+      --accent-green: #16a34a;
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-hover: rgba(124, 58, 237, 0.3);
+      --navbar-bg: #0A0E1A;
+      --navbar-border: rgba(255, 255, 255, 0.06);
+      --btn-primary-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+      --btn-primary-shadow: rgba(26, 26, 62, 0.25);
+      --btn-purple-bg: #6b5b9e;
+      --btn-light-bg: rgba(255, 255, 255, 0.9);
+      --btn-light-border: rgba(0, 0, 0, 0.1);
+      --footer-bg: #0A0E1A;
+      --footer-border: rgba(255, 255, 255, 0.05);
+      --study-warm-amber: #d4a574;
+      --hero-fade-dark: #0a0a12;
+      --hero-fade-light: #faf8f5;
+      --icon-box-bg: rgba(0, 0, 0, 0.05);
+      --soft-purple-text: #b8a9d4;
+      --soft-purple-bg: rgba(107, 91, 158, 0.1);
+      
+      --navy: #1c2e4a;
+      --navy-dark: #0f1c33;
+      --purple: #7a3f9e;
+      --purple-deep: #5c2d7a;
+      --teal: #2f9e96;
+      --teal-dark: #217a74;
+      --teal-light: #d8f0ed;
+      --lavender: #efe6f6;
+      --lavender-deep: #e4d6f0;
+      --cream: #fdfbf7;
+      --white: #ffffff;
+      --card-bg: #ffffff;
+      --border-soft: rgba(47, 158, 150, 0.28);
+      --page-padding: 50px;
 
-        /* THEME VARIABLES - NIGHT (default) */
-        :root {
-            --bg-primary: #0a0a12;
-            --bg-secondary: #12121f;
-            --bg-card: rgba(26, 26, 40, 0.7);
-            --bg-card-hover: rgba(30, 30, 50, 0.9);
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0b8;
-            --text-muted: #6b6b8a;
-            --accent-violet: #a78bfa;
-            --accent-blue: #60a5fa;
-            --accent-gold: #fbbf24;
-            --accent-pink: #f472b6;
-            --accent-teal: #2dd4bf;
-            --accent-green: #4ade80;
-            --accent-red: #f87171;
-            --border-color: rgba(255,255,255,0.08);
-            --border-hover: rgba(167,139,250,0.3);
-            --shadow-glow: rgba(139,92,246,0.25);
-            --hero-gradient-start: #080810;
-            --hero-gradient-mid: #12122a;
-            --hero-gradient-end: #1a1a3e;
-            --hero-overlay: linear-gradient(90deg, #080810 0%, #080810 35%, transparent 70%);
-            --hero-bg-opacity: 0.4;
-            --hero-bg-filter: saturate(0.3) contrast(1.2) hue-rotate(220deg);
-            --starfield-opacity: 1;
-            --btn-primary-bg: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
-            --btn-primary-shadow: rgba(124,58,237,0.35);
-            --btn-secondary-bg: transparent;
-            --btn-secondary-border: rgba(255,255,255,0.15);
-            --btn-secondary-text: #e0e0f0;
-            --journey-card-bg: rgba(20, 20, 35, 0.8);
-            --checkin-ring: conic-gradient(from 0deg, #a78bfa, #60a5fa, #a78bfa);
-            --footer-bg: #0a0a12;
-            --footer-border: rgba(255,255,255,0.05);
-            --toggle-bg: #1a1a2e;
-            --toggle-active: #a78bfa;
-            --tag-bg: rgba(255,255,255,0.05);
-            --tag-border: rgba(255,255,255,0.08);
-            --tag-text: #8a8aaa;
-            --relief-arrow: #a78bfa;
-            --navbar-bg: rgba(10, 10, 18, 0.85);
-            --navbar-border: rgba(255,255,255,0.06);
-        }
+      --fs-hero: 64px;
+      --fs-subtitle: 15px;
+      --fs-body: 18px;
+      --fs-h2: 38px;
+      --fs-h3: 22px;
+      --fs-small: 14px;
+      --fs-label: 11px;
+    }
 
-        /* THEME VARIABLES - DAY MODE */
-        [data-theme="day"] {
-            --bg-primary: #faf8f5;
-            --bg-secondary: #f5f0eb;
-            --bg-card: rgba(255, 255, 255, 0.85);
-            --bg-card-hover: rgba(255, 255, 255, 0.95);
-            --text-primary: #1a1a2e;
-            --text-secondary: #5a5a6e;
-            --text-muted: #8a8a9e;
-            --accent-violet: #7c3aed;
-            --accent-blue: #2563eb;
-            --accent-gold: #d97706;
-            --accent-pink: #db2777;
-            --accent-teal: #0d9488;
-            --accent-green: #16a34a;
-            --accent-red: #dc2626;
-            --border-color: rgba(0,0,0,0.08);
-            --border-hover: rgba(124,58,237,0.3);
-            --shadow-glow: rgba(124,58,237,0.15);
-            --hero-gradient-start: #fef3c7;
-            --hero-gradient-mid: #fde68a;
-            --hero-gradient-end: #fed7aa;
-            --hero-overlay: linear-gradient(90deg, rgba(254,243,199,0.95) 0%, rgba(254,243,199,0.8) 40%, transparent 70%);
-            --hero-bg-opacity: 0.6;
-            --hero-bg-filter: saturate(0.8) contrast(1.1) hue-rotate(10deg);
-            --starfield-opacity: 0;
-            --btn-primary-bg: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
-            --btn-primary-shadow: rgba(124,58,237,0.25);
-            --btn-secondary-bg: rgba(255,255,255,0.7);
-            --btn-secondary-border: rgba(0,0,0,0.12);
-            --btn-secondary-text: #4a4a5e;
-            --journey-card-bg: rgba(255, 255, 255, 0.9);
-            --checkin-ring: conic-gradient(from 0deg, #7c3aed, #2563eb, #7c3aed);
-            --footer-bg: #f5f0eb;
-            --footer-border: rgba(0,0,0,0.06);
-            --toggle-bg: #e5e0db;
-            --toggle-active: #7c3aed;
-            --tag-bg: rgba(0,0,0,0.04);
-            --tag-border: rgba(0,0,0,0.06);
-            --tag-text: #6a6a7e;
-            --relief-arrow: #7c3aed;
-            --navbar-bg: rgba(250, 248, 245, 0.9);
-            --navbar-border: rgba(0,0,0,0.06);
-        }
+    [data-theme="night"] {
+      --bg-primary: #0a0a12;
+      --bg-secondary: #12121f;
+      --bg-card: rgba(26, 26, 40, 0.7);
+      --bg-box-light: #1a1a2a;
+      --bg-box-purple: #3d3266;
+      --text-primary: #ffffff;
+      --text-secondary: #a0a0b8;
+      --text-muted: #6b6b8a;
+      --accent-violet: #a78bfa;
+      --accent-gold: #fbbf24;
+      --accent-green: #4ade80;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(167, 139, 250, 0.3);
+      --btn-light-bg: rgba(255, 255, 255, 0.08);
+      --btn-light-border: rgba(255, 255, 255, 0.15);
+      --icon-box-bg: rgba(255, 255, 255, 0.08);
+      --soft-purple-bg: rgba(107, 91, 158, 0.2);
+      --cream: #0a0a12;
+      --cream-dark: #12121f;
+      --card-bg: #12121f;
+      --beige: #1a1a2a;
+      --beige-bar: #1a1a2a;
+      --light-blue: #1a1a2a;
+      --light-blue-bg: #1a1a2a;
+      --light-blue-box: #1a1a2a;
+      --truth-card-bg: #1a1a2a;
+      --lavender: rgba(107, 91, 158, 0.2);
+      --lavender-deep: #1a1a2a;
+      --teal-light: #1a1a2a;
+      --navy: #ffffff;
+      --navy-dark: #ffffff;
+      --text: #ffffff;
+      --white: #12121f;
+      --yellow: #fbbf24;
+      --yellow-light: #fbbf24;
+      --yellow-dark: #fbbf24;
+      --border-yellow: #fbbf24;
+      --orange-gold: #fbbf24;
+      --purple: #a78bfa;
+      --purple-deep: #a78bfa;
+      --teal: #2f9e96;
+      --teal-dark: #6b5b9e;
+      --border-soft: rgba(255, 255, 255, 0.08);
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'RecklessStandard', 'Inter', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
+    body {
+      background-color: var(--bg-primary) !important;
+      color: var(--text-primary);
+      transition: background-color 0.5s ease, color 0.5s ease;
+      font-family: 'RecklessStandard', 'Inter', sans-serif;
+      font-size: var(--fs-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    a { text-decoration: none; color: inherit; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .starfield {
-            position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none; z-index: 0;
-            opacity: var(--starfield-opacity);
-            transition: opacity 0.5s ease;
-            background:
-                radial-gradient(ellipse at 20% 30%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
-                radial-gradient(ellipse at 50% 50%, rgba(45, 43, 85, 0.15) 0%, transparent 60%);
-        }
-  /* ===== NAVBAR DROPDOWN / SUBMENU CSS (FIXED) ===== */
+    .page-container {
+      width: 100%;
+      max-width: 100%;
+      padding-left: var(--page-padding);
+      padding-right: var(--page-padding);
+      box-sizing: border-box;
+    }
+ /* ===== NAVBAR DROPDOWN / SUBMENU CSS (FIXED) ===== */
+
         .dropdown-submenu { position: relative; }
+
         .submenu-toggle { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+
         .submenu-arrow { font-size: 18px; line-height: 1; transition: transform 0.25s ease; }
+
         .dropdown-submenu:hover .submenu-arrow { transform: translateX(3px); }
 
+
+
         /* Submenu (Desktop) */
+
         .submenu-menu {
+
             position: absolute;
+
             top: -8px;
+
             left: calc(100% + 8px);
+
             min-width: 190px;
+
             padding: 8px;
+
             margin: 0;
+
             list-style: none;
+
             background: rgba(7, 18, 38, 0.98);
+
             border: 1px solid rgba(212, 160, 61, 0.35);
+
             border-radius: 10px;
+
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+
             opacity: 0;
+
             visibility: hidden;
+
             transform: translateX(-8px);
+
             transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+
             z-index: 100;
+
         }
+
         .dropdown-submenu:hover > .submenu-menu {
+
             opacity: 1; visibility: visible; transform: translateX(0);
+
         }
+
         
+
         .submenu-menu .dropdown-link {
+
             display: flex; align-items: center;
+
             width: 100%; padding: 10px 12px;
+
             border-radius: 7px; text-decoration: none; white-space: nowrap;
+
         }
+
         .submenu-menu .dropdown-link:hover {
+
             background: rgba(212, 160, 61, 0.12); color: #d4a03d;
+
         }
+
+
 
         /* ===== TABLET ===== */
+
         @media (max-width: 1024px) and (min-width: 769px) {
+
             .submenu-menu { min-width: 175px; left: calc(100% + 5px); }
+
             .submenu-menu .dropdown-link { padding: 9px 11px; font-size: 0.9rem; }
+
         }
+
+
 
         /* ===== MOBILE (FIXED TO USE CLASS .ACTIVE) ===== */
+
         @media (max-width: 768px) {
+
             .dropdown-submenu { width: 100%; position: relative; }
+
             
+
             /* Parent toggle on mobile */
+
             .dropdown-submenu > .submenu-toggle {
+
                 width: 100%;
+
                 display: flex; align-items: center; justify-content: space-between;
+
                 padding: 12px 14px;
+
             }
+
             
+
             .dropdown-submenu .submenu-arrow {
+
                 font-size: 18px;
+
                 transform: rotate(90deg);
+
                 transition: transform 0.25s ease;
+
             }
+
             .dropdown-submenu:hover .submenu-arrow { transform: rotate(90deg); }
 
+
+
             /* Submenu becomes normal block (Hidden by default) */
+
             .submenu-menu {
+
                 position: static;
+
                 width: 100%; min-width: 0;
+
                 display: none; /* Hidden until active */
+
                 margin: 2px 0 5px;
+
                 padding: 4px 0 4px 14px;
+
                 list-style: none;
+
                 background: rgba(139, 92, 246, 0.06);
+
                 border: 0;
+
                 border-left: 1px solid rgba(212, 160, 61, 0.35);
+
                 border-radius: 0;
+
                 box-shadow: none;
+
                 opacity: 1; visibility: visible; transform: none;
+
             }
+
+
 
             /* Show submenu when parent is active (FIX: Uses .active class instead of hover) */
+
             .dropdown-submenu.active > .submenu-menu {
+
                 display: block;
+
                 opacity: 1; visibility: visible; transform: none;
+
             }
+
+
 
             /* Submenu links */
+
             .submenu-menu .dropdown-link {
+
                 width: 100%; padding: 10px 14px;
+
                 color: rgba(255, 255, 255, 0.78);
+
                 font-size: 0.88rem; border-radius: 6px;
+
             }
+
             .submenu-menu .dropdown-link:hover {
+
                 color: #d4a03d; background: rgba(212, 160, 61, 0.08);
+
             }
+
         }
+
+
 
         /* ===== SMALL MOBILE ===== */
+
         @media (max-width: 480px) {
+
             .dropdown-submenu > .submenu-toggle { padding: 11px 12px; font-size: 0.9rem; }
+
             .submenu-menu { padding-left: 12px; }
+
             .submenu-menu .dropdown-link { padding: 9px 12px; font-size: 0.84rem; }
+
             .submenu-arrow { font-size: 16px; }
+
         }
 
-       
-        /* Hero */
-        .hero {
-            position: relative; z-index: 1;
-            min-height: 100vh;
-            display: flex; align-items: center;
-            overflow: hidden;
-            background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-mid) 50%, var(--hero-gradient-end) 100%);
-            transition: background 0.5s ease;
-        }
-        .hero-bg {
-            position: absolute; top: 0; right: 0;
-            width: 60%; height: 100%;
-            background: url('https://images.stockcake.com/public/2/7/0/270f38d2-e23f-4047-aca4-86a62c437ff0_large/mountain-path-sunset-stockcake.jpg') no-repeat center center;
-            background-size: cover;
-            mask-image: linear-gradient(to left, black 40%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to left, black 40%, transparent 100%);
-            opacity: var(--hero-bg-opacity);
-            filter: var(--hero-bg-filter);
-            transition: opacity 0.5s ease, filter 0.5s ease;
-        }
-        .hero-overlay {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: var(--hero-overlay);
-            z-index: 1;
-            transition: background 0.5s ease;
-        }
-        .hero-content {
-            position: relative; z-index: 2;
-            max-width: 1400px; margin: 0 auto;
-            padding: 140px 60px 100px;
-            width: 100%;
-        }
-        .hero-label {
-            font-family: 'Caveat', cursive;
-            font-size: 2rem;
-            color: var(--text-primary);
-            margin-bottom: 5px;
-            display: block;
-            transition: color 0.5s ease;
-        }
-        .hero h1 {
-            font-family: 'Caveat', cursive;
-            font-size: 5.5rem; font-weight: 700;
-            line-height: 1.0; margin-bottom: 20px;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
-            transition: color 0.5s ease;
-        }
-        .hero h1 .illuminated {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 5rem; font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-violet), var(--accent-blue), var(--accent-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: block; margin-top: -5px;
-            letter-spacing: -0.03em;
-        }
-        .hero-subtext {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 480px;
-            margin-bottom: 40px;
-            font-weight: 400; line-height: 1.6;
-            transition: color 0.5s ease;
-        }
-        .hero-affirmations {
-            display: flex; gap: 12px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-        .affirmation-pill {
-            display: flex; align-items: center;
-            gap: 8px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 10px 18px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            transition: all 0.5s ease;
-        }
-        .affirmation-pill .icon {
-            width: 24px; height: 24px;
-            border-radius: 50%;
-            display: flex; align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-        }
-        .affirmation-pill:nth-child(1) .icon { background: rgba(45, 212, 191, 0.15); color: var(--accent-teal); }
-        .affirmation-pill:nth-child(2) .icon { background: rgba(244, 114, 182, 0.15); color: var(--accent-pink); }
-        .affirmation-pill:nth-child(3) .icon { background: rgba(167, 139, 250, 0.15); color: var(--accent-violet); }
-        .affirmation-pill:nth-child(4) .icon { background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); }
+    /* ===== HERO SECTION (teens landing) ===== */
+    .hero-section {
+      width: 100%;
+      background: var(--bg-primary);
+      position: relative;
+      padding: 60px 0 40px;
+      overflow: hidden;
+      min-height: 580px;
+      transition: background-color 0.5s ease;
+      margin-top: 70px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+    }
 
-        .hero-actions {
-            display: flex; gap: 16px;
-            flex-wrap: wrap;
-        }
-        .btn-primary {
-            background: var(--btn-primary-bg);
-            color: white;
-            padding: 18px 36px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1rem; font-weight: 600;
-            transition: all 0.4s ease;
-            border: none; cursor: pointer;
-            box-shadow: 0 8px 30px var(--btn-primary-shadow);
-            display: inline-flex;
-            align-items: center; gap: 10px;
-        }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px var(--btn-primary-shadow);
-        }
-        .btn-secondary {
-            background: var(--btn-secondary-bg);
-            border: 1px solid var(--btn-secondary-border);
-            color: var(--btn-secondary-text);
-            padding: 18px 36px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1rem; font-weight: 600;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-            display: inline-flex;
-            align-items: center; gap: 10px;
-        }
-        .btn-secondary:hover {
-            border-color: var(--accent-violet);
-            color: var(--accent-violet);
-            transform: translateY(-2px);
-        }
-        .btn-secondary .play-icon {
-            width: 28px; height: 28px;
-            border-radius: 50%;
-            border: 2px solid currentColor;
-            display: flex; align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-        }
+    /* ambient glow orbs */
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -60px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -80px;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(47,158,150,0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-        /* Relief Section */
-        .relief-section {
-            position: relative; z-index: 1;
-            padding: 80px 40px;
-            max-width: 1200px; margin: 0 auto;
-        }
-        .section-header {
-            margin-bottom: 40px;
-            display: flex; align-items: flex-end;
-            justify-content: space-between;
-            flex-wrap: wrap; gap: 20px;
-        }
-        .section-header-left h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            transition: color 0.5s ease;
-        }
-        .section-header-left p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            transition: color 0.5s ease;
-        }
-        .section-header-right {
-            font-family: 'Caveat', cursive;
-            color: var(--relief-arrow);
-            font-size: 1.3rem;
-            display: flex; align-items: center;
-            gap: 8px;
-            transition: color 0.5s ease;
-        }
-        .relief-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 16px;
-        }
-        .relief-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 28px 16px;
-            text-align: center;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-        .relief-card::before {
-            content: '';
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 3px;
-            background: linear-gradient(90deg, var(--accent-violet), var(--accent-blue));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        .relief-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--border-hover);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            background: var(--bg-card-hover);
-        }
-        .relief-card:hover::before { opacity: 1; }
-        .relief-icon {
-            width: 56px; height: 56px;
-            border-radius: 16px;
-            display: flex; align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-            font-size: 1.6rem;
-            border: 1px solid var(--border-color);
-            transition: all 0.5s ease;
-        }
-        .relief-card:nth-child(1) .relief-icon { background: rgba(45, 212, 191, 0.1); }
-        .relief-card:nth-child(2) .relief-icon { background: rgba(96, 165, 250, 0.1); }
-        .relief-card:nth-child(3) .relief-icon { background: rgba(74, 222, 128, 0.1); }
-        .relief-card:nth-child(4) .relief-icon { background: rgba(244, 114, 182, 0.1); }
-        .relief-card:nth-child(5) .relief-icon { background: rgba(167, 139, 250, 0.1); }
-        .relief-card:nth-child(6) .relief-icon { background: rgba(251, 191, 36, 0.1); }
-        .relief-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            margin-bottom: 6px; font-weight: 600;
-            transition: color 0.5s ease;
-        }
-        .relief-card p {
-            color: var(--text-muted);
-            font-size: 0.8rem; line-height: 1.4;
-            transition: color 0.5s ease;
-        }
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 56px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
 
-        /* Content Section */
-        .content-section {
-            position: relative; z-index: 1;
-            padding: 80px 40px;
-            background: var(--bg-secondary);
-            transition: background 0.5s ease;
-        }
-        .content-container {
-            max-width: 1200px; margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr 0.8fr;
-            gap: 40px; align-items: start;
-        }
-        .journey-info h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.2rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px; line-height: 1.2;
-            transition: color 0.5s ease;
-        }
-        .journey-info .handwritten {
-            font-family: 'Caveat', cursive;
-            color: var(--accent-violet);
-            font-size: 1.4rem;
-            display: block; margin-bottom: 20px;
-            transition: color 0.5s ease;
-        }
-        .journey-features {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-        .journey-features li {
-            padding: 10px 0;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            display: flex; align-items: center;
-            gap: 12px;
-            border-bottom: 1px solid var(--border-color);
-            transition: color 0.5s ease, border-color 0.5s ease;
-        }
-        .journey-features li:last-child { border-bottom: none; }
-        .journey-features li::before {
-            content: '';
-            width: 20px; height: 20px;
-            border-radius: 50%;
-            background: rgba(167, 139, 250, 0.15);
-            border: 2px solid var(--accent-violet);
-            flex-shrink: 0;
-        }
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            padding: 14px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.9rem; font-weight: 500;
-            transition: all 0.4s ease;
-            display: inline-flex;
-            align-items: center; gap: 8px;
-        }
-        .btn-outline:hover {
-            border-color: var(--accent-violet);
-            color: var(--accent-violet);
-        }
-        .journey-card {
-            background: var(--journey-card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 0;
-            overflow: hidden;
-            transition: all 0.5s ease;
-        }
-        .journey-card-visual {
-            position: relative; height: 280px;
-            display: flex; align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .journey-card-visual img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-        }
-        .journey-card-overlay {
-            position: absolute; inset: 0;
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            background: rgba(0,0,0,0.4);
-            text-align: center; padding: 20px;
-        }
-        .journey-card-overlay p {
-            color: white; font-size: 0.85rem;
-            opacity: 0.9; margin-bottom: 6px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-        .journey-card-content {
-            padding: 24px;
-        }
-        .journey-card-content h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem;
-            color: var(--text-primary);
-            font-weight: 600; line-height: 1.4;
-            transition: color 0.5s ease;
-        }
-        .btn-play {
-            background: var(--btn-primary-bg);
-            color: white;
-            padding: 14px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.95rem; font-weight: 600;
-            transition: all 0.4s ease;
-            border: none; cursor: pointer;
-            box-shadow: 0 8px 25px var(--btn-primary-shadow);
-            display: inline-flex;
-            align-items: center; gap: 10px;
-        }
-        .btn-play:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px var(--btn-primary-shadow);
-        }
+    .hero-body {
+      flex: 1 1 52%;
+      padding: 20px 0;
+      text-align: left;
+      z-index: 2;
+    }
 
-        /* Check In */
-        .checkin-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 32px 24px;
-            text-align: center;
-            transition: all 0.5s ease;
-        }
-        .checkin-label {
-            font-family: 'Caveat', cursive;
-            color: var(--accent-violet);
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-            transition: color 0.5s ease;
-        }
-        .checkin-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem;
-            color: var(--text-primary);
-            margin-bottom: 20px; font-weight: 700;
-            transition: color 0.5s ease;
-        }
-        .checkin-ring {
-            width: 120px; height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            position: relative;
-            background: var(--checkin-ring);
-            padding: 4px;
-        }
-        .checkin-ring-inner {
-            width: 100%; height: 100%;
-            border-radius: 50%;
-            background: var(--bg-primary);
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            transition: background 0.5s ease;
-        }
-        .checkin-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem; font-weight: 700;
-            color: var(--text-primary); line-height: 1;
-            transition: color 0.5s ease;
-        }
-        .checkin-unit {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.5s ease;
-        }
-        .checkin-desc {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 20px; line-height: 1.5;
-            transition: color 0.5s ease;
-        }
+    /* top pill badge */
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(47,158,150,0.1);
+      border: 1px solid rgba(47,158,150,0.2);
+      color: var(--teal);
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border-radius: 50px;
+      margin-bottom: 18px;
+      backdrop-filter: blur(4px);
+    }
+    .hero-pill svg {
+      width: 13px;
+      height: 13px;
+    }
 
-        /* Sidebar */
-        .sidebar-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 28px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s ease;
-        }
-        .sidebar-card::before {
-            content: '';
-            position: absolute;
-            top: -50%; right: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .sidebar-handwritten {
-            font-family: 'Caveat', cursive;
-            color: var(--accent-violet);
-            font-size: 1.6rem;
-            margin-bottom: 12px;
-            transition: color 0.5s ease;
-        }
-        .sidebar-text {
-            color: var(--text-secondary);
-            font-size: 0.9rem; line-height: 1.7;
-            margin-bottom: 16px;
-            transition: color 0.5s ease;
-        }
-        .sidebar-signature {
-            font-family: 'Caveat', cursive;
-            color: var(--accent-gold);
-            font-size: 1.4rem;
-            transition: color 0.5s ease;
-        }
+    .hero-body h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: var(--fs-hero);
+      font-weight: 400;
+      color: var(--purple);
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
 
-        /* Start Section */
-        .start-section {
-            position: relative; z-index: 1;
-            padding: 80px 40px;
-            max-width: 1200px; margin: 0 auto;
-        }
-        .start-header {
-            margin-bottom: 40px;
-        }
-        .start-header h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.8rem; font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            transition: color 0.5s ease;
-        }
-        .start-header p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            transition: color 0.5s ease;
-        }
-        .start-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-bottom: 30px;
-        }
-        .start-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 24px 20px;
-            text-align: center;
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-        .start-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-hover);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-        .start-card .icon {
-            width: 44px; height: 44px;
-            border-radius: 12px;
-            display: flex; align-items: center;
-            justify-content: center;
-            margin: 0 auto 12px;
-            font-size: 1.3rem;
-        }
-        .start-card:nth-child(1) .icon { background: rgba(45, 212, 191, 0.1); }
-        .start-card:nth-child(2) .icon { background: rgba(96, 165, 250, 0.1); }
-        .start-card:nth-child(3) .icon { background: rgba(251, 191, 36, 0.1); }
-        .start-card:nth-child(4) .icon { background: rgba(74, 222, 128, 0.1); }
-        .start-card:nth-child(5) .icon { background: rgba(244, 114, 182, 0.1); }
-        .start-card:nth-child(6) .icon { background: rgba(167, 139, 250, 0.1); }
-        .start-card:nth-child(7) .icon { background: rgba(248, 113, 113, 0.1); }
-        .start-card:nth-child(8) .icon { background: rgba(251, 191, 36, 0.1); }
-        .start-card h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            font-weight: 600;
-            transition: color 0.5s ease;
-        }
-        .start-footer {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem; font-style: italic;
-            transition: color 0.5s ease;
-        }
+    .hero-kicker {
+      font-family: 'Lato', sans-serif;
+      font-size: var(--fs-subtitle);
+      font-weight: 700;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
 
-        /* Encourage Section */
-        .encourage-section {
-            position: relative; z-index: 1;
-            padding: 60px 40px;
-            background: var(--bg-secondary);
-            transition: background 0.5s ease;
-        }
-        .encourage-grid {
-            max-width: 1200px; margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            text-align: center;
-        }
-        .encourage-item {
-            display: flex; flex-direction: column;
-            align-items: center; gap: 12px;
-        }
-        .encourage-icon {
-            width: 48px; height: 48px;
-            border-radius: 14px;
-            display: flex; align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            border: 1px solid var(--border-color);
-            transition: all 0.5s ease;
-        }
-        .encourage-item:nth-child(1) .encourage-icon { background: rgba(45, 212, 191, 0.1); }
-        .encourage-item:nth-child(2) .encourage-icon { background: rgba(244, 114, 182, 0.1); }
-        .encourage-item:nth-child(3) .encourage-icon { background: rgba(167, 139, 250, 0.1); }
-        .encourage-item:nth-child(4) .encourage-icon { background: rgba(251, 191, 36, 0.1); }
-        .encourage-item h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            font-weight: 600;
-            transition: color 0.5s ease;
-        }
-        .encourage-item p {
-            color: var(--text-muted);
-            font-size: 0.85rem; line-height: 1.5;
-            transition: color 0.5s ease;
-        }
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .hero-divider .line {
+      width: 48px;
+      height: 2px;
+      background: var(--teal);
+      border-radius: 2px;
+    }
+    .hero-divider .heart {
+      width: 14px;
+      height: 14px;
+      color: var(--teal);
+    }
 
-        /* Footer */
-        .footer {
-            position: relative; z-index: 1;
-            background: var(--footer-bg);
-            border-top: 1px solid var(--footer-border);
-            padding: 60px 40px 30px;
-            transition: all 0.5s ease;
-        }
-        .footer-content {
-            max-width: 1200px; margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 60px;
-            margin-bottom: 40px;
-        }
-        .footer-brand p {
-            color: var(--text-muted);
-            font-size: 0.9rem; line-height: 1.6;
-            margin-bottom: 20px;
-            transition: color 0.5s ease;
-        }
-        .footer-social {
-            display: flex; gap: 12px;
-        }
-        .footer-social a {
-            width: 36px; height: 36px;
-            border-radius: 10px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            display: flex; align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .footer-social a:hover {
-            background: var(--accent-violet);
-            color: white;
-            border-color: var(--accent-violet);
-        }
-        .footer-social svg {
-            width: 18px; height: 18px;
-            fill: currentColor;
-        }
-        .footer-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.5s ease;
-        }
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-        .footer-links a:hover { color: var(--accent-violet); }
-        .footer-contact {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            transition: color 0.5s ease;
-        }
-        .footer-form { margin-top: 20px; }
-        .footer-form-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 12px;
-            transition: color 0.5s ease;
-        }
-        .footer-form-body {
-            display: flex; gap: 8px;
-        }
-        .footer-input {
-            flex: 1;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 10px 14px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        .footer-input::placeholder { color: var(--text-muted); }
-        .footer-input:focus { border-color: var(--accent-violet); }
-        .footer-submit {
-            background: var(--btn-primary-bg);
-            color: white; border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 0.85rem; font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .footer-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px var(--btn-primary-shadow);
-        }
-        .footer-bottom {
-            max-width: 1200px; margin: 0 auto;
-            padding-top: 30px;
-            border-top: 1px solid var(--footer-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap; gap: 20px;
-            transition: border-color 0.5s ease;
-        }
-        .footer-credit {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            transition: color 0.5s ease;
-        }
-        .footer-legal {
-            display: flex; gap: 16px;
-            align-items: center;
-        }
-        .footer-legal a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.3s ease;
-        }
-        .footer-legal a:hover { color: var(--accent-violet); }
-        .footer-legal span {
-            color: var(--border-color);
-            transition: color 0.5s ease;
-        }
+    .hero-body p {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: var(--fs-body);
+      color: var(--navy);
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-bg {
-                width: 100%;
-                opacity: 0.2;
-                mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
-            }
-            .hero-overlay {
-                background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-start) 50%, transparent 100%);
-            }
-            .hero-content {
-                text-align: center;
-                padding: 120px 40px 80px;
-            }
-            .hero h1 { font-size: 4rem; }
-            .hero-subtext { margin: 0 auto 40px; }
-            .hero-actions { justify-content: center; }
-            .hero-affirmations { justify-content: center; }
-            .relief-grid { grid-template-columns: repeat(3, 1fr); }
-            .content-container { grid-template-columns: 1fr; }
-            .start-grid { grid-template-columns: repeat(2, 1fr); }
-            .encourage-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-            .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
-        }
-        @media (max-width: 768px) {
-            .navbar-container { padding: 0 20px; }
-            .hero h1 { font-size: 3rem; }
-            .relief-grid { grid-template-columns: repeat(2, 1fr); }
-            .start-grid { grid-template-columns: 1fr; }
-            .encourage-grid { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; text-align: center; }
-        }
+    /* tag row for Speak it / Believe it / Live it */
+    .hero-tags {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+    .hero-tag {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 30px;
+      border: 1.5px solid var(--teal);
+      color: var(--teal);
+      transition: all 0.25s ease;
+    }
+    .hero-tag:hover {
+      background: var(--teal);
+      color: var(--white);
+    }
+
+    .hero-cta {
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-top: 4px;
+    }
+
+    /* image area */
+    .hero-image {
+      flex: 1 1 42%;
+      max-width: 46%;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-image-frame {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow:
+        0 24px 60px rgba(0,0,0,0.10),
+        0 0 0 1px var(--border-color),
+        0 0 0 6px var(--bg-primary);
+      background: var(--bg-box-light);
+      transition: box-shadow 0.4s ease;
+    }
+    .hero-image-frame img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .hero-image:hover .hero-image-frame img {
+      transform: scale(1.03);
+    }
+
+    /* soft overlay on image */
+    .hero-image-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(124,58,237,0.04) 0%, rgba(47,158,150,0.06) 100%);
+      pointer-events: none;
+      border-radius: 24px;
+    }
+
+    /* floating scripture badge */
+    .hero-image .badge-float {
+      position: absolute;
+      bottom: -14px;
+      right: 24px;
+      background: var(--teal-dark);
+      color: white;
+      padding: 10px 22px;
+      border-radius: 40px;
+      font-family: 'Lato', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      z-index: 3;
+      border: 2px solid var(--bg-primary);
+    }
+
+    /* floating accent card near image */
+    .hero-float-card {
+      position: absolute;
+      top: 28px;
+      left: -28px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 14px 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: floatCard 5s ease-in-out infinite;
+    }
+    .hero-float-card .fc-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: rgba(47,158,150,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+    }
+    .hero-float-card .fc-icon svg { width: 18px; height: 18px; }
+    .hero-float-card .fc-text {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+    .hero-float-card .fc-text span {
+      display: block;
+      font-size: 9px;
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* decorative cross watermark */
+    .hero-deco-cross {
+      position: absolute;
+      top: 50%;
+      left: 46%;
+      transform: translate(-50%, -50%);
+      font-size: 220px;
+      color: var(--teal);
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 0;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1;
+      user-select: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero-section { min-height: auto; padding: 40px 0 30px; }
+      .hero-grid { flex-direction: column; text-align: center; gap: 36px; }
+      .hero-body { text-align: center; }
+      .hero-body p { max-width: 100%; }
+      .hero-divider { justify-content: center; }
+      .hero-tags { justify-content: center; }
+      .hero-image { max-width: 100%; width: 100%; }
+      .hero-image-frame img { height: 260px; }
+      .hero-float-card { display: none; }
+      .hero-deco-cross { font-size: 140px; }
+    }
+    @media (max-width: 640px) {
+      .hero-section { padding: 30px 0 24px; }
+      .hero-image-frame img { height: 200px; }
+      .hero-image-frame { border-radius: 18px; }
+      .hero-image .badge-float { right: 12px; padding: 8px 14px; font-size: 9px; }
+    }
+/* ===== CONFESSION GRID ===== */
+    .confessions-grid-section {
+      padding: 50px 0 70px;
+      background: var(--bg-secondary);
+      transition: background 0.4s;
+    }
+    .confessions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .confession-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px 26px 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .confession-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+    }
+    .card-badge-sm {
+      display: inline-block;
+      background: var(--teal-dark);
+      color: var(--white);
+      font-family: 'Lato', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      padding: 4px 14px;
+      border-radius: 30px;
+      text-transform: uppercase;
+      align-self: flex-start;
+      margin-bottom: 12px;
+    }
+    .confession-card h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--purple);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+    .confession-card .sub {
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: var(--navy);
+      margin-bottom: 14px;
+      opacity: 0.85;
+    }
+    .confession-card .scripture-snip {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text-secondary);
+      border-left: 3px solid var(--teal);
+      padding-left: 14px;
+      margin: 6px 0 16px;
+      line-height: 1.5;
+    }
+    .confession-card .ref-snip {
+      font-family: 'Lato', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-top: -6px;
+      margin-bottom: 12px;
+    }
+    .card-footer-link {
+      margin-top: auto;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+      border-bottom: 1px solid transparent;
+      align-self: flex-start;
+    }
+    .card-footer-link:hover {
+      gap: 12px;
+      border-bottom-color: var(--teal);
+    }
+    .card-footer-link svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      :root {
+        --page-padding: 30px;
+        --fs-hero: 52px;
+        --fs-h2: 32px;
+      }
+      .confessions-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+    }
+    @media (max-width: 640px) {
+      :root {
+        --page-padding: 18px;
+        --fs-hero: 40px;
+      }
+      .confessions-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .hero-section {
+        min-height: 320px;
+        padding: 30px 0 20px;
+      }
+      .confession-card h3 {
+        font-size: 28px;
+      }
+      .hero-image { height: 180px; }
+    }
+
+   
     
+  </style><link rel="stylesheet" href="/navbar.css">
 
 
-</style>
-  <link rel="stylesheet" href="/navbar.css">
 </head>
-<body>    
+<body>
 
-    <div class="starfield"></div>
-    <!-- Navbar -->
-    <!-- ============================================
-     NAVBAR HTML (Complete)
-     ============================================ -->
-
+<!-- ===== NAVBAR ===== -->
 <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar-container">
       <a href="/" class="navbar-brand" aria-label="LightMode Ministries Home"><img src="/images/logo.png" alt="LightMode Ministries"></a>
@@ -1010,7 +821,7 @@
         </li>
         <li><a href="/prayer-room.html" class="navbar-link">Prayer Room</a></li>
         <li class="nav-dropdown" role="none">
-    <a href="#" class="navbar-link dropdown-toggle">
+    <a href="/rest.html" class="navbar-link dropdown-toggle">
         Rest <span class="dropdown-arrow">▼</span>
     </a>
 
@@ -1049,8 +860,8 @@
     </ul>
 </li>
         <li class="nav-dropdown" role="none">
-            <a href="/teens.html" class="navbar-link dropdown-toggle">Teens <span class="dropdown-arrow">▼</span></a>
-            <ul class="dropdown-menu"><li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li><li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li><li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li></ul>
+            <a href="/teens.html" class="navbar-link dropdown-toggle">Teens </a>
+           
         </li>
       </ul>
       <div class="navbar-actions">
@@ -1069,254 +880,109 @@
     </div>
   </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <span class="hero-label">Teens:</span>
-            <h1>
-                ILLUMINATED
-            </h1>
-            <p class="hero-subtext">
-                A safe place to breathe, pray, and grow—one step at a time.
-            </p>
-
-            <div class="hero-affirmations">
-                <div class="affirmation-pill">
-                    <span class="icon">🛡️</span>
-                    <span>You Are Safe Here</span>
-                </div>
-                <div class="affirmation-pill">
-                    <span class="icon">💜</span>
-                    <span>You Are Not Alone</span>
-                </div>
-                <div class="affirmation-pill">
-                    <span class="icon">✝️</span>
-                    <span>You Are Loved</span>
-                </div>
-                <div class="affirmation-pill">
-                    <span class="icon">⭐</span>
-                    <span>You Were Created On Purpose</span>
-                </div>
-            </div>
-
-            <div class="hero-actions">
-                <a href="#relief" class="btn-primary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                        <line x1="6" y1="1" x2="6" y2="4"></line>
-                        <line x1="10" y1="1" x2="10" y2="4"></line>
-                        <line x1="14" y1="1" x2="14" y2="4"></line>
-                    </svg>
-                    I Need Help Right Now
-                </a>
-                <a href="#journey" class="btn-secondary">
-                    <span class="play-icon">▶</span>
-                    Start The 7-Day Journey
-                </a>
-            </div>
+<!-- ===== HERO with right image ===== -->
+<section class="hero-section">
+  <div class="hero-deco-cross">&#10013;</div>
+  <div class="page-container">
+    <div class="hero-grid">
+      <div class="hero-body">
+        <div class="hero-pill">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Daily Confessions for Teens
         </div>
-    </section>
-
-    <!-- Quick Relief Section -->
-    <section class="relief-section" id="relief">
-        <div class="section-header">
-            <div class="section-header-left">
-                <h2>QUICK RELIEF</h2>
-                <p>Pick what you need right now.</p>
-            </div>
-            <div class="section-header-right">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5l7 7-7 7"></path>
-                </svg>
-            </div>
+        <h1>Teens</h1>
+        <div class="hero-kicker">Let Your Words Agree With God&rsquo;s Word</div>
+        <div class="hero-divider">
+          <span class="line"></span>
+          <svg class="heart" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <span class="line"></span>
         </div>
-
-        <div class="relief-grid">
-            <div class="relief-card">
-                <div class="relief-icon">☁️</div>
-                <h3>Peace & Rest</h3>
-                <p>Calm your mind and breathe.</p>
-            </div>
-            <div class="relief-card">
-                <div class="relief-icon">🧠</div>
-                <h3>Anxiety</h3>
-                <p>Find peace in the middle of worry.</p>
-            </div>
-            <div class="relief-card">
-                <div class="relief-icon">📚</div>
-                <h3>School Stress</h3>
-                <p>You've got this. God's got you.</p>
-            </div>
-            <div class="relief-card">
-                <div class="relief-icon">👥</div>
-                <h3>Feeling Pressured</h3>
-                <p>You don't have to fit in to belong.</p>
-            </div>
-            <div class="relief-card">
-                <div class="relief-icon">💬</div>
-                <h3>Speak Life</h3>
-                <p>Truths to repeat every day.</p>
-            </div>
-            <div class="relief-card">
-                <div class="relief-icon">🌙</div>
-                <h3>Calm Night</h3>
-                <p>Sleep prayers & calming audio.</p>
-            </div>
+        <p>Your words shape your world. When you speak God&rsquo;s truth, you build faith, clear thinking, and a future filled with hope.</p>
+        <div class="hero-tags">
+          <span class="hero-tag">Speak it</span>
+          <span class="hero-tag">Believe it</span>
+          <span class="hero-tag">Live it</span>
         </div>
-    </section>
-
-    <!-- Journey + Check In Section -->
-    <section class="content-section" id="journey">
-        <div class="content-container">
-            <!-- Journey Info -->
-            <div class="journey-info">
-                <h2>The 7-Day<br>Journey</h2>
-                <span class="handwritten">You don't have to do life alone.</span>
-                <ul class="journey-features">
-                    <li>Short daily videos</li>
-                    <li>Powerful prayers</li>
-                    <li>One simple step</li>
-                    <li>Real encouragement</li>
-                </ul>
-                <a href="#" class="btn-outline">
-                    Learn More About The Journey
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-            </div>
-
-            <!-- Journey Card -->
-            <div class="journey-card">
-                <div class="journey-card-visual">
-                    <img src="https://images.stockcake.com/public/2/7/0/270f38d2-e23f-4047-aca4-86a62c437ff0_large/mountain-path-sunset-stockcake.jpg" alt="Journey path">
-                    <div class="journey-card-overlay">
-                        <p>7 DAYS TO PEACE.</p>
-                        <p>7 DAYS TO PURPOSE.</p>
-                        <p style="margin-bottom:20px;">A LIFETIME OF LIGHT.</p>
-                        <button class="btn-play">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                            </svg>
-                            START DAY 1
-                        </button>
-                    </div>
-                </div>
-                <div class="journey-card-content">
-                    <h3>7 DAYS TO PEACE. 7 DAYS TO PURPOSE. A LIFETIME OF LIGHT.</h3>
-                </div>
-            </div>
-
-            <!-- Check In + Sidebar -->
-            <div style="display:flex;flex-direction:column;gap:20px;">
-                <!-- Check In -->
-                <div class="checkin-card">
-                    <div class="checkin-label">Take 60 Seconds</div>
-                    <div class="checkin-title">Check In</div>
-                    <div class="checkin-ring">
-                        <div class="checkin-ring-inner">
-                            <span class="checkin-number">60</span>
-                            <span class="checkin-unit">SEC</span>
-                        </div>
-                    </div>
-                    <p class="checkin-desc">Pause. Breathe.<br>Connect with God.</p>
-                    <button class="btn-play" style="width:100%;justify-content:center;">
-                        START CHECK-IN
-                    </button>
-                </div>
-
-                <!-- Sidebar Encouragement -->
-                <div class="sidebar-card">
-                    <div class="sidebar-handwritten">Hey...</div>
-                    <p class="sidebar-text">
-                        You don't have to figure everything out today. Just come back tomorrow. I'll be here.
-                    </p>
-                    <div class="sidebar-signature">Always.</div>
-                </div>
-            </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-float-card">
+          <div class="fc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          </div>
+          <div class="fc-text">Proverbs 18:21<span>Death and life are in the power of the tongue</span></div>
         </div>
-    </section>
-
-    <!-- Where Should I Start -->
-    <section class="start-section">
-        <div class="start-header">
-            <h2>WHERE SHOULD I START?</h2>
-            <p>Everyone's journey looks different. Find your starting point.</p>
+        <div class="hero-image-frame">
+          <img src="/images/stand.png" alt="Teens praying and reading bible">
         </div>
+        <span class="badge-float">&#10013; Identity in Christ</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="start-grid">
-            <div class="start-card">
-                <div class="icon">😰</div>
-                <h4>I feel anxious</h4>
-            </div>
-            <div class="start-card">
-                <div class="icon">😔</div>
-                <h4>I feel overwhelmed</h4>
-            </div>
-            <div class="start-card">
-                <div class="icon">🌧️</div>
-                <h4>I feel sad or low</h4>
-            </div>
-            <div class="start-card">
-                <div class="icon">💪</div>
-                <h4>I need confidence</h4>
-            </div>
-            <div class="start-card">
-                <div class="icon">📚</div>
-                <h4>I'm struggling at school</h4>
-            </div>
-            <div class="start-card">
-                <div class="icon">💔</div>
-                <h4>I'm dealing with hurt or bullying</h4>
-            </div>
-            <div class="start-card">
-                <div class="icon">❓</div>
-                <h4>I'm not sure what I am</h4>
-            </div>
-            <div class="start-card">
-                <div class="icon">✝️</div>
-                <h4>I want a closer relationship with God</h4>
-            </div>
-        </div>
+<!-- ===== CONFESSIONS GRID ===== -->
+<section class="confessions-grid-section">
+  <div class="page-container">
+    <div class="confessions-grid">
 
-        <p class="start-footer">
-            Not sure? Start with Peace & Rest. God meets you right where you are.
-        </p>
-    </section>
+      <!-- Card 1 -->
+      <div class="confession-card">
+        <span class="card-badge-sm">Confession One</span>
+        <h3>I Know Who I Am</h3>
+        <div class="sub">I am God's child. I am loved. I am chosen.</div>
+        <div class="scripture-snip">"Behold what manner of love the Father has bestowed on us, that we should be called children of God!"</div>
+        <div class="ref-snip">1 John 3:1 (NKJV)</div>
+        <a href="/teens-confession-one.html" class="card-footer-link">
+          Speak this confession
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
 
-    <!-- Encouragement Strip -->
-    <section class="encourage-section">
-        <div class="encourage-grid">
-            <div class="encourage-item">
-                <div class="encourage-icon">🔒</div>
-                <h4>100% Private</h4>
-                <p>Your privacy matters. Always.</p>
-            </div>
-            <div class="encourage-item">
-                <div class="encourage-icon">💬</div>
-                <h4>Real Talk. Biblical Truth.</h4>
-                <p>Honest answers for real-life situations.</p>
-            </div>
-            <div class="encourage-item">
-                <div class="encourage-icon">🎧</div>
-                <h4>Listen Anytime</h4>
-                <p>Prayers, stories, and encouragement anytime you need it.</p>
-            </div>
-            <div class="encourage-item">
-                <div class="encourage-icon">🤝</div>
-                <h4>You Belong Here</h4>
-                <p>A community built on love, acceptance, and truth.</p>
-            </div>
-        </div>
-    </section>
+      <!-- Card 2 -->
+      <div class="confession-card">
+        <span class="card-badge-sm">Confession Two</span>
+        <h3>My Mind Belongs to God</h3>
+        <div class="sub">I think on what is true. I renew my mind daily.</div>
+        <div class="scripture-snip">"And do not be conformed to this world, but be transformed by the renewing of your mind."</div>
+        <div class="ref-snip">Romans 12:2 (NKJV)</div>
+        <a href="/teens-confession-two.html" class="card-footer-link">
+          Speak this confession
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
 
-          <!-- Footer -->
-  <footer class="footer" role="contentinfo">
+      <!-- Card 3 -->
+      <div class="confession-card">
+        <span class="card-badge-sm">Confession Three</span>
+        <h3>I Stand in the Authority of Jesus</h3>
+        <div class="sub">I have power through Christ. I walk in victory.</div>
+        <div class="scripture-snip">"Behold, I give you authority to trample on serpents and scorpions, and over all the power of the enemy."</div>
+        <div class="ref-snip">Luke 10:19 (NKJV)</div>
+        <a href="/teens-confession-three.html" class="card-footer-link">
+          Speak this confession
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="confession-card">
+        <span class="card-badge-sm">Confession Four</span>
+        <h3>I Have Wisdom for Today</h3>
+        <div class="sub">God gives wisdom. I make good choices.</div>
+        <div class="scripture-snip">"If any of you lacks wisdom, let him ask of God, who gives generously to all without reproach."</div>
+        <div class="ref-snip">James 1:5 (NKJV)</div>
+        <a href="/teens-confession-four.html" class="card-footer-link">
+          Speak this confession
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" role="contentinfo">
     <div class="footer-deco footer-deco--1" aria-hidden="true"></div>
     <div class="footer-deco footer-deco--2" aria-hidden="true"></div>
     <div class="footer-deco footer-deco--3" aria-hidden="true"></div>
@@ -1398,199 +1064,30 @@
       </div>
     </div>
   </footer>
-
-   
-
+<script src="/navbar.js"></script>
 <script>
-// ============================================
-// NAVBAR JAVASCRIPT (Theme + Mobile Toggle)
-// ============================================
-
-// ===== THEME TOGGLE =====
-function setTheme(mode) {
-  const html = document.documentElement;
-  const btnDay = document.getElementById('btn-day');
-  const btnNight = document.getElementById('btn-night');
-  
-  if (mode === 'night') {
-    html.setAttribute('data-theme', 'night');
-    if (btnNight) btnNight.classList.add('active');
-    if (btnDay) btnDay.classList.remove('active');
-    localStorage.setItem('theme', 'night');
-  } else {
-    html.removeAttribute('data-theme');
-    if (btnDay) btnDay.classList.add('active');
-    if (btnNight) btnNight.classList.remove('active');
-    localStorage.setItem('theme', 'day');
-  }
-}
-
-// Load saved theme on page load
-document.addEventListener('DOMContentLoaded', function() {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'night') {
-    setTheme('night');
-  } else {
-    setTheme('day');
-  }
-});
-
-// ===== MOBILE MENU TOGGLE =====
-const toggle = document.querySelector('.navbar-toggle');
-const menu = document.getElementById('navbar-menu');
-
-if (toggle && menu) {
-  // Toggle menu on hamburger click
-  toggle.addEventListener('click', function() {
-    const expanded = this.getAttribute('aria-expanded') === 'true';
-    this.setAttribute('aria-expanded', !expanded);
-    this.classList.toggle('active');
-    menu.classList.toggle('active');
-  });
-
-  // Handle link clicks inside mobile menu
-  menu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', function(e) {
-      // For dropdown toggles on mobile - toggle dropdown instead of navigating
-      if (window.innerWidth <= 768 && this.classList.contains('dropdown-toggle')) {
-        e.preventDefault();
-        const parent = this.closest('.nav-dropdown');
-        if (parent) {
-          parent.classList.toggle('active');
-        }
-        return;
-      }
-      
-      // Close menu on link click (mobile only)
-      if (window.innerWidth <= 768) {
-        menu.classList.remove('active');
-        toggle.classList.remove('active');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-
-  // Close menu on window resize to desktop
-  window.addEventListener('resize', function() {
-    if (window.innerWidth > 768) {
-      menu.classList.remove('active');
-      toggle.classList.remove('active');
-      toggle.setAttribute('aria-expanded', 'false');
-      // Reset all mobile dropdowns
-      document.querySelectorAll('.nav-dropdown').forEach(item => {
-        item.classList.remove('active');
-      });
+  // ===== THEME =====
+  function setTheme(mode) {
+    const html = document.documentElement;
+    const btnDay = document.getElementById('btn-day');
+    const btnNight = document.getElementById('btn-night');
+    if (mode === 'night') {
+      html.setAttribute('data-theme', 'night');
+      if (btnNight) btnNight.classList.add('active');
+      if (btnDay) btnDay.classList.remove('active');
+      localStorage.setItem('theme', 'night');
+    } else {
+      html.removeAttribute('data-theme');
+      if (btnDay) btnDay.classList.add('active');
+      if (btnNight) btnNight.classList.remove('active');
+      localStorage.setItem('theme', 'day');
     }
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'night') setTheme('night');
+    else setTheme('day');
   });
-}
 </script>
-
-<script>
-// ============================================
-// NAVBAR JAVASCRIPT (Theme + Mobile Toggle)
-// ============================================
-
-// ===== THEME TOGGLE =====
-function setTheme(mode) {
-  const html = document.documentElement;
-  const body = document.body;
-  const btnDay = document.getElementById('btn-day');
-  const btnNight = document.getElementById('btn-night');
-  
-  if (mode === 'day') {
-    html.setAttribute('data-theme', 'day');
-    html.classList.remove('night-theme', 'dark-theme');
-    html.classList.add('day-theme', 'light-theme');
-    if (body) {
-      body.classList.remove('night-theme', 'dark-theme');
-      body.classList.add('day-theme', 'light-theme');
-    }
-    if (btnDay) btnDay.classList.add('active');
-    if (btnNight) btnNight.classList.remove('active');
-    localStorage.setItem('theme', 'day');
-  } else {
-    html.setAttribute('data-theme', 'night');
-    html.classList.remove('day-theme', 'light-theme');
-    html.classList.add('night-theme', 'dark-theme');
-    if (body) {
-      body.classList.remove('day-theme', 'light-theme');
-      body.classList.add('night-theme', 'dark-theme');
-    }
-    if (btnNight) btnNight.classList.add('active');
-    if (btnDay) btnDay.classList.remove('active');
-    localStorage.setItem('theme', 'night');
-  }
-}
-
-// Load saved theme on page load
-(function() {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'day') {
-    setTheme('day');
-  } else {
-    setTheme('night');
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function() {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'day') {
-    setTheme('day');
-  } else {
-    setTheme('night');
-  }
-
-  // ===== MOBILE MENU TOGGLE =====
-  const toggle = document.querySelector('.navbar-toggle');
-  const menu = document.getElementById('navbar-menu');
-
-  if (toggle && menu) {
-    // Toggle menu on hamburger click
-    toggle.addEventListener('click', function(e) {
-      e.stopPropagation();
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', !expanded);
-      this.classList.toggle('active');
-      menu.classList.toggle('active');
-    });
-
-    // Handle link clicks inside mobile menu
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        // For dropdown toggles on mobile - toggle dropdown instead of navigating
-        if (window.innerWidth <= 768 && this.classList.contains('dropdown-toggle')) {
-          e.preventDefault();
-          const parent = this.closest('.nav-dropdown');
-          if (parent) {
-            parent.classList.toggle('active');
-          }
-          return;
-        }
-        
-        // Close menu on link click (mobile only)
-        if (window.innerWidth <= 768) {
-          menu.classList.remove('active');
-          toggle.classList.remove('active');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-    });
-
-    // Close menu on window resize to desktop
-    window.addEventListener('resize', function() {
-      if (window.innerWidth > 768) {
-        menu.classList.remove('active');
-        toggle.classList.remove('active');
-        toggle.setAttribute('aria-expanded', 'false');
-        // Reset all mobile dropdowns
-        document.querySelectorAll('.nav-dropdown').forEach(item => {
-          item.classList.remove('active');
-        });
-      }
-    });
-  }
-});
-</script>
-  <script src="/navbar.js"></script>
 </body>
 </html>

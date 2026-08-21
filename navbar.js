@@ -85,6 +85,10 @@
         document.body.classList.add('menu-open');
       } else {
         document.body.classList.remove('menu-open');
+        // Close all submenus when closing main menu
+        document.querySelectorAll('.dropdown-submenu.active').forEach(sub => {
+          sub.classList.remove('active');
+        });
       }
     });
 
@@ -96,14 +100,14 @@
         toggle.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('menu-open');
         
-        // Reset open dropdowns
-        document.querySelectorAll('.nav-dropdown.active').forEach(dropdown => {
-          dropdown.classList.remove('active');
+        // Reset open dropdowns and submenus
+        document.querySelectorAll('.nav-dropdown.active, .dropdown-submenu.active').forEach(item => {
+          item.classList.remove('active');
         });
       }
     }
 
-    // Dropdown accordion for mobile view
+    // ===== MAIN DROPDOWN TOGGLES (Teaching Library, LumenQuest, Rest, Teens) =====
     const dropdownToggles = menu.querySelectorAll('.dropdown-toggle');
     dropdownToggles.forEach(toggleBtn => {
       toggleBtn.addEventListener('click', function(e) {
@@ -126,8 +130,30 @@
       });
     });
 
+    // ===== SUBMENU TOGGLES (BedTime Fables) =====
+    const submenuToggles = menu.querySelectorAll('.submenu-toggle');
+    submenuToggles.forEach(toggleBtn => {
+      toggleBtn.addEventListener('click', function(e) {
+        if (isMobileView()) {
+          e.preventDefault();
+          e.stopPropagation();
+          const parent = this.closest('.dropdown-submenu');
+          if (!parent) return;
+
+          // Close other open submenus (optional: remove if you want multiple open)
+          document.querySelectorAll('.dropdown-submenu').forEach(sub => {
+            if (sub !== parent) sub.classList.remove('active');
+          });
+
+          // Toggle current
+          parent.classList.toggle('active');
+        }
+      });
+    });
+
     // Close menu when clicking standard links inside menu
-    menu.querySelectorAll('a:not(.dropdown-toggle)').forEach(link => {
+    // Exclude dropdown-toggle and submenu-toggle so they don't close the menu
+    menu.querySelectorAll('a:not(.dropdown-toggle):not(.submenu-toggle)').forEach(link => {
       link.addEventListener('click', function() {
         if (isMobileView()) {
           closeMobileMenu();

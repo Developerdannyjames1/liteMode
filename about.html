@@ -685,126 +685,7 @@
             box-shadow: 0 12px 40px var(--btn-primary-shadow);
         }
 
-        .footer {
-            position: relative; z-index: 1;
-            background: var(--footer-bg);
-            border-top: 1px solid var(--footer-border);
-            padding: 60px 40px 30px;
-            transition: all 0.5s ease;
-        }
-        .footer-content {
-            max-width: 1200px; margin: 0 auto;
-            display: grid;
-            grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr);
-            gap: clamp(24px, 4vw, 60px);
-            margin-bottom: 40px;
-        }
-        .footer-brand p {
-            color: var(--text-muted);
-            font-size: 0.9rem; line-height: 1.6;
-            margin-bottom: 20px;
-            transition: color 0.5s ease;
-        }
-        .footer-social { display: flex; gap: 12px; }
-        .footer-social a {
-            width: 36px; height: 36px;
-            border-radius: 10px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            display: flex; align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .footer-social a:hover {
-            background: var(--accent-violet);
-            color: white;
-            border-color: var(--accent-violet);
-        }
-        .footer-social svg { width: 18px; height: 18px; fill: currentColor; }
-        .footer-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.5s ease;
-        }
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-        .footer-links a:hover { color: var(--accent-violet); }
-        .footer-form { margin-top: 20px; }
-        .footer-form-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 12px;
-            transition: color 0.5s ease;
-        }
-        .footer-form-body { display: flex; gap: 8px; }
-        .footer-input {
-            flex: 1;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 10px 14px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        .footer-input::placeholder { color: var(--text-muted); }
-        .footer-input:focus { border-color: var(--accent-violet); }
-        .footer-submit {
-            min-height: 44px;
-            background: var(--btn-primary-bg);
-            color: white; border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 0.85rem; font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .footer-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px var(--btn-primary-shadow);
-        }
-        .footer-bottom {
-            max-width: 1200px; margin: 0 auto;
-            padding-top: 30px;
-            border-top: 1px solid var(--footer-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap; gap: 20px;
-            transition: border-color 0.5s ease;
-        }
-        .footer-credit {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            transition: color 0.5s ease;
-        }
-        .footer-legal {
-            display: flex; gap: 16px;
-            align-items: center;
-        }
-        .footer-legal a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.3s ease;
-        }
-        .footer-legal a:hover { color: var(--accent-violet); }
-        .footer-legal span { color: var(--border-color); transition: color 0.5s ease; }
-
+       
         .nav-dropdown { position: relative; }
         .dropdown-toggle {
             display: flex;
@@ -1275,7 +1156,7 @@
         </li>
         <li><a href="/prayer-room.html" class="navbar-link">Prayer Room</a></li>
         <li class="nav-dropdown" role="none">
-    <a href="#" class="navbar-link dropdown-toggle">
+    <a href="/rest.html" class="navbar-link dropdown-toggle">
         Rest <span class="dropdown-arrow">▼</span>
     </a>
 
@@ -1314,8 +1195,8 @@
     </ul>
 </li>
         <li class="nav-dropdown" role="none">
-            <a href="/teens.html" class="navbar-link dropdown-toggle">Teens <span class="dropdown-arrow">▼</span></a>
-            <ul class="dropdown-menu"><li><a href="/teens-videos.html" class="dropdown-link">Videos</a></li><li><a href="/teens-devotionals.html" class="dropdown-link">Devotionals</a></li><li><a href="/audio-wall.html" class="dropdown-link">Audio Wall</a></li></ul>
+            <a href="/teens.html" class="navbar-link dropdown-toggle">Teens </a>
+           
         </li>
       </ul>
       <div class="navbar-actions">
